@@ -66,8 +66,22 @@ try {
   // pointed at the App Store's service and model, so only the key is missing.
   check('a fresh web self-build starts on "your own AI key"',
     await section.locator('input[value="own-key"]').isChecked())
-  check('Gemma is not offered where the build cannot run her',
-    (await section.locator('input[value="gemma4-e4b"]').count()) === 0)
+  // Desktop Gemma (owner, 2026-09-27): offered on the computer, with an
+  // offline switch beside the key. Whether she can run depends on the
+  // browser's WebGPU, which a headless Chromium may or may not have, so the
+  // panel must show either her download or what she needs, never nothing.
+  check('the desktop self-build offers Gemma on this computer',
+    (await section.locator('label.field-row', { hasText: 'Gemma on this computer' }).count()) === 1)
+  check('and an offline switch beside the key', (await page.getByTestId('oss-offline-mode').count()) === 1)
+  await section.locator('input[value="gemma4-e4b"]').check()
+  const gemmaPanel = page.getByTestId('own-gemma-fields')
+  await gemmaPanel.waitFor()
+  await page.waitForTimeout(500)
+  const gemmaNeeds = await gemmaPanel.getByTestId('gemma-unavailable').count()
+  const gemmaDownload = await gemmaPanel.getByRole('button', { name: 'Download offline Casey' }).count()
+  check('choosing her shows her download, or that she needs WebGPU', gemmaNeeds + gemmaDownload === 1,
+    gemmaNeeds ? 'no WebGPU in this browser' : 'download offered')
+  await section.locator('input[value="own-key"]').check()
   const fields = page.getByTestId('own-key-fields')
   await fields.waitFor()
   const [address, model, key] = [fields.locator('input[type="url"]'), fields.locator('input[type="text"]'), fields.locator('input[type="password"]')]

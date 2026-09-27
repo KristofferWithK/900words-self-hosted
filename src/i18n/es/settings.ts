@@ -77,6 +77,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey juega en este iPhone, sin internet y sin clave. Es más lenta.',
   serverOption: 'Tu propio servidor de Casey',
   serverOptionHelp: 'Un Worker de Casey que has desplegado tú (consulta el README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Este 900words lo has compilado tú. Casey necesita una IA para jugar: tu propia clave de IA o Gemma en este ordenador.',
+  pcGemmaOption: 'Gemma en este ordenador',
+  pcGemmaOptionHelp: 'Casey juega en este ordenador, sin internet y sin clave. Es más lenta.',
+  pcGemmaNeeds: 'Gemma necesita Chrome o Edge con WebGPU, en un ordenador con tarjeta gráfica.',
+  pcGemmaExplain: (size) =>
+    `Casey puede jugar con Gemma en este ordenador: sin internet y sin clave. Gemma es una descarga única (${size}), se guarda en este navegador y funciona con tu tarjeta gráfica en Chrome o Edge. Es más lenta que un servicio de IA y aún es experimental.\n\nMantén esta pestaña abierta hasta que termine la descarga.\n\n¿Descargar Gemma ahora?`,
+  pcGemmaReady: (size) =>
+    `Gemma está lista (${size} en este navegador).`,
+  pcGemmaRemoveConfirm: '¿Quitar Gemma de este navegador? Puedes volver a descargarla más tarde.',
+  pcGemmaDownloading: (percent) =>
+    `${percent} % - mantén esta pestaña abierta.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma es una descarga de ${size}. Mantén esta pestaña abierta hasta que termine.`,
+  pcGemmaAnswered: 'Gemma ha respondido en este ordenador.',
+  ossOfflineLabel: 'Jugar sin conexión cuando no haya internet',
+  ossOfflineHelp: 'Casey te ofrecerá terminar la ronda con Gemma. La primera vez, esto la descarga.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Este 900words juega con Casey en tu iPhone: sin cuenta y sin clave. Es una descarga única (${size}). Usa wifi y deja 900words abierta hasta que termine.\n\nNecesita un iPhone más reciente: ${iphones}.${lowMemory ? '\n\nEste iPhone tiene menos memoria que esos modelos. Puede que no funcione en él.' : ''}\n\nTambién puedes añadir tu propia clave de IA en Ajustes.\n\n¿Descargar a Casey ahora?`,
 

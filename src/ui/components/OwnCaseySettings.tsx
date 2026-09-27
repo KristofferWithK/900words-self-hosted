@@ -20,6 +20,23 @@ import { useSettings } from '../../stores/settingsStore'
 type TestState = 'idle' | 'testing' | 'ok' | string
 
 /**
+ * Gemma's lines where she runs: on the iPhone (the native plugin) or in the
+ * desktop self-build's browser (src/ai/gemma/web.ts, `__WEB_GEMMA__`).
+ */
+const onComputer = __WEB_GEMMA__
+const GEMMA = {
+  caseyHelp: onComputer ? UI.settings.pcCaseyHelp : UI.settings.ossCaseyHelp,
+  option: onComputer ? UI.settings.pcGemmaOption : UI.settings.gemmaOption,
+  optionHelp: onComputer ? UI.settings.pcGemmaOptionHelp : UI.settings.gemmaOptionHelp,
+  unavailable: onComputer ? UI.settings.pcGemmaNeeds : UI.settings.gemmaUnavailableNote,
+  ready: onComputer ? UI.settings.pcGemmaReady : UI.settings.gemmaReady,
+  removeConfirm: onComputer ? UI.settings.pcGemmaRemoveConfirm : UI.settings.gemmaRemoveConfirm,
+  downloading: onComputer ? UI.settings.pcGemmaDownloading : UI.settings.gemmaDownloading,
+  downloadNote: onComputer ? UI.settings.pcGemmaDownloadNote : UI.settings.gemmaDownloadNote,
+  answered: onComputer ? UI.settings.pcGemmaAnswered : UI.settings.gemmaAnswered,
+}
+
+/**
  * "Casey's AI" in a self-built (open-source) 900words (owner, 2026-09-27:
  * self-builders use local Gemma or add their own API key in Settings).
  *
@@ -43,19 +60,31 @@ export default function OwnCaseySettings({
   const [gemmaError, setGemmaError] = useState<string | null>(null)
   const gemmaInstalled = !!gemma?.installed
 
-  /** The same explanation the first launch gave, then the download. */
-  const downloadGemma = () => {
-    if (!gemma) return
-    const explained = UI.settings.ossGemmaFirstRun(
-      gigabytes(gemma.expectedBytes),
-      OFFLINE_CASEY_IPHONES.join(', '),
-      belowOfflineCaseyMemory(gemma),
-    )
-    if (!window.confirm(explained)) return
+  /**
+   * What she needs and what she costs (the first launch's explanation on the
+   * iPhone), then the download. False when the player says not now.
+   */
+  const downloadGemma = (): boolean => {
+    if (!gemma) return false
+    const explained = onComputer
+      ? UI.settings.pcGemmaExplain(gigabytes(gemma.expectedBytes))
+      : UI.settings.ossGemmaFirstRun(
+          gigabytes(gemma.expectedBytes),
+          OFFLINE_CASEY_IPHONES.join(', '),
+          belowOfflineCaseyMemory(gemma),
+        )
+    if (!window.confirm(explained)) return false
     setGemmaError(null)
     void startGemmaDownload().catch((error) => {
       setGemmaError(error instanceof Error ? error.message : UI.settings.gemmaDownloadFailed)
     })
+    return true
+  }
+
+  /** Offline mode for a key or server player: Gemma finishes a round the internet left. */
+  const setOffline = (on: boolean) => {
+    if (!on) return settings.set({ offlineMode: false })
+    if (gemma?.installed || gemma?.downloading || downloadGemma()) settings.set({ offlineMode: true })
   }
 
   const addressProblem = (() => {
@@ -79,7 +108,7 @@ export default function OwnCaseySettings({
 
   const sources = [
     { mode: 'own-key' as const, label: UI.settings.ownKeyOption },
-    ...(onDeviceCaseyAvailable ? [{ mode: 'gemma4-e4b' as const, label: UI.settings.gemmaOption }] : []),
+    ...(onDeviceCaseyAvailable ? [{ mode: 'gemma4-e4b' as const, label: GEMMA.option }] : []),
     { mode: 'worker' as const, label: UI.settings.serverOption },
   ]
   const canTest =
@@ -105,7 +134,7 @@ export default function OwnCaseySettings({
   return (
     <section className="settings-section" data-testid="own-casey-settings">
       <h3>{UI.settings.ossCaseyHeading}</h3>
-      <p className="settings-note">{UI.settings.ossCaseyHelp}</p>
+      <p className="settings-note">{GEMMA.caseyHelp}</p>
       <div className="field" role="radiogroup" aria-label={UI.settings.ossCaseyHeading}>
         {sources.map((source) => (
           <label key={source.mode} className="field field-row">
@@ -165,16 +194,17 @@ export default function OwnCaseySettings({
       )}
       {settings.caseyMode === 'gemma4-e4b' && (
         <div className="field" data-testid="own-gemma-fields">
-          <small>{UI.settings.gemmaOptionHelp}</small>
+          <small>{GEMMA.optionHelp}</small>
           {!gemma || !gemma.supported ? (
-            <small>{UI.settings.gemmaUnavailableNote}</small>
+            <small data-testid="gemma-unavailable">{GEMMA.unavailable}</small>
           ) : gemma.installed ? (
             <>
-              <p className="test-ok">✓ {UI.settings.gemmaReady(gigabytes(gemma.expectedBytes))}</p>
+              <p className="test-ok">✓ {GEMMA.ready(gigabytes(gemma.expectedBytes))}</p>
               <button
                 className="btn btn-quiet"
                 onClick={() => {
-                  if (!window.confirm(UI.settings.gemmaRemoveConfirm)) return
+                  if (!window.confirm(GEMMA.removeConfirm)) return
+                  settings.set({ offlineMode: false })
                   void removeGemmaModel().then(() => gemmaStatus().then(onGemmaChanged))
                 }}
               >
@@ -184,18 +214,51 @@ export default function OwnCaseySettings({
           ) : gemma.downloading ? (
             <>
               <progress max={1} value={gemma.progress} aria-label={UI.settings.gemmaProgressAria} />
-              <small>{UI.settings.gemmaDownloading(Math.round(gemma.progress * 100))}</small>
+              <small>{GEMMA.downloading(Math.round(gemma.progress * 100))}</small>
               <button className="btn btn-quiet" onClick={() => void cancelGemmaDownload()}>
                 {UI.settings.gemmaCancelDownloadButton}
               </button>
             </>
           ) : (
             <>
-              <small>{UI.settings.gemmaDownloadNote(gigabytes(gemma.expectedBytes))}</small>
-              <button className="btn" onClick={downloadGemma}>
+              <small>{GEMMA.downloadNote(gigabytes(gemma.expectedBytes))}</small>
+              <button className="btn" onClick={() => void downloadGemma()}>
                 {UI.settings.gemmaDownloadButton}
               </button>
             </>
+          )}
+          {(gemmaError ?? gemma?.error) && <p className="test-fail">{gemmaError ?? gemma?.error}</p>}
+        </div>
+      )}
+      {settings.caseyMode !== 'gemma4-e4b' && onDeviceCaseyAvailable && (
+        <div className="field" data-testid="oss-offline-mode">
+          <label className="casey-brain-switch">
+            <span className="casey-brain-switch-copy">
+              <strong>
+                {UI.settings.ossOfflineLabel}{' '}
+                <span className="experimental-tag">{UI.settings.offlineModeExperimentalTag}</span>
+              </strong>
+              <small>{UI.settings.ossOfflineHelp}</small>
+            </span>
+            <input
+              className="offline-mode-toggle"
+              type="checkbox"
+              role="switch"
+              checked={settings.offlineMode}
+              disabled={!gemma?.supported}
+              aria-label={UI.settings.ossOfflineLabel}
+              onChange={(e) => setOffline(e.target.checked)}
+            />
+          </label>
+          {!gemma?.supported && <small>{GEMMA.unavailable}</small>}
+          {settings.offlineMode && gemma?.downloading && (
+            <>
+              <progress max={1} value={gemma.progress} aria-label={UI.settings.gemmaProgressAria} />
+              <small>{GEMMA.downloading(Math.round(gemma.progress * 100))}</small>
+            </>
+          )}
+          {settings.offlineMode && gemma?.installed && (
+            <p className="test-ok">✓ {GEMMA.ready(gigabytes(gemma.expectedBytes))}</p>
           )}
           {(gemmaError ?? gemma?.error) && <p className="test-fail">{gemmaError ?? gemma?.error}</p>}
         </div>
@@ -228,7 +291,7 @@ export default function OwnCaseySettings({
           ✓ {settings.caseyMode === 'own-key'
             ? UI.settings.ownKeyAnswered
             : settings.caseyMode === 'gemma4-e4b'
-              ? UI.settings.gemmaAnswered
+              ? GEMMA.answered
               : UI.settings.customCaseyAnswered}
         </p>
       )}

@@ -87,6 +87,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'A Casey joga neste iPhone, sem internet e sem chave. É mais lenta.',
   serverOption: 'O teu próprio servidor da Casey',
   serverOptionHelp: 'Um Worker da Casey que tu próprio implementaste (vê o README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Este 900words foi compilado por ti. A Casey precisa de uma IA para jogar: a tua própria chave de IA ou a Gemma neste computador.',
+  pcGemmaOption: 'Gemma neste computador',
+  pcGemmaOptionHelp: 'A Casey joga neste computador, sem internet e sem chave. É mais lenta.',
+  pcGemmaNeeds: 'A Gemma precisa do Chrome ou do Edge com WebGPU, num computador com placa gráfica.',
+  pcGemmaExplain: (size) =>
+    `A Casey pode jogar com a Gemma neste computador: sem internet e sem chave. A Gemma é uma descarga única (${size}), fica guardada neste navegador e corre na tua placa gráfica, no Chrome ou no Edge. É mais lenta do que um serviço de IA e ainda é experimental.\n\nMantém este separador aberto até a descarga terminar.\n\nDescarregar a Gemma agora?`,
+  pcGemmaReady: (size) =>
+    `A Gemma está pronta (${size} neste navegador).`,
+  pcGemmaRemoveConfirm: 'Remover a Gemma deste navegador? Podes voltar a descarregá-la mais tarde.',
+  pcGemmaDownloading: (percent) =>
+    `${percent}% - mantém este separador aberto.`,
+  pcGemmaDownloadNote: (size) =>
+    `A Gemma é uma descarga de ${size}. Mantém este separador aberto até terminar.`,
+  pcGemmaAnswered: 'A Gemma respondeu neste computador.',
+  ossOfflineLabel: 'Jogar sem ligação quando a internet falha',
+  ossOfflineHelp: 'A Casey oferece-se então para acabar a ronda com a Gemma. Da primeira vez, isto descarrega-a.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Este 900words joga com a Casey no teu iPhone: sem conta e sem chave. É uma transferência única (${size}). Usa Wi-Fi e mantém o 900words aberto até terminar.\n\nPrecisa de um iPhone mais recente: ${iphones}.${lowMemory ? '\n\nEste iPhone tem menos memória do que esses modelos. Pode não funcionar nele.' : ''}\n\nTambém podes adicionar a tua própria chave de IA nas Definições.\n\nDescarregar a Casey agora?`,
 

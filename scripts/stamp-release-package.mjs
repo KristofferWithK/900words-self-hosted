@@ -98,7 +98,7 @@ function markerCounts(target) {
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n')
   return Object.fromEntries(
-    ['normal', 'feedback', 'developer', 'web-demo'].map((audience) => [
+    ['normal', 'feedback', 'developer', 'open-source', 'web-demo'].map((audience) => [
       audience,
       text.includes(audienceMarker(audience)),
     ]),
@@ -138,7 +138,7 @@ export function createReleaseProvenance({ root, target, env }) {
   if (!markers[env.BUILD_AUDIENCE]) {
     errors.push(`compiled package is missing ${audienceMarker(env.BUILD_AUDIENCE)}`)
   }
-  for (const audience of ['normal', 'feedback', 'developer', 'web-demo']) {
+  for (const audience of ['normal', 'feedback', 'developer', 'open-source', 'web-demo']) {
     if (audience !== env.BUILD_AUDIENCE && markers[audience]) {
       errors.push(`compiled package also contains the ${audience} audience marker`)
     }

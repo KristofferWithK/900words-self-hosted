@@ -75,6 +75,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey 在这台 iPhone 上玩，不需要网络，也不需要密钥。她会慢一些。',
   serverOption: '你自己的 Casey 服务器',
   serverOptionHelp: '你自己部署的 Casey Worker（见 README）。',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: '这是自行构建的 900words。Casey 需要一个 AI 才能玩：你自己的 AI 密钥，或这台电脑上的 Gemma。',
+  pcGemmaOption: '这台电脑上的 Gemma',
+  pcGemmaOptionHelp: 'Casey 在这台电脑上玩，不需要网络，也不需要密钥。她会慢一些。',
+  pcGemmaNeeds: 'Gemma 需要支持 WebGPU 的 Chrome 或 Edge，以及带显卡的电脑。',
+  pcGemmaExplain: (size) =>
+    `Casey 可以在这台电脑上和 Gemma 一起玩：不需要网络，也不需要密钥。Gemma 只需下载一次（${size}），保存在这个浏览器里，在 Chrome 或 Edge 中用你的显卡运行。她比 AI 服务慢，而且仍是实验功能。\n\n下载完成前请保持这个标签页打开。\n\n现在下载 Gemma 吗？`,
+  pcGemmaReady: (size) =>
+    `Gemma 已就绪（这个浏览器里 ${size}）。`,
+  pcGemmaRemoveConfirm: '要从这个浏览器删除 Gemma 吗？以后可以重新下载。',
+  pcGemmaDownloading: (percent) =>
+    `${percent}%。请保持这个标签页打开。`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma 需要下载 ${size}。下载完成前请保持这个标签页打开。`,
+  pcGemmaAnswered: 'Gemma 在这台电脑上回应了。',
+  ossOfflineLabel: '没网时离线玩',
+  ossOfflineHelp: '这时 Casey 会提出用 Gemma 把这一轮玩完。第一次开启时会下载她。',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `这个 900words 在你的 iPhone 上和 Casey 一起玩：不需要账号，也不需要密钥。她只需下载一次（${size}）。使用 Wi-Fi，并保持 900words 打开，直到下载完成。\n\n她需要较新的 iPhone：${iphones}。${lowMemory ? '\n\n这台 iPhone 的内存比这些机型少，她可能无法在上面运行。' : ''}\n\n你也可以在设置里添加你自己的 AI 密钥。\n\n现在下载 Casey 吗？`,
 

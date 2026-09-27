@@ -38,10 +38,15 @@ and the Swift package `capacitor-swift-pm`. MIT License.
 Xcode from Google's GitHub release, pinned by checksum in
 `ios-plugins/cluecab-gemma/Package.swift`. Apache License 2.0.
 
-**Gemma 4 E4B** (Google), as `gemma-4-E4B-it-gpu.litertlm` from
+**LiteRT-LM for the web** (Google): `@litert-lm/core` and its WebAssembly,
+which a desktop self-build serves itself to run Gemma in the browser.
+Apache License 2.0.
+
+**Gemma 4 E4B** (Google), as `gemma-4-E4B-it-gpu.litertlm` (iPhone) and
+`gemma-4-E4B-it-web.litertlm` (browser) from
 [litert-community on Hugging Face](https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm).
 Apache License 2.0. Not in this repository: the app downloads it only when
-you ask for it on your iPhone.
+you ask for it.
 
 **npm packages bundled into the app**, all MIT unless noted: React, React DOM
 and scheduler; Zod; Zustand; tslib (0BSD); Workbox, in the service worker.

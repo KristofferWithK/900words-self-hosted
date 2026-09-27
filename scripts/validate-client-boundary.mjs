@@ -154,10 +154,25 @@ export const onDeviceCorpus = (sentinels) => sentinels.filter((item) => ON_DEVIC
  * RELEASE_EXPECTED_AUDIENCE when it inspects the signed app, so both are read.
  */
 export function onDeviceCaseyBuild(env = process.env) {
-  const audience = env.BUILD_AUDIENCE || env.RELEASE_EXPECTED_AUDIENCE || 'open-source'
+  const audience = buildAudienceOf(env)
   if (audience === 'open-source') return true
   return env.CAP_BUILD === '1' && (audience === 'developer' || audience === 'normal')
 }
+
+/** The audience the build was made for, as the TestFlight workflow names it. */
+export function buildAudienceOf(env = process.env) {
+  return env.BUILD_AUDIENCE || env.RELEASE_EXPECTED_AUDIENCE || 'open-source'
+}
+
+/**
+ * What only a self-build may carry: the player's own-key store and desktop
+ * Gemma (LiteRT-LM and its WebAssembly). Both are folded away at build time
+ * everywhere else (owner, 2026-09-27); this proves it on every other build.
+ */
+const SELF_BUILD_SENTINELS = [
+  { value: 'cluecab-own-ai-v1', source: 'the self-build’s own AI key store' },
+  { value: 'litertlm', source: 'desktop Gemma (LiteRT-LM)' },
+]
 
 /**
  * The scripts index.html loads before anything else: the entry and its
@@ -175,7 +190,7 @@ function startupScripts(distDir) {
 export function inspectClientBuild(
   distDir,
   dataDir,
-  { allowOnDeviceOrchestration = false, allowOnDeviceCity1Corpus = false } = {},
+  { allowOnDeviceOrchestration = false, allowOnDeviceCity1Corpus = false, allowSelfBuild = false } = {},
 ) {
   if (!existsSync(distDir)) throw new Error(`client build is missing: ${distDir}`)
   const files = filesUnder(distDir)
@@ -200,6 +215,7 @@ export function inspectClientBuild(
   for (const path of files) {
     const name = basename(path)
     if (CORPUS_FILE.test(name)) violations.push(`${path}: authored corpus filename was emitted`)
+    if (!allowSelfBuild && /[\\/]litert-lm[\\/]/.test(path)) violations.push(`${path}: desktop Gemma's engine was emitted outside a self-build`)
     const bytes = readFileSync(path)
     // Binary audio/images cannot contain useful JS strings often enough to be
     // worth decoding megabytes repeatedly. Filename checks still cover a raw
@@ -209,6 +225,11 @@ export function inspectClientBuild(
     for (const sentinel of sentinels) {
       if (content.includes(sentinel.value)) {
         violations.push(`${path}: contains private server material from ${sentinel.source}`)
+      }
+    }
+    if (!allowSelfBuild) {
+      for (const sentinel of SELF_BUILD_SENTINELS) {
+        if (content.includes(sentinel.value)) violations.push(`${path}: contains ${sentinel.source}, which only a self-build carries`)
       }
     }
     if (startup.has(name)) {
@@ -231,6 +252,7 @@ if (invoked) {
   const result = inspectClientBuild(join(root, distDir), join(root, 'proxy', 'data'), {
     allowOnDeviceOrchestration: process.env.CAP_BUILD === '1' || onDeviceCaseyBuild(),
     allowOnDeviceCity1Corpus: onDeviceCaseyBuild(),
+    allowSelfBuild: buildAudienceOf() === 'open-source',
   })
   if (result.violations.length > 0) {
     console.error('SEC3 client boundary failed:')

@@ -48,6 +48,12 @@ the reworded "set up Casey" message were added to all eleven catalogues, on
 (`ossGemmaFirstRun`) and a reworded Gemma choice. Non-English wording is
 machine-authored and unread.
 
+The same evening added desktop Gemma's copy (the `pc*` keys: Gemma on this
+computer, her download explanation, "keep this tab open", what she needs) and
+the self-build's offline switch (`ossOfflineLabel`, `ossOfflineHelp`) to all
+eleven catalogues, on `open-source/1.0`. Non-English wording is
+machine-authored and unread; the owner reads German.
+
 The 2026-09-27 welcome line (Casey's 900-words coverage line) replaced the old
 one in all eleven catalogues. Non-English wording is machine-authored and has
 not received native-speaker review.

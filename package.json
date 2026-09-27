@@ -40,6 +40,7 @@
     "@capacitor/core": "^8.5.0",
     "@capacitor/haptics": "^8.0.2",
     "@capacitor/ios": "^8.5.0",
+    "@litert-lm/core": "0.17.1",
     "cluecab-gemma": "file:./ios-plugins/cluecab-gemma",
     "cluecab-keyboard": "file:./ios-plugins/cluecab-keyboard",
     "react": "^19.2.8",

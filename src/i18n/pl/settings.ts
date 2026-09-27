@@ -86,6 +86,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey gra na tym iPhonie, bez internetu i bez klucza. Jest wolniejsza.',
   serverOption: 'Twój własny serwer Casey',
   serverOptionHelp: 'Worker Casey wdrożony przez ciebie (zobacz README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'To wersja 900words zbudowana samodzielnie. Casey potrzebuje SI do gry: twojego własnego klucza SI albo Gemmy na tym komputerze.',
+  pcGemmaOption: 'Gemma na tym komputerze',
+  pcGemmaOptionHelp: 'Casey gra na tym komputerze, bez internetu i bez klucza. Jest wolniejsza.',
+  pcGemmaNeeds: 'Gemma potrzebuje Chrome’a lub Edge’a z WebGPU, na komputerze z kartą graficzną.',
+  pcGemmaExplain: (size) =>
+    `Casey może grać z Gemmą na tym komputerze: bez internetu i bez klucza. Gemma to jednorazowe pobranie (${size}), zostaje w tej przeglądarce i działa na twojej karcie graficznej w Chrome lub Edge. Jest wolniejsza niż usługa SI i wciąż eksperymentalna.\n\nNie zamykaj tej karty, dopóki pobieranie się nie skończy.\n\nPobrać Gemmę teraz?`,
+  pcGemmaReady: (size) =>
+    `Gemma jest gotowa (${size} w tej przeglądarce).`,
+  pcGemmaRemoveConfirm: 'Usunąć Gemmę z tej przeglądarki? Możesz ją później pobrać ponownie.',
+  pcGemmaDownloading: (percent) =>
+    `${percent}% - nie zamykaj tej karty.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma to pobranie o rozmiarze ${size}. Nie zamykaj tej karty, dopóki się nie skończy.`,
+  pcGemmaAnswered: 'Gemma odpowiedziała na tym komputerze.',
+  ossOfflineLabel: 'Graj offline, gdy nie ma internetu',
+  ossOfflineHelp: 'Casey zaproponuje wtedy dokończenie rundy z Gemmą. Za pierwszym razem zostanie ona pobrana.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ta wersja 900words gra z Casey na twoim iPhonie: bez konta i bez klucza. Casey pobierasz raz (${size}). Użyj Wi-Fi i nie zamykaj 900words, dopóki pobieranie się nie skończy.\n\nPotrzebuje nowszego iPhone’a: ${iphones}.${lowMemory ? '\n\nTen iPhone ma mniej pamięci niż te modele. Może na nim nie działać.' : ''}\n\nW Ustawieniach możesz też dodać własny klucz SI.\n\nPobrać Casey teraz?`,
 

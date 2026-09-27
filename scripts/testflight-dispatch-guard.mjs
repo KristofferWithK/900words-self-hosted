@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 
 export const IOS_1_0_RELEASE_REF = 'refs/heads/release/ios-1.0'
 const SHA = /^[0-9a-f]{40}$/i
-const AUDIENCES = new Set(['developer', 'normal'])
+const AUDIENCES = new Set(['developer', 'normal', 'open-source'])
 
 /**
  * Pure policy for a TestFlight dispatch. Keep it independent of GitHub Actions

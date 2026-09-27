@@ -88,6 +88,23 @@ export const settings = {
   gemmaOptionHelp: 'Casey plays on this iPhone, without internet and without a key. She is slower.',
   serverOption: 'Your own Casey server',
   serverOptionHelp: 'A Casey Worker you deployed yourself (see the README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'This is a self-built 900words. Casey needs an AI to play with: your own AI key, or Gemma on this computer.',
+  pcGemmaOption: 'Gemma on this computer',
+  pcGemmaOptionHelp: 'Casey plays on this computer, without internet and without a key. She is slower.',
+  pcGemmaNeeds: 'Gemma needs Chrome or Edge with WebGPU, on a computer with a graphics card.',
+  pcGemmaExplain: (size: string) =>
+    `Casey can play with Gemma on this computer: no internet and no key needed. Gemma is a one-time download (${size}), kept in this browser, and runs on your graphics card in Chrome or Edge. She is slower than an AI service, and still experimental.\n\nKeep this tab open until the download finishes.\n\nDownload Gemma now?`,
+  pcGemmaReady: (size: string) =>
+    `Gemma is ready (${size} in this browser).`,
+  pcGemmaRemoveConfirm: 'Remove Gemma from this browser? You can download her again later.',
+  pcGemmaDownloading: (percent: number) =>
+    `${percent}%. Keep this tab open.`,
+  pcGemmaDownloadNote: (size: string) =>
+    `Gemma is a ${size} download. Keep this tab open until it finishes.`,
+  pcGemmaAnswered: 'Gemma answered on this computer.',
+  ossOfflineLabel: 'Play offline when the internet is gone',
+  ossOfflineHelp: 'Casey then offers to finish the round with Gemma. The first time, this downloads her.',
   ossGemmaFirstRun: (size: string, iphones: string, lowMemory: boolean) =>
     `This 900words plays with Casey on your iPhone: no account and no key needed. She is a one-time download (${size}). Use Wi-Fi and keep 900words open until it finishes.\n\nShe needs a newer iPhone: ${iphones}.${lowMemory ? '\n\nThis iPhone has less memory than those models, so she may not run on it.' : ''}\n\nYou can also add your own AI key in Settings.\n\nDownload Casey now?`,
 

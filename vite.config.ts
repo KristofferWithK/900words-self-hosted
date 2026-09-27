@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { webDemoAssets } from './scripts/web-demo-assets.mjs'
+import { litertLmWasm } from './scripts/litert-lm-wasm.mjs'
 
 // Public GitHub Pages delivery is retired. The web build retains this legacy
 // project path for local preview compatibility; it is not a public app URL.
@@ -66,6 +67,11 @@ const ON_DEVICE_CASEY = CAP && (audience === 'developer' || audience === 'normal
 // shards): wherever on-device Casey is, and in every open-source build, where
 // a player's own AI key is played through it with no Worker at all.
 const IN_APP_CASEY = ON_DEVICE_CASEY || OPEN_SOURCE
+// Gemma in the browser, on the graphics card through WebGPU: the desktop
+// self-build (owner, 2026-09-27: the same Gemma download and offline mode as
+// the iPhone). src/ai/gemma/web.ts, with LiteRT-LM's WebAssembly served by the
+// app (scripts/litert-lm-wasm.mjs); every other bundle folds it away.
+const WEB_GEMMA = OPEN_SOURCE && !CAP
 // Optional for the open-source build: a self-hoster's own Casey Worker. Without
 // one, the player brings an AI key or uses Gemma on the iPhone (Settings).
 const selfHostedCaseyUrl = process.env.SELF_HOSTED_CASEY_URL ?? ''
@@ -127,6 +133,7 @@ export default defineConfig({
     __CAP_BUILD__: JSON.stringify(CAP),
     __ON_DEVICE_CASEY__: JSON.stringify(ON_DEVICE_CASEY),
     __IN_APP_CASEY__: JSON.stringify(IN_APP_CASEY),
+    __WEB_GEMMA__: JSON.stringify(WEB_GEMMA),
     __WEB_CASEY_URL__: JSON.stringify(WEB_DEMO ? webCaseyUrl.replace(/\/+$/, '') : ''),
     __TURNSTILE_SITE_KEY__: JSON.stringify(WEB_DEMO ? turnstileSiteKey : ''),
     __APP_STORE_URL__: JSON.stringify(WEB_DEMO ? appStoreUrl : ''),
@@ -138,6 +145,7 @@ export default defineConfig({
   plugins: [
     react(),
     ...(WEB_DEMO ? [webDemoAssets()] : []),
+    ...(WEB_GEMMA ? [litertLmWasm()] : []),
     VitePWA({
       disable: CAP || WEB_DEMO,
       // 'prompt', not 'autoUpdate': autoUpdate can swap the app out from under
@@ -195,7 +203,11 @@ export default defineConfig({
         // Only manifest.json would be caught by the patterns above (mp3 is not
         // in them), but the ignore is stated so that adding mp3 to the list
         // later cannot quietly undo the decision.
-        globIgnores: ['**/audio/**'],
+        //
+        // Desktop Gemma's engine (a self-build's litert-lm/, 22-34 MB per
+        // variant) is loaded only by a player who chose her; its small .js
+        // loaders would otherwise slip into every install's precache.
+        globIgnores: ['**/audio/**', '**/litert-lm/**'],
         runtimeCaching: [
           {
             // CacheFirst, not StaleWhileRevalidate: a frozen utterance is the

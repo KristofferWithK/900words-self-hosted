@@ -87,6 +87,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey ezen az iPhone-on játszik, internet és kulcs nélkül. Lassabb.',
   serverOption: 'Saját Casey-szerver',
   serverOptionHelp: 'Egy Casey Worker, amelyet te telepítettél (lásd a README-t).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Ez egy saját magad által épített 900words. Casey-nek MI kell a játékhoz: a saját MI-kulcsod vagy a Gemma ezen a számítógépen.',
+  pcGemmaOption: 'Gemma ezen a számítógépen',
+  pcGemmaOptionHelp: 'Casey ezen a számítógépen játszik, internet és kulcs nélkül. Lassabb.',
+  pcGemmaNeeds: 'A Gemmához Chrome vagy Edge kell WebGPU-val, videokártyás számítógépen.',
+  pcGemmaExplain: (size) =>
+    `Casey a Gemmával ezen a számítógépen is játszhat: internet és kulcs nélkül. A Gemma egyszeri letöltés (${size}), ebben a böngészőben marad, és a videokártyádon fut Chrome-ban vagy Edge-ben. Lassabb, mint egy MI-szolgáltatás, és még kísérleti.\n\nHagyd nyitva ezt a lapot, amíg a letöltés be nem fejeződik.\n\nLetöltöd most a Gemmát?`,
+  pcGemmaReady: (size) =>
+    `A Gemma kész (${size} ebben a böngészőben).`,
+  pcGemmaRemoveConfirm: 'Eltávolítod a Gemmát ebből a böngészőből? Később újra letöltheted.',
+  pcGemmaDownloading: (percent) =>
+    `${percent}% - hagyd nyitva ezt a lapot.`,
+  pcGemmaDownloadNote: (size) =>
+    `A Gemma ${size} méretű letöltés. Hagyd nyitva ezt a lapot, amíg be nem fejeződik.`,
+  pcGemmaAnswered: 'A Gemma válaszolt ezen a számítógépen.',
+  ossOfflineLabel: 'Offline játék, ha nincs internet',
+  ossOfflineHelp: 'Casey ilyenkor felajánlja, hogy a kört a Gemmával fejezzétek be. Először ehhez le is töltődik.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ez a 900words Casey-vel játszik az iPhone-odon: fiók és kulcs nélkül. Casey-t egyszer kell letölteni (${size}). Használj wifit, és ne zárd be az appot, amíg a letöltés be nem fejeződik.\n\nÚjabb iPhone kell hozzá: ${iphones}.${lowMemory ? '\n\nEnnek az iPhone-nak kevesebb memóriája van, mint ezeknek a modelleknek. Lehet, hogy nem fut rajta.' : ''}\n\nA Beállításokban a saját MI-kulcsodat is megadhatod.\n\nLetöltöd most Casey-t?`,
 

@@ -89,6 +89,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey speelt op deze iPhone, zonder internet en zonder sleutel. Ze is trager.',
   serverOption: 'Je eigen Casey-server',
   serverOptionHelp: 'Een Casey-Worker die je zelf hebt uitgerold (zie de README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Deze 900words heb je zelf gebouwd. Casey heeft een AI nodig om te spelen: je eigen AI-sleutel of Gemma op deze computer.',
+  pcGemmaOption: 'Gemma op deze computer',
+  pcGemmaOptionHelp: 'Casey speelt op deze computer, zonder internet en zonder sleutel. Ze is trager.',
+  pcGemmaNeeds: 'Gemma heeft Chrome of Edge met WebGPU nodig, op een computer met een videokaart.',
+  pcGemmaExplain: (size) =>
+    `Casey kan met Gemma op deze computer spelen: zonder internet en zonder sleutel. Gemma is een eenmalige download (${size}), blijft in deze browser en draait op je videokaart in Chrome of Edge. Ze is trager dan een AI-dienst en nog experimenteel.\n\nHoud dit tabblad open tot de download klaar is.\n\nGemma nu downloaden?`,
+  pcGemmaReady: (size) =>
+    `Gemma is klaar (${size} in deze browser).`,
+  pcGemmaRemoveConfirm: 'Gemma uit deze browser verwijderen? Je kunt haar later opnieuw downloaden.',
+  pcGemmaDownloading: (percent) =>
+    `${percent}% - houd dit tabblad open.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma is een download van ${size}. Houd dit tabblad open tot hij klaar is.`,
+  pcGemmaAnswered: 'Gemma heeft geantwoord op deze computer.',
+  ossOfflineLabel: 'Offline spelen als het internet wegvalt',
+  ossOfflineHelp: 'Casey biedt dan aan de ronde met Gemma af te maken. De eerste keer wordt ze daarvoor gedownload.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Deze 900words speelt met Casey op je iPhone: zonder account en zonder sleutel. Ze is een eenmalige download (${size}). Gebruik wifi en houd 900words open tot de download klaar is.\n\nZe heeft een nieuwere iPhone nodig: ${iphones}.${lowMemory ? '\n\nDeze iPhone heeft minder geheugen dan die modellen. Misschien werkt ze er niet op.' : ''}\n\nJe kunt bij Instellingen ook je eigen AI-sleutel toevoegen.\n\nCasey nu downloaden?`,
 

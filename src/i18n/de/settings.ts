@@ -85,6 +85,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey spielt auf diesem iPhone, ohne Internet und ohne Schlüssel. Sie ist langsamer.',
   serverOption: 'Dein eigener Casey-Server',
   serverOptionHelp: 'Ein Casey-Worker, den du selbst bereitgestellt hast (siehe README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Das ist ein selbst gebautes 900words. Casey braucht eine KI zum Spielen: deinen eigenen KI-Schlüssel oder Gemma auf diesem Computer.',
+  pcGemmaOption: 'Gemma auf diesem Computer',
+  pcGemmaOptionHelp: 'Casey spielt auf diesem Computer, ohne Internet und ohne Schlüssel. Sie ist langsamer.',
+  pcGemmaNeeds: 'Gemma braucht Chrome oder Edge mit WebGPU, auf einem Computer mit Grafikkarte.',
+  pcGemmaExplain: (size) =>
+    `Casey kann mit Gemma auf diesem Computer spielen: ohne Internet und ohne Schlüssel. Gemma ist ein einmaliger Download (${size}), bleibt in diesem Browser und läuft auf deiner Grafikkarte in Chrome oder Edge. Sie ist langsamer als ein KI-Dienst und noch experimentell.\n\nLass diesen Tab offen, bis der Download fertig ist.\n\nGemma jetzt herunterladen?`,
+  pcGemmaReady: (size) =>
+    `Gemma ist bereit (${size} in diesem Browser).`,
+  pcGemmaRemoveConfirm: 'Gemma aus diesem Browser entfernen? Du kannst sie später wieder herunterladen.',
+  pcGemmaDownloading: (percent) =>
+    `${percent} % - lass diesen Tab offen.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma ist ein Download von ${size}. Lass diesen Tab offen, bis er fertig ist.`,
+  pcGemmaAnswered: 'Gemma hat auf diesem Computer geantwortet.',
+  ossOfflineLabel: 'Offline spielen, wenn das Internet weg ist',
+  ossOfflineHelp: 'Casey bietet dann an, die Runde mit Gemma zu Ende zu spielen. Beim ersten Mal wird sie dafür heruntergeladen.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Dieses 900words spielt mit Casey auf deinem iPhone: ohne Konto und ohne Schlüssel. Sie ist ein einmaliger Download (${size}). Nutze WLAN und lass 900words geöffnet, bis er fertig ist.\n\nSie braucht ein neueres iPhone: ${iphones}.${lowMemory ? '\n\nDieses iPhone hat weniger Arbeitsspeicher als diese Modelle. Vielleicht läuft sie darauf nicht.' : ''}\n\nDu kannst in den Einstellungen auch deinen eigenen KI-Schlüssel hinzufügen.\n\nCasey jetzt herunterladen?`,
 

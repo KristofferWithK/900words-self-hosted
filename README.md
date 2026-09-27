@@ -18,7 +18,7 @@ one, under **Settings → Casey's AI**:
 
 | | You need | What it's like |
 |---|---|---|
-| **Gemma on your iPhone** | A recent iPhone (list below) and 3 GB free space | Works offline. Free and private. Slower. Experimental. |
+| **Gemma on your iPhone or computer** | A recent iPhone (list below), or Chrome or Edge on a computer with a graphics card; 3 GB free space | Works offline. Free and private. Slower. Experimental. |
 | **Your own AI key** | An API key from an AI service | The same Casey as the App Store with Ollama Cloud's `gpt-oss:120b` |
 | **Your own Casey server** | A Cloudflare account | For playing on several devices without typing your key into each one |
 
@@ -35,9 +35,15 @@ Cloud has been played through; another service may play a weaker Casey or
 refuse the request, and **Test connection** tells you which.
 
 Gemma runs on these iPhones: iPhone 15 Pro, 15 Pro Max, 16, 16 Plus, 16 Pro,
-16 Pro Max, 16e, 17, Air, 17 Pro and 17 Pro Max. The model is Google's
-Gemma 4 E4B (Apache 2.0), downloaded from Hugging Face the first time you
-ask for it.
+16 Pro Max, 16e, 17, Air, 17 Pro and 17 Pro Max. On a computer she runs in
+the browser, on the graphics card, through WebGPU (Chrome or Edge). On an
+RTX 4090 laptop she answers Casey's clue in about 5 seconds and a guess in
+about 7. The model is Google's Gemma 4 E4B (Apache 2.0), downloaded from
+Hugging Face the first time you ask for it, and kept on your device.
+
+With your own key, you can also turn on **Play offline when the internet is
+gone**: if Casey cannot reach your AI service, she offers to finish the round
+with Gemma.
 
 ## Play in your browser
 

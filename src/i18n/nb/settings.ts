@@ -84,6 +84,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey spiller på denne iPhonen, uten internett og uten nøkkel. Hun er tregere.',
   serverOption: 'Din egen Casey-server',
   serverOptionHelp: 'En Casey-Worker du har satt opp selv (se README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Dette er en selvbygd 900words. Casey trenger en KI å spille med: din egen KI-nøkkel eller Gemma på denne datamaskinen.',
+  pcGemmaOption: 'Gemma på denne datamaskinen',
+  pcGemmaOptionHelp: 'Casey spiller på denne datamaskinen, uten internett og uten nøkkel. Hun er tregere.',
+  pcGemmaNeeds: 'Gemma trenger Chrome eller Edge med WebGPU, på en datamaskin med skjermkort.',
+  pcGemmaExplain: (size) =>
+    `Casey kan spille med Gemma på denne datamaskinen: uten internett og uten nøkkel. Gemma er en engangsnedlasting (${size}), lagres i denne nettleseren og kjører på skjermkortet ditt i Chrome eller Edge. Hun er tregere enn en KI-tjeneste og fortsatt eksperimentell.\n\nHold denne fanen åpen til nedlastingen er ferdig.\n\nLaste ned Gemma nå?`,
+  pcGemmaReady: (size) =>
+    `Gemma er klar (${size} i denne nettleseren).`,
+  pcGemmaRemoveConfirm: 'Fjerne Gemma fra denne nettleseren? Du kan laste henne ned igjen senere.',
+  pcGemmaDownloading: (percent) =>
+    `${percent} % - hold denne fanen åpen.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma er en nedlasting på ${size}. Hold denne fanen åpen til den er ferdig.`,
+  pcGemmaAnswered: 'Gemma svarte på denne datamaskinen.',
+  ossOfflineLabel: 'Spill uten nett når internett forsvinner',
+  ossOfflineHelp: 'Casey tilbyr da å spille ferdig runden med Gemma. Første gang lastes hun ned.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Denne 900words spiller med Casey på iPhonen din: ingen konto og ingen nøkkel. Hun lastes ned én gang (${size}). Bruk wifi og hold 900words åpen til nedlastingen er ferdig.\n\nHun trenger en nyere iPhone: ${iphones}.${lowMemory ? '\n\nDenne iPhonen har mindre minne enn disse modellene. Det er ikke sikkert hun fungerer på den.' : ''}\n\nDu kan også legge til din egen KI-nøkkel i Innstillinger.\n\nLaste ned Casey nå?`,
 

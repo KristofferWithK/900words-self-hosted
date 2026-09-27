@@ -149,7 +149,7 @@ function inspectProvenance(records, expectedAudience, expectedSourceSha) {
   const packagedText = records.map((record) => textRecord(record.name, record.bytes) ?? '').join('\n')
   const expectedMarker = `__900WORDS_BUILD_AUDIENCE__:${expectedAudience}`
   if (!packagedText.includes(expectedMarker)) violations.push(`${matches[0].name}: package is missing ${expectedMarker}`)
-  for (const audience of ['normal', 'feedback', 'developer', 'web-demo']) {
+  for (const audience of ['normal', 'feedback', 'developer', 'open-source', 'web-demo']) {
     if (audience !== expectedAudience && packagedText.includes(`__900WORDS_BUILD_AUDIENCE__:${audience}`)) {
       violations.push(`${matches[0].name}: package contains conflicting ${audience} audience marker`)
     }

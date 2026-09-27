@@ -15,31 +15,43 @@ const unavailable = (): GemmaStatus => ({
   freeBytes: 0,
 })
 
+/*
+ * The desktop self-build (`__WEB_GEMMA__`, vite.config.ts) runs Gemma in the
+ * browser instead (web.ts), behind these same functions. Every web branch
+ * tests the literal at its use site, so rolldown folds the lazy chunk (and
+ * LiteRT-LM with it) out of every other build.
+ */
+
 export function gemmaSupported(): boolean {
   return Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios'
 }
 
 export async function gemmaStatus(): Promise<GemmaStatus> {
+  if (__WEB_GEMMA__) return (await import('./web')).status()
   if (!gemmaSupported()) return unavailable()
   return Gemma.status()
 }
 
 export async function startGemmaDownload(): Promise<void> {
+  if (__WEB_GEMMA__) return (await import('./web')).download()
   if (!gemmaSupported()) throw new Error('Gemma is available only in the 900words iPhone app.')
   await Gemma.download()
 }
 
 export async function cancelGemmaDownload(): Promise<void> {
+  if (__WEB_GEMMA__) return (await import('./web')).cancelDownload()
   if (gemmaSupported()) await Gemma.cancelDownload()
 }
 
 export async function removeGemmaModel(): Promise<void> {
+  if (__WEB_GEMMA__) return (await import('./web')).remove()
   if (gemmaSupported()) await Gemma.remove()
 }
 
 export async function onGemmaDownloadProgress(
   listener: (status: GemmaStatus) => void,
 ): Promise<PluginListenerHandle | null> {
+  if (__WEB_GEMMA__) return (await import('./web')).onProgress(listener)
   if (!gemmaSupported()) return null
   return Gemma.addListener('downloadProgress', listener)
 }
@@ -50,12 +62,14 @@ export async function generateWithGemma(options: {
   temperature: number
   maxOutputTokens: number
 }): Promise<GemmaGeneration> {
+  if (__WEB_GEMMA__) return (await import('./web')).generate(options)
   if (!gemmaSupported()) throw new Error('Gemma is available only in the 900words iPhone app.')
   return Gemma.generate(options)
 }
 
 /** Stops the generation in progress, if any; its generateWithGemma() then rejects. */
 export async function cancelGemmaGeneration(): Promise<void> {
+  if (__WEB_GEMMA__) return (await import('./web')).cancelGeneration()
   if (gemmaSupported()) await Gemma.cancelGeneration()
 }
 

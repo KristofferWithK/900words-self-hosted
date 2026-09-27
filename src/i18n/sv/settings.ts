@@ -84,6 +84,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey spelar på den här iPhonen, utan internet och utan nyckel. Hon är långsammare.',
   serverOption: 'Din egen Casey-server',
   serverOptionHelp: 'En Casey-Worker som du själv har driftsatt (se README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Det här är ett egenbyggt 900words. Casey behöver en AI att spela med: din egen AI-nyckel eller Gemma på den här datorn.',
+  pcGemmaOption: 'Gemma på den här datorn',
+  pcGemmaOptionHelp: 'Casey spelar på den här datorn, utan internet och utan nyckel. Hon är långsammare.',
+  pcGemmaNeeds: 'Gemma behöver Chrome eller Edge med WebGPU, på en dator med grafikkort.',
+  pcGemmaExplain: (size) =>
+    `Casey kan spela med Gemma på den här datorn: utan internet och utan nyckel. Gemma är en engångsnedladdning (${size}), sparas i den här webbläsaren och körs på ditt grafikkort i Chrome eller Edge. Hon är långsammare än en AI-tjänst och fortfarande experimentell.\n\nHåll den här fliken öppen tills nedladdningen är klar.\n\nLadda ner Gemma nu?`,
+  pcGemmaReady: (size) =>
+    `Gemma är klar (${size} i den här webbläsaren).`,
+  pcGemmaRemoveConfirm: 'Ta bort Gemma från den här webbläsaren? Du kan ladda ner henne igen senare.',
+  pcGemmaDownloading: (percent) =>
+    `${percent} % - håll den här fliken öppen.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma är en nedladdning på ${size}. Håll den här fliken öppen tills den är klar.`,
+  pcGemmaAnswered: 'Gemma svarade på den här datorn.',
+  ossOfflineLabel: 'Spela offline när internet försvinner',
+  ossOfflineHelp: 'Casey erbjuder då att spela klart rundan med Gemma. Första gången laddas hon ner.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Det här 900words spelar med Casey på din iPhone: inget konto och ingen nyckel. Hon laddas ner en gång (${size}). Använd wifi och håll 900words öppen tills nedladdningen är klar.\n\nHon behöver en nyare iPhone: ${iphones}.${lowMemory ? '\n\nDen här iPhonen har mindre minne än de modellerna. Hon kanske inte fungerar på den.' : ''}\n\nDu kan också lägga till din egen AI-nyckel i Inställningar.\n\nLadda ner Casey nu?`,
 

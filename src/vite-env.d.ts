@@ -18,5 +18,7 @@ declare const __APP_STORE_URL__: string
 declare const __CAP_BUILD__: boolean
 /** On-device Casey (Gemma): the developer, normal and open-source native builds only. */
 declare const __ON_DEVICE_CASEY__: boolean
+/** Gemma in the browser, through WebGPU: the desktop self-build (open-source, not native). */
+declare const __WEB_GEMMA__: boolean
 /** Casey's own logic runs in the app: on-device Casey's builds, and every open-source build (own AI key). */
 declare const __IN_APP_CASEY__: boolean

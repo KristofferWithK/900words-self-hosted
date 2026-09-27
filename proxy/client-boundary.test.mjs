@@ -37,6 +37,18 @@ describe('the SEC3 production-client corpus gate', () => {
     expect(inspectClientBuild(build(), data).violations).toEqual([])
   })
 
+  it('keeps the own-key store and desktop Gemma out of every build but a self-build', () => {
+    for (const [name, content] of [
+      ['assets/store.js', 'localStorage.getItem("cluecab-own-ai-v1")'],
+      ['assets/web.js', 'fetch("gemma-4-E4B-it-web.litertlm")'],
+      ['litert-lm/wasm/loader.js', 'export {}'],
+    ]) {
+      const dist = build(name, content)
+      expect(inspectClientBuild(dist, data).violations.join('\n'), name).toMatch(/only a self-build|outside a self-build/)
+      expect(inspectClientBuild(dist, data, { allowSelfBuild: true }).violations, name).toEqual([])
+    }
+  })
+
   it('fails when one authored rationale is injected into a client chunk', () => {
     const sentinel = corpusSentinels(data).find(
       (item) => item.source.startsWith('book.') && item.value !== item.source && item.value.length >= 36,

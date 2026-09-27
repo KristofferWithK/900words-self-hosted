@@ -88,6 +88,23 @@ export const settings: Catalogue['settings'] = {
   gemmaOptionHelp: 'Casey joue sur cet iPhone, sans internet et sans clé. Elle est plus lente.',
   serverOption: 'Ton propre serveur Casey',
   serverOptionHelp: 'Un Worker Casey que tu as déployé toi-même (voir le README).',
+  // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
+  pcCaseyHelp: 'Ce 900words, tu l’as compilé toi-même. Casey a besoin d’une IA pour jouer : ta propre clé d’IA, ou Gemma sur cet ordinateur.',
+  pcGemmaOption: 'Gemma sur cet ordinateur',
+  pcGemmaOptionHelp: 'Casey joue sur cet ordinateur, sans internet et sans clé. Elle est plus lente.',
+  pcGemmaNeeds: 'Gemma a besoin de Chrome ou d’Edge avec WebGPU, sur un ordinateur avec une carte graphique.',
+  pcGemmaExplain: (size) =>
+    `Casey peut jouer avec Gemma sur cet ordinateur : sans internet et sans clé. Gemma est un téléchargement unique (${size}), gardé dans ce navigateur, et tourne sur ta carte graphique dans Chrome ou Edge. Elle est plus lente qu’un service d’IA, et encore expérimentale.\n\nLaisse cet onglet ouvert jusqu’à la fin du téléchargement.\n\nTélécharger Gemma maintenant ?`,
+  pcGemmaReady: (size) =>
+    `Gemma est prête (${size} dans ce navigateur).`,
+  pcGemmaRemoveConfirm: 'Supprimer Gemma de ce navigateur ? Tu pourras la retélécharger plus tard.',
+  pcGemmaDownloading: (percent) =>
+    `${percent} % - laisse cet onglet ouvert.`,
+  pcGemmaDownloadNote: (size) =>
+    `Gemma est un téléchargement de ${size}. Laisse cet onglet ouvert jusqu’à la fin.`,
+  pcGemmaAnswered: 'Gemma a répondu sur cet ordinateur.',
+  ossOfflineLabel: 'Jouer hors ligne quand internet est coupé',
+  ossOfflineHelp: 'Casey propose alors de finir la manche avec Gemma. La première fois, cela la télécharge.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ce 900words joue avec Casey sur ton iPhone : sans compte et sans clé. Elle se télécharge une seule fois (${size}). Utilise le Wi-Fi et garde 900words ouverte jusqu’à la fin.\n\nElle a besoin d’un iPhone plus récent : ${iphones}.${lowMemory ? '\n\nCet iPhone a moins de mémoire que ces modèles. Elle risque de ne pas y fonctionner.' : ''}\n\nTu peux aussi ajouter ta propre clé d’IA dans les Réglages.\n\nTélécharger Casey maintenant ?`,
 
