@@ -101,3 +101,16 @@ describe('uiStore onboarding lesson markers', () => {
     expect(useUi.getState().onboarding).toEqual({ step: 'home-return', persist: true, lessons: { translation: 'done', home: 'done' } })
   })
 })
+
+describe('uiStore intro replay', () => {
+  it('starts a replay from Home, so Settings does not stay over the intro', () => {
+    // App.tsx shows Settings over the intro when the intro itself sends a
+    // player there (set up Casey, then Retry). The replay button is on
+    // Settings, so a replay that left the screen there would show Settings
+    // instead of the intro.
+    useUi.setState({ onboarding: null, screen: 'settings' })
+    useUi.getState().startOnboarding()
+    expect(useUi.getState().screen).toBe('home')
+    expect(useUi.getState().onboarding).toEqual({ step: 'ticket', persist: false })
+  })
+})

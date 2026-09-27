@@ -376,7 +376,12 @@ export default function App() {
       {/* The intro REPLACES the ordinary screens, but its second act renders
           the real Home itself and progressively reveals its controls. */}
       {onboarding ? (
-        <OnboardingScreen />
+        // Casey's error banner sends a player who has not set her up yet to
+        // Settings, even in the middle of the intro (a self-build's practice
+        // round already needs her AI). Settings then covers the intro, and
+        // its back arrow returns to the same moment: the round is kept in
+        // the game store, and Retry asks Casey again.
+        screen === 'settings' ? <SettingsScreen /> : <OnboardingScreen />
       ) : isWebDemo() ? (
         // The website demo never reaches the app's own screens: an intro that
         // ends early (Skip) lands on the demo's end card, not on Home.

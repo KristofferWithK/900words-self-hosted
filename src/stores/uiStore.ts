@@ -354,7 +354,11 @@ export const useUi = create<UiState>((set, get) => ({
     // Only replay/force paths come through here — a REAL first run arrives via
     // initialOnboarding() so the ticket is there before the first paint. Hence
     // always transient: the done flag on a device replaying the intro stays.
-    set({ onboarding: { step: 'ticket', persist: false } })
+    // It starts from Home, as a first run does: Settings, where the replay
+    // button is, would otherwise stay on screen over it (App.tsx shows
+    // Settings over the intro when the intro itself sends a player there).
+    unwindToFloor()
+    set({ onboarding: { step: 'ticket', persist: false }, screen: 'home', sheetWordId: null })
   },
   advanceOnboarding: (step) => {
     const run = get().onboarding

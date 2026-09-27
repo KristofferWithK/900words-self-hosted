@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process'
 import { chromium } from 'playwright'
 import { startFakeOllama } from './fake-ollama.mjs'
 import { startPreview } from './preview-server.mjs'
+import { createOnboardingFlow } from './_onboarding-flow.mjs'
 
 const OFFSET = Number(process.env.DRIVE_PORT_OFFSET ?? 0)
 const KEY = 'sk-drive-test-0123456789'
@@ -100,6 +101,88 @@ try {
   check('and never in the settings blob a backup could carry', !stored.settings.includes(KEY))
   check('the page threw nothing', errors.length === 0, errors.join(' | '))
   check('the document still fits the phone', await page.evaluate(() => document.scrollingElement.scrollHeight <= innerHeight + 1))
+
+  // A brand-new self-build, set up nothing, rides the intro. Its practice
+  // round already needs Casey's AI for the player's own clue, and during the
+  // intro the error banner's "Casey settings" used to do nothing (owner,
+  // 2026-09-27): the intro replaced every screen, Settings included.
+  const intro = await browser.newContext({ viewport: { width: 360, height: 640 } })
+  await intro.addInitScript(() => {
+    // English, and the intro's lessons already seen: this is about the
+    // round, and a lesson overlay would only stand in the way of its taps.
+    if (!localStorage.getItem('cluecab-ui-language')) localStorage.setItem('cluecab-ui-language', 'en')
+    if (!localStorage.getItem('cluecab-onboard-lessons-v1')) {
+      localStorage.setItem('cluecab-onboard-lessons-v1', JSON.stringify({ translation: 'done', wheel: 'done', result: 'done', home: 'done' }))
+    }
+  })
+  const fresh = await intro.newPage()
+  fresh.on('pageerror', (e) => errors.push(`intro: ${e.message}`))
+  await fresh.goto(preview.base)
+  const flow = createOnboardingFlow(fresh)
+  await flow.ticketToHome('Denmark')
+  await flow.homeToTutorial()
+  const practice = () => fresh.evaluate(() => JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state?.game ?? null)
+  // Casey's two scripted clues and the answers the practice board is built for.
+  const answers = { drikke: ['da:vand', 'da:kaffe', 'da:mælk'], hjem: ['da:hus'] }
+  let phase = null
+  for (let i = 0; i < 200 && phase !== 'playerClueInput'; i++) {
+    await fresh.waitForTimeout(100)
+    const game = await practice()
+    phase = game?.phase ?? null
+    if (phase !== 'playerGuessing') continue
+    const clue = game.clueHistory.at(-1)
+    const done = new Set(clue.guesses.map((guess) => guess.wordId))
+    const wordId = (answers[clue.text] ?? []).find((id) => !done.has(id) && game.reveals[id].kind === 'hidden')
+    if (!wordId) throw new Error(`the practice round asked for «${clue.text}», which this drive has no answer for`)
+    const word = game.words.find((entry) => entry.wordId === wordId).da
+    await fresh.locator(`.word-card:has(.card-word:text-is("${word}"))`).click()
+    await fresh.locator('.guess-confirm .btn-primary').click()
+    await fresh.waitForFunction(
+      ({ clues, guesses }) => {
+        const state = JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state?.game
+        return state?.clueHistory?.length > clues || state?.clueHistory?.[clues - 1]?.guesses?.length > guesses
+      },
+      { clues: game.clueHistory.length, guesses: clue.guesses.length },
+    )
+  }
+  check('a fresh self-build reaches its own first clue in the practice round', phase === 'playerClueInput', String(phase))
+  await fresh.locator('.clue-input input[aria-label^="Your one-word clue"]').fill('spise')
+  if (Number(await fresh.locator('.stepper-value').innerText()) < 2) await fresh.locator('[aria-label="more words"]').click()
+  await fresh.locator('.clue-input .btn-primary').click()
+  const banner = fresh.locator('.error-banner')
+  await banner.waitFor({ timeout: 20000 })
+  check('with no AI yet, Casey says to set her up', (await banner.textContent()).includes('Set up Casey in Settings'))
+  const cluesBefore = (await practice()).clueHistory.length
+
+  await banner.getByRole('button', { name: 'Casey settings' }).click()
+  const setUp = fresh.getByTestId('own-casey-settings')
+  const reached = await setUp.waitFor({ timeout: 5000 }).then(() => true, () => false)
+  check('"Casey settings" opens Settings in the middle of the intro', reached)
+  if (reached) {
+    const introFields = fresh.getByTestId('own-key-fields')
+    await introFields.locator('input[type="url"]').fill(fake.baseUrl)
+    await introFields.locator('input[type="text"]').fill(MODEL)
+    await introFields.locator('input[type="password"]').fill(KEY)
+    await fresh.locator('.settings-screen .screen-header .icon-btn').click()
+    await fresh.locator('.tutorial-game .board-grid').waitFor({ timeout: 5000 })
+    check('and its back arrow returns to the same practice round',
+      (await practice()).clueHistory.length === cluesBefore && (await fresh.locator('.error-banner').count()) === 1)
+    const asked = fake.received.length
+    await fresh.locator('.error-banner').getByRole('button', { name: 'Retry' }).click()
+    const answered = await fresh.waitForFunction(
+      (clues) => {
+        const state = JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state?.game
+        return (state?.clueHistory?.[clues - 1]?.guesses?.length ?? 0) > 0
+      },
+      cluesBefore,
+      { timeout: 30000 },
+    ).then(() => true, () => false)
+    check('Retry then plays Casey’s guess with the key just added', answered && (await fresh.locator('.error-banner').count()) === 0,
+      `service asked ${fake.received.length - asked} time(s)`)
+  }
+  const introErrors = errors.filter((message) => message.startsWith('intro:'))
+  check('and the intro threw nothing', introErrors.length === 0, introErrors.join(' | '))
+  await intro.close()
 } catch (error) {
   console.log('OPEN-SOURCE DRIVE FAILED:', error.message)
   fail.push('open-source drive threw')

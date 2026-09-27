@@ -53,14 +53,17 @@ About ten minutes on any Mac, Windows or Linux computer.
    npm run dev
    ```
 
-3. Open [http://localhost:5173](http://localhost:5173).
-4. The first time, 900words opens with an introduction, and Casey needs her
-   AI before its first real round. So pick your language, tap **Skip**, and
-   open **Settings** (the cog on Home).
-5. Under **Casey's AI**, keep **Your own AI key**, paste your key and tap
-   **Test connection**. A tick means Casey is ready.
-6. Tap **Replay the intro** in Settings for the introduction, or go back and
-   tap **Play**.
+3. Open [http://localhost:5173](http://localhost:5173) and keep the terminal
+   open while you play.
+4. The first time, 900words starts with a short practice round. When Casey
+   first needs her AI she says so: tap **Casey settings**, keep **Your own
+   AI key**, paste your key and tap **Test connection**. A tick means she is
+   ready. Go back (←) and tap **Retry**.
+
+Later, Casey's AI is under **Settings** (the cog on Home).
+
+Next time, `cd 900words-self-hosted` and `npm run dev` is enough. To update,
+`git pull` and `npm ci` first.
 
 Your key stays in this browser and goes only to the service you set. It is
 never part of a backup. Ollama Cloud does not accept requests straight from
@@ -89,9 +92,10 @@ build again. A paid developer account ($99 a year) makes that a year.
    **Settings → General → VPN & Device Management**, then turn on
    **Developer Mode** if it asks (**Settings → Privacy & Security**).
 5. When 900words opens, it offers to download Gemma. Say yes to play
-   offline, or no to use your own AI key instead (**Settings → Casey's AI**).
-   The download is 3 GB and takes a few minutes on Wi-Fi. If Casey says she
-   is not set up yet during the introduction, wait for it and tap **Retry**.
+   offline, or no to use your own AI key instead. The download is 3 GB and
+   takes a few minutes on Wi-Fi. If Casey says she is not set up yet, tap
+   **Casey settings** to watch the download or add a key, go back, and tap
+   **Retry**.
 
 After changing the code, run `npm run ios` again and press Run.
 
