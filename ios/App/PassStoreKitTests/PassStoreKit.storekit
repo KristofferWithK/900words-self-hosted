@@ -1,0 +1,68 @@
+{
+  "identifier" : "D9EF8357-3CF6-4BAD-9F97-0C57B4390001",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "10.99",
+      "familyShareable" : false,
+      "internalID" : "9001002",
+      "localizations" : [
+        {
+          "description" : "Lifetime access to 900words.",
+          "displayName" : "900 Pass Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.kristofferwithk.cluecabulary.pass.lifetime",
+      "referenceName" : "900 Pass Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "D9EF8357-3CF6-4BAD-9F97-0C57B4390002",
+      "localizations" : [
+        {
+          "description" : "Monthly access to 900words.",
+          "displayName" : "900 Pass",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "900 Pass",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "9001001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly access to 900words.",
+              "displayName" : "900 Pass Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.kristofferwithk.cluecabulary.pass.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "900 Pass Monthly",
+          "subscriptionGroupID" : "D9EF8357-3CF6-4BAD-9F97-0C57B4390002",
+          "type" : "RecurringSubscription",
+          "winBackOffers" : []
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

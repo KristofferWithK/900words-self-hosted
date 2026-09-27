@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "ledgerVersion": "da-spoken-coverage-v1.0.0",
+  "preparedAt": "2026-08-23",
+  "measurementUnit": "running word tokens matched by exact NFC-normalised word form",
+  "inventoryFreeze": {
+    "appCommit": "61adf79",
+    "refreshNote": "2026-09-07: the file hashes were refreshed after words.da.json changed bytes without changing a form — all 900 card forms and 252 support forms still match docs/spoken-coverage-word-ranking.da.csv exactly, so every measurement below stands. Freeze commit 529ef9e was the original.",
+    "cards": {
+      "id": "DA-CARDS-900-V1",
+      "forms": 900,
+      "path": "src/data/words.da.json",
+      "sha256": "2FF022F72F8DD7987DA9F13472FCD0C5B2B722CED0B803E7EE9DB1C20258EAC5",
+      "selection": "all card headwords"
+    },
+    "course": {
+      "id": "DA-COURSE-FORMS-1152-V1",
+      "forms": 1152,
+      "path": "src/data/words.da.json + src/data/function-words.da.json",
+      "cards": 900,
+      "supportForms": 252,
+      "cardsSha256": "2FF022F72F8DD7987DA9F13472FCD0C5B2B722CED0B803E7EE9DB1C20258EAC5",
+      "supportSha256": "9D293C2DB576FC76C096B2F7BAA2CF31814C4F7BDA1D13B357F6FACB8DF4F9CB",
+      "selection": "all card headwords plus every distinct support-ledger form"
+    }
+  },
+  "normalization": {
+    "unicode": "NFC",
+    "case": "lowercase with da-DK locale",
+    "tokenPattern": "[\\p{L}\\p{M}]+(?:['’\\-][\\p{L}\\p{M}]+)*",
+    "speakerPrefix": "remove Taler N: or Speaker N: only at the start of a transcript line",
+    "credit": "exact form only; no lemmatisation, inflection, spelling-variant, compound or word-family credit"
+  },
+  "sources": [
+    {
+      "id": "DAGW-SPONT-0AB1895",
+      "title": "Danish Gigaword spontaneous-speech subset",
+      "repository": "danish-foundation-models/danish-gigaword",
+      "revision": "0ab1895173d0b2e744d012554ae89f5fcfc5f350",
+      "config": "spont",
+      "split": "train",
+      "file": "spont/spont.parquet",
+      "documents": 411,
+      "runningTokens": 639485,
+      "textReceiptSha256": "A567EB4AF493F4ABC75A26F2DEA0FECB6E1D1AE03D0E8344B2DA3A6E4218561B",
+      "datasetUrl": "https://huggingface.co/datasets/danish-foundation-models/danish-gigaword/tree/0ab1895173d0b2e744d012554ae89f5fcfc5f350/spont",
+      "citationUrl": "https://aclanthology.org/2021.nodalida-main.46/",
+      "limitations": [
+        "The measured subset contains 411 spontaneous or pseudo-spontaneous two-person conversations, not a probability sample of all daily Danish.",
+        "Task and game vocabulary is conspicuous among uncovered forms.",
+        "Filled pauses, anonymisation markers and code-switching remain in the denominator."
+      ]
+    },
+    {
+      "id": "CORAL-CONVTEST-01F7C93",
+      "title": "CoRal v3 conversational test split",
+      "repository": "CoRal-project/coral-v3",
+      "revision": "01f7c93c21fc9dec87fe9f7149c79569cc433f08",
+      "config": "conversation",
+      "split": "test",
+      "file": "Hugging Face Dataset Viewer text field only",
+      "documents": 8438,
+      "runningTokens": 95380,
+      "textReceiptSha256": "4881DB4B277BE07C9FF67BCA5E9B1A0968735F403E309C3F399F61A29ED21661",
+      "datasetUrl": "https://huggingface.co/datasets/CoRal-project/coral-v3/tree/01f7c93c21fc9dec87fe9f7149c79569cc433f08",
+      "citationUrl": "https://huggingface.co/datasets/CoRal-project/coral-v3/blob/01f7c93c21fc9dec87fe9f7149c79569cc433f08/README.md",
+      "limitations": [
+        "The source dataset card describes this conversational test split as tentative; the immutable revision makes this audit reproducible but not representative of all Danish speech.",
+        "The measurement used transcript text only and did not assess audio, recognition accuracy or listening conditions.",
+        "Filled pauses and conversational spellings remain in the denominator."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "DA-SPOKEN-FORM-CARDS900-DAGW-SPONT-V1",
+      "kind": "measured",
+      "status": "accepted",
+      "sourceId": "DAGW-SPONT-0AB1895",
+      "inventoryId": "DA-CARDS-900-V1",
+      "coveredTokens": 43627,
+      "runningTokens": 639485,
+      "coveragePercent": 6.822,
+      "coveredInventoryForms": 685,
+      "inventoryForms": 900
+    },
+    {
+      "id": "DA-SPOKEN-FORM-COURSE1152-DAGW-SPONT-V1",
+      "kind": "measured",
+      "status": "accepted",
+      "sourceId": "DAGW-SPONT-0AB1895",
+      "inventoryId": "DA-COURSE-FORMS-1152-V1",
+      "coveredTokens": 490690,
+      "runningTokens": 639485,
+      "coveragePercent": 76.732,
+      "coveredInventoryForms": 928,
+      "inventoryForms": 1152
+    },
+    {
+      "id": "DA-SPOKEN-FORM-CARDS900-CORAL-CONVTEST-V1",
+      "kind": "measured",
+      "status": "accepted",
+      "sourceId": "CORAL-CONVTEST-01F7C93",
+      "inventoryId": "DA-CARDS-900-V1",
+      "coveredTokens": 6531,
+      "runningTokens": 95380,
+      "coveragePercent": 6.847,
+      "coveredInventoryForms": 611,
+      "inventoryForms": 900
+    },
+    {
+      "id": "DA-SPOKEN-FORM-COURSE1152-CORAL-CONVTEST-V1",
+      "kind": "measured",
+      "status": "accepted",
+      "sourceId": "CORAL-CONVTEST-01F7C93",
+      "inventoryId": "DA-COURSE-FORMS-1152-V1",
+      "coveredTokens": 74912,
+      "runningTokens": 95380,
+      "coveragePercent": 78.541,
+      "coveredInventoryForms": 833,
+      "inventoryForms": 1152
+    },
+    {
+      "id": "DA-SPOKEN-FORM-COURSE1152-RANGE-V1",
+      "kind": "range",
+      "status": "accepted",
+      "claimIds": [
+        "DA-SPOKEN-FORM-COURSE1152-DAGW-SPONT-V1",
+        "DA-SPOKEN-FORM-COURSE1152-CORAL-CONVTEST-V1"
+      ],
+      "inventoryId": "DA-COURSE-FORMS-1152-V1",
+      "minimumPercent": 76.732,
+      "maximumPercent": 78.541,
+      "displayPercentages": ["77–79%"],
+      "derivation": "the two corpus results shown as a range; endpoints round independently to the nearest whole percentage; no pooling or averaging"
+    },
+    {
+      "id": "DA-SPOKEN-FORM-APP900-ANSWER-V1",
+      "kind": "answer",
+      "status": "accepted",
+      "wordCount": 900,
+      "claimIds": [
+        "DA-SPOKEN-FORM-CARDS900-DAGW-SPONT-V1",
+        "DA-SPOKEN-FORM-CARDS900-CORAL-CONVTEST-V1",
+        "DA-SPOKEN-FORM-COURSE1152-DAGW-SPONT-V1",
+        "DA-SPOKEN-FORM-COURSE1152-CORAL-CONVTEST-V1"
+      ],
+      "displayPercentages": ["6.822%", "6.847%", "76.732%", "78.541%"],
+      "decision": "The 900-card result and the 1,152-form course result must appear separately. The course result may not be labelled as 900 forms."
+    },
+    {
+      "id": "DA-SPOKEN-FORM-PREFIX100-WITHHELD-V1",
+      "kind": "withheld",
+      "status": "withheld",
+      "wordCount": 100,
+      "displayPercentages": [],
+      "reason": "V1 measured only the full 900-card inventory. Interpolation from 900 is invalid because token frequency is not linear in curriculum rank.",
+      "futureMethodId": "DA-CURRICULUM-PREFIX-RERUN-V1"
+    },
+    {
+      "id": "DA-SPOKEN-FORM-PREFIX500-WITHHELD-V1",
+      "kind": "withheld",
+      "status": "withheld",
+      "wordCount": 500,
+      "displayPercentages": [],
+      "reason": "V1 measured only the full 900-card inventory. Interpolation from 900 is invalid because token frequency is not linear in curriculum rank.",
+      "futureMethodId": "DA-CURRICULUM-PREFIX-RERUN-V1"
+    },
+    {
+      "id": "DA-SPOKEN-FORM-TOP1000-WITHHELD-V1",
+      "kind": "withheld",
+      "status": "withheld",
+      "wordCount": 1000,
+      "displayPercentages": [],
+      "reason": "The app has no 1,000-card inventory and no independently ranked, licensed Danish top-1,000 list with an accepted form, lemma or family rule has been pinned and rerun.",
+      "futureMethodId": "DA-INDEPENDENT-TOP1000-RERUN-V1"
+    }
+  ],
+  "futureMethods": [
+    {
+      "id": "DA-CURRICULUM-PREFIX-RERUN-V1",
+      "appliesToWordCounts": [100, 500],
+      "steps": [
+        "Freeze the current card file by commit and SHA-256, then select exactly the first N distinct headword forms by curriculumRank.",
+        "Rerun both pinned corpus text receipts with V1's unchanged tokenizer and normalization.",
+        "Report N card forms alone. In a separate row, report N card forms plus all 252 frozen support forms and label the resulting inventory as N + 252 forms.",
+        "Record numerator, denominator, covered forms and the thirty most frequent uncovered forms; do not interpolate from another N."
+      ]
+    },
+    {
+      "id": "DA-INDEPENDENT-TOP1000-RERUN-V1",
+      "appliesToWordCounts": [1000],
+      "steps": [
+        "Select an independently produced, licensed and reproducibly ranked Danish frequency list; do not rank it on either evaluation corpus.",
+        "Choose exactly one unit—surface forms, lemmas or word families—and publish that unit in the claim ID and title.",
+        "Normalize and de-duplicate the first 1,000 entries under a documented rule, then freeze the source revision and derived-list hash.",
+        "Rerun both pinned corpus text receipts and report the two corpus results separately; never compare a lemma or family result directly with V1's exact-form percentages."
+      ]
+    }
+  ],
+  "wording": [
+    {
+      "id": "COPY-IN1-CASEY-COVERAGE-V1",
+      "surface": "onboarding",
+      "claimId": "DA-SPOKEN-FORM-COURSE1152-RANGE-V1",
+      "text": "Our 900 card words, together with essential sentence vocabulary, matched about 77–79% of running word tokens in two frozen Danish conversation samples."
+    },
+    {
+      "id": "COPY-MK3-APP900-ANSWER-V1",
+      "surface": "marketing-methods",
+      "claimId": "DA-SPOKEN-FORM-APP900-ANSWER-V1",
+      "text": "The 900 card headwords alone matched 6.822% and 6.847% of running tokens. With 252 separately labelled essential sentence forms, the measured totals were 76.732% and 78.541%."
+    },
+    {
+      "id": "COPY-MK3-100-ANSWER-V1",
+      "surface": "marketing-answer",
+      "claimId": "DA-SPOKEN-FORM-PREFIX100-WITHHELD-V1",
+      "text": "We have not measured a Danish 100-word percentage yet; it cannot be inferred from the 900-card result."
+    },
+    {
+      "id": "COPY-MK3-500-ANSWER-V1",
+      "surface": "marketing-answer",
+      "claimId": "DA-SPOKEN-FORM-PREFIX500-WITHHELD-V1",
+      "text": "We have not measured a Danish 500-word percentage yet; it cannot be inferred from the 900-card result."
+    },
+    {
+      "id": "COPY-MK3-1000-ANSWER-V1",
+      "surface": "marketing-answer",
+      "claimId": "DA-SPOKEN-FORM-TOP1000-WITHHELD-V1",
+      "text": "We do not have a defensible Danish 1,000-word percentage yet. The answer depends on the ranked list and whether it counts forms, lemmas or word families."
+    }
+  ],
+  "chartSeries": [
+    {
+      "claimId": "DA-SPOKEN-FORM-CARDS900-DAGW-SPONT-V1",
+      "corpus": "Danish Gigaword spont",
+      "inventory": "900 card headwords",
+      "coveragePercent": 6.822
+    },
+    {
+      "claimId": "DA-SPOKEN-FORM-COURSE1152-DAGW-SPONT-V1",
+      "corpus": "Danish Gigaword spont",
+      "inventory": "900 cards + 252 support forms",
+      "coveragePercent": 76.732
+    },
+    {
+      "claimId": "DA-SPOKEN-FORM-CARDS900-CORAL-CONVTEST-V1",
+      "corpus": "CoRal v3 conversation/test",
+      "inventory": "900 card headwords",
+      "coveragePercent": 6.847
+    },
+    {
+      "claimId": "DA-SPOKEN-FORM-COURSE1152-CORAL-CONVTEST-V1",
+      "corpus": "CoRal v3 conversation/test",
+      "inventory": "900 cards + 252 support forms",
+      "coveragePercent": 78.541
+    }
+  ],
+  "globalLimitations": [
+    "Token coverage is not evidence of learner acquisition, comprehension, fluency, CEFR attainment or productive speaking ability.",
+    "A matched transcript form does not show that a learner recognises it in audio, knows its sense or can use it.",
+    "The two corpora have different sampling, sizes and domains; their results are shown separately or as a min–max range, never pooled or averaged.",
+    "The 1,152-form course inventory includes 252 support forms beyond the 900 cards and must never be shortened to a claim about 900 forms.",
+    "The results are bound to the exact corpus revisions, receipts, inventory hashes and normalization recorded here."
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "entries": {
+    "0-000": {
+      "id": "story:0:0",
+      "text": "Solen står op over Sønderborg, og en fugl synger i et stort træ.",
+      "stamp": "2599fefa1fc38fc9",
+      "bytes": 25632,
+      "at": "2026-08-23T00:06:14.277Z"
+    },
+    "0-001": {
+      "id": "story:0:1",
+      "text": "Huset er hvidt, og døren er rød.",
+      "stamp": "7dc6c8714fe2a5a4",
+      "bytes": 18144,
+      "at": "2026-08-23T00:06:14.903Z"
+    },
+    "0-002": {
+      "id": "story:0:2",
+      "text": "Der er et lille køkken med et bord, en stol og en gammel lampe.",
+      "stamp": "7112a01af19d8e5a",
+      "bytes": 31488,
+      "at": "2026-08-23T00:06:15.665Z"
+    },
+    "0-003": {
+      "id": "story:0:3",
+      "text": "Mor laver mad, mens far drikker kaffe ved vinduet.",
+      "stamp": "55b96d1305e6ff3b",
+      "bytes": 21600,
+      "at": "2026-08-23T00:06:16.333Z"
+    },
+    "0-004": {
+      "id": "story:0:4",
+      "text": "Barnet spiser et æble og drikker mælk.",
+      "stamp": "a6d17f507ad8b4a2",
+      "bytes": 18144,
+      "at": "2026-08-23T00:06:16.963Z"
+    },
+    "0-005": {
+      "id": "story:0:5",
+      "text": "På bordet står ost, smør, salt og et æg.",
+      "stamp": "38409cadff5d1f5a",
+      "bytes": 24480,
+      "at": "2026-08-23T00:06:17.659Z"
+    },
+    "0-006": {
+      "id": "story:0:6",
+      "text": "Hunden løber ud ad døren, mens en kat sover stadig på en seng.",
+      "stamp": "c447cde6dd0fa25c",
+      "bytes": 23424,
+      "at": "2026-08-23T00:06:18.351Z"
+    },
+    "0-007": {
+      "id": "story:0:7",
+      "text": "Deres værelse er lille, men vinduet er stort.",
+      "stamp": "0b41a77378f3e0eb",
+      "bytes": 18144,
+      "at": "2026-08-23T00:06:19.122Z"
+    },
+    "0-008": {
+      "id": "story:0:8",
+      "text": "Pigen har en blomst i hånden, og drengen har mistet en tand.",
+      "stamp": "1c13ad6f83d2ed35",
+      "bytes": 23424,
+      "at": "2026-08-23T00:06:19.836Z"
+    },
+    "0-009": {
+      "id": "story:0:9",
+      "text": "Hun har langt hår, en lille næse og en glad mund.",
+      "stamp": "8a15dc02e21b4e22",
+      "bytes": 23232,
+      "at": "2026-08-23T00:06:20.575Z"
+    },
+    "0-010": {
+      "id": "story:0:10",
+      "text": "Han lukker det ene øje og sætter en hat på hovedet.",
+      "stamp": "ef826c35dd13bb9b",
+      "bytes": 22944,
+      "at": "2026-08-23T00:06:21.239Z"
+    },
+    "0-011": {
+      "id": "story:0:11",
+      "text": "Katten sidder ved hans ben, mens han har ondt i en fod.",
+      "stamp": "efc3a3c26562217d",
+      "bytes": 22368,
+      "at": "2026-08-23T00:06:21.880Z"
+    },
+    "0-012": {
+      "id": "story:0:12",
+      "text": "Drengen har en bold under armen, og faren drikker en øl.",
+      "stamp": "4c4dbc3fb4816a46",
+      "bytes": 21024,
+      "at": "2026-08-23T00:06:22.554Z"
+    },
+    "0-013": {
+      "id": "story:0:13",
+      "text": "Pigen peger med en finger mod et sort fly på en klar himmel.",
+      "stamp": "c84503a71a1816e1",
+      "bytes": 31776,
+      "at": "2026-08-23T00:06:23.365Z"
+    },
+    "0-014": {
+      "id": "story:0:14",
+      "text": "Hjertet banker, fordi familien skal rejse i dag.",
+      "stamp": "16b7e8832e3a26a2",
+      "bytes": 23712,
+      "at": "2026-08-23T00:06:24.075Z"
+    },
+    "0-015": {
+      "id": "story:0:15",
+      "text": "De går ned ad en gade midt i en gammel by.",
+      "stamp": "0315dc460988e50b",
+      "bytes": 18144,
+      "at": "2026-08-23T00:06:24.677Z"
+    },
+    "0-016": {
+      "id": "story:0:16",
+      "text": "En ung kvinde og en gammel mand venter ved en kirke.",
+      "stamp": "a21f0cf8381afc35",
+      "bytes": 22944,
+      "at": "2026-08-23T00:06:25.326Z"
+    },
+    "0-017": {
+      "id": "story:0:17",
+      "text": "I en butik køber de kød, fisk og grøntsager.",
+      "stamp": "b6d744399dfe3e8c",
+      "bytes": 22080,
+      "at": "2026-08-23T00:06:25.963Z"
+    },
+    "0-018": {
+      "id": "story:0:18",
+      "text": "De tager også en kartoffel, sukker og en stor kage.",
+      "stamp": "7585c3fb5b9c8325",
+      "bytes": 22368,
+      "at": "2026-08-23T00:06:26.630Z"
+    },
+    "0-019": {
+      "id": "story:0:19",
+      "text": "Far henter penge i en bank, fordi han vil købe en bog.",
+      "stamp": "efe9f7af70421830",
+      "bytes": 23424,
+      "at": "2026-08-23T00:06:27.372Z"
+    },
+    "0-020": {
+      "id": "story:0:20",
+      "text": "Mor arbejder på et hospital, men i dag har hun fri.",
+      "stamp": "be00d7cf71b2bb06",
+      "bytes": 23232,
+      "at": "2026-08-23T00:06:28.135Z"
+    },
+    "0-021": {
+      "id": "story:0:21",
+      "text": "Hendes bror er lærer på en skole.",
+      "stamp": "975bd3305f26e5b8",
+      "bytes": 16512,
+      "at": "2026-08-23T00:06:28.758Z"
+    },
+    "0-022": {
+      "id": "story:0:22",
+      "text": "Hans søster kører en rød bil, og hendes søn har en cykel.",
+      "stamp": "ab234ffd22971f75",
+      "bytes": 26112,
+      "at": "2026-08-23T00:06:29.472Z"
+    },
+    "0-023": {
+      "id": "story:0:23",
+      "text": "En hest står i en park ved vandet.",
+      "stamp": "144886c6dab37740",
+      "bytes": 17088,
+      "at": "2026-08-23T00:06:30.059Z"
+    },
+    "0-024": {
+      "id": "story:0:24",
+      "text": "Deres datter og en ven læser en bog, hvis det regner.",
+      "stamp": "2eb3cf4b881cbc13",
+      "bytes": 23232,
+      "at": "2026-08-23T00:06:31.054Z"
+    },
+    "0-025": {
+      "id": "story:0:25",
+      "text": "En aften i sidste uge faldt der sne over hele byen.",
+      "stamp": "8c13f17aef5ccbad",
+      "bytes": 19968,
+      "at": "2026-08-23T00:06:31.681Z"
+    },
+    "0-026": {
+      "id": "story:0:26",
+      "text": "Nu venter et tog, og en bus kører forbi.",
+      "stamp": "10b0f9cdeb1e75c9",
+      "bytes": 20832,
+      "at": "2026-08-23T00:06:32.334Z"
+    },
+    "0-027": {
+      "id": "story:0:27",
+      "text": "Fra vinduet ser de stranden og et stort hav.",
+      "stamp": "7c608b6b355ffd38",
+      "bytes": 21888,
+      "at": "2026-08-23T00:06:33.050Z"
+    },
+    "0-028": {
+      "id": "story:0:28",
+      "text": "Det bliver nat, og man kan se månen og en klar stjerne.",
+      "stamp": "fec13278e7d8ee5d",
+      "bytes": 28032,
+      "at": "2026-08-23T00:06:33.893Z"
+    },
+    "0-029": {
+      "id": "story:0:29",
+      "text": "De elsker at rejse, selvom rejsen er lang.",
+      "stamp": "67a7088e5b22f26b",
+      "bytes": 21024,
+      "at": "2026-08-23T00:06:34.647Z"
+    },
+    "0-030": {
+      "id": "story:0:30",
+      "text": "Casey er glad, fordi kufferten er fuld af ord.",
+      "stamp": "2f2255850421b14e",
+      "bytes": 19968,
+      "at": "2026-08-23T00:06:35.298Z"
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 0.6,
+  "lang": "da"
+}

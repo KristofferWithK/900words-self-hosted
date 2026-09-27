@@ -1,0 +1,42 @@
+{
+  "about": "Documented outliers in the shipped Danish audio, each pinned to its measured value (scripts/validate-audio-acoustics.mjs). An exception holds only while the clip still measures what is recorded here; a drift in either direction fails the gate. Adding one needs a disposition, never a wider limit. `releaseBlocker` marks a launch-reachable clip that is wrong today; the gate prints it on every run.",
+  "measuredAt": "2026-09-26",
+  "clips": {
+    "rejse.mp3": {
+      "leadMs": 820,
+      "disposition": "Chirp3 lead the verified frame trim could not cut (2026-09-06). The onset map compensates: the player starts it 60 ms before the voice (clipStartAt), so the audible delay is the ordinary pre-roll. A cut needs its own verified trim, not a blind second pass (trim is not idempotent)."
+    },
+    "slow/knae.mp3": {
+      "leadMs": 600,
+      "disposition": "As rejse: untrimmed lead, compensated by the onset map."
+    },
+    "city1/board/gaa/v1/slow.mp3": {
+      "leadMs": 720,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/board/gang/v1/slow.mp3": {
+      "leadMs": 620,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/board/liv/v1/slow.mp3": {
+      "leadMs": 985,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/board/penge/v1/normal.mp3": {
+      "leadMs": 645,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/review/aeble/v2/normal.mp3": {
+      "leadMs": 865,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/review/koere/v3/normal.mp3": {
+      "leadMs": 680,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    },
+    "city1/review/vand/v2/normal.mp3": {
+      "leadMs": 870,
+      "disposition": "Hash-pinned City 1 sentence (src/data/city1-sentence-audio.da.json); the importer could not verify a cut. The onset map compensates at playback. Changing the bytes requires a new vN recording and catalog entry, not an in-place edit."
+    }
+  }
+}

@@ -1,0 +1,6453 @@
+[
+  {
+    "id": "da:mor",
+    "gloss": [
+      "mamma"
+    ],
+    "example": "”Hej, jag heter Anna,” säger min mamma."
+  },
+  {
+    "id": "da:far",
+    "gloss": [
+      "pappa"
+    ],
+    "example": "Min pappa säger god dag när han träffar en främling."
+  },
+  {
+    "id": "da:barn",
+    "gloss": [
+      "barn"
+    ],
+    "example": "”God morgon,” säger barnet. ”Jag förstår inte.”"
+  },
+  {
+    "id": "da:hund",
+    "gloss": [
+      "hund"
+    ],
+    "example": "Barnet säger ”god natt” till hunden."
+  },
+  {
+    "id": "da:kat",
+    "gloss": [
+      "katt"
+    ],
+    "example": "”Hallå, var är katten?” frågar hon."
+  },
+  {
+    "id": "da:hus",
+    "gloss": [
+      "hus"
+    ],
+    "example": "”Välkommen! Det finns ett hus här.”"
+  },
+  {
+    "id": "da:bord",
+    "gloss": [
+      "bord"
+    ],
+    "example": "Hon säger farväl vid bordet."
+  },
+  {
+    "id": "da:seng",
+    "gloss": [
+      "säng"
+    ],
+    "example": "Sängen är bäddad, och nu är det dags att säga god natt."
+  },
+  {
+    "id": "da:mad",
+    "gloss": [
+      "mat"
+    ],
+    "example": "”God dag. Maten är klar.”"
+  },
+  {
+    "id": "da:æble",
+    "gloss": [
+      "äpple"
+    ],
+    "example": "”God morgon. Vill du ha ett äpple?”"
+  },
+  {
+    "id": "da:mælk",
+    "gloss": [
+      "mjölk"
+    ],
+    "example": "Barnet dricker mjölk och säger ”god natt.”"
+  },
+  {
+    "id": "da:vand",
+    "gloss": [
+      "vatten"
+    ],
+    "example": "”Hallå, får jag lite vatten?”"
+  },
+  {
+    "id": "da:kaffe",
+    "gloss": [
+      "kaffe"
+    ],
+    "example": "”Välkommen. Kaffet är klart.”"
+  },
+  {
+    "id": "da:øje",
+    "gloss": [
+      "öga"
+    ],
+    "example": "Hon vinkar farväl med tårar i ögonen."
+  },
+  {
+    "id": "da:hånd",
+    "gloss": [
+      "hand"
+    ],
+    "example": "”Hej,” säger hon och tar mig i handen."
+  },
+  {
+    "id": "da:dør",
+    "gloss": [
+      "dörr"
+    ],
+    "example": "Kom in genom dörren. Välkommen!"
+  },
+  {
+    "id": "da:vindue",
+    "gloss": [
+      "fönster"
+    ],
+    "example": "”God morgon,” säger hon och öppnar fönstret."
+  },
+  {
+    "id": "da:stol",
+    "gloss": [
+      "stol"
+    ],
+    "example": "Ställ stolen här. Är det okej?"
+  },
+  {
+    "id": "da:køkken",
+    "gloss": [
+      "kök"
+    ],
+    "example": "”Hallå,” ropar han från köket."
+  },
+  {
+    "id": "da:mund",
+    "gloss": [
+      "mun"
+    ],
+    "example": "”Välkommen,” säger hon med ett leende om munnen."
+  },
+  {
+    "id": "da:hoved",
+    "gloss": [
+      "huvud"
+    ],
+    "example": "Hon säger farväl och nickar med huvudet."
+  },
+  {
+    "id": "da:mand",
+    "gloss": [
+      "man",
+      "make"
+    ],
+    "example": "”Hej, jag heter Bo,” säger mannen."
+  },
+  {
+    "id": "da:kvinde",
+    "gloss": [
+      "kvinna"
+    ],
+    "example": "”God dag,” säger kvinnan vid dörren."
+  },
+  {
+    "id": "da:pige",
+    "gloss": [
+      "flicka"
+    ],
+    "example": "Flickan säger ”god morgon” till sin mamma."
+  },
+  {
+    "id": "da:dreng",
+    "gloss": [
+      "pojke"
+    ],
+    "example": "Pojken säger ”god natt” och stänger boken."
+  },
+  {
+    "id": "da:bror",
+    "gloss": [
+      "bror"
+    ],
+    "example": "”Hallå, jag kommer från Aarhus,” säger min bror."
+  },
+  {
+    "id": "da:søster",
+    "gloss": [
+      "syster"
+    ],
+    "example": "”Välkommen,” säger min syster."
+  },
+  {
+    "id": "da:rød",
+    "gloss": [
+      "röd"
+    ],
+    "example": "Hon vinkar farväl med en röd halsduk."
+  },
+  {
+    "id": "da:hvid",
+    "gloss": [
+      "vit"
+    ],
+    "example": "”Hej” står det på den vita skylten."
+  },
+  {
+    "id": "da:sort",
+    "gloss": [
+      "svart"
+    ],
+    "example": "Ägaren går fram till mig med den svarta hunden och säger god dag."
+  },
+  {
+    "id": "da:ost",
+    "gloss": [
+      "ost"
+    ],
+    "example": "”God morgon. Finns det ost?”"
+  },
+  {
+    "id": "da:æg",
+    "gloss": [
+      "ägg"
+    ],
+    "example": "Efter att hon har sagt god natt lägger hon äggen i kylskåpet."
+  },
+  {
+    "id": "da:kød",
+    "gloss": [
+      "kött"
+    ],
+    "example": "”Hallå, jag äter inte kött,” säger han."
+  },
+  {
+    "id": "da:fisk",
+    "gloss": [
+      "fisk"
+    ],
+    "example": "”Välkommen. Vi har fisk i dag.”"
+  },
+  {
+    "id": "da:spise",
+    "gloss": [
+      "äta"
+    ],
+    "example": "Vi äter och säger farväl efteråt."
+  },
+  {
+    "id": "da:drikke",
+    "gloss": [
+      "dricka"
+    ],
+    "example": "”Hej,” säger hon och dricker vatten."
+  },
+  {
+    "id": "da:øl",
+    "gloss": [
+      "öl"
+    ],
+    "example": "”God dag. Skål!” säger han med en öl."
+  },
+  {
+    "id": "da:sol",
+    "gloss": [
+      "sol"
+    ],
+    "example": "”God morgon,” säger hon till solen."
+  },
+  {
+    "id": "da:træ",
+    "gloss": [
+      "träd",
+      "trä"
+    ],
+    "example": "De säger ”god natt” under trädet."
+  },
+  {
+    "id": "da:blomst",
+    "gloss": [
+      "blomma"
+    ],
+    "example": "”Hallå,” säger hon och ger mig en blomma."
+  },
+  {
+    "id": "da:fugl",
+    "gloss": [
+      "fågel"
+    ],
+    "example": "Vid fågelhuset säger guiden: ”Välkommen.”"
+  },
+  {
+    "id": "da:hest",
+    "gloss": [
+      "häst"
+    ],
+    "example": "Hon säger farväl till hästen."
+  },
+  {
+    "id": "da:bil",
+    "gloss": [
+      "bil"
+    ],
+    "example": "Föraren säger god dag och väntar vid bilen."
+  },
+  {
+    "id": "da:by",
+    "gloss": [
+      "stad"
+    ],
+    "example": "”Tack. Jag kommer från en liten stad.”"
+  },
+  {
+    "id": "da:skole",
+    "gloss": [
+      "skola"
+    ],
+    "example": "”Tack,” säger barnet i skolan."
+  },
+  {
+    "id": "da:bog",
+    "gloss": [
+      "bok"
+    ],
+    "example": "”Tack. Vad betyder ordet i boken?”"
+  },
+  {
+    "id": "da:ben",
+    "gloss": [
+      "ben"
+    ],
+    "example": "”Tack. Kan du hjälpa mig? Mitt ben gör ont.”"
+  },
+  {
+    "id": "da:fod",
+    "gloss": [
+      "fot"
+    ],
+    "example": "”Tack,” säger hon och pekar på sin fot."
+  },
+  {
+    "id": "da:arm",
+    "gloss": [
+      "arm"
+    ],
+    "example": "”Ursäkta, min arm gör ont.”"
+  },
+  {
+    "id": "da:finger",
+    "gloss": [
+      "finger"
+    ],
+    "example": "”Ursäkta, kan du hjälpa mig? Mitt finger blöder.”"
+  },
+  {
+    "id": "da:næse",
+    "gloss": [
+      "näsa"
+    ],
+    "example": "”Ursäkta,” säger hon och torkar näsan."
+  },
+  {
+    "id": "da:tand",
+    "gloss": [
+      "tand"
+    ],
+    "example": "”Ursäkta, var är tandläkaren?”"
+  },
+  {
+    "id": "da:hår",
+    "gloss": [
+      "hår"
+    ],
+    "example": "”Ursäkta, är det ditt hår?”"
+  },
+  {
+    "id": "da:hjerte",
+    "gloss": [
+      "hjärta"
+    ],
+    "example": "”Ursäkta, mitt hjärta slår snabbt.”"
+  },
+  {
+    "id": "da:dag",
+    "gloss": [
+      "dag"
+    ],
+    "example": "”Okej, det är en bra dag.”"
+  },
+  {
+    "id": "da:nat",
+    "gloss": [
+      "natt"
+    ],
+    "example": "”Okej, vi ses i natt.”"
+  },
+  {
+    "id": "da:aften",
+    "gloss": [
+      "kväll"
+    ],
+    "example": "I kväll säger vi skål vid bordet."
+  },
+  {
+    "id": "da:uge",
+    "gloss": [
+      "vecka"
+    ],
+    "example": "”Okej, vi ses igen om en vecka.”"
+  },
+  {
+    "id": "da:stor",
+    "gloss": [
+      "stor"
+    ],
+    "example": "”Okej, huset är mycket stort.”"
+  },
+  {
+    "id": "da:lille",
+    "gloss": [
+      "liten"
+    ],
+    "example": "”Okej, den lilla hunden är här.”"
+  },
+  {
+    "id": "da:gammel",
+    "gloss": [
+      "gammal"
+    ],
+    "example": "”Ja, min farfar är gammal.”"
+  },
+  {
+    "id": "da:ung",
+    "gloss": [
+      "ung"
+    ],
+    "example": "”Ja, hon är mycket ung.”"
+  },
+  {
+    "id": "da:glad",
+    "gloss": [
+      "glad"
+    ],
+    "example": "”Ja, jag är glad,” säger hon och lyfter glaset: ”Skål!”"
+  },
+  {
+    "id": "da:elske",
+    "gloss": [
+      "älska"
+    ],
+    "example": "”Ja, jag älskar min familj.”"
+  },
+  {
+    "id": "da:ven",
+    "gloss": [
+      "vän"
+    ],
+    "example": "”Ja, han är min vän.”"
+  },
+  {
+    "id": "da:søn",
+    "gloss": [
+      "son"
+    ],
+    "example": "”Ja, de har en son.”"
+  },
+  {
+    "id": "da:datter",
+    "gloss": [
+      "dotter"
+    ],
+    "example": "”Nej, hennes dotter är inte här.”"
+  },
+  {
+    "id": "da:kage",
+    "gloss": [
+      "kaka",
+      "tårta"
+    ],
+    "example": "Kakan är till min värd; jag kommer från Odense med den."
+  },
+  {
+    "id": "da:smør",
+    "gloss": [
+      "smör"
+    ],
+    "example": "”Nej, jag vill inte ha smör.”"
+  },
+  {
+    "id": "da:salt",
+    "gloss": [
+      "salt"
+    ],
+    "example": "Hon räcker mig saltet innan vi lyfter glasen och säger skål."
+  },
+  {
+    "id": "da:sukker",
+    "gloss": [
+      "socker"
+    ],
+    "example": "”Nej, jag tar inte socker.”"
+  },
+  {
+    "id": "da:kartoffel",
+    "gloss": [
+      "potatis"
+    ],
+    "example": "Jag förstår inte: Är det en potatis?"
+  },
+  {
+    "id": "da:grøntsag",
+    "gloss": [
+      "grönsak"
+    ],
+    "example": "”Kan du säga det igen? Grönsaker är nyttiga.”"
+  },
+  {
+    "id": "da:lampe",
+    "gloss": [
+      "lampa"
+    ],
+    "example": "”Kan du säga det igen? Lampan är släckt.”"
+  },
+  {
+    "id": "da:værelse",
+    "gloss": [
+      "rum"
+    ],
+    "example": "”Kan du säga det igen? Var är rummet?”"
+  },
+  {
+    "id": "da:himmel",
+    "gloss": [
+      "himmel"
+    ],
+    "example": "Vad betyder himmel? Kan du säga det igen?"
+  },
+  {
+    "id": "da:regn",
+    "gloss": [
+      "regn"
+    ],
+    "example": "”Kan du säga det igen? Regn är på väg.”"
+  },
+  {
+    "id": "da:sne",
+    "gloss": [
+      "snö"
+    ],
+    "example": "”Kan du säga det igen? Det ligger snö här.”"
+  },
+  {
+    "id": "da:måne",
+    "gloss": [
+      "måne"
+    ],
+    "example": "”Lite långsammare, tack. Månen är klar.”"
+  },
+  {
+    "id": "da:stjerne",
+    "gloss": [
+      "stjärna"
+    ],
+    "example": "”Lite långsammare, tack. Var är stjärnan?”"
+  },
+  {
+    "id": "da:hav",
+    "gloss": [
+      "hav"
+    ],
+    "example": "”Lite långsammare, tack. Havet är lugnt.”"
+  },
+  {
+    "id": "da:strand",
+    "gloss": [
+      "strand"
+    ],
+    "example": "”Lite långsammare, tack. Stranden är här.”"
+  },
+  {
+    "id": "da:park",
+    "gloss": [
+      "park"
+    ],
+    "example": "”Lite långsammare, tack. Vi träffas i parken.”"
+  },
+  {
+    "id": "da:gade",
+    "gloss": [
+      "gata"
+    ],
+    "example": "På gatan ber jag: lite långsammare, tack."
+  },
+  {
+    "id": "da:kirke",
+    "gloss": [
+      "kyrka"
+    ],
+    "example": "”Vad betyder kyrka?” frågar hon."
+  },
+  {
+    "id": "da:hospital",
+    "gloss": [
+      "sjukhus"
+    ],
+    "example": "Jag förstår inte skylten vid sjukhuset."
+  },
+  {
+    "id": "da:butik",
+    "gloss": [
+      "affär"
+    ],
+    "example": "Jag förstår inte. Är affären öppen?"
+  },
+  {
+    "id": "da:bank",
+    "gloss": [
+      "bank"
+    ],
+    "example": "På banken säger jag: ”Jag förstår inte.”"
+  },
+  {
+    "id": "da:penge",
+    "gloss": [
+      "pengar"
+    ],
+    "example": "”Vad betyder pengar?” frågar han."
+  },
+  {
+    "id": "da:købe",
+    "gloss": [
+      "köpa"
+    ],
+    "example": "”Vad betyder köpa?” frågar barnet."
+  },
+  {
+    "id": "da:arbejde",
+    "gloss": [
+      "arbete",
+      "jobb"
+    ],
+    "example": "I dag arbetar jag hemma. Jag kommer från Odense men bor nu i Aarhus."
+  },
+  {
+    "id": "da:lærer",
+    "gloss": [
+      "lärare"
+    ],
+    "example": "Läraren vet inte vem som står vid dörren."
+  },
+  {
+    "id": "da:tog",
+    "gloss": [
+      "tåg"
+    ],
+    "example": "På tåget möter jag en man som säger: ”Jag kommer från Aarhus.”"
+  },
+  {
+    "id": "da:bus",
+    "gloss": [
+      "buss"
+    ],
+    "example": "”Var är bussen?” frågar hon."
+  },
+  {
+    "id": "da:cykel",
+    "gloss": [
+      "cykel"
+    ],
+    "example": "Cykeln stannar hemma, för svaret är nej."
+  },
+  {
+    "id": "da:fly",
+    "gloss": [
+      "flygplan",
+      "plan"
+    ],
+    "example": "Meningen ”Lite långsammare, tack” är nyttig under flygresan."
+  },
+  {
+    "id": "da:køre",
+    "gloss": [
+      "köra",
+      "åka"
+    ],
+    "example": "”Hjälp! Bilen går inte.”"
+  },
+  {
+    "id": "da:sove",
+    "gloss": [
+      "sova"
+    ],
+    "example": "”Kan du hjälpa mig? Barnet kan inte sova.”"
+  },
+  {
+    "id": "da:løbe",
+    "gloss": [
+      "springa"
+    ],
+    "example": "På vägen ropar barnet på hjälp när hunden springer bort."
+  },
+  {
+    "id": "da:læse",
+    "gloss": [
+      "läsa"
+    ],
+    "example": "”Kan du hjälpa mig? Jag kan inte läsa det.”"
+  },
+  {
+    "id": "da:år",
+    "gloss": [
+      "år"
+    ],
+    "example": "Mina år i Danmark kan göra mig säkrare på språket."
+  },
+  {
+    "id": "da:få",
+    "gloss": [
+      "få"
+    ],
+    "example": "Jag vill bara få mina brev skickade i dag."
+  },
+  {
+    "id": "da:dansk",
+    "gloss": [
+      "dansk"
+    ],
+    "example": "Jag studerar danska och arbetar som lärare."
+  },
+  {
+    "id": "da:menneske",
+    "gloss": [
+      "människa"
+    ],
+    "example": "En människa kan vara vänlig mot min son och också hjälpa honom."
+  },
+  {
+    "id": "da:komme",
+    "gloss": [
+      "komma"
+    ],
+    "example": "Kom med mina böcker, och kom ihåg din egen väska."
+  },
+  {
+    "id": "da:spørgsmål",
+    "gloss": [
+      "fråga"
+    ],
+    "example": "Din fråga kan göra mig klokare."
+  },
+  {
+    "id": "da:god",
+    "gloss": [
+      "bra"
+    ],
+    "example": "Det kan också vara bra att fråga."
+  },
+  {
+    "id": "da:hjem",
+    "gloss": [
+      "hem"
+    ],
+    "example": "Mina vänner är bara hemma och slappnar av."
+  },
+  {
+    "id": "da:sige",
+    "gloss": [
+      "säga"
+    ],
+    "example": "Jag vill bara säga det till honom."
+  },
+  {
+    "id": "da:job",
+    "gloss": [
+      "jobb"
+    ],
+    "example": "Jag arbetar som kock och har ett bra jobb."
+  },
+  {
+    "id": "da:godt",
+    "gloss": [
+      "bra",
+      "väl"
+    ],
+    "example": "Det är också bra att göra arbetet tillsammans."
+  },
+  {
+    "id": "da:gå",
+    "gloss": [
+      "gå"
+    ],
+    "example": "Du kan bara gå med dina vänner."
+  },
+  {
+    "id": "da:brød",
+    "gloss": [
+      "bröd"
+    ],
+    "example": "Hon frågar: ”Kan jag få bröd?”"
+  },
+  {
+    "id": "da:ny",
+    "gloss": [
+      "ny"
+    ],
+    "example": "Han har en ny bil."
+  },
+  {
+    "id": "da:te",
+    "gloss": [
+      "te"
+    ],
+    "example": "Hon frågar: ”Kan jag få te?”"
+  },
+  {
+    "id": "da:se",
+    "gloss": [
+      "se"
+    ],
+    "example": "På kortet står frågan ”Får jag se rummet?”"
+  },
+  {
+    "id": "da:hel",
+    "gloss": [
+      "hel"
+    ],
+    "example": "Mina händer är fulla hela dagen."
+  },
+  {
+    "id": "da:krop",
+    "gloss": [
+      "kropp"
+    ],
+    "example": "Min kropp kan också vara stark efter träning."
+  },
+  {
+    "id": "da:tage",
+    "gloss": [
+      "ta"
+    ],
+    "example": "Du får gärna ta dina skor med dig."
+  },
+  {
+    "id": "da:læge",
+    "gloss": [
+      "läkare"
+    ],
+    "example": "På sjukhuset arbetar jag som läkare."
+  },
+  {
+    "id": "da:lang",
+    "gloss": [
+      "lång"
+    ],
+    "example": "På det långa formuläret står: ”Min e-post är anna@example.dk.”"
+  },
+  {
+    "id": "da:elev",
+    "gloss": [
+      "elev"
+    ],
+    "example": "Jag studerar danska tillsammans med eleven. Eleven skriver: ”Mitt telefonnummer är 87 65 43 21. Kan du stava ditt namn?”"
+  },
+  {
+    "id": "da:give",
+    "gloss": [
+      "ge"
+    ],
+    "example": "Mitt telefonnummer är 12 34 56 78, och du kan ge det till läkaren."
+  },
+  {
+    "id": "da:pris",
+    "gloss": [
+      "pris"
+    ],
+    "example": "Priset är trettio kronor."
+  },
+  {
+    "id": "da:finde",
+    "gloss": [
+      "hitta"
+    ],
+    "example": "Kan ni hitta mina nycklar?"
+  },
+  {
+    "id": "da:billet",
+    "gloss": [
+      "biljett"
+    ],
+    "example": "Hon har deras biljetter."
+  },
+  {
+    "id": "da:sidste",
+    "gloss": [
+      "sista"
+    ],
+    "example": "Det är vår sista dag här."
+  },
+  {
+    "id": "da:stå",
+    "gloss": [
+      "stå"
+    ],
+    "example": "Han står bakom henne."
+  },
+  {
+    "id": "da:natur",
+    "gloss": [
+      "natur"
+    ],
+    "example": "Vi älskar naturen omkring oss."
+  },
+  {
+    "id": "da:blå",
+    "gloss": [
+      "blå"
+    ],
+    "example": "Är dina ögon blå?"
+  },
+  {
+    "id": "da:dyr",
+    "gloss": [
+      "djur"
+    ],
+    "example": "Vilket djur har de?"
+  },
+  {
+    "id": "da:vide",
+    "gloss": [
+      "veta",
+      "känna till"
+    ],
+    "example": "Vet ni var han bor?"
+  },
+  {
+    "id": "da:vejr",
+    "gloss": [
+      "väder"
+    ],
+    "example": "Vårt väder är inte alltid bra."
+  },
+  {
+    "id": "da:tro",
+    "gloss": [
+      "tro"
+    ],
+    "example": "Tror du på henne?"
+  },
+  {
+    "id": "da:hotel",
+    "gloss": [
+      "hotell"
+    ],
+    "example": "Jag bor på ett hotell med min familj."
+  },
+  {
+    "id": "da:høj",
+    "gloss": [
+      "hög",
+      "lång"
+    ],
+    "example": "Hans bror är lång, men min är kort."
+  },
+  {
+    "id": "da:glæde",
+    "gloss": [
+      "glädje"
+    ],
+    "example": "De sjunger för oss med stor glädje."
+  },
+  {
+    "id": "da:holde",
+    "gloss": [
+      "hålla"
+    ],
+    "example": "Kan du hålla deras väska?"
+  },
+  {
+    "id": "da:alene",
+    "gloss": [
+      "ensam"
+    ],
+    "example": "Hon bor ensam, men jag besöker henne."
+  },
+  {
+    "id": "da:kæreste",
+    "gloss": [
+      "partner",
+      "pojkvän",
+      "flickvän"
+    ],
+    "example": "Min partner vet att jag arbetar som lärare."
+  },
+  {
+    "id": "da:rigtig",
+    "gloss": [
+      "riktig",
+      "rätt"
+    ],
+    "example": "Är ditt svar riktigt?"
+  },
+  {
+    "id": "da:bruge",
+    "gloss": [
+      "använda"
+    ],
+    "example": "Vi använder bara våra telefoner hemma."
+  },
+  {
+    "id": "da:kærlighed",
+    "gloss": [
+      "kärlek"
+    ],
+    "example": "Deras kärlek är viktig för dem."
+  },
+  {
+    "id": "da:frokost",
+    "gloss": [
+      "lunch"
+    ],
+    "example": "Vill ni äta lunch med oss?"
+  },
+  {
+    "id": "da:lave",
+    "gloss": [
+      "göra"
+    ],
+    "example": "Vad gör hon med sina vänner?"
+  },
+  {
+    "id": "da:vigtig",
+    "gloss": [
+      "viktig"
+    ],
+    "example": "Det är viktigt att vara ärlig."
+  },
+  {
+    "id": "da:lejlighed",
+    "gloss": [
+      "lägenhet"
+    ],
+    "example": "Jag bor i min lilla lägenhet."
+  },
+  {
+    "id": "da:sætte",
+    "gloss": [
+      "sätta",
+      "ställa"
+    ],
+    "example": "Ställer du din kopp bredvid min?"
+  },
+  {
+    "id": "da:sø",
+    "gloss": [
+      "sjö"
+    ],
+    "example": "Det ligger en sjö bakom deras hus."
+  },
+  {
+    "id": "da:fin",
+    "gloss": [
+      "fin"
+    ],
+    "example": "Din jacka är fin, och hennes är också snygg."
+  },
+  {
+    "id": "da:kontor",
+    "gloss": [
+      "kontor"
+    ],
+    "example": "På kontoret skriver jag: ”Min e-post är lea@example.dk.”"
+  },
+  {
+    "id": "da:ligge",
+    "gloss": [
+      "ligga"
+    ],
+    "example": "Dina böcker ligger bredvid mina."
+  },
+  {
+    "id": "da:land",
+    "gloss": [
+      "land"
+    ],
+    "example": "Vilket land kommer ni från?"
+  },
+  {
+    "id": "da:sidde",
+    "gloss": [
+      "sitta"
+    ],
+    "example": "Sitter han mellan er?"
+  },
+  {
+    "id": "da:klar",
+    "gloss": [
+      "redo"
+    ],
+    "example": "Är de redo att träffa oss?"
+  },
+  {
+    "id": "da:liv",
+    "gloss": [
+      "liv"
+    ],
+    "example": "Hon har ett bra liv med honom och deras barn."
+  },
+  {
+    "id": "da:hedde",
+    "gloss": [
+      "heta"
+    ],
+    "example": "Jag heter Lea. Kan du stava ditt namn?"
+  },
+  {
+    "id": "da:øre",
+    "gloss": [
+      "öra"
+    ],
+    "example": "Hans hund har långa öron."
+  },
+  {
+    "id": "da:international",
+    "gloss": [
+      "internationell"
+    ],
+    "example": "På den internationella skolan säger jag: ”Jag studerar danska. Mitt namn stavas L-e-a.”"
+  },
+  {
+    "id": "da:verden",
+    "gloss": [
+      "värld"
+    ],
+    "example": "Världen är stor för oss alla."
+  },
+  {
+    "id": "da:tale",
+    "gloss": [
+      "tala",
+      "prata"
+    ],
+    "example": "Talar du danska med dem?"
+  },
+  {
+    "id": "da:morgenmad",
+    "gloss": [
+      "frukost"
+    ],
+    "example": "Jag gör frukost åt er."
+  },
+  {
+    "id": "da:næste",
+    "gloss": [
+      "nästa"
+    ],
+    "example": "Vi besöker henne nästa vecka."
+  },
+  {
+    "id": "da:lade",
+    "gloss": [
+      "låta"
+    ],
+    "example": "Låt mig göra det för dig."
+  },
+  {
+    "id": "da:gang",
+    "gloss": [
+      "gång"
+    ],
+    "example": "Gör ni det bara en gång?"
+  },
+  {
+    "id": "da:ord",
+    "gloss": [
+      "ord"
+    ],
+    "example": "Skriv ”Mitt namn stavas A-n-n-a” under ordet namn."
+  },
+  {
+    "id": "da:høre",
+    "gloss": [
+      "höra"
+    ],
+    "example": "Hör ni också deras musik?"
+  },
+  {
+    "id": "da:fri",
+    "gloss": [
+      "ledig"
+    ],
+    "example": "Hon är fri och besöker mig på kontoret. Jag säger: ”Mitt telefonnummer är 12 34 56 78.”"
+  },
+  {
+    "id": "da:rejse",
+    "gloss": [
+      "resa"
+    ],
+    "example": "Vår resa är bara planerad för oss två."
+  },
+  {
+    "id": "da:desværre",
+    "gloss": [
+      "tyvärr"
+    ],
+    "example": "Tyvärr kan hon inte hjälpa dem."
+  },
+  {
+    "id": "da:spørge",
+    "gloss": [
+      "fråga"
+    ],
+    "example": "Hon frågar: ”Kan du stava ditt namn?”"
+  },
+  {
+    "id": "da:klasse",
+    "gloss": [
+      "klass"
+    ],
+    "example": "Era barn och deras vänner går i vår klass."
+  },
+  {
+    "id": "da:kort",
+    "gloss": [
+      "kort"
+    ],
+    "example": "Ditt hår är kort, men hennes är långt."
+  },
+  {
+    "id": "da:side",
+    "gloss": [
+      "sida"
+    ],
+    "example": "Kan ni läsa sidan för oss?"
+  },
+  {
+    "id": "da:følge",
+    "gloss": [
+      "följa"
+    ],
+    "example": "Följer du honom hem?"
+  },
+  {
+    "id": "da:vind",
+    "gloss": [
+      "vind"
+    ],
+    "example": "Vinden är stark vid deras hus."
+  },
+  {
+    "id": "da:begynde",
+    "gloss": [
+      "börja"
+    ],
+    "example": "När börjar ert möte?"
+  },
+  {
+    "id": "da:vej",
+    "gloss": [
+      "väg"
+    ],
+    "example": "Kan hon visa oss vägen?"
+  },
+  {
+    "id": "da:sund",
+    "gloss": [
+      "hälsosam"
+    ],
+    "example": "Är deras mat hälsosam?"
+  },
+  {
+    "id": "da:familie",
+    "gloss": [
+      "familj"
+    ],
+    "example": "Jag bor med min familj."
+  },
+  {
+    "id": "da:vise",
+    "gloss": [
+      "visa"
+    ],
+    "example": "Visar ni henne ert hem?"
+  },
+  {
+    "id": "da:skov",
+    "gloss": [
+      "skog"
+    ],
+    "example": "Vi går i skogen med dem."
+  },
+  {
+    "id": "da:sikker",
+    "gloss": [
+      "säker"
+    ],
+    "example": "Är du säker på hans namn?"
+  },
+  {
+    "id": "da:føle",
+    "gloss": [
+      "känna"
+    ],
+    "example": "Hur känner ni er i dag?"
+  },
+  {
+    "id": "da:stue",
+    "gloss": [
+      "vardagsrum"
+    ],
+    "example": "Deras vardagsrum är större än vårt."
+  },
+  {
+    "id": "da:skrive",
+    "gloss": [
+      "skriva"
+    ],
+    "example": "Jag skriver: ”Mitt namn stavas B-o.”"
+  },
+  {
+    "id": "da:chef",
+    "gloss": [
+      "chef"
+    ],
+    "example": "Hennes chef pratar med oss om hans nya jobb och ger mig en uppgift."
+  },
+  {
+    "id": "da:stærk",
+    "gloss": [
+      "stark"
+    ],
+    "example": "Är ditt kaffe för starkt?"
+  },
+  {
+    "id": "da:aftensmad",
+    "gloss": [
+      "middag"
+    ],
+    "example": "Vad ska vi ha till middag?"
+  },
+  {
+    "id": "da:betyde",
+    "gloss": [
+      "betyda"
+    ],
+    "example": "Vad betyder det för dig?"
+  },
+  {
+    "id": "da:krone",
+    "gloss": [
+      "krona"
+    ],
+    "example": "Har ni bara en krona?"
+  },
+  {
+    "id": "da:svær",
+    "gloss": [
+      "svår"
+    ],
+    "example": "Det kan vara svårt för dem."
+  },
+  {
+    "id": "da:leve",
+    "gloss": [
+      "leva"
+    ],
+    "example": "De lever ett bra liv tillsammans."
+  },
+  {
+    "id": "da:skab",
+    "gloss": [
+      "skåp"
+    ],
+    "example": "Era koppar står i skåpet."
+  },
+  {
+    "id": "da:hurtigt",
+    "gloss": [
+      "snabbt",
+      "fort"
+    ],
+    "example": "Kan han göra det snabbt?"
+  },
+  {
+    "id": "da:restaurant",
+    "gloss": [
+      "restaurang"
+    ],
+    "example": "Vi träffar dem på er restaurang."
+  },
+  {
+    "id": "da:spille",
+    "gloss": [
+      "spela"
+    ],
+    "example": "Spelar du också med henne?"
+  },
+  {
+    "id": "da:åben",
+    "gloss": [
+      "öppen"
+    ],
+    "example": "Är ert kafé öppet?"
+  },
+  {
+    "id": "da:nøgle",
+    "gloss": [
+      "nyckel"
+    ],
+    "example": "Är det dina eller hans nycklar?"
+  },
+  {
+    "id": "da:møde",
+    "gloss": [
+      "möte"
+    ],
+    "example": "Vi har ett möte med dem."
+  },
+  {
+    "id": "da:tænke",
+    "gloss": [
+      "tänka"
+    ],
+    "example": "Jag skulle vilja tänka på två, tre eller fyra möjligheter."
+  },
+  {
+    "id": "da:syg",
+    "gloss": [
+      "sjuk"
+    ],
+    "example": "Fem barn är sjuka, men sex andra är friska."
+  },
+  {
+    "id": "da:lykke",
+    "gloss": [
+      "lycka",
+      "tur"
+    ],
+    "example": "En biljett till filmen Lycka kostar noll kronor, inte sju, nio eller tjugo."
+  },
+  {
+    "id": "da:lægge",
+    "gloss": [
+      "lägga"
+    ],
+    "example": "Hon kan lägga fyra koppar och sex glas på bordet."
+  },
+  {
+    "id": "da:telefon",
+    "gloss": [
+      "telefon"
+    ],
+    "example": "På skylten står ”Hur mycket kostar telefonen?” Den kostar hundra kronor."
+  },
+  {
+    "id": "da:grøn",
+    "gloss": [
+      "grön"
+    ],
+    "example": "Tre väskor är gröna, och fem är gula."
+  },
+  {
+    "id": "da:bo",
+    "gloss": [
+      "bo"
+    ],
+    "example": "Ungefär två tusen människor bor på ön."
+  },
+  {
+    "id": "da:computer",
+    "gloss": [
+      "dator"
+    ],
+    "example": "Har affären fyra, sex eller åtta datorer?"
+  },
+  {
+    "id": "da:mave",
+    "gloss": [
+      "mage"
+    ],
+    "example": "Kan jag få två tabletter mot ont i magen?"
+  },
+  {
+    "id": "da:kende",
+    "gloss": [
+      "känna"
+    ],
+    "example": "Känner du tjugo av de fyrtio gästerna?"
+  },
+  {
+    "id": "da:national",
+    "gloss": [
+      "nationell"
+    ],
+    "example": "Nio museer har gratis inträde på den nationella helgdagen."
+  },
+  {
+    "id": "da:sted",
+    "gloss": [
+      "plats",
+      "ställe"
+    ],
+    "example": "Det finns tre lediga platser, men ingen vid fönstret."
+  },
+  {
+    "id": "da:prøve",
+    "gloss": [
+      "prova",
+      "försöka"
+    ],
+    "example": "Du får prova varan, även om priset är noll kronor."
+  },
+  {
+    "id": "da:sofa",
+    "gloss": [
+      "soffa"
+    ],
+    "example": "Vi har två soffor, men jag skulle vilja ha den lilla."
+  },
+  {
+    "id": "da:dårlig",
+    "gloss": [
+      "dålig"
+    ],
+    "example": "Är sex dåliga äpplen billigare än åtta eller tio bra?"
+  },
+  {
+    "id": "da:skib",
+    "gloss": [
+      "fartyg",
+      "skepp"
+    ],
+    "example": "Fartyget har plats för hundra passagerare, men bara femtio är ombord."
+  },
+  {
+    "id": "da:fortælle",
+    "gloss": [
+      "berätta"
+    ],
+    "example": "På marknaden betalar trettio andra kunder för att höra henne berätta."
+  },
+  {
+    "id": "da:samfund",
+    "gloss": [
+      "samhälle"
+    ],
+    "example": "Tusen familjer är en del av samma samhälle."
+  },
+  {
+    "id": "da:forstå",
+    "gloss": [
+      "förstå"
+    ],
+    "example": "Jag förstår inget av det som står på menyn, men jag skulle vilja prova något."
+  },
+  {
+    "id": "da:let",
+    "gloss": [
+      "lätt"
+    ],
+    "example": "Fem små lådor är lätta, men den stora är inte lätt."
+  },
+  {
+    "id": "da:luft",
+    "gloss": [
+      "luft"
+    ],
+    "example": "Det finns mycket rök i luften, men all luft från trädgården är frisk."
+  },
+  {
+    "id": "da:vente",
+    "gloss": [
+      "vänta"
+    ],
+    "example": "Trettio kunder väntar, och femtio fler kommer klockan tio."
+  },
+  {
+    "id": "da:badeværelse",
+    "gloss": [
+      "badrum"
+    ],
+    "example": "Det finns flera badrum, men färre på första våningen."
+  },
+  {
+    "id": "da:mulig",
+    "gloss": [
+      "möjlig"
+    ],
+    "example": "Är det möjligt att köpa något för ungefär tjugo kronor?"
+  },
+  {
+    "id": "da:tid",
+    "gloss": [
+      "tid"
+    ],
+    "example": "Hon lägger mycket tid på uppgiften, och all hennes tid är planerad."
+  },
+  {
+    "id": "da:hjælpe",
+    "gloss": [
+      "hjälpa"
+    ],
+    "example": "Kan du hjälpa någon med de många påsarna?"
+  },
+  {
+    "id": "da:navn",
+    "gloss": [
+      "namn"
+    ],
+    "example": "Skriv fem, sju eller nio namn på listan."
+  },
+  {
+    "id": "da:langsomt",
+    "gloss": [
+      "långsamt"
+    ],
+    "example": "Hur mycket kostar det om maskinen arbetar långsamt?"
+  },
+  {
+    "id": "da:huske",
+    "gloss": [
+      "komma ihåg",
+      "minnas"
+    ],
+    "example": "Kom ihåg trettio, femtio och tusen som tre olika tal."
+  },
+  {
+    "id": "da:station",
+    "gloss": [
+      "station"
+    ],
+    "example": "På stationen finns det några biljetter, men ingen till i morgon."
+  },
+  {
+    "id": "da:forskellig",
+    "gloss": [
+      "olika"
+    ],
+    "example": "Några väljer kaffe, några te, och andra väljer något helt annorlunda."
+  },
+  {
+    "id": "da:maskine",
+    "gloss": [
+      "maskin"
+    ],
+    "example": "Displayen visar noll innan maskinen gör två koppar eller fyra små glas."
+  },
+  {
+    "id": "da:betale",
+    "gloss": [
+      "betala"
+    ],
+    "example": "På restaurangen ber jag om notan, tack, innan jag betalar för maten."
+  },
+  {
+    "id": "da:kollega",
+    "gloss": [
+      "kollega"
+    ],
+    "example": "Kollegans fråga är: ”Hur mycket kostar lunchen?”"
+  },
+  {
+    "id": "da:alvorlig",
+    "gloss": [
+      "allvarlig"
+    ],
+    "example": "Inget av felen är allvarligt, men några är dyra."
+  },
+  {
+    "id": "da:håbe",
+    "gloss": [
+      "hoppas"
+    ],
+    "example": "Jag hoppas att någon köper de många biljetterna."
+  },
+  {
+    "id": "da:person",
+    "gloss": [
+      "person"
+    ],
+    "example": "Ungefär fyrtio personer väntar, och var och en får välja något för högst fyrtio kronor."
+  },
+  {
+    "id": "da:universitet",
+    "gloss": [
+      "universitet"
+    ],
+    "example": "Det finns tjugo kurser på universitetet, men ingen är gratis."
+  },
+  {
+    "id": "da:ønske",
+    "gloss": [
+      "önska",
+      "vilja ha"
+    ],
+    "example": "Hon önskar sig två böcker, fyra pennor och sex pärmar."
+  },
+  {
+    "id": "da:almindelig",
+    "gloss": [
+      "vanlig",
+      "normal"
+    ],
+    "example": "Kan jag få ett vanligt kaffe utan mycket mjölk?"
+  },
+  {
+    "id": "da:grund",
+    "gloss": [
+      "anledning",
+      "orsak"
+    ],
+    "example": "Det finns hundra goda anledningar att spara tjugo kronor i veckan."
+  },
+  {
+    "id": "da:kalde",
+    "gloss": [
+      "kalla"
+    ],
+    "example": "Vad kallar man något som kostar ingenting?"
+  },
+  {
+    "id": "da:måde",
+    "gloss": [
+      "sätt"
+    ],
+    "example": "De flesta betalar på ett sätt, men flera använder två kort."
+  },
+  {
+    "id": "da:nødvendig",
+    "gloss": [
+      "nödvändig"
+    ],
+    "example": "Om du inte saknar något är det inte nödvändigt att köpa något."
+  },
+  {
+    "id": "da:stemme",
+    "gloss": [
+      "röst"
+    ],
+    "example": "Fyra av sex kunder röstar för den billigaste varan."
+  },
+  {
+    "id": "da:sende",
+    "gloss": [
+      "skicka",
+      "sända"
+    ],
+    "example": "Kan du skicka åtta paket före klockan tio?"
+  },
+  {
+    "id": "da:billede",
+    "gloss": [
+      "bild",
+      "foto"
+    ],
+    "example": "Kan jag få en bild av de flesta varorna?"
+  },
+  {
+    "id": "da:offentlig",
+    "gloss": [
+      "offentlig"
+    ],
+    "example": "Ungefär fyrtio av hundra resor är med offentlig transport."
+  },
+  {
+    "id": "da:ske",
+    "gloss": [
+      "hända"
+    ],
+    "example": "Vad får medarbetaren göra om ingen betalar, och vad kan hända?"
+  },
+  {
+    "id": "da:plan",
+    "gloss": [
+      "plan"
+    ],
+    "example": "Planen ändrar ingenting, men vi betalar fortfarande för maten."
+  },
+  {
+    "id": "da:heldigvis",
+    "gloss": [
+      "lyckligtvis",
+      "som tur är"
+    ],
+    "example": "Lyckligtvis kostar de tre väskorna bara fem kronor var."
+  },
+  {
+    "id": "da:ryg",
+    "gloss": [
+      "rygg"
+    ],
+    "example": "Mycket vikt i väskan ger mig ont i ryggen."
+  },
+  {
+    "id": "da:søge",
+    "gloss": [
+      "söka",
+      "leta"
+    ],
+    "example": "Hon söker bland åtta, tio och trettio olika erbjudanden."
+  },
+  {
+    "id": "da:bange",
+    "gloss": [
+      "rädd"
+    ],
+    "example": "Barnet är rädd, men vill gärna hålla min hand."
+  },
+  {
+    "id": "da:ø",
+    "gloss": [
+      "ö"
+    ],
+    "example": "Man möter många människor på en ö med ungefär tusen invånare."
+  },
+  {
+    "id": "da:svare",
+    "gloss": [
+      "svara"
+    ],
+    "example": "Vill du svara ja eller nej på två frågor?"
+  },
+  {
+    "id": "da:væg",
+    "gloss": [
+      "vägg"
+    ],
+    "example": "Det finns inget på väggen, men jag skulle vilja ha en bild där."
+  },
+  {
+    "id": "da:vred",
+    "gloss": [
+      "arg"
+    ],
+    "example": "Tre arga kunder går, men fem andra stannar."
+  },
+  {
+    "id": "da:nummer",
+    "gloss": [
+      "nummer"
+    ],
+    "example": "Skriv noll som det första numret; det står också noll till sist."
+  },
+  {
+    "id": "da:bede",
+    "gloss": [
+      "be",
+      "fråga"
+    ],
+    "example": "Ber du om notan och betalar för maten?"
+  },
+  {
+    "id": "da:firma",
+    "gloss": [
+      "företag"
+    ],
+    "example": "Företaget har många kunder, men färre anställda."
+  },
+  {
+    "id": "da:vælge",
+    "gloss": [
+      "välja"
+    ],
+    "example": "Välj något med många grönsaker och inget socker."
+  },
+  {
+    "id": "da:sur",
+    "gloss": [
+      "sur"
+    ],
+    "example": "Två sura äpplen kostar ingenting, men de färska kostar mer."
+  },
+  {
+    "id": "da:valg",
+    "gloss": [
+      "val"
+    ],
+    "example": "Ett val mellan all mat är inte lätt."
+  },
+  {
+    "id": "da:vinde",
+    "gloss": [
+      "vinna"
+    ],
+    "example": "Sju lag spelar, men bara nio spelare kan vinna ett individuellt pris."
+  },
+  {
+    "id": "da:fejl",
+    "gloss": [
+      "fel",
+      "misstag"
+    ],
+    "example": "Jag skulle vilja ha en ny nota utan fel."
+  },
+  {
+    "id": "da:engelsk",
+    "gloss": [
+      "engelsk"
+    ],
+    "example": "Femtio av de tusen varorna har en engelsk text."
+  },
+  {
+    "id": "da:lyst",
+    "gloss": [
+      "lust"
+    ],
+    "example": "Har någon lust på något sött eller salt?"
+  },
+  {
+    "id": "da:lære",
+    "gloss": [
+      "lära sig"
+    ],
+    "example": "Ingen kan lära sig alla talen på en dag."
+  },
+  {
+    "id": "da:kop",
+    "gloss": [
+      "kopp"
+    ],
+    "example": "Jag lyfter koppen och säger: ”Kan jag få mer kaffe och notan, tack?”"
+  },
+  {
+    "id": "da:falde",
+    "gloss": [
+      "falla"
+    ],
+    "example": "De flesta äpplen faller ner, men några stannar på trädet."
+  },
+  {
+    "id": "da:ond",
+    "gloss": [
+      "elak"
+    ],
+    "example": "Nio onda figurer kräver tjugo eller fyrtio bitar."
+  },
+  {
+    "id": "da:glas",
+    "gloss": [
+      "glas"
+    ],
+    "example": "På kaféet lyder min fråga: ”Kan jag få ett glas vatten?”"
+  },
+  {
+    "id": "da:flaske",
+    "gloss": [
+      "flaska"
+    ],
+    "example": "Någon har ställt några flaskor bredvid någon mat."
+  },
+  {
+    "id": "da:dø",
+    "gloss": [
+      "dö"
+    ],
+    "example": "I experimentet dör noll växter om alla får tillräckligt med vatten."
+  },
+  {
+    "id": "da:politisk",
+    "gloss": [
+      "politisk"
+    ],
+    "example": "Är det ett politiskt val för eller emot planen?"
+  },
+  {
+    "id": "da:marked",
+    "gloss": [
+      "marknad"
+    ],
+    "example": "På marknaden betalar vi för fyra äpplen och sex ägg."
+  },
+  {
+    "id": "da:åbne",
+    "gloss": [
+      "öppna"
+    ],
+    "example": "Öppna appen; du betalar för biljetten där."
+  },
+  {
+    "id": "da:fest",
+    "gloss": [
+      "fest"
+    ],
+    "example": "På festen frågar han: ”Hur mycket kostar maten?” Vi betalar för ungefär fyrtio av de hundra gästerna."
+  },
+  {
+    "id": "da:tidligt",
+    "gloss": [
+      "tidigt"
+    ],
+    "example": "De flesta kommer tidigt, men färre stannar sent."
+  },
+  {
+    "id": "da:museum",
+    "gloss": [
+      "museum"
+    ],
+    "example": "Finns det någon rabatt på några av museets biljetter?"
+  },
+  {
+    "id": "da:starte",
+    "gloss": [
+      "starta"
+    ],
+    "example": "På fabriken står hundra maskiner, men noll kan starta utan ström."
+  },
+  {
+    "id": "da:genert",
+    "gloss": [
+      "blyg"
+    ],
+    "example": "Flera blyga gäster säger lite, och färre säger mycket."
+  },
+  {
+    "id": "da:time",
+    "gloss": [
+      "timme",
+      "lektion"
+    ],
+    "example": "Kursen varar åtta, tio eller trettio timmar."
+  },
+  {
+    "id": "da:stoppe",
+    "gloss": [
+      "stoppa"
+    ],
+    "example": "Kaffemaskinen stoppar innan kunden hinner säga: ”Notan, tack.”"
+  },
+  {
+    "id": "da:sang",
+    "gloss": [
+      "sång"
+    ],
+    "example": "Många kan sjunga en sång, men ingen kan alla verser."
+  },
+  {
+    "id": "da:økonomisk",
+    "gloss": [
+      "ekonomisk"
+    ],
+    "example": "Det är ekonomiskt att köpa något som använder färre kilowattimmar."
+  },
+  {
+    "id": "da:kamp",
+    "gloss": [
+      "match"
+    ],
+    "example": "Jag skulle vilja se matchen med några kollegor."
+  },
+  {
+    "id": "da:fortsætte",
+    "gloss": [
+      "fortsätta"
+    ],
+    "example": "Kan fem fortsätta om sju andra går?"
+  },
+  {
+    "id": "da:historie",
+    "gloss": [
+      "historia",
+      "berättelse"
+    ],
+    "example": "De flesta skulle vilja ha en berättelse med många bilder."
+  },
+  {
+    "id": "da:privat",
+    "gloss": [
+      "privat"
+    ],
+    "example": "De tio privata rummen kostar trettio eller femtio kronor."
+  },
+  {
+    "id": "da:turde",
+    "gloss": [
+      "våga",
+      "tordas"
+    ],
+    "example": "Ingen vågar säga ”Notan, tack” till den upptagna servitören."
+  },
+  {
+    "id": "da:ferie",
+    "gloss": [
+      "semester"
+    ],
+    "example": "Någon vill ha semester, och några vill bara arbeta."
+  },
+  {
+    "id": "da:nå",
+    "gloss": [
+      "hinna"
+    ],
+    "example": "Vi kan hinna till två butiker, men inte alla tre."
+  },
+  {
+    "id": "da:sommerfugl",
+    "gloss": [
+      "fjäril"
+    ],
+    "example": "Några fjärilar har många färger, men ingen är likadan."
+  },
+  {
+    "id": "da:gul",
+    "gloss": [
+      "gul"
+    ],
+    "example": "Fem, sju eller nio gula blommor kostar tjugo kronor."
+  },
+  {
+    "id": "da:sky",
+    "gloss": [
+      "moln"
+    ],
+    "example": "Hur mycket kostar en bild med fyrtio moln?"
+  },
+  {
+    "id": "da:opgave",
+    "gloss": [
+      "uppgift"
+    ],
+    "example": "Systemet har tusen uppgifter, och femtio är öppna; sju kräver mycket tid."
+  },
+  {
+    "id": "da:sent",
+    "gloss": [
+      "sent"
+    ],
+    "example": "Ingen vill äta sent, men någon skulle vilja ha kaffe."
+  },
+  {
+    "id": "da:gulv",
+    "gloss": [
+      "golv"
+    ],
+    "example": "Det ligger något på golvet, men inget är till salu."
+  },
+  {
+    "id": "da:mene",
+    "gloss": [
+      "tycka",
+      "mena"
+    ],
+    "example": "Hon tycker ofta något annat än jag."
+  },
+  {
+    "id": "da:rask",
+    "gloss": [
+      "frisk"
+    ],
+    "example": "Snart är han frisk igen, men i går var han sjuk."
+  },
+  {
+    "id": "da:tabe",
+    "gloss": [
+      "förlora",
+      "tappa"
+    ],
+    "example": "Jag förlorar aldrig först, men förlorar ofta till slut."
+  },
+  {
+    "id": "da:jord",
+    "gloss": [
+      "jord"
+    ],
+    "example": "Först är jorden torr, och efteråt är den våt."
+  },
+  {
+    "id": "da:glemme",
+    "gloss": [
+      "glömma"
+    ],
+    "example": "Hon har ännu inte glömt varför mötet flyttades."
+  },
+  {
+    "id": "da:lokal",
+    "gloss": [
+      "lokal"
+    ],
+    "example": "Andra lokala butiker öppnar snart."
+  },
+  {
+    "id": "da:båd",
+    "gloss": [
+      "båt"
+    ],
+    "example": "Den första båten seglar nu, och den andra seglar snart; båda seglar ofta på sommaren."
+  },
+  {
+    "id": "da:lukke",
+    "gloss": [
+      "stänga"
+    ],
+    "example": "När stänger museet: före eller efter klockan sexton?"
+  },
+  {
+    "id": "da:løn",
+    "gloss": [
+      "lön"
+    ],
+    "example": "Lönen kommer ofta den tredje fredagen i månaden."
+  },
+  {
+    "id": "da:fremmed",
+    "gloss": [
+      "främmande"
+    ],
+    "example": "Hur hittar man vägen i ett främmande land?"
+  },
+  {
+    "id": "da:ansigt",
+    "gloss": [
+      "ansikte"
+    ],
+    "example": "På morgonen tvättar hon först sitt ansikte och sedan sina händer."
+  },
+  {
+    "id": "da:slutte",
+    "gloss": [
+      "sluta"
+    ],
+    "example": "Hon läser frågan ”När slutar filmen?” högt."
+  },
+  {
+    "id": "da:jakke",
+    "gloss": [
+      "jacka"
+    ],
+    "example": "Vilken jacka och vilken halsduk tar du på dig nu?"
+  },
+  {
+    "id": "da:slå",
+    "gloss": [
+      "slå"
+    ],
+    "example": "I går slog han bollen först, men i dag slår jag."
+  },
+  {
+    "id": "da:amerikansk",
+    "gloss": [
+      "amerikansk"
+    ],
+    "example": "Vilka amerikanska filmer ser ni ofta på fredagarna?"
+  },
+  {
+    "id": "da:kjole",
+    "gloss": [
+      "klänning"
+    ],
+    "example": "Den andra klänningen är redan såld, men den tredje finns här ännu."
+  },
+  {
+    "id": "da:skjorte",
+    "gloss": [
+      "skjorta"
+    ],
+    "example": "Före mötet väljer han först en vit skjorta och sedan en blå."
+  },
+  {
+    "id": "da:bære",
+    "gloss": [
+      "bära"
+    ],
+    "example": "Vem kan bära hennes väska om hon inte kan?"
+  },
+  {
+    "id": "da:nervøs",
+    "gloss": [
+      "nervös"
+    ],
+    "example": "Varför är du fortfarande nervös när provet är slut?"
+  },
+  {
+    "id": "da:trøje",
+    "gloss": [
+      "tröja"
+    ],
+    "example": "Vilken tröja passar honom, och vilka passar dig?"
+  },
+  {
+    "id": "da:trække",
+    "gloss": [
+      "dra"
+    ],
+    "example": "Först drar hästen en vagn; efteråt drar den en annan."
+  },
+  {
+    "id": "da:frakke",
+    "gloss": [
+      "kappa"
+    ],
+    "example": "Hennes kappa är fortfarande våt efter torsdagens regn, men de andra jackorna är torra."
+  },
+  {
+    "id": "da:kendt",
+    "gloss": [
+      "känd"
+    ],
+    "example": "Senast träffade vi en känd kock på stationen."
+  },
+  {
+    "id": "da:nederdel",
+    "gloss": [
+      "kjol"
+    ],
+    "example": "På tisdag köper hon en kjol, och på onsdag köper hon en annan."
+  },
+  {
+    "id": "da:kaste",
+    "gloss": [
+      "kasta"
+    ],
+    "example": "Varför kastar han alltid bort den första bollen?"
+  },
+  {
+    "id": "da:storm",
+    "gloss": [
+      "storm"
+    ],
+    "example": "I kväll är stormen redan på väg, men den är inte här ännu."
+  },
+  {
+    "id": "da:gribe",
+    "gloss": [
+      "fånga",
+      "gripa"
+    ],
+    "example": "Vilken hand fångar först, och vilken fångar efteråt?"
+  },
+  {
+    "id": "da:hue",
+    "gloss": [
+      "mössa"
+    ],
+    "example": "Vilken mössa använder du på måndagen, och vilka använder du på fredagen?"
+  },
+  {
+    "id": "da:populær",
+    "gloss": [
+      "populär"
+    ],
+    "example": "Sången är redan populär, även om den inte kommer ut förrän i juni."
+  },
+  {
+    "id": "da:springe",
+    "gloss": [
+      "hoppa"
+    ],
+    "example": "Nu kan katten hoppa upp, men förut kunde den inte."
+  },
+  {
+    "id": "da:tæppe",
+    "gloss": [
+      "matta",
+      "filt"
+    ],
+    "example": "Vilken matta lägger vi först, och vilken tar vi efteråt?"
+  },
+  {
+    "id": "da:moderne",
+    "gloss": [
+      "modern"
+    ],
+    "example": "De första husen är gamla; de andra är moderna."
+  },
+  {
+    "id": "da:plads",
+    "gloss": [
+      "plats"
+    ],
+    "example": "Det finns en annan ledig plats på torget."
+  },
+  {
+    "id": "da:flyve",
+    "gloss": [
+      "flyga"
+    ],
+    "example": "Varför flyger fåglarna alltid bort före vintern?"
+  },
+  {
+    "id": "da:hjælp",
+    "gloss": [
+      "hjälp"
+    ],
+    "example": "Vem har tid att ge er hjälp nu?"
+  },
+  {
+    "id": "da:svømme",
+    "gloss": [
+      "simma"
+    ],
+    "example": "Vi simmar ofta på lördagarna, men aldrig på måndagarna."
+  },
+  {
+    "id": "da:sag",
+    "gloss": [
+      "sak"
+    ],
+    "example": "Hur blir den första saken annorlunda än de andra?"
+  },
+  {
+    "id": "da:stolt",
+    "gloss": [
+      "stolt"
+    ],
+    "example": "Hennes mamma är alltid stolt när hon ser dina bilder."
+  },
+  {
+    "id": "da:nogensinde",
+    "gloss": [
+      "någonsin"
+    ],
+    "example": "Fråga aldrig om hon någonsin har varit här."
+  },
+  {
+    "id": "da:tag",
+    "gloss": [
+      "tak"
+    ],
+    "example": "Välj ett annat tak till det lilla huset."
+  },
+  {
+    "id": "da:hænge",
+    "gloss": [
+      "hänga"
+    ],
+    "example": "Vilka jackor ska hänga här, och vilka ska hänga där?"
+  },
+  {
+    "id": "da:sommer",
+    "gloss": [
+      "sommar"
+    ],
+    "example": "Sommaren börjar snart, men juni känns fortfarande långt borta."
+  },
+  {
+    "id": "da:normal",
+    "gloss": [
+      "normal"
+    ],
+    "example": "Senast var det en normal vecka: jag arbetade från måndag till fredag och var ledig efteråt. I kalendern stod ”I går arbetade jag hemma”."
+  },
+  {
+    "id": "da:vende",
+    "gloss": [
+      "vända"
+    ],
+    "example": "Vänd den första sidan nu och den andra efteråt."
+  },
+  {
+    "id": "da:morgen",
+    "gloss": [
+      "morgon"
+    ],
+    "example": "På tavlan står ”När börjar morgonen?”"
+  },
+  {
+    "id": "da:smerte",
+    "gloss": [
+      "smärta"
+    ],
+    "example": "Hur länge har du haft ont, och varför gör det ont?"
+  },
+  {
+    "id": "da:flytte",
+    "gloss": [
+      "flytta"
+    ],
+    "example": "När flyttar ni: den tredje maj eller den andra juni?"
+  },
+  {
+    "id": "da:særlig",
+    "gloss": [
+      "särskild"
+    ],
+    "example": "I dag är en särskild dag, eftersom vi redan är klara."
+  },
+  {
+    "id": "da:svar",
+    "gloss": [
+      "svar"
+    ],
+    "example": "Svaret visar vilken jacka som är min, vilket tåg som går först, och vilka skor som är nya."
+  },
+  {
+    "id": "da:ligne",
+    "gloss": [
+      "likna"
+    ],
+    "example": "Vem liknar hon mest nu: sin mamma eller sin pappa?"
+  },
+  {
+    "id": "da:måned",
+    "gloss": [
+      "månad"
+    ],
+    "example": "I kalendern står vilken månad det är, vilket möte som kommer först, vilka dagar som är lediga, och när mötet börjar."
+  },
+  {
+    "id": "da:umulig",
+    "gloss": [
+      "omöjlig"
+    ],
+    "example": "Först verkar uppgiften omöjlig, men sedan blir den lätt."
+  },
+  {
+    "id": "da:politi",
+    "gloss": [
+      "polis"
+    ],
+    "example": "Varför kommer polisen först efter klockan sexton?"
+  },
+  {
+    "id": "da:mangle",
+    "gloss": [
+      "sakna"
+    ],
+    "example": "Vilket svar saknas ännu, och vilka har vi redan?"
+  },
+  {
+    "id": "da:handske",
+    "gloss": [
+      "vante"
+    ],
+    "example": "Först hittar hon en handske; den andra hittar hon senare."
+  },
+  {
+    "id": "da:virke",
+    "gloss": [
+      "fungera",
+      "verka"
+    ],
+    "example": "Datorn fungerar nästan alltid, men i dag fungerar den inte."
+  },
+  {
+    "id": "da:nem",
+    "gloss": [
+      "lätt",
+      "enkel"
+    ],
+    "example": "Hur kan den tredje uppgiften vara lättare än den första?"
+  },
+  {
+    "id": "da:tanke",
+    "gloss": [
+      "tanke"
+    ],
+    "example": "Hon vet varför tanken kommer tillbaka."
+  },
+  {
+    "id": "da:gælde",
+    "gloss": [
+      "gälla"
+    ],
+    "example": "Biljetten gäller från tisdag till torsdag, men inte fredag."
+  },
+  {
+    "id": "da:drøm",
+    "gloss": [
+      "dröm"
+    ],
+    "example": "Sent på natten hade hon en dröm som hon fortfarande minns."
+  },
+  {
+    "id": "da:flot",
+    "gloss": [
+      "snygg"
+    ],
+    "example": "Vilken bild är snygg, och vilka är bara okej?"
+  },
+  {
+    "id": "da:vin",
+    "gloss": [
+      "vin"
+    ],
+    "example": "Notan, tack; vinet betalar vi först."
+  },
+  {
+    "id": "da:klare",
+    "gloss": [
+      "klara"
+    ],
+    "example": "I dag har jag gjort den första uppgiften och kan klara den andra nu."
+  },
+  {
+    "id": "da:eksamen",
+    "gloss": [
+      "prov"
+    ],
+    "example": "När börjar provet: klockan sexton eller lite före?"
+  },
+  {
+    "id": "da:tysk",
+    "gloss": [
+      "tysk"
+    ],
+    "example": "Skriv den tredje maj på tyska."
+  },
+  {
+    "id": "da:minut",
+    "gloss": [
+      "minut"
+    ],
+    "example": "Först väntar vi en minut, och sedan väntar vi fem till."
+  },
+  {
+    "id": "da:passe",
+    "gloss": [
+      "passa"
+    ],
+    "example": "Passar en annan tid bättre?"
+  },
+  {
+    "id": "da:sommetider",
+    "gloss": [
+      "ibland"
+    ],
+    "example": "Ibland arbetar jag sent, men aldrig på söndagarna."
+  },
+  {
+    "id": "da:weekend",
+    "gloss": [
+      "helg"
+    ],
+    "example": "Är ”I går arbetade jag hemma” en bra beskrivning av din helg? När börjar helgen för dig?"
+  },
+  {
+    "id": "da:ændre",
+    "gloss": [
+      "ändra"
+    ],
+    "example": "I meddelandet står varför tiden ska ändras."
+  },
+  {
+    "id": "da:sundhed",
+    "gloss": [
+      "hälsa"
+    ],
+    "example": "Varför är sömn alltid viktig för din hälsa?"
+  },
+  {
+    "id": "da:lykkelig",
+    "gloss": [
+      "lycklig"
+    ],
+    "example": "Hon är lycklig nu, men hon var inte alltid lycklig."
+  },
+  {
+    "id": "da:ringe",
+    "gloss": [
+      "ringa"
+    ],
+    "example": "När ringer du: onsdag eller torsdag?"
+  },
+  {
+    "id": "da:feber",
+    "gloss": [
+      "feber"
+    ],
+    "example": "Barnet har fortfarande feber, så vem ringer till läkaren?"
+  },
+  {
+    "id": "da:voksen",
+    "gloss": [
+      "vuxen"
+    ],
+    "example": "Den första vuxne kommer nu, och de andra kommer snart."
+  },
+  {
+    "id": "da:forkølelse",
+    "gloss": [
+      "förkylning"
+    ],
+    "example": "Hur länge varar en förkylning, och när är den över?"
+  },
+  {
+    "id": "da:besøge",
+    "gloss": [
+      "besöka"
+    ],
+    "example": "Vi besöker henne ofta i maj, men nästan aldrig i juni."
+  },
+  {
+    "id": "da:kone",
+    "gloss": [
+      "fru",
+      "hustru"
+    ],
+    "example": "Vem arbetar längst: hans fru eller hennes man?"
+  },
+  {
+    "id": "da:smile",
+    "gloss": [
+      "le"
+    ],
+    "example": "I går lagade jag mat, och barnet log hela tiden."
+  },
+  {
+    "id": "da:lufthavn",
+    "gloss": [
+      "flygplats"
+    ],
+    "example": "Vilken flygplats använder ni på fredag den tredje maj?"
+  },
+  {
+    "id": "da:færdig",
+    "gloss": [
+      "klar",
+      "färdig"
+    ],
+    "example": "I dag har jag arbetat länge, men nu är jag klar."
+  },
+  {
+    "id": "da:blod",
+    "gloss": [
+      "blod"
+    ],
+    "example": "Vem ser blod först, och vem hämtar hjälp efteråt?"
+  },
+  {
+    "id": "da:grine",
+    "gloss": [
+      "skratta"
+    ],
+    "example": "”I går köpte jag en rolig bok”, säger hon och börjar skratta."
+  },
+  {
+    "id": "da:hoste",
+    "gloss": [
+      "hosta"
+    ],
+    "example": "Hennes hosta är nästan borta, men hon hostar fortfarande ofta."
+  },
+  {
+    "id": "da:varm",
+    "gloss": [
+      "varm"
+    ],
+    "example": "Varför är soppan redan varm när gästerna inte kommer förrän senare?"
+  },
+  {
+    "id": "da:synge",
+    "gloss": [
+      "sjunga"
+    ],
+    "example": "I dag vill jag sjunga, och i går sjöng jag också."
+  },
+  {
+    "id": "da:trappe",
+    "gloss": [
+      "trappa"
+    ],
+    "example": "Vilken trappa går upp, och vilken går ner?"
+  },
+  {
+    "id": "da:danse",
+    "gloss": [
+      "dansa"
+    ],
+    "example": "I dag har jag lagat mat; efteråt vill jag dansa."
+  },
+  {
+    "id": "da:vinter",
+    "gloss": [
+      "vinter"
+    ],
+    "example": "Vintern känns alltid lång, även om den snart är över."
+  },
+  {
+    "id": "da:hurtig",
+    "gloss": [
+      "snabb"
+    ],
+    "example": "Vilket tåg är snabbast: det första eller det tredje?"
+  },
+  {
+    "id": "da:håb",
+    "gloss": [
+      "hopp"
+    ],
+    "example": "Under samtalet får hon hopp när hon hör frågan: ”När tar väntan slut?”"
+  },
+  {
+    "id": "da:lytte",
+    "gloss": [
+      "lyssna"
+    ],
+    "example": "I dag har jag läst texten; nu vill jag lyssna på den."
+  },
+  {
+    "id": "da:temperatur",
+    "gloss": [
+      "temperatur"
+    ],
+    "example": "Vilken temperatur har vi i januari, och vilken har vi i juli?"
+  },
+  {
+    "id": "da:ensom",
+    "gloss": [
+      "ensam"
+    ],
+    "example": "Han känner sig ofta ensam, men aldrig när familjen besöker honom."
+  },
+  {
+    "id": "da:bagefter",
+    "gloss": [
+      "efteråt"
+    ],
+    "example": "I går arbetade jag hemma, och efteråt gick jag en promenad."
+  },
+  {
+    "id": "da:støvle",
+    "gloss": [
+      "stövel"
+    ],
+    "example": "På rean säger jag: ”I dag har jag köpt nya stövlar.”"
+  },
+  {
+    "id": "da:følelse",
+    "gloss": [
+      "känsla"
+    ],
+    "example": "Vilken känsla kommer först, och vilken kommer efteråt?"
+  },
+  {
+    "id": "da:fred",
+    "gloss": [
+      "fred"
+    ],
+    "example": "Alla önskar alltid fred, men den kommer inte genast."
+  },
+  {
+    "id": "da:tidligere",
+    "gloss": [
+      "tidigare"
+    ],
+    "example": "Tidigare valde hon något annat; nu går hon hem klockan sexton."
+  },
+  {
+    "id": "da:hovedpine",
+    "gloss": [
+      "huvudvärk"
+    ],
+    "example": "Varför har hon fortfarande huvudvärk efter tre dagar?"
+  },
+  {
+    "id": "da:synes",
+    "gloss": [
+      "tycka"
+    ],
+    "example": "Hur kommer jag till bron från stationen, tycker du?"
+  },
+  {
+    "id": "da:dreje",
+    "gloss": [
+      "svänga"
+    ],
+    "example": "Instruktionen ”Sväng till vänster” visar hur man ska svänga."
+  },
+  {
+    "id": "da:grå",
+    "gloss": [
+      "grå"
+    ],
+    "example": "En grå katt går under bron medan fåglarna flyger över den."
+  },
+  {
+    "id": "da:græde",
+    "gloss": [
+      "gråta"
+    ],
+    "example": "Kliv av vid skolan; framför dig står en förälder medan ett barn gråter bakom dörren."
+  },
+  {
+    "id": "da:speciel",
+    "gloss": [
+      "speciell"
+    ],
+    "example": "En biljett till parken, tack; den speciella rutten går mellan sjöarna."
+  },
+  {
+    "id": "da:sprog",
+    "gloss": [
+      "språk"
+    ],
+    "example": "Jag hjälper henne med det danska språket innan hon frågar: ”Hur kommer jag till stigen?”"
+  },
+  {
+    "id": "da:kigge",
+    "gloss": [
+      "titta"
+    ],
+    "example": "Titta ner och omkring dig innan du går vidare."
+  },
+  {
+    "id": "da:idé",
+    "gloss": [
+      "idé"
+    ],
+    "example": "Min idé är: gå rakt fram, och gå sedan tillbaka åt andra hållet."
+  },
+  {
+    "id": "da:dejlig",
+    "gloss": [
+      "härlig",
+      "underbar",
+      "fin"
+    ],
+    "example": "Gå vidare uppför backen och ut till den härliga utsikten."
+  },
+  {
+    "id": "da:krig",
+    "gloss": [
+      "krig"
+    ],
+    "example": "Kartan visar en väg in i staden och en annan väg ner mot hamnen under kriget."
+  },
+  {
+    "id": "da:smage",
+    "gloss": [
+      "smaka"
+    ],
+    "example": "Maten smakar bäst uppe på terrassen och ute i solen."
+  },
+  {
+    "id": "da:sandhed",
+    "gloss": [
+      "sanning"
+    ],
+    "example": "Gå rakt fram; sanningen står inne i brevet, inte nere i anteckningen."
+  },
+  {
+    "id": "da:lugte",
+    "gloss": [
+      "lukta"
+    ],
+    "example": "Sväng till vänster; det luktar bröd hemma hos bagaren."
+  },
+  {
+    "id": "da:spejl",
+    "gloss": [
+      "spegel"
+    ],
+    "example": "Kliv av vid torget och gå mot butiken utan den röda skylten; den har en spegel i fönstret."
+  },
+  {
+    "id": "da:europæisk",
+    "gloss": [
+      "europeisk"
+    ],
+    "example": "En biljett till den europeiska utställningen, tack; vart går kön?"
+  },
+  {
+    "id": "da:røre",
+    "gloss": [
+      "röra"
+    ],
+    "example": "Rör inte skylten; gå mot vinden och bort från vägen."
+  },
+  {
+    "id": "da:forår",
+    "gloss": [
+      "vår"
+    ],
+    "example": "På våren går vi hemifrån till parken och tillbaka igen."
+  },
+  {
+    "id": "da:trist",
+    "gloss": [
+      "ledsen"
+    ],
+    "example": "Hon är ledsen på stationen, men glad vid tåget."
+  },
+  {
+    "id": "da:hals",
+    "gloss": [
+      "hals"
+    ],
+    "example": "Halsduken ligger över hennes hals och under jackan."
+  },
+  {
+    "id": "da:tælle",
+    "gloss": [
+      "räkna"
+    ],
+    "example": "Räkna dörrarna bakom oss och fönstren framför oss."
+  },
+  {
+    "id": "da:viden",
+    "gloss": [
+      "kunskap"
+    ],
+    "example": "Min kunskap om staden kommer från turen: ”Hur kommer jag till biblioteket?” var min första fråga."
+  },
+  {
+    "id": "da:koste",
+    "gloss": [
+      "kosta"
+    ],
+    "example": "Medan vi övar rutten säger guiden: ”Gå rakt fram,” och vi frågar vad turen kostar."
+  },
+  {
+    "id": "da:politistation",
+    "gloss": [
+      "polisstation"
+    ],
+    "example": "Gå runt polisstationen och sedan nerför gatan."
+  },
+  {
+    "id": "da:kold",
+    "gloss": [
+      "kall"
+    ],
+    "example": "Kliv av vid den kalla sjön och gå längs stranden."
+  },
+  {
+    "id": "da:hat",
+    "gloss": [
+      "hatt"
+    ],
+    "example": "På stationen säger mannen med hatt: ”En biljett till Aalborg, tack.”"
+  },
+  {
+    "id": "da:tegne",
+    "gloss": [
+      "rita"
+    ],
+    "example": "Rita en cirkel runt huset och en linje genom trädgården."
+  },
+  {
+    "id": "da:papir",
+    "gloss": [
+      "papper"
+    ],
+    "example": "På papperet pekar en pil rakt fram och en annan tillbaka."
+  },
+  {
+    "id": "da:langsom",
+    "gloss": [
+      "långsam"
+    ],
+    "example": "Den långsamma bussen fortsätter uppför backen och ut ur staden."
+  },
+  {
+    "id": "da:male",
+    "gloss": [
+      "måla"
+    ],
+    "example": "Måla en pil in genom dörren och en annan nerför trappan."
+  },
+  {
+    "id": "da:bibliotek",
+    "gloss": [
+      "bibliotek"
+    ],
+    "example": "Biblioteket ligger uppe vid kyrkan, inte ute vid hamnen."
+  },
+  {
+    "id": "da:vaske",
+    "gloss": [
+      "tvätta"
+    ],
+    "example": "Tvätta händerna inne, och lägg handduken nere i korgen."
+  },
+  {
+    "id": "da:influenza",
+    "gloss": [
+      "influensa"
+    ],
+    "example": "Med influensa stannar hon hemma hos sin mamma."
+  },
+  {
+    "id": "da:billig",
+    "gloss": [
+      "billig"
+    ],
+    "example": "Den billiga bussen kör mot centrum utan att stanna."
+  },
+  {
+    "id": "da:supermarked",
+    "gloss": [
+      "stormarknad",
+      "matbutik"
+    ],
+    "example": "Vart går du från stormarknaden: hem eller mot stationen?"
+  },
+  {
+    "id": "da:hente",
+    "gloss": [
+      "hämta"
+    ],
+    "example": "Hämta väskan bort från dörren, och ställ den bakom stolen."
+  },
+  {
+    "id": "da:fabrik",
+    "gloss": [
+      "fabrik"
+    ],
+    "example": "Vägen till fabriken går från torget genom en tunnel."
+  },
+  {
+    "id": "da:gratis",
+    "gloss": [
+      "gratis"
+    ],
+    "example": "Den gratis parkeringen är på platsen vid museet."
+  },
+  {
+    "id": "da:sælge",
+    "gloss": [
+      "sälja"
+    ],
+    "example": "De säljer kaffe över disken och förvarar mjölk under den."
+  },
+  {
+    "id": "da:forening",
+    "gloss": [
+      "förening"
+    ],
+    "example": "Föreningen möts bakom biblioteket framför den gamla skolan."
+  },
+  {
+    "id": "da:svensk",
+    "gloss": [
+      "svensk"
+    ],
+    "example": "Den svenska skylten står mellan träden längs vägen."
+  },
+  {
+    "id": "da:eksempel",
+    "gloss": [
+      "exempel"
+    ],
+    "example": "Ett exempel finns omkring mitten, och ett annat återkommer genom hela texten."
+  },
+  {
+    "id": "da:låne",
+    "gloss": [
+      "låna"
+    ],
+    "example": "Låna cykeln, kör rakt fram, och kom tillbaka före sex."
+  },
+  {
+    "id": "da:sorg",
+    "gloss": [
+      "sorg"
+    ],
+    "example": "Efter sorgen går hon långsamt vidare och upp mot ljuset."
+  },
+  {
+    "id": "da:norsk",
+    "gloss": [
+      "norsk"
+    ],
+    "example": "På den norska kartan går rutten ut ur staden och in i skogen."
+  },
+  {
+    "id": "da:gemme",
+    "gloss": [
+      "gömma"
+    ],
+    "example": "Göm nyckeln nere i lådan, inte uppe på hyllan."
+  },
+  {
+    "id": "da:hold",
+    "gloss": [
+      "lag"
+    ],
+    "example": "Stanna inne, och vänta hemma hos oss."
+  },
+  {
+    "id": "da:taske",
+    "gloss": [
+      "väska"
+    ],
+    "example": "Lägg kartan i väskan, som står mot väggen."
+  },
+  {
+    "id": "da:smide",
+    "gloss": [
+      "kasta"
+    ],
+    "example": "Kasta bort papperet och gå mot dörren."
+  },
+  {
+    "id": "da:fransk",
+    "gloss": [
+      "fransk"
+    ],
+    "example": "Den franska kartan frågar ”Vart?” vid varje pil."
+  },
+  {
+    "id": "da:bro",
+    "gloss": [
+      "bro"
+    ],
+    "example": "Bron ligger i slutet av stigen längs ån, efter svängen runt sjön."
+  },
+  {
+    "id": "da:opleve",
+    "gloss": [
+      "uppleva"
+    ],
+    "example": "På resan upplever vi både vägen dit och turen tillbaka."
+  },
+  {
+    "id": "da:bageri",
+    "gloss": [
+      "bageri"
+    ],
+    "example": "Kliv av vid bageriet och gå längs ån."
+  },
+  {
+    "id": "da:spansk",
+    "gloss": [
+      "spansk"
+    ],
+    "example": "Sväng till vänster efter den spanska skylten."
+  },
+  {
+    "id": "da:kuffert",
+    "gloss": [
+      "resväska"
+    ],
+    "example": "”En biljett till Aarhus, tack,” säger hon och lägger den i resväskan."
+  },
+  {
+    "id": "da:nyde",
+    "gloss": [
+      "njuta"
+    ],
+    "example": "”En biljett till parken, tack,” säger vi innan vi njuter av turen med bussen."
+  },
+  {
+    "id": "da:italiensk",
+    "gloss": [
+      "italiensk"
+    ],
+    "example": "Den italienska restaurangen ligger till höger om banken."
+  },
+  {
+    "id": "da:kinesisk",
+    "gloss": [
+      "kinesisk"
+    ],
+    "example": "Gå från den kinesiska marknaden till parken på fem minuter."
+  },
+  {
+    "id": "da:tallerken",
+    "gloss": [
+      "tallrik"
+    ],
+    "example": "Ställ tallriken på bordet vid fönstret."
+  },
+  {
+    "id": "da:behøve",
+    "gloss": [
+      "behöva"
+    ],
+    "example": "Du behöver inte gå över bron; tunneln går under den."
+  },
+  {
+    "id": "da:russisk",
+    "gloss": [
+      "rysk"
+    ],
+    "example": "Den ryska skylten står bakom trädet framför huset."
+  },
+  {
+    "id": "da:kniv",
+    "gloss": [
+      "kniv"
+    ],
+    "example": "Kniven ligger mellan gaffeln och skeden längs kanten."
+  },
+  {
+    "id": "da:rygsæk",
+    "gloss": [
+      "ryggsäck"
+    ],
+    "example": "Bär ryggsäcken runt sjön och genom skogen."
+  },
+  {
+    "id": "da:savne",
+    "gloss": [
+      "sakna"
+    ],
+    "example": "Jag saknar den korta vägen genom parken."
+  },
+  {
+    "id": "da:udenlandsk",
+    "gloss": [
+      "utländsk"
+    ],
+    "example": "Den utländska gästen går vidare upp till utsikten."
+  },
+  {
+    "id": "da:gaffel",
+    "gloss": [
+      "gaffel"
+    ],
+    "example": "Ta en gaffel ur lådan och ner till bordet."
+  },
+  {
+    "id": "da:forsøge",
+    "gloss": [
+      "försöka"
+    ],
+    "example": "Försök att gå ner först och upp efteråt."
+  },
+  {
+    "id": "da:efterår",
+    "gloss": [
+      "höst"
+    ],
+    "example": "På hösten är vi ofta inne medan hunden är ute."
+  },
+  {
+    "id": "da:senere",
+    "gloss": [
+      "senare"
+    ],
+    "example": "Senare möts vi hemma hos dig och går vidare därifrån."
+  },
+  {
+    "id": "da:pude",
+    "gloss": [
+      "kudde"
+    ],
+    "example": "Kudden ligger nere på golvet, inte uppe i sängen."
+  },
+  {
+    "id": "da:undgå",
+    "gloss": [
+      "undvika"
+    ],
+    "example": "Undvik vägen mot hamnen, och gå utanför centrum."
+  },
+  {
+    "id": "da:håndklæde",
+    "gloss": [
+      "handduk"
+    ],
+    "example": "Häng handduken bort från dörren och fram mot fönstret."
+  },
+  {
+    "id": "da:opdage",
+    "gloss": [
+      "upptäcka"
+    ],
+    "example": "Hon upptäcker en stig från huset till sjön."
+  },
+  {
+    "id": "da:varme",
+    "gloss": [
+      "värme"
+    ],
+    "example": "Ute på terrassen håller den höga muren värmen."
+  },
+  {
+    "id": "da:beslutte",
+    "gloss": [
+      "bestämma"
+    ],
+    "example": "Bestäm om vi går över backen eller under bron."
+  },
+  {
+    "id": "da:dårligt",
+    "gloss": [
+      "dåligt"
+    ],
+    "example": "Han ser dåligt bakom rutan, men bra framför den."
+  },
+  {
+    "id": "da:fodbold",
+    "gloss": [
+      "fotboll"
+    ],
+    "example": "Fotbollen ligger mellan stolarna längs väggen."
+  },
+  {
+    "id": "da:svømning",
+    "gloss": [
+      "simning"
+    ],
+    "example": "För simning går vi runt hallen och genom huvudentrén."
+  },
+  {
+    "id": "da:bestille",
+    "gloss": [
+      "beställa"
+    ],
+    "example": "Beställ bordet, gå rakt fram, och vänta där."
+  },
+  {
+    "id": "da:sok",
+    "gloss": [
+      "strumpa"
+    ],
+    "example": "Sockan ligger kvar i väskan; ta upp den innan vi går vidare."
+  },
+  {
+    "id": "da:bekymret",
+    "gloss": [
+      "orolig",
+      "bekymrad"
+    ],
+    "example": "Hon är orolig när barnet går ut och inte kommer in."
+  },
+  {
+    "id": "da:overalt",
+    "gloss": [
+      "överallt"
+    ],
+    "example": "Det finns pilar överallt: några pekar upp, och andra pekar ner."
+  },
+  {
+    "id": "da:medicin",
+    "gloss": [
+      "medicin"
+    ],
+    "example": "Medicinen står uppe i skåpet medan glaset är nere."
+  },
+  {
+    "id": "da:udenfor",
+    "gloss": [
+      "utanför",
+      "ute"
+    ],
+    "example": "Hunden är ute; titta ner innan du går fram till den utanför."
+  },
+  {
+    "id": "da:tilbyde",
+    "gloss": [
+      "erbjuda"
+    ],
+    "example": "Hos bagaren erbjuder de kaffe utan mjölk."
+  },
+  {
+    "id": "da:besked",
+    "gloss": [
+      "meddelande"
+    ],
+    "example": "Beskedet säger att tåget kör mot Aarhus och bort från Aalborg."
+  },
+  {
+    "id": "da:forlade",
+    "gloss": [
+      "lämna"
+    ],
+    "example": "Vart ska ni gå när ni lämnar huset: hem eller mot staden?"
+  },
+  {
+    "id": "da:træt",
+    "gloss": [
+      "trött"
+    ],
+    "example": "Den trötta gästen går från stationen till hotellet."
+  },
+  {
+    "id": "da:middag",
+    "gloss": [
+      "middag"
+    ],
+    "example": "Middagen står på bordet vid fönstret."
+  },
+  {
+    "id": "da:bygge",
+    "gloss": [
+      "bygga"
+    ],
+    "example": "De bygger en tunnel under vägen och en bro över ån."
+  },
+  {
+    "id": "da:gryde",
+    "gloss": [
+      "gryta"
+    ],
+    "example": "Grytan står bakom tallriken framför skålen."
+  },
+  {
+    "id": "da:sjov",
+    "gloss": [
+      "rolig"
+    ],
+    "example": "Den roliga rutten går mellan husen längs kanalen."
+  },
+  {
+    "id": "da:tur",
+    "gloss": [
+      "tur"
+    ],
+    "example": "Går turen runt sjön och sedan genom skogen?"
+  },
+  {
+    "id": "da:drømme",
+    "gloss": [
+      "drömma"
+    ],
+    "example": "Jag drömmer om att gå rakt fram utan att vända tillbaka."
+  },
+  {
+    "id": "da:skulder",
+    "gloss": [
+      "axel"
+    ],
+    "example": "Väskan hänger över min axel medan handen är under remmen."
+  },
+  {
+    "id": "da:kedelig",
+    "gloss": [
+      "tråkig"
+    ],
+    "example": "Den tråkiga vägen går vidare upp och ut ur staden."
+  },
+  {
+    "id": "da:lomme",
+    "gloss": [
+      "ficka"
+    ],
+    "example": "Lägg kartan i fickan, och ta ut biljetten."
+  },
+  {
+    "id": "da:gave",
+    "gloss": [
+      "present",
+      "gåva"
+    ],
+    "example": "Presenten ligger nere i lådan, inte uppe på hyllan."
+  },
+  {
+    "id": "da:grad",
+    "gloss": [
+      "grad"
+    ],
+    "example": "Det är fem grader ute, men tjugo grader inne."
+  },
+  {
+    "id": "da:tillid",
+    "gloss": [
+      "tillit",
+      "förtroende"
+    ],
+    "example": "Jag har tillit till läkaren hemma hos oss."
+  },
+  {
+    "id": "da:tvivl",
+    "gloss": [
+      "tvivel"
+    ],
+    "example": "Utan tvivel går vi mot stationen och bort från trafiken."
+  },
+  {
+    "id": "da:indenfor",
+    "gloss": [
+      "in",
+      "inomhus"
+    ],
+    "example": "Kom in, så är vi helt samlade och kan arbeta tillsammans."
+  },
+  {
+    "id": "da:skifte",
+    "gloss": [
+      "byta",
+      "växla",
+      "skifta"
+    ],
+    "example": "Vi byter alla samtidigt, eftersom båda rummen är lediga."
+  },
+  {
+    "id": "da:kræve",
+    "gloss": [
+      "kräva"
+    ],
+    "example": "Allt arbete kräver båda händerna, men det är ganska lätt."
+  },
+  {
+    "id": "da:brun",
+    "gloss": [
+      "brun"
+    ],
+    "example": "Varje brun stövel har sin märkning, och varje märkning är tydlig."
+  },
+  {
+    "id": "da:miste",
+    "gloss": [
+      "förlora",
+      "tappa"
+    ],
+    "example": "Självklart vill jag inte förlora din plånbok; den är helt säker här."
+  },
+  {
+    "id": "da:pleje",
+    "gloss": [
+      "brukar",
+      "vårda",
+      "sköta"
+    ],
+    "example": "Vi brukar äta tillsammans vid samma bord."
+  },
+  {
+    "id": "da:skuffet",
+    "gloss": [
+      "besviken"
+    ],
+    "example": "Alla är besvikna, eftersom allt blev inställt."
+  },
+  {
+    "id": "da:frugt",
+    "gloss": [
+      "frukt"
+    ],
+    "example": "Båda barnen får frukt, och var och en får två bitar."
+  },
+  {
+    "id": "da:vare",
+    "gloss": [
+      "vara",
+      "ta"
+    ],
+    "example": "Varje möte varar en timme, och självklart kommer alla i tid."
+  },
+  {
+    "id": "da:internet",
+    "gloss": [
+      "internet"
+    ],
+    "example": "Internet är helt nere, så vi gör allt utan det."
+  },
+  {
+    "id": "da:interessant",
+    "gloss": [
+      "intressant"
+    ],
+    "example": "Samma bok är verkligen intressant för oss båda."
+  },
+  {
+    "id": "da:mail",
+    "gloss": [
+      "mejl",
+      "e-post"
+    ],
+    "example": "Varje mejl har samma ämne, men alla svar är olika."
+  },
+  {
+    "id": "da:lykkes",
+    "gloss": [
+      "lyckas",
+      "klara"
+    ],
+    "example": "Allt lyckas, eftersom båda arbetar helt lugnt tillsammans."
+  },
+  {
+    "id": "da:program",
+    "gloss": [
+      "program"
+    ],
+    "example": "Varje program är ganska kort, och självklart ser vi dem alla."
+  },
+  {
+    "id": "da:spændende",
+    "gloss": [
+      "spännande"
+    ],
+    "example": "Båda matcherna är spännande, men samma spelare vinner varje gång."
+  },
+  {
+    "id": "da:bestemme",
+    "gloss": [
+      "bestämma",
+      "avgöra"
+    ],
+    "example": "Bestäm själv om vi ska göra allt tillsammans eller dela på arbetet."
+  },
+  {
+    "id": "da:fjernsyn",
+    "gloss": [
+      "tv",
+      "teve"
+    ],
+    "example": "Alla tittar på tv, eftersom samma program är ganska populärt."
+  },
+  {
+    "id": "da:undersøge",
+    "gloss": [
+      "undersöka",
+      "kontrollera"
+    ],
+    "example": "Läkaren undersöker båda knäna och varje ben mycket grundligt."
+  },
+  {
+    "id": "da:nabo",
+    "gloss": [
+      "granne"
+    ],
+    "example": "Varje granne hjälper till, och självklart gör alla lite."
+  },
+  {
+    "id": "da:mærkelig",
+    "gloss": [
+      "konstig",
+      "märklig",
+      "udda"
+    ],
+    "example": "Det är helt konstigt att båda klockorna visar samma tid."
+  },
+  {
+    "id": "da:kunde",
+    "gloss": [
+      "kund"
+    ],
+    "example": "Alla kunder väntar tillsammans, eftersom varje kassa är stängd."
+  },
+  {
+    "id": "da:forklare",
+    "gloss": [
+      "förklara"
+    ],
+    "example": "Förklara allt för oss båda på samma lugna sätt."
+  },
+  {
+    "id": "da:ild",
+    "gloss": [
+      "eld"
+    ],
+    "example": "Varje barn sitter vid elden, och alla håller sig helt varma."
+  },
+  {
+    "id": "da:fantastisk",
+    "gloss": [
+      "underbar"
+    ],
+    "example": "Båda resorna är fantastiska, så självklart väljer vi dem tillsammans."
+  },
+  {
+    "id": "da:overveje",
+    "gloss": [
+      "överväga",
+      "fundera på"
+    ],
+    "example": "Vi överväger alla möjligheter, men väljer samma till slut."
+  },
+  {
+    "id": "da:måltid",
+    "gloss": [
+      "måltid"
+    ],
+    "example": "Varje måltid är ganska enkel, men båda rätterna smakar gott."
+  },
+  {
+    "id": "da:suppe",
+    "gloss": [
+      "soppa"
+    ],
+    "example": "All soppan är helt varm, eftersom grytan står med lock på; vi äter den tillsammans."
+  },
+  {
+    "id": "da:vurdere",
+    "gloss": [
+      "bedöma",
+      "utvärdera"
+    ],
+    "example": "Läraren bedömer alla uppgifter efter samma regel."
+  },
+  {
+    "id": "da:overrasket",
+    "gloss": [
+      "överraskad"
+    ],
+    "example": "Vi är båda verkligen överraskade, eftersom allt är klart."
+  },
+  {
+    "id": "da:salat",
+    "gloss": [
+      "sallad"
+    ],
+    "example": "Varje sallad har sitt eget namn, och vi smakar självklart på dem alla."
+  },
+  {
+    "id": "da:behandle",
+    "gloss": [
+      "behandla",
+      "hantera"
+    ],
+    "example": "Läkaren behandlar båda patienterna helt lika, eftersom de har samma skada."
+  },
+  {
+    "id": "da:is",
+    "gloss": [
+      "glass"
+    ],
+    "example": "Vi delar på samma glass, och alla får lite."
+  },
+  {
+    "id": "da:forfærdelig",
+    "gloss": [
+      "hemsk",
+      "förfärlig"
+    ],
+    "example": "Allt är blött, och vädret är hemskt, men vi är tillsammans."
+  },
+  {
+    "id": "da:kylling",
+    "gloss": [
+      "kyckling"
+    ],
+    "example": "Båda barnen äter kyckling, och var och en har sin tallrik."
+  },
+  {
+    "id": "da:indeholde",
+    "gloss": [
+      "innehålla",
+      "rymma"
+    ],
+    "example": "Varje glas kan rymma samma som flaskan, men inte alla är fulla."
+  },
+  {
+    "id": "da:pizza",
+    "gloss": [
+      "pizza"
+    ],
+    "example": "Självklart delar vi pizzan helt lika mellan oss båda."
+  },
+  {
+    "id": "da:perfekt",
+    "gloss": [
+      "perfekt"
+    ],
+    "example": "Samma dag är perfekt för alla, eftersom vi är tillsammans."
+  },
+  {
+    "id": "da:opnå",
+    "gloss": [
+      "uppnå",
+      "nå"
+    ],
+    "example": "Båda kan uppnå allt om var och en gör sitt bästa."
+  },
+  {
+    "id": "da:pølse",
+    "gloss": [
+      "korv"
+    ],
+    "example": "Varje korv kostar samma, och alla är helt varma."
+  },
+  {
+    "id": "da:tomat",
+    "gloss": [
+      "tomat"
+    ],
+    "example": "Självklart tvättar vi alla tomaterna tillsammans."
+  },
+  {
+    "id": "da:kæmpe",
+    "gloss": [
+      "kämpa"
+    ],
+    "example": "Båda lagen kämpar, eftersom varje spelare vill vinna."
+  },
+  {
+    "id": "da:forkert",
+    "gloss": [
+      "fel",
+      "felaktig"
+    ],
+    "example": "Allt är fel, eftersom vi gör samma sak en gång till."
+  },
+  {
+    "id": "da:tørklæde",
+    "gloss": [
+      "halsduk"
+    ],
+    "example": "Varje halsduk är ganska mjuk, och båda är bruna."
+  },
+  {
+    "id": "da:støtte",
+    "gloss": [
+      "stödja"
+    ],
+    "example": "Vi stöder alla samma lag, eftersom vi är tillsammans."
+  },
+  {
+    "id": "da:pille",
+    "gloss": [
+      "piller",
+      "tablett"
+    ],
+    "example": "Ta varje piller som överenskommet, och ta självklart inte båda på en gång."
+  },
+  {
+    "id": "da:ægte",
+    "gloss": [
+      "äkta",
+      "genuin"
+    ],
+    "example": "Båda ringarna är äkta, men inte alla stenarna är det."
+  },
+  {
+    "id": "da:børnehave",
+    "gloss": [
+      "förskola",
+      "dagis"
+    ],
+    "example": "Varje barn på förskolan har samma lilla stol."
+  },
+  {
+    "id": "da:lede",
+    "gloss": [
+      "leta",
+      "söka"
+    ],
+    "example": "Vi letar alla tillsammans, eftersom båda nycklarna är borta."
+  },
+  {
+    "id": "da:klub",
+    "gloss": [
+      "klubb"
+    ],
+    "example": "Självklart är varje klubb olika, men alla följer reglerna."
+  },
+  {
+    "id": "da:deltage",
+    "gloss": [
+      "delta"
+    ],
+    "example": "Båda vill delta, och de gör allt tillsammans."
+  },
+  {
+    "id": "da:tidlig",
+    "gloss": [
+      "tidig"
+    ],
+    "example": "Den tidiga färjan passar ganska bra för oss båda."
+  },
+  {
+    "id": "da:sæbe",
+    "gloss": [
+      "tvål"
+    ],
+    "example": "Varje tvål luktar verkligen gott, men inte helt lika."
+  },
+  {
+    "id": "da:opstå",
+    "gloss": [
+      "uppstå",
+      "förekomma"
+    ],
+    "example": "Problem kan uppstå, eftersom båda maskinerna gör samma sak."
+  },
+  {
+    "id": "da:banan",
+    "gloss": [
+      "banan"
+    ],
+    "example": "Alla får en banan, och varje banan är ganska mogen."
+  },
+  {
+    "id": "da:lys",
+    "gloss": [
+      "ljus"
+    ],
+    "example": "Båda rummen är ljusa, men det ena är ganska litet."
+  },
+  {
+    "id": "da:politiker",
+    "gloss": [
+      "politiker"
+    ],
+    "example": "Varje politiker svarar, och alla använder nästan samma ord."
+  },
+  {
+    "id": "da:regne",
+    "gloss": [
+      "regna",
+      "räkna"
+    ],
+    "example": "Det regnar helt vilt, så vi stannar alla tillsammans inne."
+  },
+  {
+    "id": "da:knæ",
+    "gloss": [
+      "knä"
+    ],
+    "example": "Båda knäna gör ont, men det högra gör mest ont."
+  },
+  {
+    "id": "da:nævne",
+    "gloss": [
+      "nämna"
+    ],
+    "example": "Hon kan nämna alla namnen, eftersom hon känner dem båda."
+  },
+  {
+    "id": "da:spændt",
+    "gloss": [
+      "spänd",
+      "förväntansfull"
+    ],
+    "example": "Vi är alla spända och helt redo för samma lopp."
+  },
+  {
+    "id": "da:pasta",
+    "gloss": [
+      "pasta"
+    ],
+    "example": "Pastan är verkligen god, så självklart äter vi allt."
+  },
+  {
+    "id": "da:nyhed",
+    "gloss": [
+      "nyhet"
+    ],
+    "example": "Båda tidningarna har samma nyhet, och alla läser den tillsammans."
+  },
+  {
+    "id": "da:beskrive",
+    "gloss": [
+      "beskriva"
+    ],
+    "example": "Kan du beskriva varje bild och båda personerna?"
+  },
+  {
+    "id": "da:smuk",
+    "gloss": [
+      "vacker"
+    ],
+    "example": "Varje utsikt är vacker, men den här är verkligen speciell."
+  },
+  {
+    "id": "da:ovn",
+    "gloss": [
+      "ugn"
+    ],
+    "example": "Ugnen är ganska varm, eftersom båda värmeelementen är på."
+  },
+  {
+    "id": "da:foreslå",
+    "gloss": [
+      "föreslå"
+    ],
+    "example": "Jag vill föreslå samma plan för er alla."
+  },
+  {
+    "id": "da:radio",
+    "gloss": [
+      "radio"
+    ],
+    "example": "Varje radio spelar något olika, men båda spelar ganska högt."
+  },
+  {
+    "id": "da:sød",
+    "gloss": [
+      "söt",
+      "gullig",
+      "snäll"
+    ],
+    "example": "Kakan är ganska söt, så vi delar den allihop."
+  },
+  {
+    "id": "da:recept",
+    "gloss": [
+      "recept"
+    ],
+    "example": "Varje recept gäller samma medicin, och båda är skrivna mycket tydligt."
+  },
+  {
+    "id": "da:acceptere",
+    "gloss": [
+      "acceptera"
+    ],
+    "example": "Självklart accepterar vi båda erbjudandena, eftersom de är bra."
+  },
+  {
+    "id": "da:kulde",
+    "gloss": [
+      "kyla",
+      "köld"
+    ],
+    "example": "I kylan stannar vi alla hemma."
+  },
+  {
+    "id": "da:tillade",
+    "gloss": [
+      "tillåta"
+    ],
+    "example": "Reglerna tillåter inte allt, men de är lika för alla."
+  },
+  {
+    "id": "da:avis",
+    "gloss": [
+      "tidning"
+    ],
+    "example": "Båda tidningarna har samma historia, men varje tidning placerar den på olika sidor."
+  },
+  {
+    "id": "da:lækker",
+    "gloss": [
+      "god",
+      "läcker"
+    ],
+    "example": "Hela brödet är gott, och båda kakorna är verkligen goda."
+  },
+  {
+    "id": "da:brev",
+    "gloss": [
+      "brev"
+    ],
+    "example": "Varje brev kommer från samma ställe, men alla har olika namn."
+  },
+  {
+    "id": "da:afvise",
+    "gloss": [
+      "avvisa",
+      "neka"
+    ],
+    "example": "De avvisar båda förslagen, eftersom båda är för dyra."
+  },
+  {
+    "id": "da:frisk",
+    "gloss": [
+      "färsk"
+    ],
+    "example": "Varje tomat är färsk, och självklart använder vi dem alla."
+  },
+  {
+    "id": "da:bælte",
+    "gloss": [
+      "bälte",
+      "skärp"
+    ],
+    "example": "Båda bältena är ganska långa, men inte helt lika."
+  },
+  {
+    "id": "da:tekst",
+    "gloss": [
+      "text"
+    ],
+    "example": "Läs hela texten och förklara allt med dina egna ord."
+  },
+  {
+    "id": "da:påstå",
+    "gloss": [
+      "hävda"
+    ],
+    "example": "Hon vill påstå samma sak, eftersom båda vittnena är eniga."
+  },
+  {
+    "id": "da:indrømme",
+    "gloss": [
+      "erkänna",
+      "medge"
+    ],
+    "example": "Till slut vill han erkänna allt, och självklart lyssnar vi."
+  },
+  {
+    "id": "da:sten",
+    "gloss": [
+      "sten"
+    ],
+    "example": "Varje sten är tung, men båda kan lyftas tillsammans."
+  },
+  {
+    "id": "da:sulten",
+    "gloss": [
+      "hungrig"
+    ],
+    "example": "Vi är alla hungriga, eftersom vi inte har ätit något."
+  },
+  {
+    "id": "da:tandbørste",
+    "gloss": [
+      "tandborste"
+    ],
+    "example": "Båda tandborstarna står i samma glas."
+  },
+  {
+    "id": "da:påvirke",
+    "gloss": [
+      "påverka",
+      "influera"
+    ],
+    "example": "Vädret kan påverka oss alla, men inte helt på samma sätt."
+  },
+  {
+    "id": "da:heldig",
+    "gloss": [
+      "lycklig",
+      "tursam"
+    ],
+    "example": "Båda är tursamma, och var och en får en present."
+  },
+  {
+    "id": "da:sen",
+    "gloss": [
+      "sen"
+    ],
+    "example": "Den sena färjan passar ganska bra, eftersom vi alla är redo."
+  },
+  {
+    "id": "da:pas",
+    "gloss": [
+      "pass"
+    ],
+    "example": "Varje pass har ett nummer, och båda ligger på samma ställe."
+  },
+  {
+    "id": "da:samle",
+    "gloss": [
+      "samla"
+    ],
+    "example": "Vi samlar allt tillsammans, så varje bord blir tomt."
+  },
+  {
+    "id": "da:bygning",
+    "gloss": [
+      "byggnad"
+    ],
+    "example": "Båda byggnaderna är ganska gamla, men båda är helt säkra."
+  },
+  {
+    "id": "da:pung",
+    "gloss": [
+      "plånbok",
+      "portmonnä"
+    ],
+    "example": "Min plånbok är borta, och jag förstår inte var den är."
+  },
+  {
+    "id": "da:gæst",
+    "gloss": [
+      "gäst",
+      "besökare"
+    ],
+    "example": "Varje gäst fyller i fältet ”Jag kommer från …”."
+  },
+  {
+    "id": "da:dele",
+    "gloss": [
+      "dela"
+    ],
+    "example": "Vi delar allt, och båda får exakt samma mängd."
+  },
+  {
+    "id": "da:fjerne",
+    "gloss": [
+      "ta bort",
+      "avlägsna"
+    ],
+    "example": "Kan du säga det igen medan du tar bort fläcken?"
+  },
+  {
+    "id": "da:færge",
+    "gloss": [
+      "färja"
+    ],
+    "example": "På skylten står ”Stig av vid färjan.”"
+  },
+  {
+    "id": "da:tung",
+    "gloss": [
+      "tung"
+    ],
+    "example": "Den tunga högtalaren passar ett stort rum. Eleven säger: ”Lite långsammare, tack.”"
+  },
+  {
+    "id": "da:ko",
+    "gloss": [
+      "ko"
+    ],
+    "example": "Vi övar frågan ”Vad betyder ko?”"
+  },
+  {
+    "id": "da:gris",
+    "gloss": [
+      "gris"
+    ],
+    "example": "På kartan står frågan ”Var är grisen?”"
+  },
+  {
+    "id": "da:dyne",
+    "gloss": [
+      "täcke"
+    ],
+    "example": "Jag arbetar som sjuksköterska och lägger ett täcke på sängen."
+  },
+  {
+    "id": "da:chokolade",
+    "gloss": [
+      "choklad"
+    ],
+    "example": "Mitt telefonnummer är skrivet på kortet som ligger tillsammans med chokladen."
+  },
+  {
+    "id": "da:styre",
+    "gloss": [
+      "styra",
+      "kontrollera"
+    ],
+    "example": "När stormen kom styrde hon båten som hon hade gjort förut."
+  },
+  {
+    "id": "da:nægte",
+    "gloss": [
+      "vägra",
+      "förneka"
+    ],
+    "example": "Han vägrade genast att äta, eftersom han hade blivit sjuk."
+  },
+  {
+    "id": "da:mørk",
+    "gloss": [
+      "mörk"
+    ],
+    "example": "Det blev plötsligt mörkt när solen försvann."
+  },
+  {
+    "id": "da:gruppe",
+    "gloss": [
+      "grupp"
+    ],
+    "example": "Gruppen hade varit samlad länge, men blev till slut klar med arbetet."
+  },
+  {
+    "id": "da:lyserød",
+    "gloss": [
+      "rosa"
+    ],
+    "example": "Hon hade haft en rosa klänning sedan hon var barn."
+  },
+  {
+    "id": "da:tilføje",
+    "gloss": [
+      "lägga till",
+      "tillföra"
+    ],
+    "example": "När soppan blev kall tillsatte kocken genast varmt vatten."
+  },
+  {
+    "id": "da:tjene",
+    "gloss": [
+      "tjäna",
+      "servera"
+    ],
+    "example": "Hon ville bli kock, eftersom hon hade tjänat pengar på ett kafé."
+  },
+  {
+    "id": "da:lilla",
+    "gloss": [
+      "lila"
+    ],
+    "example": "Blomman var lila, men har sedan dess blivit helt vit."
+  },
+  {
+    "id": "da:får",
+    "gloss": [
+      "får"
+    ],
+    "example": "Fåret blev rädd när hunden plötsligt kom springande."
+  },
+  {
+    "id": "da:spare",
+    "gloss": [
+      "spara"
+    ],
+    "example": "Vi hade sparat länge och gjorde till slut drömmen om resan möjlig."
+  },
+  {
+    "id": "da:orange",
+    "gloss": [
+      "orange"
+    ],
+    "example": "Den orange koppen hade varit borta, men hittades genast."
+  },
+  {
+    "id": "da:apotek",
+    "gloss": [
+      "apotek"
+    ],
+    "example": "Jag har tappat bort receptet; vad ska jag göra på apoteket?"
+  },
+  {
+    "id": "da:koncert",
+    "gloss": [
+      "konsert"
+    ],
+    "example": "Vad hände när konserten plötsligt slutade?"
+  },
+  {
+    "id": "da:skylde",
+    "gloss": [
+      "vara skyldig"
+    ],
+    "example": "Han hade varit skyldig mig pengar sedan april, men betalade till slut."
+  },
+  {
+    "id": "da:blyant",
+    "gloss": [
+      "blyertspenna"
+    ],
+    "example": "Jag har tappat bort min blyertspenna, och den var precis här."
+  },
+  {
+    "id": "da:eje",
+    "gloss": [
+      "äga"
+    ],
+    "example": "De hade ägt huset sedan det byggdes."
+  },
+  {
+    "id": "da:knap",
+    "gloss": [
+      "knapp"
+    ],
+    "example": "Knappen blev lös när jag plötsligt drog i den."
+  },
+  {
+    "id": "da:pæn",
+    "gloss": [
+      "fin",
+      "snygg",
+      "prydlig"
+    ],
+    "example": "Skjortan hade varit fin, men har blivit smutsig."
+  },
+  {
+    "id": "da:hud",
+    "gloss": [
+      "hud"
+    ],
+    "example": "Jag har ont i huden, och den har varit öm sedan jag brände mig i solen."
+  },
+  {
+    "id": "da:tilhøre",
+    "gloss": [
+      "tillhöra"
+    ],
+    "example": "Väskan hade tillhört henne innan den blev min."
+  },
+  {
+    "id": "da:vaskemaskine",
+    "gloss": [
+      "tvättmaskin"
+    ],
+    "example": "Tvättmaskinen har gått sönder; vad ska jag göra?"
+  },
+  {
+    "id": "da:tilfreds",
+    "gloss": [
+      "nöjd",
+      "tillfreds",
+      "belåten"
+    ],
+    "example": "Hon blev genast nöjd när problemet var löst."
+  },
+  {
+    "id": "da:leje",
+    "gloss": [
+      "hyra"
+    ],
+    "example": "Sedan vår egen bil blev stulen hade vi hyrt en ny varje vecka."
+  },
+  {
+    "id": "da:kok",
+    "gloss": [
+      "kock"
+    ],
+    "example": "Kocken gjorde maten klar när gästerna kom."
+  },
+  {
+    "id": "da:levere",
+    "gloss": [
+      "leverera"
+    ],
+    "example": "Paketet hade blivit blött när budet till slut levererade det."
+  },
+  {
+    "id": "da:grim",
+    "gloss": [
+      "ful"
+    ],
+    "example": "Ärret var fult, men har sedan dess blivit mindre."
+  },
+  {
+    "id": "da:græs",
+    "gloss": [
+      "gräs"
+    ],
+    "example": "Gräset blev plötsligt blött när regnet började."
+  },
+  {
+    "id": "da:pære",
+    "gloss": [
+      "päron",
+      "glödlampa"
+    ],
+    "example": "Päronet hade blivit mjukt eftersom det hade legat länge."
+  },
+  {
+    "id": "da:tænde",
+    "gloss": [
+      "tända"
+    ],
+    "example": "Tänd ljuset genast; det har blivit mörkt."
+  },
+  {
+    "id": "da:køleskab",
+    "gloss": [
+      "kylskåp"
+    ],
+    "example": "Kylskåpet hade varit avstängt, så mjölken blev varm."
+  },
+  {
+    "id": "da:tørstig",
+    "gloss": [
+      "törstig"
+    ],
+    "example": "Han hade varit törstig sedan loppet började när han till slut nådde målet."
+  },
+  {
+    "id": "da:afhænge",
+    "gloss": [
+      "bero på"
+    ],
+    "example": "Resan kom att bero på vad som hade hänt."
+  },
+  {
+    "id": "da:øjeblik",
+    "gloss": [
+      "ögonblick"
+    ],
+    "example": "Ett ögonblick senare blev hon plötsligt yr."
+  },
+  {
+    "id": "da:skærm",
+    "gloss": [
+      "skärm"
+    ],
+    "example": "Skärmen blev svart just när jag hade öppnat programmet."
+  },
+  {
+    "id": "da:anbefale",
+    "gloss": [
+      "rekommendera"
+    ],
+    "example": "Läkaren rekommenderade genast vila, eftersom jag hade haft feber."
+  },
+  {
+    "id": "da:blød",
+    "gloss": [
+      "mjuk"
+    ],
+    "example": "Kudden hade blivit mjukare efter att vi hade tvättat den."
+  },
+  {
+    "id": "da:kørekort",
+    "gloss": [
+      "körkort"
+    ],
+    "example": "Jag har tappat bort mitt körkort; vad hände med det?"
+  },
+  {
+    "id": "da:planlægge",
+    "gloss": [
+      "planera"
+    ],
+    "example": "Vi började planera festen, men den blev plötsligt inställd."
+  },
+  {
+    "id": "da:tandlæge",
+    "gloss": [
+      "tandläkare"
+    ],
+    "example": "Jag har ont i tanden; vad ska jag göra hos tandläkaren?"
+  },
+  {
+    "id": "da:tyk",
+    "gloss": [
+      "tjock"
+    ],
+    "example": "Isen hade blivit tjock när vintern till slut kom."
+  },
+  {
+    "id": "da:tjener",
+    "gloss": [
+      "servitör"
+    ],
+    "example": "Servitören gjorde genast rent bordet när glaset välte."
+  },
+  {
+    "id": "da:forberede",
+    "gloss": [
+      "förbereda"
+    ],
+    "example": "Hon hade förberett sig sedan kursen började när provet till slut kom."
+  },
+  {
+    "id": "da:solskin",
+    "gloss": [
+      "solsken"
+    ],
+    "example": "Det hade varit regn, men nu var det till slut solsken."
+  },
+  {
+    "id": "da:arrangere",
+    "gloss": [
+      "ordna",
+      "arrangera"
+    ],
+    "example": "De hade ordnat mötet innan chefen blev sjuk."
+  },
+  {
+    "id": "da:bred",
+    "gloss": [
+      "bred"
+    ],
+    "example": "Vägen var bred, men blev plötsligt smal."
+  },
+  {
+    "id": "da:undertøj",
+    "gloss": [
+      "underkläder"
+    ],
+    "example": "Mina underkläder har blivit blöta eftersom väskan stod ute."
+  },
+  {
+    "id": "da:invitere",
+    "gloss": [
+      "bjuda in"
+    ],
+    "example": "Hon hade bjudit in oss flera gånger sedan vi träffades första gången."
+  },
+  {
+    "id": "da:citron",
+    "gloss": [
+      "citron"
+    ],
+    "example": "Citronen hade blivit torr när jag till slut använde den."
+  },
+  {
+    "id": "da:dyb",
+    "gloss": [
+      "djup"
+    ],
+    "example": "Vattnet blev plötsligt djupt när botten försvann."
+  },
+  {
+    "id": "da:støvsuger",
+    "gloss": [
+      "dammsugare"
+    ],
+    "example": "Dammsugaren hade varit trasig, men fungerar till slut igen."
+  },
+  {
+    "id": "da:aflyse",
+    "gloss": [
+      "ställa in"
+    ],
+    "example": "Vi var tvungna att ställa in genast när vägen stängdes."
+  },
+  {
+    "id": "da:bjerg",
+    "gloss": [
+      "berg"
+    ],
+    "example": "Berget hade varit dolt innan dimman plötsligt lättade."
+  },
+  {
+    "id": "da:gift",
+    "gloss": [
+      "gift"
+    ],
+    "example": "De hade varit gifta länge när de flyttade till Odense."
+  },
+  {
+    "id": "da:afslutte",
+    "gloss": [
+      "avsluta"
+    ],
+    "example": "Hon avslutade genast samtalet när larmet ljöd."
+  },
+  {
+    "id": "da:vrede",
+    "gloss": [
+      "ilska"
+    ],
+    "example": "Ilskan hade blivit mindre när han till slut sa förlåt."
+  },
+  {
+    "id": "da:sygeplejerske",
+    "gloss": [
+      "sjuksköterska"
+    ],
+    "example": "Sjuksköterskan frågade: ”Vad hände?”"
+  },
+  {
+    "id": "da:forsvinde",
+    "gloss": [
+      "försvinna"
+    ],
+    "example": "Nyckeln hade just försvunnit; vad ska jag göra?"
+  },
+  {
+    "id": "da:lav",
+    "gloss": [
+      "låg"
+    ],
+    "example": "Priset hade varit lågt, men blev plötsligt högt."
+  },
+  {
+    "id": "da:muskel",
+    "gloss": [
+      "muskel"
+    ],
+    "example": "Jag har ont i en muskel som har varit öm sedan jag ramlade."
+  },
+  {
+    "id": "da:ankomme",
+    "gloss": [
+      "komma fram",
+      "anlända"
+    ],
+    "example": "Tåget hade blivit försenat, men kom till slut fram."
+  },
+  {
+    "id": "da:rådhus",
+    "gloss": [
+      "stadshus"
+    ],
+    "example": "Rådhuset hade varit stängt när vi kom."
+  },
+  {
+    "id": "da:rund",
+    "gloss": [
+      "rund"
+    ],
+    "example": "Bordet var runt, men har sedan dess blivit ovalt."
+  },
+  {
+    "id": "da:biograf",
+    "gloss": [
+      "biograf"
+    ],
+    "example": "Biografen tömdes genast när larmet ljöd."
+  },
+  {
+    "id": "da:hade",
+    "gloss": [
+      "hata"
+    ],
+    "example": "Han hade alltid hatat att vänta, men gjorde det ändå."
+  },
+  {
+    "id": "da:hård",
+    "gloss": [
+      "hård"
+    ],
+    "example": "Madrassen var hård, men har blivit mjukare sedan."
+  },
+  {
+    "id": "da:skat",
+    "gloss": [
+      "skatt"
+    ],
+    "example": "Skatten hade blivit betald innan brevet kom."
+  },
+  {
+    "id": "da:frygte",
+    "gloss": [
+      "frukta",
+      "vara rädd för"
+    ],
+    "example": "Hon hade fruktat svaret sedan hon skickade brevet."
+  },
+  {
+    "id": "da:sodavand",
+    "gloss": [
+      "läsk"
+    ],
+    "example": "Läsken hade blivit varm eftersom kylskåpet var avstängt."
+  },
+  {
+    "id": "da:beskytte",
+    "gloss": [
+      "skydda"
+    ],
+    "example": "Hjälmen hade skyddat honom när han plötsligt ramlade."
+  },
+  {
+    "id": "da:pen",
+    "gloss": [
+      "penna"
+    ],
+    "example": "Jag har tappat bort min penna; vad ska jag göra nu?"
+  },
+  {
+    "id": "da:ren",
+    "gloss": [
+      "ren"
+    ],
+    "example": "Golvet blev rent när hon till slut gjorde klart arbetet."
+  },
+  {
+    "id": "da:tynd",
+    "gloss": [
+      "tunn"
+    ],
+    "example": "Jackan hade blivit för tunn sedan vintern kom."
+  },
+  {
+    "id": "da:jordbær",
+    "gloss": [
+      "jordgubbe"
+    ],
+    "example": "Jordgubbarna hade blivit mjuka när vi åt dem."
+  },
+  {
+    "id": "da:advare",
+    "gloss": [
+      "varna"
+    ],
+    "example": "Polisen hade varnat oss innan vägen stängdes."
+  },
+  {
+    "id": "da:tøj",
+    "gloss": [
+      "kläder"
+    ],
+    "example": "Kläderna har blivit blöta; vad ska jag göra?"
+  },
+  {
+    "id": "da:lyve",
+    "gloss": [
+      "ljuga"
+    ],
+    "example": "Han hade valt att ljuga en gång, men gjorde det aldrig igen."
+  },
+  {
+    "id": "da:frisør",
+    "gloss": [
+      "frisör"
+    ],
+    "example": "Frisören hade just blivit klar när strömmen gick."
+  },
+  {
+    "id": "da:smal",
+    "gloss": [
+      "smal"
+    ],
+    "example": "Stigen blev plötsligt smal när vi nådde skogen."
+  },
+  {
+    "id": "da:klokke",
+    "gloss": [
+      "klocka"
+    ],
+    "example": "Klockan hade blivit tio när mötet till slut slutade."
+  },
+  {
+    "id": "da:stjæle",
+    "gloss": [
+      "stjäla"
+    ],
+    "example": "Någon har stulit min cykel; vad hände?"
+  },
+  {
+    "id": "da:kamera",
+    "gloss": [
+      "kamera"
+    ],
+    "example": "Jag har tappat bort min kamera, som jag hade haft sedan maj."
+  },
+  {
+    "id": "da:snyde",
+    "gloss": [
+      "fuska",
+      "lura"
+    ],
+    "example": "Han hade fuskat en gång och gjorde det aldrig sedan."
+  },
+  {
+    "id": "da:pande",
+    "gloss": [
+      "stekpanna",
+      "panna"
+    ],
+    "example": "Stekpannan hade blivit varm när oljan plötsligt stänkte."
+  },
+  {
+    "id": "da:våd",
+    "gloss": [
+      "våt"
+    ],
+    "example": "Jag har blivit våt; vad ska jag göra med kläderna?"
+  },
+  {
+    "id": "da:beskidt",
+    "gloss": [
+      "smutsig"
+    ],
+    "example": "Skorna hade blivit smutsiga eftersom vi hade gått i lera."
+  },
+  {
+    "id": "da:bagage",
+    "gloss": [
+      "bagage"
+    ],
+    "example": "Mitt bagage har kommit bort; vad hände på flygplatsen?"
+  },
+  {
+    "id": "da:love",
+    "gloss": [
+      "lova"
+    ],
+    "example": "Hon hade lovat att komma, men blev plötsligt sjuk."
+  },
+  {
+    "id": "da:humør",
+    "gloss": [
+      "humör"
+    ],
+    "example": "Hans humör hade blivit bättre sedan han fick svar."
+  },
+  {
+    "id": "da:takke",
+    "gloss": [
+      "tacka"
+    ],
+    "example": "Vi hade just tackat henne när hon gick."
+  },
+  {
+    "id": "da:kælder",
+    "gloss": [
+      "källare"
+    ],
+    "example": "Källaren hade blivit översvämmad; vad ska jag göra?"
+  },
+  {
+    "id": "da:flod",
+    "gloss": [
+      "flod"
+    ],
+    "example": "Floden blev plötsligt bredare när regnet kom."
+  },
+  {
+    "id": "da:hilse",
+    "gloss": [
+      "hälsa"
+    ],
+    "example": "Han hade glömt att hälsa, men gjorde det genast."
+  },
+  {
+    "id": "da:tør",
+    "gloss": [
+      "torr"
+    ],
+    "example": "Handduken hade blivit torr när solen till slut kom fram."
+  },
+  {
+    "id": "da:tom",
+    "gloss": [
+      "tom"
+    ],
+    "example": "Flaskan var tom eftersom någon hade druckit allt."
+  },
+  {
+    "id": "da:ambulance",
+    "gloss": [
+      "ambulans"
+    ],
+    "example": "När olyckan hade skett kom ambulansen genast."
+  },
+  {
+    "id": "da:undskylde",
+    "gloss": [
+      "be om ursäkt",
+      "ursäkta"
+    ],
+    "example": "Han hade varit arg, men bad till slut om ursäkt."
+  },
+  {
+    "id": "da:gardin",
+    "gloss": [
+      "gardin"
+    ],
+    "example": "Gardinen hade blivit nerriven när fönstret plötsligt öppnades."
+  },
+  {
+    "id": "da:agurk",
+    "gloss": [
+      "gurka"
+    ],
+    "example": "Gurkan hade blivit mjuk eftersom den hade legat ute."
+  },
+  {
+    "id": "da:mus",
+    "gloss": [
+      "mus"
+    ],
+    "example": "Musen hade just sprungit iväg när katten kom."
+  },
+  {
+    "id": "da:ro",
+    "gloss": [
+      "lugn",
+      "frid"
+    ],
+    "example": "Det hade varit oro; till slut blev det lugnt."
+  },
+  {
+    "id": "da:fuld",
+    "gloss": [
+      "full",
+      "berusad"
+    ],
+    "example": "”Det kan jag tyvärr inte,” svarar jag, eftersom bussen är full och jag inte kan komma med."
+  },
+  {
+    "id": "da:halv",
+    "gloss": [
+      "halv"
+    ],
+    "example": "Ska vi dela på halva kakan, eller vill du hellre ha mindre?"
+  },
+  {
+    "id": "da:lukket",
+    "gloss": [
+      "stängd",
+      "sluten"
+    ],
+    "example": "Dörren är stängd, annars skulle vi gå in."
+  },
+  {
+    "id": "da:travl",
+    "gloss": [
+      "upptagen"
+    ],
+    "example": "I morgon är jag upptagen, så det kan jag tyvärr inte."
+  },
+  {
+    "id": "da:rolig",
+    "gloss": [
+      "lugn",
+      "still"
+    ],
+    "example": "Du bör vara lugn, även om mötet kanske blir långt."
+  },
+  {
+    "id": "da:stille",
+    "gloss": [
+      "tyst",
+      "still"
+    ],
+    "example": "Både rummet och gatan är tysta, så vi kan prata lugnt."
+  },
+  {
+    "id": "da:redde",
+    "gloss": [
+      "rädda"
+    ],
+    "example": "Kunde du rädda antingen katten eller hunden först?"
+  },
+  {
+    "id": "da:vild",
+    "gloss": [
+      "vild"
+    ],
+    "example": "Varken filmen eller boken var så vild som jag hade väntat mig."
+  },
+  {
+    "id": "da:slukke",
+    "gloss": [
+      "släcka",
+      "stänga av"
+    ],
+    "example": "Kom ihåg att släcka ljuset, annars blir batteriet snart tomt."
+  },
+  {
+    "id": "da:sko",
+    "gloss": [
+      "sko"
+    ],
+    "example": "Jag vill heller inte köpa den skon om den är för dyr."
+  },
+  {
+    "id": "da:farlig",
+    "gloss": [
+      "farlig"
+    ],
+    "example": "Det skulle vara mindre farligt att gå den andra vägen."
+  },
+  {
+    "id": "da:klage",
+    "gloss": [
+      "klaga"
+    ],
+    "example": "Kanske bör du klaga om räkningen är fel."
+  },
+  {
+    "id": "da:torden",
+    "gloss": [
+      "åska"
+    ],
+    "example": "Åskan låter mer än jag hade räknat med."
+  },
+  {
+    "id": "da:frygt",
+    "gloss": [
+      "rädsla"
+    ],
+    "example": "Kunde den största rädslan faktiskt vara att komma för sent?"
+  },
+  {
+    "id": "da:gætte",
+    "gloss": [
+      "gissa"
+    ],
+    "example": "Om jag skulle gissa, skulle svaret nog bli mindre exakt."
+  },
+  {
+    "id": "da:tå",
+    "gloss": [
+      "tå"
+    ],
+    "example": "Minst en tå skulle göra ont i så trånga skor."
+  },
+  {
+    "id": "da:tvivle",
+    "gloss": [
+      "tvivla"
+    ],
+    "example": "Jag måste faktiskt tvivla på planen, även om den lät bra."
+  },
+  {
+    "id": "da:landmand",
+    "gloss": [
+      "lantbrukare",
+      "bonde"
+    ],
+    "example": "Lantbrukarens svar är: ”Det kan jag tyvärr inte.”"
+  },
+  {
+    "id": "da:stole",
+    "gloss": [
+      "lita på"
+    ],
+    "example": "Både barn och vuxna kan lita på en så vänlig lärare."
+  },
+  {
+    "id": "da:skade",
+    "gloss": [
+      "skada"
+    ],
+    "example": "Borde vi antingen ringa läkaren eller vänta med att behandla den skadan?"
+  },
+  {
+    "id": "da:film",
+    "gloss": [
+      "film"
+    ],
+    "example": "Filmen är väl varken för lång eller för allvarlig när man tänker på dess publik?"
+  },
+  {
+    "id": "da:minde",
+    "gloss": [
+      "påminna"
+    ],
+    "example": "Klockan ska visst påminna oss om dess korta batteritid."
+  },
+  {
+    "id": "da:venlig",
+    "gloss": [
+      "vänlig",
+      "snäll"
+    ],
+    "example": "Är hon egentligen vänligare mot gäster än den andra receptionisten?"
+  },
+  {
+    "id": "da:appelsin",
+    "gloss": [
+      "apelsin"
+    ],
+    "example": "Ungefär en halv apelsin räcker, men jag vill hellre ha ett äpple."
+  },
+  {
+    "id": "da:rar",
+    "gloss": [
+      "snäll",
+      "trevlig"
+    ],
+    "example": "Kanske är den nya grannen snäll nog att hjälpa till."
+  },
+  {
+    "id": "da:genkende",
+    "gloss": [
+      "känna igen"
+    ],
+    "example": "Kan jag känna igen rösten säkrare nu?"
+  },
+  {
+    "id": "da:klog",
+    "gloss": [
+      "klok",
+      "smart"
+    ],
+    "example": "Den kloka eleven kunde själv lösa den mest krävande uppgiften."
+  },
+  {
+    "id": "da:toilet",
+    "gloss": [
+      "toalett"
+    ],
+    "example": "Hon måste hitta en toalett innan hon kunde fortsätta."
+  },
+  {
+    "id": "da:ordbog",
+    "gloss": [
+      "ordbok"
+    ],
+    "example": "Han skulle slå upp ordet i sin ordbok och läsa minst ett av exemplen i dess sista kapitel."
+  },
+  {
+    "id": "da:overraske",
+    "gloss": [
+      "överraska"
+    ],
+    "example": "Det måste faktiskt ha överraskat henne att de kom så tidigt."
+  },
+  {
+    "id": "da:dum",
+    "gloss": [
+      "dum"
+    ],
+    "example": "Man bör särskilt inte kalla sig själv dum."
+  },
+  {
+    "id": "da:plante",
+    "gloss": [
+      "planta",
+      "växt"
+    ],
+    "example": "Både plantan och dess kruka ser ut så här efter vintern."
+  },
+  {
+    "id": "da:fejre",
+    "gloss": [
+      "fira"
+    ],
+    "example": "Borde vi antingen fira födelsedagen på fredag eller flytta dess datum?"
+  },
+  {
+    "id": "da:lastbil",
+    "gloss": [
+      "lastbil"
+    ],
+    "example": "Lastbilen är väl varken mindre eller mer farlig än bilen?"
+  },
+  {
+    "id": "da:dygtig",
+    "gloss": [
+      "duktig",
+      "skicklig"
+    ],
+    "example": "Ska särskilt öva sig på det allra svåraste."
+  },
+  {
+    "id": "da:bekymring",
+    "gloss": [
+      "bekymmer",
+      "oro"
+    ],
+    "example": "Det är egentligen ett mindre bekymmer, men jag vill heller inte ignorera det."
+  },
+  {
+    "id": "da:doven",
+    "gloss": [
+      "lat"
+    ],
+    "example": "Ungefär hälften skulle hellre vila än kallas lat."
+  },
+  {
+    "id": "da:gifte",
+    "gloss": [
+      "gifta sig"
+    ],
+    "example": "Kanske ska de gifta sig om festen inte blir för dyr."
+  },
+  {
+    "id": "da:pause",
+    "gloss": [
+      "paus"
+    ],
+    "example": "Dessutom bör pausen vara längre så att vi får mer tid."
+  },
+  {
+    "id": "da:kysse",
+    "gloss": [
+      "kyssa"
+    ],
+    "example": "Hon kunde kyssa honom, men tänkte mest på att hålla sig tillbaka."
+  },
+  {
+    "id": "da:batteri",
+    "gloss": [
+      "batteri"
+    ],
+    "example": "Batteriet måste vara mindre om det skulle passa i sitt utrymme."
+  },
+  {
+    "id": "da:modig",
+    "gloss": [
+      "modig"
+    ],
+    "example": "Minst en av oss borde vara modig nog att säga det."
+  },
+  {
+    "id": "da:saks",
+    "gloss": [
+      "sax"
+    ],
+    "example": "Faktiskt skulle jag välja en vass sax."
+  },
+  {
+    "id": "da:vågne",
+    "gloss": [
+      "vakna"
+    ],
+    "example": "Särskilt på måndagar måste hon påminna sig själv om att ställa larmet för att vakna tidigt."
+  },
+  {
+    "id": "da:grænse",
+    "gloss": [
+      "gräns"
+    ],
+    "example": "Både turister och lokala bör respektera en sådan gräns."
+  },
+  {
+    "id": "da:hvile",
+    "gloss": [
+      "vila"
+    ],
+    "example": "Borde hunden vila om dess ben gör ont?"
+  },
+  {
+    "id": "da:bukser",
+    "gloss": [
+      "byxor"
+    ],
+    "example": "Är både byxorna och jackan för stora?"
+  },
+  {
+    "id": "da:slappe",
+    "gloss": [
+      "slappna av",
+      "koppla av"
+    ],
+    "example": "Han ska visst slappna av, även om han varken är trött eller sjuk."
+  },
+  {
+    "id": "da:fængsel",
+    "gloss": [
+      "fängelse"
+    ],
+    "example": "Fängelset är egentligen stängt för besök, annars skulle dess gård vara full."
+  },
+  {
+    "id": "da:regning",
+    "gloss": [
+      "räkning",
+      "nota"
+    ],
+    "example": "Ungefär hälften av räkningen är för maten, och jag vill heller inte betala mer."
+  },
+  {
+    "id": "da:kede",
+    "gloss": [
+      "tråka ut sig",
+      "ha tråkigt"
+    ],
+    "example": "Kanske har barnen tråkigt; de skulle hellre leka."
+  },
+  {
+    "id": "da:gulerod",
+    "gloss": [
+      "morot"
+    ],
+    "example": "Dessutom bör du äta minst en morot och kanske lite mer."
+  },
+  {
+    "id": "da:skynde",
+    "gloss": [
+      "skynda sig",
+      "jäkta"
+    ],
+    "example": "Kunde du skynda dig lite mindre så att jag kan hänga med?"
+  },
+  {
+    "id": "da:journalist",
+    "gloss": [
+      "journalist"
+    ],
+    "example": "Journalisten måste faktiskt undersöka den historia som folk talar mest om."
+  },
+  {
+    "id": "da:gide",
+    "gloss": [
+      "orka",
+      "ha lust"
+    ],
+    "example": "Han skulle inte orka använda sin klocka om den gick mindre exakt."
+  },
+  {
+    "id": "da:sår",
+    "gloss": [
+      "sår"
+    ],
+    "example": "Minst två av hennes sår måste täckas, men hon visade sina andra sår."
+  },
+  {
+    "id": "da:forsikring",
+    "gloss": [
+      "försäkring"
+    ],
+    "example": "Faktiskt bör man själv läsa sin försäkring innan man väljer."
+  },
+  {
+    "id": "da:fortryde",
+    "gloss": [
+      "ångra"
+    ],
+    "example": "Särskilt efteråt kunde de ångra att de inte hjälpte varandra."
+  },
+  {
+    "id": "da:skuffelse",
+    "gloss": [
+      "besvikelse"
+    ],
+    "example": "Företaget hade annars ett gott rykte, en sådan besvikelse skulle inte förstöra dess anseende."
+  },
+  {
+    "id": "da:øve",
+    "gloss": [
+      "öva",
+      "träna"
+    ],
+    "example": "Man borde öva sig om man egentligen ville bli bättre."
+  },
+  {
+    "id": "da:bad",
+    "gloss": [
+      "bad"
+    ],
+    "example": "Badet var väl varmt nog, men jag fick heller inte stanna för länge."
+  },
+  {
+    "id": "da:træne",
+    "gloss": [
+      "träna"
+    ],
+    "example": "Hon bör visst träna mindre om sjukdomen blir värre."
+  },
+  {
+    "id": "da:kind",
+    "gloss": [
+      "kind"
+    ],
+    "example": "Hon lade egentligen sin hand på barnets kind."
+  },
+  {
+    "id": "da:blad",
+    "gloss": [
+      "blad"
+    ],
+    "example": "Ungefär vart tredje blad var redan gult."
+  },
+  {
+    "id": "da:studere",
+    "gloss": [
+      "studera",
+      "plugga"
+    ],
+    "example": "Hon ska studera, men har nog inte tid att träffa sina vänner."
+  },
+  {
+    "id": "da:paraply",
+    "gloss": [
+      "paraply"
+    ],
+    "example": "Du bör dessutom ta antingen det stora paraplyet eller den lilla regnjackan."
+  },
+  {
+    "id": "da:undervise",
+    "gloss": [
+      "undervisa"
+    ],
+    "example": "Hon kunde undervisa sig själv, men ville hellre lära sig tillsammans med andra."
+  },
+  {
+    "id": "da:ur",
+    "gloss": [
+      "klocka"
+    ],
+    "example": "Han måste ställa sin klocka och ville helst komma minst tio minuter före."
+  },
+  {
+    "id": "da:rig",
+    "gloss": [
+      "rik",
+      "förmögen"
+    ],
+    "example": "Kanske är han rik nog att hjälpa, men det vet ingen."
+  },
+  {
+    "id": "da:oversætte",
+    "gloss": [
+      "översätta"
+    ],
+    "example": "Hon kan översätta sina egna brev och göra dem tydligare."
+  },
+  {
+    "id": "da:briller",
+    "gloss": [
+      "glasögon"
+    ],
+    "example": "Hon borde själv välja de glasögon som hon ser tydligast med."
+  },
+  {
+    "id": "da:lyn",
+    "gloss": [
+      "blixt",
+      "blixtljus"
+    ],
+    "example": "Vi stod nära varandra medan blixten lyste, det verkade visst mindre skrämmande."
+  },
+  {
+    "id": "da:gentage",
+    "gloss": [
+      "upprepa"
+    ],
+    "example": "Ska jag upprepa det minst en gång till?"
+  },
+  {
+    "id": "da:død",
+    "gloss": [
+      "död"
+    ],
+    "example": "Faktiskt var plantan död, men dess blad var fortfarande gröna."
+  },
+  {
+    "id": "da:løg",
+    "gloss": [
+      "lök"
+    ],
+    "example": "Särskilt denna lök kunde ge soppan mest smak."
+  },
+  {
+    "id": "da:rette",
+    "gloss": [
+      "rätta",
+      "korrigera"
+    ],
+    "example": "Så skulle läraren rätta texten om svaret var fel."
+  },
+  {
+    "id": "da:alder",
+    "gloss": [
+      "ålder"
+    ],
+    "example": "Jag ville faktiskt fråga om hennes ålder, men lät bli."
+  },
+  {
+    "id": "da:forsigtig",
+    "gloss": [
+      "försiktig"
+    ],
+    "example": "Man måste vara försiktig, även om golvet såg torrt ut."
+  },
+  {
+    "id": "da:lov",
+    "gloss": [
+      "lag",
+      "tillstånd"
+    ],
+    "example": "Du bör läsa lagen, annars måste du fråga en expert."
+  },
+  {
+    "id": "da:lege",
+    "gloss": [
+      "leka"
+    ],
+    "example": "Både barn och vuxna kunde leka tillsammans."
+  },
+  {
+    "id": "da:stolthed",
+    "gloss": [
+      "stolthet"
+    ],
+    "example": "Antingen skulle hans stolthet växa, eller också skulle han be om ursäkt."
+  },
+  {
+    "id": "da:svag",
+    "gloss": [
+      "svag"
+    ],
+    "example": "Varken teet eller kaffet borde vara så svagt."
+  },
+  {
+    "id": "da:cykle",
+    "gloss": [
+      "cykla"
+    ],
+    "example": "Annars kan vi cykla om bussen inte kommer."
+  },
+  {
+    "id": "da:musik",
+    "gloss": [
+      "musik"
+    ],
+    "example": "Jag vill heller inte stänga av musiken om du lyssnar."
+  },
+  {
+    "id": "da:sygdom",
+    "gloss": [
+      "sjukdom"
+    ],
+    "example": "Hon ville hellre prata om sin sjukdom än dölja den."
+  },
+  {
+    "id": "da:fange",
+    "gloss": [
+      "hinna",
+      "fånga"
+    ],
+    "example": "Kanske kan vi hinna med bussen om vi skyndar oss."
+  },
+  {
+    "id": "da:fattig",
+    "gloss": [
+      "fattig"
+    ],
+    "example": "En fattig familj får mindre hjälp än den faktiskt behöver."
+  },
+  {
+    "id": "da:lektie",
+    "gloss": [
+      "läxa"
+    ],
+    "example": "Läxan tog mest tid, men kunde faktiskt lösas hemma."
+  },
+  {
+    "id": "da:løfte",
+    "gloss": [
+      "lyfta"
+    ],
+    "example": "Hon måste lyfta mindre eftersom armen gjorde ont."
+  },
+  {
+    "id": "da:håndværker",
+    "gloss": [
+      "hantverkare"
+    ],
+    "example": "Minst en hantverkare måste komma, annars blev dörren inte reparerad."
+  },
+  {
+    "id": "da:fast",
+    "gloss": [
+      "fast"
+    ],
+    "example": "Det fasta priset är faktiskt bäst om budgeten är liten."
+  },
+  {
+    "id": "da:hyggelig",
+    "gloss": [
+      "mysig",
+      "trevlig"
+    ],
+    "example": "Vardagsrummet är särskilt mysigt när vi sitter nära varandra."
+  },
+  {
+    "id": "da:mening",
+    "gloss": [
+      "åsikt"
+    ],
+    "example": "En sådan åsikt bör man väl förklara tydligare."
+  },
+  {
+    "id": "da:skubbe",
+    "gloss": [
+      "knuffa"
+    ],
+    "example": "Han måste skjuta vagnen, men ville hellre dra den."
+  },
+  {
+    "id": "da:fødselsdag",
+    "gloss": [
+      "födelsedag"
+    ],
+    "example": "I morgon föreslår hon: ”Ska vi fira din födelsedag?”"
+  },
+  {
+    "id": "da:bage",
+    "gloss": [
+      "baka"
+    ],
+    "example": "Hon frågar: ”Har du lust att baka på lördag?”"
+  },
+  {
+    "id": "da:hjemmeside",
+    "gloss": [
+      "webbplats",
+      "hemsida"
+    ],
+    "example": "Det kan jag tyvärr inte, webbplatsen är nämligen nere."
+  },
+  {
+    "id": "da:fryser",
+    "gloss": [
+      "frys"
+    ],
+    "example": "Passar tisdag? Annars kan en hantverkare titta på frysen på onsdag."
+  },
+  {
+    "id": "da:skarp",
+    "gloss": [
+      "vass"
+    ],
+    "example": "Det kan jag tyvärr inte, saxen är varken vass eller säker att använda."
+  },
+  {
+    "id": "da:turist",
+    "gloss": [
+      "turist"
+    ],
+    "example": "En turist frågar: ”Har du lust att se staden?”"
+  },
+  {
+    "id": "da:vække",
+    "gloss": [
+      "väcka"
+    ],
+    "example": "Om det inte passar kan du väcka mig en timme senare, eftersom jag vet att du ändå är vaken."
+  },
+  {
+    "id": "da:reparere",
+    "gloss": [
+      "reparera",
+      "laga"
+    ],
+    "example": "Hantverkaren måste reparera sina verktyg samt det trasiga fönstret."
+  },
+  {
+    "id": "da:pose",
+    "gloss": [
+      "påse"
+    ],
+    "example": "Den här påsen måste användas om den andra inte klarar av varornas vikt."
+  },
+  {
+    "id": "da:ødelægge",
+    "gloss": [
+      "förstöra"
+    ],
+    "example": "Jag vet att de inte vill förstöra den här möbeln med flit."
+  },
+  {
+    "id": "da:levende",
+    "gloss": [
+      "levande",
+      "livlig"
+    ],
+    "example": "Även om växten inte ser levande ut är dess blad fortfarande gröna."
+  },
+  {
+    "id": "da:kanal",
+    "gloss": [
+      "kanal"
+    ],
+    "example": "Kanalen är stängd, och därför måste den här båten vänta till i morgon."
+  },
+  {
+    "id": "da:skinke",
+    "gloss": [
+      "skinka"
+    ],
+    "example": "När skinkan inte är varm ska den tillbaka in i kylskåpet."
+  },
+  {
+    "id": "da:koge",
+    "gloss": [
+      "koka"
+    ],
+    "example": "Medan vattnet kokar får du inte lämna det här köket."
+  },
+  {
+    "id": "da:enkel",
+    "gloss": [
+      "enkel"
+    ],
+    "example": "Det är en enkel lösning som inte kräver ett nytt avtal."
+  },
+  {
+    "id": "da:angst",
+    "gloss": [
+      "ångest",
+      "rädsla"
+    ],
+    "example": "Jag har haft ångest eftersom jag inte visste vad brevet betydde. Vad ska jag göra?"
+  },
+  {
+    "id": "da:rydde",
+    "gloss": [
+      "städa",
+      "röja"
+    ],
+    "example": "Jag vill gärna ändra mitt avtal eftersom jag måste städa lägenheten."
+  },
+  {
+    "id": "da:and",
+    "gloss": [
+      "anka"
+    ],
+    "example": "Både den här ankan och dess ungar lever bland svanar samt andra fåglar."
+  },
+  {
+    "id": "da:praktisk",
+    "gloss": [
+      "praktisk"
+    ],
+    "example": "Det här är praktiskt om du antingen kan komma tidigt eller hämta det senare."
+  },
+  {
+    "id": "da:møbel",
+    "gloss": [
+      "möbel"
+    ],
+    "example": "De här möblerna måste repareras eftersom de inte är säkra."
+  },
+  {
+    "id": "da:overraskelse",
+    "gloss": [
+      "överraskning"
+    ],
+    "example": "Det var en överraskning att hon ändå kunde komma; en gång avbokade hon, och tidigare gjorde hon det nästan alltid."
+  },
+  {
+    "id": "da:snakke",
+    "gloss": [
+      "prata",
+      "snacka"
+    ],
+    "example": "Vi kan prata medan vi väntar, även om vi inte känner varandra."
+  },
+  {
+    "id": "da:trykke",
+    "gloss": [
+      "trycka"
+    ],
+    "example": "Tryck på den här knappen om skärmen inte reagerar."
+  },
+  {
+    "id": "da:rimelig",
+    "gloss": [
+      "rimlig",
+      "skälig"
+    ],
+    "example": "Priset är rimligt; dock måste du fortsätta betala tills ärendet är avgjort."
+  },
+  {
+    "id": "da:sweater",
+    "gloss": [
+      "tröja"
+    ],
+    "example": "Jag tar på mig den här tröjan när kontoret inte är varmt."
+  },
+  {
+    "id": "da:skam",
+    "gloss": [
+      "skam"
+    ],
+    "example": "Han kände skam, men sa ändå att han inte hade ljugit."
+  },
+  {
+    "id": "da:fylde",
+    "gloss": [
+      "fylla"
+    ],
+    "example": "Du måste fylla i den här blanketten eftersom kommunen inte har dina uppgifter."
+  },
+  {
+    "id": "da:berømt",
+    "gloss": [
+      "berömd"
+    ],
+    "example": "Han är en berömd skådespelare som många känner igen."
+  },
+  {
+    "id": "da:ensomhed",
+    "gloss": [
+      "ensamhet"
+    ],
+    "example": "Ensamheten blir mindre när man inte sitter ensam."
+  },
+  {
+    "id": "da:skære",
+    "gloss": [
+      "skära"
+    ],
+    "example": "Jag vet att du inte får skära brödet med den här kniven."
+  },
+  {
+    "id": "da:læbe",
+    "gloss": [
+      "läpp"
+    ],
+    "example": "Jag har ont i läppen; dock log jag ändå mot fotografen."
+  },
+  {
+    "id": "da:råbe",
+    "gloss": [
+      "ropa",
+      "skrika"
+    ],
+    "example": "Han var tvungen att ropa eftersom de inte kunde höra meddelandet."
+  },
+  {
+    "id": "da:motion",
+    "gloss": [
+      "motion"
+    ],
+    "example": "En gång var motion sällan en del av min dag; nu är den nämligen viktig eftersom kroppen blir starkare."
+  },
+  {
+    "id": "da:ærlig",
+    "gloss": [
+      "ärlig"
+    ],
+    "example": "Trots ett ärligt svar tvivlade hon; därför läste hon det här brevet igen."
+  },
+  {
+    "id": "da:tårn",
+    "gloss": [
+      "torn"
+    ],
+    "example": "Tornet är högt, men dess trappa är ju inte farlig."
+  },
+  {
+    "id": "da:ryge",
+    "gloss": [
+      "röka"
+    ],
+    "example": "Man får inte röka medan man väntar bland andra människor."
+  },
+  {
+    "id": "da:streng",
+    "gloss": [
+      "sträng"
+    ],
+    "example": "Regeln är sträng; dock är den rimlig eftersom den gäller alla."
+  },
+  {
+    "id": "da:kvittering",
+    "gloss": [
+      "kvitto"
+    ],
+    "example": "Spara det här kvittot samt garantin tills du vet att den köpta varan fungerar."
+  },
+  {
+    "id": "da:tørre",
+    "gloss": [
+      "torka"
+    ],
+    "example": "Även om handduken är fuktig kan du ändå torka bordet."
+  },
+  {
+    "id": "da:tydelig",
+    "gloss": [
+      "tydlig"
+    ],
+    "example": "Den här skylten är tydlig, så du vet att du måste vänta."
+  },
+  {
+    "id": "da:peber",
+    "gloss": [
+      "peppar"
+    ],
+    "example": "Det finns peppar bland kryddorna, men den används sällan här."
+  },
+  {
+    "id": "da:politibetjent",
+    "gloss": [
+      "polis"
+    ],
+    "example": "Genast gjorde polisen det klart att vi inte fick gå in eftersom golvet var halt."
+  },
+  {
+    "id": "da:blande",
+    "gloss": [
+      "blanda"
+    ],
+    "example": "Du kan blanda de här färgerna om du inte har den rätta."
+  },
+  {
+    "id": "da:hylde",
+    "gloss": [
+      "hylla"
+    ],
+    "example": "Hyllan kan ju inte bära lådan, även om den ser stark ut."
+  },
+  {
+    "id": "da:hoppe",
+    "gloss": [
+      "hoppa"
+    ],
+    "example": "Barnet ville hoppa, men gjorde det sällan bland främlingar."
+  },
+  {
+    "id": "da:skygge",
+    "gloss": [
+      "skugga"
+    ],
+    "example": "Skuggan blir längre medan solen går ner; det är alltså snart kväll."
+  },
+  {
+    "id": "da:mild",
+    "gloss": [
+      "mild"
+    ],
+    "example": "Vädret är milt; därför kan vi stanna ute till sent."
+  },
+  {
+    "id": "da:rulle",
+    "gloss": [
+      "rulla"
+    ],
+    "example": "Rulla paketet bort till den här dörren om det inte är för tungt."
+  },
+  {
+    "id": "da:bluse",
+    "gloss": [
+      "blus"
+    ],
+    "example": "Den här blusen är dyr; dess tyg håller dock länge."
+  },
+  {
+    "id": "da:nyttig",
+    "gloss": [
+      "nyttig"
+    ],
+    "example": "Appen är nämligen nyttig eftersom den förklarar de här meddelandena."
+  },
+  {
+    "id": "da:tåge",
+    "gloss": [
+      "dimma"
+    ],
+    "example": "Trots dimman kunde vi se tornet, som inte var långt borta."
+  },
+  {
+    "id": "da:bade",
+    "gloss": [
+      "bada"
+    ],
+    "example": "Vi badar sällan när vattnet inte är varmt."
+  },
+  {
+    "id": "da:smil",
+    "gloss": [
+      "leende"
+    ],
+    "example": "Hennes leende visade att hon ändå inte var arg."
+  },
+  {
+    "id": "da:binde",
+    "gloss": [
+      "knyta",
+      "binda"
+    ],
+    "example": "Knyt påsen tills knuten sitter fast."
+  },
+  {
+    "id": "da:træning",
+    "gloss": [
+      "träning"
+    ],
+    "example": "Träningen är hård, men vi vet ju att den fungerar."
+  },
+  {
+    "id": "da:behagelig",
+    "gloss": [
+      "behaglig",
+      "skön"
+    ],
+    "example": "Stolen är behaglig; alltså kan vi vänta lite längre."
+  },
+  {
+    "id": "da:kursus",
+    "gloss": [
+      "kurs"
+    ],
+    "example": "Jag vill gärna ändra mitt avtal eftersom kursen varar till fredag och även kräver ett prov."
+  },
+  {
+    "id": "da:stege",
+    "gloss": [
+      "steka"
+    ],
+    "example": "Stek löken medan du väntar; den ska dock inte bli mörk."
+  },
+  {
+    "id": "da:teater",
+    "gloss": [
+      "teater"
+    ],
+    "example": "Den här teatern är bland de äldsta i staden, och därför är den berömd."
+  },
+  {
+    "id": "da:underlig",
+    "gloss": [
+      "konstig"
+    ],
+    "example": "Det är konstigt att han inte svarar när han ju är hemma."
+  },
+  {
+    "id": "da:hælde",
+    "gloss": [
+      "hälla"
+    ],
+    "example": "Häll vattnet i den här skålen tills den är halvfull."
+  },
+  {
+    "id": "da:adresse",
+    "gloss": [
+      "adress"
+    ],
+    "example": "De här breven kom tillbaka eftersom adressen inte var tydlig; en gång hände samma sak."
+  },
+  {
+    "id": "da:app",
+    "gloss": [
+      "app"
+    ],
+    "example": "Meddelandet ”Vad ska jag göra?” står i appen tills du väljer den här tiden i kalendern."
+  },
+  {
+    "id": "da:smøre",
+    "gloss": [
+      "breda",
+      "smörja"
+    ],
+    "example": "Bred smör på brödet medan det är varmt; annars blir smöret hårt."
+  },
+  {
+    "id": "da:flink",
+    "gloss": [
+      "snäll",
+      "vänlig"
+    ],
+    "example": "Den snälla medarbetaren förklarar att man inte ska betala nu."
+  },
+  {
+    "id": "da:kalender",
+    "gloss": [
+      "kalender"
+    ],
+    "example": "I kalendern skriver jag: ”Jag vill gärna ändra mitt avtal.”"
+  },
+  {
+    "id": "da:servere",
+    "gloss": [
+      "servera"
+    ],
+    "example": "De serverar sällan skinka, men gör det dock vid särskilda fester."
+  },
+  {
+    "id": "da:skilt",
+    "gloss": [
+      "skylt"
+    ],
+    "example": "Skylten säger att vi inte får röka eftersom andra arbetar här."
+  },
+  {
+    "id": "da:høflig",
+    "gloss": [
+      "artig",
+      "hövlig"
+    ],
+    "example": "Det är artigt att säga att man inte kan komma."
+  },
+  {
+    "id": "da:kurv",
+    "gloss": [
+      "korg"
+    ],
+    "example": "Den här korgen står bland de tomma lådorna och är ju fortfarande hel."
+  },
+  {
+    "id": "da:diskutere",
+    "gloss": [
+      "diskutera"
+    ],
+    "example": "Vi diskuterar vad det här betyder tills alla förstår meddelandet."
+  },
+  {
+    "id": "da:slik",
+    "gloss": [
+      "godis"
+    ],
+    "example": "Barnen får sällan godis, även om de frågar."
+  },
+  {
+    "id": "da:glat",
+    "gloss": [
+      "hal",
+      "slät"
+    ],
+    "example": "Trots skylten gick han vidare, även om golvet var halt."
+  },
+  {
+    "id": "da:ryste",
+    "gloss": [
+      "skaka",
+      "darra"
+    ],
+    "example": "Hon darrade eftersom hon hade haft feber, men gjorde ändå arbetet."
+  },
+  {
+    "id": "da:hjerne",
+    "gloss": [
+      "hjärna"
+    ],
+    "example": "Hjärnan arbetar medan vi sover; därför är sömn ju viktig, även om vi inte minns allt."
+  },
+  {
+    "id": "da:hviske",
+    "gloss": [
+      "viska"
+    ],
+    "example": "Han viskar att det inte börjar före tio."
+  },
+  {
+    "id": "da:interesse",
+    "gloss": [
+      "intresse",
+      "hobby"
+    ],
+    "example": "Den här kursen, som också handlar om kultur, fångade mitt intresse; alltså valde jag den."
+  },
+  {
+    "id": "da:kølig",
+    "gloss": [
+      "kylig",
+      "sval"
+    ],
+    "example": "Det är kyligt eftersom dörren inte är stängd; dock stannar vi här."
+  },
+  {
+    "id": "da:aftale",
+    "gloss": [
+      "avtal",
+      "tid"
+    ],
+    "example": "”Jag vill gärna ändra mitt avtal,” skriver hon, eftersom tiden inte passar."
+  },
+  {
+    "id": "da:glide",
+    "gloss": [
+      "glida",
+      "halka"
+    ],
+    "example": "Hon kunde halka om hon inte höll fast i den här ringen."
+  },
+  {
+    "id": "da:skuffe",
+    "gloss": [
+      "låda"
+    ],
+    "example": "De här lådorna är ju tomma, även om de inte ser så ut."
+  },
+  {
+    "id": "da:fugtig",
+    "gloss": [
+      "fuktig"
+    ],
+    "example": "Väggen är fuktig; därför bör den här möbeln inte stå nära den."
+  },
+  {
+    "id": "da:klatre",
+    "gloss": [
+      "klättra"
+    ],
+    "example": "De vill klättra på klipporna bland de små husen, även om det sällan är tillåtet."
+  },
+  {
+    "id": "da:udsigt",
+    "gloss": [
+      "utsikt"
+    ],
+    "example": "Utsikten är vacker, men dimman döljer den dock till middag."
+  },
+  {
+    "id": "da:ring",
+    "gloss": [
+      "ring"
+    ],
+    "example": "Hon vill inte heller bära ringen eftersom den är lös."
+  },
+  {
+    "id": "da:bekymre",
+    "gloss": [
+      "bekymra",
+      "oroa"
+    ],
+    "example": "Det bekymrar mig att de inte har skickat det här kvittot."
+  },
+  {
+    "id": "da:stiv",
+    "gloss": [
+      "stel"
+    ],
+    "example": "Trots vilan är han stel och säger: ”Jag har ont i ryggen.”"
+  },
+  {
+    "id": "da:ulykke",
+    "gloss": [
+      "olycka"
+    ],
+    "example": "Efter olyckan frågade hon: ”Vad hände?”"
+  },
+  {
+    "id": "da:irritere",
+    "gloss": [
+      "irritera"
+    ],
+    "example": "Det irriterar honom att den inte fungerar, även om appen är ny."
+  },
+  {
+    "id": "da:opskrift",
+    "gloss": [
+      "recept"
+    ],
+    "example": "Det här receptet säger att du ska blanda mjölet medan vattnet kokar."
+  },
+  {
+    "id": "da:løs",
+    "gloss": [
+      "lös"
+    ],
+    "example": "Skruven är lös, och därför kan den här möbeln inte användas."
+  },
+  {
+    "id": "da:kommune",
+    "gloss": [
+      "kommun"
+    ],
+    "example": "”De här papperen saknas,” skriver kommunen."
+  },
+  {
+    "id": "da:kramme",
+    "gloss": [
+      "krama"
+    ],
+    "example": "De kramar varandra, även om de sällan träffas."
+  },
+  {
+    "id": "da:kultur",
+    "gloss": [
+      "kultur"
+    ],
+    "example": "Den här kulturen var en gång okänd för oss, men vi kan ju lära av varandra."
+  },
+  {
+    "id": "da:tålmodig",
+    "gloss": [
+      "tålmodig"
+    ],
+    "example": "Var tålmodig tills de har reparerat det; de börjar nämligen snart."
+  },
+  {
+    "id": "da:trøste",
+    "gloss": [
+      "trösta"
+    ],
+    "example": "Jag försöker trösta henne, även om jag inte vet vad jag ska säga."
+  },
+  {
+    "id": "da:regering",
+    "gloss": [
+      "regering"
+    ],
+    "example": "Regeringen ändrade sina regler samt formuläret; därför måste de här breven skrivas igen."
+  },
+  {
+    "id": "da:ordne",
+    "gloss": [
+      "ordna",
+      "fixa"
+    ],
+    "example": "I dag skriver jag: ”Jag vill gärna ändra mitt avtal.” Därefter kan kommunen ordna resten."
+  },
+  {
+    "id": "da:pakke",
+    "gloss": [
+      "paket"
+    ],
+    "example": "Visa mig ett sådant paket om det inte är tungt."
+  },
+  {
+    "id": "da:skøn",
+    "gloss": [
+      "vacker",
+      "härlig"
+    ],
+    "example": "Om det inte passar väljer vi en annan kväll med en vacker utsikt; alltså har vi fortfarande en plan."
+  },
+  {
+    "id": "da:fritid",
+    "gloss": [
+      "fritid"
+    ],
+    "example": "Jag skriver att jag har fritid på torsdag, men föreslår fredag om det inte passar."
+  },
+  {
+    "id": "da:klippe",
+    "gloss": [
+      "klippa"
+    ],
+    "example": "Meddelandet säger: ”Om det inte passar kan vi klippa håret på fredag.”"
+  },
+  {
+    "id": "da:venskab",
+    "gloss": [
+      "vänskap"
+    ],
+    "example": "Vänskapen lär dem att hjälpa varandra eftersom de talar med varandra, även om de inte är eniga."
+  },
+  {
+    "id": "da:sprød",
+    "gloss": [
+      "knaprig",
+      "spröd"
+    ],
+    "example": "Om det inte passar kan vi servera det knapriga brödet senare."
+  },
+  {
+    "id": "da:skrige",
+    "gloss": [
+      "skrika"
+    ],
+    "example": "Om det inte passar kan barnet skrika eftersom skon gör ont; välj därför en större."
+  },
+  {
+    "id": "da:ægteskab",
+    "gloss": [
+      "äktenskap"
+    ],
+    "example": "Äktenskapet är starkt, nämligen eftersom de talar ärligt om det här."
+  }
+]

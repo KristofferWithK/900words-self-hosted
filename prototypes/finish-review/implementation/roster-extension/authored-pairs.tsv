@@ -1,0 +1,77 @@
+wordId	boardDa	boardEn	boardForm	reviewDa	reviewEn	reviewForm	targetId	targetForm	editorialNote
+se	Jeg ser en fugl.	I see a bird.	ser	Hvad ser du?	What do you see?	ser	ledger:hvad	Hvad	Present ser; hvad asks for the object seen.
+tro	Jeg tror på dig.	I believe you.	tror	Ja, jeg tror på dig.	Yes, I believe you.	tror	ledger:ja	Ja	Believing a person, not religious belief; ja confirms trust.
+sige	Hun siger mit navn.	She says my name.	siger	Undskyld, kan du sige det igen?	Sorry, can you say that again?	sige	supplemental:da-chunk-repeat	kan du sige det igen?	Exact existing repair request; no general modal lesson.
+vide	Jeg ved det.	I know that.	ved	Nej, jeg ved det ikke.	No, I do not know that.	ved	ledger:nej	Nej	Irregular ved; nej answers a knowledge question.
+komme	Bussen kommer nu.	The bus is coming now.	kommer	Jeg kommer fra Norge.	I come from Norway.	kommer	supplemental:da-chunk-origin	Jeg kommer fra Norge	Existing personal-origin chunk; no new tense target.
+synes	Jeg synes det samme.	I think the same.	synes	Hvad synes du?	What do you think?	synes	ledger:hvad	Hvad	Opinion sense; short same-opinion statement without an embedded clause.
+gå	Vi går til skolen.	We walk to the school.	går	Hvem går med dig?	Who is walking with you?	går	ledger:hvem	Hvem	Walking sense; hvem asks for a person.
+god	Maden er god.	The food is good.	god	Ja, kaffen er god.	Yes, the coffee is good.	god	ledger:ja	Ja	Common-gender predicate god; affirmative reply.
+rigtig	Svaret er rigtigt.	The answer is correct.	rigtigt	Er det rigtigt?	Is that correct?	rigtigt	ledger:det	det	Correct sense; neuter rigtigt and referential det.
+tage	Jeg tager bussen.	I take the bus.	tager	Okay, vi tager toget.	Okay, we will take the train.	tager	ledger:okay	Okay	Transport choice; okay signals agreement, present for immediate plan.
+tænke	Jeg tænker på dig.	I am thinking of you.	tænker	Jeg tænker lidt.	I am thinking a little.	tænker	ledger:lidt	lidt	Think sense, lidt limits amount of thinking.
+få	Jeg får en gave.	I receive a gift.	får	Hvem får brevet?	Who gets the letter?	får	ledger:hvem	Hvem	Receive sense, not causative få.
+gang	Det er første gang.	It is the first time.	gang	En gang til, tak.	One more time, please.	gang	ledger:tak	tak	Occasion sense, never corridor; natural short repetition request.
+nå	Vi når toget.	We will catch the train.	når	Ja, vi når bussen.	Yes, we will catch the bus.	når	ledger:ja	Ja	Catch transport sense; present expresses imminent outcome.
+lave	Hun laver mad.	She is cooking.	laver	Hvad laver du?	What are you doing?	laver	ledger:hvad	Hvad	Do/make sense; conventional activity question.
+prøve	Jeg prøver jakken.	I am trying on the jacket.	prøver	Prøv igen.	Try again.	Prøv	ledger:igen	igen	Trying clothing on versus another attempt; short natural retry instruction.
+sjov	Filmen er sjov.	The film is funny.	sjov	Det er en sjov historie.	It is a funny story.	sjov	ledger:en	en	Adjective funny, not noun fun; en introduces common-gender historie.
+hedde	Min ven hedder Ali.	My friend is called Ali.	hedder	Jeg hedder Nora.	My name is Nora.	hedder	supplemental:da-chunk-name	Jeg hedder Nora	Existing self-introduction chunk with a distinct name.
+sidde	Katten sidder på stolen.	The cat is sitting on the chair.	sidder	Sidder du her?	Are you sitting here?	Sidder	ledger:her	her	Her denotes current location; sit not lie.
+huske	Jeg husker dit navn.	I remember your name.	husker	Hvem husker adressen?	Who remembers the address?	husker	ledger:hvem	Hvem	Remember sense; address is incidental supporting vocabulary.
+tid	Jeg har god tid.	I have plenty of time.	tid	Har du lidt tid?	Do you have a little time?	tid	ledger:lidt	lidt	Uncountable time; idiomatic god tid versus small amount.
+hel	Jeg spiser et helt æble.	I eat a whole apple.	helt	Er der en hel kage?	Is there a whole cake?	hel	supplemental:da-chunk-existence	Er der en hel kage?	Whole not very; helt agrees with æble, hel with kage.
+bo	Jeg bor i byen.	I live in the town.	bor	Hvor bor din ven?	Where does your friend live?	bor	ledger:hvor	Hvor	Reside sense; simple location question.
+sted	Det er et roligt sted.	It is a quiet place.	sted	Er der et roligt sted?	Is there a quiet place?	sted	ledger:et	et	Neuter noun place; natural question seeking a quiet spot.
+stå	Manden står ved døren.	The man is standing by the door.	står	Hvem står der?	Who is standing there?	står	ledger:der	der	Locative there, not existential der; standing person.
+finde	Jeg finder min taske.	I find my bag.	finder	Finder du den igen?	Do you find it again?	Finder	ledger:igen	igen	Find again; den refers to a previously mentioned common-gender object.
+snakke	Vi snakker på bussen.	We chat on the bus.	snakker	Du snakker hurtigt. Lidt langsommere, tak.	You are talking fast. A little more slowly, please.	snakker	supplemental:da-chunk-slower	Lidt langsommere, tak.	Talk sense; speed observation motivates exact existing slower-speech request, no comparative grammar instruction.
+høre	Jeg hører en fugl.	I hear a bird.	hører	Hvad hører du?	What do you hear?	hører	ledger:hvad	Hvad	Hear, not obey; immediate sound question.
+bruge	Jeg bruger en blyant.	I use a pencil.	bruger	Hvem bruger den?	Who uses it?	bruger	ledger:hvem	Hvem	Use sense; den refers to a common-gender object, no possessive lesson.
+år	Et år er lang tid.	A year is a long time.	år	Er det et godt år?	Is it a good year?	år	ledger:et	et	Neuter year; singular noun phrases in both examples.
+ligge	Bogen ligger på bordet.	The book is lying on the table.	ligger	Hvor ligger bogen?	Where is the book?	ligger	ledger:hvor	Hvor	Static location; Danish ligger is naturally English is in location question.
+måde	Det er en nem måde.	It is an easy way.	måde	Prøv på den måde.	Try it that way.	måde	ledger:den	den	Way/manner sense, not road; den points to a demonstrated method.
+svær	Opgaven er svær.	The task is difficult.	svær	Det er lidt svært.	It is a little difficult.	svært	ledger:lidt	lidt	Neuter predicate svært after det; lidt softens degree.
+forskellig	Bøgerne er forskellige.	The books are different.	forskellige	Ja, de er forskellige.	Yes, they are different.	forskellige	ledger:ja	Ja	Plural adjective required for comparison of objects; fixed form, no plural grammar focus.
+fin	Din jakke er fin.	Your jacket is nice.	fin	Tak for den fine gave.	Thank you for the lovely gift.	fine	ledger:tak	Tak	Nice/lovely sense; fine is definite attributive form, thanks anchored to a gift.
+side	Jeg læser en side.	I read a page.	side	Hvor er siden?	Where is the page?	siden	supplemental:da-chunk-where	Hvor er siden?	Page sense both rows; definite siden in existing location chunk.
+lang	Vejen er lang.	The road is long.	lang	Er der en lang kø?	Is there a long queue?	lang	supplemental:da-chunk-existence	Er der en lang kø?	Length sense; common-gender lang, natural availability/observation question.
+spændende	Bogen er spændende.	The book is exciting.	spændende	Det er en spændende film.	It is an exciting film.	spændende	ledger:en	en	Exciting sense; article introduces common-gender film.
+ny	Min cykel er ny.	My bicycle is new.	ny	Er det et nyt hus?	Is that a new house?	nyt	ledger:det	det	New sense; nyt agrees with neuter hus, referential det.
+dårlig	Mælken er dårlig.	The milk is bad.	dårlig	Nej, kaffen er dårlig.	No, the coffee is bad.	dårlig	ledger:nej	Nej	Spoiled milk and poor coffee; both dictionary bad sense, no health claim.
+sidste	Det er sidste stop.	This is the last stop.	sidste	Er det den sidste bus?	Is that the last bus?	sidste	ledger:den	den	Final sense; definite bus phrase kept as a whole example.
+eksempel	Her er et eksempel.	Here is an example.	eksempel	Vis eksemplet igen, tak.	Show the example again, please.	eksemplet	ledger:igen	igen	Natural request to see an example again; imperative is a fixed instruction, focus is igen.
+dansk	Filmen er dansk.	The film is Danish.	dansk	Hvad betyder dansk?	What does Danish mean?	dansk	supplemental:da-chunk-meaning	Hvad betyder dansk?	Board uses dictionary adjective sense; review asks about the word without a quoted story.
+vej	Vejen går til byen.	The road leads to the town.	Vejen	Hvor er vejen til skolen?	Where is the road to the school?	vejen	supplemental:da-chunk-where	Hvor er vejen til skolen?	Road sense; existing location chunk, not route-instruction grammar.
+halv	Jeg spiser en halv banan.	I eat half a banana.	halv	Er der en halv kage tilbage?	Is there half a cake left?	halv	ledger:der	der	Half an object; existential der, tilbage incidental.
+mulig	En pause er mulig.	A break is possible.	mulig	Ja, det er muligt.	Yes, it is possible.	muligt	ledger:ja	Ja	Possible sense; neuter muligt with det, no infinitive complement.
+menneske	Hun er et venligt menneske.	She is a kind person.	menneske	Der er et menneske i huset.	There is a person in the house.	menneske	ledger:et	et	Human/person sense, neuter article; no claim about gender from meaning.
+hjem	Det er mit hjem.	This is my home.	hjem	Velkommen til mit hjem.	Welcome to my home.	hjem	ledger:velkommen	Velkommen	Noun home, not adverb hjemme; greeting fits a host welcoming a guest.
+time	Turen tager en time.	The trip takes an hour.	time	Er der en time tilbage?	Is there an hour left?	time	supplemental:da-chunk-existence	Er der en time tilbage?	Hour sense, not school lesson; time availability.
+sikker	Bilen er sikker.	The car is safe.	sikker	Nej, jeg er ikke sikker.	No, I am not sure.	sikker	ledger:nej	Nej	Safe and sure are both source senses; nej answers a certainty question.
+billede	Billedet hænger på væggen.	The picture is hanging on the wall.	Billedet	Hvad er der på billedet?	What is in the picture?	billedet	ledger:hvad	Hvad	Picture sense; Danish på corresponds to English in for image content.
+klar	Maden er klar.	The food is ready.	klar	Ja, jeg er klar.	Yes, I am ready.	klar	ledger:ja	Ja	Ready sense; affirmative response to readiness question.
+ord	Jeg læser et ord.	I read a word.	ord	Jeg forstår ikke. Hvad betyder ordet?	I do not understand. What does the word mean?	ordet	supplemental:da-chunk-dont-understand	Jeg forstår ikke.	Exact non-understanding chunk followed by its connected word-meaning question; singular definite ordet.
+sprog	Dansk er et sprog.	Danish is a language.	sprog	Hvad hedder sproget?	What is the language called?	sproget	ledger:hvad	Hvad	Neuter sprog and definite sproget; name question.
+mening	Jeg har en mening.	I have an opinion.	mening	Hvad er din mening?	What is your opinion?	mening	ledger:hvad	Hvad	Opinion sense in both rows, not purpose; question targets hvad.
+grund	Der er en grund.	There is a reason.	grund	Hvad er grunden?	What is the reason?	grunden	ledger:hvad	Hvad	Reason sense; no causal clause or later-city linker.
+klokke	Klokken ringer nu.	The bell is ringing now.	Klokken	Er der en klokke her?	Is there a bell here?	klokke	supplemental:da-chunk-existence	Er der en klokke her?	Bell sense, not time-telling; bell in an entrance or reception.
+person	En person venter udenfor.	A person is waiting outside.	person	Hvem er den person?	Who is that person?	person	ledger:hvem	Hvem	Person identification; den is demonstrative incidental to hvem.
+land	Danmark er et lille land.	Denmark is a small country.	land	Hvad hedder landet?	What is the country called?	landet	ledger:hvad	Hvad	Country sense, definite landet; no nationality morphology lesson.
+verden	Verden er stor.	The world is big.	Verden	Hvor i verden er vi?	Where in the world are we?	verden	ledger:i	i	Locative preposition i, not plural-you pronoun I; one location question.
+historie	Jeg læser en historie.	I am reading a story.	historie	Fortæl historien igen, tak.	Tell the story again, please.	historien	ledger:igen	igen	Story sense; natural repeat request, no invented narrative frame.
+møde	Mødet starter nu.	The meeting starts now.	Mødet	Hvor er mødet?	Where is the meeting?	mødet	supplemental:da-chunk-where	Hvor er mødet?	Noun meeting with definite mødet, not verb meet.
+måned	Juni er en måned.	June is a month.	måned	Hvad hedder måneden?	What is the month called?	måneden	ledger:hvad	Hvad	Month name question; simple present board, no perfect tense.
+lov	Loven gælder her.	The law applies here.	Loven	Hvad betyder loven?	What does the law mean?	loven	supplemental:da-chunk-meaning	Hvad betyder loven?	Law sense, not an instruction or legal guidance; existing meaning question.
+tanke	Det er en god tanke.	That is a good thought.	tanke	Jeg har en tanke.	I have a thought.	tanke	ledger:en	en	Thought/idea sense; common-gender indefinite noun phrase.
+kæreste	Min kæreste er hjemme.	My partner is at home.	kæreste	Hej, er din kæreste her?	Hi, is your partner here?	kæreste	ledger:hej	Hej	Romantic partner sense without assigning gender; greeting connected to asking for someone.
+tvivl	Jeg er i tvivl.	I am in doubt.	tvivl	Er du i tvivl igen?	Are you in doubt again?	tvivl	ledger:igen	igen	Uncountable doubt; igen marks recurring uncertainty, not an assessed repair task.
+dyr	Dyret sover i skoven.	The animal is sleeping in the forest.	Dyret	Hvor er dyret?	Where is the animal?	dyret	supplemental:da-chunk-where	Hvor er dyret?	Neuter noun animal, never adjective expensive.
+krone	Jeg har en krone.	I have one krone.	krone	Her er en krone.	Here is one krone.	krone	ledger:her	Her	Currency sense, not royal crown; deictic her in a handover.
+lyst	Jeg har lyst til kaffe.	I feel like having coffee.	lyst	Nej tak, jeg har ikke lyst.	No thanks, I do not feel like it.	lyst	ledger:nej	Nej	Uncountable inclination; conventional polite refusal, not the adjective light.
+klasse	Klassen læser en bog.	The class is reading a book.	Klassen	Velkommen til klassen.	Welcome to the class.	klassen	ledger:velkommen	Velkommen	School class sense; connected welcome for a new member.
+liv	Hun har et godt liv.	She has a good life.	liv	Der er liv i huset.	There is life in the house.	liv	supplemental:da-chunk-existence	Der er liv i huset	Life/activity sense; existential chunk, not existential philosophy instruction.
+film	Vi ser en film.	We are watching a film.	film	Hvad hedder filmen?	What is the film called?	filmen	ledger:hvad	Hvad	Film/movie sense; definite filmen; required missing ID explicitly present.
+rejse	Rejsen starter i dag.	The trip starts today.	Rejsen	Tak for en god rejse.	Thank you for a good trip.	rejse	ledger:tak	Tak	Noun trip, not verb travel; thanks at the end of a shared journey.
+musik	Jeg hører musik.	I hear music.	musik	Hvor er musikken fra?	Where is the music from?	musikken	ledger:hvor	Hvor	Uncountable music; source/location question with definite musikken.
+navn	Mit navn er Anna.	My name is Anna.	navn	Dit navn igen, tak.	Your name again, please.	navn	ledger:igen	igen	Natural short request to repeat a name; no added clause to obtain a preview-kan focus.

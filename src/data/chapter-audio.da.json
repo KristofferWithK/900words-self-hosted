@@ -1,0 +1,292 @@
+{
+  "language": "da",
+  "generatedFrom": "accepted fixed grammar lesson example performances",
+  "entries": [
+    {
+      "id": "chapter-01",
+      "lessonId": "sonderborg-articles",
+      "cityId": "sonderborg",
+      "cityIndex": 0,
+      "linesDa": [
+        "Det er en ting.",
+        "Hvor er tingen?",
+        "Det er en stol.",
+        "Stolen er her.",
+        "Der er et hus her.",
+        "Hvor er huset?"
+      ],
+      "textDa": "Det er en ting.\n\nHvor er tingen?\n\nDet er en stol.\n\nStolen er her.\n\nDer er et hus her.\n\nHvor er huset?",
+      "sourceHash": "b7c079ed32737c7126baf9b200829a87661d59d556e3b0e22342576bf7a5cc7f"
+    },
+    {
+      "id": "chapter-02",
+      "lessonId": "ribe-present-clauses",
+      "cityId": "ribe",
+      "cityIndex": 1,
+      "linesDa": [
+        "Jeg hedder Lea, og jeg bor i Ribe.",
+        "Du bor i Ribe.",
+        "Lea arbejder på et hotel.",
+        "Jeg er her.",
+        "Han har et kort.",
+        "Hun hjælper mig."
+      ],
+      "textDa": "Jeg hedder Lea, og jeg bor i Ribe.\n\nDu bor i Ribe.\n\nLea arbejder på et hotel.\n\nJeg er her.\n\nHan har et kort.\n\nHun hjælper mig.",
+      "sourceHash": "500e2bdf601ecb1c6113f7240f823e361f28e912198668ee64e34b68b2c82c1c"
+    },
+    {
+      "id": "lesson-ribe-possessives",
+      "lessonId": "ribe-possessives",
+      "cityId": "ribe",
+      "cityIndex": 1,
+      "linesDa": [
+        "Jeg har en taske. Det er min taske.",
+        "Jeg har et kort. Det er mit kort.",
+        "Mine billetter er her.",
+        "Det er hendes taske.",
+        "Det er hans kort.",
+        "Billetterne er deres."
+      ],
+      "textDa": "Jeg har en taske. Det er min taske.\n\nJeg har et kort. Det er mit kort.\n\nMine billetter er her.\n\nDet er hendes taske.\n\nDet er hans kort.\n\nBilletterne er deres.",
+      "sourceHash": "bc95566971ebbc2d8f6eb0a33c6107ad454689ae457f9466930985c1a79db49f"
+    },
+    {
+      "id": "chapter-03",
+      "lessonId": "kolding-plurals",
+      "cityId": "kolding",
+      "cityIndex": 2,
+      "linesDa": [
+        "Der står en kop på bordet.",
+        "Der står to kopper på bordet.",
+        "Kopperne står ved døren.",
+        "Der står et hus ved vejen.",
+        "Der står to huse ved vejen.",
+        "Husene ligger ved vejen.",
+        "Kurset varer to år."
+      ],
+      "textDa": "Der står en kop på bordet.\n\nDer står to kopper på bordet.\n\nKopperne står ved døren.\n\nDer står et hus ved vejen.\n\nDer står to huse ved vejen.\n\nHusene ligger ved vejen.\n\nKurset varer to år.",
+      "sourceHash": "26c27bd6b7363fae94ffb796feb11e205596bba79c9b53b5e3bb7cc57e0e60d1"
+    },
+    {
+      "id": "lesson-kolding-simple-negation",
+      "lessonId": "kolding-simple-negation",
+      "cityId": "kolding",
+      "cityIndex": 2,
+      "linesDa": [
+        "Vi har ikke te.",
+        "Jeg køber ikke kaffe.",
+        "Kaffen er ikke varm.",
+        "Jeg køber ikke tre billetter.",
+        "Bussen kommer ikke i dag.",
+        "Det koster ikke meget."
+      ],
+      "textDa": "Vi har ikke te.\n\nJeg køber ikke kaffe.\n\nKaffen er ikke varm.\n\nJeg køber ikke tre billetter.\n\nBussen kommer ikke i dag.\n\nDet koster ikke meget.",
+      "sourceHash": "e3170f511fb09cde6a369c0d23b249685f8cde934a2cf58ca5a14571e01b70ed"
+    },
+    {
+      "id": "chapter-04",
+      "lessonId": "aarhus-time-v2",
+      "cityId": "aarhus",
+      "cityIndex": 3,
+      "linesDa": [
+        "Jeg arbejder klokken otte.",
+        "Klokken otte arbejder jeg.",
+        "Om aftenen læser jeg ikke.",
+        "På mandag tager jeg toget.",
+        "Den tredje maj arbejder jeg klokken 16.30.",
+        "Hvornår arbejder du?"
+      ],
+      "textDa": "Jeg arbejder klokken otte.\n\nKlokken otte arbejder jeg.\n\nOm aftenen læser jeg ikke.\n\nPå mandag tager jeg toget.\n\nDen tredje maj arbejder jeg klokken 16.30.\n\nHvornår arbejder du?",
+      "sourceHash": "ff8007852eba51f4c2d2076588925ce4611aa2bdbe5e50b97e599877fbd2c417"
+    },
+    {
+      "id": "lesson-aarhus-practical-recent-past",
+      "lessonId": "aarhus-practical-recent-past",
+      "cityId": "aarhus",
+      "cityIndex": 3,
+      "linesDa": [
+        "I dag arbejdede jeg fra otte til ti.",
+        "I dag har jeg arbejdet hjemme, så nu er jeg træt.",
+        "I dag købte jeg brød klokken otte.",
+        "I dag har jeg købt brød, så vi har mad.",
+        "I går lavede jeg mad.",
+        "I dag har jeg læst bogen, så du kan få den nu."
+      ],
+      "textDa": "I dag arbejdede jeg fra otte til ti.\n\nI dag har jeg arbejdet hjemme, så nu er jeg træt.\n\nI dag købte jeg brød klokken otte.\n\nI dag har jeg købt brød, så vi har mad.\n\nI går lavede jeg mad.\n\nI dag har jeg læst bogen, så du kan få den nu.",
+      "sourceHash": "07f1e666f96b51dd656fa8fad88b1e8275b9c4aadb8de912782dd637027228b5"
+    },
+    {
+      "id": "chapter-05",
+      "lessonId": "aalborg-question-words",
+      "cityId": "aalborg",
+      "cityIndex": 4,
+      "linesDa": [
+        "Øh, hvor er spor tre?",
+        "Hvordan kommer jeg til centrum?",
+        "Hvornår går toget?",
+        "Hvilken bus skal jeg tage?",
+        "Hvilket tog går til Aarhus?",
+        "Hvilke billetter har du?"
+      ],
+      "textDa": "Øh, hvor er spor tre?\n\nHvordan kommer jeg til centrum?\n\nHvornår går toget?\n\nHvilken bus skal jeg tage?\n\nHvilket tog går til Aarhus?\n\nHvilke billetter har du?",
+      "sourceHash": "cde309402737e8464942788d591d90df4ae1b6a5eaf73eef7196cb749bdf4f28"
+    },
+    {
+      "id": "lesson-aalborg-direction-forms",
+      "lessonId": "aalborg-direction-forms",
+      "cityId": "aalborg",
+      "cityIndex": 4,
+      "linesDa": [
+        "Gå ligeud, og drej til højre.",
+        "Tag bus nummer to.",
+        "Stå af ved stationen.",
+        "Gå til stationen.",
+        "Bussen holder på spor tre."
+      ],
+      "textDa": "Gå ligeud, og drej til højre.\n\nTag bus nummer to.\n\nStå af ved stationen.\n\nGå til stationen.\n\nBussen holder på spor tre.",
+      "sourceHash": "15bfdac8c3d15c81680f557c508d56882960ccc5b81a330c234577226c5c8811"
+    },
+    {
+      "id": "chapter-06",
+      "lessonId": "skagen-adjective-agreement",
+      "cityId": "skagen",
+      "cityIndex": 5,
+      "linesDa": [
+        "Det er en lille café.",
+        "Vi bor i et stort hus.",
+        "Byen er stor.",
+        "Huset er stort.",
+        "Bilerne er røde.",
+        "Det er et frit valg."
+      ],
+      "textDa": "Det er en lille café.\n\nVi bor i et stort hus.\n\nByen er stor.\n\nHuset er stort.\n\nBilerne er røde.\n\nDet er et frit valg.",
+      "sourceHash": "5a117978bfa83eabeeed508ac25c048dd90ba485c9749bedae3dc0e33aba297c"
+    },
+    {
+      "id": "lesson-skagen-joining-ideas",
+      "lessonId": "skagen-joining-ideas",
+      "cityId": "skagen",
+      "cityIndex": 5,
+      "linesDa": [
+        "Byen er stor, og stranden er rolig.",
+        "Caféen er lille, men huset er stort.",
+        "Jeg vælger stranden, fordi den er rolig.",
+        "Caféen er lille, ligesom huset ved siden af.",
+        "Det er koldt, men vandet er blåt."
+      ],
+      "textDa": "Byen er stor, og stranden er rolig.\n\nCaféen er lille, men huset er stort.\n\nJeg vælger stranden, fordi den er rolig.\n\nCaféen er lille, ligesom huset ved siden af.\n\nDet er koldt, men vandet er blåt.",
+      "sourceHash": "14fa76a0abcd5f7ce6808c1aa0fc507f860a0674a4529a57a8e3afa420871a03"
+    },
+    {
+      "id": "chapter-07",
+      "lessonId": "odense-past-events",
+      "cityId": "odense",
+      "cityIndex": 6,
+      "linesDa": [
+        "Hvad er der sket?",
+        "Toget stoppede, så jeg kom for sent.",
+        "Jeg mistede min billet i går.",
+        "Jeg har mistet min taske.",
+        "Hun kom til Odense i går.",
+        "Hun er kommet til Odense."
+      ],
+      "textDa": "Hvad er der sket?\n\nToget stoppede, så jeg kom for sent.\n\nJeg mistede min billet i går.\n\nJeg har mistet min taske.\n\nHun kom til Odense i går.\n\nHun er kommet til Odense.",
+      "sourceHash": "1be11d8f9ed5f7ca114d68e67f6e3149c9dbdf8d41bfc1c7b13351b04c35d0be"
+    },
+    {
+      "id": "lesson-odense-perfect-auxiliary",
+      "lessonId": "odense-perfect-auxiliary",
+      "cityId": "odense",
+      "cityIndex": 6,
+      "linesDa": [
+        "Jeg har mistet min taske.",
+        "Hun er kommet til Odense.",
+        "Jeg er gået hjem, men jeg har gået fem kilometer i dag.",
+        "Vi har arbejdet hele dagen.",
+        "Hun har læst bogen."
+      ],
+      "textDa": "Jeg har mistet min taske.\n\nHun er kommet til Odense.\n\nJeg er gået hjem, men jeg har gået fem kilometer i dag.\n\nVi har arbejdet hele dagen.\n\nHun har læst bogen.",
+      "sourceHash": "a2b7447fb26236edabf2a4ef5faa12f9875d518b9edee307ec04470f544c81a7"
+    },
+    {
+      "id": "chapter-08",
+      "lessonId": "roskilde-modals",
+      "cityId": "roskilde",
+      "cityIndex": 7,
+      "linesDa": [
+        "Jeg kan komme lørdag.",
+        "Jeg vil bestille billetterne.",
+        "Vi skal mødes fredag.",
+        "Må jeg tage en ven med?",
+        "Jeg kan ikke komme fredag.",
+        "Hun vil gerne med."
+      ],
+      "textDa": "Jeg kan komme lørdag.\n\nJeg vil bestille billetterne.\n\nVi skal mødes fredag.\n\nMå jeg tage en ven med?\n\nJeg kan ikke komme fredag.\n\nHun vil gerne med.",
+      "sourceHash": "70d623076a005c30e7086d412c402912fcafca34ab1245212627616442b5920d"
+    },
+    {
+      "id": "lesson-roskilde-future-plans",
+      "lessonId": "roskilde-future-plans",
+      "cityId": "roskilde",
+      "cityIndex": 7,
+      "linesDa": [
+        "Jamen, så mødes vi i morgen.",
+        "Skal vi mødes på fredag?",
+        "Jeg kan ikke fredag, men jeg kan i hvert fald lørdag.",
+        "Vi mødes i morgen.",
+        "Jeg vil bestille billetterne.",
+        "Vi skal mødes fredag."
+      ],
+      "textDa": "Jamen, så mødes vi i morgen.\n\nSkal vi mødes på fredag?\n\nJeg kan ikke fredag, men jeg kan i hvert fald lørdag.\n\nVi mødes i morgen.\n\nJeg vil bestille billetterne.\n\nVi skal mødes fredag.",
+      "sourceHash": "8842e6d7582f711ea863cc9e460b98cd7f8a5532ba24ee9bf360949fe0a28a46"
+    },
+    {
+      "id": "lesson-roskilde-own-possessives",
+      "lessonId": "roskilde-own-possessives",
+      "cityId": "roskilde",
+      "cityIndex": 7,
+      "linesDa": [
+        "Hun tager sin taske.",
+        "Han viser sit kort.",
+        "Hun finder sine billetter.",
+        "De tager deres tasker.",
+        "Hun tager hendes taske.",
+        "Hun tager sin taske, men de tager deres tasker."
+      ],
+      "textDa": "Hun tager sin taske.\n\nHan viser sit kort.\n\nHun finder sine billetter.\n\nDe tager deres tasker.\n\nHun tager hendes taske.\n\nHun tager sin taske, men de tager deres tasker.",
+      "sourceHash": "bae665ccf87f205669260b9842b4eb3f43591b441baf74bbe38d9ddc79cc62fe"
+    },
+    {
+      "id": "chapter-09",
+      "lessonId": "kobenhavn-linkers",
+      "cityId": "kobenhavn",
+      "cityIndex": 8,
+      "linesDa": [
+        "Jeg ringer, fordi kortet ikke virker.",
+        "Jamen, hvis tiden ikke passer, kan vi ændre aftalen.",
+        "Ring, når du er klar.",
+        "Jeg venter, mens du ringer.",
+        "Jeg kommer, selvom toget er forsinket.",
+        "Jeg kan se, at tiden er ændret."
+      ],
+      "textDa": "Jeg ringer, fordi kortet ikke virker.\n\nJamen, hvis tiden ikke passer, kan vi ændre aftalen.\n\nRing, når du er klar.\n\nJeg venter, mens du ringer.\n\nJeg kommer, selvom toget er forsinket.\n\nJeg kan se, at tiden er ændret.",
+      "sourceHash": "7c13aa2ebd22daf29b7007b41ca46c330e527124dd10bd13ca6a46f50284dad9"
+    },
+    {
+      "id": "lesson-kobenhavn-ikke-placement",
+      "lessonId": "kobenhavn-ikke-placement",
+      "cityId": "kobenhavn",
+      "cityIndex": 8,
+      "linesDa": [
+        "Jeg kommer ikke.",
+        "Jeg skriver, fordi jeg ikke kommer.",
+        "Tiden passer ikke.",
+        "Hvis tiden ikke passer, kan vi ændre aftalen.",
+        "Kortet virker ikke.",
+        "Jeg ringer, fordi kortet ikke virker."
+      ],
+      "textDa": "Jeg kommer ikke.\n\nJeg skriver, fordi jeg ikke kommer.\n\nTiden passer ikke.\n\nHvis tiden ikke passer, kan vi ændre aftalen.\n\nKortet virker ikke.\n\nJeg ringer, fordi kortet ikke virker.",
+      "sourceHash": "3949991f43eeb524790c2d99cf58fa081e71c44a04590664306f1c4f3078087b"
+    }
+  ]
+}

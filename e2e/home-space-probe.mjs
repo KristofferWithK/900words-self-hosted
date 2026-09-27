@@ -1,0 +1,205 @@
+// Where Home's vertical budget actually goes, and how much of the map's card
+// is empty. Not a drive — nothing here asserts. It prints the numbers that
+// `.home-map`'s max-height is chosen against, because the map is capped by
+// HEIGHT while its card is sized by WIDTH, so the drawing is far smaller than
+// the box it sits in and eyeballing the box flatters it (the same trap
+// map-preview.mjs documents).
+//
+//   npm run build && node e2e/home-space-probe.mjs
+import { chromium } from 'playwright'
+import { startPreview } from './preview-server.mjs'
+
+const preview = await startPreview(4201)
+const BASE = preview.base
+const browser = await chromium.launch({
+  executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
+})
+
+const measure = (page) =>
+  page.evaluate(() => {
+    const screen = document.querySelector('.home-screen')
+    const map = document.querySelector('.home-map')
+    const band = document.querySelector('.cluey-band')
+    const casey = document.querySelector('.cluey-svg')
+    const box = map.getBoundingClientRect()
+    // The DRAWING, not the element: preserveAspectRatio letterboxes a 1.23:1
+    // viewBox inside a much wider box.
+    const vb = map.viewBox.baseVal
+    const k = Math.min(box.width / vb.width, box.height / vb.height)
+    const rows = [...screen.children].map((el) => ({
+      cls: el.className.toString().split(' ')[0],
+      h: +el.getBoundingClientRect().height.toFixed(1),
+    }))
+    const rect = (selector) => {
+      const element = document.querySelector(selector)
+      if (!element) return null
+      const { x, y, width, height } = element.getBoundingClientRect()
+      return { x, y, width, height, right: x + width, bottom: y + height }
+    }
+    const actions = rect('.home-actions')
+    const action = rect('.home-play')
+    const overlays = ['.cluey-bubble', '.cluey-button', '.cluey-svg', '.cluey-name']
+      .map((selector) => [selector, rect(selector)])
+    const hitPoints = actions
+      ? [
+          [action.x + 4, action.y + 4],
+          [action.right - 4, action.y + 4],
+          [action.x + action.width / 2, action.y + action.height / 2],
+          [action.x + 4, action.bottom - 4],
+          [action.right - 4, action.bottom - 4],
+        ].every(([x, y]) => document.elementFromPoint(x, y)?.closest('.home-actions'))
+      : false
+    return {
+      rows,
+      map: {
+        box: `${box.width.toFixed(0)}x${box.height.toFixed(0)}`,
+        drawn: `${(vb.width * k).toFixed(0)}x${(vb.height * k).toFixed(0)}`,
+        emptyEachSide: +((box.width - vb.width * k) / 2).toFixed(1),
+        vh: +((box.height / window.innerHeight) * 100).toFixed(1),
+      },
+      band: +band.getBoundingClientRect().height.toFixed(1),
+      caseyW: +casey.getBoundingClientRect().width.toFixed(1),
+      scroll: +document.scrollingElement.scrollHeight.toFixed(0),
+      inner: window.innerHeight,
+      action,
+      overlays,
+      hitPoints,
+    }
+  })
+
+const failures = []
+function check(label, ok, detail = '') {
+  console.log(`${ok ? 'OK  ' : 'FAIL'} ${label}${detail ? ` — ${detail}` : ''}`)
+  if (!ok) failures.push(label)
+}
+
+function seedStorage(page, kind, wrapped) {
+  return page.addInitScript(({ kind, wrapped }) => {
+    const now = Date.now()
+    if (kind === 'connection') {
+      localStorage.setItem(
+        'cluecab-settings-v1',
+        JSON.stringify({
+          state: {
+            baseUrl: 'https://casey.example.test',
+            clueLanguage: 'target', studyPhase: 'never', useMock: false,
+            sound: true, dailyReminders: false, playtestTravel: false, klausVerifiedAt: null,
+          },
+          version: 13,
+        }),
+      )
+    }
+    if (kind === 'momentum') {
+      localStorage.setItem(
+        'cluecab-srs-v1',
+        JSON.stringify({
+          state: {
+            stats: {}, games: { played: 3, won: 0, redeemed: 0, lost: 3 },
+            wrapUpsBanked: 0, winsTowardWrapUp: 0,
+          },
+          version: 4,
+        }),
+      )
+    }
+    if (kind === 'complete') {
+      localStorage.setItem(
+        'cluecab-journey-v2',
+        JSON.stringify({
+          state: { cityIndex: 8, wrapped, arrivedAt: {}, routeLanguage: 'da', parked: {} },
+          version: 5,
+        }),
+      )
+    }
+  }, { kind, wrapped })
+}
+
+try {
+  const words = JSON.parse(await (await import('node:fs/promises')).readFile(new URL('../src/data/words.da.json', import.meta.url), 'utf8'))
+  const everyWordWrapped = Object.fromEntries(words.map((word) => [word.id, Date.now()]))
+  for (const vp of [
+    { name: '360x640', width: 360, height: 640 },
+    { name: '375x667', width: 375, height: 667 },
+    // Just over the 720px media threshold, where the taller default applies to
+    // a phone barely taller than the ones it does not: the worst case for the
+    // default value, and the reason it is measured rather than assumed.
+    { name: '360x721', width: 360, height: 721 },
+    // One pixel above Home's ordinary compact-map range. This is the boundary
+    // that used to leave Casey's label on top of Play at 360x721.
+    { name: '360x781', width: 360, height: 781 },
+    // The pass ticket keeps its compact map longer than ordinary Home.
+    { name: '390x840', width: 390, height: 840 },
+    { name: '390x844', width: 390, height: 844 },
+    { name: '412x915', width: 412, height: 915 },
+  ]) {
+    for (const [label, q, kind] of [
+      ['plain ', '?mock=1&howto=0&city=0', null],
+      ['active', '?mock=1&howto=0&seed=7&city=0', 'active'],
+      ['connection', '?howto=0&city=0', 'connection'],
+      ['momentum', '?mock=1&howto=0&city=0&collected=100', 'momentum'],
+      ['travel', '?mock=1&howto=0&city=0&wrapped=100', null],
+      ['pass', '?mock=1&howto=0&city=1&wrapped=100', null],
+      ['complete', '?mock=1&howto=0&city=8', 'complete'],
+    ]) {
+      // A fresh context per run: `?wrapped=100` writes to the persisted
+      // journey store, so a reused page carries the open road — the train
+      // turned control, and the padding that costs the band — into the run
+      // that is supposed to be without it.
+      const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height } })
+      const page = await ctx.newPage()
+      if (kind && kind !== 'active') await seedStorage(page, kind, everyWordWrapped)
+      await page.goto(`${BASE}${q}`)
+      await page.waitForSelector('.home-map')
+      if (kind === 'active') {
+        await page.getByRole('button', { name: 'Play', exact: true }).click()
+        await page.waitForSelector('.game-screen')
+        await page.reload()
+        await page.waitForSelector('.home-map')
+      }
+      const m = await measure(page)
+      console.log(
+        `\n${vp.name} ${label}  map box ${m.map.box} → drawn ${m.map.drawn} ` +
+          `(${m.map.vh}vh, ${m.map.emptyEachSide}px empty each side)`,
+      )
+      console.log(
+        `  rows: ${m.rows.map((r) => `${r.cls} ${r.h}`).join(' | ')}`,
+      )
+      console.log(
+        `  cluey-band ${m.band}  cluey-svg ${m.caseyW}  ` +
+          `scroll ${m.scroll}/${m.inner}${m.scroll > m.inner + 1 ? '  ** SCROLLS **' : ''}`,
+      )
+      const action = m.action
+      const overlayClear = m.overlays.every(([, rect]) => rect && rect.bottom <= action.y + 0.5)
+      const targetVisible = action && action.height >= 44 && action.bottom <= vp.height + 0.5
+      const completeVisible = kind !== 'complete' || (await page.locator('.journey-done').count()) === 1
+      check(`${vp.name} ${label}: Casey and its hit targets clear Play`, overlayClear,
+        `${m.overlays.map(([s, r]) => `${s}:${(action.y - r.bottom).toFixed(1)}`).join(', ')}`)
+      check(`${vp.name} ${label}: Play is a visible 44px target`, targetVisible,
+        `${action.height.toFixed(1)}px tall, bottom ${action.bottom.toFixed(1)} of ${vp.height}`)
+      check(`${vp.name} ${label}: Play receives its own taps`, m.hitPoints)
+      check(`${vp.name} ${label}: Home does not scroll`, m.scroll <= m.inner + 1)
+      check(`${vp.name} ${label}: special state rendered`, completeVisible)
+      await ctx.close()
+    }
+  }
+
+  // Mutation check: restore the old 30vh map at the old 720px boundary. The
+  // document still fits, which is why a no-scroll check alone is insufficient;
+  // this must fail the same bounds and hit-target rule that protects players.
+  const mutation = await browser.newContext({ viewport: { width: 360, height: 721 } })
+  const mutationPage = await mutation.newPage()
+  await mutationPage.goto(`${BASE}?mock=1&howto=0&city=1&wrapped=100`)
+  await mutationPage.waitForSelector('.home-map')
+  await mutationPage.addStyleTag({ content: '.home-screen:has(.home-pass-button) .home-map { height: 30vh !important; }' })
+  const mutated = await measure(mutationPage)
+  const mutatedOverlaps = mutated.overlays.some(([, rect]) => rect && rect.bottom > mutated.action.y + 0.5)
+  check('mutation: restoring the oversized pass map trips the clearance guard', mutatedOverlaps)
+  await mutation.close()
+} finally {
+  await browser.close()
+  preview.stop()
+}
+
+if (failures.length) {
+  console.error(`\n${failures.length} Home clearance check(s) failed: ${failures.join('; ')}`)
+  process.exitCode = 1
+}

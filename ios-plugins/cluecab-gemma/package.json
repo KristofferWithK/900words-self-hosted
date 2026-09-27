@@ -1,0 +1,24 @@
+{
+  "name": "cluecab-gemma",
+  "version": "0.1.0",
+  "description": "The private iOS bridge between 900words and Google's LiteRT-LM runtime.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "ios/",
+    "vendor/",
+    "Package.swift",
+    "LICENSE"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=8.0.0"
+  },
+  "license": "Apache-2.0"
+}

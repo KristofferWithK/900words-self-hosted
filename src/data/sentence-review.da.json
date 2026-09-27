@@ -1,0 +1,3879 @@
+{
+  "language": "da",
+  "entries": [
+    {
+      "wordId": "da:mor",
+      "focusIds": [
+        "hej",
+        "hej",
+        "hej",
+        "da-chunk-name"
+      ]
+    },
+    {
+      "wordId": "da:far",
+      "focusIds": [
+        "goddag",
+        "goddag",
+        "goddag",
+        "en",
+        "en"
+      ]
+    },
+    {
+      "wordId": "da:barn",
+      "focusIds": [
+        "godmorgen",
+        "godmorgen",
+        "godmorgen",
+        "da-chunk-dont-understand"
+      ]
+    },
+    {
+      "wordId": "da:hund",
+      "focusIds": [
+        "godnat",
+        "godnat",
+        "godnat"
+      ]
+    },
+    {
+      "wordId": "da:kat",
+      "focusIds": [
+        "hallo",
+        "hallo",
+        "hallo",
+        "hvor",
+        "hvor",
+        "da-chunk-where"
+      ]
+    },
+    {
+      "wordId": "da:hus",
+      "focusIds": [
+        "velkommen",
+        "velkommen",
+        "velkommen",
+        "et",
+        "et",
+        "her",
+        "her",
+        "der",
+        "der",
+        "da-chunk-existence",
+        "da-chunk-existence",
+        "da-chunk-existence"
+      ]
+    },
+    {
+      "wordId": "da:bord",
+      "focusIds": [
+        "farvel",
+        "farvel",
+        "farvel"
+      ]
+    },
+    {
+      "wordId": "da:seng",
+      "focusIds": [
+        "godnat",
+        "godnat",
+        "godnat",
+        "det",
+        "det"
+      ]
+    },
+    {
+      "wordId": "da:mad",
+      "focusIds": [
+        "goddag",
+        "goddag",
+        "goddag"
+      ]
+    },
+    {
+      "wordId": "da:æble",
+      "focusIds": [
+        "godmorgen",
+        "godmorgen",
+        "godmorgen",
+        "et",
+        "et"
+      ]
+    },
+    {
+      "wordId": "da:mælk",
+      "focusIds": [
+        "godnat",
+        "godnat",
+        "godnat"
+      ]
+    },
+    {
+      "wordId": "da:vand",
+      "focusIds": [
+        "hallo",
+        "hallo",
+        "hallo"
+      ]
+    },
+    {
+      "wordId": "da:kaffe",
+      "focusIds": [
+        "velkommen",
+        "velkommen",
+        "velkommen"
+      ]
+    },
+    {
+      "wordId": "da:øje",
+      "focusIds": [
+        "farvel",
+        "farvel",
+        "farvel",
+        "i",
+        "i"
+      ]
+    },
+    {
+      "wordId": "da:hånd",
+      "focusIds": [
+        "hej",
+        "hej",
+        "hej"
+      ]
+    },
+    {
+      "wordId": "da:dør",
+      "focusIds": [
+        "velkommen",
+        "velkommen",
+        "velkommen"
+      ]
+    },
+    {
+      "wordId": "da:vindue",
+      "focusIds": [
+        "godmorgen",
+        "godmorgen",
+        "godmorgen"
+      ]
+    },
+    {
+      "wordId": "da:stol",
+      "focusIds": [
+        "okay",
+        "okay",
+        "okay",
+        "det",
+        "det",
+        "her",
+        "her"
+      ]
+    },
+    {
+      "wordId": "da:køkken",
+      "focusIds": [
+        "hallo",
+        "hallo",
+        "hallo"
+      ]
+    },
+    {
+      "wordId": "da:mund",
+      "focusIds": [
+        "et",
+        "et"
+      ]
+    },
+    {
+      "wordId": "da:hoved",
+      "focusIds": [
+        "farvel",
+        "farvel",
+        "farvel"
+      ]
+    },
+    {
+      "wordId": "da:mand",
+      "focusIds": [
+        "hej",
+        "hej",
+        "hej",
+        "da-chunk-name"
+      ]
+    },
+    {
+      "wordId": "da:kvinde",
+      "focusIds": [
+        "goddag",
+        "goddag",
+        "goddag"
+      ]
+    },
+    {
+      "wordId": "da:bror",
+      "focusIds": [
+        "da-chunk-origin"
+      ]
+    },
+    {
+      "wordId": "da:hvid",
+      "focusIds": [
+        "det",
+        "det"
+      ]
+    },
+    {
+      "wordId": "da:sort",
+      "focusIds": [
+        "den",
+        "den"
+      ]
+    },
+    {
+      "wordId": "da:ost",
+      "focusIds": [
+        "der",
+        "der",
+        "da-chunk-existence",
+        "da-chunk-existence",
+        "da-chunk-existence"
+      ]
+    },
+    {
+      "wordId": "da:æg",
+      "focusIds": [
+        "i",
+        "i"
+      ]
+    },
+    {
+      "wordId": "da:fisk",
+      "focusIds": [
+        "i",
+        "i"
+      ]
+    },
+    {
+      "wordId": "da:øl",
+      "focusIds": [
+        "en",
+        "en"
+      ]
+    },
+    {
+      "wordId": "da:blomst",
+      "focusIds": [
+        "en",
+        "en"
+      ]
+    },
+    {
+      "wordId": "da:by",
+      "focusIds": [
+        "tak",
+        "tak",
+        "tak",
+        "da-chunk-origin"
+      ]
+    },
+    {
+      "wordId": "da:skole",
+      "focusIds": [
+        "tak",
+        "tak",
+        "tak"
+      ]
+    },
+    {
+      "wordId": "da:bog",
+      "focusIds": [
+        "tak",
+        "tak",
+        "tak",
+        "hvad",
+        "hvad",
+        "da-chunk-meaning"
+      ]
+    },
+    {
+      "wordId": "da:ben",
+      "focusIds": [
+        "da-chunk-immediate-help",
+        "da-chunk-immediate-help"
+      ]
+    },
+    {
+      "wordId": "da:arm",
+      "focusIds": [
+        "undskyld",
+        "undskyld",
+        "undskyld"
+      ]
+    },
+    {
+      "wordId": "da:finger",
+      "focusIds": [
+        "undskyld",
+        "undskyld",
+        "undskyld",
+        "da-chunk-immediate-help",
+        "da-chunk-immediate-help"
+      ]
+    },
+    {
+      "wordId": "da:næse",
+      "focusIds": [
+        "undskyld",
+        "undskyld",
+        "undskyld"
+      ]
+    },
+    {
+      "wordId": "da:tand",
+      "focusIds": [
+        "hvor",
+        "hvor",
+        "da-chunk-where"
+      ]
+    },
+    {
+      "wordId": "da:dag",
+      "focusIds": [
+        "okay",
+        "okay",
+        "okay"
+      ]
+    },
+    {
+      "wordId": "da:nat",
+      "focusIds": [
+        "okay",
+        "okay",
+        "okay"
+      ]
+    },
+    {
+      "wordId": "da:uge",
+      "focusIds": [
+        "igen",
+        "igen",
+        "igen"
+      ]
+    },
+    {
+      "wordId": "da:lille",
+      "focusIds": [
+        "den",
+        "den",
+        "her",
+        "her"
+      ]
+    },
+    {
+      "wordId": "da:gammel",
+      "focusIds": [
+        "ja",
+        "ja",
+        "ja"
+      ]
+    },
+    {
+      "wordId": "da:ung",
+      "focusIds": [
+        "ja",
+        "ja",
+        "ja"
+      ]
+    },
+    {
+      "wordId": "da:glad",
+      "focusIds": [
+        "ja",
+        "ja",
+        "ja"
+      ]
+    },
+    {
+      "wordId": "da:datter",
+      "focusIds": [
+        "nej",
+        "nej",
+        "nej"
+      ]
+    },
+    {
+      "wordId": "da:kage",
+      "focusIds": [
+        "den",
+        "den",
+        "da-chunk-origin"
+      ]
+    },
+    {
+      "wordId": "da:smør",
+      "focusIds": [
+        "nej",
+        "nej",
+        "nej"
+      ]
+    },
+    {
+      "wordId": "da:sukker",
+      "focusIds": [
+        "nej",
+        "nej",
+        "nej"
+      ]
+    },
+    {
+      "wordId": "da:kartoffel",
+      "focusIds": [
+        "da-chunk-dont-understand"
+      ]
+    },
+    {
+      "wordId": "da:grøntsag",
+      "focusIds": [
+        "igen",
+        "igen",
+        "igen",
+        "da-chunk-repeat"
+      ]
+    },
+    {
+      "wordId": "da:lampe",
+      "focusIds": [
+        "igen",
+        "igen",
+        "igen",
+        "da-chunk-repeat"
+      ]
+    },
+    {
+      "wordId": "da:værelse",
+      "focusIds": [
+        "hvor",
+        "hvor",
+        "da-chunk-repeat",
+        "da-chunk-where"
+      ]
+    },
+    {
+      "wordId": "da:himmel",
+      "focusIds": [
+        "hvad",
+        "hvad",
+        "da-chunk-meaning"
+      ]
+    },
+    {
+      "wordId": "da:regn",
+      "focusIds": [
+        "der",
+        "der",
+        "da-chunk-existence",
+        "da-chunk-existence",
+        "da-chunk-existence"
+      ]
+    },
+    {
+      "wordId": "da:måne",
+      "focusIds": [
+        "lidt",
+        "lidt",
+        "lidt",
+        "da-chunk-slower"
+      ]
+    },
+    {
+      "wordId": "da:stjerne",
+      "focusIds": [
+        "lidt",
+        "lidt",
+        "lidt",
+        "da-chunk-slower"
+      ]
+    },
+    {
+      "wordId": "da:hav",
+      "focusIds": [
+        "lidt",
+        "lidt",
+        "lidt",
+        "da-chunk-slower"
+      ]
+    },
+    {
+      "wordId": "da:kirke",
+      "focusIds": [
+        "hvad",
+        "hvad",
+        "da-chunk-meaning"
+      ]
+    },
+    {
+      "wordId": "da:hospital",
+      "focusIds": [
+        "da-chunk-dont-understand"
+      ]
+    },
+    {
+      "wordId": "da:lærer",
+      "focusIds": [
+        "hvem",
+        "hvem"
+      ]
+    },
+    {
+      "wordId": "da:køre",
+      "focusIds": [
+        "da-chunk-immediate-help",
+        "da-chunk-immediate-help"
+      ]
+    },
+    {
+      "wordId": "da:år",
+      "focusIds": [
+        "mig",
+        "mig",
+        "mig",
+        "mine",
+        "mine",
+        "mine",
+        "gøre",
+        "gøre"
+      ]
+    },
+    {
+      "wordId": "da:få",
+      "focusIds": [
+        "jeg",
+        "jeg",
+        "jeg",
+        "mine",
+        "mine",
+        "mine",
+        "bare",
+        "bare"
+      ]
+    },
+    {
+      "wordId": "da:dansk",
+      "focusIds": [
+        "jeg",
+        "jeg",
+        "jeg",
+        "og",
+        "og",
+        "da-chunk-work"
+      ]
+    },
+    {
+      "wordId": "da:menneske",
+      "focusIds": [
+        "ham",
+        "ham",
+        "ham",
+        "min",
+        "min",
+        "min",
+        "være",
+        "være",
+        "være",
+        "og",
+        "og",
+        "også",
+        "også"
+      ]
+    },
+    {
+      "wordId": "da:komme",
+      "focusIds": [
+        "mine",
+        "mine",
+        "mine",
+        "din",
+        "din",
+        "din",
+        "og",
+        "og"
+      ]
+    },
+    {
+      "wordId": "da:spørgsmål",
+      "focusIds": [
+        "mig",
+        "mig",
+        "mig",
+        "dit",
+        "dit",
+        "dit",
+        "gøre",
+        "gøre"
+      ]
+    },
+    {
+      "wordId": "da:god",
+      "focusIds": [
+        "være",
+        "være",
+        "være",
+        "også",
+        "også"
+      ]
+    },
+    {
+      "wordId": "da:hjem",
+      "focusIds": [
+        "er",
+        "er",
+        "er",
+        "bare",
+        "bare"
+      ]
+    },
+    {
+      "wordId": "da:sige",
+      "focusIds": [
+        "jeg",
+        "jeg",
+        "jeg",
+        "ham",
+        "ham",
+        "ham",
+        "bare",
+        "bare"
+      ]
+    },
+    {
+      "wordId": "da:job",
+      "focusIds": [
+        "har",
+        "har",
+        "har",
+        "da-chunk-work"
+      ]
+    },
+    {
+      "wordId": "da:godt",
+      "focusIds": [
+        "er",
+        "er",
+        "er",
+        "gøre",
+        "gøre",
+        "også",
+        "også"
+      ]
+    },
+    {
+      "wordId": "da:gå",
+      "focusIds": [
+        "du",
+        "du",
+        "du",
+        "dine",
+        "dine",
+        "dine"
+      ]
+    },
+    {
+      "wordId": "da:brød",
+      "focusIds": [
+        "hun",
+        "hun",
+        "hun"
+      ]
+    },
+    {
+      "wordId": "da:ny",
+      "focusIds": [
+        "han",
+        "han",
+        "han",
+        "har",
+        "har",
+        "har"
+      ]
+    },
+    {
+      "wordId": "da:te",
+      "focusIds": [
+        "hun",
+        "hun",
+        "hun"
+      ]
+    },
+    {
+      "wordId": "da:hel",
+      "focusIds": [
+        "er",
+        "er",
+        "er"
+      ]
+    },
+    {
+      "wordId": "da:krop",
+      "focusIds": [
+        "min",
+        "min",
+        "min",
+        "være",
+        "være",
+        "være"
+      ]
+    },
+    {
+      "wordId": "da:tage",
+      "focusIds": [
+        "du",
+        "du",
+        "du",
+        "dine",
+        "dine",
+        "dine"
+      ]
+    },
+    {
+      "wordId": "da:lang",
+      "focusIds": [
+        "min",
+        "min",
+        "min",
+        "da-chunk-contact"
+      ]
+    },
+    {
+      "wordId": "da:elev",
+      "focusIds": [
+        "du",
+        "du",
+        "du",
+        "mit",
+        "mit",
+        "mit",
+        "dit",
+        "dit",
+        "dit",
+        "da-chunk-work",
+        "da-chunk-spell-name",
+        "da-chunk-spell-name",
+        "da-chunk-contact"
+      ]
+    },
+    {
+      "wordId": "da:give",
+      "focusIds": [
+        "mit",
+        "mit",
+        "mit",
+        "da-chunk-contact"
+      ]
+    },
+    {
+      "wordId": "da:billet",
+      "focusIds": [
+        "hun",
+        "hun",
+        "hun",
+        "deres",
+        "deres",
+        "deres",
+        "har",
+        "har",
+        "har"
+      ]
+    },
+    {
+      "wordId": "da:sidste",
+      "focusIds": [
+        "vores",
+        "vores",
+        "vores"
+      ]
+    },
+    {
+      "wordId": "da:stå",
+      "focusIds": [
+        "han",
+        "han",
+        "han",
+        "hende",
+        "hende",
+        "hende"
+      ]
+    },
+    {
+      "wordId": "da:natur",
+      "focusIds": [
+        "vi",
+        "vi",
+        "vi",
+        "os",
+        "os",
+        "os"
+      ]
+    },
+    {
+      "wordId": "da:blå",
+      "focusIds": [
+        "dine",
+        "dine",
+        "dine"
+      ]
+    },
+    {
+      "wordId": "da:dyr",
+      "focusIds": [
+        "de",
+        "de",
+        "de"
+      ]
+    },
+    {
+      "wordId": "da:vide",
+      "focusIds": [
+        "han",
+        "han",
+        "han"
+      ]
+    },
+    {
+      "wordId": "da:vejr",
+      "focusIds": [
+        "vores",
+        "vores",
+        "vores",
+        "ikke",
+        "ikke"
+      ]
+    },
+    {
+      "wordId": "da:tro",
+      "focusIds": [
+        "hende",
+        "hende",
+        "hende"
+      ]
+    },
+    {
+      "wordId": "da:hotel",
+      "focusIds": [
+        "da-chunk-live"
+      ]
+    },
+    {
+      "wordId": "da:høj",
+      "focusIds": [
+        "hans",
+        "hans",
+        "hans",
+        "men",
+        "men"
+      ]
+    },
+    {
+      "wordId": "da:glæde",
+      "focusIds": [
+        "de",
+        "de",
+        "de",
+        "os",
+        "os",
+        "os"
+      ]
+    },
+    {
+      "wordId": "da:holde",
+      "focusIds": [
+        "deres",
+        "deres",
+        "deres"
+      ]
+    },
+    {
+      "wordId": "da:alene",
+      "focusIds": [
+        "hende",
+        "hende",
+        "hende",
+        "men",
+        "men"
+      ]
+    },
+    {
+      "wordId": "da:rigtig",
+      "focusIds": [
+        "dit",
+        "dit",
+        "dit"
+      ]
+    },
+    {
+      "wordId": "da:bruge",
+      "focusIds": [
+        "vi",
+        "vi",
+        "vi",
+        "vores",
+        "vores",
+        "vores",
+        "kun",
+        "kun"
+      ]
+    },
+    {
+      "wordId": "da:kærlighed",
+      "focusIds": [
+        "dem",
+        "dem",
+        "dem",
+        "deres",
+        "deres",
+        "deres"
+      ]
+    },
+    {
+      "wordId": "da:frokost",
+      "focusIds": [
+        "os",
+        "os",
+        "os"
+      ]
+    },
+    {
+      "wordId": "da:lejlighed",
+      "focusIds": [
+        "da-chunk-live"
+      ]
+    },
+    {
+      "wordId": "da:sætte",
+      "focusIds": [
+        "din",
+        "din",
+        "din"
+      ]
+    },
+    {
+      "wordId": "da:fin",
+      "focusIds": [
+        "din",
+        "din",
+        "din",
+        "hendes",
+        "hendes",
+        "hendes"
+      ]
+    },
+    {
+      "wordId": "da:sidde",
+      "focusIds": [
+        "jer",
+        "jer",
+        "jer"
+      ]
+    },
+    {
+      "wordId": "da:klar",
+      "focusIds": [
+        "de",
+        "de",
+        "de"
+      ]
+    },
+    {
+      "wordId": "da:liv",
+      "focusIds": [
+        "ham",
+        "ham",
+        "ham"
+      ]
+    },
+    {
+      "wordId": "da:hedde",
+      "focusIds": [
+        "da-chunk-name",
+        "da-chunk-spell-name",
+        "da-chunk-spell-name"
+      ]
+    },
+    {
+      "wordId": "da:øre",
+      "focusIds": [
+        "hans",
+        "hans",
+        "hans"
+      ]
+    },
+    {
+      "wordId": "da:international",
+      "focusIds": [
+        "mit",
+        "mit",
+        "mit",
+        "da-chunk-spell-name",
+        "da-chunk-spell-name"
+      ]
+    },
+    {
+      "wordId": "da:tale",
+      "focusIds": [
+        "dem",
+        "dem",
+        "dem"
+      ]
+    },
+    {
+      "wordId": "da:morgenmad",
+      "focusIds": [
+        "jer",
+        "jer",
+        "jer"
+      ]
+    },
+    {
+      "wordId": "da:næste",
+      "focusIds": [
+        "vi",
+        "vi",
+        "vi"
+      ]
+    },
+    {
+      "wordId": "da:lade",
+      "focusIds": [
+        "mig",
+        "mig",
+        "mig",
+        "dig",
+        "dig",
+        "dig"
+      ]
+    },
+    {
+      "wordId": "da:gang",
+      "focusIds": [
+        "gør",
+        "gør",
+        "kun",
+        "kun"
+      ]
+    },
+    {
+      "wordId": "da:rejse",
+      "focusIds": [
+        "kun",
+        "kun"
+      ]
+    },
+    {
+      "wordId": "da:desværre",
+      "focusIds": [
+        "dem",
+        "dem",
+        "dem",
+        "ikke",
+        "ikke"
+      ]
+    },
+    {
+      "wordId": "da:klasse",
+      "focusIds": [
+        "jeres",
+        "jeres",
+        "jeres"
+      ]
+    },
+    {
+      "wordId": "da:kort",
+      "focusIds": [
+        "hendes",
+        "hendes",
+        "hendes",
+        "men",
+        "men"
+      ]
+    },
+    {
+      "wordId": "da:begynde",
+      "focusIds": [
+        "jeres",
+        "jeres",
+        "jeres"
+      ]
+    },
+    {
+      "wordId": "da:vise",
+      "focusIds": [
+        "jeres",
+        "jeres",
+        "jeres"
+      ]
+    },
+    {
+      "wordId": "da:sikker",
+      "focusIds": [
+        "hans",
+        "hans",
+        "hans"
+      ]
+    },
+    {
+      "wordId": "da:føle",
+      "focusIds": [
+        "jer",
+        "jer",
+        "jer"
+      ]
+    },
+    {
+      "wordId": "da:chef",
+      "focusIds": [
+        "hendes",
+        "hendes",
+        "hendes"
+      ]
+    },
+    {
+      "wordId": "da:aftensmad",
+      "focusIds": [
+        "have",
+        "have",
+        "have"
+      ]
+    },
+    {
+      "wordId": "da:betyde",
+      "focusIds": [
+        "dig",
+        "dig",
+        "dig"
+      ]
+    },
+    {
+      "wordId": "da:tænke",
+      "focusIds": [
+        "to",
+        "to",
+        "to",
+        "to",
+        "tre",
+        "tre",
+        "tre",
+        "tre",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "eller",
+        "eller",
+        "eller",
+        "eller",
+        "gerne",
+        "gerne",
+        "gerne",
+        "gerne"
+      ]
+    },
+    {
+      "wordId": "da:syg",
+      "focusIds": [
+        "fem",
+        "fem",
+        "fem",
+        "fem",
+        "seks",
+        "seks",
+        "seks",
+        "seks"
+      ]
+    },
+    {
+      "wordId": "da:lykke",
+      "focusIds": [
+        "ikke",
+        "ikke",
+        "nul",
+        "nul",
+        "nul",
+        "nul",
+        "syv",
+        "syv",
+        "syv",
+        "syv",
+        "ni",
+        "ni",
+        "ni",
+        "ni",
+        "tyve",
+        "tyve",
+        "tyve",
+        "tyve",
+        "eller",
+        "eller",
+        "eller",
+        "eller"
+      ]
+    },
+    {
+      "wordId": "da:lægge",
+      "focusIds": [
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "seks",
+        "seks",
+        "seks",
+        "seks"
+      ]
+    },
+    {
+      "wordId": "da:telefon",
+      "focusIds": [
+        "hundrede",
+        "hundrede",
+        "hundrede",
+        "hundrede",
+        "meget",
+        "meget",
+        "meget",
+        "meget",
+        "da-chunk-price"
+      ]
+    },
+    {
+      "wordId": "da:grøn",
+      "focusIds": [
+        "tre",
+        "tre",
+        "tre",
+        "tre",
+        "fem",
+        "fem",
+        "fem",
+        "fem"
+      ]
+    },
+    {
+      "wordId": "da:bo",
+      "focusIds": [
+        "to",
+        "to",
+        "to",
+        "to",
+        "tusind",
+        "tusind",
+        "tusind",
+        "tusind",
+        "cirka",
+        "cirka",
+        "cirka",
+        "cirka"
+      ]
+    },
+    {
+      "wordId": "da:computer",
+      "focusIds": [
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "seks",
+        "seks",
+        "seks",
+        "seks",
+        "otte",
+        "otte",
+        "otte",
+        "otte",
+        "eller",
+        "eller",
+        "eller",
+        "eller"
+      ]
+    },
+    {
+      "wordId": "da:mave",
+      "focusIds": [
+        "to",
+        "to",
+        "to",
+        "to",
+        "da-chunk-can-get",
+        "da-chunk-can-get"
+      ]
+    },
+    {
+      "wordId": "da:kende",
+      "focusIds": [
+        "tyve",
+        "tyve",
+        "tyve",
+        "tyve",
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "af",
+        "af",
+        "af",
+        "af"
+      ]
+    },
+    {
+      "wordId": "da:national",
+      "focusIds": [
+        "ni",
+        "ni",
+        "ni",
+        "ni"
+      ]
+    },
+    {
+      "wordId": "da:sted",
+      "focusIds": [
+        "tre",
+        "tre",
+        "tre",
+        "tre",
+        "ingen",
+        "ingen",
+        "ingen",
+        "ingen"
+      ]
+    },
+    {
+      "wordId": "da:prøve",
+      "focusIds": [
+        "nul",
+        "nul",
+        "nul",
+        "nul"
+      ]
+    },
+    {
+      "wordId": "da:sofa",
+      "focusIds": [
+        "have",
+        "have",
+        "have",
+        "gerne",
+        "gerne",
+        "gerne",
+        "gerne",
+        "da-chunk-would-like",
+        "da-chunk-would-like"
+      ]
+    },
+    {
+      "wordId": "da:dårlig",
+      "focusIds": [
+        "otte",
+        "otte",
+        "otte",
+        "otte",
+        "ti",
+        "ti",
+        "ti",
+        "ti"
+      ]
+    },
+    {
+      "wordId": "da:skib",
+      "focusIds": [
+        "halvtreds",
+        "halvtreds",
+        "halvtreds",
+        "halvtreds",
+        "hundrede",
+        "hundrede",
+        "hundrede",
+        "hundrede"
+      ]
+    },
+    {
+      "wordId": "da:fortælle",
+      "focusIds": [
+        "tredive",
+        "tredive",
+        "tredive",
+        "tredive",
+        "for",
+        "for",
+        "for",
+        "for"
+      ]
+    },
+    {
+      "wordId": "da:samfund",
+      "focusIds": [
+        "tusind",
+        "tusind",
+        "tusind",
+        "tusind",
+        "af",
+        "af",
+        "af",
+        "af"
+      ]
+    },
+    {
+      "wordId": "da:forstå",
+      "focusIds": [
+        "noget",
+        "noget",
+        "noget",
+        "noget",
+        "intet",
+        "intet",
+        "intet",
+        "intet",
+        "gerne",
+        "gerne",
+        "gerne",
+        "gerne",
+        "af",
+        "af",
+        "af",
+        "af"
+      ]
+    },
+    {
+      "wordId": "da:let",
+      "focusIds": [
+        "fem",
+        "fem",
+        "fem",
+        "fem"
+      ]
+    },
+    {
+      "wordId": "da:vente",
+      "focusIds": [
+        "ti",
+        "ti",
+        "ti",
+        "ti",
+        "tredive",
+        "tredive",
+        "tredive",
+        "tredive",
+        "halvtreds",
+        "halvtreds",
+        "halvtreds",
+        "halvtreds"
+      ]
+    },
+    {
+      "wordId": "da:mulig",
+      "focusIds": [
+        "tyve",
+        "tyve",
+        "tyve",
+        "tyve",
+        "cirka",
+        "cirka",
+        "cirka",
+        "cirka",
+        "noget",
+        "noget",
+        "noget",
+        "noget"
+      ]
+    },
+    {
+      "wordId": "da:hjælpe",
+      "focusIds": [
+        "mange",
+        "mange",
+        "mange",
+        "mange",
+        "nogen",
+        "nogen",
+        "nogen",
+        "nogen",
+        "med",
+        "med",
+        "med",
+        "med"
+      ]
+    },
+    {
+      "wordId": "da:navn",
+      "focusIds": [
+        "syv",
+        "syv",
+        "syv",
+        "syv",
+        "ni",
+        "ni",
+        "ni",
+        "ni"
+      ]
+    },
+    {
+      "wordId": "da:langsomt",
+      "focusIds": [
+        "meget",
+        "meget",
+        "meget",
+        "meget",
+        "da-chunk-price"
+      ]
+    },
+    {
+      "wordId": "da:huske",
+      "focusIds": [
+        "tredive",
+        "tredive",
+        "tredive",
+        "tredive",
+        "halvtreds",
+        "halvtreds",
+        "halvtreds",
+        "halvtreds",
+        "tusind",
+        "tusind",
+        "tusind",
+        "tusind"
+      ]
+    },
+    {
+      "wordId": "da:station",
+      "focusIds": [
+        "nogle",
+        "nogle",
+        "nogle",
+        "nogle",
+        "ingen",
+        "ingen",
+        "ingen",
+        "ingen"
+      ]
+    },
+    {
+      "wordId": "da:forskellig",
+      "focusIds": [
+        "noget",
+        "noget",
+        "noget",
+        "noget",
+        "nogle",
+        "nogle",
+        "nogle",
+        "nogle"
+      ]
+    },
+    {
+      "wordId": "da:maskine",
+      "focusIds": [
+        "nul",
+        "nul",
+        "nul",
+        "nul"
+      ]
+    },
+    {
+      "wordId": "da:betale",
+      "focusIds": [
+        "for",
+        "for",
+        "for",
+        "for",
+        "da-chunk-bill"
+      ]
+    },
+    {
+      "wordId": "da:kollega",
+      "focusIds": [
+        "meget",
+        "meget",
+        "meget",
+        "meget",
+        "da-chunk-price"
+      ]
+    },
+    {
+      "wordId": "da:alvorlig",
+      "focusIds": [
+        "nogle",
+        "nogle",
+        "nogle",
+        "nogle",
+        "ingen",
+        "ingen",
+        "ingen",
+        "ingen"
+      ]
+    },
+    {
+      "wordId": "da:håbe",
+      "focusIds": [
+        "mange",
+        "mange",
+        "mange",
+        "mange",
+        "nogen",
+        "nogen",
+        "nogen",
+        "nogen"
+      ]
+    },
+    {
+      "wordId": "da:person",
+      "focusIds": [
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "cirka",
+        "cirka",
+        "cirka",
+        "cirka"
+      ]
+    },
+    {
+      "wordId": "da:almindelig",
+      "focusIds": [
+        "da-chunk-can-get",
+        "da-chunk-can-get"
+      ]
+    },
+    {
+      "wordId": "da:grund",
+      "focusIds": [
+        "hundrede",
+        "hundrede",
+        "hundrede",
+        "hundrede"
+      ]
+    },
+    {
+      "wordId": "da:kalde",
+      "focusIds": [
+        "intet",
+        "intet",
+        "intet",
+        "intet"
+      ]
+    },
+    {
+      "wordId": "da:nødvendig",
+      "focusIds": [
+        "intet",
+        "intet",
+        "intet",
+        "intet"
+      ]
+    },
+    {
+      "wordId": "da:sende",
+      "focusIds": [
+        "otte",
+        "otte",
+        "otte",
+        "otte",
+        "ti",
+        "ti",
+        "ti",
+        "ti"
+      ]
+    },
+    {
+      "wordId": "da:billede",
+      "focusIds": [
+        "da-chunk-can-get",
+        "da-chunk-can-get"
+      ]
+    },
+    {
+      "wordId": "da:offentlig",
+      "focusIds": [
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "fyrre",
+        "med",
+        "med",
+        "med",
+        "med"
+      ]
+    },
+    {
+      "wordId": "da:plan",
+      "focusIds": [
+        "for",
+        "for",
+        "for",
+        "for"
+      ]
+    },
+    {
+      "wordId": "da:ø",
+      "focusIds": [
+        "mange",
+        "mange",
+        "mange",
+        "mange",
+        "med",
+        "med",
+        "med",
+        "med"
+      ]
+    },
+    {
+      "wordId": "da:væg",
+      "focusIds": [
+        "have",
+        "have",
+        "have",
+        "da-chunk-would-like",
+        "da-chunk-would-like"
+      ]
+    },
+    {
+      "wordId": "da:vinde",
+      "focusIds": [
+        "syv",
+        "syv",
+        "syv",
+        "syv"
+      ]
+    },
+    {
+      "wordId": "da:fejl",
+      "focusIds": [
+        "da-chunk-would-like",
+        "da-chunk-would-like"
+      ]
+    },
+    {
+      "wordId": "da:lyst",
+      "focusIds": [
+        "nogen",
+        "nogen",
+        "nogen",
+        "nogen"
+      ]
+    },
+    {
+      "wordId": "da:kop",
+      "focusIds": [
+        "da-chunk-bill"
+      ]
+    },
+    {
+      "wordId": "da:stoppe",
+      "focusIds": [
+        "da-chunk-bill"
+      ]
+    },
+    {
+      "wordId": "da:mene",
+      "focusIds": [
+        "andet",
+        "andet",
+        "andet",
+        "ofte",
+        "ofte",
+        "ofte"
+      ]
+    },
+    {
+      "wordId": "da:rask",
+      "focusIds": [
+        "snart",
+        "snart",
+        "snart"
+      ]
+    },
+    {
+      "wordId": "da:tabe",
+      "focusIds": [
+        "først",
+        "først",
+        "først",
+        "aldrig",
+        "aldrig",
+        "aldrig",
+        "ofte",
+        "ofte",
+        "ofte",
+        "sidst",
+        "sidst",
+        "sidst"
+      ]
+    },
+    {
+      "wordId": "da:jord",
+      "focusIds": [
+        "først",
+        "først",
+        "først"
+      ]
+    },
+    {
+      "wordId": "da:glemme",
+      "focusIds": [
+        "hvorfor",
+        "hvorfor"
+      ]
+    },
+    {
+      "wordId": "da:lokal",
+      "focusIds": [
+        "andre",
+        "andre",
+        "andre",
+        "snart",
+        "snart",
+        "snart"
+      ]
+    },
+    {
+      "wordId": "da:båd",
+      "focusIds": [
+        "første",
+        "første",
+        "første",
+        "anden",
+        "anden",
+        "anden",
+        "nu",
+        "nu",
+        "nu",
+        "ofte",
+        "ofte",
+        "ofte",
+        "snart",
+        "snart",
+        "snart"
+      ]
+    },
+    {
+      "wordId": "da:lukke",
+      "focusIds": [
+        "hvornår",
+        "hvornår",
+        "hvornår",
+        "før",
+        "før",
+        "før",
+        "efter",
+        "efter",
+        "efter",
+        "da-chunk-date-clock",
+        "da-chunk-date-clock"
+      ]
+    },
+    {
+      "wordId": "da:løn",
+      "focusIds": [
+        "tredje",
+        "tredje",
+        "tredje",
+        "da-words-weekdays",
+        "da-words-weekdays"
+      ]
+    },
+    {
+      "wordId": "da:fremmed",
+      "focusIds": [
+        "hvordan",
+        "hvordan"
+      ]
+    },
+    {
+      "wordId": "da:ansigt",
+      "focusIds": [
+        "først",
+        "først",
+        "først",
+        "så",
+        "så",
+        "så"
+      ]
+    },
+    {
+      "wordId": "da:slutte",
+      "focusIds": [
+        "hvornår",
+        "hvornår",
+        "hvornår",
+        "da-chunk-when",
+        "da-chunk-when"
+      ]
+    },
+    {
+      "wordId": "da:jakke",
+      "focusIds": [
+        "nu",
+        "nu",
+        "nu",
+        "hvilken",
+        "hvilken",
+        "hvilket",
+        "hvilket"
+      ]
+    },
+    {
+      "wordId": "da:amerikansk",
+      "focusIds": [
+        "hvilke",
+        "hvilke"
+      ]
+    },
+    {
+      "wordId": "da:kjole",
+      "focusIds": [
+        "anden",
+        "anden",
+        "anden",
+        "tredje",
+        "tredje",
+        "tredje",
+        "allerede",
+        "allerede",
+        "allerede"
+      ]
+    },
+    {
+      "wordId": "da:skjorte",
+      "focusIds": [
+        "før",
+        "før",
+        "før",
+        "så",
+        "så",
+        "så"
+      ]
+    },
+    {
+      "wordId": "da:bære",
+      "focusIds": [
+        "hvem",
+        "hvem"
+      ]
+    },
+    {
+      "wordId": "da:nervøs",
+      "focusIds": [
+        "hvorfor",
+        "hvorfor"
+      ]
+    },
+    {
+      "wordId": "da:trøje",
+      "focusIds": [
+        "dig",
+        "dig",
+        "dig",
+        "hvilken",
+        "hvilken",
+        "hvilke",
+        "hvilke"
+      ]
+    },
+    {
+      "wordId": "da:trække",
+      "focusIds": [
+        "anden",
+        "anden",
+        "anden"
+      ]
+    },
+    {
+      "wordId": "da:frakke",
+      "focusIds": [
+        "andre",
+        "andre",
+        "andre",
+        "efter",
+        "efter",
+        "efter"
+      ]
+    },
+    {
+      "wordId": "da:kendt",
+      "focusIds": [
+        "sidst",
+        "sidst",
+        "sidst"
+      ]
+    },
+    {
+      "wordId": "da:nederdel",
+      "focusIds": [
+        "da-words-weekdays",
+        "da-words-weekdays"
+      ]
+    },
+    {
+      "wordId": "da:kaste",
+      "focusIds": [
+        "første",
+        "første",
+        "første",
+        "altid",
+        "altid",
+        "altid",
+        "hvorfor",
+        "hvorfor"
+      ]
+    },
+    {
+      "wordId": "da:storm",
+      "focusIds": [
+        "allerede",
+        "allerede",
+        "allerede"
+      ]
+    },
+    {
+      "wordId": "da:gribe",
+      "focusIds": [
+        "hvilken",
+        "hvilken"
+      ]
+    },
+    {
+      "wordId": "da:hue",
+      "focusIds": [
+        "hvilke",
+        "hvilke"
+      ]
+    },
+    {
+      "wordId": "da:populær",
+      "focusIds": [
+        "allerede",
+        "allerede",
+        "allerede"
+      ]
+    },
+    {
+      "wordId": "da:springe",
+      "focusIds": [
+        "før",
+        "før",
+        "før",
+        "nu",
+        "nu",
+        "nu"
+      ]
+    },
+    {
+      "wordId": "da:tæppe",
+      "focusIds": [
+        "hvilket",
+        "hvilket"
+      ]
+    },
+    {
+      "wordId": "da:moderne",
+      "focusIds": [
+        "første",
+        "første",
+        "første",
+        "andre",
+        "andre",
+        "andre"
+      ]
+    },
+    {
+      "wordId": "da:plads",
+      "focusIds": [
+        "andet",
+        "andet",
+        "andet"
+      ]
+    },
+    {
+      "wordId": "da:flyve",
+      "focusIds": [
+        "altid",
+        "altid",
+        "altid"
+      ]
+    },
+    {
+      "wordId": "da:hjælp",
+      "focusIds": [
+        "hvem",
+        "hvem"
+      ]
+    },
+    {
+      "wordId": "da:svømme",
+      "focusIds": [
+        "aldrig",
+        "aldrig",
+        "aldrig"
+      ]
+    },
+    {
+      "wordId": "da:sag",
+      "focusIds": [
+        "hvordan",
+        "hvordan"
+      ]
+    },
+    {
+      "wordId": "da:stolt",
+      "focusIds": [
+        "altid",
+        "altid",
+        "altid"
+      ]
+    },
+    {
+      "wordId": "da:nogensinde",
+      "focusIds": [
+        "aldrig",
+        "aldrig",
+        "aldrig"
+      ]
+    },
+    {
+      "wordId": "da:tag",
+      "focusIds": [
+        "andet",
+        "andet",
+        "andet"
+      ]
+    },
+    {
+      "wordId": "da:normal",
+      "focusIds": [
+        "sidst",
+        "sidst",
+        "sidst",
+        "da-words-weekdays",
+        "da-words-weekdays",
+        "da-chunk-a1-recent-past"
+      ]
+    },
+    {
+      "wordId": "da:morgen",
+      "focusIds": [
+        "hvornår",
+        "hvornår",
+        "hvornår",
+        "da-chunk-when",
+        "da-chunk-when"
+      ]
+    },
+    {
+      "wordId": "da:smerte",
+      "focusIds": [
+        "gør",
+        "gør"
+      ]
+    },
+    {
+      "wordId": "da:flytte",
+      "focusIds": [
+        "tredje",
+        "tredje",
+        "tredje",
+        "da-chunk-date-clock",
+        "da-chunk-date-clock"
+      ]
+    },
+    {
+      "wordId": "da:svar",
+      "focusIds": [
+        "hvilket",
+        "hvilket"
+      ]
+    },
+    {
+      "wordId": "da:umulig",
+      "focusIds": [
+        "så",
+        "så",
+        "så"
+      ]
+    },
+    {
+      "wordId": "da:politi",
+      "focusIds": [
+        "efter",
+        "efter",
+        "efter",
+        "da-chunk-date-clock",
+        "da-chunk-date-clock"
+      ]
+    },
+    {
+      "wordId": "da:nem",
+      "focusIds": [
+        "hvordan",
+        "hvordan"
+      ]
+    },
+    {
+      "wordId": "da:klare",
+      "focusIds": [
+        "da-chunk-a1-recent-past"
+      ]
+    },
+    {
+      "wordId": "da:eksamen",
+      "focusIds": [
+        "da-chunk-when",
+        "da-chunk-when"
+      ]
+    },
+    {
+      "wordId": "da:weekend",
+      "focusIds": [
+        "da-chunk-a1-recent-past"
+      ]
+    },
+    {
+      "wordId": "da:smile",
+      "focusIds": [
+        "da-chunk-a1-recent-past"
+      ]
+    },
+    {
+      "wordId": "da:synes",
+      "focusIds": [
+        "til",
+        "til",
+        "til",
+        "fra",
+        "fra",
+        "fra",
+        "da-chunk-get-there"
+      ]
+    },
+    {
+      "wordId": "da:dreje",
+      "focusIds": [
+        "til",
+        "til",
+        "til",
+        "da-word-right-left",
+        "da-chunk-turn"
+      ]
+    },
+    {
+      "wordId": "da:grå",
+      "focusIds": [
+        "over",
+        "over",
+        "over",
+        "under",
+        "under",
+        "under"
+      ]
+    },
+    {
+      "wordId": "da:græde",
+      "focusIds": [
+        "ved",
+        "ved",
+        "ved",
+        "bag",
+        "bag",
+        "bag",
+        "foran",
+        "foran",
+        "foran",
+        "da-chunk-get-off"
+      ]
+    },
+    {
+      "wordId": "da:speciel",
+      "focusIds": [
+        "til",
+        "til",
+        "til",
+        "mellem",
+        "mellem",
+        "mellem",
+        "da-chunk-ticket"
+      ]
+    },
+    {
+      "wordId": "da:sprog",
+      "focusIds": [
+        "da-chunk-get-there"
+      ]
+    },
+    {
+      "wordId": "da:kigge",
+      "focusIds": [
+        "omkring",
+        "omkring",
+        "omkring",
+        "videre",
+        "videre",
+        "videre",
+        "ned",
+        "ned",
+        "ned"
+      ]
+    },
+    {
+      "wordId": "da:idé",
+      "focusIds": [
+        "tilbage",
+        "tilbage",
+        "tilbage",
+        "da-chunk-straight"
+      ]
+    },
+    {
+      "wordId": "da:dejlig",
+      "focusIds": [
+        "videre",
+        "videre",
+        "videre",
+        "op",
+        "op",
+        "op",
+        "ud",
+        "ud",
+        "ud"
+      ]
+    },
+    {
+      "wordId": "da:krig",
+      "focusIds": [
+        "under",
+        "under",
+        "under",
+        "ind",
+        "ind",
+        "ind",
+        "ned",
+        "ned",
+        "ned",
+        "mod",
+        "mod",
+        "mod"
+      ]
+    },
+    {
+      "wordId": "da:smage",
+      "focusIds": [
+        "på",
+        "på",
+        "på",
+        "oppe",
+        "oppe",
+        "oppe",
+        "ude",
+        "ude",
+        "ude"
+      ]
+    },
+    {
+      "wordId": "da:sandhed",
+      "focusIds": [
+        "inde",
+        "inde",
+        "inde",
+        "nede",
+        "nede",
+        "nede",
+        "da-chunk-straight"
+      ]
+    },
+    {
+      "wordId": "da:lugte",
+      "focusIds": [
+        "hjemme",
+        "hjemme",
+        "hjemme",
+        "hos",
+        "hos",
+        "hos",
+        "da-word-right-left",
+        "da-chunk-turn"
+      ]
+    },
+    {
+      "wordId": "da:spejl",
+      "focusIds": [
+        "ved",
+        "ved",
+        "ved",
+        "mod",
+        "mod",
+        "mod",
+        "uden",
+        "uden",
+        "uden",
+        "da-chunk-get-off"
+      ]
+    },
+    {
+      "wordId": "da:europæisk",
+      "focusIds": [
+        "da-chunk-ticket"
+      ]
+    },
+    {
+      "wordId": "da:røre",
+      "focusIds": [
+        "fra",
+        "fra",
+        "fra",
+        "væk",
+        "væk",
+        "væk"
+      ]
+    },
+    {
+      "wordId": "da:forår",
+      "focusIds": [
+        "tilbage",
+        "tilbage",
+        "tilbage"
+      ]
+    },
+    {
+      "wordId": "da:trist",
+      "focusIds": [
+        "på",
+        "på",
+        "på",
+        "ved",
+        "ved",
+        "ved"
+      ]
+    },
+    {
+      "wordId": "da:hals",
+      "focusIds": [
+        "over",
+        "over",
+        "over",
+        "under",
+        "under",
+        "under"
+      ]
+    },
+    {
+      "wordId": "da:tælle",
+      "focusIds": [
+        "bag",
+        "bag",
+        "bag",
+        "foran",
+        "foran",
+        "foran"
+      ]
+    },
+    {
+      "wordId": "da:viden",
+      "focusIds": [
+        "fra",
+        "fra",
+        "fra",
+        "da-chunk-get-there"
+      ]
+    },
+    {
+      "wordId": "da:koste",
+      "focusIds": [
+        "da-chunk-straight"
+      ]
+    },
+    {
+      "wordId": "da:politistation",
+      "focusIds": [
+        "omkring",
+        "omkring",
+        "omkring",
+        "ned",
+        "ned",
+        "ned"
+      ]
+    },
+    {
+      "wordId": "da:kold",
+      "focusIds": [
+        "langs",
+        "langs",
+        "langs",
+        "da-chunk-get-off"
+      ]
+    },
+    {
+      "wordId": "da:hat",
+      "focusIds": [
+        "på",
+        "på",
+        "på",
+        "da-chunk-ticket"
+      ]
+    },
+    {
+      "wordId": "da:tegne",
+      "focusIds": [
+        "omkring",
+        "omkring",
+        "omkring",
+        "gennem",
+        "gennem",
+        "gennem"
+      ]
+    },
+    {
+      "wordId": "da:papir",
+      "focusIds": [
+        "lige",
+        "lige",
+        "lige",
+        "frem",
+        "frem",
+        "frem",
+        "tilbage",
+        "tilbage",
+        "tilbage"
+      ]
+    },
+    {
+      "wordId": "da:langsom",
+      "focusIds": [
+        "over",
+        "over",
+        "over",
+        "videre",
+        "videre",
+        "videre",
+        "op",
+        "op",
+        "op",
+        "ud",
+        "ud",
+        "ud"
+      ]
+    },
+    {
+      "wordId": "da:male",
+      "focusIds": [
+        "gennem",
+        "gennem",
+        "gennem",
+        "ind",
+        "ind",
+        "ind"
+      ]
+    },
+    {
+      "wordId": "da:bibliotek",
+      "focusIds": [
+        "oppe",
+        "oppe",
+        "oppe",
+        "ude",
+        "ude",
+        "ude"
+      ]
+    },
+    {
+      "wordId": "da:vaske",
+      "focusIds": [
+        "inde",
+        "inde",
+        "inde",
+        "nede",
+        "nede",
+        "nede"
+      ]
+    },
+    {
+      "wordId": "da:influenza",
+      "focusIds": [
+        "hjemme",
+        "hjemme",
+        "hjemme",
+        "hos",
+        "hos",
+        "hos"
+      ]
+    },
+    {
+      "wordId": "da:billig",
+      "focusIds": [
+        "mod",
+        "mod",
+        "mod",
+        "uden",
+        "uden",
+        "uden"
+      ]
+    },
+    {
+      "wordId": "da:hente",
+      "focusIds": [
+        "bag",
+        "bag",
+        "bag",
+        "væk",
+        "væk",
+        "væk"
+      ]
+    },
+    {
+      "wordId": "da:fabrik",
+      "focusIds": [
+        "gennem",
+        "gennem",
+        "gennem"
+      ]
+    },
+    {
+      "wordId": "da:forening",
+      "focusIds": [
+        "foran",
+        "foran",
+        "foran"
+      ]
+    },
+    {
+      "wordId": "da:svensk",
+      "focusIds": [
+        "mellem",
+        "mellem",
+        "mellem",
+        "langs",
+        "langs",
+        "langs"
+      ]
+    },
+    {
+      "wordId": "da:låne",
+      "focusIds": [
+        "lige",
+        "lige",
+        "lige",
+        "frem",
+        "frem",
+        "frem"
+      ]
+    },
+    {
+      "wordId": "da:sorg",
+      "focusIds": [
+        "op",
+        "op",
+        "op"
+      ]
+    },
+    {
+      "wordId": "da:norsk",
+      "focusIds": [
+        "ud",
+        "ud",
+        "ud",
+        "ind",
+        "ind",
+        "ind"
+      ]
+    },
+    {
+      "wordId": "da:gemme",
+      "focusIds": [
+        "oppe",
+        "oppe",
+        "oppe",
+        "nede",
+        "nede",
+        "nede"
+      ]
+    },
+    {
+      "wordId": "da:hold",
+      "focusIds": [
+        "inde",
+        "inde",
+        "inde",
+        "hjemme",
+        "hjemme",
+        "hjemme",
+        "hos",
+        "hos",
+        "hos"
+      ]
+    },
+    {
+      "wordId": "da:smide",
+      "focusIds": [
+        "væk",
+        "væk",
+        "væk"
+      ]
+    },
+    {
+      "wordId": "da:bro",
+      "focusIds": [
+        "langs",
+        "langs",
+        "langs"
+      ]
+    },
+    {
+      "wordId": "da:opleve",
+      "focusIds": [
+        "frem",
+        "frem",
+        "frem"
+      ]
+    },
+    {
+      "wordId": "da:spansk",
+      "focusIds": [
+        "da-word-right-left",
+        "da-chunk-turn"
+      ]
+    },
+    {
+      "wordId": "da:kniv",
+      "focusIds": [
+        "mellem",
+        "mellem",
+        "mellem"
+      ]
+    },
+    {
+      "wordId": "da:savne",
+      "focusIds": [
+        "lige",
+        "lige",
+        "lige"
+      ]
+    },
+    {
+      "wordId": "da:efterår",
+      "focusIds": [
+        "ude",
+        "ude",
+        "ude"
+      ]
+    },
+    {
+      "wordId": "da:undgå",
+      "focusIds": [
+        "uden",
+        "uden",
+        "uden"
+      ]
+    },
+    {
+      "wordId": "da:indenfor",
+      "focusIds": [
+        "helt",
+        "helt",
+        "helt",
+        "sammen",
+        "sammen",
+        "sammen"
+      ]
+    },
+    {
+      "wordId": "da:skifte",
+      "focusIds": [
+        "samme",
+        "samme",
+        "samme",
+        "alle",
+        "alle",
+        "alle",
+        "begge",
+        "begge",
+        "begge"
+      ]
+    },
+    {
+      "wordId": "da:kræve",
+      "focusIds": [
+        "alt",
+        "alt",
+        "alt",
+        "begge",
+        "begge",
+        "begge"
+      ]
+    },
+    {
+      "wordId": "da:brun",
+      "focusIds": [
+        "hver",
+        "hver",
+        "hver",
+        "hvert",
+        "hvert",
+        "hvert"
+      ]
+    },
+    {
+      "wordId": "da:miste",
+      "focusIds": [
+        "helt",
+        "helt",
+        "helt",
+        "selvfølgelig",
+        "selvfølgelig",
+        "selvfølgelig"
+      ]
+    },
+    {
+      "wordId": "da:pleje",
+      "focusIds": [
+        "sammen",
+        "sammen",
+        "sammen",
+        "samme",
+        "samme",
+        "samme"
+      ]
+    },
+    {
+      "wordId": "da:skuffet",
+      "focusIds": [
+        "alle",
+        "alle",
+        "alle",
+        "alt",
+        "alt",
+        "alt"
+      ]
+    },
+    {
+      "wordId": "da:frugt",
+      "focusIds": [
+        "begge",
+        "begge",
+        "begge",
+        "hver",
+        "hver",
+        "hver"
+      ]
+    },
+    {
+      "wordId": "da:vare",
+      "focusIds": [
+        "alle",
+        "alle",
+        "alle",
+        "hvert",
+        "hvert",
+        "hvert",
+        "selvfølgelig",
+        "selvfølgelig",
+        "selvfølgelig"
+      ]
+    },
+    {
+      "wordId": "da:internet",
+      "focusIds": [
+        "gør",
+        "gør",
+        "helt",
+        "helt",
+        "helt",
+        "alt",
+        "alt",
+        "alt"
+      ]
+    },
+    {
+      "wordId": "da:interessant",
+      "focusIds": [
+        "samme",
+        "samme",
+        "samme"
+      ]
+    },
+    {
+      "wordId": "da:mail",
+      "focusIds": [
+        "hver",
+        "hver",
+        "hver"
+      ]
+    },
+    {
+      "wordId": "da:lykkes",
+      "focusIds": [
+        "sammen",
+        "sammen",
+        "sammen"
+      ]
+    },
+    {
+      "wordId": "da:program",
+      "focusIds": [
+        "hvert",
+        "hvert",
+        "hvert",
+        "selvfølgelig",
+        "selvfølgelig",
+        "selvfølgelig"
+      ]
+    },
+    {
+      "wordId": "da:styre",
+      "focusIds": [
+        "havde",
+        "havde",
+        "havde",
+        "da",
+        "da",
+        "da"
+      ]
+    },
+    {
+      "wordId": "da:nægte",
+      "focusIds": [
+        "var",
+        "var",
+        "var",
+        "blevet",
+        "blevet",
+        "blevet",
+        "straks",
+        "straks",
+        "straks"
+      ]
+    },
+    {
+      "wordId": "da:mørk",
+      "focusIds": [
+        "blev",
+        "blev",
+        "blev",
+        "pludselig",
+        "pludselig",
+        "pludselig",
+        "da",
+        "da",
+        "da"
+      ]
+    },
+    {
+      "wordId": "da:gruppe",
+      "focusIds": [
+        "havde",
+        "havde",
+        "havde",
+        "blev",
+        "blev",
+        "blev",
+        "været",
+        "været",
+        "været"
+      ]
+    },
+    {
+      "wordId": "da:lyserød",
+      "focusIds": [
+        "var",
+        "var",
+        "var",
+        "havde",
+        "havde",
+        "havde",
+        "haft",
+        "haft",
+        "haft",
+        "siden",
+        "siden",
+        "siden"
+      ]
+    },
+    {
+      "wordId": "da:tilføje",
+      "focusIds": [
+        "blev",
+        "blev",
+        "blev",
+        "straks",
+        "straks",
+        "straks",
+        "da",
+        "da",
+        "da"
+      ]
+    },
+    {
+      "wordId": "da:tjene",
+      "focusIds": [
+        "blive",
+        "blive",
+        "blive"
+      ]
+    },
+    {
+      "wordId": "da:lilla",
+      "focusIds": [
+        "var",
+        "var",
+        "var",
+        "blevet",
+        "blevet",
+        "blevet",
+        "siden",
+        "siden",
+        "siden"
+      ]
+    },
+    {
+      "wordId": "da:får",
+      "focusIds": [
+        "pludselig",
+        "pludselig",
+        "pludselig"
+      ]
+    },
+    {
+      "wordId": "da:spare",
+      "focusIds": [
+        "gjorde",
+        "gjorde",
+        "gjorde"
+      ]
+    },
+    {
+      "wordId": "da:orange",
+      "focusIds": [
+        "været",
+        "været",
+        "været",
+        "straks",
+        "straks",
+        "straks"
+      ]
+    },
+    {
+      "wordId": "da:apotek",
+      "focusIds": [
+        "da-chunk-lost",
+        "da-chunk-next-step"
+      ]
+    },
+    {
+      "wordId": "da:koncert",
+      "focusIds": [
+        "pludselig",
+        "pludselig",
+        "pludselig",
+        "da-chunk-happened"
+      ]
+    },
+    {
+      "wordId": "da:skylde",
+      "focusIds": [
+        "siden",
+        "siden",
+        "siden"
+      ]
+    },
+    {
+      "wordId": "da:blyant",
+      "focusIds": [
+        "da-chunk-lost"
+      ]
+    },
+    {
+      "wordId": "da:pæn",
+      "focusIds": [
+        "været",
+        "været",
+        "været",
+        "blevet",
+        "blevet",
+        "blevet"
+      ]
+    },
+    {
+      "wordId": "da:hud",
+      "focusIds": [
+        "da-chunk-pain"
+      ]
+    },
+    {
+      "wordId": "da:vaskemaskine",
+      "focusIds": [
+        "da-chunk-next-step"
+      ]
+    },
+    {
+      "wordId": "da:kok",
+      "focusIds": [
+        "gjorde",
+        "gjorde",
+        "gjorde"
+      ]
+    },
+    {
+      "wordId": "da:anbefale",
+      "focusIds": [
+        "haft",
+        "haft",
+        "haft"
+      ]
+    },
+    {
+      "wordId": "da:kørekort",
+      "focusIds": [
+        "da-chunk-lost",
+        "da-chunk-happened"
+      ]
+    },
+    {
+      "wordId": "da:tandlæge",
+      "focusIds": [
+        "da-chunk-pain",
+        "da-chunk-next-step"
+      ]
+    },
+    {
+      "wordId": "da:tjener",
+      "focusIds": [
+        "gjorde",
+        "gjorde",
+        "gjorde"
+      ]
+    },
+    {
+      "wordId": "da:sygeplejerske",
+      "focusIds": [
+        "da-chunk-happened"
+      ]
+    },
+    {
+      "wordId": "da:muskel",
+      "focusIds": [
+        "da-chunk-pain"
+      ]
+    },
+    {
+      "wordId": "da:kamera",
+      "focusIds": [
+        "haft",
+        "haft",
+        "haft"
+      ]
+    },
+    {
+      "wordId": "da:fuld",
+      "focusIds": [
+        "kan",
+        "kan",
+        "da-chunk-decline"
+      ]
+    },
+    {
+      "wordId": "da:halv",
+      "focusIds": [
+        "vil",
+        "vil",
+        "skal",
+        "skal",
+        "skal",
+        "skal",
+        "hellere",
+        "hellere",
+        "hellere",
+        "hellere",
+        "mindre",
+        "mindre",
+        "mindre",
+        "da-chunk-invite"
+      ]
+    },
+    {
+      "wordId": "da:lukket",
+      "focusIds": [
+        "ville",
+        "ville",
+        "ville",
+        "ville",
+        "ellers",
+        "ellers",
+        "ellers",
+        "ellers"
+      ]
+    },
+    {
+      "wordId": "da:travl",
+      "focusIds": [
+        "kan",
+        "kan",
+        "da-chunk-decline"
+      ]
+    },
+    {
+      "wordId": "da:rolig",
+      "focusIds": [
+        "bliver",
+        "bliver",
+        "bliver",
+        "bør",
+        "bør",
+        "bør",
+        "bør",
+        "måske",
+        "måske",
+        "måske",
+        "måske"
+      ]
+    },
+    {
+      "wordId": "da:stille",
+      "focusIds": [
+        "kan",
+        "kan",
+        "både",
+        "både",
+        "både",
+        "både"
+      ]
+    },
+    {
+      "wordId": "da:redde",
+      "focusIds": [
+        "kunne",
+        "kunne",
+        "kunne",
+        "kunne",
+        "enten",
+        "enten",
+        "enten",
+        "enten"
+      ]
+    },
+    {
+      "wordId": "da:vild",
+      "focusIds": [
+        "hverken",
+        "hverken",
+        "hverken",
+        "hverken"
+      ]
+    },
+    {
+      "wordId": "da:slukke",
+      "focusIds": [
+        "bliver",
+        "bliver",
+        "bliver",
+        "ellers",
+        "ellers",
+        "ellers",
+        "ellers"
+      ]
+    },
+    {
+      "wordId": "da:sko",
+      "focusIds": [
+        "vil",
+        "vil",
+        "heller",
+        "heller",
+        "heller",
+        "heller"
+      ]
+    },
+    {
+      "wordId": "da:farlig",
+      "focusIds": [
+        "ville",
+        "ville",
+        "ville",
+        "ville",
+        "mindre",
+        "mindre",
+        "mindre"
+      ]
+    },
+    {
+      "wordId": "da:klage",
+      "focusIds": [
+        "bør",
+        "bør",
+        "bør",
+        "bør",
+        "måske",
+        "måske",
+        "måske",
+        "måske"
+      ]
+    },
+    {
+      "wordId": "da:torden",
+      "focusIds": [
+        "mere",
+        "mere",
+        "mere"
+      ]
+    },
+    {
+      "wordId": "da:frygt",
+      "focusIds": [
+        "kunne",
+        "kunne",
+        "kunne",
+        "kunne",
+        "faktisk",
+        "faktisk",
+        "faktisk"
+      ]
+    },
+    {
+      "wordId": "da:gætte",
+      "focusIds": [
+        "blive",
+        "blive",
+        "blive",
+        "skulle",
+        "skulle",
+        "skulle",
+        "skulle",
+        "ville",
+        "ville",
+        "ville",
+        "ville",
+        "mindre",
+        "mindre",
+        "mindre"
+      ]
+    },
+    {
+      "wordId": "da:tå",
+      "focusIds": [
+        "mindst",
+        "mindst",
+        "mindst"
+      ]
+    },
+    {
+      "wordId": "da:tvivle",
+      "focusIds": [
+        "måtte",
+        "måtte",
+        "måtte",
+        "måtte",
+        "faktisk",
+        "faktisk",
+        "faktisk"
+      ]
+    },
+    {
+      "wordId": "da:landmand",
+      "focusIds": [
+        "da-chunk-decline"
+      ]
+    },
+    {
+      "wordId": "da:stole",
+      "focusIds": [
+        "både",
+        "både",
+        "både",
+        "både",
+        "sådan",
+        "sådan",
+        "sådan"
+      ]
+    },
+    {
+      "wordId": "da:skade",
+      "focusIds": [
+        "enten",
+        "enten",
+        "enten",
+        "enten"
+      ]
+    },
+    {
+      "wordId": "da:film",
+      "focusIds": [
+        "hverken",
+        "hverken",
+        "hverken",
+        "hverken"
+      ]
+    },
+    {
+      "wordId": "da:minde",
+      "focusIds": [
+        "skal",
+        "skal",
+        "skal",
+        "skal"
+      ]
+    },
+    {
+      "wordId": "da:venlig",
+      "focusIds": [
+        "mere",
+        "mere",
+        "mere"
+      ]
+    },
+    {
+      "wordId": "da:appelsin",
+      "focusIds": [
+        "vil",
+        "vil",
+        "hellere",
+        "hellere",
+        "hellere",
+        "hellere"
+      ]
+    },
+    {
+      "wordId": "da:rar",
+      "focusIds": [
+        "måske",
+        "måske",
+        "måske",
+        "måske"
+      ]
+    },
+    {
+      "wordId": "da:genkende",
+      "focusIds": [
+        "mere",
+        "mere",
+        "mere"
+      ]
+    },
+    {
+      "wordId": "da:klog",
+      "focusIds": [
+        "kunne",
+        "kunne",
+        "kunne",
+        "kunne",
+        "mest",
+        "mest",
+        "mest"
+      ]
+    },
+    {
+      "wordId": "da:toilet",
+      "focusIds": [
+        "skulle",
+        "skulle",
+        "skulle",
+        "skulle"
+      ]
+    },
+    {
+      "wordId": "da:ordbog",
+      "focusIds": [
+        "mindst",
+        "mindst",
+        "mindst"
+      ]
+    },
+    {
+      "wordId": "da:overraske",
+      "focusIds": [
+        "måtte",
+        "måtte",
+        "måtte",
+        "måtte",
+        "faktisk",
+        "faktisk",
+        "faktisk"
+      ]
+    },
+    {
+      "wordId": "da:dum",
+      "focusIds": [
+        "bør",
+        "bør",
+        "bør",
+        "bør",
+        "især",
+        "især",
+        "især"
+      ]
+    },
+    {
+      "wordId": "da:plante",
+      "focusIds": [
+        "både",
+        "både",
+        "både",
+        "både",
+        "sådan",
+        "sådan",
+        "sådan"
+      ]
+    },
+    {
+      "wordId": "da:fejre",
+      "focusIds": [
+        "enten",
+        "enten",
+        "enten",
+        "enten"
+      ]
+    },
+    {
+      "wordId": "da:lastbil",
+      "focusIds": [
+        "hverken",
+        "hverken",
+        "hverken",
+        "hverken"
+      ]
+    },
+    {
+      "wordId": "da:dygtig",
+      "focusIds": [
+        "skal",
+        "skal",
+        "skal",
+        "skal",
+        "mest",
+        "mest",
+        "mest",
+        "især",
+        "især",
+        "især"
+      ]
+    },
+    {
+      "wordId": "da:bekymring",
+      "focusIds": [
+        "heller",
+        "heller",
+        "heller",
+        "heller"
+      ]
+    },
+    {
+      "wordId": "da:doven",
+      "focusIds": [
+        "hellere",
+        "hellere",
+        "hellere",
+        "hellere"
+      ]
+    },
+    {
+      "wordId": "da:gifte",
+      "focusIds": [
+        "bliver",
+        "bliver",
+        "bliver"
+      ]
+    },
+    {
+      "wordId": "da:kysse",
+      "focusIds": [
+        "mest",
+        "mest",
+        "mest"
+      ]
+    },
+    {
+      "wordId": "da:batteri",
+      "focusIds": [
+        "skulle",
+        "skulle",
+        "skulle",
+        "skulle",
+        "måtte",
+        "måtte",
+        "måtte",
+        "måtte"
+      ]
+    },
+    {
+      "wordId": "da:modig",
+      "focusIds": [
+        "mindst",
+        "mindst",
+        "mindst"
+      ]
+    },
+    {
+      "wordId": "da:vågne",
+      "focusIds": [
+        "især",
+        "især",
+        "især"
+      ]
+    },
+    {
+      "wordId": "da:grænse",
+      "focusIds": [
+        "sådan",
+        "sådan",
+        "sådan"
+      ]
+    },
+    {
+      "wordId": "da:fængsel",
+      "focusIds": [
+        "ellers",
+        "ellers",
+        "ellers",
+        "ellers"
+      ]
+    },
+    {
+      "wordId": "da:regning",
+      "focusIds": [
+        "heller",
+        "heller",
+        "heller",
+        "heller"
+      ]
+    },
+    {
+      "wordId": "da:øve",
+      "focusIds": [
+        "blive",
+        "blive",
+        "blive"
+      ]
+    },
+    {
+      "wordId": "da:lov",
+      "focusIds": [
+        "må",
+        "må"
+      ]
+    },
+    {
+      "wordId": "da:fødselsdag",
+      "focusIds": [
+        "da-chunk-invite"
+      ]
+    },
+    {
+      "wordId": "da:bage",
+      "focusIds": [
+        "da-chunk-invite"
+      ]
+    },
+    {
+      "wordId": "da:fryser",
+      "focusIds": [
+        "da-chunk-fit"
+      ]
+    },
+    {
+      "wordId": "da:vække",
+      "focusIds": [
+        "fordi",
+        "fordi",
+        "at",
+        "hvis",
+        "hvis",
+        "hvis",
+        "hvis",
+        "da-chunk-fit",
+        "da-chunk-reason",
+        "da-chunk-condition"
+      ]
+    },
+    {
+      "wordId": "da:pose",
+      "focusIds": [
+        "hvis",
+        "hvis",
+        "hvis",
+        "hvis",
+        "denne",
+        "denne",
+        "denne"
+      ]
+    },
+    {
+      "wordId": "da:ødelægge",
+      "focusIds": [
+        "at",
+        "dette",
+        "dette",
+        "dette"
+      ]
+    },
+    {
+      "wordId": "da:kanal",
+      "focusIds": [
+        "må",
+        "må",
+        "derfor",
+        "denne",
+        "denne",
+        "denne",
+        "indtil",
+        "indtil",
+        "indtil"
+      ]
+    },
+    {
+      "wordId": "da:koge",
+      "focusIds": [
+        "må",
+        "må",
+        "dette",
+        "dette",
+        "dette"
+      ]
+    },
+    {
+      "wordId": "da:angst",
+      "focusIds": [
+        "fordi",
+        "fordi",
+        "da-chunk-reason"
+      ]
+    },
+    {
+      "wordId": "da:rydde",
+      "focusIds": [
+        "fordi",
+        "fordi",
+        "da-chunk-change-appointment",
+        "da-chunk-reason"
+      ]
+    },
+    {
+      "wordId": "da:and",
+      "focusIds": [
+        "denne",
+        "denne",
+        "denne"
+      ]
+    },
+    {
+      "wordId": "da:praktisk",
+      "focusIds": [
+        "hvis",
+        "hvis",
+        "hvis",
+        "hvis",
+        "dette",
+        "dette",
+        "dette"
+      ]
+    },
+    {
+      "wordId": "da:møbel",
+      "focusIds": [
+        "disse",
+        "disse",
+        "disse"
+      ]
+    },
+    {
+      "wordId": "da:overraskelse",
+      "focusIds": [
+        "at"
+      ]
+    },
+    {
+      "wordId": "da:rimelig",
+      "focusIds": [
+        "indtil",
+        "indtil",
+        "indtil"
+      ]
+    },
+    {
+      "wordId": "da:ærlig",
+      "focusIds": [
+        "derfor"
+      ]
+    },
+    {
+      "wordId": "da:tårn",
+      "focusIds": [
+        "jo",
+        "jo",
+        "jo"
+      ]
+    },
+    {
+      "wordId": "da:kvittering",
+      "focusIds": [
+        "indtil",
+        "indtil",
+        "indtil"
+      ]
+    },
+    {
+      "wordId": "da:blande",
+      "focusIds": [
+        "disse",
+        "disse",
+        "disse"
+      ]
+    },
+    {
+      "wordId": "da:hylde",
+      "focusIds": [
+        "jo",
+        "jo",
+        "jo"
+      ]
+    },
+    {
+      "wordId": "da:nyttig",
+      "focusIds": [
+        "disse",
+        "disse",
+        "disse"
+      ]
+    },
+    {
+      "wordId": "da:træning",
+      "focusIds": [
+        "jo",
+        "jo",
+        "jo"
+      ]
+    },
+    {
+      "wordId": "da:kursus",
+      "focusIds": [
+        "da-chunk-change-appointment"
+      ]
+    },
+    {
+      "wordId": "da:kalender",
+      "focusIds": [
+        "da-chunk-change-appointment"
+      ]
+    },
+    {
+      "wordId": "da:aftale",
+      "focusIds": [
+        "da-chunk-fit"
+      ]
+    },
+    {
+      "wordId": "da:skøn",
+      "focusIds": [
+        "da-chunk-condition"
+      ]
+    },
+    {
+      "wordId": "da:fritid",
+      "focusIds": [
+        "da-chunk-condition"
+      ]
+    }
+  ]
+}

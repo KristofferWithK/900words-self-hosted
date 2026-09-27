@@ -1,0 +1,318 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 9,
+  "pairs": {
+    "da:tydelig|da:fugtig": [
+      { "da": "luft", "en": "air", "why": "air can have either quality", "s": 1 }
+    ],
+    "da:tydelig|da:udsigt": [
+      { "da": "skarp", "en": "sharp", "why": "a sharply defined view", "s": 3 },
+      { "da": "se", "en": "see", "why": "easy to see", "s": 2 }
+    ],
+    "da:tydelig|da:opskrift": [
+      { "da": "instruktion", "en": "instruction", "why": "instructions should be clear", "s": 2 }
+    ],
+    "da:tydelig|da:skrige": [
+      { "da": "høj", "en": "loud", "why": "a loud message is unmistakable", "s": 1 }
+    ],
+    "da:peber|da:blande": [
+      { "da": "krydderi", "en": "spice", "why": "a spice added while mixing", "s": 2 },
+      { "da": "madlavning", "en": "cooking", "why": "two kitchen basics", "s": 2 }
+    ],
+    "da:peber|da:mild": [
+      { "da": "stærk", "en": "spicy", "why": "the expected opposite taste", "s": 2 },
+      { "da": "smag", "en": "taste", "why": "two descriptions of taste", "s": 2 }
+    ],
+    "da:peber|da:kursus": [
+      { "da": "kok", "en": "chef", "why": "chef training uses seasoning", "s": 1 }
+    ],
+    "da:peber|da:stege": [
+      { "da": "pande", "en": "pan", "why": "seasoning food in a pan", "s": 2 },
+      { "da": "kød", "en": "meat", "why": "seasoned before cooking", "s": 2 }
+    ],
+    "da:peber|da:hælde": [
+      { "da": "drysse", "en": "sprinkle", "why": "adding seasoning from a container", "s": 2 }
+    ],
+    "da:peber|da:smøre": [
+      { "da": "mad", "en": "food", "why": "seasoning and spreading food", "s": 1 }
+    ],
+    "da:peber|da:servere": [
+      { "da": "bord", "en": "table", "why": "seasoning stands beside served food", "s": 2 },
+      { "da": "middag", "en": "dinner", "why": "seasoned food is served", "s": 2 }
+    ],
+    "da:peber|da:slik": [
+      { "da": "smag", "en": "flavor", "why": "both can flavor food", "s": 1 }
+    ],
+    "da:peber|da:ryste": [
+      { "da": "drysse", "en": "sprinkle", "why": "shaking seasoning over food", "s": 2 }
+    ],
+    "da:peber|da:irritere": [
+      { "da": "næse", "en": "nose", "why": "seasoning can bother the nose", "s": 2 },
+      { "da": "nyse", "en": "sneeze", "why": "spice causes an irritated reaction", "s": 2 }
+    ],
+    "da:peber|da:opskrift": [
+      { "da": "ingrediens", "en": "ingredient", "why": "seasoning listed in instructions", "s": 3 },
+      { "da": "madlavning", "en": "cooking", "why": "both guide a cook", "s": 2 }
+    ],
+    "da:peber|da:klippe": [
+      { "da": "saks", "en": "scissors", "why": "scissors and seasoning grinders twist", "s": 1 }
+    ],
+    "da:peber|da:sprød": [
+      { "da": "chips", "en": "chips", "why": "crunchy and often seasoned", "s": 3 },
+      { "da": "skorpe", "en": "crust", "why": "crisp food with seasoning", "s": 2 }
+    ],
+    "da:politibetjent|da:binde": [
+      { "da": "håndjern", "en": "handcuffs", "why": "restraint used by law enforcement", "s": 3 }
+    ],
+    "da:politibetjent|da:træning": [
+      { "da": "skole", "en": "academy", "why": "professional preparation for officers", "s": 3 },
+      { "da": "fysisk", "en": "physical", "why": "fitness required for the job", "s": 2 }
+    ],
+    "da:politibetjent|da:kursus": [
+      { "da": "skole", "en": "academy", "why": "where officers take classes", "s": 3 }
+    ],
+    "da:politibetjent|da:adresse": [
+      { "da": "hjem", "en": "home", "why": "officers visit a reported location", "s": 2 },
+      { "da": "finde", "en": "locate", "why": "location details help officers", "s": 2 }
+    ],
+    "da:politibetjent|da:servere": [
+      { "da": "pligt", "en": "duty", "why": "public duty and serving others", "s": 2 }
+    ],
+    "da:politibetjent|da:skilt": [
+      { "da": "trafik", "en": "traffic", "why": "officers enforce road signs", "s": 3 },
+      { "da": "stop", "en": "stop", "why": "a command and road notice", "s": 2 }
+    ],
+    "da:politibetjent|da:høflig": [
+      { "da": "respekt", "en": "respect", "why": "expected conduct during an encounter", "s": 2 }
+    ],
+    "da:politibetjent|da:ring": [
+      { "da": "telefon", "en": "phone", "why": "calling for police help", "s": 2 }
+    ],
+    "da:politibetjent|da:bekymre": [
+      { "da": "fare", "en": "danger", "why": "danger prompts worry and police", "s": 2 },
+      { "da": "hjælp", "en": "help", "why": "concern can prompt a call", "s": 2 }
+    ],
+    "da:politibetjent|da:ulykke": [
+      { "da": "trafik", "en": "traffic", "why": "officers attend road accidents", "s": 3 },
+      { "da": "hjælp", "en": "help", "why": "emergency assistance at the scene", "s": 3 }
+    ],
+    "da:politibetjent|da:løs": [
+      { "da": "fange", "en": "prisoner", "why": "an escaped person is pursued", "s": 2 }
+    ],
+    "da:politibetjent|da:kommune": [
+      { "da": "offentlig", "en": "public", "why": "both belong to public services", "s": 2 },
+      { "da": "myndighed", "en": "authority", "why": "two forms of civic authority", "s": 2 }
+    ],
+    "da:politibetjent|da:trøste": [
+      { "da": "offer", "en": "victim", "why": "officers reassure distressed victims", "s": 2 }
+    ],
+    "da:politibetjent|da:regering": [
+      { "da": "stat", "en": "state", "why": "national authority employs law enforcement", "s": 3 },
+      { "da": "lov", "en": "law", "why": "government makes what officers enforce", "s": 3 }
+    ],
+    "da:politibetjent|da:pakke": [
+      { "da": "mistænkelig", "en": "suspicious", "why": "an unattended parcel draws police", "s": 2 }
+    ],
+    "da:politibetjent|da:skrige": [
+      { "da": "hjælp", "en": "help", "why": "a cry summons an officer", "s": 3 },
+      { "da": "fare", "en": "danger", "why": "shouting signals an emergency", "s": 2 }
+    ],
+    "da:blande|da:mild": [
+      { "da": "smag", "en": "taste", "why": "mixing can soften a flavor", "s": 2 }
+    ],
+    "da:blande|da:rulle": [
+      { "da": "dej", "en": "dough", "why": "first mixed then rolled", "s": 3 },
+      { "da": "bage", "en": "bake", "why": "two steps before baking", "s": 2 }
+    ],
+    "da:blande|da:binde": [
+      { "da": "sammen", "en": "together", "why": "both join separate things", "s": 3 }
+    ],
+    "da:blande|da:stege": [
+      { "da": "madlavning", "en": "cooking", "why": "two common kitchen actions", "s": 3 },
+      { "da": "pande", "en": "pan", "why": "ingredients combine while cooking", "s": 2 }
+    ],
+    "da:blande|da:hælde": [
+      { "da": "væske", "en": "liquid", "why": "liquid is poured and combined", "s": 3 },
+      { "da": "skål", "en": "bowl", "why": "pouring ingredients together", "s": 3 }
+    ],
+    "da:blande|da:smøre": [
+      { "da": "smør", "en": "butter", "why": "softened for combining and spreading", "s": 2 },
+      { "da": "creme", "en": "cream", "why": "mixed smooth then spread", "s": 2 }
+    ],
+    "da:blande|da:servere": [
+      { "da": "salat", "en": "salad", "why": "tossed together before being served", "s": 3 },
+      { "da": "mad", "en": "food", "why": "prepared together then presented", "s": 2 }
+    ],
+    "da:blande|da:slik": [
+      { "da": "pose", "en": "bag", "why": "assorted sweets collected together", "s": 2 }
+    ],
+    "da:blande|da:glat": [
+      { "da": "creme", "en": "cream", "why": "stirred until smooth", "s": 3 },
+      { "da": "dej", "en": "batter", "why": "mixing removes lumps", "s": 2 }
+    ],
+    "da:blande|da:ryste": [
+      { "da": "cocktail", "en": "cocktail", "why": "a drink combined by shaking", "s": 3 },
+      { "da": "flaske", "en": "bottle", "why": "shaken to combine contents", "s": 3 }
+    ],
+    "da:blande|da:kølig": [
+      { "da": "drink", "en": "drink", "why": "a mixed drink served cool", "s": 2 }
+    ],
+    "da:blande|da:opskrift": [
+      { "da": "ingrediens", "en": "ingredient", "why": "instructions tell what to combine", "s": 3 },
+      { "da": "bage", "en": "bake", "why": "recipes require combining ingredients", "s": 3 }
+    ],
+    "da:blande|da:ordne": [
+      { "da": "kort", "en": "cards", "why": "can be shuffled then arranged", "s": 3 }
+    ],
+    "da:blande|da:klippe": [
+      { "da": "salat", "en": "salad", "why": "ingredients cut and tossed together", "s": 2 }
+    ],
+    "da:blande|da:sprød": [
+      { "da": "salat", "en": "salad", "why": "crisp ingredients tossed together", "s": 3 }
+    ],
+    "da:hylde|da:bluse": [
+      { "da": "butik", "en": "store", "why": "clothing displayed for sale", "s": 2 }
+    ],
+    "da:hylde|da:kalender": [
+      { "da": "væg", "en": "wall", "why": "both can be mounted there", "s": 2 }
+    ],
+    "da:hylde|da:skilt": [
+      { "da": "butik", "en": "store", "why": "displays and notices guide shoppers", "s": 2 }
+    ],
+    "da:hylde|da:kurv": [
+      { "da": "opbevaring", "en": "storage", "why": "both hold household items", "s": 3 },
+      { "da": "butik", "en": "store", "why": "goods and shopping containers", "s": 2 }
+    ],
+    "da:hylde|da:slik": [
+      { "da": "butik", "en": "store", "why": "sweets displayed for shoppers", "s": 3 }
+    ],
+    "da:hylde|da:glat": [
+      { "da": "overflade", "en": "surface", "why": "a shelf can feel smooth", "s": 3 }
+    ],
+    "da:hylde|da:skuffe": [
+      { "da": "skab", "en": "cabinet", "why": "two storage parts", "s": 3 },
+      { "da": "opbevaring", "en": "storage", "why": "both organize household objects", "s": 3 }
+    ],
+    "da:hylde|da:opskrift": [
+      { "da": "kogebog", "en": "cookbook", "why": "recipe collection kept on shelving", "s": 3 }
+    ],
+    "da:hylde|da:ordne": [
+      { "da": "opbevaring", "en": "storage", "why": "shelving helps organize objects", "s": 3 },
+      { "da": "rydde", "en": "tidy", "why": "putting things neatly away", "s": 2 }
+    ],
+    "da:hylde|da:pakke": [
+      { "da": "lager", "en": "warehouse", "why": "parcels stored on shelving", "s": 3 }
+    ],
+    "da:hoppe|da:rulle": [
+      { "da": "bevægelse", "en": "movement", "why": "two ways to move", "s": 3 },
+      { "da": "gymnastik", "en": "gymnastics", "why": "two basic floor actions", "s": 3 }
+    ],
+    "da:hoppe|da:bade": [
+      { "da": "vand", "en": "water", "why": "leaping in before swimming", "s": 2 }
+    ],
+    "da:hoppe|da:træning": [
+      { "da": "motion", "en": "exercise", "why": "jumping as physical practice", "s": 3 },
+      { "da": "fitness", "en": "fitness", "why": "a common workout action", "s": 3 }
+    ],
+    "da:hoppe|da:kurv": [
+      { "da": "basketball", "en": "basketball", "why": "leaping toward the basket", "s": 3 }
+    ],
+    "da:hoppe|da:glat": [
+      { "da": "is", "en": "ice", "why": "a risky surface for jumping", "s": 2 }
+    ],
+    "da:hoppe|da:ryste": [
+      { "da": "bevægelse", "en": "movement", "why": "two sudden body motions", "s": 2 }
+    ],
+    "da:hoppe|da:interesse": [
+      { "da": "sport", "en": "sport", "why": "jumping can be a hobby", "s": 2 }
+    ],
+    "da:hoppe|da:glide": [
+      { "da": "bevægelse", "en": "movement", "why": "two ways of moving", "s": 3 },
+      { "da": "ski", "en": "skiing", "why": "leaps and slides on snow", "s": 2 }
+    ],
+    "da:hoppe|da:klatre": [
+      { "da": "bevægelse", "en": "movement", "why": "two active ways upward", "s": 3 },
+      { "da": "legeplads", "en": "playground", "why": "children do both there", "s": 3 }
+    ],
+    "da:hoppe|da:stiv": [
+      { "da": "ben", "en": "legs", "why": "rigid legs make awkward jumps", "s": 2 }
+    ],
+    "da:hoppe|da:ulykke": [
+      { "da": "fald", "en": "fall", "why": "a bad landing causes injury", "s": 3 },
+      { "da": "fare", "en": "danger", "why": "a risky leap can go wrong", "s": 2 }
+    ],
+    "da:hoppe|da:fritid": [
+      { "da": "leg", "en": "play", "why": "jumping during leisure", "s": 3 },
+      { "da": "sport", "en": "sport", "why": "an active pastime", "s": 2 }
+    ],
+    "da:hoppe|da:skrige": [
+      { "da": "forskrækket", "en": "startled", "why": "fear causes both reactions", "s": 3 },
+      { "da": "glæde", "en": "excitement", "why": "excitement prompts leaping and shouting", "s": 2 }
+    ],
+    "da:skygge|da:tåge": [
+      { "da": "grå", "en": "gray", "why": "both dim the world", "s": 2 },
+      { "da": "uklar", "en": "hazy", "why": "light and shapes become indistinct", "s": 2 }
+    ],
+    "da:skygge|da:bade": [
+      { "da": "strand", "en": "beach", "why": "swimming and shelter from sun", "s": 3 },
+      { "da": "sommer", "en": "summer", "why": "sun protection beside the water", "s": 2 }
+    ],
+    "da:skygge|da:behagelig": [
+      { "da": "kølig", "en": "cool", "why": "shade feels pleasant in heat", "s": 3 },
+      { "da": "sommer", "en": "summer", "why": "shelter from hot sunshine", "s": 2 }
+    ],
+    "da:skygge|da:teater": [
+      { "da": "lys", "en": "light", "why": "stage lighting creates silhouettes", "s": 2 },
+      { "da": "scene", "en": "stage", "why": "dramatic shapes behind performers", "s": 2 }
+    ],
+    "da:skygge|da:underlig": [
+      { "da": "mørk", "en": "dark", "why": "dark shapes can seem strange", "s": 2 }
+    ],
+    "da:skygge|da:hviske": [
+      { "da": "hemmelig", "en": "secret", "why": "hidden presence and quiet speech", "s": 2 },
+      { "da": "stille", "en": "quiet", "why": "both suggest silent concealment", "s": 2 }
+    ],
+    "da:skygge|da:kølig": [
+      { "da": "sol", "en": "sun", "why": "shelter from its heat", "s": 3 },
+      { "da": "træ", "en": "tree", "why": "cool shelter beneath leaves", "s": 3 }
+    ],
+    "da:skygge|da:udsigt": [
+      { "da": "landskab", "en": "landscape", "why": "light and darkness shape scenery", "s": 2 }
+    ],
+    "da:mild|da:tåge": [
+      { "da": "vejr", "en": "weather", "why": "a gentle foggy day", "s": 3 }
+    ],
+    "da:mild|da:smil": [
+      { "da": "venlig", "en": "friendly", "why": "a gentle welcoming expression", "s": 3 },
+      { "da": "varm", "en": "warm", "why": "a soft kind expression", "s": 2 }
+    ],
+    "da:mild|da:træning": [
+      { "da": "let", "en": "light", "why": "an easy gentle workout", "s": 3 }
+    ],
+    "da:mild|da:behagelig": [
+      { "da": "blød", "en": "soft", "why": "a gentle comfortable quality", "s": 3 },
+      { "da": "rolig", "en": "calm", "why": "both describe an easy atmosphere", "s": 3 }
+    ],
+    "da:mild|da:flink": [
+      { "da": "venlig", "en": "friendly", "why": "a gentle good nature", "s": 3 },
+      { "da": "sød", "en": "caring", "why": "soft and agreeable behavior", "s": 2 }
+    ],
+    "da:mild|da:høflig": [
+      { "da": "venlig", "en": "respectful", "why": "gentle respectful behavior", "s": 3 },
+      { "da": "rolig", "en": "calm", "why": "a soft manner with others", "s": 2 }
+    ],
+    "da:mild|da:hviske": [
+      { "da": "blød", "en": "soft", "why": "a gentle quiet voice", "s": 3 },
+      { "da": "stemme", "en": "voice", "why": "speaking in a gentle tone", "s": 3 }
+    ],
+    "da:mild|da:kølig": [
+      { "da": "vejr", "en": "weather", "why": "a gently cool day", "s": 3 },
+      { "da": "temperatur", "en": "temperature", "why": "both describe moderate conditions", "s": 3 }
+    ],
+    "da:mild|da:glide": [
+      { "da": "blød", "en": "smooth", "why": "a gentle flowing motion", "s": 3 }
+    ]
+  }
+}

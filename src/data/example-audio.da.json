@@ -1,0 +1,4506 @@
+{
+  "language": "da",
+  "generatedFrom": "frozen words.da.json exampleDa (T3 Sol review)",
+  "entries": [
+    {
+      "id": "da:mor",
+      "textDa": "“Hej, jeg hedder Anna,” siger min mor.",
+      "sourceHash": "1959ffe06dcc01e6f1f4d030d965e98efb554db30e49f08d981f9f94e57491f0"
+    },
+    {
+      "id": "da:far",
+      "textDa": "Min far bruger goddag, når han møder en fremmed.",
+      "sourceHash": "d4646ae67f0acdb9ebb6c31ab0162d02f76184151e89cf2e734dfd4793b0ee2b"
+    },
+    {
+      "id": "da:barn",
+      "textDa": "“Godmorgen,” siger barnet. “Jeg forstår ikke.”",
+      "sourceHash": "24215355766560ba437213d49496867b31007ab28d79ad56ed2cd6227db6ba54"
+    },
+    {
+      "id": "da:hund",
+      "textDa": "Barnet siger “godnat” til hunden.",
+      "sourceHash": "da93d1f14b737c8296786e804776685612a9a683bc77a308ff8ced61de93c00c"
+    },
+    {
+      "id": "da:kat",
+      "textDa": "“Hallo, hvor er katten?” spørger hun.",
+      "sourceHash": "2a239f4b1341f3e43c0087abb4a82c70067f7c06df4197f6d6c5bb6216d111e2"
+    },
+    {
+      "id": "da:hus",
+      "textDa": "“Velkommen! Der er et hus her.”",
+      "sourceHash": "5a9fdf09a33f3a0ddc40a44455a444f0d5ae5b0d44ef9b175ee51130f4cdc4c1"
+    },
+    {
+      "id": "da:bord",
+      "textDa": "Hun siger farvel ved bordet.",
+      "sourceHash": "f2c1c031fe9e99c66e3d167306e06ea6c6e0036bdebda404261790b5585c8b6b"
+    },
+    {
+      "id": "da:seng",
+      "textDa": "Sengen er redt, og nu er det tid til at sige godnat.",
+      "sourceHash": "fc63801a9df3f5281d3256aa85296e1e7134cc554a56a4658b0966c437232b12"
+    },
+    {
+      "id": "da:mad",
+      "textDa": "“Goddag. Maden er klar.”",
+      "sourceHash": "63e143aa7ce4cf67d075f226243f350b5050d40c757ecba33e9416259e79efd2"
+    },
+    {
+      "id": "da:æble",
+      "textDa": "“Godmorgen. Vil du have et æble?”",
+      "sourceHash": "32ca43a274e67bbc5575edb0f6cf5986691e444cd7a6d343bcefe81fabe8ef7b"
+    },
+    {
+      "id": "da:mælk",
+      "textDa": "Barnet drikker mælk og siger “godnat”.",
+      "sourceHash": "6f5ff49f58745f025845b7640ba05d9ca105836c4d64c8a370a7c28e8306af04"
+    },
+    {
+      "id": "da:vand",
+      "textDa": "“Hallo, må jeg få vand?”",
+      "sourceHash": "d4226d65d985c709a663c112363ed23f68a69bbf1f9fef0c3704f31a3d517575"
+    },
+    {
+      "id": "da:kaffe",
+      "textDa": "“Velkommen. Kaffen er klar.”",
+      "sourceHash": "32d90b60a434fc7a3732c7b718e9b2fda65315fcaaa3e571cf4a72eabba48d9b"
+    },
+    {
+      "id": "da:øje",
+      "textDa": "Hun vinker farvel med tårer i øjnene.",
+      "sourceHash": "15628435cb882d957d4134b91d12f04477aa4c338f40a0ad82609fd544dfef73"
+    },
+    {
+      "id": "da:hånd",
+      "textDa": "“Hej,” siger hun og giver mig hånden.",
+      "sourceHash": "6a2a3688825a0dbb14bc60e6e8bcd0f3f56c3005824f175c3bb58504a80e57d7"
+    },
+    {
+      "id": "da:dør",
+      "textDa": "Kom ind ad døren. Velkommen!",
+      "sourceHash": "accececf63ba04d38859a0245f13aae3a98ceb516ea014be9983d8f9d30c5c3e"
+    },
+    {
+      "id": "da:vindue",
+      "textDa": "“Godmorgen,” siger hun og åbner vinduet.",
+      "sourceHash": "664d3bab7db389028e32ebe67f1970dced058fd199bec63a78cfa46e43b828b8"
+    },
+    {
+      "id": "da:stol",
+      "textDa": "Sæt stolen her. Er det okay?",
+      "sourceHash": "deb0e6214cd2f1fc3bf235095151a97e144f080c7ff3102fe8b042b5d3b95c32"
+    },
+    {
+      "id": "da:køkken",
+      "textDa": "“Hallo,” råber han fra køkkenet.",
+      "sourceHash": "735b125bf0fba5bb897debb0112c05b2537637d195ec948aaee543ea492c2e09"
+    },
+    {
+      "id": "da:mund",
+      "textDa": "“Velkommen,” siger hun med et smil om munden.",
+      "sourceHash": "0c233b97649b822c2752c2390bfe6c788f97040447dd937bd6204905fe17199a"
+    },
+    {
+      "id": "da:hoved",
+      "textDa": "Hun siger farvel og nikker med hovedet.",
+      "sourceHash": "d80c1677b7b6f3fd114ae8b99ba86aeb6578b2e640c8939bdbcfec363f6e4a2d"
+    },
+    {
+      "id": "da:mand",
+      "textDa": "“Hej, jeg hedder Bo,” siger manden.",
+      "sourceHash": "5dc92d4cd24ebb10fb1e7e4490ad49c5c33c09de051779b3620b9a91c5d2ae75"
+    },
+    {
+      "id": "da:kvinde",
+      "textDa": "“Goddag,” siger kvinden ved døren.",
+      "sourceHash": "8e81440c76449427e1977223a9123d86ef2459fa0a1fdb5113fb5b5bcbbd649b"
+    },
+    {
+      "id": "da:pige",
+      "textDa": "Pigen siger “godmorgen” til sin mor.",
+      "sourceHash": "623c4d91a64b09420ddb91d34d20ba396975429e1a0281a9b39c9bb9116a5b75"
+    },
+    {
+      "id": "da:dreng",
+      "textDa": "Drengen siger “godnat” og lukker bogen.",
+      "sourceHash": "97fe89733f2566d7c9d4cf92ff6015d03c95e50b8b7e276abdd12a49cc3d60c5"
+    },
+    {
+      "id": "da:bror",
+      "textDa": "“Hallo, jeg kommer fra Aarhus,” siger min bror.",
+      "sourceHash": "c0d5e0df5f38d2a22dfda78c8e6af8145d7ad657e8aea90796cd80446f365712"
+    },
+    {
+      "id": "da:søster",
+      "textDa": "“Velkommen,” siger min søster.",
+      "sourceHash": "b810f0fdea5aff417c3ac102f38b41990a5431191b6233989c27968db30da3df"
+    },
+    {
+      "id": "da:rød",
+      "textDa": "Hun vinker farvel med et rødt tørklæde.",
+      "sourceHash": "7bbc0a397f709861a980765397238e7e048efb68bea4144fefce21a570fe6284"
+    },
+    {
+      "id": "da:hvid",
+      "textDa": "“Hej,” står der på det hvide skilt.",
+      "sourceHash": "e7febb88c27fb8e5f4b7181f8eeada39c8fd2386ddb2062e30268bd31a7c86b2"
+    },
+    {
+      "id": "da:sort",
+      "textDa": "Ejeren går med den sorte hund hen til mig og siger goddag.",
+      "sourceHash": "f67dd7eb3c579c94f3c642d7358e44f066158dda94b439709be9fa2049681aec"
+    },
+    {
+      "id": "da:ost",
+      "textDa": "“Godmorgen. Er der ost?”",
+      "sourceHash": "018bd2d3b58a3d36e854d04eb8b920d5a2294933c827589fffbd1aeada6d4c10"
+    },
+    {
+      "id": "da:æg",
+      "textDa": "Efter at hun har sagt godnat, lægger hun æggene i køleskabet.",
+      "sourceHash": "f3710768f9e6162a936105f5c9e3b4bad683c46821053b7b7254dc0b91322614"
+    },
+    {
+      "id": "da:kød",
+      "textDa": "“Hallo, jeg spiser ikke kød,” siger han.",
+      "sourceHash": "99a26b21457607a83b0124dabf1f783ad52ebf8af9ba48946fc29522a8d4d2d7"
+    },
+    {
+      "id": "da:fisk",
+      "textDa": "“Velkommen. Vi har fisk i dag.”",
+      "sourceHash": "6298555cf49ae05ebdf782b582c49eb9d835f212e69042190f3f70890e7f8148"
+    },
+    {
+      "id": "da:spise",
+      "textDa": "Vi spiser og siger farvel bagefter.",
+      "sourceHash": "f1d5fffb647018538ade4e9df5f2acfb4a23417a09c91e293b0425d4ca15db55"
+    },
+    {
+      "id": "da:drikke",
+      "textDa": "“Hej,” siger hun og drikker vand.",
+      "sourceHash": "8a8badd50069c0da8cb5d68812bcb2869dd51a4de05a91d64fad43b5b8b656be"
+    },
+    {
+      "id": "da:øl",
+      "textDa": "“Goddag. Skål!” siger han med en øl.",
+      "sourceHash": "71004e89d10a266f1b7c7798f1df276177def3b8fe3eada558683f41353efcc4"
+    },
+    {
+      "id": "da:sol",
+      "textDa": "“Godmorgen,” siger hun til solen.",
+      "sourceHash": "8d0699f9b3a424cdc079b0c9ee714c4a8157da93cada0f4ce7351eb59992cafc"
+    },
+    {
+      "id": "da:træ",
+      "textDa": "De siger “godnat” under træet.",
+      "sourceHash": "6eb8a07111f381aae7dcb9aa15ed1483f9e8b7957c1f6673a37c2ad596625fb9"
+    },
+    {
+      "id": "da:blomst",
+      "textDa": "“Hallo,” siger hun og giver mig en blomst.",
+      "sourceHash": "6937769c48b23254b0d9f3cc477295a5e3b05bb328ec73df5bd1843bc6a31e09"
+    },
+    {
+      "id": "da:fugl",
+      "textDa": "Ved fuglehuset siger guiden: “Velkommen.”",
+      "sourceHash": "66a97eef07dd0a72edbd818b4dd47bdde87c8dc7c5aea32e241b875781ddb828"
+    },
+    {
+      "id": "da:hest",
+      "textDa": "Hun siger farvel til hesten.",
+      "sourceHash": "b83598eb9ca888fa0873e0c70f115132e174c7bb106fd62fb29197d969458f68"
+    },
+    {
+      "id": "da:bil",
+      "textDa": "Bilisten siger goddag og venter ved bilen.",
+      "sourceHash": "125b8c8d3b61c8e2cc23994ee0165acde184c6c49fa3e999c4dc7d883d799c3e"
+    },
+    {
+      "id": "da:by",
+      "textDa": "“Tak. Jeg kommer fra en lille by.”",
+      "sourceHash": "b6c7fa07d8c3c42f87c513e097690cd537d68ea55bc4c68e982b1910b172ce7d"
+    },
+    {
+      "id": "da:skole",
+      "textDa": "“Tak,” siger barnet i skolen.",
+      "sourceHash": "ccd10f76f5115006e57dad7f3447f90aa3cbb009da640fa9448d4a4003f7e83a"
+    },
+    {
+      "id": "da:bog",
+      "textDa": "“Tak. Hvad betyder ordet i bogen?”",
+      "sourceHash": "2ec75df0880863a50cbc13e368dc412fd80fa0254b9c6109248094bc5fdba75d"
+    },
+    {
+      "id": "da:ben",
+      "textDa": "“Tak. Kan du hjælpe mig? Mit ben gør ondt.”",
+      "sourceHash": "5567ed06830219503bc99af17eee970974d121cbebab3bb23435b33fe953a894"
+    },
+    {
+      "id": "da:fod",
+      "textDa": "“Tak,” siger hun og peger på sin fod.",
+      "sourceHash": "a15ade93ba27bf0acab4bc03606c98a0325d163461dbbf7e3c3fe2e073b4377a"
+    },
+    {
+      "id": "da:arm",
+      "textDa": "“Undskyld, min arm gør ondt.”",
+      "sourceHash": "ea61a413cb0fa0f33721f25a359d19ab816cf2f7255584fa61401cfb1f47b26e"
+    },
+    {
+      "id": "da:finger",
+      "textDa": "“Undskyld, kan du hjælpe mig? Min finger bløder.”",
+      "sourceHash": "227dd579f9664f1d4e1154f31bc4f20ca65022a0c93ed075466069518f15d41e"
+    },
+    {
+      "id": "da:næse",
+      "textDa": "“Undskyld,” siger hun og tørrer næsen.",
+      "sourceHash": "aea2424e9e1fff19944395001d691ac44c02dbac26488ca8964c651992deaa52"
+    },
+    {
+      "id": "da:tand",
+      "textDa": "“Undskyld, hvor er tandlægen?”",
+      "sourceHash": "2676548dfa25c571162c32df5a1b3a8b4d9f07a50e1fc16d2a890013fbb8b055"
+    },
+    {
+      "id": "da:hår",
+      "textDa": "“Undskyld, er det dit hår?”",
+      "sourceHash": "6dcc54d0994d53a2ca3f1f9e920faf4d04193c8381e720ecd8e91828930bd0fb"
+    },
+    {
+      "id": "da:hjerte",
+      "textDa": "“Undskyld, mit hjerte banker hurtigt.”",
+      "sourceHash": "dbdd2de2f49241ee6ee5ef3b28dd56c9bc922d8c58b0a700abab0395584703f4"
+    },
+    {
+      "id": "da:dag",
+      "textDa": "“Okay, det er en god dag.”",
+      "sourceHash": "b41c17f15db3f2d1ddd8f4bdc8eb7f5485d7753904e1bf312d3c817f0e18bcbc"
+    },
+    {
+      "id": "da:nat",
+      "textDa": "“Okay, vi ses i nat.”",
+      "sourceHash": "b4fcc417be1c35cac2de7ccda9cae26bd7da490a92c1979706e65ee29e2bb692"
+    },
+    {
+      "id": "da:aften",
+      "textDa": "I aften siger vi skål ved bordet.",
+      "sourceHash": "a864cdfc6ef6563effb8d0dcca28a67bde00b4db01aebe0206e67911e3457927"
+    },
+    {
+      "id": "da:uge",
+      "textDa": "“Okay, vi ses igen om en uge.”",
+      "sourceHash": "75658f3828f261f32042ab8817070721bf91c1d825fc4b4bb3819c2f4bdf8251"
+    },
+    {
+      "id": "da:stor",
+      "textDa": "“Okay, huset er meget stort.”",
+      "sourceHash": "61367d1d14b076176fec9f3644d08aed4b7d6aa7bf8b12004985218f8977b4b7"
+    },
+    {
+      "id": "da:lille",
+      "textDa": "“Okay, den lille hund er her.”",
+      "sourceHash": "515b4ee2e5174d98c3fe9d22f723559b5d202eebab41164913a16ff160558736"
+    },
+    {
+      "id": "da:gammel",
+      "textDa": "“Ja, min farfar er gammel.”",
+      "sourceHash": "5f470e8f28a416230b0a7d6f424a7a0d6a7de8b686f928de3b0482aebf7e9de4"
+    },
+    {
+      "id": "da:ung",
+      "textDa": "“Ja, hun er meget ung.”",
+      "sourceHash": "87e520273ed0ed3659cb596fa1b0ab9bc3fb55ed05e0de5f00302be1d6498ce5"
+    },
+    {
+      "id": "da:glad",
+      "textDa": "“Ja, jeg er glad,” siger hun og løfter glasset: “Skål!”",
+      "sourceHash": "ae25ce2771015daf2e2a056e1494eef0ee6bf193e55d265b31a664e4bfb991ac"
+    },
+    {
+      "id": "da:elske",
+      "textDa": "“Ja, jeg elsker min familie.”",
+      "sourceHash": "8749d9480ce7ecb41380f0d0e269336dace667d4fd5b1709033cb0c31b656610"
+    },
+    {
+      "id": "da:ven",
+      "textDa": "“Ja, han er min ven.”",
+      "sourceHash": "ec46f80c2a38dfcf2b857efa69695e08120339af50c10fc570a50393a8fcb539"
+    },
+    {
+      "id": "da:søn",
+      "textDa": "“Ja, de har en søn.”",
+      "sourceHash": "0c0e4de7b0e1d121cb3ff4c5d82c5618fc38ebe90261f7e4b6734f8fa055abea"
+    },
+    {
+      "id": "da:datter",
+      "textDa": "“Nej, hendes datter er ikke her.”",
+      "sourceHash": "8c5a3bf472239f055cb5f1de0d25cd92c5610b16a74f328f30bf3bfa867c2a26"
+    },
+    {
+      "id": "da:kage",
+      "textDa": "Kagen er til min vært; jeg kommer fra Odense med den.",
+      "sourceHash": "0d791e20d80e8439f4a67d16017b11e9479a298e9f3f1cdbf31ba7bac61220fd"
+    },
+    {
+      "id": "da:smør",
+      "textDa": "“Nej, jeg vil ikke have smør.”",
+      "sourceHash": "6073ab4e255433ff20f060b60805ec0eb62f4fcf965e65203c20e8661347f641"
+    },
+    {
+      "id": "da:salt",
+      "textDa": "Hun rækker mig saltet, før vi løfter glassene og siger skål.",
+      "sourceHash": "944015a35c1fbaaaaa2a7f88c202243e5abc9e5a724c94f64c6d8456c50c4b17"
+    },
+    {
+      "id": "da:sukker",
+      "textDa": "“Nej, jeg tager ikke sukker.”",
+      "sourceHash": "f9fd0d9950afb6f45584be3cd15a86d780070a83688e0fab1a6a46b21f5b628d"
+    },
+    {
+      "id": "da:kartoffel",
+      "textDa": "Jeg forstår ikke: Er det en kartoffel?",
+      "sourceHash": "982f969362546bdf7fe4cfe7f2ec7b314c874b575c976a3b8bc4b380039f57d3"
+    },
+    {
+      "id": "da:grøntsag",
+      "textDa": "“Kan du sige det igen? Grøntsager er sunde.”",
+      "sourceHash": "c2902904faca7a68c5fc753679fcd3489889438232f72945cd53a61f86b2789c"
+    },
+    {
+      "id": "da:lampe",
+      "textDa": "“Kan du sige det igen? Lampen er slukket.”",
+      "sourceHash": "2f175b1b18e058c9f729d148e7f06dba87c2e9d9a9a883e448ed69c8fc79b8c4"
+    },
+    {
+      "id": "da:værelse",
+      "textDa": "“Kan du sige det igen? Hvor er værelset?”",
+      "sourceHash": "68e2ac3e552a1b9568d0d925297d1f48c36914b04a5adde5017a162b32273fca"
+    },
+    {
+      "id": "da:himmel",
+      "textDa": "Hvad betyder himmel? Kan du sige det igen?",
+      "sourceHash": "1629cb5c2dc32eb182da8b4fd6383ced2b6f92e337c6525883b660b92a7d62af"
+    },
+    {
+      "id": "da:regn",
+      "textDa": "“Kan du sige det igen? Der er regn på vej.”",
+      "sourceHash": "e8ee51fc347532193a50e61dda3bebb106346931ee0d93e54327d7be5633d385"
+    },
+    {
+      "id": "da:sne",
+      "textDa": "“Kan du sige det igen? Der ligger sne her.”",
+      "sourceHash": "3f67e0c83c78ffaf08e72a255e1f949e046db5046355ba6566d06c25763453f3"
+    },
+    {
+      "id": "da:måne",
+      "textDa": "“Lidt langsommere, tak. Månen er klar.”",
+      "sourceHash": "582c3712569d0f838c91100ee930ee83a399fbb49c678f270da82bdf9a990fd2"
+    },
+    {
+      "id": "da:stjerne",
+      "textDa": "“Lidt langsommere, tak. Hvor er stjernen?”",
+      "sourceHash": "febb93d901c244963cdc6ef3cb60f2688ff7aef0bfdc4f131e71600ee3fa9b40"
+    },
+    {
+      "id": "da:hav",
+      "textDa": "“Lidt langsommere, tak. Havet er roligt.”",
+      "sourceHash": "e231f53ea2147106821e89901b121d23ad4fb29558316149391f8f65f7e216f9"
+    },
+    {
+      "id": "da:strand",
+      "textDa": "“Lidt langsommere, tak. Stranden er her.”",
+      "sourceHash": "3693a67750a4698d135050f72ea6ae5a6818b0e68537fda822c60a2869edf03d"
+    },
+    {
+      "id": "da:park",
+      "textDa": "“Lidt langsommere, tak. Vi mødes i parken.”",
+      "sourceHash": "5fc9eaffdeb1e95969666b309fcbc17ad670d1f6fcddd17433373022d8041f9b"
+    },
+    {
+      "id": "da:gade",
+      "textDa": "I gaden beder jeg: lidt langsommere, tak.",
+      "sourceHash": "89ccd1f1704813edbbeb7f7917169e7796fe669bbbb04e9fde0cadf94296f07a"
+    },
+    {
+      "id": "da:kirke",
+      "textDa": "“Hvad betyder kirke?” spørger hun.",
+      "sourceHash": "ef2913640922cdab21f8bc95f1cc2737c71e34f46eb8ba84ac02401caf9e2269"
+    },
+    {
+      "id": "da:hospital",
+      "textDa": "Jeg forstår ikke skiltet ved hospitalet.",
+      "sourceHash": "590ac3b8f5a7b0b5523cc712aa390a141ee8e7f3a79bf29f68e8733852c9ae75"
+    },
+    {
+      "id": "da:butik",
+      "textDa": "Jeg forstår ikke. Er butikken åben?",
+      "sourceHash": "38595b0c4f5c9699f27b74d052e3832229d0a1666a7c88195cf48fe3ea45332b"
+    },
+    {
+      "id": "da:bank",
+      "textDa": "I banken siger jeg: “Jeg forstår ikke.”",
+      "sourceHash": "2f891cdc917c77200e5f2f697f6c4b67ca9100123a6ec39f105a901e165928a6"
+    },
+    {
+      "id": "da:penge",
+      "textDa": "“Hvad betyder penge?” spørger han.",
+      "sourceHash": "4b368e77a395f9737ba74070cb296c4ec2806fdb5949a59d74c52d12d8e28918"
+    },
+    {
+      "id": "da:købe",
+      "textDa": "“Hvad betyder købe?” spørger barnet.",
+      "sourceHash": "2a91bd68e0940d34bfef372eb68decebc9bf3689228d7f207917a1b385a0e5c3"
+    },
+    {
+      "id": "da:arbejde",
+      "textDa": "I dag arbejder jeg hjemme. Jeg kommer fra Odense, men bor nu i Aarhus.",
+      "sourceHash": "4e9441c122bf3b4ea325e28dac4b48e9fe4900df99947821797bf13876f035c9"
+    },
+    {
+      "id": "da:lærer",
+      "textDa": "Læreren ved ikke, hvem der står ved døren.",
+      "sourceHash": "ea17d29bd8b41280350efb56209d6ef5c5192b25df48b0a1eb60f689d0b5ab93"
+    },
+    {
+      "id": "da:tog",
+      "textDa": "På toget møder jeg en mand, som siger: “Jeg kommer fra Aarhus.”",
+      "sourceHash": "a5742ae9110ead6612fdb07c5579877bb127ea5f2ef5d56da9e72927e976296e"
+    },
+    {
+      "id": "da:bus",
+      "textDa": "“Hvor er bussen?” spørger hun.",
+      "sourceHash": "5a42bf7ed78ca1aa7d8a982e019276d99c7f2838952b4f918f9fb4ea46314daa"
+    },
+    {
+      "id": "da:cykel",
+      "textDa": "Cyklen bliver hjemme, for svaret er nej.",
+      "sourceHash": "79e9c49506a2e8d7964f3d5b0f17c40543e3076db297740ba078190c8fe208ff"
+    },
+    {
+      "id": "da:fly",
+      "textDa": "Sætningen “Lidt langsommere, tak” er nyttig under flyveturen.",
+      "sourceHash": "8a336d949580a6411276f187b02d4057f5b26b17d714dca8d6a17fe53536d5fa"
+    },
+    {
+      "id": "da:køre",
+      "textDa": "“Hjælp! Bilen kan ikke køre.”",
+      "sourceHash": "eac2f945d0165dfb0b884d558739ba07fbfb7ce1b85c3485f14d6309da1328fc"
+    },
+    {
+      "id": "da:sove",
+      "textDa": "“Kan du hjælpe mig? Barnet kan ikke sove.”",
+      "sourceHash": "ee2438860e7bf173f216976a2300fa8d1d22347bf0e5f568389a876e9a4e1c82"
+    },
+    {
+      "id": "da:løbe",
+      "textDa": "På vejen råber barnet om hjælp, da hunden løber væk.",
+      "sourceHash": "222a74e6070eb45477e50a0c922fd521057fd9872adcb012327212d833c9d792"
+    },
+    {
+      "id": "da:læse",
+      "textDa": "“Kan du hjælpe mig? Jeg kan ikke læse det.”",
+      "sourceHash": "c569b0cc7ca7c5c929d06f5250c98a3ceaaadfa971722af81de8b18fac197ef0"
+    },
+    {
+      "id": "da:år",
+      "textDa": "Mine år i Danmark kan gøre mig mere sikker på sproget.",
+      "sourceHash": "57ee0a6636db1995b37ced452014a70354f2732bde78a583f6ea22ba1adfd9e3"
+    },
+    {
+      "id": "da:få",
+      "textDa": "Jeg vil bare få mine breve sendt i dag.",
+      "sourceHash": "2291cc5220949190a1aa0d00562ab0228035df834a540463429ca2f2b78df375"
+    },
+    {
+      "id": "da:dansk",
+      "textDa": "Jeg studerer dansk og arbejder som lærer.",
+      "sourceHash": "3aa61f9adef9dfa2bfa67f643dae8fff0b23b0a66491ede9a6bbc613acc09526"
+    },
+    {
+      "id": "da:menneske",
+      "textDa": "Et menneske kan være venligt mod min søn og også hjælpe ham.",
+      "sourceHash": "102ef6d2b46b8f0f76a51140e48efd5121cd9b9fe3c5e510f573aa521b1e2bfc"
+    },
+    {
+      "id": "da:komme",
+      "textDa": "Kom med mine bøger, og husk din egen taske.",
+      "sourceHash": "47f7de2efe36755fc08b6decf490c567c1ef8a0ddb1e28c4b3e1554d0e158a4b"
+    },
+    {
+      "id": "da:spørgsmål",
+      "textDa": "Dit spørgsmål kan gøre mig klogere.",
+      "sourceHash": "55557a9cc9fa95e2a267b3962d2991adb7eedaec9b2e873d36dd7b0edeadc1a6"
+    },
+    {
+      "id": "da:god",
+      "textDa": "Det kan også være godt at spørge.",
+      "sourceHash": "2da12eee6f30f14282354270e647b2f5fa8087ea927c004d0ce4dc42526c8979"
+    },
+    {
+      "id": "da:hjem",
+      "textDa": "Mine venner er bare hjemme og slapper af.",
+      "sourceHash": "859382c94664905877cda838ebb4cb41e6bdab3f7115f1266bdfe75ebdf0008a"
+    },
+    {
+      "id": "da:sige",
+      "textDa": "Jeg vil bare sige det til ham.",
+      "sourceHash": "8d8dd5de3e333b6eec9b15dda8becd4c47c87227776bcf2409451cddebfcd070"
+    },
+    {
+      "id": "da:job",
+      "textDa": "Jeg arbejder som kok og har et godt job.",
+      "sourceHash": "a47139b08f13dd4c620361145808209fd4497c1e9c5081fb49e79caf2a45cc15"
+    },
+    {
+      "id": "da:godt",
+      "textDa": "Det er også godt at gøre arbejdet sammen.",
+      "sourceHash": "dc03319bdbc296f4453dd737dc69c5476cf79e984c2bc4d07c4201f283028f6b"
+    },
+    {
+      "id": "da:gå",
+      "textDa": "Du kan bare gå med dine venner.",
+      "sourceHash": "4671fff44542908dde2a637c742e3cdb8116f553757830c0ddbfb7d3d4426925"
+    },
+    {
+      "id": "da:brød",
+      "textDa": "Hun spørger: “Kan jeg få brød?”",
+      "sourceHash": "38ec86e84ae39754f934c56f19cf3c591b2a47884e648f2ff9ec7a12252e8698"
+    },
+    {
+      "id": "da:ny",
+      "textDa": "Han har en ny bil.",
+      "sourceHash": "540e6decd3b93dc6d4b4d4fe6064a4962cbd2e9baf165dacfcf5e4b1958ed008"
+    },
+    {
+      "id": "da:te",
+      "textDa": "Hun spørger: “Kan jeg få te?”",
+      "sourceHash": "43bd5af505a3adcaea1789fab183efd3bdb0b3d90e8aaf3edf4292864465e9cf"
+    },
+    {
+      "id": "da:se",
+      "textDa": "På kortet står spørgsmålet “Kan jeg få lov at se værelset?”",
+      "sourceHash": "0f485a247d4aaddda53793bc12adc2cfd3684ec9bc6a827e24da91ef882cdde0"
+    },
+    {
+      "id": "da:hel",
+      "textDa": "Mine hænder er fulde hele dagen.",
+      "sourceHash": "e39c242020d1f2419ecb3ac4179b963d8a017b0d162f6a761474f45944fae0d2"
+    },
+    {
+      "id": "da:krop",
+      "textDa": "Min krop kan også være stærk efter træning.",
+      "sourceHash": "942b41be27a239f93f13f13c14a609a24eb252877f7bb2e8c44463536ac1c7ad"
+    },
+    {
+      "id": "da:tage",
+      "textDa": "Du må gerne tage dine sko med.",
+      "sourceHash": "e028f68ee75554fe424f849373aab44ec994172d06ab810396fb11e7358e60e1"
+    },
+    {
+      "id": "da:læge",
+      "textDa": "På hospitalet arbejder jeg som læge.",
+      "sourceHash": "05649df80918cee71542e3ddcc3a29438ac7940f7bb65098ba55073ab5164a47"
+    },
+    {
+      "id": "da:lang",
+      "textDa": "På den lange blanket står: “Min e-mail er anna@example.dk.”",
+      "sourceHash": "3f4edadc7d3ff93bc1d43e66ef3492dcae518f2c134470e33e891139e81d9bec"
+    },
+    {
+      "id": "da:elev",
+      "textDa": "Jeg studerer dansk sammen med eleven. Eleven skriver: “Mit telefonnummer er 87 65 43 21. Kan du stave dit navn?”",
+      "sourceHash": "429fa52ebb9df61a40621e5d8491e4afb3585bdf8cbdf3d8e10515c9d1476a9a"
+    },
+    {
+      "id": "da:give",
+      "textDa": "Mit telefonnummer er 12 34 56 78, og du kan give det til lægen.",
+      "sourceHash": "bc49f684ff0ec32922f85862da9ada59557ccd5017613e0b41d8ce3fd351e42e"
+    },
+    {
+      "id": "da:pris",
+      "textDa": "Prisen er tredive kroner.",
+      "sourceHash": "4f04a1fc2053deac4ad14f3fd7cf5401b328f13e19a17d67d16d8c1cdaf4ca0b"
+    },
+    {
+      "id": "da:finde",
+      "textDa": "Kan I finde mine nøgler?",
+      "sourceHash": "b81cd3a96739b4f7f9f7164ba06367fb93093e478ea3a503c36f355738270bd4"
+    },
+    {
+      "id": "da:billet",
+      "textDa": "Hun har deres billetter.",
+      "sourceHash": "5a4be5984f6a0852c8852c506d23963cc77c880bbcfb9c20f47deb8b56f57771"
+    },
+    {
+      "id": "da:sidste",
+      "textDa": "Det er vores sidste dag her.",
+      "sourceHash": "6eb07ef918bcba9f4e2f98b8509434639fbfa4fe6df1abdb1e4ef74cedb1bc93"
+    },
+    {
+      "id": "da:stå",
+      "textDa": "Han står bag hende.",
+      "sourceHash": "95a258b009534bb33147e0df6a9e438ee7effe160d42b79b3a2fe99a1562c025"
+    },
+    {
+      "id": "da:natur",
+      "textDa": "Vi elsker naturen omkring os.",
+      "sourceHash": "4a95f147d9781a02b2598fe23c725c07ed25a4b52b5bcef2067ce6e53c228b8c"
+    },
+    {
+      "id": "da:blå",
+      "textDa": "Er dine øjne blå?",
+      "sourceHash": "8b06c76ebded893687a73fef020a269932e273dadbbf3f29c2b88ee50846402f"
+    },
+    {
+      "id": "da:dyr",
+      "textDa": "Hvilket dyr har de?",
+      "sourceHash": "c89909e1a09f62a350a5770de6712f58145c49bc9be0426173c0145362f40c65"
+    },
+    {
+      "id": "da:vide",
+      "textDa": "Ved I, hvor han bor?",
+      "sourceHash": "140a8de069dc57b63c74ede3a03f0a43b50e51aa19fa4dde7d0392be5cdaf642"
+    },
+    {
+      "id": "da:vejr",
+      "textDa": "Vores vejr er ikke altid godt.",
+      "sourceHash": "be2b333f7aafd91e73f9a7decca596eb78784241d49d24bfe95eb1865f7cce4e"
+    },
+    {
+      "id": "da:tro",
+      "textDa": "Tror du på hende?",
+      "sourceHash": "3dc3ea16a38e10ad01c8dc6e5fc079b35babe8cc68d482bc2c17e07db2b4dd6a"
+    },
+    {
+      "id": "da:hotel",
+      "textDa": "Jeg bor i et hotel med min familie.",
+      "sourceHash": "f70f9de551ef0b5dd26173ed31a248d36de1d596b6149b08c3f6fff9ddf26553"
+    },
+    {
+      "id": "da:høj",
+      "textDa": "Hans bror er høj, men min er lav.",
+      "sourceHash": "dbc03b41fff133ed87aa98b11bf25d505882a614a71ae41b00736f89e56ed157"
+    },
+    {
+      "id": "da:glæde",
+      "textDa": "De synger for os med stor glæde.",
+      "sourceHash": "867ec861dd119c10b2e7a7ca52019ab0e47d9965d5fc7443ae492e54fe714547"
+    },
+    {
+      "id": "da:holde",
+      "textDa": "Kan du holde deres taske?",
+      "sourceHash": "5e60c9001b76b0382ed97cb418d7d5e7e9feb9217b81f18aea5af8edaaaa5dd3"
+    },
+    {
+      "id": "da:alene",
+      "textDa": "Hun bor alene, men jeg besøger hende.",
+      "sourceHash": "27880cfabe1054767c1eb58179d8311188c174835c7e990d9b4fc4b9290abf96"
+    },
+    {
+      "id": "da:kæreste",
+      "textDa": "Min kæreste ved, at jeg arbejder som lærer.",
+      "sourceHash": "13ffc928458d31d1e9a119bef8f6481cc48520623d32476b6b01b3425b41bb4a"
+    },
+    {
+      "id": "da:rigtig",
+      "textDa": "Er dit svar rigtigt?",
+      "sourceHash": "a8df7e92673357cc75000d348f382585d71d721ba471daf62035ca27574abf45"
+    },
+    {
+      "id": "da:bruge",
+      "textDa": "Vi bruger kun vores telefoner hjemme.",
+      "sourceHash": "2b1fa5f8dbfac3f757af1c6988a1e4f261f56e8e8f92187227baa6fdfde77f16"
+    },
+    {
+      "id": "da:kærlighed",
+      "textDa": "Deres kærlighed er vigtig for dem.",
+      "sourceHash": "c0addeff3cb1566afe0681bc161eb292768bd5fe0ac8cdc86b9e5d20826a02da"
+    },
+    {
+      "id": "da:frokost",
+      "textDa": "Vil I spise frokost med os?",
+      "sourceHash": "b02ef56cd63563764c51018f2aa92e2b05087fd2d83a19a7e5beff1bd9f31ed1"
+    },
+    {
+      "id": "da:lave",
+      "textDa": "Hvad laver hun med sine venner?",
+      "sourceHash": "25e589d3f6abeefc11b9ebf65148e67dd4762a1b93f1e3036bdc0873c8ee008b"
+    },
+    {
+      "id": "da:vigtig",
+      "textDa": "Det er vigtigt at være ærlig.",
+      "sourceHash": "05ff66fec0d747e935ec118cafdc60edff1a4a90ccf70b795ede33eecb086e29"
+    },
+    {
+      "id": "da:lejlighed",
+      "textDa": "Jeg bor i min lille lejlighed.",
+      "sourceHash": "2eccfb18416bac7b264c932ad54a61919fa5b4a2c6cf970bb996a469752c4d38"
+    },
+    {
+      "id": "da:sætte",
+      "textDa": "Sætter du din kop ved min?",
+      "sourceHash": "ad9b07efa0000eb90ae7925c4e3a3e35334a585d5220e3e22ea886ef63fcf3a4"
+    },
+    {
+      "id": "da:sø",
+      "textDa": "Der ligger en sø bag deres hus.",
+      "sourceHash": "637ffc6a4a951fe8a0d85b0595c96fc9e55de8f3354e662b68fcd005df3b7cfa"
+    },
+    {
+      "id": "da:fin",
+      "textDa": "Din jakke er fin, og hendes er også flot.",
+      "sourceHash": "1e7e747312039de4353ed841d3d7b5dc3d0760ffcc4704f0f6099b8989f05c86"
+    },
+    {
+      "id": "da:kontor",
+      "textDa": "På kontoret skriver jeg: “Min e-mail er lea@example.dk.”",
+      "sourceHash": "cc394b43e07f18e532ac664d2dee8211c327672ef90b1c38bbb7afdc06e82ddb"
+    },
+    {
+      "id": "da:ligge",
+      "textDa": "Dine bøger ligger ved siden af mine.",
+      "sourceHash": "2f94131c978e8f97499041099474cc0d4c4b01289c4984945a9bf6ddd9e1ba7e"
+    },
+    {
+      "id": "da:land",
+      "textDa": "Hvilket land kommer I fra?",
+      "sourceHash": "3a118cf672b05d2064dde34afb0d6ce0ffc3d94ed2b3b3cdb02195ded4df94ce"
+    },
+    {
+      "id": "da:sidde",
+      "textDa": "Sidder han mellem jer?",
+      "sourceHash": "199e2767dee32f73435f22b88e653747e4cc77c7e313d260d0bcd54e3a83c4b9"
+    },
+    {
+      "id": "da:klar",
+      "textDa": "Er de klar til at møde os?",
+      "sourceHash": "b8973510c06a790e95a743567186a12c55278063edeebde96d26fe6b858a97e9"
+    },
+    {
+      "id": "da:liv",
+      "textDa": "Hun har et godt liv med ham og deres børn.",
+      "sourceHash": "42f846abe5e234e7d163375041b3258749edb996d48fdb503ab09ad0d7e50c28"
+    },
+    {
+      "id": "da:hedde",
+      "textDa": "Jeg hedder Lea. Kan du stave dit navn?",
+      "sourceHash": "54b0d5496d80004727cdbffb97a8039939e5615e36f8ffbeff6d02d6daf6b363"
+    },
+    {
+      "id": "da:øre",
+      "textDa": "Hans hund har lange ører.",
+      "sourceHash": "7c4ff0bac46e006ff187aa9e32e8f92a3efe01886e08690eef4a81d0c57ae434"
+    },
+    {
+      "id": "da:international",
+      "textDa": "På den internationale skole siger jeg: “Jeg studerer dansk. Mit navn staves L-e-a.”",
+      "sourceHash": "cf787df33928b1cbf09562044bdb0099fb1b5fd0369db354ccb15310fbd3680e"
+    },
+    {
+      "id": "da:verden",
+      "textDa": "Verden er stor for os alle.",
+      "sourceHash": "a73dceed27f63c719bc4f76f57ff3d3138f7987e7047782b76b94b3c8fa23c80"
+    },
+    {
+      "id": "da:tale",
+      "textDa": "Taler du dansk med dem?",
+      "sourceHash": "b872abaa217c304016b1d860b8baa121f354ee12a8455d6ed10e55c58dd2fb85"
+    },
+    {
+      "id": "da:morgenmad",
+      "textDa": "Jeg laver morgenmad til jer.",
+      "sourceHash": "ed2113bf5b3a19838b2f39a271dbd80146aa36ae94485dedeb61b9ed11ca0b52"
+    },
+    {
+      "id": "da:næste",
+      "textDa": "Vi besøger hende næste uge.",
+      "sourceHash": "fc8e3c8b55053c7607e34060bdeeb08403c903aa2cf9647a85ed2cfa6d266c57"
+    },
+    {
+      "id": "da:lade",
+      "textDa": "Lad mig gøre det for dig.",
+      "sourceHash": "2fe5275f04fc9bff0c9e7b99ae012f7774a2edbe04c3e2a601ca0877becb3c50"
+    },
+    {
+      "id": "da:gang",
+      "textDa": "Gør I det kun én gang?",
+      "sourceHash": "224c71ca36fb07491049054bef52e4b459484e4bf0ce5b7dd0497c1536f43e4f"
+    },
+    {
+      "id": "da:ord",
+      "textDa": "Skriv “Mit navn staves A-n-n-a” under ordet navn.",
+      "sourceHash": "5fe9823e5bdea0d5f5becdfcd5d9d2bfe9d119f9433eb512726aa3776b1ad3c2"
+    },
+    {
+      "id": "da:høre",
+      "textDa": "Hører I også deres musik?",
+      "sourceHash": "beb3a9584dd6e8e8a15f1ec05eaefccbdbfcba89a9848ef45b7bb7ee0155c563"
+    },
+    {
+      "id": "da:fri",
+      "textDa": "Hun er fri og besøger mig på kontoret. Jeg siger: “Mit telefonnummer er 12 34 56 78.”",
+      "sourceHash": "f21d2105412688879b1aa71860686d1a52a5830b99fe2c2911da464466b00095"
+    },
+    {
+      "id": "da:rejse",
+      "textDa": "Vores rejse er kun planlagt for os to.",
+      "sourceHash": "791891d3200b4688abb0e4abc5f4165ce8ce4b6e5d366ea0de43353b84c03c5a"
+    },
+    {
+      "id": "da:desværre",
+      "textDa": "Desværre kan hun ikke hjælpe dem.",
+      "sourceHash": "8966806336865de0f76f91de0b9f488e7e1c9bfc83eac97e7a1b61848ccc88eb"
+    },
+    {
+      "id": "da:spørge",
+      "textDa": "Hun spørger: “Kan du stave dit navn?”",
+      "sourceHash": "d62cc5bd4c19a47b10f470cbb6932c46cae07e840f1a0897d8cab3328be4b393"
+    },
+    {
+      "id": "da:klasse",
+      "textDa": "Jeres børn og deres venner går i vores klasse.",
+      "sourceHash": "092cb709ba13cd41c805f26795f80e9ba0620829aca1a5e66240c8ce218cae6a"
+    },
+    {
+      "id": "da:kort",
+      "textDa": "Dit hår er kort, men hendes er langt.",
+      "sourceHash": "30da4682e06c19068cd02531d341ff5d21fb7c4e7fdb42ec403e26741108eecc"
+    },
+    {
+      "id": "da:side",
+      "textDa": "Kan I læse siden for os?",
+      "sourceHash": "563b6aa118b86bd6b44e3b94affc307b207ea18ff7259d6fcc4459aec81ba7e1"
+    },
+    {
+      "id": "da:følge",
+      "textDa": "Følger du ham hjem?",
+      "sourceHash": "424192060435e2fb4fbf442fae38606c37508383e7b8999b07dc7675b206e774"
+    },
+    {
+      "id": "da:vind",
+      "textDa": "Vinden er stærk ved deres hus.",
+      "sourceHash": "207826ac50a128f56fcb6b042836f05462e692486908f134a74fcd05f78d0c88"
+    },
+    {
+      "id": "da:begynde",
+      "textDa": "Hvornår begynder jeres møde?",
+      "sourceHash": "94d16206b1ff5a1c0e916429fd72503fb1d9cc989005aa1aaff8a5b5faae22d3"
+    },
+    {
+      "id": "da:vej",
+      "textDa": "Kan hun vise os vejen?",
+      "sourceHash": "3e2901cc7554832c2c770f361ba1e04b8d32180f6bade5122ea680b14999651c"
+    },
+    {
+      "id": "da:sund",
+      "textDa": "Er deres mad sund?",
+      "sourceHash": "6d48fe160f3bdd99d41d2144d72db73a0055c99e9319629273289eafa4f06484"
+    },
+    {
+      "id": "da:familie",
+      "textDa": "Jeg bor med min familie.",
+      "sourceHash": "7c89d4495c3bc6c5eb73856f4c6b5a5996d358c6930f27f1f4bee1e3d1a0d2b7"
+    },
+    {
+      "id": "da:vise",
+      "textDa": "Viser I hende jeres hjem?",
+      "sourceHash": "53c97f182286942773688122665e96c82ec6be110a1973d3b929404fb9012de8"
+    },
+    {
+      "id": "da:skov",
+      "textDa": "Vi går i skoven med dem.",
+      "sourceHash": "125ad8671570000c327117255e886d31e0169bc33f0c6d4d23e4f0b5ecdd6b2a"
+    },
+    {
+      "id": "da:sikker",
+      "textDa": "Er du sikker på hans navn?",
+      "sourceHash": "34dae20c4eae348490b97e82f7cc8f727a821d4a2e9a2883d0f4e49e4236e437"
+    },
+    {
+      "id": "da:føle",
+      "textDa": "Hvordan føler I jer i dag?",
+      "sourceHash": "247eb037c00986b1a163daa070e0f2247288a9309fc2cf8a461d0c8109270470"
+    },
+    {
+      "id": "da:stue",
+      "textDa": "Deres stue er større end vores.",
+      "sourceHash": "c505df22e769de224aac3c154a2d44428f3a8bab451848eb21eb3ce6f4dc5521"
+    },
+    {
+      "id": "da:skrive",
+      "textDa": "Jeg skriver: “Mit navn staves B-o.”",
+      "sourceHash": "64fd2fe52b3b9901bc17a79b9e611a675757389a6f87c5327106d63233e9e790"
+    },
+    {
+      "id": "da:chef",
+      "textDa": "Hendes chef taler med os om hans nye job og giver mig en opgave.",
+      "sourceHash": "b7171bf3c28bfd3e4cc38568cf9736131438b7a1ee9ca22901a99aa6ba844c68"
+    },
+    {
+      "id": "da:stærk",
+      "textDa": "Er din kaffe for stærk?",
+      "sourceHash": "320f0948ca66004382086ce8537aaf707d8d7094b7cb41a64679e4921d2f7295"
+    },
+    {
+      "id": "da:aftensmad",
+      "textDa": "Hvad skal vi have til aftensmad?",
+      "sourceHash": "d84a28276eae5c29983b2c1897e23221cf1e3d6cd4355627d505d10ab936c26e"
+    },
+    {
+      "id": "da:betyde",
+      "textDa": "Hvad betyder det for dig?",
+      "sourceHash": "df7e8213df2cc9d17e3cb19f447c8b2e5714685702efe80e13e3b54fdb72f177"
+    },
+    {
+      "id": "da:krone",
+      "textDa": "Har I kun én krone?",
+      "sourceHash": "ce3d1452d3e773350d74133b370f75c1ecb821dd2bafd7c4cda66dfb4f6b7597"
+    },
+    {
+      "id": "da:svær",
+      "textDa": "Det kan være svært for dem.",
+      "sourceHash": "e45ca59bec468b9145bacc4ad4dea121b4faa2035eabff67339b334177e095db"
+    },
+    {
+      "id": "da:leve",
+      "textDa": "De lever et godt liv sammen.",
+      "sourceHash": "19e14e6cfd16aee53f3fdb8d825730b14dbb5da64d9b9d48d318ce03533babb4"
+    },
+    {
+      "id": "da:skab",
+      "textDa": "Jeres kopper står i skabet.",
+      "sourceHash": "673add9bf81ea4b1e48110a626efb3f7f5e4c692c1ec44d653d9411101f87945"
+    },
+    {
+      "id": "da:hurtigt",
+      "textDa": "Kan han gøre det hurtigt?",
+      "sourceHash": "ff050b9e223018bd9ff2825b804354fc38571c349416907cc833c192a9e87535"
+    },
+    {
+      "id": "da:restaurant",
+      "textDa": "Vi møder dem på jeres restaurant.",
+      "sourceHash": "6b5d0a487b447c7da43df66c74b28a5aca9bcd76da2647242b86612d4a35b3ca"
+    },
+    {
+      "id": "da:spille",
+      "textDa": "Spiller du også med hende?",
+      "sourceHash": "701f2a4ceaf5168c37ca12d7142a436ff8df9468b63c6a16e495d88a269a0e13"
+    },
+    {
+      "id": "da:åben",
+      "textDa": "Er jeres café åben?",
+      "sourceHash": "5ff31410a37dde3362ab92890716e56bbdd51714098cd917ec283ab5c0ce43b2"
+    },
+    {
+      "id": "da:nøgle",
+      "textDa": "Er det dine eller hans nøgler?",
+      "sourceHash": "ba507056cdafb8d2697e3288a40f745bd1045ae110863c1dca4a6187473deed0"
+    },
+    {
+      "id": "da:møde",
+      "textDa": "Vi har et møde med dem.",
+      "sourceHash": "fa21ee72022b995d0475d56b44bdaacd0823fbc5fb55685ce0b99274c0e18484"
+    },
+    {
+      "id": "da:tænke",
+      "textDa": "Jeg vil gerne tænke over to, tre eller fire muligheder.",
+      "sourceHash": "454ddd3a902721700c94f81bfc55e42bdd8d64a5c5a2a2b0ff6009c64cc679c0"
+    },
+    {
+      "id": "da:syg",
+      "textDa": "Fem børn er syge, men seks andre er raske.",
+      "sourceHash": "62cf1bd102ff3d9d7ad85b07c69d7bb58f2c25ea6fc90d857d2975fe8c84fa91"
+    },
+    {
+      "id": "da:lykke",
+      "textDa": "En billet til filmen Lykke koster nul kroner, ikke syv, ni eller tyve.",
+      "sourceHash": "aa0c234564607f921e21b01a619331f523ca9849369f632a90faf68dd56b4cd8"
+    },
+    {
+      "id": "da:lægge",
+      "textDa": "Hun kan lægge fire kopper og seks glas på bordet.",
+      "sourceHash": "c0436370ee116a1b0586d5754e8a4d45df5c7e021e270b9004cb11d67d11638c"
+    },
+    {
+      "id": "da:telefon",
+      "textDa": "På skiltet står “Hvor meget koster telefonen?” Den koster hundrede kroner.",
+      "sourceHash": "3b73df0ea17998c85f88de31305c6d5d67bea7cf1e29843ee34c397b152ff5ee"
+    },
+    {
+      "id": "da:grøn",
+      "textDa": "Tre tasker er grønne, og fem er gule.",
+      "sourceHash": "8b7fb79bd07d30bde9866a8c15383966cc90aea828ca58e885eb9ed47bedc8a6"
+    },
+    {
+      "id": "da:bo",
+      "textDa": "Cirka to tusind mennesker bor på øen.",
+      "sourceHash": "2fdcdb1420c788edb933c179b474e865eecd92396279866af0441961ae9a6e1d"
+    },
+    {
+      "id": "da:computer",
+      "textDa": "Har butikken fire, seks eller otte computere?",
+      "sourceHash": "861ff50eff557f6c1060227774cabfd4d66951c7c62e303076192844cdb20cdd"
+    },
+    {
+      "id": "da:mave",
+      "textDa": "Kan jeg få to tabletter mod ondt i maven?",
+      "sourceHash": "7895e9681e07c8aff37ea1394e63fe0643f6ef62c905e849aeac2ec9c99c213e"
+    },
+    {
+      "id": "da:kende",
+      "textDa": "Kender du tyve af de fyrre gæster?",
+      "sourceHash": "da539e45d778a1ff47d81aed3b6c72dc22fd6ff5cf7d5a36ee651d44561d84b3"
+    },
+    {
+      "id": "da:national",
+      "textDa": "Ni museer har gratis adgang på den nationale helligdag.",
+      "sourceHash": "e10f4f84b8fb7dce5e8b0ca84743e8e5264fbb35c96a5f28434de4fe2818f778"
+    },
+    {
+      "id": "da:sted",
+      "textDa": "Der er tre ledige steder, men ingen ved vinduet.",
+      "sourceHash": "338944731d819d1eb786e4062a3ef1f3fbfcde94860f5180996967c08884496d"
+    },
+    {
+      "id": "da:prøve",
+      "textDa": "Du må prøve varen, selv om prisen er nul kroner.",
+      "sourceHash": "162c9378263fb4f2dbfd86d1caa498b85534e7c2df19fd0e8f6fff5cc88e7331"
+    },
+    {
+      "id": "da:sofa",
+      "textDa": "Vi har to sofaer, men jeg vil gerne have den lille.",
+      "sourceHash": "11982ddbdc70ba2e2ed23e171a42bd00c57c6249a94c2906139337a65f5d4f86"
+    },
+    {
+      "id": "da:dårlig",
+      "textDa": "Er seks dårlige æbler billigere end otte eller ti gode?",
+      "sourceHash": "f130bf189fbd859570f46a312a3d06a91aa45ffe4608460460befbf4fc263df6"
+    },
+    {
+      "id": "da:skib",
+      "textDa": "Skibet har plads til hundrede passagerer, men kun halvtreds er om bord.",
+      "sourceHash": "1810e32e39806b1aef376634330ae14c5d2489495fe3f4dc15f5162e4ba9bcbf"
+    },
+    {
+      "id": "da:fortælle",
+      "textDa": "På markedet betaler tredive andre kunder for at høre hende fortælle.",
+      "sourceHash": "9fc5b3083ab55a9e0f39c6a454359abb6b7e44765c0bb4ea924ab2ec34ad7b75"
+    },
+    {
+      "id": "da:samfund",
+      "textDa": "Tusind familier er en del af det samme samfund.",
+      "sourceHash": "b22e182d3f545a10251d525dc40c946e65bab6b4d850d0115a9ecb0456c89ad8"
+    },
+    {
+      "id": "da:forstå",
+      "textDa": "Jeg forstår intet af det, der står på menuen, men jeg vil gerne prøve noget.",
+      "sourceHash": "713f8750515f666bb2f19b258f8c1807c4170e65fc587be6bb6ceecbdf6bab77"
+    },
+    {
+      "id": "da:let",
+      "textDa": "Fem små kasser er lette, men den store er ikke let.",
+      "sourceHash": "cbed5fe91dae48e088f903d1c17e679ede210318f5b83512fc9e85d3d24bfd47"
+    },
+    {
+      "id": "da:luft",
+      "textDa": "Der er megen røg i luften, men al luft fra haven er frisk.",
+      "sourceHash": "6004da69aa532149ba4203db988766958b5153231817b09280bd170096e023d7"
+    },
+    {
+      "id": "da:vente",
+      "textDa": "Tredive kunder venter, og halvtreds flere kommer klokken ti.",
+      "sourceHash": "902946ce984cc6de9e8a2fb749d0edf07171e5cb7e0c0443307604d31c4c55c1"
+    },
+    {
+      "id": "da:badeværelse",
+      "textDa": "Der er flere badeværelser, men færre på første sal.",
+      "sourceHash": "42cae46e58b40cf8b46f6a0956b3666fff080d5e152f05044e8fb8e29e7a8d84"
+    },
+    {
+      "id": "da:mulig",
+      "textDa": "Er det muligt at købe noget for cirka tyve kroner?",
+      "sourceHash": "6a5cfeca7e8b25922604be8f8f59f99324d0d64787edd75eecf32357f36ce240"
+    },
+    {
+      "id": "da:tid",
+      "textDa": "Hun bruger megen tid på opgaven, og al hendes tid er planlagt.",
+      "sourceHash": "ef1073e6928bdb92ea379a86d21b77194c3dae71b7a4b956910915672ae9db5d"
+    },
+    {
+      "id": "da:hjælpe",
+      "textDa": "Kan du hjælpe nogen med de mange poser?",
+      "sourceHash": "f2421c38091388d628fa915da84349e94b383e89179e91b8e455e2084811515e"
+    },
+    {
+      "id": "da:navn",
+      "textDa": "Skriv fem, syv eller ni navne på listen.",
+      "sourceHash": "1a945dd1334114df2aa80f644a193a51d5431ccc1d7cb7b6b7d87e1a2c8f1e7a"
+    },
+    {
+      "id": "da:langsomt",
+      "textDa": "Hvor meget koster det, hvis maskinen arbejder langsomt?",
+      "sourceHash": "789bdbaf1495232ef6168d4035fb69e7cd13017617b909799a267f44f26e817d"
+    },
+    {
+      "id": "da:huske",
+      "textDa": "Husk tredive, halvtreds og tusind som tre forskellige tal.",
+      "sourceHash": "abbe49dffabc0f2452ec19f5db09a46456f3697d08a9afd454ec98043ac9420e"
+    },
+    {
+      "id": "da:station",
+      "textDa": "På stationen er der nogle billetter, men ingen til i morgen.",
+      "sourceHash": "48de02fade745bc3f7972908d281d4f3cb77a28794c1b1556a81b4f2117788ed"
+    },
+    {
+      "id": "da:forskellig",
+      "textDa": "Nogle vælger kaffe, nogle te, og andre vælger noget helt forskelligt.",
+      "sourceHash": "f71d6fee4e513929c4398ec6a9b9e3af8d1f42c047a068c8c3153f016fdc9042"
+    },
+    {
+      "id": "da:maskine",
+      "textDa": "Displayet viser nul, før maskinen laver to kopper eller fire små glas.",
+      "sourceHash": "0f4d1353a453715479af67d15c7ce134ecf4ace35aee9719f5fd0934a143dc0e"
+    },
+    {
+      "id": "da:betale",
+      "textDa": "På restauranten beder jeg om regningen, tak, før jeg betaler for maden.",
+      "sourceHash": "90be6438c801c8f3ee1005ab71c9c7eaedc9bb2ab236765461df4ff88d511615"
+    },
+    {
+      "id": "da:kollega",
+      "textDa": "Kollegaens spørgsmål er: “Hvor meget koster frokosten?”",
+      "sourceHash": "1d2ab5b79e6a4c7a7f4b006c0638304d451a7e96fff4869fb312a23e4499a608"
+    },
+    {
+      "id": "da:alvorlig",
+      "textDa": "Ingen af fejlene er alvorlige, men nogle er dyre.",
+      "sourceHash": "dc98a08e6c9dcb0e6b76bc6bfd398976654f514ac5bcce475dd59369b91db151"
+    },
+    {
+      "id": "da:håbe",
+      "textDa": "Jeg håber, at nogen køber de mange billetter.",
+      "sourceHash": "39cff3dccfd4a0877aa649d15135c41afa63d2c20f9401e9bbbc849188d081ad"
+    },
+    {
+      "id": "da:person",
+      "textDa": "Cirka fyrre personer venter, og hver må vælge noget til højst fyrre kroner.",
+      "sourceHash": "732471696a8eaccbb7a722bc6613fb549dbf37d273be34a56d8ad106be6a74df"
+    },
+    {
+      "id": "da:universitet",
+      "textDa": "Der er tyve kurser på universitetet, men ingen er gratis.",
+      "sourceHash": "3c828f733b19d833e0c269aa41b4dd36c2ee2f99d062367c8322c2da03e7380d"
+    },
+    {
+      "id": "da:ønske",
+      "textDa": "Hun ønsker sig to bøger, fire blyanter og seks mapper.",
+      "sourceHash": "852af694aabe150cb86ea6930a6fd67cd0779dcf145f1625b4cf9d031b38541a"
+    },
+    {
+      "id": "da:almindelig",
+      "textDa": "Kan jeg få en almindelig kaffe uden megen mælk?",
+      "sourceHash": "b5fbee73d11092ca5128163ca805afc15852ebd420febe4eab4939fe52814b9a"
+    },
+    {
+      "id": "da:grund",
+      "textDa": "Der er hundrede gode grunde til at spare tyve kroner om ugen.",
+      "sourceHash": "59f135c99cd92a6d24f162e0d693a2fa50751b1d5bf446bfd3b4778d96000c24"
+    },
+    {
+      "id": "da:kalde",
+      "textDa": "Hvad kalder man noget, der koster intet?",
+      "sourceHash": "dba610e5fb1deb99a6adfd0e7e224078ef4441de7910ee7a3ae128973a1dfdbc"
+    },
+    {
+      "id": "da:måde",
+      "textDa": "De fleste betaler på én måde, men flere bruger to kort.",
+      "sourceHash": "a0377f20c888cb0a7987ee189e3e61133624f6173c09e516e256dcc38df2cdd5"
+    },
+    {
+      "id": "da:nødvendig",
+      "textDa": "Hvis du intet mangler, er det ikke nødvendigt at købe noget.",
+      "sourceHash": "a2b3e3c283ffaf676d4eaf688a50d311dfc993217639b054d8675ee56d2f042a"
+    },
+    {
+      "id": "da:stemme",
+      "textDa": "Fire af seks kunder stemmer for den billigste vare.",
+      "sourceHash": "37798f0bac08fc3c5fd029e01952b619f08bae8de91e08f9d76dfa5eb74c8014"
+    },
+    {
+      "id": "da:sende",
+      "textDa": "Kan du sende otte pakker før klokken ti?",
+      "sourceHash": "cd5689b16852d983d558bc6eb82a63b0917d2c02bfc7273731866f612a028949"
+    },
+    {
+      "id": "da:billede",
+      "textDa": "Kan jeg få et billede af de fleste varer?",
+      "sourceHash": "efb52b31e76c441bd5ef7ad9cfc9489fd84469a998d045468f7913513d3809f5"
+    },
+    {
+      "id": "da:offentlig",
+      "textDa": "Cirka fyrre af hundrede rejser er med offentlig transport.",
+      "sourceHash": "3a12ee9dc3018b705ac3acd11cd0cb58b687c5e9c8c229ad63cce3fe43c39426"
+    },
+    {
+      "id": "da:ske",
+      "textDa": "Hvad må medarbejderen gøre, hvis ingen betaler, og hvad kan der ske?",
+      "sourceHash": "c20cce10f7d24f4b1cf395a32a0bc0d858387324ba56ced9566d2f4edcdd8155"
+    },
+    {
+      "id": "da:plan",
+      "textDa": "Planen ændrer intet, men vi betaler stadig for maden.",
+      "sourceHash": "20e3b84fe5b7c9e7198481cba589a255853550d0d799557a41c4db88cf64df9f"
+    },
+    {
+      "id": "da:heldigvis",
+      "textDa": "Heldigvis koster de tre tasker kun fem kroner hver.",
+      "sourceHash": "7a05ff6defea23087a155276e2e6f68471e4add281402efe73cca0870b3864e1"
+    },
+    {
+      "id": "da:ryg",
+      "textDa": "Megen vægt i tasken giver mig ondt i ryggen.",
+      "sourceHash": "1b827225ee091b981a3dfe7de4f12f86f065600cf8afa214fe442105bce61cae"
+    },
+    {
+      "id": "da:søge",
+      "textDa": "Hun søger blandt otte, ti og tredive forskellige tilbud.",
+      "sourceHash": "940a2c4f2c32d282b641b618171edd101dcb4afd1727e6f404f16de50f2e42e6"
+    },
+    {
+      "id": "da:bange",
+      "textDa": "Barnet er bange, men vil gerne holde min hånd.",
+      "sourceHash": "e2e4c06abaf60d46ab75b8a317f3e9a449db110631c2306ac24845fc53066631"
+    },
+    {
+      "id": "da:ø",
+      "textDa": "Man møder mange mennesker på en ø med cirka tusind indbyggere.",
+      "sourceHash": "a80b31efe8f8bec2fd22ed6caf0f506525532722165935afd8fe7b2a6c2c7e8e"
+    },
+    {
+      "id": "da:svare",
+      "textDa": "Vil du svare ja eller nej på to spørgsmål?",
+      "sourceHash": "6185f90e7adf1f13969de752159eec69aa00eefe47a3d93323c3ed65a1f48524"
+    },
+    {
+      "id": "da:væg",
+      "textDa": "Der er intet på væggen, men jeg vil gerne have et billede der.",
+      "sourceHash": "c6199bdb5a40f3644c53bde287aabe18317af552c6a2264a1ac511420ef61bec"
+    },
+    {
+      "id": "da:vred",
+      "textDa": "Tre vrede kunder går, men fem andre bliver.",
+      "sourceHash": "74913a68bf53727a66b58f1e5ec88be9db85f4bafdccc2ee75e2e058d4678ecb"
+    },
+    {
+      "id": "da:nummer",
+      "textDa": "Skriv nul som det første nummer; der står også nul til sidst.",
+      "sourceHash": "df7078d4c7fe1d698b807eabc410777fd2532e4d3794249e2eb426d9445ce6b6"
+    },
+    {
+      "id": "da:bede",
+      "textDa": "Beder du om regningen og betaler for maden?",
+      "sourceHash": "43c9be1fcd97de9666064a1502d6b896aec2862f8c7d18f24fe39321adf43f6c"
+    },
+    {
+      "id": "da:firma",
+      "textDa": "Firmaet har mange kunder, men færre ansatte.",
+      "sourceHash": "c1a976d90dd2895b4ccc9a855a6df8dbc59bb824a47716f05e559f93bcc45dd4"
+    },
+    {
+      "id": "da:vælge",
+      "textDa": "Vælg noget med mange grøntsager og ingen sukker.",
+      "sourceHash": "15ef06d6e38f60ff74e91d0b94bb178de6e9050fc2d9e3698e15b23f0f9aed69"
+    },
+    {
+      "id": "da:sur",
+      "textDa": "To sure æbler koster intet, men de friske koster mere.",
+      "sourceHash": "70db572b9f2a71a313498b3d69e91d7a2d6107c9025f073e7e5ef0d0190dd0c4"
+    },
+    {
+      "id": "da:valg",
+      "textDa": "Et valg mellem al maden er ikke let.",
+      "sourceHash": "f9d9a081d9079a64dedd46ba4af0a1a5c1e8968ba6ec64def9ab4a271a2bfc09"
+    },
+    {
+      "id": "da:vinde",
+      "textDa": "Syv hold spiller, men kun ni spillere kan vinde en individuel pris.",
+      "sourceHash": "96ed504aa13829f66175f01455521b4f94eba1014a78b2c26c1c5393e70e2ae2"
+    },
+    {
+      "id": "da:fejl",
+      "textDa": "Jeg vil gerne have en ny regning uden fejl.",
+      "sourceHash": "23a48c8f3db36d186acdf4c972d764f74812cf47b086d172485e3a0e7cb7e455"
+    },
+    {
+      "id": "da:engelsk",
+      "textDa": "Halvtreds af de tusind varer har en engelsk tekst.",
+      "sourceHash": "ddea283f6f5f6a358f70964aaf94fa9f085bf1a67c6adc693a9020722327f511"
+    },
+    {
+      "id": "da:lyst",
+      "textDa": "Har nogen lyst til noget sødt eller salt?",
+      "sourceHash": "e198ec2a96af2a7577c0d172ac415967712d982d442800948277b672ea71d2ce"
+    },
+    {
+      "id": "da:lære",
+      "textDa": "Ingen kan lære alle tallene på én dag.",
+      "sourceHash": "757ca9cc41578ef707cf47ac73d0405e8b73e59d0b8b2f67528007ce04198c47"
+    },
+    {
+      "id": "da:kop",
+      "textDa": "Jeg løfter koppen og siger: “Kan jeg få mere kaffe og regningen, tak?”",
+      "sourceHash": "4148a822609c7ef07b59fe90783766ef509888466f5cc7e6c292f6bf57b98289"
+    },
+    {
+      "id": "da:falde",
+      "textDa": "De fleste æbler falder ned, men nogle bliver på træet.",
+      "sourceHash": "2ca43a32e54bee9b017909bcaf453eae9fe2cad20f4703a98585880f581ae824"
+    },
+    {
+      "id": "da:ond",
+      "textDa": "Ni onde figurer kræver tyve eller fyrre brikker.",
+      "sourceHash": "cfeebb416682cf538047969b1305f05bb5279d8f4e8b91112f6ba5d9e873d8c6"
+    },
+    {
+      "id": "da:glas",
+      "textDa": "På caféen lyder mit spørgsmål: “Kan jeg få et glas vand?”",
+      "sourceHash": "26363085bd57437d920d280b6c6c30ae4459784a4b2e6e9216bff63d0142d6a8"
+    },
+    {
+      "id": "da:flaske",
+      "textDa": "Nogen har sat nogle flasker ved siden af noget mad.",
+      "sourceHash": "752561f06db371c5cb51f9ef0dfb61f023f33346efbd019fc0046f4c3d3d1226"
+    },
+    {
+      "id": "da:dø",
+      "textDa": "I forsøget dør nul planter, hvis alle får nok vand.",
+      "sourceHash": "2e067fd34d0d26574f30eea85bdf2000125585a4176d52cab04953d28e68b796"
+    },
+    {
+      "id": "da:politisk",
+      "textDa": "Er det et politisk valg for eller imod planen?",
+      "sourceHash": "49f5c671aaa7a660324bc2607ca0af060591c4f012a9e2053f6be8d2ed8ac6f5"
+    },
+    {
+      "id": "da:marked",
+      "textDa": "På markedet betaler vi for fire æbler og seks æg.",
+      "sourceHash": "58e5e83525bace6937e5f883ae2c9152fd42de60e5adaff6c1e2e64c61dc5301"
+    },
+    {
+      "id": "da:åbne",
+      "textDa": "Åbn appen; du betaler for billetten der.",
+      "sourceHash": "75c15ad15fd3c0441be5855b50522d08bf07a0fe54cf934ace613649ca04d6c2"
+    },
+    {
+      "id": "da:fest",
+      "textDa": "Ved festen spørger han: “Hvor meget koster maden?” Vi betaler for cirka fyrre af de hundrede gæster.",
+      "sourceHash": "a8c7950241c5b27e4c7cd8ba89432805574430b4195216611819cb28016423c6"
+    },
+    {
+      "id": "da:tidligt",
+      "textDa": "De fleste kommer tidligt, men færre bliver sent.",
+      "sourceHash": "0dd21cd0dccb2916049c2959ac08a1da55b3e5728b8e565f3ebbbf8907cc8632"
+    },
+    {
+      "id": "da:museum",
+      "textDa": "Er der nogen rabat på nogle af museets billetter?",
+      "sourceHash": "10e11bdcd91abc8c8ea3cddd903cfeee905a53e69730189a4c5591556be582af"
+    },
+    {
+      "id": "da:starte",
+      "textDa": "På fabrikken står hundrede maskiner, men nul kan starte uden strøm.",
+      "sourceHash": "e5c60a805ee33fc214aa6bd2cb406ec970cebcb216505029422936d3ff524205"
+    },
+    {
+      "id": "da:genert",
+      "textDa": "Flere generte gæster siger lidt, og færre siger meget.",
+      "sourceHash": "7a5c4a224bab997f2536b4f75df3c5f4036219c7cb1dbf152927d33923c99823"
+    },
+    {
+      "id": "da:time",
+      "textDa": "Kurset varer otte, ti eller tredive timer.",
+      "sourceHash": "f6542c837edd7d4a71211116c958c7944232a113f326051b87ea217d392f88e9"
+    },
+    {
+      "id": "da:stoppe",
+      "textDa": "Kaffemaskinen stopper, før kunden når at sige: “Regningen, tak.”",
+      "sourceHash": "be92a4dbf205ff88fa22014299d8c7091870a2828a37168f576a9c52897fb879"
+    },
+    {
+      "id": "da:sang",
+      "textDa": "Mange kan synge en sang, men ingen kan alle vers.",
+      "sourceHash": "2acc7c9d2c32f6179341479eda9ebb7445f42a24c303d837da8171f77f287953"
+    },
+    {
+      "id": "da:økonomisk",
+      "textDa": "Det er økonomisk at købe noget, der bruger færre kilowatt-timer.",
+      "sourceHash": "46868fd8edda4d2662d7abcb9a3b7aa8ccc21e94f4c8bb17664fe54cf944247f"
+    },
+    {
+      "id": "da:kamp",
+      "textDa": "Jeg vil gerne se kampen med nogle kolleger.",
+      "sourceHash": "843cf40c9d1ab5da54e3bb87633d8391052534c9fe58e6b52a7ed18077f1b8f1"
+    },
+    {
+      "id": "da:fortsætte",
+      "textDa": "Kan fem fortsætte, hvis syv andre går?",
+      "sourceHash": "ea2087610f4b038d7ef9fb7fd00f7760370f5adad070e719c113dddc58942109"
+    },
+    {
+      "id": "da:historie",
+      "textDa": "De fleste vil gerne have en historie med mange billeder.",
+      "sourceHash": "57cd77152392b5fd5c6a23e76ba3fe9371df09a551e3785ff254495b28f554c5"
+    },
+    {
+      "id": "da:privat",
+      "textDa": "De ti private værelser koster tredive eller halvtreds kroner.",
+      "sourceHash": "342dc7c04c64e8d7bea483a1eececbf216186b4dab9cbdd007fd7eaaca17adbf"
+    },
+    {
+      "id": "da:turde",
+      "textDa": "Ingen tør sige “Regningen, tak” til den travle tjener.",
+      "sourceHash": "ba5896e9f6baff1b33e83c8a4428a5697994bb32ee178cb34b3b39913b608710"
+    },
+    {
+      "id": "da:ferie",
+      "textDa": "Nogen vil have ferie, og nogle vil bare arbejde.",
+      "sourceHash": "0d48883975fb509ddb1fad4d5671b20caf8e6eedaf5c2002b600092c6a44edb7"
+    },
+    {
+      "id": "da:nå",
+      "textDa": "Vi kan nå to butikker, men ikke alle tre.",
+      "sourceHash": "61589ff3e9a9107462137810ebf812f4fab04917ee0fc2f1922e903a1f33ef1a"
+    },
+    {
+      "id": "da:sommerfugl",
+      "textDa": "Nogle sommerfugle har mange farver, men ingen er ens.",
+      "sourceHash": "859b3cf3d6ad02dde0db34f0ff5e510d46ad8dffc212fad3ee312786880974b4"
+    },
+    {
+      "id": "da:gul",
+      "textDa": "Fem, syv eller ni gule blomster koster tyve kroner.",
+      "sourceHash": "2020d614fbb65212593e966c70d7b3aaf7a7cc8c617ab250bf4bfe79399ed7b6"
+    },
+    {
+      "id": "da:sky",
+      "textDa": "Hvor meget koster et billede med fyrre skyer?",
+      "sourceHash": "ae55550ee483a8c82b9d61fd6654652a14a73bc3294a1defb513dc4773b16a2e"
+    },
+    {
+      "id": "da:opgave",
+      "textDa": "Systemet har tusind opgaver, og halvtreds er åbne; syv kræver megen tid.",
+      "sourceHash": "78f9e6450d72057eb8aae9cde7b6cca47dcf14ef9ca704b24b6f80d76f4efbea"
+    },
+    {
+      "id": "da:sent",
+      "textDa": "Ingen vil spise sent, men nogen vil gerne have kaffe.",
+      "sourceHash": "00bd434f9f122c618f971ccc1231eb139be4c365e6ed5667bab95bc88b31808f"
+    },
+    {
+      "id": "da:gulv",
+      "textDa": "Der ligger noget på gulvet, men intet er til salg.",
+      "sourceHash": "2f1e7996e11093a9beb99c82dee6e5e9db2bfbd29205f9d4cad08e79e1190c54"
+    },
+    {
+      "id": "da:mene",
+      "textDa": "Hun mener ofte noget andet end mig.",
+      "sourceHash": "4f8b4eb68cd82774ce7cc6222ae77e336beea36c95ade4a12ec95a3d41b6abfc"
+    },
+    {
+      "id": "da:rask",
+      "textDa": "Snart er han rask igen, men i går var han syg.",
+      "sourceHash": "f8b7038346a22a3cdf27b1e69715670947c70905b5e44071882aa3cc6656c355"
+    },
+    {
+      "id": "da:tabe",
+      "textDa": "Jeg taber aldrig først, men taber ofte til sidst.",
+      "sourceHash": "ace5e62b005435bfd86ae9f2f9184e000bb223dba16f3e9a19e54858e168c6a8"
+    },
+    {
+      "id": "da:jord",
+      "textDa": "Først er jorden tør, og bagefter er den våd.",
+      "sourceHash": "845474c84a3e1d6826e408f4a48ac0243ab3f74573f5004cf448f78f50cef199"
+    },
+    {
+      "id": "da:glemme",
+      "textDa": "Hun har endnu ikke glemt, hvorfor aftalen blev flyttet.",
+      "sourceHash": "c9e206ff3f2ecf9fa60cc828dc18591162491d7336548e983e5b67208403c720"
+    },
+    {
+      "id": "da:lokal",
+      "textDa": "Andre lokale butikker åbner snart.",
+      "sourceHash": "29c5a51781e78244c423e89c1998d5a86b06b1e8b57884e4613f8f48917d74e9"
+    },
+    {
+      "id": "da:båd",
+      "textDa": "Den første båd sejler nu, og den anden sejler snart; begge sejler ofte om sommeren.",
+      "sourceHash": "6dd559392270b6e75fc79a7a8b9e71422256ef6a304b81dc587e9fe3b7e97066"
+    },
+    {
+      "id": "da:lukke",
+      "textDa": "Hvornår lukker museet: før eller efter klokken seksten?",
+      "sourceHash": "2f49278ac5f07971e0cce85ff6f851f6ec715923ab081797f1bafa523802c2fe"
+    },
+    {
+      "id": "da:løn",
+      "textDa": "Lønnen kommer ofte den tredje fredag i måneden.",
+      "sourceHash": "c8128a6b55539248531a07ae34fe6fd9b29eede173ca4f4260558b3af9617fd6"
+    },
+    {
+      "id": "da:fremmed",
+      "textDa": "Hvordan finder man vej i et fremmed land?",
+      "sourceHash": "1e8e331c639e509e55c4e6789d03c43a7800b07d937676a1796192ae4cc0a819"
+    },
+    {
+      "id": "da:ansigt",
+      "textDa": "Om morgenen vasker hun først sit ansigt og så sine hænder.",
+      "sourceHash": "4d854ea90a7d9eb96c825c2d1e458ffae68cd32ae13b3e53d1a2de2bba44c8e0"
+    },
+    {
+      "id": "da:slutte",
+      "textDa": "Hun læser spørgsmålet “Hvornår slutter filmen?” højt.",
+      "sourceHash": "af60a66b0c63442b3db254c0299ab250d44820a0716079dd35868acb40e85279"
+    },
+    {
+      "id": "da:jakke",
+      "textDa": "Hvilken jakke og hvilket tørklæde tager du på nu?",
+      "sourceHash": "29b46263bccdeb4a3749d2a6f161b347e80add6371effea2bfe16148ff0fcca5"
+    },
+    {
+      "id": "da:slå",
+      "textDa": "I går slog han bolden først, men i dag slår jeg.",
+      "sourceHash": "b2e20dd1ef02014ac0a08c62139f97d4b9ab1c0b1f075f5b84a43cf9ee62414a"
+    },
+    {
+      "id": "da:amerikansk",
+      "textDa": "Hvilke amerikanske film ser I ofte om fredagen?",
+      "sourceHash": "88c7bf45fdf7b8aeecbf4031b940eee37bd3205b81fd8d418101414c05eb6c12"
+    },
+    {
+      "id": "da:kjole",
+      "textDa": "Den anden kjole er allerede solgt, men den tredje er her endnu.",
+      "sourceHash": "a6dc1718665f0acdd34cdebd0503604661812e419b2cf84d9a1b7d664f5378aa"
+    },
+    {
+      "id": "da:skjorte",
+      "textDa": "Før mødet vælger han først en hvid skjorte og så en blå.",
+      "sourceHash": "656cb9e4fd466c594edf2fe9af7c397b109b81c3d0d8c14ada718dc583bcf486"
+    },
+    {
+      "id": "da:bære",
+      "textDa": "Hvem kan bære hendes kuffert, hvis hun ikke kan?",
+      "sourceHash": "8c38cd517764c9bfec1f9067c5bab5d4ede99f996af275462e33a07d8a608c8c"
+    },
+    {
+      "id": "da:nervøs",
+      "textDa": "Hvorfor er du stadig nervøs, når eksamen er slut?",
+      "sourceHash": "7cd875cc3d33b4f3215dfb8a4d85a2dacf6bc4088b2227975604d8026e043b83"
+    },
+    {
+      "id": "da:trøje",
+      "textDa": "Hvilken trøje passer ham, og hvilke passer dig?",
+      "sourceHash": "0b002eeb5252ae6e3b9e36e129a5b87087a2b1d3ada9b50e5d4c0cc531ce4492"
+    },
+    {
+      "id": "da:trække",
+      "textDa": "Først trækker hesten én vogn; bagefter trækker den en anden.",
+      "sourceHash": "28bfcd7e651a41becb7c7c739f133b69feb70747683b28e56a0247548e0868de"
+    },
+    {
+      "id": "da:frakke",
+      "textDa": "Hendes frakke er stadig våd efter torsdagens regn, men de andre jakker er tørre.",
+      "sourceHash": "3b3627da2a6a471960cb5224abcb1008aa11c053610feea95f452e4c2ba8fc7c"
+    },
+    {
+      "id": "da:kendt",
+      "textDa": "Sidst mødte vi en kendt kok på stationen.",
+      "sourceHash": "9abc1f01df0f7cbcdeb8adf5993b58df32be60fb520600a72c4e9aac19c053ba"
+    },
+    {
+      "id": "da:nederdel",
+      "textDa": "På tirsdag køber hun en nederdel, og på onsdag køber hun en anden.",
+      "sourceHash": "4807854e6c2a93c7ea62637fb4c045bf0fae2f6f03d38691aa36f76e4fe261eb"
+    },
+    {
+      "id": "da:kaste",
+      "textDa": "Hvorfor kaster han altid den første bold væk?",
+      "sourceHash": "d6dee5f49181c9b37c25fb06557ca9b7573318f8ac246d3187da4516f75c6668"
+    },
+    {
+      "id": "da:storm",
+      "textDa": "I aften er stormen allerede på vej, men den er ikke her endnu.",
+      "sourceHash": "0043c02afe4dccd8a45bd86a17acf7c6238f58a1c8441e03f961af52faad0dac"
+    },
+    {
+      "id": "da:gribe",
+      "textDa": "Hvilken hånd griber først, og hvilken griber bagefter?",
+      "sourceHash": "ab7f6981f1b1e86462e55c36d4828c8d50b5d5972ecb64509430afc88819f9d8"
+    },
+    {
+      "id": "da:hue",
+      "textDa": "Hvilken hue bruger du om mandagen, og hvilke bruger du om fredagen?",
+      "sourceHash": "d2c50ac9729793d55d5f9c78e3c59ae0d469a485659c94106d8784e81ff6d5b3"
+    },
+    {
+      "id": "da:populær",
+      "textDa": "Sangen er allerede populær, selv om den først udkommer i juni.",
+      "sourceHash": "702bde7a2fe37e4c7ce0b77f9d979f81f91eead9d76915b74a44174cdac6df81"
+    },
+    {
+      "id": "da:springe",
+      "textDa": "Nu kan katten springe op, men før kunne den ikke.",
+      "sourceHash": "c3e13a734028f90e72950c3e3d0a408de83c7e6490c04c50b5bb2d5cd0e81639"
+    },
+    {
+      "id": "da:tæppe",
+      "textDa": "Hvilket tæppe lægger vi først, og hvilket tager vi bagefter?",
+      "sourceHash": "4a68d0e51bbe3ecd09df9a7cc52e918343ff5598c092d60869c1306b88ce2e95"
+    },
+    {
+      "id": "da:moderne",
+      "textDa": "De første huse er gamle; de andre er moderne.",
+      "sourceHash": "9593c244ae9009e8c6271d33f5707fe670a633359f02ae30445d659e0c39f1fb"
+    },
+    {
+      "id": "da:plads",
+      "textDa": "Der er et andet ledigt sted på pladsen.",
+      "sourceHash": "2a8d6cd01c561a04b9d37a69e3462e7abb6ad210e61389d5fb82fd9ae7c7d0cb"
+    },
+    {
+      "id": "da:flyve",
+      "textDa": "Hvorfor flyver fuglene altid væk før vinteren?",
+      "sourceHash": "992d0bacbfc20baf895e0227ebe73972de4e41e984048183ecd91a235c1d5724"
+    },
+    {
+      "id": "da:hjælp",
+      "textDa": "Hvem har tid til at give jer hjælp nu?",
+      "sourceHash": "58c3c6d68f848f84c3d7056b8e32b090bea900dac09932088638c67a5070e382"
+    },
+    {
+      "id": "da:svømme",
+      "textDa": "Vi svømmer tit om lørdagen, men aldrig om mandagen.",
+      "sourceHash": "b4c0014440db4f5988dca89d8555956a9d8417536e98c0c03cbd03169a1143b0"
+    },
+    {
+      "id": "da:sag",
+      "textDa": "Hvordan bliver den første sag anderledes end de andre?",
+      "sourceHash": "a8a4b9169d8a03316efb0dd971b3b9b712e13ce6d29f5483ee41794b9ac95b33"
+    },
+    {
+      "id": "da:stolt",
+      "textDa": "Hendes mor er altid stolt, når hun ser dine billeder.",
+      "sourceHash": "5f480a42d7987d08a082115aa8562bf62e1e8cd7ec34854efb607b303e75a549"
+    },
+    {
+      "id": "da:nogensinde",
+      "textDa": "Spørg aldrig, om hun nogensinde har været her.",
+      "sourceHash": "8297d1b4a1547e417dc592c919cb023fee8e72216edaaec3026dc96b240d2b1f"
+    },
+    {
+      "id": "da:tag",
+      "textDa": "Vælg et andet tag til det lille hus.",
+      "sourceHash": "36ba8d07dab0c69a48e6d8a4c51612fa67af081950416a5e5ded3a0cbcad303e"
+    },
+    {
+      "id": "da:hænge",
+      "textDa": "Hvilke jakker skal hænge her, og hvilke skal hænge der?",
+      "sourceHash": "fa5bab0ea857e0cd658079b062b00b4de16ca44e21c4976ec8bb7090ac5335db"
+    },
+    {
+      "id": "da:sommer",
+      "textDa": "Sommeren begynder snart, men juni føles stadig langt væk.",
+      "sourceHash": "afdb3bf95b41fe64f93c8a7ce6f5500393a8a214473c696e0c9bf05a86e07d2c"
+    },
+    {
+      "id": "da:normal",
+      "textDa": "Sidst var det en normal uge: mandag til fredag arbejdede jeg, og bagefter havde jeg fri. I kalenderen stod “I går arbejdede jeg hjemme”.",
+      "sourceHash": "7ee3b2ca6c98f183b233e9eb61045f3ba387fecd3bedb7483851267a8c1b81de"
+    },
+    {
+      "id": "da:vende",
+      "textDa": "Vend den første side nu og den anden bagefter.",
+      "sourceHash": "0d6016fe1a481830829d1665166e31598d04c691fc43aecc97c64753fe0cf9e0"
+    },
+    {
+      "id": "da:morgen",
+      "textDa": "På tavlen står “Hvornår begynder morgenen?”",
+      "sourceHash": "b69093343a291728f1435fa6a1456d246137cf798a134d02c397175032e202c7"
+    },
+    {
+      "id": "da:smerte",
+      "textDa": "Hvor længe har du haft smerte, og hvorfor gør det ondt?",
+      "sourceHash": "0a880e666b246818f82657218988abb58a101df5125ec287e9d885f4ac01c336"
+    },
+    {
+      "id": "da:flytte",
+      "textDa": "Hvornår flytter I: den tredje maj eller den anden juni?",
+      "sourceHash": "235936bad63cd2314495dc8a5b49a300e5ccf0a02bbdfc8747184bf7426d557e"
+    },
+    {
+      "id": "da:særlig",
+      "textDa": "I dag er en særlig dag, fordi vi allerede er færdige.",
+      "sourceHash": "efba76bac9ad23c48de358ef61fec2f02d2f3b683563d3f51f2888b936a25247"
+    },
+    {
+      "id": "da:svar",
+      "textDa": "Svaret viser, hvilken jakke der er min, hvilket tog der kører først, og hvilke sko der er nye.",
+      "sourceHash": "e6935ee17ec104c433a2bdca8774719f33c1898d30d1c2fe876f3684cf8869f2"
+    },
+    {
+      "id": "da:ligne",
+      "textDa": "Hvem ligner hun mest nu: sin mor eller sin far?",
+      "sourceHash": "6fef631726450e54a0c14b8586ffac80f6656673767faa3e7a66ac6c3cc19fe2"
+    },
+    {
+      "id": "da:måned",
+      "textDa": "I kalenderen står, hvilken måned det er, hvilket møde der kommer først, hvilke dage der er ledige, og hvornår mødet begynder.",
+      "sourceHash": "67489f3f0bddf7ea62e59f92ed79ecd2b16fef263105b9d1f6ded35ab8fa9aa2"
+    },
+    {
+      "id": "da:umulig",
+      "textDa": "Først virker opgaven umulig, men så bliver den nem.",
+      "sourceHash": "c9df6a62a5a678ac9e8383743c5631282e875c564c3ecd44d1e8724760fe3ece"
+    },
+    {
+      "id": "da:politi",
+      "textDa": "Hvorfor kommer politiet først efter klokken seksten?",
+      "sourceHash": "91aa3563fa43e624a277aeef1c74a42fcd58dab509be40b2d2ea8c9d81bbc084"
+    },
+    {
+      "id": "da:mangle",
+      "textDa": "Hvilket svar mangler endnu, og hvilke har vi allerede?",
+      "sourceHash": "91eb90306b10da3306b3843b5d4a9f2672fb8f2095fdd8d56bb0192a67893864"
+    },
+    {
+      "id": "da:handske",
+      "textDa": "Først finder hun én handske; den anden finder hun senere.",
+      "sourceHash": "f9b28fb8dca308518f105e277e5510933b6b2395b3418fa9a33dc5afefc40516"
+    },
+    {
+      "id": "da:virke",
+      "textDa": "Computeren virker næsten altid, men i dag virker den ikke.",
+      "sourceHash": "b15a2d8157b3195be46cc0f9cf12b42d801684bc1d2f325d8cd470b6e23bf365"
+    },
+    {
+      "id": "da:nem",
+      "textDa": "Hvordan kan den tredje opgave være nemmere end den første?",
+      "sourceHash": "8615753768fb25c6eb1cb3342a84b9eb9630bc33c641df73da3c41e178cec9dc"
+    },
+    {
+      "id": "da:tanke",
+      "textDa": "Hun ved, hvorfor tanken kommer igen.",
+      "sourceHash": "750e9996e9eaabfe469e3663e58b52346200b8fbaea92adc361b20230007a8ec"
+    },
+    {
+      "id": "da:gælde",
+      "textDa": "Billetten gælder fra tirsdag til torsdag, men ikke fredag.",
+      "sourceHash": "47279692997761f2e2dd924d2af4fdbe701f9332233fd40ebc765a703b219cb7"
+    },
+    {
+      "id": "da:drøm",
+      "textDa": "Sidst på natten havde hun en drøm, som hun stadig husker.",
+      "sourceHash": "7033c0c1960daeef4323aaf419691b09bf2119ae402995cab30fd478e4c5b052"
+    },
+    {
+      "id": "da:flot",
+      "textDa": "Hvilket billede er flot, og hvilke er bare okay?",
+      "sourceHash": "994e246e8a1d42f70d32ee943a0c20e93c15dfe24c94f00c801c4313ea24f75b"
+    },
+    {
+      "id": "da:vin",
+      "textDa": "Regningen, tak; vinen betaler vi først.",
+      "sourceHash": "db0413a29c80795cb3d7c1fc25d2325d66afaf51e4ee19e5396b1cba63b30df0"
+    },
+    {
+      "id": "da:klare",
+      "textDa": "I dag har jeg lavet den første opgave og kan klare den anden nu.",
+      "sourceHash": "c90df9068e274d3960cc8962661b8924d2b3bbf35dfae4390b1dca7458e9d4ca"
+    },
+    {
+      "id": "da:eksamen",
+      "textDa": "Hvornår begynder eksamen: klokken seksten eller lidt før?",
+      "sourceHash": "26961fce5a3cde3ad8747ff1fd7d4bb8ddb3c47575e20486ec7208f64c3451bc"
+    },
+    {
+      "id": "da:tysk",
+      "textDa": "Skriv den tredje maj på tysk.",
+      "sourceHash": "fe07bef02d3e682ab32dc3dda657c5ff0a73fec02349f5fa720b2ac1bf5ce15f"
+    },
+    {
+      "id": "da:minut",
+      "textDa": "Først venter vi et minut, og så venter vi fem mere.",
+      "sourceHash": "0b12189b2c269e7c164889cf89cf7e8eb2013e3fe2c7423f36daaa68a8f3a3b1"
+    },
+    {
+      "id": "da:passe",
+      "textDa": "Passer et andet tidspunkt bedre?",
+      "sourceHash": "daadbaa21ad4bf6a8bfaf9b436c9de24da7af9e36cf3574ea2abeb1f57fd9c9a"
+    },
+    {
+      "id": "da:sommetider",
+      "textDa": "Sommetider arbejder jeg længe, men aldrig om søndagen.",
+      "sourceHash": "9cd900e75882cfb6139905bab342b1b5090aa6257dfde4d137df95277a4f72f2"
+    },
+    {
+      "id": "da:weekend",
+      "textDa": "Er “I går arbejdede jeg hjemme” en god beskrivelse af din weekend? Hvornår begynder weekenden for dig?",
+      "sourceHash": "f16a84bf8bf89c6ee440099b8893497b23ba41b0ca2c0d2614449c8c46cc9f5e"
+    },
+    {
+      "id": "da:ændre",
+      "textDa": "I beskeden står, hvorfor tiden skal ændres.",
+      "sourceHash": "d19ca04eba73792d9d4fa5000c4f594d66259efffb92b7f3839acd817c2d3d0c"
+    },
+    {
+      "id": "da:sundhed",
+      "textDa": "Hvorfor er søvn altid vigtig for din sundhed?",
+      "sourceHash": "927e4bd9bd0e5ae42c2390f1cf93e3f0661b198f05158825446b15021a047d8b"
+    },
+    {
+      "id": "da:lykkelig",
+      "textDa": "Hun er lykkelig nu, men hun var ikke altid lykkelig.",
+      "sourceHash": "03450668f829d645058f5c29c46ceb242edffc37c42b21c6d5d3b63c7a599915"
+    },
+    {
+      "id": "da:ringe",
+      "textDa": "Hvornår ringer du: onsdag eller torsdag?",
+      "sourceHash": "18eb554d08045358bd7b992e756453a9389911e6b591ae00668b285d2958df82"
+    },
+    {
+      "id": "da:feber",
+      "textDa": "Barnet har stadig feber, så hvem ringer til lægen?",
+      "sourceHash": "503ad7d38646082da1fe5b0c90aaef1f850f848504cbff893eb0e275d6eb6272"
+    },
+    {
+      "id": "da:voksen",
+      "textDa": "Den første voksne kommer nu, og de andre kommer snart.",
+      "sourceHash": "e0ef2c685e98036c134d85a98db7f3adb2f74e9b9d35ffc0c00d3769a015a040"
+    },
+    {
+      "id": "da:forkølelse",
+      "textDa": "Hvor længe varer en forkølelse, og hvornår er den slut?",
+      "sourceHash": "ea68c5cbfa0b53de94bcea595f713db80fee1a5a0abcae3f2d472bd033f223b8"
+    },
+    {
+      "id": "da:besøge",
+      "textDa": "Vi besøger hende tit i maj, men næsten aldrig i juni.",
+      "sourceHash": "93dac52f92b51662892dd07c01e13201dc5fddf75f918278dc93645290335abe"
+    },
+    {
+      "id": "da:kone",
+      "textDa": "Hvem arbejder længst: hans kone eller hendes mand?",
+      "sourceHash": "cd64d7029e4c8c0b67bfd2225c1eb1f5d0d5e652155422348ed2e539de32da90"
+    },
+    {
+      "id": "da:smile",
+      "textDa": "I går lavede jeg mad, og barnet smilede hele tiden.",
+      "sourceHash": "a32a1d3225cc1789f1d8ada7f0ffc672a253606f203c280c479d4dfd4e6d342f"
+    },
+    {
+      "id": "da:lufthavn",
+      "textDa": "Hvilken lufthavn bruger I på fredag den tredje maj?",
+      "sourceHash": "aaac830477d9047d5ff29fb9ca7938bc6258da834b4421e25ea5b519ecd49076"
+    },
+    {
+      "id": "da:færdig",
+      "textDa": "I dag har jeg arbejdet længe, men nu er jeg færdig.",
+      "sourceHash": "7d9b0cb0e334772d41b3ec3a521d21e3815e22ea6204adb3a7731e192a6f1a3e"
+    },
+    {
+      "id": "da:blod",
+      "textDa": "Hvem ser blod først, og hvem henter hjælp bagefter?",
+      "sourceHash": "f266da4c88dc958ba921fc2e9ee13b5bbfd1319a35e1f7e216fec2696fa7328f"
+    },
+    {
+      "id": "da:grine",
+      "textDa": "“I går købte jeg en sjov bog,” siger hun og begynder at grine.",
+      "sourceHash": "049c56ce1fb8bc6634acabae07bf2e553f6d36114d455f45771f405212f1271e"
+    },
+    {
+      "id": "da:hoste",
+      "textDa": "Hendes hoste er næsten væk, men hun hoster stadig tit.",
+      "sourceHash": "442905af0bd806dd27c0768210cd3377e279b08cbd3e26f86d163a06029c33cb"
+    },
+    {
+      "id": "da:varm",
+      "textDa": "Hvorfor er suppen allerede varm, når gæsterne først kommer senere?",
+      "sourceHash": "bafb9bd33d59532af2eb872050f398223640d5c5670b77c683aaf18ab1555078"
+    },
+    {
+      "id": "da:synge",
+      "textDa": "I dag vil jeg synge, og i går sang jeg også.",
+      "sourceHash": "33649bd7a51eaf28643023b6ff622d24073669104a251aa48e8416c4e4cd9d70"
+    },
+    {
+      "id": "da:trappe",
+      "textDa": "Hvilken trappe går op, og hvilken går ned?",
+      "sourceHash": "d6ce25be1614ffca20405145ddca9b4d490d90424c7722803bd2d45e2dd5519a"
+    },
+    {
+      "id": "da:danse",
+      "textDa": "I dag har jeg lavet mad; bagefter vil jeg danse.",
+      "sourceHash": "93fa510955ba02e4081a4f72e68046d0aa8dde39264aa57b7fdb91dbc55c619b"
+    },
+    {
+      "id": "da:vinter",
+      "textDa": "Vinteren føles altid lang, selv om den snart er slut.",
+      "sourceHash": "b7a6413157dac792fce041580dbde9bc47eef3362f6cdc56513e8b7d3cb6c3d4"
+    },
+    {
+      "id": "da:hurtig",
+      "textDa": "Hvilket tog er hurtigst: det første eller det tredje?",
+      "sourceHash": "100cc1550bcf7476e87f4515a96d664dd9ac3e534fc7fd52686f18941a089ec2"
+    },
+    {
+      "id": "da:håb",
+      "textDa": "Under samtalen får hun håb, da hun hører spørgsmålet: “Hvornår slutter ventetiden?”",
+      "sourceHash": "6e986d8942fdae1b79c9f748bdfa8115c33bc35962ec176899e028c168f584f9"
+    },
+    {
+      "id": "da:lytte",
+      "textDa": "I dag har jeg læst teksten; nu vil jeg lytte til den.",
+      "sourceHash": "04b164481b78571077f168818552c174868274bec6c83b9dd339a6a8f908957a"
+    },
+    {
+      "id": "da:temperatur",
+      "textDa": "Hvilken temperatur har vi i januar, og hvilken har vi i juli?",
+      "sourceHash": "1bdb242752b44a9c5b95e2f74f55949953f75d2c88f291cbc6dfbc080d4c8c3b"
+    },
+    {
+      "id": "da:ensom",
+      "textDa": "Han føler sig tit ensom, men aldrig når familien besøger ham.",
+      "sourceHash": "ac43d5408c1ea918236e05ff0aa0176ec7fd5974d2379dfed052c8b12f2b244a"
+    },
+    {
+      "id": "da:bagefter",
+      "textDa": "I går arbejdede jeg hjemme, og bagefter gik jeg en tur.",
+      "sourceHash": "bdcb52c47072c3d7a7b1d22eea3a086454e5171d2d6e1480a2fc2b42cda6793a"
+    },
+    {
+      "id": "da:støvle",
+      "textDa": "På udsalget siger jeg: “I dag har jeg købt nye støvler.”",
+      "sourceHash": "bb4ac2360a080c330c8a8e298a5be6f41662b7a0207e017125e226f4a8ccfd4a"
+    },
+    {
+      "id": "da:følelse",
+      "textDa": "Hvilken følelse kommer først, og hvilken kommer bagefter?",
+      "sourceHash": "e3c50d0cb14bded6770a708ab1a7fe6031f619ce9b92076e08718c4b3f991a83"
+    },
+    {
+      "id": "da:fred",
+      "textDa": "Alle ønsker altid fred, men den kommer ikke straks.",
+      "sourceHash": "e5468a70f58bb5142780bcd52aa138587508f35a7159a1e1a0780361a6065387"
+    },
+    {
+      "id": "da:tidligere",
+      "textDa": "Tidligere valgte hun noget andet; nu går hun hjem klokken seksten.",
+      "sourceHash": "2bf0ad9d9796b1c6337e4eacca63a864f60fb3a2bbe2b16d0c40349dde150fa4"
+    },
+    {
+      "id": "da:hovedpine",
+      "textDa": "Hvorfor har hun stadig hovedpine efter tre dage?",
+      "sourceHash": "0d1e44da4761d693656e39ac919e656bd8eb3a0ff2aeceddefbbc44794b088d1"
+    },
+    {
+      "id": "da:synes",
+      "textDa": "Hvordan kommer jeg til broen fra stationen, synes du?",
+      "sourceHash": "3e30177f667acae44e64863a4de0906d98c61e1ce744780a70e3c4d403fcc1c5"
+    },
+    {
+      "id": "da:dreje",
+      "textDa": "Instruksen “Drej til venstre” viser, hvordan man skal dreje.",
+      "sourceHash": "6fc3934987b59d651829656f1f97b75806c951c62ff8c671397450ccf3e45636"
+    },
+    {
+      "id": "da:grå",
+      "textDa": "En grå kat går under broen, mens fuglene flyver over den.",
+      "sourceHash": "bd60d7a86926426ee64892c10e1c95ae29d6a7f6f0f4afab6f2ae66c2ee57d3a"
+    },
+    {
+      "id": "da:græde",
+      "textDa": "Stå af ved skolen; foran dig står en forælder, mens et barn græder bag døren.",
+      "sourceHash": "e8359c9a69e33bb36c20ef76dd3a148b82608ac7d97539da8a2b8034ecaaa9b5"
+    },
+    {
+      "id": "da:speciel",
+      "textDa": "En billet til parken, tak; den specielle rute går mellem søerne.",
+      "sourceHash": "f70641f224c998a15c4aa8bd57ba779d45a7723dc948c4f164f10c23f75bba42"
+    },
+    {
+      "id": "da:sprog",
+      "textDa": "Jeg hjælper hende med det danske sprog, før hun spørger: “Hvordan kommer jeg til stien?”",
+      "sourceHash": "0b68d6e67f3c8a571584e1c03d32a49087c760cf58139414a5d7697bf384003f"
+    },
+    {
+      "id": "da:kigge",
+      "textDa": "Kig ned og omkring dig, før du går videre.",
+      "sourceHash": "54de802175f7bca7eae1ed4cf88a1f5100bf9281f792c1bcf667efdf036018ba"
+    },
+    {
+      "id": "da:idé",
+      "textDa": "Min idé er: Gå ligeud, og gå så tilbage ad den anden vej.",
+      "sourceHash": "55e3b1b85e532f3a3cea565e115ab51b453abcb9f295274ceea8780c26a6f486"
+    },
+    {
+      "id": "da:dejlig",
+      "textDa": "Gå videre op ad bakken og ud til den dejlige udsigt.",
+      "sourceHash": "927984a2d65daa6ec5e593c2da298b93a6bb0ae7b4fe3b8655e4ff95bd57d91c"
+    },
+    {
+      "id": "da:krig",
+      "textDa": "Kortet viser en vej ind i byen og en anden vej ned mod havnen under krigen.",
+      "sourceHash": "1f43c751c91cef2e9ee4e54a93baf4a82f457d10dac141e8b1749953cb51ed05"
+    },
+    {
+      "id": "da:smage",
+      "textDa": "Maden smager bedst oppe på terrassen og ude i solen.",
+      "sourceHash": "3466cdb94318008c02d93a8c42c292a13ea82a600b314cf34110f38b0b269839"
+    },
+    {
+      "id": "da:sandhed",
+      "textDa": "Gå ligeud; inde i brevet står sandheden, ikke nede i noten.",
+      "sourceHash": "f196b54d061232512f154057c83761b86a72b5f4edefc9b40b9ee94beef1989d"
+    },
+    {
+      "id": "da:lugte",
+      "textDa": "Drej til venstre; der lugter af brød hjemme hos bageren.",
+      "sourceHash": "dd5eb51c58e8e259c946d042e8bea199a4a6cf827ce176b7f244fa0606803479"
+    },
+    {
+      "id": "da:spejl",
+      "textDa": "Stå af ved torvet, og gå mod butikken uden det røde skilt; den har et spejl i vinduet.",
+      "sourceHash": "93eb4d890ee73abe439552696a7d320aba27298d67f947068105c20ec71c830f"
+    },
+    {
+      "id": "da:europæisk",
+      "textDa": "En billet til den europæiske udstilling, tak; hvorhen går køen?",
+      "sourceHash": "2a6aa011c503cc9d7aa3ddaaeb939e67cf0e89faca2f75f57b84a1f9289ebe3f"
+    },
+    {
+      "id": "da:røre",
+      "textDa": "Rør ikke skiltet; gå imod vinden og væk fra vejen.",
+      "sourceHash": "840a283104f727fbc0dc4ef22b91613de39aa2dd7b324a8acef1d03b199e2f12"
+    },
+    {
+      "id": "da:forår",
+      "textDa": "Om foråret går vi hjemmefra til parken og tilbage igen.",
+      "sourceHash": "aa707b61da4c00a1206347f330c8e0daabc83fad671a9d4aa8194a5ad178b92f"
+    },
+    {
+      "id": "da:trist",
+      "textDa": "Hun er trist på stationen, men glad ved toget.",
+      "sourceHash": "6ffa8f46008447d1b1e9b5b79fb281ff1004b9f255d26217d5270178ec8ff5e1"
+    },
+    {
+      "id": "da:hals",
+      "textDa": "Tørklædet ligger over hendes hals og under jakken.",
+      "sourceHash": "8bfeceaf8c9c1c4fef95b539831e67b2f2ce45d3770d03f9f73cee5fab25b58a"
+    },
+    {
+      "id": "da:tælle",
+      "textDa": "Tæl dørene bag os og vinduerne foran os.",
+      "sourceHash": "52e0cff7bc019986243f7d4dbc620d6d21b4491a833ec3cd2d11d4b524e8d9f6"
+    },
+    {
+      "id": "da:viden",
+      "textDa": "Min viden om byen kommer fra turen: “Hvordan kommer jeg til biblioteket?” var mit første spørgsmål.",
+      "sourceHash": "e6022834a163651e667e7438fb53121bb5bdf6301e65e18d3eb69d60dc8b464a"
+    },
+    {
+      "id": "da:koste",
+      "textDa": "Mens vi øver ruten, siger guiden: “Gå ligeud,” og vi spørger, hvad turen koster.",
+      "sourceHash": "20c3bdc77751d6cfcd83864a2af655582e09593e12bffd17b57287c9d7bce8af"
+    },
+    {
+      "id": "da:politistation",
+      "textDa": "Gå omkring politistationen og derefter ned ad gaden.",
+      "sourceHash": "2b79bf0201cfb193392994e881c11a0acaa6eb71af6b8c5d40a1e2f4c7c46340"
+    },
+    {
+      "id": "da:kold",
+      "textDa": "Stå af ved den kolde sø, og gå langs bredden.",
+      "sourceHash": "e639c3c72190d66d1f7948251710cc9e7a931e215f02d63940943d8a66011607"
+    },
+    {
+      "id": "da:hat",
+      "textDa": "På stationen siger manden med hat: “En billet til Aalborg, tak.”",
+      "sourceHash": "5eb79aac8fdcab0d333c676f327fb45ae4d8546568fa9b18ea5b44939cc60c59"
+    },
+    {
+      "id": "da:tegne",
+      "textDa": "Tegn en cirkel omkring huset og en linje gennem haven.",
+      "sourceHash": "3bd2a7df32a635ec887fc22af7ddc7bacffd1dc8ccdae32e54a0657d1c405a6c"
+    },
+    {
+      "id": "da:papir",
+      "textDa": "På papiret peger en pil lige frem og en anden tilbage.",
+      "sourceHash": "1ff0367d4de3b8e9d0239a54aa0d7562fca6aa72ae9ee0d13fc8c384d41ef2db"
+    },
+    {
+      "id": "da:langsom",
+      "textDa": "Den langsomme bus kører videre, op over bakken og ud af byen.",
+      "sourceHash": "90bedb14b0423955c3af779d5c0feca3aa905eda36134b1c8a4b566d24f24061"
+    },
+    {
+      "id": "da:male",
+      "textDa": "Mal en pil ind gennem døren og en anden ned ad trappen.",
+      "sourceHash": "e720ab81f1dca54c74398d5890858dc53eac8dfb2325055e7c4eb8a65e8ea945"
+    },
+    {
+      "id": "da:bibliotek",
+      "textDa": "Biblioteket ligger oppe ved kirken, ikke ude ved havnen.",
+      "sourceHash": "ca1d40f1767bd4e690d79ee68f153e94d24a39cd9397fcb2d483ede5ef26edfe"
+    },
+    {
+      "id": "da:vaske",
+      "textDa": "Vask hænderne inde, og læg håndklædet nede i kurven.",
+      "sourceHash": "7794d5849ec67895685e8c5c88633aacb2e9a9d6b2155caa1a11f10f54af6ee8"
+    },
+    {
+      "id": "da:influenza",
+      "textDa": "Med influenza bliver hun hjemme hos sin mor.",
+      "sourceHash": "aa34a354b60195faa9652630f61b6e7e38825486d9fd99a2cff8648dda4d048d"
+    },
+    {
+      "id": "da:billig",
+      "textDa": "Den billige bus kører mod centrum uden stop.",
+      "sourceHash": "0de8b2de4ccb1a65ea388a164f99e62468837180cde34cc724667c18244204c5"
+    },
+    {
+      "id": "da:supermarked",
+      "textDa": "Hvorhen går du fra supermarkedet: hjem eller imod stationen?",
+      "sourceHash": "f7d33d2e996e0057c2f1d9221a556f9411483b2babb905a221288d932072d341"
+    },
+    {
+      "id": "da:hente",
+      "textDa": "Hent tasken væk fra døren, og stil den bag stolen.",
+      "sourceHash": "c5ace3f5ae5135cd051a1f8a9714404ac946550c125842022cc3074f9a011d4e"
+    },
+    {
+      "id": "da:fabrik",
+      "textDa": "Vejen til fabrikken går fra torvet gennem en tunnel.",
+      "sourceHash": "ef9fe6838ff47ad15c3ea27718d907e65d91d9b044f0a968ceb246c37f8ef876"
+    },
+    {
+      "id": "da:gratis",
+      "textDa": "Den gratis parkering er på pladsen ved museet.",
+      "sourceHash": "c63f9139678c246cf54704574ff1844c84c3eca15a694ccc9a74468b754b168e"
+    },
+    {
+      "id": "da:sælge",
+      "textDa": "De sælger kaffe over disken og opbevarer mælk under den.",
+      "sourceHash": "d3e8c0347314f71072bbbe422b464282993e77cdbd815e8aa1899e2ea7bdf55f"
+    },
+    {
+      "id": "da:forening",
+      "textDa": "Foreningen mødes bag biblioteket foran den gamle skole.",
+      "sourceHash": "9533c5852578c97d6fcbf7f09362575e58120428695d0a01da982d0d34f28eea"
+    },
+    {
+      "id": "da:svensk",
+      "textDa": "Det svenske skilt står mellem træerne langs vejen.",
+      "sourceHash": "2e48a3489dbb0329c2acf55dfc4209d65722c48ad1f2922bb076d84be9266968"
+    },
+    {
+      "id": "da:eksempel",
+      "textDa": "Et eksempel findes omkring midten, og et andet går igen gennem hele teksten.",
+      "sourceHash": "d933b2bdab5e4424e8afe43743600746749c7af6cfdd6415635c72c93482a359"
+    },
+    {
+      "id": "da:låne",
+      "textDa": "Lån cyklen, kør lige frem, og kom tilbage før seks.",
+      "sourceHash": "ccde74249716cf9ba8431ccc507d8a223f364bf746931aff0bc02e307756e005"
+    },
+    {
+      "id": "da:sorg",
+      "textDa": "Efter sorgen går hun langsomt videre og op mod lyset.",
+      "sourceHash": "145a3e0209108378e6841025e87326449556da0338f25ba508bc6f11d486359b"
+    },
+    {
+      "id": "da:norsk",
+      "textDa": "På det norske kort går ruten ud af byen og ind i skoven.",
+      "sourceHash": "42a540cf98b76331d03b7399d727f5b86166e3488879fdc6c907016249b490de"
+    },
+    {
+      "id": "da:gemme",
+      "textDa": "Gem nøglen nede i skuffen, ikke oppe på hylden.",
+      "sourceHash": "51d6eb233a286c823db3be999d1ad914f6eb5d2268d49192b1075b8235cd5d38"
+    },
+    {
+      "id": "da:hold",
+      "textDa": "Hold jer inde, og vent hjemme hos os.",
+      "sourceHash": "9e2d665f490fd647c339c9a20fefabdf0b20c96dbf4f5adc6259e47f65106448"
+    },
+    {
+      "id": "da:taske",
+      "textDa": "Læg kortet ind i tasken, som står mod væggen.",
+      "sourceHash": "8bdb747165db11e3cab0ea020ddcd41bbe3ad47487cc3aced627d51d59203e07"
+    },
+    {
+      "id": "da:smide",
+      "textDa": "Smid papiret væk, og gå imod døren.",
+      "sourceHash": "50ea51cac4b06757c9a7ba3eff5681905e16ab356273476b0c4d45091faff9b9"
+    },
+    {
+      "id": "da:fransk",
+      "textDa": "Det franske kort spørger “Hvorhen?” ved hver pil.",
+      "sourceHash": "d5fc6e76f356d8d9be1d9996541f09dfa24020397f24568162894841b12bdfbe"
+    },
+    {
+      "id": "da:bro",
+      "textDa": "Broen ligger for enden af stien langs åen, efter svinget omkring søen.",
+      "sourceHash": "19ab618027ad2675ad37fd7a914cd964cc4459966f24793d3690e6aab12a2622"
+    },
+    {
+      "id": "da:opleve",
+      "textDa": "På rejsen oplever vi både vejen frem og turen tilbage.",
+      "sourceHash": "2e5e7825545a0d6586d012cb477027c4a2e3dd40b82ddad394c1200048cb9bee"
+    },
+    {
+      "id": "da:bageri",
+      "textDa": "Stå af ved bageriet, og gå langs åen.",
+      "sourceHash": "1bdb89f0b7748ff87c38e5fbf69b5b3406b10f86a11f2ab3132231e0b6687251"
+    },
+    {
+      "id": "da:spansk",
+      "textDa": "Drej til venstre efter det spanske skilt.",
+      "sourceHash": "9a2d2651ea873075aee2072ccc914754d7704266ff39f73fced3ccf320e0251d"
+    },
+    {
+      "id": "da:kuffert",
+      "textDa": "“En billet til Aarhus, tak,” siger hun og lægger den i kufferten.",
+      "sourceHash": "fc4b9bf34b48ec7c18b695726124875fa495c0fcbed92e287156139b4b1478a5"
+    },
+    {
+      "id": "da:nyde",
+      "textDa": "“En billet til parken, tak,” siger vi, før vi nyder turen med bussen.",
+      "sourceHash": "1c48a9611e9f66eada172a6868008a02fcbf29c853f1b6fc2b1a8d05118e5357"
+    },
+    {
+      "id": "da:italiensk",
+      "textDa": "Den italienske restaurant ligger til højre for banken.",
+      "sourceHash": "13570c0c47b9d2f19b3a6708e2aa9cb6da1eff616d57b68295cc1b60b1966835"
+    },
+    {
+      "id": "da:kinesisk",
+      "textDa": "Gå fra det kinesiske marked til parken på fem minutter.",
+      "sourceHash": "23c25241cca2c3e6d30ca1239b0d9baba6b4903393feeadd1b22c3e7a045e438"
+    },
+    {
+      "id": "da:tallerken",
+      "textDa": "Sæt tallerkenen på bordet ved vinduet.",
+      "sourceHash": "91b05c813d031044eb8da34b1b1a56bdb6a127ed4100464180b71da642f6e2a8"
+    },
+    {
+      "id": "da:behøve",
+      "textDa": "Du behøver ikke gå over broen; tunnelen går under den.",
+      "sourceHash": "5f0f3d7bd72c89693afa5ea9e643feb7b0c5beab1d8cdd3e0f014ce667351ff8"
+    },
+    {
+      "id": "da:russisk",
+      "textDa": "Det russiske skilt står bag træet foran huset.",
+      "sourceHash": "35ccf67902e21d915d6886c38f603a5f0ac2d4bcaa689d6efc4dd5911cccee4f"
+    },
+    {
+      "id": "da:kniv",
+      "textDa": "Kniven ligger mellem gaflen og skeen langs kanten.",
+      "sourceHash": "acc24945f40e2a466ea6853e145babb757474342719ff66216f03dc8f9825f72"
+    },
+    {
+      "id": "da:rygsæk",
+      "textDa": "Bær rygsækken omkring søen og gennem skoven.",
+      "sourceHash": "26fcb5ccecea7bd1e9227fdccb9a8e9170da2b047db55721cb1ea9280afad0e5"
+    },
+    {
+      "id": "da:savne",
+      "textDa": "Jeg savner at gå lige frem ad den korte vej og tilbage gennem parken.",
+      "sourceHash": "ad255bf2f8f702b7b3eddd2adf8cf7485083162c3833bf7e8f81112e0c2d611f"
+    },
+    {
+      "id": "da:udenlandsk",
+      "textDa": "Den udenlandske gæst går videre op til udsigten.",
+      "sourceHash": "31b424a2222563cc8ce600ad4d7e2a9e5947e31bd5a52c4b9ae75563cb38cca7"
+    },
+    {
+      "id": "da:gaffel",
+      "textDa": "Tag en gaffel ud af skuffen og ned til bordet.",
+      "sourceHash": "4a98a9c4f1fb8947a6ef08780a560382390df43e370b4491ec5194f4d6ce28c4"
+    },
+    {
+      "id": "da:forsøge",
+      "textDa": "Forsøg at gå ned først og op bagefter.",
+      "sourceHash": "77ddc539387fd632887962a906d0354f67fe0b851db4b8b37248373c3037c748"
+    },
+    {
+      "id": "da:efterår",
+      "textDa": "Om efteråret er vi ofte inde, mens hunden er ude.",
+      "sourceHash": "e4636436b14da737854513bf36762ad1977b53b6719e9ee69f5506fad83add47"
+    },
+    {
+      "id": "da:senere",
+      "textDa": "Senere mødes vi hjemme hos dig og går videre derfra.",
+      "sourceHash": "ca303a8e7707b24560510792c392da7ac3c87e12c5d1eb0ef183a6ee47742fea"
+    },
+    {
+      "id": "da:pude",
+      "textDa": "Puden ligger nede på gulvet, ikke oppe i sengen.",
+      "sourceHash": "e9b87e97ecac6a79f5fff7565ccf5aee372aeeb978b21b78cf6a67bd8fa10a61"
+    },
+    {
+      "id": "da:undgå",
+      "textDa": "Undgå vejen mod havnen, og gå uden om centrum.",
+      "sourceHash": "6bf4bbef069c553ab2fa991e582faa48f1e511a07e9bbfb9bfd77c28687a2921"
+    },
+    {
+      "id": "da:håndklæde",
+      "textDa": "Hæng håndklædet væk fra døren og hen imod vinduet.",
+      "sourceHash": "4e8ac4fe1bb9197cfd2be829d8c949cfd3c72bddafad48ea4cbafe83abb0b163"
+    },
+    {
+      "id": "da:opdage",
+      "textDa": "Hun opdager en sti fra huset til søen.",
+      "sourceHash": "621e49133398761336526ecd9f7f97d110983dceca3063bb8b3ee2a22cc8df0e"
+    },
+    {
+      "id": "da:varme",
+      "textDa": "Ude på terrassen holder den høje mur på varmen.",
+      "sourceHash": "1535fea0dc1f0c658e0629038ecbf8264fa5be3a03bc856f15ce0a89235283b5"
+    },
+    {
+      "id": "da:beslutte",
+      "textDa": "Beslut, om vi går over bakken eller under broen.",
+      "sourceHash": "64bca0893ca0853931fa775f16d93eb4f3acd36fd90a1a3fdb1f7fa6a5d75e9d"
+    },
+    {
+      "id": "da:dårligt",
+      "textDa": "Han ser dårligt bag ruden, men godt foran den.",
+      "sourceHash": "f5f53a1bcf556f0e3e986c29f2a85eca026a195188da1298cbc9f5e4aeb4660c"
+    },
+    {
+      "id": "da:fodbold",
+      "textDa": "Fodbolden ligger mellem stolene langs væggen.",
+      "sourceHash": "8854c6aba32c2dc315779b4c21ff5211967f8807172373402e4e9e748b961124"
+    },
+    {
+      "id": "da:svømning",
+      "textDa": "Til svømning går vi omkring hallen og gennem hoveddøren.",
+      "sourceHash": "2d121c323f8b78ecb25b8731aa36f1c5e42f52f53498c486f5add4c2c7ff9201"
+    },
+    {
+      "id": "da:bestille",
+      "textDa": "Bestil bordet, gå lige frem, og vent der.",
+      "sourceHash": "dfd06e7c2a0887fd48a97dc40b002bb13fd4244cf8aa525edab2fcfb9019b5d2"
+    },
+    {
+      "id": "da:sok",
+      "textDa": "Sokken ligger tilbage i tasken; tag den op, før vi går videre.",
+      "sourceHash": "4ba18bb45c87af03c6cb881a94ba1ff7e084861b92efa6bfefe579816379cfd7"
+    },
+    {
+      "id": "da:bekymret",
+      "textDa": "Hun er bekymret, når barnet går ud og ikke kommer ind.",
+      "sourceHash": "dcd6d3f9b506226c31e1e7875d116d3a52b45b248fcb97e1860e063ee974f129"
+    },
+    {
+      "id": "da:overalt",
+      "textDa": "Der er pile overalt: nogle peger op, og andre peger ned.",
+      "sourceHash": "097149e5661b064cfdfa9ee7b0d3411af8fc354e0e6c2ca8776ef46b48c57a2f"
+    },
+    {
+      "id": "da:medicin",
+      "textDa": "Medicinen står oppe i skabet, mens glasset er nede.",
+      "sourceHash": "9ec8793fff435107ee749a0c69c316c174248f22b83c18693485da1661edafc5"
+    },
+    {
+      "id": "da:udenfor",
+      "textDa": "Hunden er ude; kig ned, før du går hen til den udenfor.",
+      "sourceHash": "93adb38eb8209c845fe7212a8de173fde8828f68b14526dbbcebc91f2ec5f747"
+    },
+    {
+      "id": "da:tilbyde",
+      "textDa": "Hos bageren tilbyder de kaffe uden mælk.",
+      "sourceHash": "2bb1a6be3c7e75de7fc0701726729804956c025de98df9bf522227900c675b9e"
+    },
+    {
+      "id": "da:besked",
+      "textDa": "Beskeden siger, at toget kører mod Aarhus og væk fra Aalborg.",
+      "sourceHash": "a6ae680b92de94ce0b92244bd816a1c631511d5346abef3a534af30a81c56255"
+    },
+    {
+      "id": "da:forlade",
+      "textDa": "Hvorhen vil I gå, når I forlader huset: hjem eller imod byen?",
+      "sourceHash": "ce099a124f5c5caff154dd7200495fa3bc3b7b58086f06269137ceeef6de7ca2"
+    },
+    {
+      "id": "da:træt",
+      "textDa": "Den trætte gæst går fra stationen til hotellet.",
+      "sourceHash": "6a924a5ff62b34fc68a83511cfa6e48ef24b9b780cbb8f4974963b4747fc4522"
+    },
+    {
+      "id": "da:middag",
+      "textDa": "Middagen står på bordet ved vinduet.",
+      "sourceHash": "3c2bdddad6112ee50cc2d04449fdbfa47e24081c83ffb36df9888c5a36ccbc1f"
+    },
+    {
+      "id": "da:bygge",
+      "textDa": "De bygger en tunnel under vejen og en bro over åen.",
+      "sourceHash": "fee46af50f0c0e8990c327b4fc06834a6b503d3bb4b026213a04eda248e67019"
+    },
+    {
+      "id": "da:gryde",
+      "textDa": "Gryden står bag tallerkenen foran skålen.",
+      "sourceHash": "4e215ed5995a9171389a4ebb97796bc766732233c9a608f103b6a7693979cad4"
+    },
+    {
+      "id": "da:sjov",
+      "textDa": "Den sjove rute går mellem husene langs kanalen.",
+      "sourceHash": "5d7175de853c1aed435b532d050f19737cf7e38869cdf95ce22bdd2f2c00915c"
+    },
+    {
+      "id": "da:tur",
+      "textDa": "Går turen omkring søen og derefter gennem skoven?",
+      "sourceHash": "039f0fe083f7162693fd41b95d76c86bb15f853f611ec51008e8bc1608e3092c"
+    },
+    {
+      "id": "da:drømme",
+      "textDa": "Jeg drømmer om at gå lige frem uden at vende tilbage.",
+      "sourceHash": "dddab6e162bbdcd548b26918003997bdb336003a77e022b9992f05b910da70f4"
+    },
+    {
+      "id": "da:skulder",
+      "textDa": "Tasken hænger over min skulder, mens hånden er under remmen.",
+      "sourceHash": "ece24504a57e8319c87d0484f65acbcb12bdc84abeaaf3668ba57541462132d7"
+    },
+    {
+      "id": "da:kedelig",
+      "textDa": "Den kedelige vej går videre op og ud af byen.",
+      "sourceHash": "627558bfe3ef84849948a16c964d6a707c163a144ae3f70a0ea2d3896def7d91"
+    },
+    {
+      "id": "da:lomme",
+      "textDa": "Læg kortet ind i lommen, og tag billetten ud.",
+      "sourceHash": "699891c5b7c1e706a7f2037e7107e88265456cd11c2e59f92547e964c3d89933"
+    },
+    {
+      "id": "da:gave",
+      "textDa": "Gaven ligger nede i kassen, ikke oppe på hylden.",
+      "sourceHash": "9aff1fa5285531fd108c9ecfcd9c4abb43935671061d86fe66767a744265cd4d"
+    },
+    {
+      "id": "da:grad",
+      "textDa": "Det er fem grader ude, men tyve grader inde.",
+      "sourceHash": "7408edcea2a3ed044d85cff6f96ed112420f4eb4dc7030c013dc3298cf38969c"
+    },
+    {
+      "id": "da:tillid",
+      "textDa": "Jeg har tillid til lægen hjemme hos os.",
+      "sourceHash": "8ac37072e017f5f55da74739545b5a3070993d0d75df866a5206d6d2c472f3d9"
+    },
+    {
+      "id": "da:tvivl",
+      "textDa": "Uden tvivl går vi mod stationen og væk fra trafikken.",
+      "sourceHash": "b9beb181b1afc0dc0f875af2dab44b19f9b8973d2ac13b11f6118d4ddc47d845"
+    },
+    {
+      "id": "da:indenfor",
+      "textDa": "Kom indenfor, så er vi helt samlet og kan arbejde sammen.",
+      "sourceHash": "f48e4774ab5edc66e3177257842f2fa3157ce3eb515aa595e09ba3d82b2c6fe1"
+    },
+    {
+      "id": "da:skifte",
+      "textDa": "Vi skifter alle på samme tid, fordi begge rum er ledige.",
+      "sourceHash": "ba4478db06838fe85d3134ef6d37a70087b32f62d73f5ff24840931a1511fb54"
+    },
+    {
+      "id": "da:kræve",
+      "textDa": "Alt arbejdet kræver begge hænder, men det er ret let.",
+      "sourceHash": "6e2de4acf1623b712e523f288c88f3fdb0d834cdfc5844bc849f3fdb7afe2b9f"
+    },
+    {
+      "id": "da:brun",
+      "textDa": "Hver brun støvle har sit mærke, og hvert mærke er tydeligt.",
+      "sourceHash": "9d90bd146e3a9b5bd15255e9ba9e9912bf2a48bdce5087d5f49b33829e789b64"
+    },
+    {
+      "id": "da:miste",
+      "textDa": "Selvfølgelig vil jeg ikke miste din pung; den er helt sikker her.",
+      "sourceHash": "35d870ec3b9ff35771fadd522fef87929836c898f253db415bfdc7a8a4235421"
+    },
+    {
+      "id": "da:pleje",
+      "textDa": "Vi plejer at spise sammen ved det samme bord.",
+      "sourceHash": "8b49eef25c91adc6713f96d3b95be4f21478a6157391f3fee2e3713888f81f5d"
+    },
+    {
+      "id": "da:skuffet",
+      "textDa": "Alle er skuffede, fordi alt blev aflyst.",
+      "sourceHash": "573014e7ee62df89d7c69ee1f55401bbd7631c3c67396b4b807627c5eaf2fb60"
+    },
+    {
+      "id": "da:frugt",
+      "textDa": "Begge børn får frugt, og hver får to stykker.",
+      "sourceHash": "6a8708bbeb75f78484728ec94d48b8e4dc59344e82de902d8f3a36aa92f95b28"
+    },
+    {
+      "id": "da:vare",
+      "textDa": "Hvert møde varer en time, og selvfølgelig kommer alle til tiden.",
+      "sourceHash": "672055b3ba1806fd97bd390efd3d3e48df85f34c6751f4ac620f7b1e86733366"
+    },
+    {
+      "id": "da:internet",
+      "textDa": "Internettet er helt nede, så vi gør alt uden det.",
+      "sourceHash": "3c1bc43d3e24d81966d320c60461a9eb10dbe86b0b0da0b3158d95f2baca29ec"
+    },
+    {
+      "id": "da:interessant",
+      "textDa": "Den samme bog er virkelig interessant for os begge.",
+      "sourceHash": "6789e89dec09ed7ebd60bc9f863ed5ad9fc2848a46bb73c18ac368ccfebd96da"
+    },
+    {
+      "id": "da:mail",
+      "textDa": "Hver mail har det samme emne, men alle svar er forskellige.",
+      "sourceHash": "3da8c83412e7cac768b19fcfb8e409f3a1622ac8595f91b7492df7ee2349be37"
+    },
+    {
+      "id": "da:lykkes",
+      "textDa": "Alt lykkes, fordi begge arbejder helt roligt sammen.",
+      "sourceHash": "046e3c1b4836970daef3190e808f74caf7d13fc8966f3a11f20f735f6e02d1de"
+    },
+    {
+      "id": "da:program",
+      "textDa": "Hvert program er ganske kort, og selvfølgelig ser vi dem alle.",
+      "sourceHash": "1f23a89967cf18f831cbe8da2a64419223cbcf5d233acf6598d4313263186082"
+    },
+    {
+      "id": "da:spændende",
+      "textDa": "Begge kampe er spændende, men den samme spiller vinder hver gang.",
+      "sourceHash": "1abb57e3d4a6066ce1f2c2f72bb1fa1acf6dc12c9967ac11fc0b195c49174871"
+    },
+    {
+      "id": "da:bestemme",
+      "textDa": "Bestem selv, om vi skal gøre alt sammen eller dele arbejdet.",
+      "sourceHash": "29b4da11127e5c1efaddb259da9f374eb4c49496122163219528810988a2a6b6"
+    },
+    {
+      "id": "da:fjernsyn",
+      "textDa": "Alle ser fjernsyn, fordi det samme program er temmelig populært.",
+      "sourceHash": "29f4b6043cd7ef261f72f773954d0dadce3d4ca02590eb20dd8fafc03d2610cc"
+    },
+    {
+      "id": "da:undersøge",
+      "textDa": "Lægen undersøger begge knæ og hvert ben helt grundigt.",
+      "sourceHash": "d5fb6c8d58be4d7e99755b04ca50e1be7ae12eeb95bf27e1d4f120582906335f"
+    },
+    {
+      "id": "da:nabo",
+      "textDa": "Hver nabo hjælper, og selvfølgelig gør alle lidt.",
+      "sourceHash": "e2777ad9b45b3c3d17150c2fa77a685ab89e5e4538c8ad3ae66a052dabdb5bc0"
+    },
+    {
+      "id": "da:mærkelig",
+      "textDa": "Det er helt mærkeligt, at begge ure viser samme tid.",
+      "sourceHash": "2336b3a1c186967f5331a4d204aea223d3eb2fe478f94180dd32ef46bebe1f10"
+    },
+    {
+      "id": "da:kunde",
+      "textDa": "Alle kunder venter sammen, fordi hver kasse er lukket.",
+      "sourceHash": "98079c98c7f5975e5d7bbd357750f8da28b6de7cc8184d0e89b7d8b0602626a2"
+    },
+    {
+      "id": "da:forklare",
+      "textDa": "Forklar alt for os begge på samme rolige måde.",
+      "sourceHash": "114e9b4b10e4da884131f676fc472fe6c155d3d15b3c8d8bd9a5be11ce4bdb28"
+    },
+    {
+      "id": "da:ild",
+      "textDa": "Hvert barn sidder ved ilden, og alle holder sig helt varme.",
+      "sourceHash": "20d89b8feb1aa1b38c4555e9b574a2a33ec07d2ee52a2f13a75e69d3957c4ca6"
+    },
+    {
+      "id": "da:fantastisk",
+      "textDa": "Begge ture er fantastiske, så selvfølgelig vælger vi dem sammen.",
+      "sourceHash": "857e6417f9fa8bbfcc1a02d1502a3b0a15ece06e2390801899f54fa71614aa43"
+    },
+    {
+      "id": "da:overveje",
+      "textDa": "Vi overvejer alle muligheder, men vælger den samme til sidst.",
+      "sourceHash": "b42daebb91185928deebce8bffe342cc91395fcc8ef20d0b96f4183c36b6babe"
+    },
+    {
+      "id": "da:måltid",
+      "textDa": "Hvert måltid er ret enkelt, men begge retter smager godt.",
+      "sourceHash": "f144c6dec99df0ffe4cc0cb0935207a76d011392b5b84a18c58eda17b9ea2efb"
+    },
+    {
+      "id": "da:suppe",
+      "textDa": "Al suppen er helt varm, fordi gryden står med låg på; vi spiser den sammen.",
+      "sourceHash": "308adba497521afe31a876bdc8d4ca7c93302d96da0049cf9bf65e8052c43267"
+    },
+    {
+      "id": "da:vurdere",
+      "textDa": "Læreren vurderer alle opgaver efter samme regel.",
+      "sourceHash": "9494b668ba7c7801321b1476b49961fe0e22d056c0cf53f211a4757ad8cbc79e"
+    },
+    {
+      "id": "da:overrasket",
+      "textDa": "Vi er begge virkelig overraskede, fordi alt er færdigt.",
+      "sourceHash": "7462cca9f33c8a0a3b928bf8d31f89abd47d462505e16752cdafa95f9aeee223"
+    },
+    {
+      "id": "da:salat",
+      "textDa": "Hver salat har sit eget navn, og vi smager selvfølgelig på dem alle.",
+      "sourceHash": "e7ece1f3466ad5cad7ca0254b68972550fc3d0eabe5433f4690e0b55017e9867"
+    },
+    {
+      "id": "da:behandle",
+      "textDa": "Lægen behandler begge patienter helt ens, fordi de har samme skade.",
+      "sourceHash": "2900c122751aa5459e2e81cba843666fdb3fe40e8a637a382c0fa81a1a6a05cf"
+    },
+    {
+      "id": "da:is",
+      "textDa": "Vi deler den samme is, og alle får lidt.",
+      "sourceHash": "f8e61336023b880f743066a2712ed5bd4a7184df2b6373b92268494bb8781554"
+    },
+    {
+      "id": "da:forfærdelig",
+      "textDa": "Alt er vådt, og vejret er forfærdeligt, men vi er sammen.",
+      "sourceHash": "5ca805a35c64c59b30ddefbd539445bfdf2a2bad6048fddcdb74b26c530fb336"
+    },
+    {
+      "id": "da:kylling",
+      "textDa": "Begge børn spiser kylling, og hver har sin tallerken.",
+      "sourceHash": "71f870d640f998fb053010e2e947e04d56d660fe727981c2b213b47016ae61ca"
+    },
+    {
+      "id": "da:indeholde",
+      "textDa": "Hvert glas kan indeholde det samme som flasken, men ikke alle er fulde.",
+      "sourceHash": "bb0fae3aa89043a6cb6cde870800853f25a4169c5f64776d950d70a2a008be6d"
+    },
+    {
+      "id": "da:pizza",
+      "textDa": "Selvfølgelig deler vi pizzaen helt lige mellem os begge.",
+      "sourceHash": "a7d64f3a330a42305a085553d3297365e3fb2ac4989012d9680046f22d5e7618"
+    },
+    {
+      "id": "da:perfekt",
+      "textDa": "Den samme dag er perfekt for alle, fordi vi er sammen.",
+      "sourceHash": "02fe79e942d0f989407c3a9ab823a1456a6c5137ec1194ab0f0c8c1ad2abaec5"
+    },
+    {
+      "id": "da:opnå",
+      "textDa": "Begge kan opnå alt, hvis hver gør sit bedste.",
+      "sourceHash": "351895e9e58fc1badc298fa35b32c6e084c574a86b4cc7edf1bbdddce4999151"
+    },
+    {
+      "id": "da:pølse",
+      "textDa": "Hver pølse koster det samme, og alle er helt varme.",
+      "sourceHash": "a1a736940d57673eb65846f87cd3bbafb6956a4aa70a4cfb2e849199d3aa7005"
+    },
+    {
+      "id": "da:tomat",
+      "textDa": "Selvfølgelig vasker vi alle tomaterne sammen.",
+      "sourceHash": "c3f93acfd9c0e6882ee7ec5de8ded46f05399eb4a5ce27d4c41f51a3b9d6a273"
+    },
+    {
+      "id": "da:kæmpe",
+      "textDa": "Begge hold kæmper, fordi hver spiller vil vinde.",
+      "sourceHash": "b7363ec9ce75f47fe95cb6ed123a996064987e191432c21c0883725016ab5e32"
+    },
+    {
+      "id": "da:forkert",
+      "textDa": "Alt er forkert, fordi vi gør det samme én gang til.",
+      "sourceHash": "9bc6c7f851f58b19094619326dc4c79596d49423514192d75a9815f74553418b"
+    },
+    {
+      "id": "da:tørklæde",
+      "textDa": "Hvert tørklæde er ganske blødt, og begge er brune.",
+      "sourceHash": "0668e7b8be855c76de91b1d206482f794aad96bdfba7e32e3adbfa4900daaba5"
+    },
+    {
+      "id": "da:støtte",
+      "textDa": "Vi støtter alle det samme hold, fordi vi er sammen.",
+      "sourceHash": "8f1dc0225d5bd46d5dfd7640d535fc22063271a83e0cd96b71fe52dcdf2cb2cf"
+    },
+    {
+      "id": "da:pille",
+      "textDa": "Tag hver pille som aftalt, og tag selvfølgelig ikke begge på én gang.",
+      "sourceHash": "a967fdef66bcb65f330936942590256085f63d8a90fe8b6cdd0eb1be97165fff"
+    },
+    {
+      "id": "da:ægte",
+      "textDa": "Begge ringe er ægte, men ikke alle stenene er det.",
+      "sourceHash": "d703eeda0274d15b95c2f7e82a16e705bc67e05af6d93610fc7110667341c9a4"
+    },
+    {
+      "id": "da:børnehave",
+      "textDa": "Hvert barn i børnehaven har den samme lille stol.",
+      "sourceHash": "ef737493b3803357e47ab1ba19394d813cf59a33fda85e082933c560cc2127c5"
+    },
+    {
+      "id": "da:lede",
+      "textDa": "Vi leder alle sammen, fordi begge nøgler er væk.",
+      "sourceHash": "402ef9ff719cdc1d649cffdff6c339f5c8edf60d1a41aa52f5274aa1c811586f"
+    },
+    {
+      "id": "da:klub",
+      "textDa": "Selvfølgelig er hver klub forskellig, men alle følger reglerne.",
+      "sourceHash": "821c6b4c89033f99e1b084e50dfa8a1ca9e59ec7725a7d826833fe35954ab2b4"
+    },
+    {
+      "id": "da:deltage",
+      "textDa": "Begge vil deltage, og de gør alt sammen.",
+      "sourceHash": "0446179d0e71f8ff17b0dd4f7309ca5afe5a8cc88484425a59b0cdbf4bba89f7"
+    },
+    {
+      "id": "da:tidlig",
+      "textDa": "Den tidlige færge passer ret godt for os begge.",
+      "sourceHash": "e5872e1bec9ef0cda0d07a7b66c18cec9bf756830ec70183640ff1397e18f798"
+    },
+    {
+      "id": "da:sæbe",
+      "textDa": "Hver sæbe dufter virkelig godt, men ikke helt ens.",
+      "sourceHash": "6fa108bbefdcebd52b57d8e9e335c7ffac2ad4a77585149d733b7d397eefc1eb"
+    },
+    {
+      "id": "da:opstå",
+      "textDa": "Der kan opstå problemer, fordi begge maskiner gør det samme.",
+      "sourceHash": "d9e2be5a01421141652c334a85a9b091575afb526dea64b022953c68957a1e13"
+    },
+    {
+      "id": "da:banan",
+      "textDa": "Alle får en banan, og hver banan er ganske moden.",
+      "sourceHash": "ba843eda90ce11ebe7f543edfaa370b0962fb490d36b3316119dc63119a1149c"
+    },
+    {
+      "id": "da:lys",
+      "textDa": "Begge værelser er lyse, men det ene er temmelig lille.",
+      "sourceHash": "5cc275ffc32a627e2a452e6980b9f345e247fc62ed337ecaa82f10ed40b6d91e"
+    },
+    {
+      "id": "da:politiker",
+      "textDa": "Hver politiker svarer, og alle bruger næsten de samme ord.",
+      "sourceHash": "9bcf4a289aa900550b7bb2787d1b7f7334fa1ea34799c6555c8cae159c4278e7"
+    },
+    {
+      "id": "da:regne",
+      "textDa": "Det regner helt vildt, så vi bliver alle sammen inde.",
+      "sourceHash": "bb91778bb561696925e98cb315b03bc08e676e8efa81a92a14274aaba1d5c18e"
+    },
+    {
+      "id": "da:knæ",
+      "textDa": "Begge knæ gør ondt, men det højre gør mest ondt.",
+      "sourceHash": "5e60cd8bec08cefcbb86baff54c3c1c48e913870552ecce2321cc0ed12391103"
+    },
+    {
+      "id": "da:nævne",
+      "textDa": "Hun kan nævne alle navnene, fordi hun kender dem begge.",
+      "sourceHash": "b2993d4fa6f5cb3696cb1157b2b11f98bf28969c8a1a6797146c338d296f8dd9"
+    },
+    {
+      "id": "da:spændt",
+      "textDa": "Vi er alle spændte og helt klar til det samme løb.",
+      "sourceHash": "416408816e297cedbe44193eae115371ed37f946e8e9eb17d3c630640970ada5"
+    },
+    {
+      "id": "da:pasta",
+      "textDa": "Pastaen er virkelig lækker, så selvfølgelig spiser vi alt.",
+      "sourceHash": "4d2aa401d0c105150987ce1c7ffca9a85d5a3ba878a34fa96348225be92d4721"
+    },
+    {
+      "id": "da:nyhed",
+      "textDa": "Begge aviser har den samme nyhed, og alle læser den sammen.",
+      "sourceHash": "b2ddd0b49cd3d7aebd8c78b7c86afad2e31d901e6f7ae71f56adbc29ccdf2948"
+    },
+    {
+      "id": "da:beskrive",
+      "textDa": "Kan du beskrive hvert billede og begge personer?",
+      "sourceHash": "aa936009824a203ba50999b43b377ffc5cee5aaeb950bdbc2a5ac23d985e9f82"
+    },
+    {
+      "id": "da:smuk",
+      "textDa": "Hver udsigt er smuk, men denne er virkelig særlig.",
+      "sourceHash": "b821d113b02afb682c6be385dd11da49af122ece83f82ba72d821196c40198a0"
+    },
+    {
+      "id": "da:ovn",
+      "textDa": "Ovnen er ganske varm, fordi begge varmelegemer er tændt.",
+      "sourceHash": "962fd1dc8e415f07fb19d16a61b0acd5bce46d9495c0689bb88321fcf7bab3c6"
+    },
+    {
+      "id": "da:foreslå",
+      "textDa": "Jeg vil foreslå den samme plan for jer alle.",
+      "sourceHash": "28c6d884747dd1dd5f7df5df9985633cb4c337e61d28e395339486839832acbd"
+    },
+    {
+      "id": "da:radio",
+      "textDa": "Hver radio spiller noget forskelligt, men begge er ret høje.",
+      "sourceHash": "965dc932a7716323868e2aba7d0940d7e02b082c86ad6a513c970ecd6bc67a87"
+    },
+    {
+      "id": "da:sød",
+      "textDa": "Kagen er temmelig sød, så vi deler den alle sammen.",
+      "sourceHash": "3fd64111255648e0f82f6b1d78337f30d09f791c4675050cf5e5a973ff0b85ee"
+    },
+    {
+      "id": "da:recept",
+      "textDa": "Hver recept gælder samme medicin, og begge er helt tydeligt skrevet.",
+      "sourceHash": "a193472452f35723bda46d235a06917b964e130adccf5912a03af785c944a618"
+    },
+    {
+      "id": "da:acceptere",
+      "textDa": "Selvfølgelig accepterer vi begge tilbud, fordi de er gode.",
+      "sourceHash": "0bc35674c5928cf83b7b829d7535ad00ee57e2873b23d9eda5fd957721ccd09a"
+    },
+    {
+      "id": "da:kulde",
+      "textDa": "I kulden bliver vi alle sammen hjemme.",
+      "sourceHash": "d0c5270d6e3ffddd9909897c23ec951625709baa057b07ce8c67b05ab5107711"
+    },
+    {
+      "id": "da:tillade",
+      "textDa": "Reglerne tillader ikke alt, men de er ens for alle.",
+      "sourceHash": "49284eec1ef4f42f44fda88ec053c4447de2f6845de02b4aaf8bfabe8b692e81"
+    },
+    {
+      "id": "da:avis",
+      "textDa": "Begge aviser har den samme historie, men hver avis sætter den på en forskellig side.",
+      "sourceHash": "7a31a43d43f23226d94db8457a59fa015cd3aa34a394bd308ef1c7a40b4bc70a"
+    },
+    {
+      "id": "da:lækker",
+      "textDa": "Alt brødet er lækkert, og begge kager er virkelig gode.",
+      "sourceHash": "8807494f6e51ceebabe0f561e8569c61c7e8326e84f740ea002492bd8664b25c"
+    },
+    {
+      "id": "da:brev",
+      "textDa": "Hvert brev kommer fra samme sted, men alle har forskellige navne.",
+      "sourceHash": "364d4c07b07224a3fa318428490e3c84db2c837c3f751fe5e5ab6f7dcb02e379"
+    },
+    {
+      "id": "da:afvise",
+      "textDa": "De afviser begge forslag, fordi hvert er for dyrt.",
+      "sourceHash": "d7c1e7e2f256f93069d46b29d5f98fd9c96c66211e23d14444abb6e09f9adbe5"
+    },
+    {
+      "id": "da:frisk",
+      "textDa": "Hver tomat er frisk, og selvfølgelig bruger vi dem alle.",
+      "sourceHash": "3b18cb45c973656410b637bb3647251b2434f7939700ae74548306ce307e2f23"
+    },
+    {
+      "id": "da:bælte",
+      "textDa": "Begge bælter er ret lange, men ikke helt ens.",
+      "sourceHash": "2863d353d239e8912e71515b9ec8002e643f020d15142b1e5fa9dede334a5c35"
+    },
+    {
+      "id": "da:tekst",
+      "textDa": "Læs hele teksten, og forklar alt med dine egne ord.",
+      "sourceHash": "d83139846a4def63a1211ce85c07b0d8ed734413c29e0abfa2c33d410fbf00c0"
+    },
+    {
+      "id": "da:påstå",
+      "textDa": "Hun vil påstå det samme, fordi begge vidner er enige.",
+      "sourceHash": "920bece7c29f8402defbc896023c74efca0b82aa78344363f832e909d0cd0f7b"
+    },
+    {
+      "id": "da:indrømme",
+      "textDa": "Til sidst vil han indrømme alt, og selvfølgelig lytter vi.",
+      "sourceHash": "3400a53369500ae27ca5a29852add75a6fdb7f5133dd408bc4f9eb6fde466a41"
+    },
+    {
+      "id": "da:sten",
+      "textDa": "Hver sten er tung, men begge kan løftes sammen.",
+      "sourceHash": "757c579bd2e95043ff97f2103e8ecdf1fd74826849145a7cd0395e0a4e086aab"
+    },
+    {
+      "id": "da:sulten",
+      "textDa": "Vi er alle sultne, fordi vi ikke har spist noget.",
+      "sourceHash": "0335659d401935ae68569e44ee2c4c9c953f01f5407e944965945e7f326534c5"
+    },
+    {
+      "id": "da:tandbørste",
+      "textDa": "Begge tandbørster står i det samme glas.",
+      "sourceHash": "a53fd22509975fb2550ece8b55e85ec08875b950df0ca9bfc1eb1b8b54e0bf7c"
+    },
+    {
+      "id": "da:påvirke",
+      "textDa": "Vejret kan påvirke os alle, men ikke helt på samme måde.",
+      "sourceHash": "34001be1924295cb7ba85661f8f0b6b9aead4721032dd42bda2aec121faac3e2"
+    },
+    {
+      "id": "da:heldig",
+      "textDa": "Begge er heldige, og hver får en gave.",
+      "sourceHash": "54755fb1feafc98eb372b6175da6b1a5314744992e7af6774ca381ad5739d681"
+    },
+    {
+      "id": "da:sen",
+      "textDa": "Den sene færge passer ganske godt, fordi vi alle er klar.",
+      "sourceHash": "feafba50c036c7ad4302a575426dbf07fd83317b132422ac1bd5799e12cc4934"
+    },
+    {
+      "id": "da:pas",
+      "textDa": "Hvert pas har et nummer, og begge ligger samme sted.",
+      "sourceHash": "6b72a301ad118f6be73e01c0a485aeca6f9d3acc7332d0abbe452d6e187f19ad"
+    },
+    {
+      "id": "da:samle",
+      "textDa": "Vi samler alt sammen, så hvert bord bliver tomt.",
+      "sourceHash": "b2a6b4fd37c53e4a39d42a86d81c26845ebe7ef106d46922e739d32b8591327f"
+    },
+    {
+      "id": "da:bygning",
+      "textDa": "Begge bygninger er temmelig gamle, men hver er helt sikker.",
+      "sourceHash": "8c07e15ede2d56748afe05fa8941b9c783199a221e6a7e4e8d4de3bfd564e545"
+    },
+    {
+      "id": "da:pung",
+      "textDa": "Min pung er væk, og jeg forstår ikke, hvor den er.",
+      "sourceHash": "a8be78123edd57bcc8eeebbab49870dc740031c442b266fd1d0a2fbd956b95cb"
+    },
+    {
+      "id": "da:gæst",
+      "textDa": "Hver gæst udfylder feltet “Jeg kommer fra …”.",
+      "sourceHash": "b08a87746e9d4a097695914215ebd8413d0880d13b3261b332f1b18f15fa426a"
+    },
+    {
+      "id": "da:dele",
+      "textDa": "Vi deler alt, og begge får helt samme mængde.",
+      "sourceHash": "60a604e504d5edf13431c4e20c1f5870d3d3b594993a53845a33769cdfe8f464"
+    },
+    {
+      "id": "da:fjerne",
+      "textDa": "Kan du sige det igen, mens du fjerner pletten?",
+      "sourceHash": "3dcc35fcf7e6a2f350486e2a071e057c1f789371b550836bd9b189a0f76648f4"
+    },
+    {
+      "id": "da:færge",
+      "textDa": "På skiltet står “Stå af ved færgen.”",
+      "sourceHash": "b03e3c4798a7fd8046d3d68614e934080af3383dda871e17d7832ce81d00e2a6"
+    },
+    {
+      "id": "da:tung",
+      "textDa": "Den tunge højttaler passer til et stort lokale. Eleven siger: “Lidt langsommere, tak.”",
+      "sourceHash": "15c5af9d54be1ff2f88fd4067510965386a9932576e570b60a627b5ea54b2de2"
+    },
+    {
+      "id": "da:ko",
+      "textDa": "Vi øver spørgsmålet “Hvad betyder ko?”",
+      "sourceHash": "5d7e8b03783958cb3f48ec0857dbcef28af7e08c6864e8ebee3431b5066ed129"
+    },
+    {
+      "id": "da:gris",
+      "textDa": "På kortet står spørgsmålet “Hvor er grisen?”",
+      "sourceHash": "561cb8a3f1b19a51238dd7455373b3b6ce70b185ca794267189cf933f4939b34"
+    },
+    {
+      "id": "da:dyne",
+      "textDa": "Jeg arbejder som sygeplejerske og lægger en dyne på sengen.",
+      "sourceHash": "50022242022d247a23c570774eb08130eefa8c085def1acbdf591867223343c7"
+    },
+    {
+      "id": "da:chokolade",
+      "textDa": "Mit telefonnummer er skrevet på kortet, som ligger sammen med chokoladen.",
+      "sourceHash": "b4dab3a991403d7fbb43058c2593b98e387df5b1c7f5df98e1624baa3450d83a"
+    },
+    {
+      "id": "da:styre",
+      "textDa": "Da stormen kom, styrede hun båden, som hun havde gjort før.",
+      "sourceHash": "04fefb634dd94028bcc3c02d29323501aed4ddde4341e98483575ae43657e996"
+    },
+    {
+      "id": "da:nægte",
+      "textDa": "Han nægtede straks at spise, fordi han var blevet syg.",
+      "sourceHash": "0a8ee4d68c7fe7736c3950e15f0a92e34db4f0f9fa8cf0dd4094fd1f336e4b28"
+    },
+    {
+      "id": "da:mørk",
+      "textDa": "Det blev pludselig mørkt, da solen forsvandt.",
+      "sourceHash": "381e30fd57f0178a716f13bbbdf0c366d4434b41dd86c54882e428cd68aa32b9"
+    },
+    {
+      "id": "da:gruppe",
+      "textDa": "Gruppen havde været samlet længe, men blev endelig færdig med arbejdet.",
+      "sourceHash": "9df0318602bececc0c7721d379a474a8a97fb192e21d1575c800dde82ea36dfd"
+    },
+    {
+      "id": "da:lyserød",
+      "textDa": "Hun havde haft en lyserød kjole, siden hun var barn.",
+      "sourceHash": "bfe793aa2b054ebde254a267af41602fe8c97a50c60324faad3deb004987f60a"
+    },
+    {
+      "id": "da:tilføje",
+      "textDa": "Da suppen blev kold, tilføjede kokken straks varmt vand.",
+      "sourceHash": "f7789e0ebcd61a6f31e3b81180f6a01cbb3fb2d17e52377e35dddadc012e9ca3"
+    },
+    {
+      "id": "da:tjene",
+      "textDa": "Hun ville blive kok, fordi hun havde tjent penge på en café.",
+      "sourceHash": "edc302cbf14f7025fb70ad05240bcffbb9fe3993573aa6e34c694611674c5b78"
+    },
+    {
+      "id": "da:lilla",
+      "textDa": "Blomsten var lilla, men er siden blevet helt hvid.",
+      "sourceHash": "83b52e9a5c7628b818590517324055c8f94670e17d4e39a55c4e9457b5416091"
+    },
+    {
+      "id": "da:får",
+      "textDa": "Fåret blev bange, da hunden pludselig kom løbende.",
+      "sourceHash": "083b9db4b500e7b154aa228220e8af2cbeb4951281901540b11412ce563c72db"
+    },
+    {
+      "id": "da:spare",
+      "textDa": "Vi havde sparet længe og gjorde endelig drømmen om rejsen mulig.",
+      "sourceHash": "1402e5dd81439f7483bb3dd0011cf4f66d842066d41ebb40d6d4e2100042a90f"
+    },
+    {
+      "id": "da:orange",
+      "textDa": "Den orange kop havde været væk, men blev fundet straks.",
+      "sourceHash": "47884773e5ef35de758f1bb07a635e00a7fd5a957ba4d6c560ae6ce53cda778a"
+    },
+    {
+      "id": "da:apotek",
+      "textDa": "Jeg har mistet recepten; hvad skal jeg gøre på apoteket?",
+      "sourceHash": "e66188815fdadef92adda5193ed239f1a45d91f134236d8fa756f1de50bb5c4f"
+    },
+    {
+      "id": "da:koncert",
+      "textDa": "Hvad skete der, da koncerten pludselig stoppede?",
+      "sourceHash": "d6ac7441160cf8b13bf54c1be575c3e0a76a2a64b5e1777d6ce7948747e5efac"
+    },
+    {
+      "id": "da:skylde",
+      "textDa": "Han havde skyldt mig penge siden april, men betalte endelig.",
+      "sourceHash": "8c07456a5d45a07ccd1ab51c93db4ebe5c7227a97e6790293fbac81cea6c6b05"
+    },
+    {
+      "id": "da:blyant",
+      "textDa": "Jeg har mistet min blyant, og den var netop her.",
+      "sourceHash": "db32edb53fa6750c9b575fee6672c49d92af28cfd85066c90ef9e8b22a0d87e6"
+    },
+    {
+      "id": "da:eje",
+      "textDa": "De havde ejet huset, siden det blev bygget.",
+      "sourceHash": "f078b422b86a50dc928b823ec9fc6a03eacd379d7d60d1f424fa585931d95a35"
+    },
+    {
+      "id": "da:knap",
+      "textDa": "Knappen blev løs, da jeg pludselig trak i den.",
+      "sourceHash": "e672f3b25543094516df14f989e7d1d19d1aecd7a0298140565f2a998f067c18"
+    },
+    {
+      "id": "da:pæn",
+      "textDa": "Skjorten havde været pæn, men er blevet beskidt.",
+      "sourceHash": "34e63f303005bde0b15c6e772ec6df6aaebd2c95fc85d09f306869ce83516f05"
+    },
+    {
+      "id": "da:hud",
+      "textDa": "Jeg har ondt i huden, og den har været øm, siden jeg blev solskoldet.",
+      "sourceHash": "67c16cf65425b91722bdd909e90792c2988a8024e24ab9216cb5f8da853ac2bc"
+    },
+    {
+      "id": "da:tilhøre",
+      "textDa": "Tasken havde tilhørt hende, før den blev min.",
+      "sourceHash": "4bc62e58c69c3c21d985f8448fe26c1a439431ec098bfc177872e18d43d3c8b3"
+    },
+    {
+      "id": "da:vaskemaskine",
+      "textDa": "Vaskemaskinen er blevet ødelagt; hvad skal jeg gøre?",
+      "sourceHash": "564bf99f9e508ddf43121f74dc7292ad842f16b075d04d456fe70a135bb09de9"
+    },
+    {
+      "id": "da:tilfreds",
+      "textDa": "Hun blev straks tilfreds, da problemet var løst.",
+      "sourceHash": "70cd943b5c344007be63c14ec1db4cc4145eb6d4b12aebfb0a4031e4cce02cb2"
+    },
+    {
+      "id": "da:leje",
+      "textDa": "Siden vores egen bil blev stjålet, havde vi lejet en ny hver uge.",
+      "sourceHash": "5164c1fbe6ab08ca9983bab4b29f58bcac09d0598356271577fb4eebb7826a3b"
+    },
+    {
+      "id": "da:kok",
+      "textDa": "Kokken gjorde maden klar, da gæsterne kom.",
+      "sourceHash": "d70fbe0fbb0ad6ca56fc4b3e1615403eced370f5c2c764f4ae3bbbe01079de24"
+    },
+    {
+      "id": "da:levere",
+      "textDa": "Pakken var blevet våd, da buddet endelig leverede den.",
+      "sourceHash": "bf4acbd545beccb634c88f40bc0082d93a1ed451fbf62ff95ea435c33b609336"
+    },
+    {
+      "id": "da:grim",
+      "textDa": "Arret var grimt, men er siden blevet mindre.",
+      "sourceHash": "18676dfffb9869e11e0921eb0a779b7f58aa6c9800d8d8476e32ee840497eb93"
+    },
+    {
+      "id": "da:græs",
+      "textDa": "Græsset blev pludselig vådt, da regnen begyndte.",
+      "sourceHash": "a1b46fcd1166995fa54b5490505fdf10e7d92a7a2a6049f67101f3a946515824"
+    },
+    {
+      "id": "da:pære",
+      "textDa": "Pæren var blevet blød, fordi den havde ligget længe.",
+      "sourceHash": "601c18ee668c2ff4404aa1f00ee7492cc8bec16dbb0375a30984a374572fa0d8"
+    },
+    {
+      "id": "da:tænde",
+      "textDa": "Tænd lyset straks; det er blevet mørkt.",
+      "sourceHash": "b70605e2b54afed5d0e3bdd21fd0ad84445eaa2ce479af64b6a71dd67a0072c8"
+    },
+    {
+      "id": "da:køleskab",
+      "textDa": "Køleskabet havde været slukket, så mælken blev varm.",
+      "sourceHash": "cdf16cda60648041a2ff2156bd84dd0f13f0f15cb4e2bdf56e46cd114648cb5c"
+    },
+    {
+      "id": "da:tørstig",
+      "textDa": "Han havde været tørstig, siden løbet begyndte, da han endelig nåede mål.",
+      "sourceHash": "adcab22a4653ab37d0f44c8b4c6442f247ae030638f5c4bf8519d01f225c874b"
+    },
+    {
+      "id": "da:afhænge",
+      "textDa": "Turen kom til at afhænge af, hvad der var sket.",
+      "sourceHash": "3d527ac545e7b498bf7d1799c0f19d426779fba15eb2853db9efa7e22658ac73"
+    },
+    {
+      "id": "da:øjeblik",
+      "textDa": "Et øjeblik senere blev hun pludselig svimmel.",
+      "sourceHash": "b987b381bb961b95f3b37cf6d24d6d9dbd0f8e09592e36f0da24e82300e79992"
+    },
+    {
+      "id": "da:skærm",
+      "textDa": "Skærmen blev sort, da jeg netop havde åbnet programmet.",
+      "sourceHash": "2db8da5255b5d1ce648e28995aeed05a3bff2466b4a52a7812f2872d03579358"
+    },
+    {
+      "id": "da:anbefale",
+      "textDa": "Lægen anbefalede straks hvile, fordi jeg havde haft feber.",
+      "sourceHash": "e00ac380f296d9bf3547a9e5f8aceab2ee91636af742d06a965561607c2c374c"
+    },
+    {
+      "id": "da:blød",
+      "textDa": "Puden var blevet blødere, efter at vi havde vasket den.",
+      "sourceHash": "287847fa0ceb933d26e2c40947ab7beed94160a811d570903a12b4f19b7ea7b0"
+    },
+    {
+      "id": "da:kørekort",
+      "textDa": "Jeg har mistet mit kørekort; hvad skete der med det?",
+      "sourceHash": "b98d754623adc6530716799f187a7640301b5731338cf64dab72e3f4e651689c"
+    },
+    {
+      "id": "da:planlægge",
+      "textDa": "Vi begyndte at planlægge festen, men den blev pludselig aflyst.",
+      "sourceHash": "c6c13c04db9f2509c5fdb3f313ca42dacbb96f6c46daf645074efee93b81c9a6"
+    },
+    {
+      "id": "da:tandlæge",
+      "textDa": "Jeg har ondt i tanden; hvad skal jeg gøre hos tandlægen?",
+      "sourceHash": "fb9771cb2424ab3562a0d26830290064a2c995cc81117bd6339c1b464dfde07b"
+    },
+    {
+      "id": "da:tyk",
+      "textDa": "Isen var blevet tyk, da vinteren endelig kom.",
+      "sourceHash": "7daf754e7278527c5e01fe7d8e337ab12d6a443b929310a7e93283d33ff0037f"
+    },
+    {
+      "id": "da:tjener",
+      "textDa": "Tjeneren gjorde straks bordet rent, da glasset væltede.",
+      "sourceHash": "7edb39e099f018d5aa26b6e0d33e899383589da2afacaac4ba8b04bc48af15c8"
+    },
+    {
+      "id": "da:forberede",
+      "textDa": "Hun havde forberedt sig, siden kurset begyndte, da prøven endelig kom.",
+      "sourceHash": "7b814839b33fd166859db32b0701e2b74e4d80393c3200f2b15358e8610f8938"
+    },
+    {
+      "id": "da:solskin",
+      "textDa": "Der havde været regn, men nu var der endelig solskin.",
+      "sourceHash": "2c6db13e1341ae82b208fbdcf75cc95ef320795e3b041ec0ff939fc29fa34a66"
+    },
+    {
+      "id": "da:arrangere",
+      "textDa": "De havde arrangeret mødet, før chefen blev syg.",
+      "sourceHash": "f576b80d0e2ccf4a6306a5adabdcb124f2fd464ca55d9311dbbb1f2a1da1af6c"
+    },
+    {
+      "id": "da:bred",
+      "textDa": "Vejen var bred, men blev pludselig smal.",
+      "sourceHash": "690210ecd4b6b796510190e32c6b76e1ccb58248690d4c036c06b22293237396"
+    },
+    {
+      "id": "da:undertøj",
+      "textDa": "Mit undertøj er blevet vådt, fordi tasken stod ude.",
+      "sourceHash": "13ec6134b1be1d97f289ea942ec8143d5437a96fd4a52266ad83ee27094e03aa"
+    },
+    {
+      "id": "da:invitere",
+      "textDa": "Hun havde inviteret os flere gange, siden vi mødtes første gang.",
+      "sourceHash": "cfb1bc9111ba33d808be14a652481560abb84de61aff51210afcc14c802607cd"
+    },
+    {
+      "id": "da:citron",
+      "textDa": "Citronen var blevet tør, da jeg endelig brugte den.",
+      "sourceHash": "7af0fd167943d30e27a96e5bee7dd6a039f52884857468b19356929bd8a8a836"
+    },
+    {
+      "id": "da:dyb",
+      "textDa": "Vandet blev pludselig dybt, da bunden forsvandt.",
+      "sourceHash": "2cdac8eae4e07a22114d1eae6085a34d857bc48d2bf5bb02aae7e83ec6a3f328"
+    },
+    {
+      "id": "da:støvsuger",
+      "textDa": "Støvsugeren havde været i stykker, men virker endelig igen.",
+      "sourceHash": "ebac432be8b9ca90c913aaf00a2156f86e5963f48330177f1c3bda43130aa24b"
+    },
+    {
+      "id": "da:aflyse",
+      "textDa": "Vi måtte aflyse straks, da vejen blev lukket.",
+      "sourceHash": "022220126e02ea25ab36b8e21e898adba14facd1f9d2bca2ef26960605d5a124"
+    },
+    {
+      "id": "da:bjerg",
+      "textDa": "Bjerget havde været skjult, før tågen pludselig lettede.",
+      "sourceHash": "a1acb3680a1c8353c4cb05273b1bdb3724f12c41dea9c830ec2816396fb5e71f"
+    },
+    {
+      "id": "da:gift",
+      "textDa": "De havde været gift længe, da de flyttede til Odense.",
+      "sourceHash": "4fed55d9271032a07006a9e7bcc2a2bf0ce67c9cef177c2c8de2cd9362147de4"
+    },
+    {
+      "id": "da:afslutte",
+      "textDa": "Hun afsluttede straks opkaldet, da alarmen lød.",
+      "sourceHash": "c5d5f650b43f08e59c422ffb37566b5279fb9d4326d0aecf9caebde91fa02b96"
+    },
+    {
+      "id": "da:vrede",
+      "textDa": "Vreden var blevet mindre, da han endelig sagde undskyld.",
+      "sourceHash": "ea928144a5b67aa0c590746acac6e796953a66c85454adf8d2f7ad2122652b11"
+    },
+    {
+      "id": "da:sygeplejerske",
+      "textDa": "Sygeplejersken spurgte: “Hvad skete der?”",
+      "sourceHash": "d8d71779484af3ae026f6ab271eb4f700f41da656e87dc78829cebf095c95f35"
+    },
+    {
+      "id": "da:forsvinde",
+      "textDa": "Nøglen var netop forsvundet; hvad skal jeg gøre?",
+      "sourceHash": "cab82f304bffa2e1c5a93a559fff6c7c812140fc899c20c256f76977d05ac51a"
+    },
+    {
+      "id": "da:lav",
+      "textDa": "Prisen havde været lav, men blev pludselig høj.",
+      "sourceHash": "181ba2cdea9803082446d46915ef5dc0d777771c21f5066bcb63921b4b3ebb22"
+    },
+    {
+      "id": "da:muskel",
+      "textDa": "Jeg har ondt i en muskel, som har været øm, siden jeg faldt.",
+      "sourceHash": "d441cea0364e3ab886fcac31981afba55060e50dfad3f55db17037cf9d28e0a5"
+    },
+    {
+      "id": "da:ankomme",
+      "textDa": "Toget var blevet forsinket, men ankom endelig.",
+      "sourceHash": "367abf5e411a10bf8b70ce2e51eb0c1ed7d2ed8398987c2d06532ec3d15b5e2c"
+    },
+    {
+      "id": "da:rådhus",
+      "textDa": "Rådhuset havde været lukket, da vi kom.",
+      "sourceHash": "8256e6689bf2681485fad6362b013c99b86e3807bd3710191fa33f8e10340c62"
+    },
+    {
+      "id": "da:rund",
+      "textDa": "Bordet var rundt, men er siden blevet ovalt.",
+      "sourceHash": "9cd004869962d8ad2659d51ae47afa3d83cae27682e6fbeeef509be691acf76c"
+    },
+    {
+      "id": "da:biograf",
+      "textDa": "Biografen blev straks tømt, da alarmen lød.",
+      "sourceHash": "b5ccbabd9baae8491c2a186bf6ae0f7634c4e4e4814d216a79401815a0dd108c"
+    },
+    {
+      "id": "da:hade",
+      "textDa": "Han havde altid hadet at vente, men gjorde det alligevel.",
+      "sourceHash": "c6765422fffdfcdd15337bc1d18903fcbff18c8f9436407a206d75a626f40b86"
+    },
+    {
+      "id": "da:hård",
+      "textDa": "Madrassen var hård, men er blevet blødere siden.",
+      "sourceHash": "291238fe876adbd58050a11b3d44bce8e667875ee13bc5d935dcfc7d71432e74"
+    },
+    {
+      "id": "da:skat",
+      "textDa": "Skatten var blevet betalt, før brevet kom.",
+      "sourceHash": "5c5d754b0a820812692ac016f049af93b55a0f494674cfc815b4b034e3ca0be8"
+    },
+    {
+      "id": "da:frygte",
+      "textDa": "Hun havde frygtet svaret, siden hun sendte brevet.",
+      "sourceHash": "ecb514b36b8d5b3ace160913e6ecbf3a201dc8a571ec38e4a54a69897414687d"
+    },
+    {
+      "id": "da:sodavand",
+      "textDa": "Sodavanden var blevet varm, fordi køleskabet var slukket.",
+      "sourceHash": "93204b2fb06dd8727e09196966058d979b353278d00180790f0d9d4f2cb4181c"
+    },
+    {
+      "id": "da:beskytte",
+      "textDa": "Hjelmen havde beskyttet ham, da han pludselig faldt.",
+      "sourceHash": "ff559bea53810e1cf94eee6d33dd20edaf1928e08147a84d636f3459034e66c4"
+    },
+    {
+      "id": "da:pen",
+      "textDa": "Jeg har mistet min pen; hvad skal jeg gøre nu?",
+      "sourceHash": "6a1d1b875e98c3140e9cf884b63a0c7d1051f51010b38e95a0db90622cac35ea"
+    },
+    {
+      "id": "da:ren",
+      "textDa": "Gulvet blev rent, da hun endelig gjorde arbejdet færdigt.",
+      "sourceHash": "d6f9fc1012c452ddcfa3bac5f774970052c37bd2d7c699367658bf7d07156e39"
+    },
+    {
+      "id": "da:tynd",
+      "textDa": "Jakken var blevet for tynd, siden vinteren kom.",
+      "sourceHash": "1e0ddd15e59ec9ec8c0ecd8bca64d3fd6cceca89c6faf158e7a6e919435b2d5f"
+    },
+    {
+      "id": "da:jordbær",
+      "textDa": "Jordbærrene var blevet bløde, da vi spiste dem.",
+      "sourceHash": "20697e2a119d4cbeb8044ca9de6c6b4a1f3f0835745f6113eafc8b547f8e3054"
+    },
+    {
+      "id": "da:advare",
+      "textDa": "Politiet havde advaret os, før vejen blev lukket.",
+      "sourceHash": "d24f3da9b64c6687569a22d740e46d9591a0c7886c62f72d9c5c3e95fc663c1b"
+    },
+    {
+      "id": "da:tøj",
+      "textDa": "Tøjet er blevet vådt; hvad skal jeg gøre?",
+      "sourceHash": "8b916ec12489dd8e8cc3e0100199de03e6814a988f49c418538f549a1d6c2e0f"
+    },
+    {
+      "id": "da:lyve",
+      "textDa": "Han havde valgt at lyve én gang, men gjorde det aldrig igen.",
+      "sourceHash": "9d94df43c03fccbb2607c7f81da1c0dfa3a455cc5d809d518d9aeee2a8720ee5"
+    },
+    {
+      "id": "da:frisør",
+      "textDa": "Frisøren var netop blevet færdig, da strømmen gik.",
+      "sourceHash": "1540edbe4fa206e75d0f978b41b49f0dc68cc3b1c206df849340295875875f8d"
+    },
+    {
+      "id": "da:smal",
+      "textDa": "Stien blev pludselig smal, da vi nåede skoven.",
+      "sourceHash": "0358f0014c31015f5c43de627db16bb06b835f2a8e931ce220bd50e4d2b74ddd"
+    },
+    {
+      "id": "da:klokke",
+      "textDa": "Klokken var blevet ti, da mødet endelig sluttede.",
+      "sourceHash": "7794ef0cd424a741a20caee840feea4c2a1a110a18b5b53cb93b83cc92d3bc76"
+    },
+    {
+      "id": "da:stjæle",
+      "textDa": "Nogen har stjålet min cykel; hvad skete der?",
+      "sourceHash": "653be353ca5a0c4297b7d2849c090f757444c1fc5d1bd5d5073a1252b70b0387"
+    },
+    {
+      "id": "da:kamera",
+      "textDa": "Jeg har mistet mit kamera, som jeg havde haft siden maj.",
+      "sourceHash": "7960f9676303410f20556ae4ff86a7680e41a99d43d876286fc7df7946e1baca"
+    },
+    {
+      "id": "da:snyde",
+      "textDa": "Han havde snydt én gang og gjorde det aldrig siden.",
+      "sourceHash": "3feb7e6c32deedc333a2c0a127763bb1d6f864f719cd823e9964680cb3ecfcf9"
+    },
+    {
+      "id": "da:pande",
+      "textDa": "Panden var blevet varm, da olien pludselig sprøjtede.",
+      "sourceHash": "10d43dc3cbac87928e8adb8a68b6befd37fc0e0852c76072d3aa6f676a45a25b"
+    },
+    {
+      "id": "da:våd",
+      "textDa": "Jeg er blevet våd; hvad skal jeg gøre med tøjet?",
+      "sourceHash": "54811fdbf466c8ffb3ae4616efb74f75c47ccbaa12169b610687f5f01152c941"
+    },
+    {
+      "id": "da:beskidt",
+      "textDa": "Skoene var blevet beskidte, fordi vi havde gået i mudder.",
+      "sourceHash": "5cf1732220874e34315d1dd9a7f17da44b66d717af089701849bff5b3c2d1bb4"
+    },
+    {
+      "id": "da:bagage",
+      "textDa": "Min bagage er blevet væk; hvad skete der i lufthavnen?",
+      "sourceHash": "1678ca94293290cc50e408a1a038f9f6f82510197a10cc27671ac82e949ac9b0"
+    },
+    {
+      "id": "da:love",
+      "textDa": "Hun havde lovet at komme, men blev pludselig syg.",
+      "sourceHash": "b626d4d71edefbfaedf3a0488b2480a04dae37b8aa19e6e3c749a61238b6bd68"
+    },
+    {
+      "id": "da:humør",
+      "textDa": "Hans humør var blevet bedre, siden han fik svar.",
+      "sourceHash": "a33f233b1a62ff471f6b36c1c823b749387c4c3649504dcbecdb1affa1837614"
+    },
+    {
+      "id": "da:takke",
+      "textDa": "Vi havde netop takket hende, da hun gik.",
+      "sourceHash": "e8e2a969e6725f63fcbc2a84b4c126afed84854420a73c6a6ae8f66b967bafaf"
+    },
+    {
+      "id": "da:kælder",
+      "textDa": "Kælderen var blevet oversvømmet; hvad skal jeg gøre?",
+      "sourceHash": "ed2f520d1b3df6b5ea15c98d97213720ee0b267c8abbfe7973aacd587756901c"
+    },
+    {
+      "id": "da:flod",
+      "textDa": "Floden blev pludselig bredere, da regnen kom.",
+      "sourceHash": "0b136abe4d08c3ccea44e613ae75dabbcac17e09afd9d4c1b6780e4a89442216"
+    },
+    {
+      "id": "da:hilse",
+      "textDa": "Han havde glemt at hilse, men gjorde det straks.",
+      "sourceHash": "6fc5e464a5a46e2656f3727952b656dc2155f8fe2d19ea15a5ea6b425dc67297"
+    },
+    {
+      "id": "da:tør",
+      "textDa": "Håndklædet var blevet tørt, da solen endelig kom.",
+      "sourceHash": "13ef695dd4ed9a10e3bf7f6e28df5eb2225ee15dcbcb84080df9536f7b6fdaae"
+    },
+    {
+      "id": "da:tom",
+      "textDa": "Flasken var tom, fordi nogen havde drukket alt.",
+      "sourceHash": "1b64683cb015ccf0c6365a2023e932c9f14cb39bde0391b5913aeb94573c6c1c"
+    },
+    {
+      "id": "da:ambulance",
+      "textDa": "Da ulykken var sket, kom ambulancen straks.",
+      "sourceHash": "7d5b5cf2027163d8dd9d5c56461edef23cab32f7cf83792c59bf79f92ea96473"
+    },
+    {
+      "id": "da:undskylde",
+      "textDa": "Han havde været vred, men undskyldte endelig.",
+      "sourceHash": "41f18d252027f59b8e3fa47b1d54035c35cc9eacb19a330de99534fa0405b5f2"
+    },
+    {
+      "id": "da:gardin",
+      "textDa": "Gardinet var blevet revet ned, da vinduet pludselig åbnede.",
+      "sourceHash": "c4b35a068581c717f77b72d001dcade793189fc3243ec9e8d8f02118d8c61728"
+    },
+    {
+      "id": "da:agurk",
+      "textDa": "Agurken var blevet blød, fordi den havde ligget ude.",
+      "sourceHash": "7b2ac2207ced765d706206991b1242eb9dc72c5222d4bb8f59d8ba9eec4f6123"
+    },
+    {
+      "id": "da:mus",
+      "textDa": "Musen var netop løbet væk, da katten kom.",
+      "sourceHash": "adca5fd02b09417542059ed58ec8361981127958e2ce3a034132ae9bb764ec92"
+    },
+    {
+      "id": "da:ro",
+      "textDa": "Der havde været uro; endelig blev der ro.",
+      "sourceHash": "e18ed65ce1f5c22060777dc6e094911c896c4c55008f3aa6620b6060a933eb02"
+    },
+    {
+      "id": "da:fuld",
+      "textDa": "“Det kan jeg desværre ikke,” svarer jeg, fordi bussen er fuld, og jeg ikke kan komme med.",
+      "sourceHash": "9b4f060ebc5bcc50b365353275221821cb68b31c549eb16b523e00bd36c49869"
+    },
+    {
+      "id": "da:halv",
+      "textDa": "Skal vi dele den halve kage, eller vil du hellere have mindre?",
+      "sourceHash": "97c550204722d0cbf42cbdb7547096d9aff334a7fff26d0bdd499e45aff53229"
+    },
+    {
+      "id": "da:lukket",
+      "textDa": "Døren er lukket; ellers ville vi gå ind.",
+      "sourceHash": "ad1e810a0e84ba2276e7bc0572ef51f89a9afefafc22684b6f05c24063ed1b7c"
+    },
+    {
+      "id": "da:travl",
+      "textDa": "I morgen er jeg travl, så det kan jeg desværre ikke.",
+      "sourceHash": "7ae0133c4d64cf0d89638766f7abcf94ff6d5fb4e9de3703d26da1ba78868c6d"
+    },
+    {
+      "id": "da:rolig",
+      "textDa": "Du bør være rolig, selvom mødet måske bliver langt.",
+      "sourceHash": "5f40d7c05aebfcea5b17cc668eb328a50ae00d1874439865cd4ba9b40e70b92d"
+    },
+    {
+      "id": "da:stille",
+      "textDa": "Både værelset og gaden er stille, så vi kan tale roligt.",
+      "sourceHash": "a01d9461f2b40f945bce3df44f1db708bcace887f6709a5d45f374e19577047e"
+    },
+    {
+      "id": "da:redde",
+      "textDa": "Kunne du redde enten katten eller hunden først?",
+      "sourceHash": "e5df021768dee68d68ab4fa9ded74b8570a94d89ed21d508b48630cd7639393f"
+    },
+    {
+      "id": "da:vild",
+      "textDa": "Hverken filmen eller bogen var så vild, som jeg havde ventet.",
+      "sourceHash": "e176125c8fa0198a2e394f8b1ffbdd410382906f0fa5f3dbdd22c4ae543a0a30"
+    },
+    {
+      "id": "da:slukke",
+      "textDa": "Husk at slukke lyset, ellers bliver batteriet snart tomt.",
+      "sourceHash": "dbc44556089955f5af1bc8e0f03ce306368f4012d843a8fe7358e76c8e33411d"
+    },
+    {
+      "id": "da:sko",
+      "textDa": "Jeg vil heller ikke købe den sko, hvis den er for dyr.",
+      "sourceHash": "19b8e14d4abba984d24b05135bc1c2cad4abff2a47a21eb25e04543d180d6fec"
+    },
+    {
+      "id": "da:farlig",
+      "textDa": "Det ville være mindre farligt at gå den anden vej.",
+      "sourceHash": "becbca288e292f6a9e1259b801ac9aecf0f6195f9edfa1bb125cb93df026d0a0"
+    },
+    {
+      "id": "da:klage",
+      "textDa": "Måske bør du klage, hvis regningen er forkert.",
+      "sourceHash": "4889872559b3985c5ade9240eaeaa7d708baafa33668139bf6906e070c7ee15c"
+    },
+    {
+      "id": "da:torden",
+      "textDa": "Torden larmer mere, end jeg havde regnet med.",
+      "sourceHash": "306c9a14e026b8efc8ba1aec10105444ead47f4680513a0475a251accea0aa7b"
+    },
+    {
+      "id": "da:frygt",
+      "textDa": "Kunne den største frygt faktisk være at komme for sent?",
+      "sourceHash": "42010d08ea280d9fed463f8c2b2c6c2639e64d7587da1a5ee36ea84bc284f888"
+    },
+    {
+      "id": "da:gætte",
+      "textDa": "Skulle jeg gætte, ville svaret nok blive mindre præcist.",
+      "sourceHash": "26bab378c8737bf41b343e42395bc3ace8dd8c8c1718e5f8e7a6061e86d792a4"
+    },
+    {
+      "id": "da:tå",
+      "textDa": "Mindst én tå ville gøre ondt i så stramme sko.",
+      "sourceHash": "3088bc240a8d011b9c7084a7f3ab728a26cdc9171f0a01084a2c2aa55f09ce72"
+    },
+    {
+      "id": "da:tvivle",
+      "textDa": "Jeg måtte faktisk tvivle på planen, selvom den lød god.",
+      "sourceHash": "a809368b8aabdd95fadffdcb2da43cd7a867f4e18a1720330bfc219678554e5e"
+    },
+    {
+      "id": "da:landmand",
+      "textDa": "Landmandens svar er: “Det kan jeg desværre ikke.”",
+      "sourceHash": "d39cebc8234dc1e3e75b528dbf8dab3abe0819d7171f1a8ec203569ba0c2fbd5"
+    },
+    {
+      "id": "da:stole",
+      "textDa": "Både børn og voksne kan stole på sådan en venlig lærer.",
+      "sourceHash": "b235fa158035299f1beb70d3cbbfa2d5be8b75c36399d6da5bc55cf896a70b26"
+    },
+    {
+      "id": "da:skade",
+      "textDa": "Burde vi enten ringe til lægen eller vente med at behandle den skade?",
+      "sourceHash": "b95e75d7f8da6608fb5993e100ff7a5fef65d43702052a92cd23183ca3f655ee"
+    },
+    {
+      "id": "da:film",
+      "textDa": "Filmen er vel hverken for lang eller for alvorlig, når man tænker på dens publikum?",
+      "sourceHash": "dcd190230d776176513d76d2040b47b9b04a54f85af73005ad0f4095dfd23561"
+    },
+    {
+      "id": "da:minde",
+      "textDa": "Uret skal vist minde os om dets korte batteritid.",
+      "sourceHash": "fd90b0273d0a6d6121a3120d7de6a39426f7197a2fffd5c9d89132c441e3d336"
+    },
+    {
+      "id": "da:venlig",
+      "textDa": "Er hun egentlig mere venlig over for gæster end den anden receptionist?",
+      "sourceHash": "42edd420d17c96fa42cce53e5a49fdae2857abc00d5a07078c3af6cbc082eb07"
+    },
+    {
+      "id": "da:appelsin",
+      "textDa": "Omtrent en halv appelsin er nok, men jeg vil hellere have et æble.",
+      "sourceHash": "685b9abc75cf99ae53d529a4abb5c1f64711b714f19517e5fcf85f97f61eaf75"
+    },
+    {
+      "id": "da:rar",
+      "textDa": "Måske er den nye nabo rar nok til at hjælpe.",
+      "sourceHash": "63d764dc015ed7fc84be86fe6da391367d0a7b0f7f2c62e3b9fb8b77b6d76ed8"
+    },
+    {
+      "id": "da:genkende",
+      "textDa": "Desuden kan jeg genkende stemmen mere sikkert nu.",
+      "sourceHash": "b1c18e955dcaf6ec039b7853113aa6568899a3880581fb06a9b676aba81ba3dc"
+    },
+    {
+      "id": "da:klog",
+      "textDa": "Den kloge elev kunne selv løse den mest krævende opgave.",
+      "sourceHash": "efef8b6ad1bebc8063c37d6cd2cac4c5b35b2abda12a4e4c9a0eed1fe790d851"
+    },
+    {
+      "id": "da:toilet",
+      "textDa": "Hun skulle finde et toilet, før hun kunne fortsætte.",
+      "sourceHash": "4eb0993f421ed9bd64bad6e87167b2c86aafa6e13b4ce655a8b71f610ad95c30"
+    },
+    {
+      "id": "da:ordbog",
+      "textDa": "Han ville slå ordet op i sin ordbog og læse mindst ét af eksemplerne i dets sidste kapitel.",
+      "sourceHash": "2e544dbafd897e92c2ca85789688e2234a7595ea2cbaee1bfa17cfd2042b4430"
+    },
+    {
+      "id": "da:overraske",
+      "textDa": "Det måtte faktisk overraske hende, at de kom så tidligt.",
+      "sourceHash": "d85afea84483c1846b94385d67c0d360e8ed60be49a315bfb00af7e590007b85"
+    },
+    {
+      "id": "da:dum",
+      "textDa": "Man bør især ikke kalde sig selv dum.",
+      "sourceHash": "5fd2afb16b83028cb4429501cc4c7fa2684fccac5903806544f620ea351098e8"
+    },
+    {
+      "id": "da:plante",
+      "textDa": "Både planten og dens potte ser sådan ud efter vinteren.",
+      "sourceHash": "7eb4ff1f6661d7000c57b46ffb02a6fe73c5e729365cfb8fc265390f9609eef4"
+    },
+    {
+      "id": "da:fejre",
+      "textDa": "Burde vi enten fejre fødselsdagen fredag eller flytte dens dato?",
+      "sourceHash": "3f288465f99dfaee11fea991345ceb051093449e92c684afd606c1a0e1fd17f5"
+    },
+    {
+      "id": "da:lastbil",
+      "textDa": "Lastbilen er vel hverken mindre eller mere farlig end bilen?",
+      "sourceHash": "73b35700e23aa68c5f1303087ece9c6fca94e1b76e888ddbfa289ce7d94c73da"
+    },
+    {
+      "id": "da:dygtig",
+      "textDa": "Hun er vist dygtig og skal især øve sig på det mest vanskelige.",
+      "sourceHash": "d4d5bc36c112861d04542b069a228e343dd88255b2a7e97238f23ba74c6f85fc"
+    },
+    {
+      "id": "da:bekymring",
+      "textDa": "Det er egentlig en mindre bekymring, men jeg vil heller ikke ignorere den.",
+      "sourceHash": "21b1597368b07a75064cf889780b75a9d29f854b9733f3a18d36a30ed6c491ea"
+    },
+    {
+      "id": "da:doven",
+      "textDa": "Omtrent halvdelen ville hellere hvile end kaldes doven.",
+      "sourceHash": "d44bdd58890ea12f20cf99bb926983cae7b75f933e829213e9be64611c08480c"
+    },
+    {
+      "id": "da:gifte",
+      "textDa": "Måske skal de gifte sig, hvis festen ikke bliver for dyr.",
+      "sourceHash": "b206964bb2de77477eede3936bf28fae0e6b333efc7c41e1e201dd3974f24012"
+    },
+    {
+      "id": "da:pause",
+      "textDa": "Desuden bør pausen være længere, så vi får mere tid.",
+      "sourceHash": "6ac2ff0c20cebac52598fd802896feaa121e44821231b85ec4ce692dbe2fffaf"
+    },
+    {
+      "id": "da:kysse",
+      "textDa": "Hun kunne kysse ham, men tænkte mest på at holde sig tilbage.",
+      "sourceHash": "b26bd418c81ba865532cc7ee7bd0740c3a30a2afd265af156c6e6ab8d7e5d59b"
+    },
+    {
+      "id": "da:batteri",
+      "textDa": "Batteriet måtte være mindre, hvis det skulle passe i sit rum.",
+      "sourceHash": "738b7959903b933420092d8d3a5c76fdd8146df75c033e86b04cf66886f77fcb"
+    },
+    {
+      "id": "da:modig",
+      "textDa": "Mindst én af os burde være modig nok til at sige det.",
+      "sourceHash": "f352b330e4e177d33effefc237de4767f292e7b34f63972f7d773da1e9d2f698"
+    },
+    {
+      "id": "da:saks",
+      "textDa": "Faktisk ville jeg vælge en skarp saks.",
+      "sourceHash": "683d54a533502792d55fa1c29312844714a1d5f735fd977b93794db52c5b7a79"
+    },
+    {
+      "id": "da:vågne",
+      "textDa": "Især på mandage måtte hun minde sig selv om at stille alarmen for at vågne tidligt.",
+      "sourceHash": "c0401df29009bb97ee5721165d45586024a09e2e0357ff4bab0abdb4dc6c998f"
+    },
+    {
+      "id": "da:grænse",
+      "textDa": "Både turister og lokale bør respektere sådan en grænse.",
+      "sourceHash": "5eeeb15e9fba5e912dca720a8528d5ba96b420481daf0164443b73b8442e67d8"
+    },
+    {
+      "id": "da:hvile",
+      "textDa": "Burde hunden hvile, hvis dens ben gør ondt?",
+      "sourceHash": "65842792a77e9c94aed526d0fc5268fbb0564aae4b7aed9c36752a36b877a496"
+    },
+    {
+      "id": "da:bukser",
+      "textDa": "Er både bukserne og jakken for store?",
+      "sourceHash": "bfd802d5add8299d6a4369b31691d31bccb89638b5878d6dd463d1b3462c6afc"
+    },
+    {
+      "id": "da:slappe",
+      "textDa": "Han skal vist slappe af, selvom han hverken er træt eller syg.",
+      "sourceHash": "786f1bf27b9a3963ed6aad43e777e14d95bc2aa812c8d71ed162e84d108a5a08"
+    },
+    {
+      "id": "da:fængsel",
+      "textDa": "Fængslet er egentlig lukket for besøg; ellers ville dets gård være fuld.",
+      "sourceHash": "b1a0de343321ad791e4c4a32215526ecb67dc561988174d1686a4f6051c8ef58"
+    },
+    {
+      "id": "da:regning",
+      "textDa": "Omtrent halvdelen af regningen er for maden; jeg vil heller ikke betale mere.",
+      "sourceHash": "87b43a4eb715db3c02323b5a94d2417747f80f4560d71f8c77c29040f4107d0b"
+    },
+    {
+      "id": "da:kede",
+      "textDa": "Måske keder børnene sig; de ville hellere lege.",
+      "sourceHash": "3b683da87bee8d8bcc7fcce5cf9f9203b616afaaea1ed2035181c2ed3812c239"
+    },
+    {
+      "id": "da:gulerod",
+      "textDa": "Desuden bør du spise mindst én gulerod og måske lidt mere.",
+      "sourceHash": "d0fcfae1e6dc03d9eed272413fa0692bd535030894c70d38dfd3c7de521fc349"
+    },
+    {
+      "id": "da:skynde",
+      "textDa": "Kunne du skynde dig lidt mindre, så jeg kan følge med?",
+      "sourceHash": "9f64214bb6a0ac26dd25a5e9fc14864f0aa18fc7194705e0590a238d12d88b1e"
+    },
+    {
+      "id": "da:journalist",
+      "textDa": "Journalisten skal faktisk undersøge den historie, som folk taler mest om.",
+      "sourceHash": "413fb1c3079e7536c2d2f02e80b803fe62eb820b6a8654cfb276ded920c10ffd"
+    },
+    {
+      "id": "da:gide",
+      "textDa": "Han ville ikke gide bruge sit ur, hvis det gik mindre præcist.",
+      "sourceHash": "ad6df6eb518f59cfcead3cd75ff2bd47d19d758c592b99d7d934345a22ed5a37"
+    },
+    {
+      "id": "da:sår",
+      "textDa": "Mindst to af hendes sår måtte dækkes, men hun viste sine andre sår.",
+      "sourceHash": "76c1765010ac729ee508c34bae80788c41bf95d2744376f04bb7e522b0c12fc2"
+    },
+    {
+      "id": "da:forsikring",
+      "textDa": "Faktisk bør man selv læse sin forsikring, før man vælger.",
+      "sourceHash": "4e3839b2117a2770925f6ac96311a5f48564730846af751e67ea5f085cf4f898"
+    },
+    {
+      "id": "da:fortryde",
+      "textDa": "Især bagefter kunne de fortryde, at de ikke hjalp hinanden.",
+      "sourceHash": "a24e410b5b04a2f6302d34f54ad9850c64c004e2aa96115210755fa2786cff0a"
+    },
+    {
+      "id": "da:skuffelse",
+      "textDa": "Virksomheden havde ellers et godt ry; sådan en skuffelse skulle ikke ødelægge dens omdømme.",
+      "sourceHash": "36ef72f905e7e94578be26897525b1566eaac30bc9ce1d40e8c22a02c3647ce3"
+    },
+    {
+      "id": "da:øve",
+      "textDa": "Man burde øve sig, hvis man egentlig ville blive bedre.",
+      "sourceHash": "97b7c9dca9f66209065719183daf232fae78382d6087554b89f5da3b59abdf9e"
+    },
+    {
+      "id": "da:bad",
+      "textDa": "Badet var vel varmt nok, men jeg måtte heller ikke blive for længe.",
+      "sourceHash": "6aaf571e031217e87ac51417d272b5e7b37fdd8aa3e9e0e0a087f21d28218628"
+    },
+    {
+      "id": "da:træne",
+      "textDa": "Hun bør vist træne mindre, hvis sygdommen bliver værre.",
+      "sourceHash": "ad6ea3a0a51bd505d040c68d6ff12c557fc8d0725ef183658ec95c84f48f828e"
+    },
+    {
+      "id": "da:kind",
+      "textDa": "Hun lagde egentlig sin hånd på barnets kind.",
+      "sourceHash": "a7eb7db3522c50b6b1eeaaff2a3b4592309ffc14a3169e08fa9f3fbd78bcced1"
+    },
+    {
+      "id": "da:blad",
+      "textDa": "Omtrent hvert tredje blad var allerede gult.",
+      "sourceHash": "9a0709dc3deec44122131698e547ba5130ec5c1dd0150d8fba2f7933efd4c0b3"
+    },
+    {
+      "id": "da:studere",
+      "textDa": "Hun skal studere, men har nok ikke tid til at se sine venner.",
+      "sourceHash": "c00a1a1cf056a9e240a16839919f87e683060b82be15ea9dae69a06d169c6c7b"
+    },
+    {
+      "id": "da:paraply",
+      "textDa": "Du bør desuden tage enten den store paraply eller den lille regnjakke.",
+      "sourceHash": "aa9412d7f8b2d68be7cdd778563b9a9382707cb3987e3f960d019670d3ab9132"
+    },
+    {
+      "id": "da:undervise",
+      "textDa": "Hun kunne undervise sig selv, men ville hellere lære sammen med andre.",
+      "sourceHash": "924eba6550865a3c1c3d8dde9d5449ede581780a93fa25042d9c81ea3aeec275"
+    },
+    {
+      "id": "da:ur",
+      "textDa": "Han skulle stille sit ur og ville helst komme mindst ti minutter før.",
+      "sourceHash": "a0304d5568b34945f58b5b5403c57ef040163ebfe1882f861006a61f72d34153"
+    },
+    {
+      "id": "da:rig",
+      "textDa": "Måske er han rig nok til at hjælpe, men det ved ingen.",
+      "sourceHash": "8402a495c12a55d7b49603528120beb30bc5716afcf2fbc6d45feda3c46fafbc"
+    },
+    {
+      "id": "da:oversætte",
+      "textDa": "Hun kan oversætte sine egne breve og gøre dem mere tydelige.",
+      "sourceHash": "75171bf8e385e86131c2be60717f44bef3eb5d87dd8f835da253b528c62897fe"
+    },
+    {
+      "id": "da:briller",
+      "textDa": "Hun burde selv vælge de briller, hun ser mest tydeligt med.",
+      "sourceHash": "74d9d48e0bc40ce31e58baadead858278d7536cbc227690994581f4cbeedc2ab"
+    },
+    {
+      "id": "da:lyn",
+      "textDa": "Vi stod tæt på hinanden, mens lynet lyste; det virkede vist mindre skræmmende.",
+      "sourceHash": "e2a8a5ec920dff49f5721d693600129d9a89a38b9a6b02b9de8a05f6cfaf8fa5"
+    },
+    {
+      "id": "da:gentage",
+      "textDa": "Skal jeg gentage det mindst én gang til?",
+      "sourceHash": "3a43aae7df96ae8db1e6e4e1d7a6232eca678926066d8f07d86b1a97718afbda"
+    },
+    {
+      "id": "da:død",
+      "textDa": "Faktisk var planten død, men dens blade var stadig grønne.",
+      "sourceHash": "5f73ce9a15db3cc033426e2c8d9272beb87344dc95cbd2d258fad840150c47b2"
+    },
+    {
+      "id": "da:løg",
+      "textDa": "Især dette løg kunne give suppen mest smag.",
+      "sourceHash": "4ef03c3416694974ac88b0e6839807bb4bd61b80a0fe602df093561cfd4cabd1"
+    },
+    {
+      "id": "da:rette",
+      "textDa": "Sådan skulle læreren rette teksten, hvis svaret var forkert.",
+      "sourceHash": "ab6e1210e9e1088e3a64e0c0051ed4aa6efc1f78efbfb123128eacd37ec6c4f7"
+    },
+    {
+      "id": "da:alder",
+      "textDa": "Jeg ville faktisk spørge om hendes alder, men lod være.",
+      "sourceHash": "5747eda46e0184e0bd4745ad5feccc041c2f501c707c4a15513dcf5d39b42552"
+    },
+    {
+      "id": "da:forsigtig",
+      "textDa": "Man måtte være forsigtig, selvom gulvet så tørt ud.",
+      "sourceHash": "16587516ab0cae3acdf1275ecab19f3095585414005023a9899ca2c4f26b9414"
+    },
+    {
+      "id": "da:lov",
+      "textDa": "Du bør læse loven, ellers må du spørge en ekspert.",
+      "sourceHash": "cd3c6b06188256f8db792f6f0ae2ba4a75e9ddebf0fc79004cc945c3993e0175"
+    },
+    {
+      "id": "da:lege",
+      "textDa": "Både børn og voksne kunne lege sammen.",
+      "sourceHash": "37b561b76888a935940ef0eb78bc8e94bcc054cc31e043f99e3e21921e0ab70c"
+    },
+    {
+      "id": "da:stolthed",
+      "textDa": "Enten ville hans stolthed vokse, eller også ville han sige undskyld.",
+      "sourceHash": "849f4ac9477c07189769ece9f0f265951b801213a4523872f35e554514af6954"
+    },
+    {
+      "id": "da:svag",
+      "textDa": "Hverken teen eller kaffen burde være så svag.",
+      "sourceHash": "bc649f91ce2cacfb4b5b662178535bc355bc88f065421dcff2a6e388da8a60da"
+    },
+    {
+      "id": "da:cykle",
+      "textDa": "Ellers kan vi cykle, hvis bussen ikke kommer.",
+      "sourceHash": "fec94cd120904a7705a57e33b3c9589a5b75985e12a770d8e4d5cd3500fcae9e"
+    },
+    {
+      "id": "da:musik",
+      "textDa": "Jeg vil heller ikke slukke musikken, hvis du lytter.",
+      "sourceHash": "570df00c14c911c0a182f9747c5e343a1d70d5f3b8c87aec326d5e3b49a501d2"
+    },
+    {
+      "id": "da:sygdom",
+      "textDa": "Hun ville hellere tale om sin sygdom end skjule den.",
+      "sourceHash": "509700a2fe018ef5fb44eefc9c1cc517b39fadf419355549ee44dd910d85f8cb"
+    },
+    {
+      "id": "da:fange",
+      "textDa": "Måske kan vi fange bussen, hvis vi skynder os.",
+      "sourceHash": "cbfc52cfe04e86cebec9e6a0354c99b559eb61b4b49da2b26cb8933292659bdc"
+    },
+    {
+      "id": "da:fattig",
+      "textDa": "En fattig familie får mindre hjælp, end den faktisk behøver.",
+      "sourceHash": "9bd139e43a5269faf5fff9f8417756569259c0486df11f76944ee2d1b66be51b"
+    },
+    {
+      "id": "da:lektie",
+      "textDa": "Lektien tog mest tid, men kunne faktisk løses hjemme.",
+      "sourceHash": "13722cd0b74161dd11066dcc8a03155fbbfad9958a68fb618af201aee3961752"
+    },
+    {
+      "id": "da:løfte",
+      "textDa": "Hun skulle løfte mindre, fordi armen gjorde ondt.",
+      "sourceHash": "cce99dc387734447730af466118eb65396983a2b7800eadff64d0d072ed9f9a7"
+    },
+    {
+      "id": "da:håndværker",
+      "textDa": "Mindst én håndværker måtte komme, ellers blev døren ikke repareret.",
+      "sourceHash": "2e9d19530fd0bbc10299b7a70376087ee26bca19d584188dd694e0e5579f66e5"
+    },
+    {
+      "id": "da:fast",
+      "textDa": "Den faste pris er faktisk bedst, hvis budgettet er lille.",
+      "sourceHash": "91265b7e378cee5ba76e310f33efb9016bb5044521834ce29238ea038bd40419"
+    },
+    {
+      "id": "da:hyggelig",
+      "textDa": "Stuen er især hyggelig, når vi sidder tæt på hinanden.",
+      "sourceHash": "c54e090a971e051a7402503de00fbe1dfac535e7b61dd65b68d5b7aa5101fd1a"
+    },
+    {
+      "id": "da:mening",
+      "textDa": "Sådan en mening bør man vel forklare mere tydeligt.",
+      "sourceHash": "fad9aeb08db20bbb2a4d2e1e9bfd069976eee3a992c061f9cd4a288942f1fc0f"
+    },
+    {
+      "id": "da:skubbe",
+      "textDa": "Han måtte skubbe vognen, men ville hellere trække den.",
+      "sourceHash": "681f3e8b0b1f61b33c2669faf1b38d0076ea5a68a2cd65a745aa79a31d8ce75c"
+    },
+    {
+      "id": "da:fødselsdag",
+      "textDa": "I morgen foreslår hun: “Skal vi fejre din fødselsdag?”",
+      "sourceHash": "be16bcd8486a5c51145e2baca1f55bb0f46cc8c74810676bb2b147b6f9be7129"
+    },
+    {
+      "id": "da:bage",
+      "textDa": "Hun spørger: “Har du lyst til at bage på lørdag?”",
+      "sourceHash": "1884a26e0273436ec9493626ec32a248de10632bf54e222d4976b93c69c291ca"
+    },
+    {
+      "id": "da:hjemmeside",
+      "textDa": "Det kan jeg desværre ikke; hjemmesiden er nemlig nede.",
+      "sourceHash": "e351a6e3a728f68bca463d19dbe3b00ae647c7a64ca17f965d53bfb1d41419fa"
+    },
+    {
+      "id": "da:fryser",
+      "textDa": "Passer tirsdag? Ellers kan en håndværker se på fryseren onsdag.",
+      "sourceHash": "b038af0e318971d335b4d48efb6f0e756cc2e082efb35ada207cea0cef10b3ff"
+    },
+    {
+      "id": "da:skarp",
+      "textDa": "Det kan jeg desværre ikke; saksen er hverken skarp eller sikker at bruge.",
+      "sourceHash": "956984951572e76fbfa83c90d6971b68f483f388bbdb55726b7e10f6a677fc1f"
+    },
+    {
+      "id": "da:turist",
+      "textDa": "En turist spørger: “Har du lyst til at se byen?”",
+      "sourceHash": "a690827e84785785153f6e04322f67258465dacc24eb08198b3177ee829e805f"
+    },
+    {
+      "id": "da:vække",
+      "textDa": "Hvis det ikke passer, kan du vække mig en time senere, fordi jeg ved, at du alligevel er vågen.",
+      "sourceHash": "4420f8dd76a21e57b16281b9d9740affaa248e8da702a0a816471ae6856fb44a"
+    },
+    {
+      "id": "da:reparere",
+      "textDa": "Håndværkeren skal reparere sit værktøj samt det ødelagte vindue.",
+      "sourceHash": "2c5516b448a61883d5bf3939fa6d508074a3f5b264f582c68380dffd45274785"
+    },
+    {
+      "id": "da:pose",
+      "textDa": "Denne pose skal bruges, hvis den anden ikke kan holde til varernes vægt.",
+      "sourceHash": "4a48a29008cd5d31f264a02fe166927dd53b1840afdc9970fa4e45a9d942d351"
+    },
+    {
+      "id": "da:ødelægge",
+      "textDa": "Jeg ved, at de ikke vil ødelægge dette møbel med vilje.",
+      "sourceHash": "7aceac667dea28cab236f46176805b0e9ab43568eba1ad51361c2e19789b1ddd"
+    },
+    {
+      "id": "da:levende",
+      "textDa": "Selvom planten ikke ser levende ud, er dens blade stadig grønne.",
+      "sourceHash": "e9f65afd407daf497eac51958453a754d1b72f67596c6f4f81db7177d5848b85"
+    },
+    {
+      "id": "da:kanal",
+      "textDa": "Kanalen er lukket, og derfor må denne båd vente indtil i morgen.",
+      "sourceHash": "57e8a903bf5d2c3771aa9ec54c0a61001063196e2e63a586baa7593f32206f98"
+    },
+    {
+      "id": "da:skinke",
+      "textDa": "Når skinken ikke er varm, skal den tilbage i køleskabet.",
+      "sourceHash": "e8a6c5d0e2e5d0b83a4bd69707eaf29e38bccfef9638d466fb94978a9ff3eb5f"
+    },
+    {
+      "id": "da:koge",
+      "textDa": "Mens vandet koger, må du ikke forlade dette køkken.",
+      "sourceHash": "5b875d84f614888fa2add2a1893b34a17e4d39267a86d51d5fd69a863f0fa725"
+    },
+    {
+      "id": "da:enkel",
+      "textDa": "Det er en enkel løsning, som ikke kræver en ny aftale.",
+      "sourceHash": "bef442820b5735af1ff4d4c291649f30cf4b9edb6a2f4f8e360b93582f4a5655"
+    },
+    {
+      "id": "da:angst",
+      "textDa": "Jeg har haft angst, fordi jeg ikke vidste, hvad brevet betød. Hvad skal jeg gøre?",
+      "sourceHash": "67fb98ea9db4fee03c93a4e3aa0685814e795a034692ce8e1dc4b47a61726313"
+    },
+    {
+      "id": "da:rydde",
+      "textDa": "Jeg vil gerne ændre min aftale, fordi jeg skal rydde lejligheden.",
+      "sourceHash": "0468885134c5222da567f5cb3d3d56dfddf100b8467e8466493336f1ed71681c"
+    },
+    {
+      "id": "da:and",
+      "textDa": "Både denne and og dens unger lever blandt svaner samt andre fugle.",
+      "sourceHash": "e9efb99f140111049e6bb783b26b1c6092afbee4eed6835e694ba5d761d97a45"
+    },
+    {
+      "id": "da:praktisk",
+      "textDa": "Dette er praktisk, hvis du enten kan komme tidligt eller hente det senere.",
+      "sourceHash": "ade7dc61e2b31915ae54814513dfbde7142596a40df3a915df185826ca65fc77"
+    },
+    {
+      "id": "da:møbel",
+      "textDa": "Disse møbler skal repareres, fordi de ikke er sikre.",
+      "sourceHash": "9ad02be5ec2be9f542443721b5493c7579dd749bb3cbb837517e6b4703833e83"
+    },
+    {
+      "id": "da:overraskelse",
+      "textDa": "Det var en overraskelse, at hun alligevel kunne komme; engang aflyste hun, og tidligere gjorde hun det næsten altid.",
+      "sourceHash": "786e1904380e1d9dc3243bf3b849591f3d17ecd301745d5365197207a5433550"
+    },
+    {
+      "id": "da:snakke",
+      "textDa": "Vi kan snakke, mens vi venter, selvom vi ikke kender hinanden.",
+      "sourceHash": "22cf61106869ca26acb78d3090e35f89ecedb7b3411b24f47971665c61dc9b77"
+    },
+    {
+      "id": "da:trykke",
+      "textDa": "Tryk på denne knap, hvis skærmen ikke reagerer.",
+      "sourceHash": "73eeaa87222776d66cb06087273deb76fe1d005fa43c9589ef89cfab2363834a"
+    },
+    {
+      "id": "da:rimelig",
+      "textDa": "Prisen er rimelig; dog skal du fortsat betale, indtil sagen er afgjort.",
+      "sourceHash": "b93696db95248305219a5fd974e17a1ab96b1faa984a414b0bc58539fc5624db"
+    },
+    {
+      "id": "da:sweater",
+      "textDa": "Jeg tager denne sweater på, når kontoret ikke er varmt.",
+      "sourceHash": "1128f30e542b3d13a55a90aebdce61a91e1b774e71a31d2a46202913e77b6f0a"
+    },
+    {
+      "id": "da:skam",
+      "textDa": "Han følte skam, men sagde alligevel, at han ikke havde løjet.",
+      "sourceHash": "f86f6b514ba48b11627e95c97bceb8911aad8c7a4e36b24fa62ffbc08e958db4"
+    },
+    {
+      "id": "da:fylde",
+      "textDa": "Du skal fylde denne formular ud, fordi kommunen ikke har dine oplysninger.",
+      "sourceHash": "929cf8fce1f3166c46c9715a56ee20529a5c4843b037db35225f94de98eefe40"
+    },
+    {
+      "id": "da:berømt",
+      "textDa": "Han er en berømt skuespiller, som mange genkender.",
+      "sourceHash": "4cf9d906e7ec112c0e1f4d31e04d0651b1b0144bf395abbabcc310280c29a52a"
+    },
+    {
+      "id": "da:ensomhed",
+      "textDa": "Ensomhed bliver mindre, når man ikke sidder alene.",
+      "sourceHash": "e668445068456928ce3e5124a4ad084ba5d7e77a15abefccf8a9ecbd1e60fc1b"
+    },
+    {
+      "id": "da:skære",
+      "textDa": "Jeg ved, at du ikke må skære brødet med denne kniv.",
+      "sourceHash": "1d41a48ee58cb2fdba0bb21800fc077484d8104976e5d855c6e81d6330d45f7c"
+    },
+    {
+      "id": "da:læbe",
+      "textDa": "Jeg har ondt i læben; dog smilede jeg alligevel til fotografen.",
+      "sourceHash": "d75fc48e0d23fc0343a95c5b5978ef5959a8a3ea4a07124c639a2a7e2eb306cd"
+    },
+    {
+      "id": "da:råbe",
+      "textDa": "Han måtte råbe, fordi de ikke kunne høre beskeden.",
+      "sourceHash": "3f3388e0a8e95bbcc6a84623fc747c50dc1866f6f24f4ea66ee74b8bb981857f"
+    },
+    {
+      "id": "da:motion",
+      "textDa": "Engang var motion sjældent en del af min dag; nu er den nemlig vigtig, fordi kroppen bliver stærkere.",
+      "sourceHash": "144f7ee8d232720abfb4e69192c0473181f4c0f61493e9f88e2baf3441022d2b"
+    },
+    {
+      "id": "da:ærlig",
+      "textDa": "Trods et ærligt svar tvivlede hun; derfor læste hun dette brev igen.",
+      "sourceHash": "b9da7c85c60cbc22152dab0c4e1f97fb9d7d2f088b8a921d52b5326df56d22c8"
+    },
+    {
+      "id": "da:tårn",
+      "textDa": "Tårnet er højt, men dets trappe er jo ikke farlig.",
+      "sourceHash": "19df7dad83a02de5c2597f0aa106e3ea0c865e408cf98c223826e8d01e64cbd3"
+    },
+    {
+      "id": "da:ryge",
+      "textDa": "Man må ikke ryge, mens man venter blandt andre mennesker.",
+      "sourceHash": "18edc7a63dc03cba17145f7e5abb3e294bc161372a51ec9fb0c2a144ae0cf567"
+    },
+    {
+      "id": "da:streng",
+      "textDa": "Reglen er streng; dog er den rimelig, fordi den gælder alle.",
+      "sourceHash": "6f5c457ba25ddb89355519e3b0dcfcf8ab6dbb43080182e8e6f482cc061bafdf"
+    },
+    {
+      "id": "da:kvittering",
+      "textDa": "Gem denne kvittering samt garantien, indtil du ved, at den købte vare virker.",
+      "sourceHash": "83786451f2d46a8e721c790bcb4dff34e98139cc2012a6b637b77bb4233676e5"
+    },
+    {
+      "id": "da:tørre",
+      "textDa": "Selvom håndklædet er fugtigt, kan du alligevel tørre bordet.",
+      "sourceHash": "1097edc9f8fa10bde263091ab02874002e993061e9699182c63cfa74db4d9f7d"
+    },
+    {
+      "id": "da:tydelig",
+      "textDa": "Dette skilt er tydeligt, så du ved, at du skal vente.",
+      "sourceHash": "99b6a09488cd39935ece8ff7e0f4bacfe4d8536a8bec7e4f7d29d60aa3852d96"
+    },
+    {
+      "id": "da:peber",
+      "textDa": "Der er peber blandt krydderierne, men det bruges sjældent her.",
+      "sourceHash": "408b00c237543ea2667d4c200048eb888f3bf8b155e840f712f708298efb0442"
+    },
+    {
+      "id": "da:politibetjent",
+      "textDa": "Straks gjorde politibetjenten det klart, at vi ikke måtte gå ind, fordi gulvet var glat.",
+      "sourceHash": "50ed746729bc98e2b3a85b5b776acf8941ffe80f23301038404d7f2c62a3e0d0"
+    },
+    {
+      "id": "da:blande",
+      "textDa": "Du kan blande disse farver, hvis du ikke har den rigtige.",
+      "sourceHash": "299418aee24eddbc884e7d35ba8bbf5a8615a1123ebcb34d5d571ba7f9f4ee4b"
+    },
+    {
+      "id": "da:hylde",
+      "textDa": "Hylden kan jo ikke bære kassen, selvom den ser stærk ud.",
+      "sourceHash": "6b310eb8f3694ad5ebe2d2caf3ac1935d69aa3682cf4b6e588045157d10af1a2"
+    },
+    {
+      "id": "da:hoppe",
+      "textDa": "Barnet ville hoppe, men gjorde det sjældent blandt fremmede.",
+      "sourceHash": "7c053983531a6a32078c184dca8b59945bc433c541cb0d1495482f9c2678f3e7"
+    },
+    {
+      "id": "da:skygge",
+      "textDa": "Skyggen bliver længere, mens solen går ned; det er altså snart aften.",
+      "sourceHash": "d32e1f98df570c83c1daafdc56c998eea9ceca35834b614856db41e1a579a381"
+    },
+    {
+      "id": "da:mild",
+      "textDa": "Vejret er mildt; derfor kan vi blive ude indtil sent.",
+      "sourceHash": "15fc0e36ded53a73c3ab2b510e7ea476e2dd68b0d1e8f0ba4c2feff0301d652d"
+    },
+    {
+      "id": "da:rulle",
+      "textDa": "Rul pakken hen til denne dør, hvis den ikke er for tung.",
+      "sourceHash": "8e068285007d5f73a1dc87158d3610e3562963a1f41b048b5168a13e91311b59"
+    },
+    {
+      "id": "da:bluse",
+      "textDa": "Denne bluse er dyr; dens stof holder dog længe.",
+      "sourceHash": "73b0fc95a2954da5ae9d4cf8b7ecbea5fce76a99836626a84c07fc5c085e778c"
+    },
+    {
+      "id": "da:nyttig",
+      "textDa": "Appen er nemlig nyttig, fordi den forklarer disse beskeder.",
+      "sourceHash": "78c0d76326ebb2146499877bcfa50831e01dbe8fd82e1aed418e3551883b6483"
+    },
+    {
+      "id": "da:tåge",
+      "textDa": "Trods tågen kunne vi se tårnet, som ikke var langt væk.",
+      "sourceHash": "45b34a55544054f00f4435859f06e17ff8ac6d99b168ce4336c49ed9057b13ce"
+    },
+    {
+      "id": "da:bade",
+      "textDa": "Vi bader sjældent, når vandet ikke er varmt.",
+      "sourceHash": "e92220a07c7c7fa259efa44fa6c86325e50a3d93dabbde13078912863db08906"
+    },
+    {
+      "id": "da:smil",
+      "textDa": "Hendes smil viste, at hun alligevel ikke var vred.",
+      "sourceHash": "17eb83c82e84ef11cb3bacb8a0061bdbad97862522ec208bb6d1ca1290582b54"
+    },
+    {
+      "id": "da:binde",
+      "textDa": "Bind posen, indtil knuden sidder fast.",
+      "sourceHash": "b7ee33894f57186d5cf0f92268255b0c0fd645037b4b326e3ec4da386739d7df"
+    },
+    {
+      "id": "da:træning",
+      "textDa": "Træningen er hård, men vi ved jo, at den virker.",
+      "sourceHash": "53bab9d9b64850ea991805c492f1611bc4cdcac26e2158504b7fd804934b571c"
+    },
+    {
+      "id": "da:behagelig",
+      "textDa": "Stolen er behagelig; altså kan vi vente lidt længere.",
+      "sourceHash": "2b3cdab47c826b677994367b7e3f81a10f598c6a914244cfde4f34eeaac7517d"
+    },
+    {
+      "id": "da:kursus",
+      "textDa": "Jeg vil gerne ændre min aftale, fordi kurset varer indtil fredag samt kræver en prøve.",
+      "sourceHash": "75d82ec04f9c54c573262e6ce1537163e4558b20bf76a3c3b7988ac501bf9f2a"
+    },
+    {
+      "id": "da:stege",
+      "textDa": "Steg løgene, mens du venter; de skal dog ikke blive mørke.",
+      "sourceHash": "d638ab8a02ef85eadf464e8f793562ccdda48f34c81b345492a5844ff3538738"
+    },
+    {
+      "id": "da:teater",
+      "textDa": "Dette teater er blandt de ældste i byen, og derfor er det berømt.",
+      "sourceHash": "62bd0f02e89db9d6eecd1aad09a5a94b0b62b65bcb524e6683b489c400bcae04"
+    },
+    {
+      "id": "da:underlig",
+      "textDa": "Det er underligt, at han ikke svarer, når han jo er hjemme.",
+      "sourceHash": "2636c258dad63c4855ac22279424e8c002a6b660e97fd56dd7186ec9cb0f05af"
+    },
+    {
+      "id": "da:hælde",
+      "textDa": "Hæld vandet i denne skål, indtil den er halvfuld.",
+      "sourceHash": "51e8a680767277f99ee486ab0e91bbbad53711860d7da9588c4903a3f42a9393"
+    },
+    {
+      "id": "da:adresse",
+      "textDa": "Disse breve kom tilbage, fordi adressen ikke var tydelig; engang skete det samme.",
+      "sourceHash": "1be4a5da601176c40686b36779bb90d5eac119261c5ea8603bd178759ba11f5d"
+    },
+    {
+      "id": "da:app",
+      "textDa": "Beskeden “Hvad skal jeg gøre?” står i appen, indtil du vælger denne tid i kalenderen.",
+      "sourceHash": "bdf3e9fedb641a2fd93164e04ebb94ae0c8bf7a5b43ae1de0b45c9d330b4231f"
+    },
+    {
+      "id": "da:smøre",
+      "textDa": "Smør brødet, mens det er varmt; ellers bliver smørret hårdt.",
+      "sourceHash": "c0119e01b5a9fd6c89ed00c105c42408a51b52805ba7149f4ca3a10181ecfe33"
+    },
+    {
+      "id": "da:flink",
+      "textDa": "Den flinke medarbejder forklarer, at man ikke skal betale nu.",
+      "sourceHash": "46f6be2e9a2732098607b62ddd852f1c351adb4b368bf8890c1c346d689b11a2"
+    },
+    {
+      "id": "da:kalender",
+      "textDa": "I kalenderen skriver jeg: “Jeg vil gerne ændre min aftale.”",
+      "sourceHash": "21dd9939b2019adcd1b2661546770662fba7bb1fac30506f1f764b3aa6c538cc"
+    },
+    {
+      "id": "da:servere",
+      "textDa": "De serverer sjældent skinke, men gør det dog ved særlige fester.",
+      "sourceHash": "4034b648529a87725b7a435733095f83003733a20b42292c3b158ba50e2ce0f9"
+    },
+    {
+      "id": "da:skilt",
+      "textDa": "Skiltet siger, at vi ikke må ryge, fordi andre arbejder her.",
+      "sourceHash": "09a6984efb33e723936eab7b56d45a4a7952908ec78850c0244ecffe62d510d6"
+    },
+    {
+      "id": "da:høflig",
+      "textDa": "Det er høfligt at sige, at man ikke kan komme.",
+      "sourceHash": "67365617b1e9590f89343a0228de326b2d8452a8f75f2df27c8497c8201d3763"
+    },
+    {
+      "id": "da:kurv",
+      "textDa": "Denne kurv står blandt de tomme kasser og er jo stadig hel.",
+      "sourceHash": "5a21d9252c16e07a0c788cdd4a0b90fbdf5c2f19f7d2678dbff03b492b40d1b3"
+    },
+    {
+      "id": "da:diskutere",
+      "textDa": "Vi diskuterer, hvad dette betyder, indtil alle forstår beskeden.",
+      "sourceHash": "6ca95a88ca2da7b4ce92a8f0416c002ab479ce5ea31e0b7b04e248c1b79eadf5"
+    },
+    {
+      "id": "da:slik",
+      "textDa": "Børnene får sjældent slik, selvom de spørger.",
+      "sourceHash": "5a2b627ad182583228b7b512418e6da0c60df3e94ad4346376f73c5b5da87ef8"
+    },
+    {
+      "id": "da:glat",
+      "textDa": "Trods skiltet gik han videre, selvom gulvet var glat.",
+      "sourceHash": "ac839e5c71633523fb88a8cc71a6218314dab486d3b50228e91fbcf0cfff4971"
+    },
+    {
+      "id": "da:ryste",
+      "textDa": "Hun rystede, fordi hun havde haft feber, men gjorde alligevel arbejdet.",
+      "sourceHash": "9eebc3f0680b2e81937969f94f2e27a094c0d659ff11a7930d05e2e547c8156c"
+    },
+    {
+      "id": "da:hjerne",
+      "textDa": "Hjernen arbejder, mens vi sover; derfor er søvn jo vigtig, selvom vi ikke husker alt.",
+      "sourceHash": "11dcf614444d3005ce443442b3806e9efaa1d2da384ee08364e1e937cc465989"
+    },
+    {
+      "id": "da:hviske",
+      "textDa": "Han hvisker, at det ikke begynder før ti.",
+      "sourceHash": "0213cbebb030ea746d01e379e9c36cdd78aa4803a463765eb4904426225f10df"
+    },
+    {
+      "id": "da:interesse",
+      "textDa": "Dette kursus, som også handler om kultur, fangede min interesse; altså valgte jeg det.",
+      "sourceHash": "31693f3ba2fe13a3709d7977a33c53c06764c4d1496c0919c8f7609aa5ba2f7c"
+    },
+    {
+      "id": "da:kølig",
+      "textDa": "Det er køligt, fordi døren ikke er lukket; dog bliver vi her.",
+      "sourceHash": "41dc0f41b85b3676a0bd920d32496a4377337aa0643da598fcfa467c78f42a4b"
+    },
+    {
+      "id": "da:aftale",
+      "textDa": "“Jeg vil gerne ændre min aftale,” skriver hun, fordi tiden ikke passer.",
+      "sourceHash": "f57cbba9d72d6d00a5c55b66b78a27335593fb43ddee1d21ed79a40739d74d3f"
+    },
+    {
+      "id": "da:glide",
+      "textDa": "Hun kunne glide, hvis hun ikke holdt fast i denne ring.",
+      "sourceHash": "c15b71bffa0192dc904abc0abad3ae156b66221d77b3455c430bc21ac04ca29d"
+    },
+    {
+      "id": "da:skuffe",
+      "textDa": "Disse skuffer er jo tomme, selvom de ikke ser sådan ud.",
+      "sourceHash": "95c59c4016fc4118c4072f0162659ee64186a36bd6b4565a5c7f0a43758a78b6"
+    },
+    {
+      "id": "da:fugtig",
+      "textDa": "Væggen er fugtig; derfor bør dette møbel ikke stå tæt på den.",
+      "sourceHash": "03abdc7a9d79805400f60713a70d2ce706705d6e926ee149e53991ac654c0c56"
+    },
+    {
+      "id": "da:klatre",
+      "textDa": "De vil klatre på klipperne blandt de små huse, selvom det sjældent er tilladt.",
+      "sourceHash": "64a5236aca8308ac548f85dba901b49388d9abbdddf0efeb3e8eae7569975163"
+    },
+    {
+      "id": "da:udsigt",
+      "textDa": "Udsigten er skøn, men tågen skjuler den dog indtil middag.",
+      "sourceHash": "b63fc151372cfbe09f642987e818ef491a24c29e512b5859353e705a95700ca5"
+    },
+    {
+      "id": "da:ring",
+      "textDa": "Hun vil heller ikke bære ringen, fordi den er løs.",
+      "sourceHash": "66061afae9b28ad73e1d463ff60697afd51ed59826d765505ad7245965cb90d7"
+    },
+    {
+      "id": "da:bekymre",
+      "textDa": "Det bekymrer mig, at de ikke har sendt denne kvittering.",
+      "sourceHash": "0b8da87373bc6ae8d98d8b7eaf3ea9918b0ee308770b4af44337ec51278e0f5e"
+    },
+    {
+      "id": "da:stiv",
+      "textDa": "Trods hvilen er han stiv og siger: “Jeg har ondt i ryggen.”",
+      "sourceHash": "e58c9181d6455daaa3c9eb9d3f4cf8d64f6b9121836d95cd2d222fc63e50b31a"
+    },
+    {
+      "id": "da:ulykke",
+      "textDa": "Efter ulykken spurgte hun: “Hvad skete der?”",
+      "sourceHash": "323b673a380ab8da363f6fff9bdcb4f58fdb606e1ea1f50f529d27d48a3be0c5"
+    },
+    {
+      "id": "da:irritere",
+      "textDa": "Det irriterer ham, at den ikke virker, selvom appen er ny.",
+      "sourceHash": "f3150c0c520bbcd3da2a4381c5da257dc1a63d5443cd2a47c8914bb3e9bbef67"
+    },
+    {
+      "id": "da:opskrift",
+      "textDa": "Denne opskrift siger, at du skal blande melet, mens vandet koger.",
+      "sourceHash": "9aa53b02960a7e5f234414b08944361a4b5b6885724724c71a4bde688b99c9bc"
+    },
+    {
+      "id": "da:løs",
+      "textDa": "Skruen er løs, og derfor kan dette møbel ikke bruges.",
+      "sourceHash": "4f6b1ab14b7d5023e34dc2e36197d0daa8e7ffd9addeed90b7837eda9f57db9e"
+    },
+    {
+      "id": "da:kommune",
+      "textDa": "“Disse papirer mangler,” skriver kommunen.",
+      "sourceHash": "a827a6e278bd1bf231064014a5301cd60a60edc48cf3f326d2a88d55ce0e6555"
+    },
+    {
+      "id": "da:kramme",
+      "textDa": "De krammer hinanden, selvom de sjældent mødes.",
+      "sourceHash": "035f28de8143d4ae6cea1c521683086d8e1cec7f9f3f5a89f71e3b37c4970607"
+    },
+    {
+      "id": "da:kultur",
+      "textDa": "Denne kultur var engang ukendt for os, men vi kan jo lære af hinanden.",
+      "sourceHash": "72ba0a7f580b312f96bb5d70028b67dcaf37614601c56f60caaa89317971c566"
+    },
+    {
+      "id": "da:tålmodig",
+      "textDa": "Vær tålmodig, indtil de har repareret det; de begynder nemlig snart.",
+      "sourceHash": "45d7fd9e4806ead91e862f42390f45df3d9769e54650a78673bbd7c8cc272463"
+    },
+    {
+      "id": "da:trøste",
+      "textDa": "Jeg prøver at trøste hende, selvom jeg ikke ved, hvad jeg skal sige.",
+      "sourceHash": "e91a38f18f18f852e3d7b3275d5a7d79cd19037e189cb15a4208fdb785e9dad7"
+    },
+    {
+      "id": "da:regering",
+      "textDa": "Regeringen ændrede sine regler samt formularen; derfor skal disse breve skrives igen.",
+      "sourceHash": "857e464019bcf963299976c0e2a63fe677fa6fc4908403f1c167862fdb4e2fc4"
+    },
+    {
+      "id": "da:ordne",
+      "textDa": "I dag skriver jeg: “Jeg vil gerne ændre min aftale.” Derefter kan kommunen ordne resten.",
+      "sourceHash": "8de9742b1c5bc5e7bf4cdb424d825decc2b4584a3e9ceb3a492908870a09ec68"
+    },
+    {
+      "id": "da:pakke",
+      "textDa": "Vis mig sådan en pakke, hvis den ikke er tung.",
+      "sourceHash": "d585df1609636d0c1c907d31e0bd646b76a8ae52897e8a14153dd4a1fd3aa6da"
+    },
+    {
+      "id": "da:skøn",
+      "textDa": "Hvis det ikke passer, vælger vi en anden aften med en skøn udsigt; altså har vi stadig en plan.",
+      "sourceHash": "f9719354e4cb8a820788aa2f95670aed327e4dd2cbf3fa665ac4884c5af72b9b"
+    },
+    {
+      "id": "da:fritid",
+      "textDa": "Jeg skriver, at jeg har fritid torsdag, men foreslår fredag, hvis det ikke passer.",
+      "sourceHash": "c29da4f8518c94ceeb8b0416afcb2923291c1d69ae79a90ea03ebada100b39e3"
+    },
+    {
+      "id": "da:klippe",
+      "textDa": "Beskeden siger: “Hvis det ikke passer, kan vi klippe håret fredag.”",
+      "sourceHash": "253fce1f47bf3a7e0dd587cc14e6d794b00ca7ec6a8525541432ff2c6235f994"
+    },
+    {
+      "id": "da:venskab",
+      "textDa": "Venskabet lærer dem at hjælpe hinanden, fordi de taler sammen, selvom de ikke er enige.",
+      "sourceHash": "162ac060692f989bb6e59ab01fd3a1142b626bafb57966b51592401ed9145f99"
+    },
+    {
+      "id": "da:sprød",
+      "textDa": "Hvis det ikke passer, kan vi servere det sprøde brød senere.",
+      "sourceHash": "49f29b8fbd25e1134f9b3722c958a46730e5298211598cb55cf5226618170168"
+    },
+    {
+      "id": "da:skrige",
+      "textDa": "Hvis det ikke passer, kan barnet skrige, fordi skoen gør ondt; vælg derfor en større.",
+      "sourceHash": "c0bbdf7737e2ea88812d3c004af781bef3aa27a3fc1170bddac68ada7610d564"
+    },
+    {
+      "id": "da:ægteskab",
+      "textDa": "Ægteskabet er stærkt, nemlig fordi de taler ærligt om dette.",
+      "sourceHash": "1e59d79a34f179a55e6f9f25f16944bec5dcc5a2d5376f6f7c5e1501f3d58c21"
+    }
+  ]
+}

@@ -1,0 +1,2401 @@
+{
+  "version": 1,
+  "base": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82",
+  "language": "da",
+  "city": 0,
+  "sources": {
+    "src/data/words.da.json": "2ff022f72f8dd7987da9f13472fcd0c5b2b722ced0b803e7ee9db1c20258eac5",
+    "src/data/function-words.da.json": "9d293c2db576fc76c096b2f7baa2cf31814c4f7bda1d13b357f6facb8df4f9cb",
+    "src/lang/da/curriculum-support.ts": "8d2504695c4d8cacfd367386629548f5c6e1ad43b6f9efbbbf18d40439f37474",
+    "src/lang/da/curriculum-authoring.ts": "0e5edda0422b94d0e1f206dcb784f7317d2d896cf0bf234a3ff962b2494946cc",
+    "src/lang/da/curriculum-cities-1-3.ts": "c2baabc14a68a438b7b5d2d5850065b9914f506de8c17a61f93dd012187fd658",
+    "src/lang/da/beginner-grammar-lessons.ts": "74b0cf5a0b92c5a31f1167299c4657cca224e33fdd70deaa6606bbc309de748e"
+  },
+  "counts": {
+    "words": 100,
+    "targets": 39,
+    "reviewEligible": 35,
+    "byKindAndStage": {
+      "ledger:productive-target": 24,
+      "ledger:preview-as-chunk": 1,
+      "ledger:receptive-ambient": 3,
+      "supplemental:chunk:productive-target": 9,
+      "supplemental:word:receptive-ambient": 1,
+      "supplemental:word:productive-target": 1
+    }
+  },
+  "words": [
+    {
+      "wordId": "da:mor",
+      "headword": "mor",
+      "curriculumRank": 1,
+      "city": 0,
+      "sourceSha256": "3e608dbd44ff66ceb963aa9f50d75cacb46530354d363afdf3217912b70f5fae"
+    },
+    {
+      "wordId": "da:far",
+      "headword": "far",
+      "curriculumRank": 2,
+      "city": 0,
+      "sourceSha256": "0b9d025cf0a47d8e66fb577b7a945632169cfad42d0899bbb2ebdce1c1ee42de"
+    },
+    {
+      "wordId": "da:barn",
+      "headword": "barn",
+      "curriculumRank": 3,
+      "city": 0,
+      "sourceSha256": "2a672925f63555c57196720ce24ae79efc9519ad63b7e8734cadd79e2cf84432"
+    },
+    {
+      "wordId": "da:hund",
+      "headword": "hund",
+      "curriculumRank": 4,
+      "city": 0,
+      "sourceSha256": "d94ded011d133a15fb11f8cf5764cffe5e6dc7060c846826ed7e7be0fe87690b"
+    },
+    {
+      "wordId": "da:kat",
+      "headword": "kat",
+      "curriculumRank": 5,
+      "city": 0,
+      "sourceSha256": "03c3440378c7d23b808d7db58f091161e971b168531726c4212f81c4a3f4b5a3"
+    },
+    {
+      "wordId": "da:hus",
+      "headword": "hus",
+      "curriculumRank": 6,
+      "city": 0,
+      "sourceSha256": "fddd42dbd9963a1c69254e2e83ffb6ceaa345586d2348f5cc987874f7d1c56cf"
+    },
+    {
+      "wordId": "da:bord",
+      "headword": "bord",
+      "curriculumRank": 7,
+      "city": 0,
+      "sourceSha256": "17169ae37e7567144f3ee70fcbca283deabf2acd263c1a34117405dfe457165c"
+    },
+    {
+      "wordId": "da:seng",
+      "headword": "seng",
+      "curriculumRank": 8,
+      "city": 0,
+      "sourceSha256": "f5a348a9080daa9497f8481663b94afd775430276e1b589875f0d8fc8f2cdaa3"
+    },
+    {
+      "wordId": "da:mad",
+      "headword": "mad",
+      "curriculumRank": 9,
+      "city": 0,
+      "sourceSha256": "74003256d048d1459c9ced1272b2d8540f7bf4eac496bd52951bbfab390e9d68"
+    },
+    {
+      "wordId": "da:æble",
+      "headword": "æble",
+      "curriculumRank": 10,
+      "city": 0,
+      "sourceSha256": "26135cc390ce7e2c2436f3d9e60bc90827f6c98c91a88bce6af1f47adfe21cef"
+    },
+    {
+      "wordId": "da:mælk",
+      "headword": "mælk",
+      "curriculumRank": 11,
+      "city": 0,
+      "sourceSha256": "992cae9721e0caea103495d66e51b81c09b90467cd692d12e67bf8be14ccd90f"
+    },
+    {
+      "wordId": "da:vand",
+      "headword": "vand",
+      "curriculumRank": 12,
+      "city": 0,
+      "sourceSha256": "6e88266ffcd6ee49a2cd1715b5ccc41000774f9fd84a09483943028ecef8a9e4"
+    },
+    {
+      "wordId": "da:kaffe",
+      "headword": "kaffe",
+      "curriculumRank": 13,
+      "city": 0,
+      "sourceSha256": "9fdeaecd367edbc22ace0afb07c7fa47ca6f70b2fc72d76c1dc68d73b508dc43"
+    },
+    {
+      "wordId": "da:øje",
+      "headword": "øje",
+      "curriculumRank": 14,
+      "city": 0,
+      "sourceSha256": "aab4acde09c48e6393abd844ac7bde010d8124ef74eb36e0561565879c6dd795"
+    },
+    {
+      "wordId": "da:hånd",
+      "headword": "hånd",
+      "curriculumRank": 15,
+      "city": 0,
+      "sourceSha256": "db0665e2341cd0d8ea5f34faac162bb40179f61c783fb7cd06bd5aef911cbff5"
+    },
+    {
+      "wordId": "da:dør",
+      "headword": "dør",
+      "curriculumRank": 16,
+      "city": 0,
+      "sourceSha256": "2ffc9f8cfed05bd9dcaa7848367d372af15a83da2048c14dd837395dfd5f0078"
+    },
+    {
+      "wordId": "da:vindue",
+      "headword": "vindue",
+      "curriculumRank": 17,
+      "city": 0,
+      "sourceSha256": "52a101776dcc59e16b814bb13ed4678bfc3f307d5ad49fcb123cb2de237f3c8a"
+    },
+    {
+      "wordId": "da:stol",
+      "headword": "stol",
+      "curriculumRank": 18,
+      "city": 0,
+      "sourceSha256": "e73507b043bbb6f839fabace060c6f7a7ec1c6334cc18903b3b685389dd74e17"
+    },
+    {
+      "wordId": "da:køkken",
+      "headword": "køkken",
+      "curriculumRank": 19,
+      "city": 0,
+      "sourceSha256": "b417b3e86556bb6ba55df90ceeaf24656136f80f2cba01d86e64c3bdea876557"
+    },
+    {
+      "wordId": "da:mund",
+      "headword": "mund",
+      "curriculumRank": 20,
+      "city": 0,
+      "sourceSha256": "a18d6cf2e0d7fc3757eaf22d42664a167996384c1f84927a25aa16d4a3264e43"
+    },
+    {
+      "wordId": "da:hoved",
+      "headword": "hoved",
+      "curriculumRank": 21,
+      "city": 0,
+      "sourceSha256": "a6fc709f78dd49886aeed21fd044373b1c3f2de37e0ede0df505914ffd48bfc9"
+    },
+    {
+      "wordId": "da:mand",
+      "headword": "mand",
+      "curriculumRank": 22,
+      "city": 0,
+      "sourceSha256": "61a3b2dec71581514309980d6b1abb64e8fe33ab2823e2806f0bb34042580601"
+    },
+    {
+      "wordId": "da:kvinde",
+      "headword": "kvinde",
+      "curriculumRank": 23,
+      "city": 0,
+      "sourceSha256": "76532fd44159cc6aaf362d7227c8724160f5594c72df66ce386c02698873186d"
+    },
+    {
+      "wordId": "da:pige",
+      "headword": "pige",
+      "curriculumRank": 24,
+      "city": 0,
+      "sourceSha256": "012ccb9f9f97c4c9559eacfe7553c4f55ca881fa3aa8a2691cbc8aea18147938"
+    },
+    {
+      "wordId": "da:dreng",
+      "headword": "dreng",
+      "curriculumRank": 25,
+      "city": 0,
+      "sourceSha256": "9ba2faec6a2f9340454baf9cab2f555730334a719bfd6ffeb68f5902ad0846b3"
+    },
+    {
+      "wordId": "da:bror",
+      "headword": "bror",
+      "curriculumRank": 26,
+      "city": 0,
+      "sourceSha256": "373dd96d96ef51b805855fc9c2c50ab583027d40cb5ac6729e7c7e6c3ca6c5c5"
+    },
+    {
+      "wordId": "da:søster",
+      "headword": "søster",
+      "curriculumRank": 27,
+      "city": 0,
+      "sourceSha256": "85023a5dfe77db5663884ed9f91b21c594111499b9dae8d656d20226c05cb2d3"
+    },
+    {
+      "wordId": "da:rød",
+      "headword": "rød",
+      "curriculumRank": 28,
+      "city": 0,
+      "sourceSha256": "9146fc3adfb3542b8d3497bdd4dfd578c959d3762cbcb009c0a279927c9f1c07"
+    },
+    {
+      "wordId": "da:hvid",
+      "headword": "hvid",
+      "curriculumRank": 29,
+      "city": 0,
+      "sourceSha256": "7c0854b4db990bbe5f8bc4eed78d8b68d890b90663bc4593e314fe8f300820da"
+    },
+    {
+      "wordId": "da:sort",
+      "headword": "sort",
+      "curriculumRank": 30,
+      "city": 0,
+      "sourceSha256": "934671b1c2bd4bad2d2428b099493f8a19c98496ed8fe7b6f8ba52bb9fea5dbb"
+    },
+    {
+      "wordId": "da:ost",
+      "headword": "ost",
+      "curriculumRank": 31,
+      "city": 0,
+      "sourceSha256": "f0afd1613b87345a9f0fcef3e149f817431e1cf6b6dc05e35263dcc3dd6a1078"
+    },
+    {
+      "wordId": "da:æg",
+      "headword": "æg",
+      "curriculumRank": 32,
+      "city": 0,
+      "sourceSha256": "0c9356af0ce96758dad2ecae7a6d0891f2f8d5d792c0dceb886cb8e56f87ed48"
+    },
+    {
+      "wordId": "da:kød",
+      "headword": "kød",
+      "curriculumRank": 33,
+      "city": 0,
+      "sourceSha256": "d1b85b110ccf081a6d35c2cc3762aca2ac3a8653fe1d8f46861169f5618538d8"
+    },
+    {
+      "wordId": "da:fisk",
+      "headword": "fisk",
+      "curriculumRank": 34,
+      "city": 0,
+      "sourceSha256": "7d96d0ec48993df55dabb3a563345d7aa1b844162166b40d1ab0edc366a7bc55"
+    },
+    {
+      "wordId": "da:spise",
+      "headword": "spise",
+      "curriculumRank": 35,
+      "city": 0,
+      "sourceSha256": "0e91abafe43f2d25a103ccfb0fd128b1deb4d3c2ec6b06f42fedf2d88e6ce660"
+    },
+    {
+      "wordId": "da:drikke",
+      "headword": "drikke",
+      "curriculumRank": 36,
+      "city": 0,
+      "sourceSha256": "bbda0b4a05b923c651827ae92f675b1c2aeb31273d937a147258520c678fe7fc"
+    },
+    {
+      "wordId": "da:øl",
+      "headword": "øl",
+      "curriculumRank": 37,
+      "city": 0,
+      "sourceSha256": "dc410ce8934ab8a6d9a303a4dd919a8da7121e974096a509dd9254024072a02a"
+    },
+    {
+      "wordId": "da:sol",
+      "headword": "sol",
+      "curriculumRank": 38,
+      "city": 0,
+      "sourceSha256": "6dabc79b7ebde6f7fc10a4e9210ec4b62bec9d24863aabe7a03918b45c156f6b"
+    },
+    {
+      "wordId": "da:træ",
+      "headword": "træ",
+      "curriculumRank": 39,
+      "city": 0,
+      "sourceSha256": "ca092dd52ebdcf96e3e0c5242e25469abfcbbb4395eb5e5d08f82f238f27a164"
+    },
+    {
+      "wordId": "da:blomst",
+      "headword": "blomst",
+      "curriculumRank": 40,
+      "city": 0,
+      "sourceSha256": "f3c4052405c7d2b5a1d4144e19975ac24f5bf331a47acd4df857986d463e8002"
+    },
+    {
+      "wordId": "da:fugl",
+      "headword": "fugl",
+      "curriculumRank": 41,
+      "city": 0,
+      "sourceSha256": "4232b8c18097aace428c37896d5744697a9e14a9bf72a08fe3f84d9fd911834e"
+    },
+    {
+      "wordId": "da:hest",
+      "headword": "hest",
+      "curriculumRank": 42,
+      "city": 0,
+      "sourceSha256": "9a7732bf507c9a410052273db929622954a3eefa7873a86f63edb2005bd64b9d"
+    },
+    {
+      "wordId": "da:bil",
+      "headword": "bil",
+      "curriculumRank": 43,
+      "city": 0,
+      "sourceSha256": "9811b167429b91327178e0bd601324a9d3544c964659439ee94be094ee8f0096"
+    },
+    {
+      "wordId": "da:by",
+      "headword": "by",
+      "curriculumRank": 44,
+      "city": 0,
+      "sourceSha256": "e0049946a9e0a5b9b950276e456557baef7e717005598b65edcf4dfda6811016"
+    },
+    {
+      "wordId": "da:skole",
+      "headword": "skole",
+      "curriculumRank": 45,
+      "city": 0,
+      "sourceSha256": "61ca2e343a8d720a9410047a4a3cb9980d3320d4f7be0a1aa2aa9732dc318ef7"
+    },
+    {
+      "wordId": "da:bog",
+      "headword": "bog",
+      "curriculumRank": 46,
+      "city": 0,
+      "sourceSha256": "5ec0cc79382144120c041bfe8b7a3264d65e8ef2fca2a0783fe754add4a57399"
+    },
+    {
+      "wordId": "da:ben",
+      "headword": "ben",
+      "curriculumRank": 47,
+      "city": 0,
+      "sourceSha256": "d60fad70c56d8c23dda6c88701d7cee4413e791fcd51491ca279c3416c191248"
+    },
+    {
+      "wordId": "da:fod",
+      "headword": "fod",
+      "curriculumRank": 48,
+      "city": 0,
+      "sourceSha256": "a73ca66c9a57c55bf278d806e39fe95b56c4edc5bc2c1bb0771e460de2c76b75"
+    },
+    {
+      "wordId": "da:arm",
+      "headword": "arm",
+      "curriculumRank": 49,
+      "city": 0,
+      "sourceSha256": "780460eeba78bac317ba7611d59b8f3101d44612ac8a305de687e29ad788fbb4"
+    },
+    {
+      "wordId": "da:finger",
+      "headword": "finger",
+      "curriculumRank": 50,
+      "city": 0,
+      "sourceSha256": "fab63f7945183543495ee8db39fff3cab7e77e77b7c9caf927ccdec78735f565"
+    },
+    {
+      "wordId": "da:næse",
+      "headword": "næse",
+      "curriculumRank": 51,
+      "city": 0,
+      "sourceSha256": "58bd775323319e8d69004d212e5e76acd375143201f4d3702090d57367439bf8"
+    },
+    {
+      "wordId": "da:tand",
+      "headword": "tand",
+      "curriculumRank": 52,
+      "city": 0,
+      "sourceSha256": "acb82506099e4596872890821cfeee1989c2d62dd955880a27552a00c8c5c104"
+    },
+    {
+      "wordId": "da:hår",
+      "headword": "hår",
+      "curriculumRank": 53,
+      "city": 0,
+      "sourceSha256": "58ebf89cb0d212608e2262ce5ce8c83fc1187e25cb6e2e7db2cc6da89382ad21"
+    },
+    {
+      "wordId": "da:hjerte",
+      "headword": "hjerte",
+      "curriculumRank": 54,
+      "city": 0,
+      "sourceSha256": "a4709e24a302d54c8743fb6b10f0935fe334edc5d2a5e865191c200ce1f2a24b"
+    },
+    {
+      "wordId": "da:dag",
+      "headword": "dag",
+      "curriculumRank": 55,
+      "city": 0,
+      "sourceSha256": "dc4bf97a94a55934b14d5fd775ef5f48d001d6a36db307bdacc6c5f1bfd6d71f"
+    },
+    {
+      "wordId": "da:nat",
+      "headword": "nat",
+      "curriculumRank": 56,
+      "city": 0,
+      "sourceSha256": "46e59492beeaa00f7102aa55317c5c92ffe8a74dbdd79dbb920822bc71aa5aa6"
+    },
+    {
+      "wordId": "da:aften",
+      "headword": "aften",
+      "curriculumRank": 57,
+      "city": 0,
+      "sourceSha256": "ba66114d5f3133e3a188f99fc7bb40a4de046ac234c0b216d73409ca970ba2ee"
+    },
+    {
+      "wordId": "da:uge",
+      "headword": "uge",
+      "curriculumRank": 58,
+      "city": 0,
+      "sourceSha256": "ff07faa5db1076af9ad006fdc0e80afd70de028e6b1af807bb9a00a814a85726"
+    },
+    {
+      "wordId": "da:stor",
+      "headword": "stor",
+      "curriculumRank": 59,
+      "city": 0,
+      "sourceSha256": "11e1a6165ddde7a7e1b5bbd7ee4c4c45ce835997f0856e5886f8e920a66e2b32"
+    },
+    {
+      "wordId": "da:lille",
+      "headword": "lille",
+      "curriculumRank": 60,
+      "city": 0,
+      "sourceSha256": "5be57afe439281e98a420d56cc94d09c5a6424b4d634ae7a7b81e64cac2f7f8d"
+    },
+    {
+      "wordId": "da:gammel",
+      "headword": "gammel",
+      "curriculumRank": 61,
+      "city": 0,
+      "sourceSha256": "03b3dc95f6bb8df86599583f7b48f5181fd309faa22c5c4211bd36184905d9b7"
+    },
+    {
+      "wordId": "da:ung",
+      "headword": "ung",
+      "curriculumRank": 62,
+      "city": 0,
+      "sourceSha256": "cc0157196dae39fd1fd72b3063c6cbad03747e93fa2baa493b7d732fa7ef2687"
+    },
+    {
+      "wordId": "da:glad",
+      "headword": "glad",
+      "curriculumRank": 63,
+      "city": 0,
+      "sourceSha256": "2fd5f505fda4b3fafc5b75925370a9ae4f9541e21e21e79273ad61b050f2486e"
+    },
+    {
+      "wordId": "da:elske",
+      "headword": "elske",
+      "curriculumRank": 64,
+      "city": 0,
+      "sourceSha256": "46ad17b603fb66a74ff9dade3548d8333a7e904a8ecdcd922966ea162ab0e9f6"
+    },
+    {
+      "wordId": "da:ven",
+      "headword": "ven",
+      "curriculumRank": 65,
+      "city": 0,
+      "sourceSha256": "d7885eb7d6aa86b3485b7513ef11ebeedd470a0211bd3e0a652ec10c7ccc8f8e"
+    },
+    {
+      "wordId": "da:søn",
+      "headword": "søn",
+      "curriculumRank": 66,
+      "city": 0,
+      "sourceSha256": "83ba664b985ea53bb975af1d0175c484f86aa2825341da582fa396e1823ca37d"
+    },
+    {
+      "wordId": "da:datter",
+      "headword": "datter",
+      "curriculumRank": 67,
+      "city": 0,
+      "sourceSha256": "6b9fa61e8afe44c8ff55c378384ca13538f976863f06d5a01baaf46bae05d507"
+    },
+    {
+      "wordId": "da:kage",
+      "headword": "kage",
+      "curriculumRank": 68,
+      "city": 0,
+      "sourceSha256": "ef7f4e4a77a955b5e9df707dcd6ee69d04ce173e5f1e1f979f782cd56e43bd41"
+    },
+    {
+      "wordId": "da:smør",
+      "headword": "smør",
+      "curriculumRank": 69,
+      "city": 0,
+      "sourceSha256": "d54ddd826a4b05dcc9889a8a9e995fa42ee4fe6c4c262b9d9b8891b5fb6092f3"
+    },
+    {
+      "wordId": "da:salt",
+      "headword": "salt",
+      "curriculumRank": 70,
+      "city": 0,
+      "sourceSha256": "ac006b2f78c3e0e424866409e60cc49a303a4a7d5980bf8efc9e1bbba7fb53d3"
+    },
+    {
+      "wordId": "da:sukker",
+      "headword": "sukker",
+      "curriculumRank": 71,
+      "city": 0,
+      "sourceSha256": "641603cfc8c3155a893112bd38f49f19a08531f4b3ff36d4b6a6eeacf1ecb287"
+    },
+    {
+      "wordId": "da:kartoffel",
+      "headword": "kartoffel",
+      "curriculumRank": 72,
+      "city": 0,
+      "sourceSha256": "627966a92631a3bc41aa21c5062e2ef3d4115e79fd5c857091234e3def5fcc5b"
+    },
+    {
+      "wordId": "da:grøntsag",
+      "headword": "grøntsag",
+      "curriculumRank": 73,
+      "city": 0,
+      "sourceSha256": "cfbc2fb17df5a66d32eeb87893e1da767f71c1c444f51c80e648b301b2fd69a0"
+    },
+    {
+      "wordId": "da:lampe",
+      "headword": "lampe",
+      "curriculumRank": 74,
+      "city": 0,
+      "sourceSha256": "5725a2351497f342360406a974535e749a41d2d355ec557b9a8c155030010529"
+    },
+    {
+      "wordId": "da:værelse",
+      "headword": "værelse",
+      "curriculumRank": 75,
+      "city": 0,
+      "sourceSha256": "01e0029005ee6881ba27aa30da42eb39ed2c5bf8bf2a76834cc9d9f6980c2b9f"
+    },
+    {
+      "wordId": "da:himmel",
+      "headword": "himmel",
+      "curriculumRank": 76,
+      "city": 0,
+      "sourceSha256": "8c10f15dfb7dcf8eb55421d5e1914da0e6938edbb67f07730751761e3187c1ea"
+    },
+    {
+      "wordId": "da:regn",
+      "headword": "regn",
+      "curriculumRank": 77,
+      "city": 0,
+      "sourceSha256": "00088a86227fbbb3ccf2726ff9989946a1d6c3bc2b92c84cc968f983158e2b95"
+    },
+    {
+      "wordId": "da:sne",
+      "headword": "sne",
+      "curriculumRank": 78,
+      "city": 0,
+      "sourceSha256": "b73d79cade3acd17f8275333de3bd0e03d393a44000eacd6081ff1188351ba9c"
+    },
+    {
+      "wordId": "da:måne",
+      "headword": "måne",
+      "curriculumRank": 79,
+      "city": 0,
+      "sourceSha256": "1083bd6178ac9a1df7a938702405a2ba107b0c335d99680566cf928e036a214a"
+    },
+    {
+      "wordId": "da:stjerne",
+      "headword": "stjerne",
+      "curriculumRank": 80,
+      "city": 0,
+      "sourceSha256": "f906ef69d9674116dd6ee68ebe37d75cef9f4aedc9211950ec04a2bcc7933e5f"
+    },
+    {
+      "wordId": "da:hav",
+      "headword": "hav",
+      "curriculumRank": 81,
+      "city": 0,
+      "sourceSha256": "1381464bc31cd1bedbc8e3ee74d7d42b5ac8034c74e004fc2fed0319cbb3e98b"
+    },
+    {
+      "wordId": "da:strand",
+      "headword": "strand",
+      "curriculumRank": 82,
+      "city": 0,
+      "sourceSha256": "5879bf0f4fa942442fe80b754189b88c79e1ce9f45a6651bf18120bb8929a2e1"
+    },
+    {
+      "wordId": "da:park",
+      "headword": "park",
+      "curriculumRank": 83,
+      "city": 0,
+      "sourceSha256": "a1bac6aa60f84292b7d510bc91c8f7bcceac1725ebbf222f257aa1c8db7e3a03"
+    },
+    {
+      "wordId": "da:gade",
+      "headword": "gade",
+      "curriculumRank": 84,
+      "city": 0,
+      "sourceSha256": "b243691ea0fe3e9dbc1c08d3607673402b56f39fa89f492adb43c9c197af2b24"
+    },
+    {
+      "wordId": "da:kirke",
+      "headword": "kirke",
+      "curriculumRank": 85,
+      "city": 0,
+      "sourceSha256": "1694f85b2bd47776edf254e055d9e2ac0792719353b9bfb3fd9da438531f8f07"
+    },
+    {
+      "wordId": "da:hospital",
+      "headword": "hospital",
+      "curriculumRank": 86,
+      "city": 0,
+      "sourceSha256": "ca2078c27e7e0b95708ca967dc5e14b0d7fc937e356e07e99cc1bb533f74001f"
+    },
+    {
+      "wordId": "da:butik",
+      "headword": "butik",
+      "curriculumRank": 87,
+      "city": 0,
+      "sourceSha256": "e1904e467318fdcfec6ff7074d2e7a70e802f201f34c7e5ca216e5c56726aa17"
+    },
+    {
+      "wordId": "da:bank",
+      "headword": "bank",
+      "curriculumRank": 88,
+      "city": 0,
+      "sourceSha256": "b35af0d087cc324d92df19cd45050e33b49e724c2d9705d246915b89d874eeb4"
+    },
+    {
+      "wordId": "da:penge",
+      "headword": "penge",
+      "curriculumRank": 89,
+      "city": 0,
+      "sourceSha256": "8240d705c4b944acdf5b200f293f98776eea0cabc0f85b77e97849d4ab23ce6b"
+    },
+    {
+      "wordId": "da:købe",
+      "headword": "købe",
+      "curriculumRank": 90,
+      "city": 0,
+      "sourceSha256": "6ae20738594e5d6e1c0dcf38c71ba026b6087c539d23d3aeb13411126920b96a"
+    },
+    {
+      "wordId": "da:arbejde",
+      "headword": "arbejde",
+      "curriculumRank": 91,
+      "city": 0,
+      "sourceSha256": "f2e811ce84893116ee6f852acb9225fd89c52730d40438ead4eea13703965f39"
+    },
+    {
+      "wordId": "da:lærer",
+      "headword": "lærer",
+      "curriculumRank": 92,
+      "city": 0,
+      "sourceSha256": "a551cb0ab09efb4a07cd1c9ae6bf6f6c8ad241950b11f801613f8f8bd693b500"
+    },
+    {
+      "wordId": "da:tog",
+      "headword": "tog",
+      "curriculumRank": 93,
+      "city": 0,
+      "sourceSha256": "68b98269a3b42c12b08fa65fbe43de1b8327e6ec5d8adf6d5a65b926b2c7e8ef"
+    },
+    {
+      "wordId": "da:bus",
+      "headword": "bus",
+      "curriculumRank": 94,
+      "city": 0,
+      "sourceSha256": "a8f530fde18f05ee06c4ec616e055cd7dd356730396133a44bd006cc90f77662"
+    },
+    {
+      "wordId": "da:cykel",
+      "headword": "cykel",
+      "curriculumRank": 95,
+      "city": 0,
+      "sourceSha256": "723593c927a412a002d178972c6d95d145a9d3e0cab1500d05a6af9e6ef880c5"
+    },
+    {
+      "wordId": "da:fly",
+      "headword": "fly",
+      "curriculumRank": 96,
+      "city": 0,
+      "sourceSha256": "ec49d29af8112089c3087b8fb4dfd77521f4f9ec9a394a3a96579d46b4f05dad"
+    },
+    {
+      "wordId": "da:køre",
+      "headword": "køre",
+      "curriculumRank": 97,
+      "city": 0,
+      "sourceSha256": "1a932f7aca59139a5672a4374fcf2b349ec0c4faea7cf7a8507e9d19e6f6827e"
+    },
+    {
+      "wordId": "da:sove",
+      "headword": "sove",
+      "curriculumRank": 98,
+      "city": 0,
+      "sourceSha256": "90eb6272b467f28ad7877f8f097600d2f9f0458ff0017d88429cc0c7ef9f9b18"
+    },
+    {
+      "wordId": "da:løbe",
+      "headword": "løbe",
+      "curriculumRank": 99,
+      "city": 0,
+      "sourceSha256": "df6703a16a90c7e4b9ac2a8ffc6ef1644a29cdacea82bc984e25db18219faf43"
+    },
+    {
+      "wordId": "da:læse",
+      "headword": "læse",
+      "curriculumRank": 100,
+      "city": 0,
+      "sourceSha256": "a3bf3af8fb322b735bb65b747052b16b428ab74bebdac3ff625627e5404830dc"
+    }
+  ],
+  "targets": [
+    {
+      "targetId": "ledger:hej",
+      "kind": "ledger",
+      "forms": [
+        "hej"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:goddag",
+      "kind": "ledger",
+      "forms": [
+        "goddag"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:godmorgen",
+      "kind": "ledger",
+      "forms": [
+        "godmorgen"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:godnat",
+      "kind": "ledger",
+      "forms": [
+        "godnat"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:hallo",
+      "kind": "ledger",
+      "forms": [
+        "hallo"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:velkommen",
+      "kind": "ledger",
+      "forms": [
+        "velkommen"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:farvel",
+      "kind": "ledger",
+      "forms": [
+        "farvel"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:tak",
+      "kind": "ledger",
+      "forms": [
+        "tak"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:undskyld",
+      "kind": "ledger",
+      "forms": [
+        "undskyld"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:okay",
+      "kind": "ledger",
+      "forms": [
+        "okay"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:ja",
+      "kind": "ledger",
+      "forms": [
+        "ja"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:nej",
+      "kind": "ledger",
+      "forms": [
+        "nej"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:igen",
+      "kind": "ledger",
+      "forms": [
+        "igen"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:lidt",
+      "kind": "ledger",
+      "forms": [
+        "lidt"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "greet",
+        "repair",
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "greet",
+            "repair",
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:en",
+      "kind": "ledger",
+      "forms": [
+        "en"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:et",
+      "kind": "ledger",
+      "forms": [
+        "et"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-discriminate",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:den",
+      "kind": "ledger",
+      "forms": [
+        "den"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:det",
+      "kind": "ledger",
+      "forms": [
+        "det"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:her",
+      "kind": "ledger",
+      "forms": [
+        "her"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[3][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:der",
+      "kind": "ledger",
+      "forms": [
+        "der"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:hvor",
+      "kind": "ledger",
+      "forms": [
+        "hvor"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:hvad",
+      "kind": "ledger",
+      "forms": [
+        "hvad"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:hvem",
+      "kind": "ledger",
+      "forms": [
+        "hvem"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:kan",
+      "kind": "ledger",
+      "forms": [
+        "kan"
+      ],
+      "classification": "a2-productive",
+      "stage": {
+        "city": 0,
+        "use": "preview-as-chunk"
+      },
+      "functionIds": [
+        "ask",
+        "request"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "preview-as-chunk",
+          "functionIds": [
+            "ask",
+            "request"
+          ]
+        },
+        {
+          "city": 7,
+          "use": "productive-target",
+          "functionIds": [
+            "plan",
+            "express-ability"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:i",
+      "kind": "ledger",
+      "forms": [
+        "i"
+      ],
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "introduce",
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "introduce",
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:skål",
+      "kind": "ledger",
+      "forms": [
+        "skål"
+      ],
+      "classification": "a1-receptive",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "functionIds": [
+        "listen",
+        "repair",
+        "identify"
+      ],
+      "reviewEligible": false,
+      "stages": [
+        {
+          "city": 0,
+          "use": "receptive-ambient",
+          "functionIds": [
+            "listen",
+            "repair",
+            "identify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "ledger:om",
+      "kind": "ledger",
+      "forms": [
+        "om"
+      ],
+      "classification": "a1-receptive",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "functionIds": [
+        "listen",
+        "repair",
+        "identify"
+      ],
+      "reviewEligible": false,
+      "stages": [
+        {
+          "city": 0,
+          "use": "receptive-ambient",
+          "functionIds": [
+            "listen",
+            "repair",
+            "identify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "ledger:hen",
+      "kind": "ledger",
+      "forms": [
+        "hen"
+      ],
+      "classification": "a1-receptive",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "functionIds": [
+        "listen",
+        "repair",
+        "identify"
+      ],
+      "reviewEligible": false,
+      "stages": [
+        {
+          "city": 0,
+          "use": "receptive-ambient",
+          "functionIds": [
+            "listen",
+            "repair",
+            "identify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-name",
+      "kind": "supplemental",
+      "forms": [
+        "Jeg hedder …"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "introduce"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "introduce"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-origin",
+      "kind": "supplemental",
+      "forms": [
+        "Jeg kommer fra …"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "introduce"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "introduce"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "kind": "supplemental",
+      "forms": [
+        "Jeg forstår ikke."
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "repair"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "repair"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-repeat",
+      "kind": "supplemental",
+      "forms": [
+        "Kan du sige det igen?"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "repair"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "repair"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-slower",
+      "kind": "supplemental",
+      "forms": [
+        "Lidt langsommere, tak."
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "repair"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "repair"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-meaning",
+      "kind": "supplemental",
+      "forms": [
+        "Hvad betyder …?"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "clarify"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "clarify"
+          ]
+        }
+      ],
+      "otherAcceptedSources": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-where",
+      "kind": "supplemental",
+      "forms": [
+        "Hvor er …?"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "locate"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "locate"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-existence",
+      "kind": "supplemental",
+      "forms": [
+        "Der er …",
+        "Er der …?"
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "locate",
+        "ask-availability"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "locate",
+            "ask-availability"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-immediate-help",
+      "kind": "supplemental",
+      "forms": [
+        "Hjælp!",
+        "Kan du hjælpe mig?",
+        "Ring 112."
+      ],
+      "supplementalKind": "chunk",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "ask-help",
+        "seek-immediate-help"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "ask-help",
+            "seek-immediate-help"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-word-uh",
+      "kind": "supplemental",
+      "forms": [
+        "øh"
+      ],
+      "supplementalKind": "word",
+      "classification": "a1-receptive",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "functionIds": [
+        "listen"
+      ],
+      "reviewEligible": false,
+      "stages": [
+        {
+          "city": 0,
+          "use": "receptive-ambient",
+          "functionIds": [
+            "listen"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-listen",
+          "field": "audio[0].textDa",
+          "mode": "listening",
+          "role": "receptive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ]
+    },
+    {
+      "targetId": "supplemental:da-word-thing",
+      "kind": "supplemental",
+      "forms": [
+        "ting",
+        "tingen"
+      ],
+      "supplementalKind": "word",
+      "classification": "a1-productive",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "functionIds": [
+        "identify",
+        "state-possession"
+      ],
+      "reviewEligible": true,
+      "stages": [
+        {
+          "city": 0,
+          "use": "productive-target",
+          "functionIds": [
+            "identify",
+            "state-possession"
+          ]
+        }
+      ],
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "language": "da",
+  "entries": [
+    {
+      "id": "chapter-01",
+      "sourceHash": "b7c079ed32737c7126baf9b200829a87661d59d556e3b0e22342576bf7a5cc7f",
+      "duration": 15.504,
+      "starts": [
+        0,
+        3.60662,
+        6.56404,
+        8.93854,
+        11.3339,
+        14.351
+      ]
+    },
+    {
+      "id": "chapter-02",
+      "sourceHash": "500e2bdf601ecb1c6113f7240f823e361f28e912198668ee64e34b68b2c82c1c",
+      "duration": 15.528,
+      "starts": [
+        0,
+        3.66408,
+        5.82104,
+        9.25267,
+        12.3885,
+        14.7191
+      ]
+    },
+    {
+      "id": "lesson-ribe-possessives",
+      "sourceHash": "bc95566971ebbc2d8f6eb0a33c6107ad454689ae457f9466930985c1a79db49f",
+      "duration": 17.328,
+      "starts": [
+        0,
+        4.44171,
+        8.73721,
+        11.291,
+        13.771,
+        15.9038
+      ]
+    },
+    {
+      "id": "chapter-03",
+      "sourceHash": "26c27bd6b7363fae94ffb796feb11e205596bba79c9b53b5e3bb7cc57e0e60d1",
+      "duration": 19.584,
+      "starts": [
+        0,
+        2.98571,
+        6.12854,
+        8.62542,
+        11.8283,
+        15.152,
+        18.2582
+      ]
+    },
+    {
+      "id": "lesson-kolding-simple-negation",
+      "sourceHash": "e3170f511fb09cde6a369c0d23b249685f8cde934a2cf58ca5a14571e01b70ed",
+      "duration": 15.144,
+      "starts": [
+        0,
+        2.42338,
+        5.40058,
+        7.66179,
+        10.7889,
+        13.877
+      ]
+    },
+    {
+      "id": "chapter-04",
+      "sourceHash": "ff8007852eba51f4c2d2076588925ce4611aa2bdbe5e50b97e599877fbd2c417",
+      "duration": 15.696,
+      "starts": [
+        0,
+        2.69808,
+        5.41487,
+        8.55217,
+        10.921,
+        14.488
+      ]
+    },
+    {
+      "id": "lesson-aarhus-practical-recent-past",
+      "sourceHash": "07f1e666f96b51dd656fa8fad88b1e8275b9c4aadb8de912782dd637027228b5",
+      "duration": 21.456,
+      "starts": [
+        0,
+        4.03571,
+        8.13021,
+        11.5705,
+        16.0903,
+        18.771
+      ]
+    },
+    {
+      "id": "chapter-05",
+      "sourceHash": "cde309402737e8464942788d591d90df4ae1b6a5eaf73eef7196cb749bdf4f28",
+      "duration": 16.176,
+      "starts": [
+        0,
+        3.625,
+        6.52179,
+        8.73658,
+        11.5934,
+        14.7123
+      ]
+    },
+    {
+      "id": "lesson-aalborg-direction-forms",
+      "sourceHash": "15bfdac8c3d15c81680f557c508d56882960ccc5b81a330c234577226c5c8811",
+      "duration": 12.864,
+      "starts": [
+        0,
+        3.70562,
+        6.23762,
+        8.98646,
+        11.4471
+      ]
+    },
+    {
+      "id": "chapter-06",
+      "sourceHash": "5a117978bfa83eabeeed508ac25c048dd90ba485c9749bedae3dc0e33aba297c",
+      "duration": 13.608,
+      "starts": [
+        0,
+        2.8045,
+        5.75237,
+        7.79267,
+        9.99721,
+        12.288
+      ]
+    },
+    {
+      "id": "lesson-skagen-joining-ideas",
+      "sourceHash": "14fa76a0abcd5f7ce6808c1aa0fc507f860a0674a4529a57a8e3afa420871a03",
+      "duration": 18.264,
+      "starts": [
+        0,
+        4.49737,
+        8.54283,
+        11.8453,
+        16.0451
+      ]
+    },
+    {
+      "id": "chapter-07",
+      "sourceHash": "1be11d8f9ed5f7ca114d68e67f6e3149c9dbdf8d41bfc1c7b13351b04c35d0be",
+      "duration": 15.456,
+      "starts": [
+        0,
+        2.69846,
+        6.10021,
+        8.71775,
+        11.397,
+        14.0705
+      ]
+    },
+    {
+      "id": "lesson-odense-perfect-auxiliary",
+      "sourceHash": "a2b7447fb26236edabf2a4ef5faa12f9875d518b9edee307ec04470f544c81a7",
+      "duration": 13.536,
+      "starts": [
+        0,
+        2.68725,
+        5.30829,
+        9.40758,
+        12.3591
+      ]
+    },
+    {
+      "id": "chapter-08",
+      "sourceHash": "70d623076a005c30e7086d412c402912fcafca34ab1245212627616442b5920d",
+      "duration": 14.736,
+      "starts": [
+        0,
+        3.10246,
+        6.27408,
+        8.57012,
+        10.9827,
+        13.6279
+      ]
+    },
+    {
+      "id": "lesson-roskilde-future-plans",
+      "sourceHash": "8842e6d7582f711ea863cc9e460b98cd7f8a5532ba24ee9bf360949fe0a28a46",
+      "duration": 17.544,
+      "starts": [
+        0,
+        3.30267,
+        7.02733,
+        11.0995,
+        13.5203,
+        16.2847
+      ]
+    },
+    {
+      "id": "lesson-roskilde-own-possessives",
+      "sourceHash": "bae665ccf87f205669260b9842b4eb3f43591b441baf74bbe38d9ddc79cc62fe",
+      "duration": 15.024,
+      "starts": [
+        0,
+        2.57167,
+        4.89854,
+        7.50208,
+        9.93358,
+        12.3314
+      ]
+    },
+    {
+      "id": "chapter-09",
+      "sourceHash": "7c13aa2ebd22daf29b7007b41ca46c330e527124dd10bd13ca6a46f50284dad9",
+      "duration": 20.904,
+      "starts": [
+        0,
+        4.721,
+        9.20146,
+        12.229,
+        15.3494,
+        19.2625
+      ]
+    },
+    {
+      "id": "lesson-kobenhavn-ikke-placement",
+      "sourceHash": "3949991f43eeb524790c2d99cf58fa081e71c44a04590664306f1c4f3078087b",
+      "duration": 17.376,
+      "starts": [
+        0,
+        2.69317,
+        5.9555,
+        8.49596,
+        12.5791,
+        15.27
+      ]
+    }
+  ]
+}

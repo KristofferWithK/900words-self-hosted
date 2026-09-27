@@ -1,0 +1,2005 @@
+{
+  "status": "complete",
+  "recordings": [
+    {
+      "audioId": "city1:de:mutter:review:audio:v1",
+      "sentenceId": "city1:de:mutter:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hallo, ist deine Mutter da?",
+      "url": "/audio/de/city1/review/mutter/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mutter:review:audio:v1",
+      "sentenceId": "city1:de:mutter:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hallo, ist deine Mutter da?",
+      "url": "/audio/de/city1/review/mutter/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:vater:review:audio:v1",
+      "sentenceId": "city1:de:vater:review:sentence:v1",
+      "version": 1,
+      "textDa": "Guten Tag, ich bin der Vater von Lea.",
+      "url": "/audio/de/city1/review/vater/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:vater:review:audio:v1",
+      "sentenceId": "city1:de:vater:review:sentence:v1",
+      "version": 1,
+      "textDa": "Guten Tag, ich bin der Vater von Lea.",
+      "url": "/audio/de/city1/review/vater/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:kind:review:audio:v1",
+      "sentenceId": "city1:de:kind:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer ist das Kind?",
+      "url": "/audio/de/city1/review/kind/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:kind:review:audio:v1",
+      "sentenceId": "city1:de:kind:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer ist das Kind?",
+      "url": "/audio/de/city1/review/kind/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:hund:review:audio:v1",
+      "sentenceId": "city1:de:hund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Hund ist schon alt.",
+      "url": "/audio/de/city1/review/hund/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:hund:review:audio:v1",
+      "sentenceId": "city1:de:hund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Hund ist schon alt.",
+      "url": "/audio/de/city1/review/hund/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:katze:review:audio:v1",
+      "sentenceId": "city1:de:katze:review:sentence:v1",
+      "version": 1,
+      "textDa": "Gibt es hier eine Katze?",
+      "url": "/audio/de/city1/review/katze/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:katze:review:audio:v1",
+      "sentenceId": "city1:de:katze:review:sentence:v1",
+      "version": 1,
+      "textDa": "Gibt es hier eine Katze?",
+      "url": "/audio/de/city1/review/katze/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:haus:review:audio:v1",
+      "sentenceId": "city1:de:haus:review:sentence:v1",
+      "version": 1,
+      "textDa": "Willkommen in unserem Haus!",
+      "url": "/audio/de/city1/review/haus/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:haus:review:audio:v1",
+      "sentenceId": "city1:de:haus:review:sentence:v1",
+      "version": 1,
+      "textDa": "Willkommen in unserem Haus!",
+      "url": "/audio/de/city1/review/haus/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:essen:review:audio:v1",
+      "sentenceId": "city1:de:essen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Danke für das Essen!",
+      "url": "/audio/de/city1/review/essen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:essen:review:audio:v1",
+      "sentenceId": "city1:de:essen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Danke für das Essen!",
+      "url": "/audio/de/city1/review/essen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wasser:review:audio:v1",
+      "sentenceId": "city1:de:wasser:review:sentence:v1",
+      "version": 1,
+      "textDa": "Noch ein Wasser, bitte.",
+      "url": "/audio/de/city1/review/wasser/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wasser:review:audio:v1",
+      "sentenceId": "city1:de:wasser:review:sentence:v1",
+      "version": 1,
+      "textDa": "Noch ein Wasser, bitte.",
+      "url": "/audio/de/city1/review/wasser/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mann:review:audio:v1",
+      "sentenceId": "city1:de:mann:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer ist der Mann da?",
+      "url": "/audio/de/city1/review/mann/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mann:review:audio:v1",
+      "sentenceId": "city1:de:mann:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer ist der Mann da?",
+      "url": "/audio/de/city1/review/mann/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:maedchen:review:audio:v1",
+      "sentenceId": "city1:de:maedchen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Mädchen spielt gern Fußball.",
+      "url": "/audio/de/city1/review/maedchen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:maedchen:review:audio:v1",
+      "sentenceId": "city1:de:maedchen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Mädchen spielt gern Fußball.",
+      "url": "/audio/de/city1/review/maedchen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:auto:review:audio:v1",
+      "sentenceId": "city1:de:auto:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ja, das ist mein Auto.",
+      "url": "/audio/de/city1/review/auto/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:auto:review:audio:v1",
+      "sentenceId": "city1:de:auto:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ja, das ist mein Auto.",
+      "url": "/audio/de/city1/review/auto/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stadt:review:audio:v1",
+      "sentenceId": "city1:de:stadt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Jetzt sind wir in der Stadt.",
+      "url": "/audio/de/city1/review/stadt/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stadt:review:audio:v1",
+      "sentenceId": "city1:de:stadt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Jetzt sind wir in der Stadt.",
+      "url": "/audio/de/city1/review/stadt/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schule:review:audio:v1",
+      "sentenceId": "city1:de:schule:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Schule ist gleich hier.",
+      "url": "/audio/de/city1/review/schule/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schule:review:audio:v1",
+      "sentenceId": "city1:de:schule:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Schule ist gleich hier.",
+      "url": "/audio/de/city1/review/schule/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:tag:review:audio:v1",
+      "sentenceId": "city1:de:tag:review:sentence:v1",
+      "version": 1,
+      "textDa": "Heute ist ein schöner Tag.",
+      "url": "/audio/de/city1/review/tag/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:tag:review:audio:v1",
+      "sentenceId": "city1:de:tag:review:sentence:v1",
+      "version": 1,
+      "textDa": "Heute ist ein schöner Tag.",
+      "url": "/audio/de/city1/review/tag/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:woche:review:audio:v1",
+      "sentenceId": "city1:de:woche:review:sentence:v1",
+      "version": 1,
+      "textDa": "Nächste Woche fahre ich wieder nach Flensburg.",
+      "url": "/audio/de/city1/review/woche/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:woche:review:audio:v1",
+      "sentenceId": "city1:de:woche:review:sentence:v1",
+      "version": 1,
+      "textDa": "Nächste Woche fahre ich wieder nach Flensburg.",
+      "url": "/audio/de/city1/review/woche/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gross:review:audio:v1",
+      "sentenceId": "city1:de:gross:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Stadt ist sehr groß.",
+      "url": "/audio/de/city1/review/gross/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gross:review:audio:v1",
+      "sentenceId": "city1:de:gross:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Stadt ist sehr groß.",
+      "url": "/audio/de/city1/review/gross/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:klein:review:audio:v1",
+      "sentenceId": "city1:de:klein:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Zimmer ist ein bisschen klein.",
+      "url": "/audio/de/city1/review/klein/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:klein:review:audio:v1",
+      "sentenceId": "city1:de:klein:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Zimmer ist ein bisschen klein.",
+      "url": "/audio/de/city1/review/klein/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:alt:review:audio:v1",
+      "sentenceId": "city1:de:alt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie alt bist du?",
+      "url": "/audio/de/city1/review/alt/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:alt:review:audio:v1",
+      "sentenceId": "city1:de:alt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie alt bist du?",
+      "url": "/audio/de/city1/review/alt/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:freund:review:audio:v1",
+      "sentenceId": "city1:de:freund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mein Freund kommt auch.",
+      "url": "/audio/de/city1/review/freund/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:freund:review:audio:v1",
+      "sentenceId": "city1:de:freund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mein Freund kommt auch.",
+      "url": "/audio/de/city1/review/freund/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:geld:review:audio:v1",
+      "sentenceId": "city1:de:geld:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hast du noch Geld?",
+      "url": "/audio/de/city1/review/geld/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:geld:review:audio:v1",
+      "sentenceId": "city1:de:geld:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hast du noch Geld?",
+      "url": "/audio/de/city1/review/geld/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:arbeit:review:audio:v1",
+      "sentenceId": "city1:de:arbeit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Arbeit ist jetzt fertig.",
+      "url": "/audio/de/city1/review/arbeit/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:arbeit:review:audio:v1",
+      "sentenceId": "city1:de:arbeit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Arbeit ist jetzt fertig.",
+      "url": "/audio/de/city1/review/arbeit/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bus:review:audio:v1",
+      "sentenceId": "city1:de:bus:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wann kommt der Bus?",
+      "url": "/audio/de/city1/review/bus/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bus:review:audio:v1",
+      "sentenceId": "city1:de:bus:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wann kommt der Bus?",
+      "url": "/audio/de/city1/review/bus/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:fahren:review:audio:v1",
+      "sentenceId": "city1:de:fahren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir fahren zusammen nach Flensburg.",
+      "url": "/audio/de/city1/review/fahren/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:fahren:review:audio:v1",
+      "sentenceId": "city1:de:fahren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir fahren zusammen nach Flensburg.",
+      "url": "/audio/de/city1/review/fahren/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lesen:review:audio:v1",
+      "sentenceId": "city1:de:lesen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich lese gern.",
+      "url": "/audio/de/city1/review/lesen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lesen:review:audio:v1",
+      "sentenceId": "city1:de:lesen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich lese gern.",
+      "url": "/audio/de/city1/review/lesen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:jahr:review:audio:v1",
+      "sentenceId": "city1:de:jahr:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Jahr ist schon fast vorbei.",
+      "url": "/audio/de/city1/review/jahr/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:jahr:review:audio:v1",
+      "sentenceId": "city1:de:jahr:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Jahr ist schon fast vorbei.",
+      "url": "/audio/de/city1/review/jahr/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bekommen:review:audio:v1",
+      "sentenceId": "city1:de:bekommen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was bekommen Sie?",
+      "url": "/audio/de/city1/review/bekommen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bekommen:review:audio:v1",
+      "sentenceId": "city1:de:bekommen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was bekommen Sie?",
+      "url": "/audio/de/city1/review/bekommen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:daenisch:review:audio:v1",
+      "sentenceId": "city1:de:daenisch:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Brot hier ist dänisch.",
+      "url": "/audio/de/city1/review/daenisch/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:daenisch:review:audio:v1",
+      "sentenceId": "city1:de:daenisch:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Brot hier ist dänisch.",
+      "url": "/audio/de/city1/review/daenisch/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mensch:review:audio:v1",
+      "sentenceId": "city1:de:mensch:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hier gibt es viele Menschen.",
+      "url": "/audio/de/city1/review/mensch/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mensch:review:audio:v1",
+      "sentenceId": "city1:de:mensch:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hier gibt es viele Menschen.",
+      "url": "/audio/de/city1/review/mensch/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:kommen:review:audio:v1",
+      "sentenceId": "city1:de:kommen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Woher kommst du?",
+      "url": "/audio/de/city1/review/kommen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:kommen:review:audio:v1",
+      "sentenceId": "city1:de:kommen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Woher kommst du?",
+      "url": "/audio/de/city1/review/kommen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gut:review:audio:v1",
+      "sentenceId": "city1:de:gut:review:sentence:v1",
+      "version": 1,
+      "textDa": "Danke, mir geht es gut.",
+      "url": "/audio/de/city1/review/gut/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gut:review:audio:v1",
+      "sentenceId": "city1:de:gut:review:sentence:v1",
+      "version": 1,
+      "textDa": "Danke, mir geht es gut.",
+      "url": "/audio/de/city1/review/gut/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zuhause:review:audio:v1",
+      "sentenceId": "city1:de:zuhause:review:sentence:v1",
+      "version": 1,
+      "textDa": "Flensburg ist mein Zuhause.",
+      "url": "/audio/de/city1/review/zuhause/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zuhause:review:audio:v1",
+      "sentenceId": "city1:de:zuhause:review:sentence:v1",
+      "version": 1,
+      "textDa": "Flensburg ist mein Zuhause.",
+      "url": "/audio/de/city1/review/zuhause/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sagen:review:audio:v1",
+      "sentenceId": "city1:de:sagen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie sagt man das auf Deutsch?",
+      "url": "/audio/de/city1/review/sagen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sagen:review:audio:v1",
+      "sentenceId": "city1:de:sagen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie sagt man das auf Deutsch?",
+      "url": "/audio/de/city1/review/sagen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gehen:review:audio:v1",
+      "sentenceId": "city1:de:gehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir gehen jetzt, tschüss!",
+      "url": "/audio/de/city1/review/gehen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gehen:review:audio:v1",
+      "sentenceId": "city1:de:gehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir gehen jetzt, tschüss!",
+      "url": "/audio/de/city1/review/gehen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:neu:review:audio:v1",
+      "sentenceId": "city1:de:neu:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist alles neu für mich.",
+      "url": "/audio/de/city1/review/neu/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:neu:review:audio:v1",
+      "sentenceId": "city1:de:neu:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist alles neu für mich.",
+      "url": "/audio/de/city1/review/neu/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sehen:review:audio:v1",
+      "sentenceId": "city1:de:sehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sehen uns morgen!",
+      "url": "/audio/de/city1/review/sehen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sehen:review:audio:v1",
+      "sentenceId": "city1:de:sehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sehen uns morgen!",
+      "url": "/audio/de/city1/review/sehen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:ganz:review:audio:v1",
+      "sentenceId": "city1:de:ganz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich bin noch ganz müde.",
+      "url": "/audio/de/city1/review/ganz/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:ganz:review:audio:v1",
+      "sentenceId": "city1:de:ganz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich bin noch ganz müde.",
+      "url": "/audio/de/city1/review/ganz/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:nehmen:review:audio:v1",
+      "sentenceId": "city1:de:nehmen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich nehme einen Kaffee, bitte.",
+      "url": "/audio/de/city1/review/nehmen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:nehmen:review:audio:v1",
+      "sentenceId": "city1:de:nehmen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich nehme einen Kaffee, bitte.",
+      "url": "/audio/de/city1/review/nehmen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lang:review:audio:v1",
+      "sentenceId": "city1:de:lang:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Reise ist lang, aber schön.",
+      "url": "/audio/de/city1/review/lang/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lang:review:audio:v1",
+      "sentenceId": "city1:de:lang:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Reise ist lang, aber schön.",
+      "url": "/audio/de/city1/review/lang/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:finden:review:audio:v1",
+      "sentenceId": "city1:de:finden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich finde den Bahnhof nicht.",
+      "url": "/audio/de/city1/review/finden/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:finden:review:audio:v1",
+      "sentenceId": "city1:de:finden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich finde den Bahnhof nicht.",
+      "url": "/audio/de/city1/review/finden/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:letzte:review:audio:v1",
+      "sentenceId": "city1:de:letzte:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist der letzte Bus heute.",
+      "url": "/audio/de/city1/review/letzte/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:letzte:review:audio:v1",
+      "sentenceId": "city1:de:letzte:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist der letzte Bus heute.",
+      "url": "/audio/de/city1/review/letzte/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stehen:review:audio:v1",
+      "sentenceId": "city1:de:stehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer steht da?",
+      "url": "/audio/de/city1/review/stehen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stehen:review:audio:v1",
+      "sentenceId": "city1:de:stehen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer steht da?",
+      "url": "/audio/de/city1/review/stehen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:tier:review:audio:v1",
+      "sentenceId": "city1:de:tier:review:sentence:v1",
+      "version": 1,
+      "textDa": "Welches Tier ist das?",
+      "url": "/audio/de/city1/review/tier/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:tier:review:audio:v1",
+      "sentenceId": "city1:de:tier:review:sentence:v1",
+      "version": 1,
+      "textDa": "Welches Tier ist das?",
+      "url": "/audio/de/city1/review/tier/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wissen:review:audio:v1",
+      "sentenceId": "city1:de:wissen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das weiß ich nicht.",
+      "url": "/audio/de/city1/review/wissen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wissen:review:audio:v1",
+      "sentenceId": "city1:de:wissen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das weiß ich nicht.",
+      "url": "/audio/de/city1/review/wissen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:glauben:review:audio:v1",
+      "sentenceId": "city1:de:glauben:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ja, das glaube ich auch.",
+      "url": "/audio/de/city1/review/glauben/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:glauben:review:audio:v1",
+      "sentenceId": "city1:de:glauben:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ja, das glaube ich auch.",
+      "url": "/audio/de/city1/review/glauben/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:partner:review:audio:v1",
+      "sentenceId": "city1:de:partner:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mein Partner und ich wohnen hier.",
+      "url": "/audio/de/city1/review/partner/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:partner:review:audio:v1",
+      "sentenceId": "city1:de:partner:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mein Partner und ich wohnen hier.",
+      "url": "/audio/de/city1/review/partner/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:richtig:review:audio:v1",
+      "sentenceId": "city1:de:richtig:review:sentence:v1",
+      "version": 1,
+      "textDa": "Nein, das ist nicht richtig.",
+      "url": "/audio/de/city1/review/richtig/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:richtig:review:audio:v1",
+      "sentenceId": "city1:de:richtig:review:sentence:v1",
+      "version": 1,
+      "textDa": "Nein, das ist nicht richtig.",
+      "url": "/audio/de/city1/review/richtig/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:benutzen:review:audio:v1",
+      "sentenceId": "city1:de:benutzen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kann ich hier das WLAN benutzen?",
+      "url": "/audio/de/city1/review/benutzen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:benutzen:review:audio:v1",
+      "sentenceId": "city1:de:benutzen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kann ich hier das WLAN benutzen?",
+      "url": "/audio/de/city1/review/benutzen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:machen:review:audio:v1",
+      "sentenceId": "city1:de:machen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das macht nichts.",
+      "url": "/audio/de/city1/review/machen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:machen:review:audio:v1",
+      "sentenceId": "city1:de:machen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das macht nichts.",
+      "url": "/audio/de/city1/review/machen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schoen:review:audio:v1",
+      "sentenceId": "city1:de:schoen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hier ist es wirklich schön.",
+      "url": "/audio/de/city1/review/schoen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schoen:review:audio:v1",
+      "sentenceId": "city1:de:schoen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hier ist es wirklich schön.",
+      "url": "/audio/de/city1/review/schoen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:liegen:review:audio:v1",
+      "sentenceId": "city1:de:liegen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wo liegt Flensburg?",
+      "url": "/audio/de/city1/review/liegen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:liegen:review:audio:v1",
+      "sentenceId": "city1:de:liegen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wo liegt Flensburg?",
+      "url": "/audio/de/city1/review/liegen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:land:review:audio:v1",
+      "sentenceId": "city1:de:land:review:sentence:v1",
+      "version": 1,
+      "textDa": "Aus welchem Land kommst du?",
+      "url": "/audio/de/city1/review/land/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:land:review:audio:v1",
+      "sentenceId": "city1:de:land:review:sentence:v1",
+      "version": 1,
+      "textDa": "Aus welchem Land kommst du?",
+      "url": "/audio/de/city1/review/land/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sitzen:review:audio:v1",
+      "sentenceId": "city1:de:sitzen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Entschuldigung, sitzt hier jemand?",
+      "url": "/audio/de/city1/review/sitzen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sitzen:review:audio:v1",
+      "sentenceId": "city1:de:sitzen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Entschuldigung, sitzt hier jemand?",
+      "url": "/audio/de/city1/review/sitzen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bereit:review:audio:v1",
+      "sentenceId": "city1:de:bereit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Okay, ich bin bereit.",
+      "url": "/audio/de/city1/review/bereit/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bereit:review:audio:v1",
+      "sentenceId": "city1:de:bereit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Okay, ich bin bereit.",
+      "url": "/audio/de/city1/review/bereit/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:leben:review:audio:v1",
+      "sentenceId": "city1:de:leben:review:sentence:v1",
+      "version": 1,
+      "textDa": "So ist das Leben.",
+      "url": "/audio/de/city1/review/leben/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:leben:review:audio:v1",
+      "sentenceId": "city1:de:leben:review:sentence:v1",
+      "version": 1,
+      "textDa": "So ist das Leben.",
+      "url": "/audio/de/city1/review/leben/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:heissen:review:audio:v1",
+      "sentenceId": "city1:de:heissen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie heißt du?",
+      "url": "/audio/de/city1/review/heissen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:heissen:review:audio:v1",
+      "sentenceId": "city1:de:heissen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie heißt du?",
+      "url": "/audio/de/city1/review/heissen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:welt:review:audio:v1",
+      "sentenceId": "city1:de:welt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich möchte die Welt sehen.",
+      "url": "/audio/de/city1/review/welt/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:welt:review:audio:v1",
+      "sentenceId": "city1:de:welt:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich möchte die Welt sehen.",
+      "url": "/audio/de/city1/review/welt/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mal:review:audio:v1",
+      "sentenceId": "city1:de:mal:review:sentence:v1",
+      "version": 1,
+      "textDa": "Bis zum nächsten Mal!",
+      "url": "/audio/de/city1/review/mal/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:mal:review:audio:v1",
+      "sentenceId": "city1:de:mal:review:sentence:v1",
+      "version": 1,
+      "textDa": "Bis zum nächsten Mal!",
+      "url": "/audio/de/city1/review/mal/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wort:review:audio:v1",
+      "sentenceId": "city1:de:wort:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was bedeutet das Wort?",
+      "url": "/audio/de/city1/review/wort/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wort:review:audio:v1",
+      "sentenceId": "city1:de:wort:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was bedeutet das Wort?",
+      "url": "/audio/de/city1/review/wort/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:hoeren:review:audio:v1",
+      "sentenceId": "city1:de:hoeren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich höre dich nicht.",
+      "url": "/audio/de/city1/review/hoeren/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:hoeren:review:audio:v1",
+      "sentenceId": "city1:de:hoeren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich höre dich nicht.",
+      "url": "/audio/de/city1/review/hoeren/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:reise:review:audio:v1",
+      "sentenceId": "city1:de:reise:review:sentence:v1",
+      "version": 1,
+      "textDa": "Gute Reise und tschüss!",
+      "url": "/audio/de/city1/review/reise/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:reise:review:audio:v1",
+      "sentenceId": "city1:de:reise:review:sentence:v1",
+      "version": 1,
+      "textDa": "Gute Reise und tschüss!",
+      "url": "/audio/de/city1/review/reise/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:klasse:review:audio:v1",
+      "sentenceId": "city1:de:klasse:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sind in der gleichen Klasse.",
+      "url": "/audio/de/city1/review/klasse/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:klasse:review:audio:v1",
+      "sentenceId": "city1:de:klasse:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sind in der gleichen Klasse.",
+      "url": "/audio/de/city1/review/klasse/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:seite:review:audio:v1",
+      "sentenceId": "city1:de:seite:review:sentence:v1",
+      "version": 1,
+      "textDa": "Auf welcher Seite sind wir?",
+      "url": "/audio/de/city1/review/seite/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:seite:review:audio:v1",
+      "sentenceId": "city1:de:seite:review:sentence:v1",
+      "version": 1,
+      "textDa": "Auf welcher Seite sind wir?",
+      "url": "/audio/de/city1/review/seite/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:weg:review:audio:v1",
+      "sentenceId": "city1:de:weg:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Weg ist hier links.",
+      "url": "/audio/de/city1/review/weg/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:weg:review:audio:v1",
+      "sentenceId": "city1:de:weg:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Weg ist hier links.",
+      "url": "/audio/de/city1/review/weg/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sicher:review:audio:v1",
+      "sentenceId": "city1:de:sicher:review:sentence:v1",
+      "version": 1,
+      "textDa": "Bist du sicher?",
+      "url": "/audio/de/city1/review/sicher/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sicher:review:audio:v1",
+      "sentenceId": "city1:de:sicher:review:sentence:v1",
+      "version": 1,
+      "textDa": "Bist du sicher?",
+      "url": "/audio/de/city1/review/sicher/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:krone:review:audio:v1",
+      "sentenceId": "city1:de:krone:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was kostet das in Kronen?",
+      "url": "/audio/de/city1/review/krone/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:krone:review:audio:v1",
+      "sentenceId": "city1:de:krone:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was kostet das in Kronen?",
+      "url": "/audio/de/city1/review/krone/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schwer:review:audio:v1",
+      "sentenceId": "city1:de:schwer:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Tasche ist zu schwer.",
+      "url": "/audio/de/city1/review/schwer/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schwer:review:audio:v1",
+      "sentenceId": "city1:de:schwer:review:sentence:v1",
+      "version": 1,
+      "textDa": "Die Tasche ist zu schwer.",
+      "url": "/audio/de/city1/review/schwer/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:treffen:review:audio:v1",
+      "sentenceId": "city1:de:treffen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wann ist das Treffen?",
+      "url": "/audio/de/city1/review/treffen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:treffen:review:audio:v1",
+      "sentenceId": "city1:de:treffen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wann ist das Treffen?",
+      "url": "/audio/de/city1/review/treffen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:denken:review:audio:v1",
+      "sentenceId": "city1:de:denken:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was denkst du?",
+      "url": "/audio/de/city1/review/denken/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:denken:review:audio:v1",
+      "sentenceId": "city1:de:denken:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was denkst du?",
+      "url": "/audio/de/city1/review/denken/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wohnen:review:audio:v1",
+      "sentenceId": "city1:de:wohnen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wo wohnst du?",
+      "url": "/audio/de/city1/review/wohnen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:wohnen:review:audio:v1",
+      "sentenceId": "city1:de:wohnen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wo wohnst du?",
+      "url": "/audio/de/city1/review/wohnen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:platz:review:audio:v1",
+      "sentenceId": "city1:de:platz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ist hier noch ein Platz frei?",
+      "url": "/audio/de/city1/review/platz/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:platz:review:audio:v1",
+      "sentenceId": "city1:de:platz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ist hier noch ein Platz frei?",
+      "url": "/audio/de/city1/review/platz/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:probieren:review:audio:v1",
+      "sentenceId": "city1:de:probieren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Möchtest du das probieren?",
+      "url": "/audio/de/city1/review/probieren/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:probieren:review:audio:v1",
+      "sentenceId": "city1:de:probieren:review:sentence:v1",
+      "version": 1,
+      "textDa": "Möchtest du das probieren?",
+      "url": "/audio/de/city1/review/probieren/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schlecht:review:audio:v1",
+      "sentenceId": "city1:de:schlecht:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mir ist schlecht.",
+      "url": "/audio/de/city1/review/schlecht/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:schlecht:review:audio:v1",
+      "sentenceId": "city1:de:schlecht:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mir ist schlecht.",
+      "url": "/audio/de/city1/review/schlecht/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:moeglich:review:audio:v1",
+      "sentenceId": "city1:de:moeglich:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ist das heute möglich?",
+      "url": "/audio/de/city1/review/moeglich/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:moeglich:review:audio:v1",
+      "sentenceId": "city1:de:moeglich:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ist das heute möglich?",
+      "url": "/audio/de/city1/review/moeglich/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zeit:review:audio:v1",
+      "sentenceId": "city1:de:zeit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hast du jetzt Zeit?",
+      "url": "/audio/de/city1/review/zeit/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zeit:review:audio:v1",
+      "sentenceId": "city1:de:zeit:review:sentence:v1",
+      "version": 1,
+      "textDa": "Hast du jetzt Zeit?",
+      "url": "/audio/de/city1/review/zeit/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:name:review:audio:v1",
+      "sentenceId": "city1:de:name:review:sentence:v1",
+      "version": 1,
+      "textDa": "Entschuldigung, wie ist Ihr Name?",
+      "url": "/audio/de/city1/review/name/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:name:review:audio:v1",
+      "sentenceId": "city1:de:name:review:sentence:v1",
+      "version": 1,
+      "textDa": "Entschuldigung, wie ist Ihr Name?",
+      "url": "/audio/de/city1/review/name/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:erinnern:review:audio:v1",
+      "sentenceId": "city1:de:erinnern:review:sentence:v1",
+      "version": 1,
+      "textDa": "Erinnerst du dich an mich?",
+      "url": "/audio/de/city1/review/erinnern/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:erinnern:review:audio:v1",
+      "sentenceId": "city1:de:erinnern:review:sentence:v1",
+      "version": 1,
+      "textDa": "Erinnerst du dich an mich?",
+      "url": "/audio/de/city1/review/erinnern/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:verschieden:review:audio:v1",
+      "sentenceId": "city1:de:verschieden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sind sehr verschieden.",
+      "url": "/audio/de/city1/review/verschieden/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:verschieden:review:audio:v1",
+      "sentenceId": "city1:de:verschieden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir sind sehr verschieden.",
+      "url": "/audio/de/city1/review/verschieden/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:person:review:audio:v1",
+      "sentenceId": "city1:de:person:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie viele Personen?",
+      "url": "/audio/de/city1/review/person/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:person:review:audio:v1",
+      "sentenceId": "city1:de:person:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie viele Personen?",
+      "url": "/audio/de/city1/review/person/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:grund:review:audio:v1",
+      "sentenceId": "city1:de:grund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist der Grund, warum ich hier bin.",
+      "url": "/audio/de/city1/review/grund/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:grund:review:audio:v1",
+      "sentenceId": "city1:de:grund:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist der Grund, warum ich hier bin.",
+      "url": "/audio/de/city1/review/grund/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:weise:review:audio:v1",
+      "sentenceId": "city1:de:weise:review:sentence:v1",
+      "version": 1,
+      "textDa": "Auf diese Weise geht es schneller.",
+      "url": "/audio/de/city1/review/weise/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:weise:review:audio:v1",
+      "sentenceId": "city1:de:weise:review:sentence:v1",
+      "version": 1,
+      "textDa": "Auf diese Weise geht es schneller.",
+      "url": "/audio/de/city1/review/weise/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bild:review:audio:v1",
+      "sentenceId": "city1:de:bild:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer hat das Bild gemacht?",
+      "url": "/audio/de/city1/review/bild/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:bild:review:audio:v1",
+      "sentenceId": "city1:de:bild:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wer hat das Bild gemacht?",
+      "url": "/audio/de/city1/review/bild/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lust:review:audio:v1",
+      "sentenceId": "city1:de:lust:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich habe keine Lust.",
+      "url": "/audio/de/city1/review/lust/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lust:review:audio:v1",
+      "sentenceId": "city1:de:lust:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich habe keine Lust.",
+      "url": "/audio/de/city1/review/lust/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stunde:review:audio:v1",
+      "sentenceId": "city1:de:stunde:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Bus kommt in einer Stunde.",
+      "url": "/audio/de/city1/review/stunde/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:stunde:review:audio:v1",
+      "sentenceId": "city1:de:stunde:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Bus kommt in einer Stunde.",
+      "url": "/audio/de/city1/review/stunde/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:geschichte:review:audio:v1",
+      "sentenceId": "city1:de:geschichte:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kennst du die Geschichte schon?",
+      "url": "/audio/de/city1/review/geschichte/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:geschichte:review:audio:v1",
+      "sentenceId": "city1:de:geschichte:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kennst du die Geschichte schon?",
+      "url": "/audio/de/city1/review/geschichte/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:erreichen:review:audio:v1",
+      "sentenceId": "city1:de:erreichen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir erreichen Flensburg um acht.",
+      "url": "/audio/de/city1/review/erreichen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:erreichen:review:audio:v1",
+      "sentenceId": "city1:de:erreichen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir erreichen Flensburg um acht.",
+      "url": "/audio/de/city1/review/erreichen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:monat:review:audio:v1",
+      "sentenceId": "city1:de:monat:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich bin seit einem Monat hier.",
+      "url": "/audio/de/city1/review/monat/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:monat:review:audio:v1",
+      "sentenceId": "city1:de:monat:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich bin seit einem Monat hier.",
+      "url": "/audio/de/city1/review/monat/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gedanke:review:audio:v1",
+      "sentenceId": "city1:de:gedanke:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mach dir keine Gedanken!",
+      "url": "/audio/de/city1/review/gedanke/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gedanke:review:audio:v1",
+      "sentenceId": "city1:de:gedanke:review:sentence:v1",
+      "version": 1,
+      "textDa": "Mach dir keine Gedanken!",
+      "url": "/audio/de/city1/review/gedanke/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:meinen:review:audio:v1",
+      "sentenceId": "city1:de:meinen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie meinst du das?",
+      "url": "/audio/de/city1/review/meinen/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:meinen:review:audio:v1",
+      "sentenceId": "city1:de:meinen:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie meinst du das?",
+      "url": "/audio/de/city1/review/meinen/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sprache:review:audio:v1",
+      "sentenceId": "city1:de:sprache:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich spreche die Sprache ein bisschen.",
+      "url": "/audio/de/city1/review/sprache/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:sprache:review:audio:v1",
+      "sentenceId": "city1:de:sprache:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich spreche die Sprache ein bisschen.",
+      "url": "/audio/de/city1/review/sprache/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:beispiel:review:audio:v1",
+      "sentenceId": "city1:de:beispiel:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kannst du mir ein Beispiel geben?",
+      "url": "/audio/de/city1/review/beispiel/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:beispiel:review:audio:v1",
+      "sentenceId": "city1:de:beispiel:review:sentence:v1",
+      "version": 1,
+      "textDa": "Kannst du mir ein Beispiel geben?",
+      "url": "/audio/de/city1/review/beispiel/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lustig:review:audio:v1",
+      "sentenceId": "city1:de:lustig:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist aber lustig!",
+      "url": "/audio/de/city1/review/lustig/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:lustig:review:audio:v1",
+      "sentenceId": "city1:de:lustig:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist aber lustig!",
+      "url": "/audio/de/city1/review/lustig/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zweifel:review:audio:v1",
+      "sentenceId": "city1:de:zweifel:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ohne Zweifel!",
+      "url": "/audio/de/city1/review/zweifel/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:zweifel:review:audio:v1",
+      "sentenceId": "city1:de:zweifel:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ohne Zweifel!",
+      "url": "/audio/de/city1/review/zweifel/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:spannend:review:audio:v1",
+      "sentenceId": "city1:de:spannend:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Buch ist wirklich spannend.",
+      "url": "/audio/de/city1/review/spannend/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:spannend:review:audio:v1",
+      "sentenceId": "city1:de:spannend:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das Buch ist wirklich spannend.",
+      "url": "/audio/de/city1/review/spannend/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:uhr:review:audio:v1",
+      "sentenceId": "city1:de:uhr:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie viel Uhr ist es?",
+      "url": "/audio/de/city1/review/uhr/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:uhr:review:audio:v1",
+      "sentenceId": "city1:de:uhr:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wie viel Uhr ist es?",
+      "url": "/audio/de/city1/review/uhr/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:halb:review:audio:v1",
+      "sentenceId": "city1:de:halb:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir treffen uns um halb drei.",
+      "url": "/audio/de/city1/review/halb/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:halb:review:audio:v1",
+      "sentenceId": "city1:de:halb:review:sentence:v1",
+      "version": 1,
+      "textDa": "Wir treffen uns um halb drei.",
+      "url": "/audio/de/city1/review/halb/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:film:review:audio:v1",
+      "sentenceId": "city1:de:film:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Film war gut.",
+      "url": "/audio/de/city1/review/film/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:film:review:audio:v1",
+      "sentenceId": "city1:de:film:review:sentence:v1",
+      "version": 1,
+      "textDa": "Der Film war gut.",
+      "url": "/audio/de/city1/review/film/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gesetz:review:audio:v1",
+      "sentenceId": "city1:de:gesetz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist gegen das Gesetz.",
+      "url": "/audio/de/city1/review/gesetz/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:gesetz:review:audio:v1",
+      "sentenceId": "city1:de:gesetz:review:sentence:v1",
+      "version": 1,
+      "textDa": "Das ist gegen das Gesetz.",
+      "url": "/audio/de/city1/review/gesetz/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:musik:review:audio:v1",
+      "sentenceId": "city1:de:musik:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich höre gern Musik.",
+      "url": "/audio/de/city1/review/musik/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:musik:review:audio:v1",
+      "sentenceId": "city1:de:musik:review:sentence:v1",
+      "version": 1,
+      "textDa": "Ich höre gern Musik.",
+      "url": "/audio/de/city1/review/musik/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:meinung:review:audio:v1",
+      "sentenceId": "city1:de:meinung:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was ist deine Meinung?",
+      "url": "/audio/de/city1/review/meinung/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:meinung:review:audio:v1",
+      "sentenceId": "city1:de:meinung:review:sentence:v1",
+      "version": 1,
+      "textDa": "Was ist deine Meinung?",
+      "url": "/audio/de/city1/review/meinung/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:reden:review:audio:v1",
+      "sentenceId": "city1:de:reden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Können wir morgen reden?",
+      "url": "/audio/de/city1/review/reden/v1/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:de:reden:review:audio:v1",
+      "sentenceId": "city1:de:reden:review:sentence:v1",
+      "version": 1,
+      "textDa": "Können wir morgen reden?",
+      "url": "/audio/de/city1/review/reden/v1/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    }
+  ]
+}

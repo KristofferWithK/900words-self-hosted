@@ -1,0 +1,1425 @@
+[
+  {
+    "id": "de:Mutter",
+    "da": "Mutter",
+    "en": [
+      "mother",
+      "mom"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 1,
+    "curriculumRank": 1
+  },
+  {
+    "id": "de:Vater",
+    "da": "Vater",
+    "en": [
+      "father",
+      "dad"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 2,
+    "curriculumRank": 2
+  },
+  {
+    "id": "de:Kind",
+    "da": "Kind",
+    "en": [
+      "child",
+      "kid"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 3,
+    "curriculumRank": 3
+  },
+  {
+    "id": "de:Hund",
+    "da": "Hund",
+    "en": [
+      "dog"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 4,
+    "curriculumRank": 4
+  },
+  {
+    "id": "de:Katze",
+    "da": "Katze",
+    "en": [
+      "cat"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 5,
+    "curriculumRank": 5
+  },
+  {
+    "id": "de:Haus",
+    "da": "Haus",
+    "en": [
+      "house"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 6,
+    "curriculumRank": 6
+  },
+  {
+    "id": "de:Essen",
+    "da": "Essen",
+    "en": [
+      "food"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 7,
+    "curriculumRank": 7
+  },
+  {
+    "id": "de:Wasser",
+    "da": "Wasser",
+    "en": [
+      "water"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 8,
+    "curriculumRank": 8
+  },
+  {
+    "id": "de:Mann",
+    "da": "Mann",
+    "en": [
+      "man",
+      "husband"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 9,
+    "curriculumRank": 9
+  },
+  {
+    "id": "de:Mädchen",
+    "da": "Mädchen",
+    "en": [
+      "girl"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 10,
+    "curriculumRank": 10
+  },
+  {
+    "id": "de:Auto",
+    "da": "Auto",
+    "en": [
+      "car"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 11,
+    "curriculumRank": 11
+  },
+  {
+    "id": "de:Stadt",
+    "da": "Stadt",
+    "en": [
+      "city",
+      "town"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 12,
+    "curriculumRank": 12
+  },
+  {
+    "id": "de:Schule",
+    "da": "Schule",
+    "en": [
+      "school"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 13,
+    "curriculumRank": 13
+  },
+  {
+    "id": "de:Tag",
+    "da": "Tag",
+    "en": [
+      "day"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 14,
+    "curriculumRank": 14
+  },
+  {
+    "id": "de:Woche",
+    "da": "Woche",
+    "en": [
+      "week"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 15,
+    "curriculumRank": 15
+  },
+  {
+    "id": "de:groß",
+    "da": "groß",
+    "en": [
+      "big",
+      "large"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 16,
+    "curriculumRank": 16
+  },
+  {
+    "id": "de:klein",
+    "da": "klein",
+    "en": [
+      "small",
+      "little"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 17,
+    "curriculumRank": 17
+  },
+  {
+    "id": "de:alt",
+    "da": "alt",
+    "en": [
+      "old"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 18,
+    "curriculumRank": 18
+  },
+  {
+    "id": "de:Freund",
+    "da": "Freund",
+    "en": [
+      "friend"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 19,
+    "curriculumRank": 19
+  },
+  {
+    "id": "de:Geld",
+    "da": "Geld",
+    "en": [
+      "money"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": false,
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 20,
+    "curriculumRank": 20,
+    "article": "das"
+  },
+  {
+    "id": "de:Arbeit",
+    "da": "Arbeit",
+    "en": [
+      "work",
+      "job"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 21,
+    "curriculumRank": 21
+  },
+  {
+    "id": "de:Bus",
+    "da": "Bus",
+    "en": [
+      "bus"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 22,
+    "curriculumRank": 22
+  },
+  {
+    "id": "de:fahren",
+    "da": "fahren",
+    "en": [
+      "drive",
+      "ride",
+      "go"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 23,
+    "curriculumRank": 23
+  },
+  {
+    "id": "de:lesen",
+    "da": "lesen",
+    "en": [
+      "read"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 24,
+    "curriculumRank": 24
+  },
+  {
+    "id": "de:Jahr",
+    "da": "Jahr",
+    "en": [
+      "year"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 25,
+    "curriculumRank": 25
+  },
+  {
+    "id": "de:bekommen",
+    "da": "bekommen",
+    "en": [
+      "get",
+      "receive"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 26,
+    "curriculumRank": 26
+  },
+  {
+    "id": "de:dänisch",
+    "da": "dänisch",
+    "en": [
+      "Danish"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 27,
+    "curriculumRank": 27
+  },
+  {
+    "id": "de:Mensch",
+    "da": "Mensch",
+    "en": [
+      "human",
+      "person",
+      "human being"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 28,
+    "curriculumRank": 28
+  },
+  {
+    "id": "de:kommen",
+    "da": "kommen",
+    "en": [
+      "come"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 29,
+    "curriculumRank": 29
+  },
+  {
+    "id": "de:gut",
+    "da": "gut",
+    "en": [
+      "good"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 30,
+    "curriculumRank": 30
+  },
+  {
+    "id": "de:Zuhause",
+    "da": "Zuhause",
+    "en": [
+      "home"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 31,
+    "curriculumRank": 31
+  },
+  {
+    "id": "de:sagen",
+    "da": "sagen",
+    "en": [
+      "say",
+      "tell"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 32,
+    "curriculumRank": 32
+  },
+  {
+    "id": "de:gehen",
+    "da": "gehen",
+    "en": [
+      "go",
+      "walk"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 33,
+    "curriculumRank": 33
+  },
+  {
+    "id": "de:neu",
+    "da": "neu",
+    "en": [
+      "new"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 34,
+    "curriculumRank": 34
+  },
+  {
+    "id": "de:sehen",
+    "da": "sehen",
+    "en": [
+      "see",
+      "look",
+      "watch"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 35,
+    "curriculumRank": 35
+  },
+  {
+    "id": "de:ganz",
+    "da": "ganz",
+    "en": [
+      "whole",
+      "entire"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 36,
+    "curriculumRank": 36
+  },
+  {
+    "id": "de:nehmen",
+    "da": "nehmen",
+    "en": [
+      "take"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 37,
+    "curriculumRank": 37
+  },
+  {
+    "id": "de:lang",
+    "da": "lang",
+    "en": [
+      "long"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 38,
+    "curriculumRank": 38
+  },
+  {
+    "id": "de:finden",
+    "da": "finden",
+    "en": [
+      "find"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 39,
+    "curriculumRank": 39
+  },
+  {
+    "id": "de:letzte",
+    "da": "letzte",
+    "en": [
+      "last",
+      "final"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 40,
+    "curriculumRank": 40
+  },
+  {
+    "id": "de:stehen",
+    "da": "stehen",
+    "en": [
+      "stand"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 41,
+    "curriculumRank": 41
+  },
+  {
+    "id": "de:Tier",
+    "da": "Tier",
+    "en": [
+      "animal"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 42,
+    "curriculumRank": 42
+  },
+  {
+    "id": "de:wissen",
+    "da": "wissen",
+    "en": [
+      "know"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 43,
+    "curriculumRank": 43
+  },
+  {
+    "id": "de:glauben",
+    "da": "glauben",
+    "en": [
+      "believe",
+      "think"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 44,
+    "curriculumRank": 44
+  },
+  {
+    "id": "de:Partner",
+    "da": "Partner",
+    "en": [
+      "boyfriend",
+      "girlfriend",
+      "partner"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 45,
+    "curriculumRank": 45
+  },
+  {
+    "id": "de:richtig",
+    "da": "richtig",
+    "en": [
+      "right",
+      "correct"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 46,
+    "curriculumRank": 46
+  },
+  {
+    "id": "de:benutzen",
+    "da": "benutzen",
+    "en": [
+      "use"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 47,
+    "curriculumRank": 47
+  },
+  {
+    "id": "de:machen",
+    "da": "machen",
+    "en": [
+      "make",
+      "do"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 48,
+    "curriculumRank": 48
+  },
+  {
+    "id": "de:schön",
+    "da": "schön",
+    "en": [
+      "beautiful",
+      "nice"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 49,
+    "curriculumRank": 49
+  },
+  {
+    "id": "de:liegen",
+    "da": "liegen",
+    "en": [
+      "lie"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 50,
+    "curriculumRank": 50
+  },
+  {
+    "id": "de:Land",
+    "da": "Land",
+    "en": [
+      "country",
+      "land"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 51,
+    "curriculumRank": 51
+  },
+  {
+    "id": "de:sitzen",
+    "da": "sitzen",
+    "en": [
+      "sit"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 52,
+    "curriculumRank": 52
+  },
+  {
+    "id": "de:bereit",
+    "da": "bereit",
+    "en": [
+      "ready"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 53,
+    "curriculumRank": 53
+  },
+  {
+    "id": "de:Leben",
+    "da": "Leben",
+    "en": [
+      "life"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 54,
+    "curriculumRank": 54
+  },
+  {
+    "id": "de:heißen",
+    "da": "heißen",
+    "en": [
+      "be called",
+      "be named"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 55,
+    "curriculumRank": 55
+  },
+  {
+    "id": "de:Welt",
+    "da": "Welt",
+    "en": [
+      "world"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 56,
+    "curriculumRank": 56
+  },
+  {
+    "id": "de:Mal",
+    "da": "Mal",
+    "en": [
+      "time",
+      "occasion"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 57,
+    "curriculumRank": 57
+  },
+  {
+    "id": "de:Wort",
+    "da": "Wort",
+    "en": [
+      "word"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 58,
+    "curriculumRank": 58
+  },
+  {
+    "id": "de:hören",
+    "da": "hören",
+    "en": [
+      "hear"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 59,
+    "curriculumRank": 59
+  },
+  {
+    "id": "de:Reise",
+    "da": "Reise",
+    "en": [
+      "trip",
+      "journey",
+      "travel"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 60,
+    "curriculumRank": 60
+  },
+  {
+    "id": "de:Klasse",
+    "da": "Klasse",
+    "en": [
+      "class",
+      "grade"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 61,
+    "curriculumRank": 61
+  },
+  {
+    "id": "de:Seite",
+    "da": "Seite",
+    "en": [
+      "side",
+      "page"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 62,
+    "curriculumRank": 62
+  },
+  {
+    "id": "de:Weg",
+    "da": "Weg",
+    "en": [
+      "road",
+      "way"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 63,
+    "curriculumRank": 63
+  },
+  {
+    "id": "de:sicher",
+    "da": "sicher",
+    "en": [
+      "sure",
+      "safe",
+      "certain"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 64,
+    "curriculumRank": 64
+  },
+  {
+    "id": "de:Krone",
+    "da": "Krone",
+    "en": [
+      "crown"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 65,
+    "curriculumRank": 65
+  },
+  {
+    "id": "de:schwer",
+    "da": "schwer",
+    "en": [
+      "difficult",
+      "heavy"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 66,
+    "curriculumRank": 66
+  },
+  {
+    "id": "de:Treffen",
+    "da": "Treffen",
+    "en": [
+      "meeting"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 67,
+    "curriculumRank": 67
+  },
+  {
+    "id": "de:denken",
+    "da": "denken",
+    "en": [
+      "think"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 68,
+    "curriculumRank": 68
+  },
+  {
+    "id": "de:wohnen",
+    "da": "wohnen",
+    "en": [
+      "live",
+      "reside"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 69,
+    "curriculumRank": 69
+  },
+  {
+    "id": "de:Platz",
+    "da": "Platz",
+    "en": [
+      "place",
+      "spot"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 70,
+    "curriculumRank": 70
+  },
+  {
+    "id": "de:probieren",
+    "da": "probieren",
+    "en": [
+      "try"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 71,
+    "curriculumRank": 71
+  },
+  {
+    "id": "de:schlecht",
+    "da": "schlecht",
+    "en": [
+      "bad",
+      "poor"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 72,
+    "curriculumRank": 72
+  },
+  {
+    "id": "de:möglich",
+    "da": "möglich",
+    "en": [
+      "possible"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 73,
+    "curriculumRank": 73
+  },
+  {
+    "id": "de:Zeit",
+    "da": "Zeit",
+    "en": [
+      "time"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": false,
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 74,
+    "curriculumRank": 74,
+    "article": "die"
+  },
+  {
+    "id": "de:Name",
+    "da": "Name",
+    "en": [
+      "name"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 75,
+    "curriculumRank": 75
+  },
+  {
+    "id": "de:erinnern",
+    "da": "erinnern",
+    "en": [
+      "remember",
+      "remind"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 76,
+    "curriculumRank": 76
+  },
+  {
+    "id": "de:verschieden",
+    "da": "verschieden",
+    "en": [
+      "different"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 77,
+    "curriculumRank": 77
+  },
+  {
+    "id": "de:Person",
+    "da": "Person",
+    "en": [
+      "person"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 78,
+    "curriculumRank": 78
+  },
+  {
+    "id": "de:Grund",
+    "da": "Grund",
+    "en": [
+      "reason",
+      "ground",
+      "cause"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 79,
+    "curriculumRank": 79
+  },
+  {
+    "id": "de:Weise",
+    "da": "Weise",
+    "en": [
+      "way",
+      "manner"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 80,
+    "curriculumRank": 80
+  },
+  {
+    "id": "de:Bild",
+    "da": "Bild",
+    "en": [
+      "picture",
+      "image",
+      "photo"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 81,
+    "curriculumRank": 81
+  },
+  {
+    "id": "de:Lust",
+    "da": "Lust",
+    "en": [
+      "desire",
+      "urge",
+      "inclination"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 82,
+    "curriculumRank": 82
+  },
+  {
+    "id": "de:Stunde",
+    "da": "Stunde",
+    "en": [
+      "hour",
+      "lesson"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 83,
+    "curriculumRank": 83
+  },
+  {
+    "id": "de:Geschichte",
+    "da": "Geschichte",
+    "en": [
+      "story",
+      "history"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 84,
+    "curriculumRank": 84
+  },
+  {
+    "id": "de:erreichen",
+    "da": "erreichen",
+    "en": [
+      "reach",
+      "make it",
+      "catch"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 85,
+    "curriculumRank": 85
+  },
+  {
+    "id": "de:Monat",
+    "da": "Monat",
+    "en": [
+      "month"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 86,
+    "curriculumRank": 86
+  },
+  {
+    "id": "de:Gedanke",
+    "da": "Gedanke",
+    "en": [
+      "thought",
+      "idea"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 87,
+    "curriculumRank": 87
+  },
+  {
+    "id": "de:meinen",
+    "da": "meinen",
+    "en": [
+      "think",
+      "mean"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 88,
+    "curriculumRank": 88
+  },
+  {
+    "id": "de:Sprache",
+    "da": "Sprache",
+    "en": [
+      "language"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 89,
+    "curriculumRank": 89
+  },
+  {
+    "id": "de:Beispiel",
+    "da": "Beispiel",
+    "en": [
+      "example"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 90,
+    "curriculumRank": 90
+  },
+  {
+    "id": "de:lustig",
+    "da": "lustig",
+    "en": [
+      "fun",
+      "funny"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 91,
+    "curriculumRank": 91
+  },
+  {
+    "id": "de:Zweifel",
+    "da": "Zweifel",
+    "en": [
+      "doubt"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 92,
+    "curriculumRank": 92
+  },
+  {
+    "id": "de:spannend",
+    "da": "spannend",
+    "en": [
+      "exciting",
+      "thrilling"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 93,
+    "curriculumRank": 93
+  },
+  {
+    "id": "de:Uhr",
+    "da": "Uhr",
+    "en": [
+      "clock",
+      "watch"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 94,
+    "curriculumRank": 94
+  },
+  {
+    "id": "de:halb",
+    "da": "halb",
+    "en": [
+      "half"
+    ],
+    "pos": "adjective",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 95,
+    "curriculumRank": 95
+  },
+  {
+    "id": "de:Film",
+    "da": "Film",
+    "en": [
+      "film",
+      "movie"
+    ],
+    "pos": "noun",
+    "gender": "masculine",
+    "countable": true,
+    "article": "der",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 96,
+    "curriculumRank": 96
+  },
+  {
+    "id": "de:Gesetz",
+    "da": "Gesetz",
+    "en": [
+      "law"
+    ],
+    "pos": "noun",
+    "gender": "neuter",
+    "countable": true,
+    "article": "das",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 97,
+    "curriculumRank": 97
+  },
+  {
+    "id": "de:Musik",
+    "da": "Musik",
+    "en": [
+      "music"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": false,
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 98,
+    "curriculumRank": 98,
+    "article": "die"
+  },
+  {
+    "id": "de:Meinung",
+    "da": "Meinung",
+    "en": [
+      "opinion"
+    ],
+    "pos": "noun",
+    "gender": "feminine",
+    "countable": true,
+    "article": "die",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 99,
+    "curriculumRank": 99
+  },
+  {
+    "id": "de:reden",
+    "da": "reden",
+    "en": [
+      "talk",
+      "chat"
+    ],
+    "pos": "verb",
+    "exampleDa": "",
+    "exampleEn": "",
+    "freqRank": 100,
+    "curriculumRank": 100
+  }
+]

@@ -1,0 +1,266 @@
+{
+  "about": "City 1 nouns, and the practice round's nouns outside City 1, said as ONE performance with their article («Et hus»), baked by scripts/make-audio.mjs --source phrases / phrases-slow into public/audio/da/phrase/. Exactly the City 1 roster words spokenArticle() gives an article, then the Danish practice board's (src/onboarding/tutorial.ts) that are not already listed; speak.test.ts pins that. A noun not listed keeps the article clip + word clip.",
+  "version": "da-city1-phrase-v1",
+  "words": [
+    {
+      "id": "da:mor",
+      "article": "en",
+      "da": "mor"
+    },
+    {
+      "id": "da:far",
+      "article": "en",
+      "da": "far"
+    },
+    {
+      "id": "da:barn",
+      "article": "et",
+      "da": "barn"
+    },
+    {
+      "id": "da:hund",
+      "article": "en",
+      "da": "hund"
+    },
+    {
+      "id": "da:kat",
+      "article": "en",
+      "da": "kat"
+    },
+    {
+      "id": "da:hus",
+      "article": "et",
+      "da": "hus"
+    },
+    {
+      "id": "da:mand",
+      "article": "en",
+      "da": "mand"
+    },
+    {
+      "id": "da:pige",
+      "article": "en",
+      "da": "pige"
+    },
+    {
+      "id": "da:bil",
+      "article": "en",
+      "da": "bil"
+    },
+    {
+      "id": "da:by",
+      "article": "en",
+      "da": "by"
+    },
+    {
+      "id": "da:skole",
+      "article": "en",
+      "da": "skole"
+    },
+    {
+      "id": "da:dag",
+      "article": "en",
+      "da": "dag"
+    },
+    {
+      "id": "da:uge",
+      "article": "en",
+      "da": "uge"
+    },
+    {
+      "id": "da:ven",
+      "article": "en",
+      "da": "ven"
+    },
+    {
+      "id": "da:arbejde",
+      "article": "et",
+      "da": "arbejde"
+    },
+    {
+      "id": "da:bus",
+      "article": "en",
+      "da": "bus"
+    },
+    {
+      "id": "da:år",
+      "article": "et",
+      "da": "år"
+    },
+    {
+      "id": "da:menneske",
+      "article": "et",
+      "da": "menneske"
+    },
+    {
+      "id": "da:hjem",
+      "article": "et",
+      "da": "hjem"
+    },
+    {
+      "id": "da:dyr",
+      "article": "et",
+      "da": "dyr"
+    },
+    {
+      "id": "da:kæreste",
+      "article": "en",
+      "da": "kæreste"
+    },
+    {
+      "id": "da:land",
+      "article": "et",
+      "da": "land"
+    },
+    {
+      "id": "da:liv",
+      "article": "et",
+      "da": "liv"
+    },
+    {
+      "id": "da:verden",
+      "article": "en",
+      "da": "verden"
+    },
+    {
+      "id": "da:gang",
+      "article": "en",
+      "da": "gang"
+    },
+    {
+      "id": "da:ord",
+      "article": "et",
+      "da": "ord"
+    },
+    {
+      "id": "da:rejse",
+      "article": "en",
+      "da": "rejse"
+    },
+    {
+      "id": "da:klasse",
+      "article": "en",
+      "da": "klasse"
+    },
+    {
+      "id": "da:side",
+      "article": "en",
+      "da": "side"
+    },
+    {
+      "id": "da:vej",
+      "article": "en",
+      "da": "vej"
+    },
+    {
+      "id": "da:krone",
+      "article": "en",
+      "da": "krone"
+    },
+    {
+      "id": "da:møde",
+      "article": "et",
+      "da": "møde"
+    },
+    {
+      "id": "da:sted",
+      "article": "et",
+      "da": "sted"
+    },
+    {
+      "id": "da:navn",
+      "article": "et",
+      "da": "navn"
+    },
+    {
+      "id": "da:person",
+      "article": "en",
+      "da": "person"
+    },
+    {
+      "id": "da:grund",
+      "article": "en",
+      "da": "grund"
+    },
+    {
+      "id": "da:måde",
+      "article": "en",
+      "da": "måde"
+    },
+    {
+      "id": "da:billede",
+      "article": "et",
+      "da": "billede"
+    },
+    {
+      "id": "da:time",
+      "article": "en",
+      "da": "time"
+    },
+    {
+      "id": "da:historie",
+      "article": "en",
+      "da": "historie"
+    },
+    {
+      "id": "da:måned",
+      "article": "en",
+      "da": "måned"
+    },
+    {
+      "id": "da:tanke",
+      "article": "en",
+      "da": "tanke"
+    },
+    {
+      "id": "da:sprog",
+      "article": "et",
+      "da": "sprog"
+    },
+    {
+      "id": "da:eksempel",
+      "article": "et",
+      "da": "eksempel"
+    },
+    {
+      "id": "da:klokke",
+      "article": "en",
+      "da": "klokke"
+    },
+    {
+      "id": "da:film",
+      "article": "en",
+      "da": "film"
+    },
+    {
+      "id": "da:lov",
+      "article": "en",
+      "da": "lov"
+    },
+    {
+      "id": "da:mening",
+      "article": "en",
+      "da": "mening"
+    },
+    {
+      "id": "da:æble",
+      "article": "et",
+      "da": "æble"
+    },
+    {
+      "id": "da:kaffe",
+      "article": "en",
+      "da": "kaffe"
+    },
+    {
+      "id": "da:bord",
+      "article": "et",
+      "da": "bord"
+    },
+    {
+      "id": "da:ost",
+      "article": "en",
+      "da": "ost"
+    }
+  ]
+}

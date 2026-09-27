@@ -1,0 +1,29 @@
+{
+  "entries": {
+    "das": {
+      "id": "article:de:das",
+      "text": "Das",
+      "stamp": "3fa5ced4f46c312a",
+      "bytes": 3264,
+      "at": "2026-09-25T11:27:08.151Z"
+    },
+    "der": {
+      "id": "article:de:der",
+      "text": "Der",
+      "stamp": "90ad869c8a1e04bd",
+      "bytes": 3456,
+      "at": "2026-09-25T11:27:08.616Z"
+    },
+    "die": {
+      "id": "article:de:die",
+      "text": "Die",
+      "stamp": "5de6a6af79f85250",
+      "bytes": 3552,
+      "at": "2026-09-25T11:27:09.090Z"
+    }
+  },
+  "provider": "google",
+  "voice": "de-DE-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "de"
+}

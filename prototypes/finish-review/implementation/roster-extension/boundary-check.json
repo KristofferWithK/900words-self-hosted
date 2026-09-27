@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "method": "SHA-256 comparison with pre-slice /tmp/city1-extension-before-files.json; .git/node_modules/dist excluded; extension excluded by ownership scope",
+  "unchangedPreexistingFiles": 12052,
+  "changedOutsideExtension": [
+    "CITY1-REVIEW-WIRING.md"
+  ],
+  "addedOutsideExtension": [],
+  "immutableAcceptedFiles": {
+    "prototypes/finish-review/implementation/board-sentences.json": {
+      "beforeSha256": "608772e4447437861c588f1aa0de086f097c8360c428696ed7302fce5b7606fa",
+      "afterSha256": "608772e4447437861c588f1aa0de086f097c8360c428696ed7302fce5b7606fa",
+      "unchanged": true
+    },
+    "prototypes/finish-review/implementation/review-sentences.json": {
+      "beforeSha256": "d46e446e503e4cd589d0ec9940154d2b94310adea7645590856698d204537d53",
+      "afterSha256": "d46e446e503e4cd589d0ec9940154d2b94310adea7645590856698d204537d53",
+      "unchanged": true
+    },
+    "prototypes/finish-review/implementation/about-targets.json": {
+      "beforeSha256": "d04d29aa3a7299592a53e675f5640d5218503c5740721c6221c47b36b2b6b0db",
+      "afterSha256": "d04d29aa3a7299592a53e675f5640d5218503c5740721c6221c47b36b2b6b0db",
+      "unchanged": true
+    },
+    "prototypes/finish-review/implementation/board-editorial.md": {
+      "beforeSha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a",
+      "afterSha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a",
+      "unchanged": true
+    },
+    "prototypes/finish-review/implementation/review-editorial.md": {
+      "beforeSha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef",
+      "afterSha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef",
+      "unchanged": true
+    }
+  }
+}

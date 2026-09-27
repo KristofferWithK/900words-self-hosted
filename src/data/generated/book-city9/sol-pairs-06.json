@@ -1,0 +1,291 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 6,
+  "pairs": {
+    "da:skam|da:trøste": [
+      { "da": "gråd", "en": "tears", "why": "follows hurt and invites comfort", "s": 1 }
+    ],
+    "da:fylde|da:ensomhed": [
+      { "da": "tomrum", "en": "void", "why": "an emptiness needing company", "s": 1 }
+    ],
+    "da:fylde|da:læbe": [
+      { "da": "injektion", "en": "injection", "why": "cosmetic treatment adding volume", "s": 1 }
+    ],
+    "da:fylde|da:ryge": [
+      { "da": "pibe", "en": "pipe", "why": "packed before tobacco is smoked", "s": 2 },
+      { "da": "tobak", "en": "tobacco", "why": "packed and then smoked", "s": 2 }
+    ],
+    "da:fylde|da:blande": [
+      { "da": "skål", "en": "bowl", "why": "container used for both actions", "s": 1 }
+    ],
+    "da:fylde|da:hylde": [
+      { "da": "bøger", "en": "books", "why": "items placed across its surface", "s": 2 }
+    ],
+    "da:fylde|da:tåge": [
+      { "da": "luft", "en": "air", "why": "mist occupies the atmosphere", "s": 1 }
+    ],
+    "da:fylde|da:stege": [
+      { "da": "pande", "en": "pan", "why": "loaded with food for cooking", "s": 2 }
+    ],
+    "da:fylde|da:teater": [
+      { "da": "publikum", "en": "audience", "why": "crowd occupying every seat", "s": 2 }
+    ],
+    "da:fylde|da:hælde": [
+      { "da": "glas", "en": "glass", "why": "made full by pouring", "s": 3 },
+      { "da": "vand", "en": "water", "why": "liquid poured into a container", "s": 2 }
+    ],
+    "da:fylde|da:adresse": [
+      { "da": "formular", "en": "form", "why": "place to enter location details", "s": 3 }
+    ],
+    "da:fylde|da:smøre": [
+      { "da": "sandwich", "en": "sandwich", "why": "bread prepared with spread and contents", "s": 1 }
+    ],
+    "da:fylde|da:kalender": [
+      { "da": "planer", "en": "plans", "why": "entries occupying the available dates", "s": 2 }
+    ],
+    "da:fylde|da:kurv": [
+      { "da": "varer", "en": "goods", "why": "items placed inside while shopping", "s": 3 },
+      { "da": "indkøb", "en": "shopping", "why": "activity that loads the container", "s": 2 }
+    ],
+    "da:fylde|da:slik": [
+      { "da": "pose", "en": "bag", "why": "container loaded with sweet treats", "s": 2 }
+    ],
+    "da:fylde|da:interesse": [
+      { "da": "tid", "en": "time", "why": "occupied by an engaging hobby", "s": 1 }
+    ],
+    "da:fylde|da:aftale": [
+      { "da": "formular", "en": "form", "why": "completed to arrange a meeting", "s": 1 }
+    ],
+    "da:fylde|da:skuffe": [
+      { "da": "tøj", "en": "clothes", "why": "contents placed inside storage", "s": 2 }
+    ],
+    "da:fylde|da:bekymre": [
+      { "da": "tanker", "en": "thoughts", "why": "troubling ideas occupying the mind", "s": 2 }
+    ],
+    "da:fylde|da:opskrift": [
+      { "da": "ingredienser", "en": "ingredients", "why": "listed contents added during cooking", "s": 1 }
+    ],
+    "da:fylde|da:ordne": [
+      { "da": "skab", "en": "cupboard", "why": "storage loaded and organized", "s": 1 }
+    ],
+    "da:fylde|da:pakke": [
+      { "da": "kasse", "en": "box", "why": "container loaded for shipping", "s": 3 },
+      { "da": "taske", "en": "bag", "why": "container loaded before travel", "s": 2 }
+    ],
+    "da:fylde|da:fritid": [
+      { "da": "aktiviteter", "en": "activities", "why": "occupy hours away from work", "s": 2 }
+    ],
+    "da:berømt|da:ensomhed": [
+      { "da": "stjerne", "en": "star", "why": "celebrity isolated by public attention", "s": 1 }
+    ],
+    "da:berømt|da:motion": [
+      { "da": "atlet", "en": "athlete", "why": "public figure known through exercise", "s": 1 }
+    ],
+    "da:berømt|da:tårn": [
+      { "da": "vartegn", "en": "landmark", "why": "famous structure seen from afar", "s": 3 },
+      { "da": "turist", "en": "tourist", "why": "visitor seeking a known monument", "s": 2 }
+    ],
+    "da:berømt|da:hoppe": [
+      { "da": "atlet", "en": "athlete", "why": "sports star performing a leap", "s": 1 }
+    ],
+    "da:berømt|da:rulle": [
+      { "da": "film", "en": "film", "why": "screen success once wound on reels", "s": 1 }
+    ],
+    "da:berømt|da:smil": [
+      { "da": "stjerne", "en": "star", "why": "celebrity recognized by their expression", "s": 1 }
+    ],
+    "da:berømt|da:træning": [
+      { "da": "atlet", "en": "athlete", "why": "sports star practicing regularly", "s": 2 }
+    ],
+    "da:berømt|da:teater": [
+      { "da": "skuespiller", "en": "actor", "why": "known performer appearing on stage", "s": 3 },
+      { "da": "scene", "en": "stage", "why": "place where performers gain recognition", "s": 2 }
+    ],
+    "da:berømt|da:app": [
+      { "da": "populær", "en": "popular", "why": "widely known and widely downloaded", "s": 2 }
+    ],
+    "da:berømt|da:skilt": [
+      { "da": "vartegn", "en": "landmark", "why": "recognizable sign marking a place", "s": 1 }
+    ],
+    "da:berømt|da:kurv": [
+      { "da": "atlet", "en": "athlete", "why": "a known player using the hoop", "s": 2 }
+    ],
+    "da:berømt|da:hjerne": [
+      { "da": "geni", "en": "genius", "why": "widely known for exceptional intellect", "s": 3 }
+    ],
+    "da:berømt|da:kølig": [
+      { "da": "populær", "en": "popular", "why": "famous and impressively stylish", "s": 1 }
+    ],
+    "da:berømt|da:klatre": [
+      { "da": "bjergbestiger", "en": "mountaineer", "why": "known person ascending difficult peaks", "s": 2 }
+    ],
+    "da:berømt|da:udsigt": [
+      { "da": "turist", "en": "tourist", "why": "visitor seeking a celebrated panorama", "s": 2 }
+    ],
+    "da:berømt|da:ring": [
+      { "da": "bokser", "en": "boxer", "why": "known fighter competing inside it", "s": 2 }
+    ],
+    "da:berømt|da:opskrift": [
+      { "da": "kok", "en": "chef", "why": "known cook sharing cooking instructions", "s": 3 }
+    ],
+    "da:berømt|da:kommune": [
+      { "da": "by", "en": "city", "why": "famous place within local administration", "s": 1 }
+    ],
+    "da:berømt|da:kultur": [
+      { "da": "kunstner", "en": "artist", "why": "known contributor to the arts", "s": 2 }
+    ],
+    "da:berømt|da:regering": [
+      { "da": "politiker", "en": "politician", "why": "public figure holding national power", "s": 3 }
+    ],
+    "da:berømt|da:ægteskab": [
+      { "da": "kongelig", "en": "royal", "why": "public figure in a public union", "s": 2 }
+    ],
+    "da:ensomhed|da:smil": [
+      { "da": "skjule", "en": "hide", "why": "expression can mask social pain", "s": 1 }
+    ],
+    "da:ensomhed|da:app": [
+      { "da": "dating", "en": "dating", "why": "digital search for companionship", "s": 2 }
+    ],
+    "da:ensomhed|da:hjerne": [
+      { "da": "følelse", "en": "feeling", "why": "emotional state processed by the mind", "s": 2 }
+    ],
+    "da:ensomhed|da:hviske": [
+      { "da": "stilhed", "en": "silence", "why": "quiet surrounding a solitary voice", "s": 2 }
+    ],
+    "da:ensomhed|da:interesse": [
+      { "da": "læsning", "en": "reading", "why": "a personal activity enjoyed alone", "s": 2 }
+    ],
+    "da:ensomhed|da:bekymre": [
+      { "da": "følelse", "en": "feeling", "why": "distressing emotion occupying the mind", "s": 1 }
+    ],
+    "da:ensomhed|da:kramme": [
+      { "da": "selskab", "en": "company", "why": "human closeness that eases isolation", "s": 3 },
+      { "da": "nærhed", "en": "closeness", "why": "physical contact countering isolation", "s": 3 }
+    ],
+    "da:ensomhed|da:trøste": [
+      { "da": "selskab", "en": "company", "why": "supportive presence easing isolation", "s": 3 },
+      { "da": "sorg", "en": "sadness", "why": "painful feeling inviting reassurance", "s": 2 }
+    ],
+    "da:ensomhed|da:fritid": [
+      { "da": "alene", "en": "alone", "why": "unaccompanied hours away from work", "s": 2 }
+    ],
+    "da:ensomhed|da:venskab": [
+      { "da": "selskab", "en": "company", "why": "companionship opposing social isolation", "s": 3 },
+      { "da": "alene", "en": "alone", "why": "state ended by close companionship", "s": 3 }
+    ],
+    "da:ensomhed|da:skrige": [
+      { "da": "hjælp", "en": "help", "why": "desperate call from an isolated person", "s": 1 }
+    ],
+    "da:ensomhed|da:ægteskab": [
+      { "da": "partner", "en": "partner", "why": "spouse whose company prevents isolation", "s": 2 }
+    ],
+    "da:skære|da:læbe": [
+      { "da": "sår", "en": "wound", "why": "injury caused by a sharp edge", "s": 3 },
+      { "da": "kniv", "en": "knife", "why": "sharp tool that can injure the mouth", "s": 2 }
+    ],
+    "da:skære|da:peber": [
+      { "da": "kniv", "en": "knife", "why": "tool used to slice the vegetable", "s": 3 },
+      { "da": "grøntsag", "en": "vegetable", "why": "food chopped during preparation", "s": 2 }
+    ],
+    "da:skære|da:blande": [
+      { "da": "madlavning", "en": "cooking", "why": "two common preparation actions", "s": 3 }
+    ],
+    "da:skære|da:hylde": [
+      { "da": "træ", "en": "wood", "why": "material shaped into storage boards", "s": 2 }
+    ],
+    "da:skære|da:rulle": [
+      { "da": "dej", "en": "dough", "why": "rolled flat before being divided", "s": 3 }
+    ],
+    "da:skære|da:bluse": [
+      { "da": "stof", "en": "fabric", "why": "material shaped into clothing", "s": 2 }
+    ],
+    "da:skære|da:binde": [
+      { "da": "reb", "en": "rope", "why": "cord tied or severed", "s": 3 },
+      { "da": "snor", "en": "string", "why": "thin cord knotted or severed", "s": 3 }
+    ],
+    "da:skære|da:stege": [
+      { "da": "kød", "en": "meat", "why": "food sliced before cooking", "s": 3 },
+      { "da": "madlavning", "en": "cooking", "why": "successive food preparation actions", "s": 3 }
+    ],
+    "da:skære|da:hælde": [
+      { "da": "madlavning", "en": "cooking", "why": "two kitchen preparation actions", "s": 2 }
+    ],
+    "da:skære|da:smøre": [
+      { "da": "brød", "en": "bread", "why": "food sliced and covered with spread", "s": 3 },
+      { "da": "kniv", "en": "knife", "why": "tool used for both actions", "s": 3 }
+    ],
+    "da:skære|da:servere": [
+      { "da": "kage", "en": "cake", "why": "dessert portioned before being offered", "s": 3 },
+      { "da": "mad", "en": "food", "why": "prepared in portions for guests", "s": 2 }
+    ],
+    "da:skære|da:skuffe": [
+      { "da": "kniv", "en": "knife", "why": "cutting tool stored inside furniture", "s": 1 }
+    ],
+    "da:skære|da:ulykke": [
+      { "da": "sår", "en": "wound", "why": "injury resulting from an accident", "s": 2 }
+    ],
+    "da:skære|da:opskrift": [
+      { "da": "madlavning", "en": "cooking", "why": "instruction and action in food preparation", "s": 3 },
+      { "da": "ingredienser", "en": "ingredients", "why": "foods chopped according to instructions", "s": 2 }
+    ],
+    "da:skære|da:tålmodig": [
+      { "da": "forsigtig", "en": "careful", "why": "calm manner needed with a blade", "s": 1 }
+    ],
+    "da:skære|da:pakke": [
+      { "da": "saks", "en": "scissors", "why": "tool opening wrapping and parcels", "s": 2 }
+    ],
+    "da:skære|da:klippe": [
+      { "da": "saks", "en": "scissors", "why": "tool performing both cutting actions", "s": 3 },
+      { "da": "søm", "en": "seam", "why": "fabric edge shaped during sewing", "s": 2 }
+    ],
+    "da:skære|da:skrige": [
+      { "da": "smerte", "en": "pain", "why": "injury provoking a loud cry", "s": 3 }
+    ],
+    "da:læbe|da:råbe": [
+      { "da": "mund", "en": "mouth", "why": "body part shaping a loud call", "s": 3 }
+    ],
+    "da:læbe|da:ryge": [
+      { "da": "cigaret", "en": "cigarette", "why": "held at the mouth while smoking", "s": 3 }
+    ],
+    "da:læbe|da:tørre": [
+      { "da": "serviet", "en": "napkin", "why": "used to wipe the mouth", "s": 3 },
+      { "da": "sprukken", "en": "chapped", "why": "condition caused by dryness", "s": 2 }
+    ],
+    "da:læbe|da:smil": [
+      { "da": "mund", "en": "mouth", "why": "facial part forming the expression", "s": 3 },
+      { "da": "tænder", "en": "teeth", "why": "visible behind the expression", "s": 2 }
+    ],
+    "da:læbe|da:smøre": [
+      { "da": "balsam", "en": "balm", "why": "product spread across the mouth", "s": 3 }
+    ],
+    "da:læbe|da:diskutere": [
+      { "da": "mund", "en": "mouth", "why": "body part used while debating", "s": 2 }
+    ],
+    "da:læbe|da:slik": [
+      { "da": "sød", "en": "sweet", "why": "taste left around the mouth", "s": 2 }
+    ],
+    "da:læbe|da:glat": [
+      { "da": "balsam", "en": "balm", "why": "product making the surface smooth", "s": 2 }
+    ],
+    "da:læbe|da:ryste": [
+      { "da": "kulde", "en": "cold", "why": "makes the mouth tremble", "s": 3 }
+    ],
+    "da:læbe|da:hjerne": [
+      { "da": "krop", "en": "body", "why": "outer and inner human organs", "s": 1 }
+    ],
+    "da:læbe|da:hviske": [
+      { "da": "mund", "en": "mouth", "why": "body part forming quiet speech", "s": 3 }
+    ],
+    "da:læbe|da:kølig": [
+      { "da": "blå", "en": "blue", "why": "mouth color in chilly weather", "s": 2 }
+    ],
+    "da:læbe|da:fugtig": [
+      { "da": "spyt", "en": "saliva", "why": "moisture around the mouth", "s": 3 }
+    ],
+    "da:læbe|da:ring": [
+      { "da": "piercing", "en": "piercing", "why": "jewelry worn through the mouth", "s": 3 }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+node_modules
+# Published external research and per-task unfinished outputs.
+# Canonical shipped data and existing experiment evidence keep their current paths.
+/data/research/
+/scratch/
+# The app's build output. Anchored, because the vendored plugin under
+# ios-plugins/ carries a COMMITTED dist/ — its JS is hand-written, not built,
+# and a bare "dist" here would silently drop it from every checkout: npm ci
+# would then install a file: dependency whose entry point does not exist.
+/dist
+/dist-web-demo
+/dist-open-source
+dev-dist
+# Kristoffer's private room: the confidential product blueprint (pricing,
+# margins) and raw thought dumps. Keep these private even in the private repo.
+KristoffersRoom/
+# isolated git worktrees the supervisor session dispatches agents into
+.claude/worktrees/
+*.local
+.DS_Store
+coverage
+# throwaway Playwright probes, kept out of `git add -A`
+probe-*.mjs
+
+# Local research/worktree material. Curated experiment results may still be
+# committed explicitly; the raw model packets and generated audit surfaces are
+# not part of the product tree.
+/experiments/association-engine-pilot/**
+/raw/
+/runs/
+/output/
+/outputs/
+/tmp/
+/*-worktree/
+/intro-rework/
+/i4-map-tour/
+/r1-release-verify/
+/tmp-*/
+/s3-change*.patch
+/s3-*.desired.*
+/.codex/
+/.claude/settings.local.json
+# installed copies of skills/; the canonical files are skills/<name>/SKILL.md
+/.claude/skills/
+
+# build info + screenshots the e2e drives write when SHOT_DIR is unset
+*.tsbuildinfo
+/*.png
+# where `npm run drives` puts them instead
+e2e-shots/
+# Local evidence written by the existing Casey-assistance browser drive.
+/.hermes/casey-assist-smoke/
+# throwaway probes written by audit/debugging agents
+src/**/__probe__/
+src/**/__fuzz__/
+src/**/__scratch__/
+# scratch drives written by audit agents
+e2e/_*.mjs
+src/probe_tmp/
+# the native shell's build products; `npx cap sync` recreates the web copy
+ios/App/App/public
+ios/App/Pods
+ios/App/build
+ios/App/output
+ios/DerivedData
+**/xcuserdata/
+
+# Dedicated paid bake artifacts remain external until the verified scoped import.
+/aoede-bake-result/
+# A bake's own paperwork: ledger.json and input.json are committed beside the
+# clips they pin, the 704 raw originals are not — they are ~10 MB that the
+# ledger already hashes and the workflow artifact already holds.
+evidence/**/raw/
+# The import used to stage that paperwork INSIDE public/, which Vite copies
+# into dist/ and `cap sync` copies into the iOS bundle. It writes to
+# evidence/ now (EVIDENCE in scripts/aoede-bake/core.mjs); this is the guard
+# against an older importer, or a hand copy, putting it back.
+public/audio/**/_evidence/
+
+# Universal-bank research predecessors are preserved byte-for-byte in its
+# compressed checkpoint. Keep final review artifacts directly browsable.
+/experiments/universal-bank-rg-v3/proposals/
+/experiments/universal-bank-rg-v3/overlays/
+/experiments/universal-bank-rg-v3/analysis/*
+!/experiments/universal-bank-rg-v3/analysis/candidate-r5.json
+!/experiments/universal-bank-rg-v3/analysis/candidate-r5-raw.json
+/experiments/universal-bank-rg-v3/reviews/*
+!/experiments/universal-bank-rg-v3/reviews/adjudications-r5.json
+!/experiments/universal-bank-rg-v3/reviews/candidate-r5-adjudicated.json
+!/experiments/universal-bank-rg-v3/reviews/supervisor-findings-r11.json
+/experiments/universal-bank-rg-v3/audits/*
+!/experiments/universal-bank-rg-v3/audits/coverage-r5.json
+!/experiments/universal-bank-rg-v3/audits/verification-20260914.json
+/experiments/universal-bank-rg-v3/exports/board-bank-candidate-r4b.md

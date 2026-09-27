@@ -1,0 +1,38 @@
+{
+  "language": "de",
+  "generatedFrom": "accepted fixed grammar lesson example performances, City 1",
+  "entries": [
+    {
+      "id": "chapter-01",
+      "lessonId": "flensburg-articles",
+      "cityId": "flensburg",
+      "cityIndex": 0,
+      "linesDa": [
+        "Das ist ein Tisch.",
+        "Der Tisch ist hier.",
+        "Das ist eine Tür.",
+        "Wo ist die Tür?",
+        "Das ist ein Haus.",
+        "Das Haus ist klein."
+      ],
+      "textDa": "Das ist ein Tisch.\n\nDer Tisch ist hier.\n\nDas ist eine Tür.\n\nWo ist die Tür?\n\nDas ist ein Haus.\n\nDas Haus ist klein.",
+      "sourceHash": "667ace701bedf52af9666635e022d7cfc1b241ebe3212e3f63d250e235226ac0"
+    },
+    {
+      "id": "lesson-flensburg-du-sie",
+      "lessonId": "flensburg-du-sie",
+      "cityId": "flensburg",
+      "cityIndex": 0,
+      "linesDa": [
+        "Guten Tag! Wie heißen Sie?",
+        "Ich heiße Mia. Und Sie?",
+        "Hallo! Wie heißt du?",
+        "Entschuldigung, können Sie mir helfen?",
+        "Ich komme aus Kanada.",
+        "Auf Wiedersehen!"
+      ],
+      "textDa": "Guten Tag! Wie heißen Sie?\n\nIch heiße Mia. Und Sie?\n\nHallo! Wie heißt du?\n\nEntschuldigung, können Sie mir helfen?\n\nIch komme aus Kanada.\n\nAuf Wiedersehen!",
+      "sourceHash": "e13056e843c0d65a7b54ecbb53b66410ff761122ad2625f007bb8d7db385684a"
+    }
+  ]
+}

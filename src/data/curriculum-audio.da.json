@@ -1,0 +1,1372 @@
+{
+  "language": "da",
+  "generatedFrom": "accepted T6 curriculum task audio",
+  "entries": [
+    {
+      "kind": "capsule",
+      "activityId": "sonderborg-notice",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "sonderborg-notice-audio-1",
+      "textDa": "Der er et hus her. Huset er lille.",
+      "sourceHash": "2e076c5fe30900d7c67923713606b61a45cd4ae9131386b57dd0928320afd0a2"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "sonderborg-discriminate",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "sonderborg-discriminate-audio-1",
+      "textDa": "Se på kortet med ordet bord.",
+      "sourceHash": "d05c8c8fbef99599e1338a5d7f22a43b82959bf4c3ead4dec259b0236ffbc4e8"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "sonderborg-manipulate",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "sonderborg-manipulate-audio-1",
+      "textDa": "Nu taler vi om en bestemt kat.",
+      "sourceHash": "b7a8f0edba321b795fa09c2816e5717bcd6bf359c38af5f4d1fd97d776c2ae46"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "sonderborg-listen",
+      "cityId": "sonderborg",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "sonderborg-listen-audio-1",
+      "textDa": "Øh, døren er åben.",
+      "sourceHash": "565a4eeaba6ef0db692ff035a9faef1e23f263a4ec76f48712eb0253429f5e21"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "sonderborg-transfer",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "sonderborg-transfer-audio-1",
+      "textDa": "Kan du vise mig vinduet?",
+      "sourceHash": "f69d68edf7385bbcaea1b4bb679b3e2cfd4fe1b23fee60c68e1836b80e8f1afa"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "sonderborg-situation-1",
+      "cityId": "sonderborg",
+      "mode": "supported-interaction",
+      "id": "sonderborg-situation-1-audio-1",
+      "textDa": "Hej! Hvad hedder du?",
+      "sourceHash": "dbdfe2c51fc1e6446bb9f121b580911b363c7f81a24be76f865d6fad3f8b7a68"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "sonderborg-situation-2",
+      "cityId": "sonderborg",
+      "mode": "supported-interaction",
+      "id": "sonderborg-situation-2-audio-1",
+      "textDa": "Kommer du fra Canada? Jeg skal videre nu.",
+      "sourceHash": "de017209b8e133f13c33cdc5843d3f220d04484c702e04d24ebe0ae7ef94fbcc"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "sonderborg-situation-3",
+      "cityId": "sonderborg",
+      "mode": "supported-interaction",
+      "id": "sonderborg-situation-3-audio-1",
+      "textDa": "Øh, bussen kører fra spor tre om fem minutter.",
+      "sourceHash": "b96853e60e6afb7f6d3dd09a4f1f5795dff11163991f99dcf52b0b62444b02d8"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "sonderborg-situation-4",
+      "cityId": "sonderborg",
+      "mode": "supported-interaction",
+      "id": "sonderborg-situation-4-audio-1",
+      "textDa": "Ja?",
+      "sourceHash": "256779c7553b59f22aace3d570ada6718be8e20ccadbb2b2f3efff0b7bf69dfc"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "sonderborg-due-review",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "id": "sonderborg-due-review-audio-1",
+      "textDa": "Begge ved, hvilken bus det er.",
+      "sourceHash": "0223db3c4022683a63e16b63aa139053fab07dbd8732f78bc654606e2e700a4a"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "sonderborg-exit-listen",
+      "cityId": "sonderborg",
+      "mode": "listening",
+      "id": "sonderborg-exit-listen-audio-1",
+      "textDa": "Lea skal vente ved døren.",
+      "sourceHash": "140993c2dbaabd40a3f621149914d8ec7157a9b0b8520321a3286d63ec61a332"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "sonderborg-exit-interact",
+      "cityId": "sonderborg",
+      "mode": "supported-interaction",
+      "id": "sonderborg-exit-interact-audio-1",
+      "textDa": "Hej! Kan jeg hjælpe dig?",
+      "sourceHash": "d8e46d351892b10cb4939774732630864bf95fe18195878cbca7758a6e40fbc3"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "sonderborg-exit-form",
+      "cityId": "sonderborg",
+      "mode": "grammar-in-use",
+      "id": "sonderborg-exit-form-audio-1",
+      "textDa": "Nu kan du se stationen.",
+      "sourceHash": "6014c53edb7287efa22bb92937a8f5c9383f5e81968c19faa25fb478674e8509"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "ribe-notice",
+      "cityId": "ribe",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "ribe-notice-audio-1",
+      "textDa": "Jeg bor i Ribe. Hun bor i Aarhus.",
+      "sourceHash": "35e8fcfe0ada662b4c084a734c2d76ae979c4a09efe7ddf4113dc6a42ae73734"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "ribe-discriminate",
+      "cityId": "ribe",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "ribe-discriminate-audio-1",
+      "textDa": "Hvor arbejder Anna?",
+      "sourceHash": "7b579b315a1cfdf9646bd20e9c309d09a2af26a3761b3ede76a55cee5fe06c51"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "ribe-manipulate",
+      "cityId": "ribe",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "ribe-manipulate-audio-1",
+      "textDa": "Maja bor i Ribe og arbejder på en skole.",
+      "sourceHash": "8c9879c22f51c34f179bc594ff4751f901c92b59bc837110275eefcee27ecc1d"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "ribe-listen",
+      "cityId": "ribe",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "ribe-listen-audio-1",
+      "textDa": "Det er mine ting.",
+      "sourceHash": "e7cfe732f3a7771f95274d123dfee6e91ac98cf507417ee691ad247c9b45168c"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "ribe-transfer",
+      "cityId": "ribe",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "ribe-transfer-audio-1",
+      "textDa": "Hvad hedder du, og hvor bor du?",
+      "sourceHash": "3d77653914f0909107528e6e66d2e8023bf12a7b488d744acf1f72c5395d1994"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "ribe-situation-1",
+      "cityId": "ribe",
+      "mode": "supported-interaction",
+      "id": "ribe-situation-1-audio-1",
+      "textDa": "Hvor bor du?",
+      "sourceHash": "39730c04ccf4be05f2086c07167ec4e33cec4130f50b871dfc1081d40bd0f1b0"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "ribe-situation-2",
+      "cityId": "ribe",
+      "mode": "supported-interaction",
+      "id": "ribe-situation-2-audio-1",
+      "textDa": "Hvad arbejder du med?",
+      "sourceHash": "5782373cda5b5b6698fdf11d5da3cbe650b296273cc93e94dac0363da5c4e238"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "ribe-situation-3",
+      "cityId": "ribe",
+      "mode": "supported-interaction",
+      "id": "ribe-situation-3-audio-1",
+      "textDa": "Hvordan staver du dit navn?",
+      "sourceHash": "b020e3e3c4dadac0f3866cbb266edac595bfd5bef53104ebf88a8b59ad2fff86"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "ribe-situation-4",
+      "cityId": "ribe",
+      "mode": "supported-interaction",
+      "id": "ribe-situation-4-audio-1",
+      "textDa": "Er det dine ting?",
+      "sourceHash": "a7e341a3d0a8585742f845ea98209316daf186350c091459e1afd178870d62b0"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "ribe-due-review",
+      "cityId": "ribe",
+      "mode": "grammar-in-use",
+      "id": "ribe-due-review-audio-1",
+      "textDa": "Anna bor i Kolding og arbejder på et hotel.",
+      "sourceHash": "963f7bc56fc8c9f1cfbc085d8e4636ddbafd07d1aceb2e1f103bd4d033d74ec2"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "ribe-exit-read",
+      "cityId": "ribe",
+      "mode": "reading",
+      "id": "ribe-exit-read-audio-1",
+      "textDa": "Læs Noras korte kontaktkort.",
+      "sourceHash": "ea5d38c2d1c82dbedb7715ae96a123b41ee0a55ddf481cb5adbc05ecc843a09d"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "ribe-exit-interact",
+      "cityId": "ribe",
+      "mode": "supported-interaction",
+      "id": "ribe-exit-interact-audio-1",
+      "textDa": "Jeg hedder Nora Holm.",
+      "sourceHash": "698cabac3341ba1808cfe13ad892420541f4927fa7ef62e114026bbf282ce856"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "ribe-exit-write",
+      "cityId": "ribe",
+      "mode": "writing",
+      "id": "ribe-exit-write-audio-1",
+      "textDa": "Skriv telefonnummeret som en hel sætning.",
+      "sourceHash": "ec3742520d0b405a4171af691ed60936e3aea90c5a572cc8c66ef06572a899c2"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kolding-notice",
+      "cityId": "kolding",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "kolding-notice-audio-1",
+      "textDa": "Et æble. To æbler.",
+      "sourceHash": "f71c3be26d008ce65efc52f575360051ffb78c67e20d5dcaa6a74fbbaf83f017"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kolding-discriminate",
+      "cityId": "kolding",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "kolding-discriminate-audio-1",
+      "textDa": "Bestil tre af dem.",
+      "sourceHash": "51cc928d3011ab7719248d530b4f7765b29ae94d046d6ed7d9fa9bbd2456baa7"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kolding-manipulate",
+      "cityId": "kolding",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "kolding-manipulate-audio-1",
+      "textDa": "Sig nej til sukkeret.",
+      "sourceHash": "0640dab34286e740cb0d7eb233a78926e4f1587529c9aed4f4f6a573b725ce51"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kolding-listen",
+      "cityId": "kolding",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "kolding-listen-audio-1",
+      "textDa": "Jamen, så bliver det fyrre kroner.",
+      "sourceHash": "8c7ebbd1683fe018ca0e67f1e10cfb510c1252c30710a2499d919d468080e6f9"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kolding-transfer",
+      "cityId": "kolding",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "kolding-transfer-audio-1",
+      "textDa": "Hvad vil du gerne have?",
+      "sourceHash": "26e7d3562a541f69237379217806826aa4dd002a7aa5c5186b5e8eea0594c3ca"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kolding-situation-1",
+      "cityId": "kolding",
+      "mode": "supported-interaction",
+      "id": "kolding-situation-1-audio-1",
+      "textDa": "Hvad vil du gerne have?",
+      "sourceHash": "26e7d3562a541f69237379217806826aa4dd002a7aa5c5186b5e8eea0594c3ca"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kolding-situation-2",
+      "cityId": "kolding",
+      "mode": "supported-interaction",
+      "id": "kolding-situation-2-audio-1",
+      "textDa": "Kan jeg hjælpe?",
+      "sourceHash": "31a382eb7ab1f1e01c4d69e5e601df458e2f54d3078e516689706db0abc15b18"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kolding-situation-3",
+      "cityId": "kolding",
+      "mode": "supported-interaction",
+      "id": "kolding-situation-3-audio-1",
+      "textDa": "Jamen, vi har desværre ikke te. Vi har kaffe.",
+      "sourceHash": "339da66054b94b8249800083fe714fe6f7ca264edd8a582aeec4fde8a2d3c922"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kolding-situation-4",
+      "cityId": "kolding",
+      "mode": "supported-interaction",
+      "id": "kolding-situation-4-audio-1",
+      "textDa": "Var der andet?",
+      "sourceHash": "5356600048ec1c601c5c12b025a2229582d99d9e0a5873ac76413f6e1a58c678"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "kolding-due-review",
+      "cityId": "kolding",
+      "mode": "grammar-in-use",
+      "id": "kolding-due-review-audio-1",
+      "textDa": "Vil du have tre æbler?",
+      "sourceHash": "d4107a7c848a13b7ed1f835f657bb16e347fd7c3929c118b63e9453bac24f5de"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kolding-exit-listen",
+      "cityId": "kolding",
+      "mode": "listening",
+      "id": "kolding-exit-listen-audio-1",
+      "textDa": "To supper koster tres kroner.",
+      "sourceHash": "06815e32a89c1603343252ab8b6a098fdada408329ae6959e0f36fd4705f045a"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kolding-exit-read",
+      "cityId": "kolding",
+      "mode": "reading",
+      "id": "kolding-exit-read-audio-1",
+      "textDa": "Læs opslaget, og find det, der er på lager.",
+      "sourceHash": "c8815b5d6fa4760a70b96cc8c4f5154fdceaac667e334a97b68b8af1b7fd00b3"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kolding-exit-interact",
+      "cityId": "kolding",
+      "mode": "supported-interaction",
+      "id": "kolding-exit-interact-audio-1",
+      "textDa": "Vi har desværre ikke suppe.",
+      "sourceHash": "20c3c7c9c0c1b74302105359cb28be6f710f7973d41d07aabdeeca0e4272659d"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-notice",
+      "cityId": "aarhus",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "aarhus-notice-audio-1",
+      "textDa": "I dag arbejder jeg hjemme.",
+      "sourceHash": "171dd94c0808afc6c226fd8770d3a218e2055aad174caceb732c519ab80fa795"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-discriminate",
+      "cityId": "aarhus",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "aarhus-discriminate-audio-1",
+      "textDa": "Planen gælder i morgen klokken otte.",
+      "sourceHash": "8fd11a860ed3a012bb437954155ac91bdfafc6e9089c0fcdc12d151658f2505e"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-manipulate",
+      "cityId": "aarhus",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "aarhus-manipulate-audio-1",
+      "textDa": "Begynd sætningen med “om morgenen”.",
+      "sourceHash": "2e7fa5088b4d5843262c0239c452a0fb26572d87545d0f6d355b7cb8faf273d1"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-listen",
+      "cityId": "aarhus",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "aarhus-listen-audio-1",
+      "textDa": "I dag arbejdede jeg fra otte til ti.",
+      "sourceHash": "10f5a8c6373fea35a5b98b06479a249e7d06a8894cd5b1c518d39e70dd0828bf"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-listen",
+      "cityId": "aarhus",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "aarhus-listen-audio-2",
+      "textDa": "I dag har jeg arbejdet hjemme, så nu er jeg træt.",
+      "sourceHash": "22c300fb5b3afe9ef36d8f7f53c1319f8a8c228c35d13420cd4ba8f46b7fae62"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-listen",
+      "cityId": "aarhus",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "aarhus-listen-audio-3",
+      "textDa": "I dag købte jeg brød klokken otte.",
+      "sourceHash": "5cb8dc3246d7f5c9f261028f1387bc4fbf9c3eeff3380964423b45f3f14a94bb"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-listen",
+      "cityId": "aarhus",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "aarhus-listen-audio-4",
+      "textDa": "I dag har jeg købt brød, så vi har mad.",
+      "sourceHash": "4c923a6a3ec8cd48d6b0f5a07dc45aa497d5323ae387c0aeabc5ce1e1e3560c2"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aarhus-transfer",
+      "cityId": "aarhus",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "aarhus-transfer-audio-1",
+      "textDa": "Hold i går og i dag adskilt i to korte sætninger.",
+      "sourceHash": "ddefb047f23f80f7822e83d66acf1d6493872282442ef7bc99ab77ea49f7be24"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aarhus-situation-1",
+      "cityId": "aarhus",
+      "mode": "supported-interaction",
+      "id": "aarhus-situation-1-audio-1",
+      "textDa": "Undervisningen er i lokale tre.",
+      "sourceHash": "ffaf18aa17590bd76dcb4eee0fb3e80703a1ebb481dfa5ba0432a6db5d088e04"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aarhus-situation-2",
+      "cityId": "aarhus",
+      "mode": "supported-interaction",
+      "id": "aarhus-situation-2-audio-1",
+      "textDa": "Fortæl kort om i går og i dag.",
+      "sourceHash": "8c070f673ae91ce1574c766f076c03259af42c36de4f02249e28cc46ad0278bf"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aarhus-situation-3",
+      "cityId": "aarhus",
+      "mode": "supported-interaction",
+      "id": "aarhus-situation-3-audio-1",
+      "textDa": "Øh, kan vi mødes klokken ni?",
+      "sourceHash": "aa6edf7fd6165b9cc95074680512050e54dba312e789fa1fdffd58075a69b96e"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aarhus-situation-4",
+      "cityId": "aarhus",
+      "mode": "supported-interaction",
+      "id": "aarhus-situation-4-audio-1",
+      "textDa": "Jeg kan i hvert fald ikke klokken ni. Kan du senere?",
+      "sourceHash": "0337b274f416be51383ecd4456105492b55cc33e7518272f154774c4557ade33"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "aarhus-due-review",
+      "cityId": "aarhus",
+      "mode": "grammar-in-use",
+      "id": "aarhus-due-review-audio-1",
+      "textDa": "Begynd med “efter arbejde”.",
+      "sourceHash": "78fd5e697c5f2a91acae15525225d00cb85d82c1dd2ce730aaa5a913f5d29507"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aarhus-exit-read",
+      "cityId": "aarhus",
+      "mode": "reading",
+      "id": "aarhus-exit-read-audio-1",
+      "textDa": "Frokosten er klokken tolv.",
+      "sourceHash": "fadab54e3a673d92f51a277e40d68b45627754fffeb3247c525cff4b20069fd0"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aarhus-exit-listen",
+      "cityId": "aarhus",
+      "mode": "listening",
+      "id": "aarhus-exit-listen-audio-1",
+      "textDa": "Mødet begynder ikke klokken tre. Det begynder klokken fire.",
+      "sourceHash": "83f7c41a0d074503b12ddcf36cb60e833e227ac36b4dbc04d73e76852b0a9fac"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aarhus-exit-write",
+      "cityId": "aarhus",
+      "mode": "writing",
+      "id": "aarhus-exit-write-audio-1",
+      "textDa": "Skriv to korte sætninger om i går og i dag.",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aalborg-notice",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "aalborg-notice-audio-1",
+      "textDa": "Hvor ligger stationen?",
+      "sourceHash": "6930670d93b2eb7300d7e1496817f9685cf18e36a1af8102d93c311e5e3fe903"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aalborg-discriminate",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "aalborg-discriminate-audio-1",
+      "textDa": "Du skal finde stationen.",
+      "sourceHash": "45c5b0b3c82546aa10072926b935188973e6014c1875b838a13449f35b9597e5"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aalborg-manipulate",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "aalborg-manipulate-audio-1",
+      "textDa": "Giv en kort instruktion.",
+      "sourceHash": "12736a13a36e9435c2eb66232ae8b2d308e6bd5d2b622fd1491b367f8831109a"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aalborg-listen",
+      "cityId": "aalborg",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "aalborg-listen-audio-1",
+      "textDa": "Jamen, gå ligeud, og drej til venstre ved kirken.",
+      "sourceHash": "b20446877a8228e30fca4f92873782398872f4f1fe22638b5d3ad70199819106"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "aalborg-transfer",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "aalborg-transfer-audio-1",
+      "textDa": "Hvordan kommer jeg til hotellet?",
+      "sourceHash": "e7c9463018f22e93484ffc5830433545f7328d0445aa8c7efc4701e96c0c202f"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aalborg-situation-1",
+      "cityId": "aalborg",
+      "mode": "supported-interaction",
+      "id": "aalborg-situation-1-audio-1",
+      "textDa": "Kan jeg hjælpe dig?",
+      "sourceHash": "e1a562a1b233e0a02a53974f1bb1d05b8922da9e8021df78a5c60157da5679e0"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aalborg-situation-2",
+      "cityId": "aalborg",
+      "mode": "supported-interaction",
+      "id": "aalborg-situation-2-audio-1",
+      "textDa": "Hvor skal du hen?",
+      "sourceHash": "d3b1489c77657b5b9cbd340543157562473a038fa2caa34fc6c4a8271811c690"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aalborg-situation-3",
+      "cityId": "aalborg",
+      "mode": "supported-interaction",
+      "id": "aalborg-situation-3-audio-1",
+      "textDa": "Stationen er tæt på.",
+      "sourceHash": "d921b4bced3876ef7b4413ca4413b421af2d548739908c92a73d121d5fa3cf21"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "aalborg-situation-4",
+      "cityId": "aalborg",
+      "mode": "supported-interaction",
+      "id": "aalborg-situation-4-audio-1",
+      "textDa": "Fortæl kort om i går og i dag.",
+      "sourceHash": "8c070f673ae91ce1574c766f076c03259af42c36de4f02249e28cc46ad0278bf"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "aalborg-due-review",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "id": "aalborg-due-review-audio-1",
+      "textDa": "Museet ligger ved parken.",
+      "sourceHash": "cb64d53f51383e19eebf928401d3f42fd5662447a3685b9df6f8c8333907b229"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aalborg-exit-listen",
+      "cityId": "aalborg",
+      "mode": "listening",
+      "id": "aalborg-exit-listen-audio-1",
+      "textDa": "Du finder spor fire bag butikken.",
+      "sourceHash": "c67469fa3fdfbe8086b6864e6d75570dcc16e5471ec6a5ffd80321020d97750d"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aalborg-exit-interact",
+      "cityId": "aalborg",
+      "mode": "supported-interaction",
+      "id": "aalborg-exit-interact-audio-1",
+      "textDa": "Hvordan kommer jeg til spor fire?",
+      "sourceHash": "80f42b0985ab5ac887ded365b370d37b8fbd9caa7f9b49b8173ca9261a238628"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "aalborg-exit-form",
+      "cityId": "aalborg",
+      "mode": "grammar-in-use",
+      "id": "aalborg-exit-form-audio-1",
+      "textDa": "Det normale stoppested er lukket.",
+      "sourceHash": "eb74beee629ea1f230531d96b9378b35b27a339a1eec7a0a6fb232382753c310"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "skagen-notice",
+      "cityId": "skagen",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "skagen-notice-audio-1",
+      "textDa": "En rød bil og et rødt hus.",
+      "sourceHash": "3b9de4af1fc3718ada870cd1b745c3be3a6ceb3979433fee88d47800a4b8b232"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "skagen-discriminate",
+      "cityId": "skagen",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "skagen-discriminate-audio-1",
+      "textDa": "Beskriv husene i flertal.",
+      "sourceHash": "e23e8fabde100975e351b772b6d0d4acfd62409026de3886fa3db70fa175919a"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "skagen-manipulate",
+      "cityId": "skagen",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "skagen-manipulate-audio-1",
+      "textDa": "Skriv nu om den bestemte bil.",
+      "sourceHash": "60e86cdf075bbde4d71f49c3bbe14714cc34eafad207cde7642ecad84f709bdb"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "skagen-listen",
+      "cityId": "skagen",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "skagen-listen-audio-1",
+      "textDa": "Det er koldt, men vejret er klart ved havet.",
+      "sourceHash": "3126b6ec5fc6139c0c84edc5eaeb5fa739454ece16f34d049f7ce42e9176a18d"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "skagen-transfer",
+      "cityId": "skagen",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "skagen-transfer-audio-1",
+      "textDa": "Hvorfor kan du lide stranden?",
+      "sourceHash": "a348021cf59bc94ff8924fc85f64b242fd526f4ee23eb34a248f4cbfcfabe858"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "skagen-situation-1",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-situation-1-audio-1",
+      "textDa": "Hvordan er vejret?",
+      "sourceHash": "c3dd07f2b882a6bca69d03d4e54d7f35e1aca7f5ee2e6ef06d56a82c83e3b296"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "skagen-situation-2",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-situation-2-audio-1",
+      "textDa": "Vil du have salat eller suppe?",
+      "sourceHash": "f3857e876fdc171eb88c776a79db22d1b0d3f05ea8596f5df6f069ed08d12ad3"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "skagen-situation-3",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-situation-3-audio-1",
+      "textDa": "Jamen, færgen sejler først klokken seksten.",
+      "sourceHash": "d68ce65ec86f0c4e45d4c3d5863dcd09400dedffa86ed17a3e165ef779c2cbbf"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "skagen-situation-4",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-situation-4-audio-1",
+      "textDa": "Hvordan er det?",
+      "sourceHash": "fdcaed653f70694167a3733d895b0d18a5e645c31877ebeb3fb039c2ff0cd6e3"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "skagen-situation-4",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-situation-4-audio-2",
+      "textDa": "Og hvad lavede du?",
+      "sourceHash": "4a3066639ab40cd7d6cc373b9869e19fe47688cc359dd96e7c810e2f791e5e26"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "skagen-due-review",
+      "cityId": "skagen",
+      "mode": "grammar-in-use",
+      "id": "skagen-due-review-audio-1",
+      "textDa": "Huset er lille, men smukt.",
+      "sourceHash": "3d067c266a1a7e5bae30b5de976a5756a87192b8314de548e6077fbf31d2d78f"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "skagen-exit-listen",
+      "cityId": "skagen",
+      "mode": "listening",
+      "id": "skagen-exit-listen-audio-1",
+      "textDa": "Det regner, men færgen sejler klokken fjorten.",
+      "sourceHash": "16d6474234fe4ad780e559dac69e4cb9472b8742b1855639fcf4f8fb0515713f"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "skagen-exit-interact",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "id": "skagen-exit-interact-audio-1",
+      "textDa": "Følg vejen mod havet.",
+      "sourceHash": "afeea81e33e110bb5c4eb0aecaccca2ea1310da9cfde32735281e5d47e0505c8"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "skagen-exit-write",
+      "cityId": "skagen",
+      "mode": "writing",
+      "id": "skagen-exit-write-audio-1",
+      "textDa": "Planen ændrer sig på grund af regnen.",
+      "sourceHash": "91822166842dd9b5d84bde329a374b3069613c66beb81158de4a8ca344bdb292"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "odense-notice",
+      "cityId": "odense",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "odense-notice-audio-1",
+      "textDa": "Jeg mistede min taske i går. Jeg har mistet min taske.",
+      "sourceHash": "2562dcccda5889385062358752ab2544db1ed798828d79643ddc5d8bf9372e18"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "odense-discriminate",
+      "cityId": "odense",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "odense-discriminate-audio-1",
+      "textDa": "I går aftes missede jeg bussen.",
+      "sourceHash": "d2fabdf1afe6c0ddce0c4d57f2bdb06e4e6b609c6a2d8f4ea86c0b1bf0b80bb3"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "odense-manipulate",
+      "cityId": "odense",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "odense-manipulate-audio-1",
+      "textDa": "Sæt de tre begivenheder i rækkefølge.",
+      "sourceHash": "6106b2cb78117d429e0b64fa95dfb448b8090aa71c9e330908dfc3efcc415294"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "odense-listen",
+      "cityId": "odense",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "odense-listen-audio-1",
+      "textDa": "Toget er aflyst. Ligesom i går skal I tage bussen fra holdeplads tre.",
+      "sourceHash": "f57bb3eca5c7bc79a08cdcf5b80b360a076289dcb9ef02bf157f8810896b213b"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "odense-transfer",
+      "cityId": "odense",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "odense-transfer-audio-1",
+      "textDa": "Hvad er problemet?",
+      "sourceHash": "93b7051353b55b3cd55eb5834735b7d7495fb126dc0a81a6cf35855dd9fbf0b2"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "odense-situation-1",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-situation-1-audio-1",
+      "textDa": "Ej, hvad skete der?",
+      "sourceHash": "7d3c153e8ec41b2f1e30c5aab20a8d162eec9fc2a2d435e670585abbf212d4ac"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "odense-situation-2",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-situation-2-audio-1",
+      "textDa": "Ej, var tasken sort, ligesom den her?",
+      "sourceHash": "33f00fa6802d366f3e43e6d153be41d8482fa480c049132c23474276ea5bc015"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "odense-situation-2",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-situation-2-audio-2",
+      "textDa": "Hvor så du dem sidst?",
+      "sourceHash": "13461ba47c8dd39909309c5f5ab57897b679fa7f8ca81617567ff0312900c0da"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "odense-situation-3",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-situation-3-audio-1",
+      "textDa": "Hvad er der galt?",
+      "sourceHash": "78ec8dcec3d356a4f85da3bab29c33b35f115cf2ef5421e53ae59cbcafffc17d"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "odense-situation-4",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-situation-4-audio-1",
+      "textDa": "Jeg kan godt se problemet.",
+      "sourceHash": "286882a4efee76a547d882ecfeb5070c070916712508a6b640eadbbc2fc9a072"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "odense-due-review",
+      "cityId": "odense",
+      "mode": "grammar-in-use",
+      "id": "odense-due-review-audio-1",
+      "textDa": "Ej, nøglen er stadig væk.",
+      "sourceHash": "f04fde64e81b18bed5b18ced4e14af0dc60b8b5c21445a156cf6d0be6c12bb02"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "odense-exit-listen",
+      "cityId": "odense",
+      "mode": "listening",
+      "id": "odense-exit-listen-audio-1",
+      "textDa": "Færgen er aflyst. Der kører en bus klokken atten.",
+      "sourceHash": "817f43026c4d80c97ae233eae15f6b6ffce6b00307004e3ace5a393a46de7b93"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "odense-exit-interact",
+      "cityId": "odense",
+      "mode": "supported-interaction",
+      "id": "odense-exit-interact-audio-1",
+      "textDa": "Hvornår og hvor så du kufferten sidst?",
+      "sourceHash": "eb4018356cea32b68824d4d24bc82a4e2fe1a2ddc5be84f85e40ed0d507faf38"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "odense-exit-write",
+      "cityId": "odense",
+      "mode": "writing",
+      "id": "odense-exit-write-audio-1",
+      "textDa": "Beskriv kufferten kort.",
+      "sourceHash": "cf6947926b93adfecca7532c21d19ec56c34b88a548a1f9dbb05e4f58b2862a8"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "roskilde-notice",
+      "cityId": "roskilde",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "roskilde-notice-audio-1",
+      "textDa": "Vi skal mødes klokken syv.",
+      "sourceHash": "d76d446ea3b56182fd64cb32c457a95ad80de20e08a3a76a391135f69e5b750b"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "roskilde-discriminate",
+      "cityId": "roskilde",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "roskilde-discriminate-audio-1",
+      "textDa": "Planen er fastlagt til i morgen.",
+      "sourceHash": "7728d1050c0fc2888574bf9a8e9303f897fccc8275841b64e1c3c75ae5824be5"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "roskilde-manipulate",
+      "cityId": "roskilde",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "roskilde-manipulate-audio-1",
+      "textDa": "Kan du komme til festen?",
+      "sourceHash": "09a58bf7d66cdf9ed7befbbd0a6e210d5ca637f28ef809162d127755dc648b36"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "roskilde-listen",
+      "cityId": "roskilde",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "roskilde-listen-audio-1",
+      "textDa": "Ej, jeg kan desværre ikke på fredag, men lørdag passer godt.",
+      "sourceHash": "2f5e27aa24d7bb0d1ac053a070d9f0444a2872ce38def0409636af6122979815"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "roskilde-transfer",
+      "cityId": "roskilde",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "roskilde-transfer-audio-1",
+      "textDa": "Lav en konkret invitation.",
+      "sourceHash": "415fd673dfdbbb10bafbc62ac745578dbd89455df9da80fdc9e44e29b9640a0a"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "roskilde-situation-1",
+      "cityId": "roskilde",
+      "mode": "supported-interaction",
+      "id": "roskilde-situation-1-audio-1",
+      "textDa": "Øh, har du planer på fredag?",
+      "sourceHash": "d1a25638d7dceb028bc316ddf7d4a2330d9304188fcd5da03ed798305daf5631"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "roskilde-situation-2",
+      "cityId": "roskilde",
+      "mode": "supported-interaction",
+      "id": "roskilde-situation-2-audio-1",
+      "textDa": "Kan du komme fredag?",
+      "sourceHash": "9e5daf85a7750e150ae64e0f646eedbe5db0675d2108eb171a6d00599e31a725"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "roskilde-situation-3",
+      "cityId": "roskilde",
+      "mode": "supported-interaction",
+      "id": "roskilde-situation-3-audio-1",
+      "textDa": "Du skal bestille en billet. Du behøver ikke betale nu.",
+      "sourceHash": "8ce405581b225f0ca0ce1dacfac080a8f10c384129f1401bbbec016990123144"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "roskilde-situation-4",
+      "cityId": "roskilde",
+      "mode": "supported-interaction",
+      "id": "roskilde-situation-4-audio-1",
+      "textDa": "Lørdag klokken seks eller søndag klokken elleve?",
+      "sourceHash": "f971398f68d781220688568d782bafa42a0ac75737b1a635d8b62303bdddcec4"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "roskilde-due-review",
+      "cityId": "roskilde",
+      "mode": "grammar-in-use",
+      "id": "roskilde-due-review-audio-1",
+      "textDa": "Foreslå en ny tid.",
+      "sourceHash": "2c2e183493fc94ac29bc4eae24f274805d94e426da80fb0875bcd9ced0a9e348"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "roskilde-exit-read",
+      "cityId": "roskilde",
+      "mode": "reading",
+      "id": "roskilde-exit-read-audio-1",
+      "textDa": "Begge kan søndag formiddag.",
+      "sourceHash": "8f0e53e507fc5a2c788e98849f22422b65f3c477ef215eed0d451cd0d8115a98"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "roskilde-exit-interact",
+      "cityId": "roskilde",
+      "mode": "supported-interaction",
+      "id": "roskilde-exit-interact-audio-1",
+      "textDa": "Skal vi tage på museum fredag klokken fem?",
+      "sourceHash": "c2f113e6ab767b1e1787165808c6f5dc8a4f80f98441881f2761a1a8b2743497"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "roskilde-exit-write",
+      "cityId": "roskilde",
+      "mode": "writing",
+      "id": "roskilde-exit-write-audio-1",
+      "textDa": "Send den endelige aftale.",
+      "sourceHash": "8d456bb64789ec975d62230d8e961a137b5deda03e73bbe106b7413f268a98f8"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kobenhavn-notice",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "phase": "notice",
+      "id": "kobenhavn-notice-audio-1",
+      "textDa": "Jeg kan se, at tiden er ændret.",
+      "sourceHash": "8a559e9afbd8f268681ff5d35f244b229ff9b67e566102284c39b33dda782e5e"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kobenhavn-discriminate",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "phase": "discriminate",
+      "id": "kobenhavn-discriminate-audio-1",
+      "textDa": "Vælg ordstillingen i ledsætningen.",
+      "sourceHash": "a00cb956a05c900ef4b1e65523bc732065614bca43a9b43aefe87965eb286f1b"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kobenhavn-manipulate",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "phase": "manipulate",
+      "id": "kobenhavn-manipulate-audio-1",
+      "textDa": "Skriv en betingelse med tirsdag og onsdag.",
+      "sourceHash": "52d6cfba39bf6dd621503e9cf3d27d88461ce6abb66d5c7f44d5b40e1a38a3ea"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kobenhavn-listen",
+      "cityId": "kobenhavn",
+      "mode": "listening",
+      "phase": "listen",
+      "id": "kobenhavn-listen-audio-1",
+      "textDa": "Hvis du ikke kan komme, skal du aflyse aftalen senest dagen før.",
+      "sourceHash": "7551bd0fc8ad8f27ecb0aa867c35e66913be6c4c29e45a574e6e00e528e1baf9"
+    },
+    {
+      "kind": "capsule",
+      "activityId": "kobenhavn-transfer",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "phase": "transfer",
+      "id": "kobenhavn-transfer-audio-1",
+      "textDa": "Hvordan kan jeg hjælpe dig?",
+      "sourceHash": "07f24a2986f0d390d2c6a36ac1cd6f211874b7f1a6703a1af69d80ec328f0aae"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kobenhavn-situation-1",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "id": "kobenhavn-situation-1-audio-1",
+      "textDa": "Hvad kan jeg hjælpe med?",
+      "sourceHash": "d53ea5001731fabef0fe9c202e2b6ca0e196dfc928ade0ef948098ba8af2a8c1"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kobenhavn-situation-2",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "id": "kobenhavn-situation-2-audio-1",
+      "textDa": "Er problemet ligesom i går?",
+      "sourceHash": "2e333d3a1fa6afbbe4b4a8fe23e7aaedb7f9b5b0f53c089ecbb1754d86842af7"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kobenhavn-situation-3",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "id": "kobenhavn-situation-3-audio-1",
+      "textDa": "Hvad er problemet i lejligheden?",
+      "sourceHash": "d7f3f19f3abfde5446a3a09887920f559c1efc301a4bf11628924745f2d84251"
+    },
+    {
+      "kind": "exchange",
+      "activityId": "kobenhavn-situation-4",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "id": "kobenhavn-situation-4-audio-1",
+      "textDa": "Der er et gebyr ved sen aflysning.",
+      "sourceHash": "b6d56e0591010b8cc79c4536758785385eef536d7e0d6db08dac8e4ae5c4564b"
+    },
+    {
+      "kind": "due-review",
+      "activityId": "kobenhavn-due-review",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "id": "kobenhavn-due-review-audio-1",
+      "textDa": "Det er ligesom i går: Tiden passer ikke.",
+      "sourceHash": "9fefa6903b9ff992159d78fe50604901b27b695a3e16b0feb6d7ad422e30085e"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kobenhavn-exit-listen",
+      "cityId": "kobenhavn",
+      "mode": "listening",
+      "id": "kobenhavn-exit-listen-audio-1",
+      "textDa": "Du kan aflyse gratis, hvis du gør det før onsdag.",
+      "sourceHash": "9ab9b3734c817c7dee4b8b807ba6e1f8e1976b0d0d149702f88e684d7afc0668"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kobenhavn-exit-interact",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "id": "kobenhavn-exit-interact-audio-1",
+      "textDa": "Hvilken aftale vil du ændre?",
+      "sourceHash": "b71549fbd1a813529b4981c4ccfbb4214bdcd47e3933bdc3d92c18f2f197f52c"
+    },
+    {
+      "kind": "exit-step",
+      "activityId": "kobenhavn-exit-write",
+      "cityId": "kobenhavn",
+      "mode": "writing",
+      "id": "kobenhavn-exit-write-audio-1",
+      "textDa": "Bekræft den nye aftale skriftligt.",
+      "sourceHash": "fa0e0e89dbe03ca1e7d50e494295e69b4fbf77d3873233aa8655524cd039c1f9"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-listening-a",
+      "cityId": "skagen",
+      "mode": "listening",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-listening-a-audio-1",
+      "textDa": "Toget til Frederikshavn kører fra spor to klokken ni.",
+      "sourceHash": "ef3c6a3706394a2a55922f1e5686b5de0a12d1cc79b91d8849f763e7dd5c1c95"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-listening-b",
+      "cityId": "skagen",
+      "mode": "listening",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-listening-b-audio-1",
+      "textDa": "Bussen til havnen kører fra stoppested tre klokken ti.",
+      "sourceHash": "089c68d9bf41ac0127b77db5ba7aeb18b752d59a366ec4c12cef6a556b409a8b"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-reading-a",
+      "cityId": "skagen",
+      "mode": "reading",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-reading-a-audio-1",
+      "textDa": "Læs skiltet og find datoen.",
+      "sourceHash": "6b3332bdbb5d38686fb5b6545b947dddf391905a20bdf44f2df6e5da7b172e76"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-reading-b",
+      "cityId": "skagen",
+      "mode": "reading",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-reading-b-audio-1",
+      "textDa": "Læs skiltet og find datoen.",
+      "sourceHash": "6b3332bdbb5d38686fb5b6545b947dddf391905a20bdf44f2df6e5da7b172e76"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-interaction-a",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-interaction-a-audio-1",
+      "textDa": "Gå forbi banken, og drej til venstre ved broen.",
+      "sourceHash": "ff9e8115f3ad99695ae8e2bdad153674cb0c0c11ab455cb19627b99822342284"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-interaction-b",
+      "cityId": "skagen",
+      "mode": "supported-interaction",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-interaction-b-audio-1",
+      "textDa": "Billetten koster firs kroner, og toget kører klokken sytten.",
+      "sourceHash": "bebef00b33bf6a7919e60dd20e813213f0c3f7327c150b69e691d9ff5a1f29e4"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-writing-a",
+      "cityId": "skagen",
+      "mode": "writing",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-writing-a-audio-1",
+      "textDa": "Skriv en kort besked med navn, land og telefonnummer.",
+      "sourceHash": "867ffeef98af17abceb4d909ebb5c7c3f964695013dd91677aeae4938d7ee630"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-writing-b",
+      "cityId": "skagen",
+      "mode": "writing",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-writing-b-audio-1",
+      "textDa": "Skriv en kort besked med navn, by og e-mail.",
+      "sourceHash": "b54c757fb6d4ff9a6d8725fab4bef48ff045722b828140aa0a90522bf19102a9"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-recent-past-writing-a",
+      "cityId": "skagen",
+      "mode": "writing",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-recent-past-writing-a-audio-1",
+      "textDa": "Skriv to korte sætninger om i går og i dag.",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "skagen-a1-recent-past-writing-b",
+      "cityId": "skagen",
+      "mode": "writing",
+      "checkpointId": "skagen-a1-readiness",
+      "id": "skagen-a1-recent-past-writing-b-audio-1",
+      "textDa": "Skriv to korte sætninger om i går og i dag.",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-listening-a",
+      "cityId": "kobenhavn",
+      "mode": "listening",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-listening-a-audio-1",
+      "textDa": "Din aftale er flyttet fra tirsdag til torsdag klokken tre. Ring til os, hvis tiden ikke passer.",
+      "sourceHash": "7e7abd6a52aef33e9ce7820790cd3d371ef0b83ff98466b27ab5184ac8495355"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-listening-b",
+      "cityId": "kobenhavn",
+      "mode": "listening",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-listening-b-audio-1",
+      "textDa": "Din pakke kan hentes fredag efter klokken fire. Skriv til os, hvis du ikke kan komme.",
+      "sourceHash": "207649a2d723900a034b91e2cfa608801206d35d5a5e161b397269dc5dbb7ddb"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-reading-a",
+      "cityId": "kobenhavn",
+      "mode": "reading",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-reading-a-audio-1",
+      "textDa": "Læs begge tekster, og vælg en tid, der passer.",
+      "sourceHash": "d4682a057840eeae1041aff38a15416ec45acff1bec6adb472414af85e1a09cf"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-reading-b",
+      "cityId": "kobenhavn",
+      "mode": "reading",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-reading-b-audio-1",
+      "textDa": "Læs begge tekster, og vælg en tid, der passer.",
+      "sourceHash": "d4682a057840eeae1041aff38a15416ec45acff1bec6adb472414af85e1a09cf"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-interaction-a",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-interaction-a-audio-1",
+      "textDa": "Din aftale er mandag. Hvilken anden dag passer dig?",
+      "sourceHash": "4beeadbc64502fbe4591a393fcd06f81cca079824d434791dc7f4db313843727"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-interaction-a",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-interaction-a-audio-2",
+      "textDa": "Kan du komme klokken halv fire?",
+      "sourceHash": "f8a05f32f1d956bb5b6f935822592593376e46f1438f0dead4152689a8bd67fb"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-interaction-b",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-interaction-b-audio-1",
+      "textDa": "Din aftale er fredag. Hvornår kan du hente pakken i stedet?",
+      "sourceHash": "f97e4d672ad850035bf81ccbf611e355fdb5c7ccd915c190a41f63e3c10fbeca"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-interaction-b",
+      "cityId": "kobenhavn",
+      "mode": "supported-interaction",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-interaction-b-audio-2",
+      "textDa": "Kan du komme klokken sytten?",
+      "sourceHash": "fc7b1a5910eab2f1ab13c024bac329ecf638c3e566c789d8b8f3accf0c17e2c1"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-writing-a",
+      "cityId": "kobenhavn",
+      "mode": "writing",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-writing-a-audio-1",
+      "textDa": "Skriv, hvad der skete, og hvad du gør bagefter.",
+      "sourceHash": "7c1ae22e6730ed69a3bf0c23c432496183224b39694f2fee0a8ebb49e2ef28eb"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-writing-b",
+      "cityId": "kobenhavn",
+      "mode": "writing",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-writing-b-audio-1",
+      "textDa": "Skriv, hvad der skete, og hvad du gør bagefter.",
+      "sourceHash": "7c1ae22e6730ed69a3bf0c23c432496183224b39694f2fee0a8ebb49e2ef28eb"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-grammar-a",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-grammar-a-audio-1",
+      "textDa": "Sæt delene sammen til en besked med en grund og en betingelse.",
+      "sourceHash": "7dd7b4fc91057558ae4db49697861a2cf8b8d1011431c29d9228e20f137d2b06"
+    },
+    {
+      "kind": "checkpoint",
+      "activityId": "kobenhavn-a2-grammar-b",
+      "cityId": "kobenhavn",
+      "mode": "grammar-in-use",
+      "checkpointId": "kobenhavn-a2-readiness",
+      "id": "kobenhavn-a2-grammar-b-audio-1",
+      "textDa": "Sæt delene sammen til en besked med en grund og en betingelse.",
+      "sourceHash": "7dd7b4fc91057558ae4db49697861a2cf8b8d1011431c29d9228e20f137d2b06"
+    }
+  ]
+}

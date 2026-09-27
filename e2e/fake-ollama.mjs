@@ -1,0 +1,143 @@
+import { createServer } from 'node:http'
+
+/**
+ * A stand-in for an OpenAI-compatible model provider.
+ *
+ * The eleven other drives all run with the mock companion, which returns
+ * already-shaped objects and never calls chatJson — so the real client path
+ * (fetch, JSON parsing, fence stripping, brace salvage, schema validation, the
+ * corrective retry, the error taxonomy) had never executed in a browser. This
+ * server exists so the Worker path can, without a key and without reaching
+ * the internet.
+ *
+ * Scripted per request: each call shifts the next entry off the queue, so one
+ * drive can walk a round through clean and hostile replies in order. Every
+ * request body is recorded, which is what lets a drive assert the AI firewall
+ * against the bytes that actually left the browser.
+ */
+export async function startFakeOllama(port, { auto = false, cors: sendCors = true } = {}) {
+  /** @type {Array<{status?: number, body?: string, json?: unknown, delayMs?: number} | ((request: unknown) => {status?: number, body?: string, json?: unknown, delayMs?: number})>} */
+  const script = []
+  /** @type {Array<{messages: unknown[], raw: string}>} */
+  const received = []
+
+  const server = createServer((req, res) => {
+    // `cors: false` stands in for the thing the proxy exists to solve: a server
+    // that answers fine from curl and is unusable from a browser.
+    const cors = sendCors
+      ? {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'authorization, content-type',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        }
+      : {}
+    if (req.method === 'OPTIONS') {
+      res.writeHead(204, cors)
+      res.end()
+      return
+    }
+
+    let raw = ''
+    req.on('data', (c) => (raw += c))
+    req.on('end', () => {
+      let parsed
+      try {
+        parsed = JSON.parse(raw)
+      } catch {
+        parsed = null
+      }
+      received.push({ at: Date.now(), messages: parsed?.messages ?? [], raw, auth: req.headers.authorization ?? '' })
+
+      const scripted = script.shift()
+      // A few browser drives need a response derived from the prompt they just
+      // sent (rather than the prior board snapshot). Keep that capability in
+      // the fake itself, so the drive still exercises the real HTTP/client
+      // path instead of reaching into the app to answer its own request.
+      const next = typeof scripted === 'function' ? scripted(parsed) : (scripted ?? (auto ? autoReply(parsed) : { json: null }))
+      const answer = () => {
+        if (next.status && next.status >= 400) {
+          res.writeHead(next.status, { ...cors, 'Content-Type': 'application/json' })
+          res.end(JSON.stringify({ error: { message: 'fake failure' } }))
+          return
+        }
+        // `body` is the raw assistant content — the point is to hand the client
+        // the messy shapes a real model produces.
+        const content = next.body !== undefined ? next.body : JSON.stringify(next.json)
+        res.writeHead(200, { ...cors, 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ choices: [{ message: { content } }] }))
+      }
+      if (next.delayMs && next.delayMs > 0) setTimeout(answer, next.delayMs)
+      else answer()
+    })
+  })
+
+  await new Promise((resolve, reject) => {
+    server.once('error', reject)
+    server.listen(port, '127.0.0.1', resolve)
+  })
+
+  return {
+    baseUrl: `http://127.0.0.1:${port}/v1`,
+    /** Queue replies, in the order the client will ask for them. */
+    queue: (...replies) => script.push(...replies),
+    received,
+    reset: () => {
+      script.length = 0
+      received.length = 0
+    },
+    stop: () => new Promise((r) => server.close(r)),
+  }
+}
+
+const promptText = (request) => (request?.messages ?? []).map((m) => m.content ?? '').join('\n')
+
+/**
+ * Answer any prompt plausibly by reading the board back out of it. Lets the
+ * fake stand in for a model with no script at all, which is how live-drive's
+ * own machinery gets exercised without a key.
+ */
+function autoReply(request) {
+  const text = promptText(request)
+  if (/\{"ok": true\}/.test(text)) return { json: { ok: true } }
+  // Board lines are "<id> | <danish> (...) [...] | <status>[ | my key: ROLE]",
+  // and since A2 they can carry one more field after the role — "** YOU MAY
+  // TARGET THIS **", or the sentence saying a green is already found.
+  //
+  // That trailing field silently broke this. The pattern anchored $ straight
+  // after the role, so every targetable green stopped matching, greens came
+  // back empty, and the auto-reply returned null on every clue prompt — which
+  // the app answers by spending all four correction attempts and giving up.
+  // Nothing failed, because no drive currently plays far enough on the
+  // auto-reply to notice; it was found by reading, not by a red test. Hence
+  // the tolerant tail: this reads a prompt written elsewhere, so it should bend
+  // when that prompt gains a field rather than quietly matching nothing.
+  const rows = [
+    ...text.matchAll(/^(\S+) \| .+? \| ([A-Za-z ]+?)(?: \| my key: (\w+))?(?: \|.*)?$/gm),
+  ]
+  const hidden = rows.filter((m) => /hidden|unrevealed/i.test(m[2]))
+  if (/You are the GUESSER/.test(text)) {
+    const pick = (hidden[0] ?? rows[0])?.[1]
+    return pick ? guessReply([pick], 0.8) : { json: null }
+  }
+  const greens = rows.filter((m) => (m[3] ?? '').toUpperCase() === 'GREEN').map((m) => m[1])
+  return greens.length ? clueReply(greens.slice(0, 2), 'autoklue') : { json: null }
+}
+
+/** A well-formed clue reply for the given board word ids. */
+export const clueReply = (targets, clue = 'mokclue') => ({
+  json: {
+    clue,
+    number: Math.min(targets.length, 4),
+    targetWordIds: targets,
+    rationale: 'fake rationale',
+  },
+})
+
+/** A well-formed guess reply. */
+export const guessReply = (ids, confidence = 0.9) => ({
+  json: { guesses: ids.map((wordId) => ({ wordId, confidence, reasoning: 'fake' })) },
+})
+
+// There was a debriefReply here, for the request a finished round used to make.
+// The round now ends without asking the model anything, and ai-drive asserts
+// that against the requests this server actually receives.

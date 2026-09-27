@@ -1,0 +1,24 @@
+{
+  "mode": "acceptance",
+  "errors": [],
+  "missing": {
+    "about": [],
+    "board": [],
+    "review": []
+  },
+  "counts": {
+    "words": 100,
+    "targets": 39,
+    "reviewEligible": 35,
+    "byKindAndStage": {
+      "ledger:productive-target": 24,
+      "ledger:preview-as-chunk": 1,
+      "ledger:receptive-ambient": 3,
+      "supplemental:chunk:productive-target": 9,
+      "supplemental:word:receptive-ambient": 1,
+      "supplemental:word:productive-target": 1
+    }
+  }
+}
+(node:10) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

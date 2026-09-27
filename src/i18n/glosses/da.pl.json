@@ -1,0 +1,6780 @@
+[
+  {
+    "id": "da:mor",
+    "gloss": [
+      "matka",
+      "mama"
+    ],
+    "example": "„Cześć, nazywam się Anna” – mówi moja matka."
+  },
+  {
+    "id": "da:far",
+    "gloss": [
+      "ojciec",
+      "tata"
+    ],
+    "example": "Mój ojciec mówi „dzień dobry”, gdy spotyka obcego."
+  },
+  {
+    "id": "da:barn",
+    "gloss": [
+      "dziecko"
+    ],
+    "example": "„Dzień dobry” – mówi dziecko. „Nie rozumiem.”"
+  },
+  {
+    "id": "da:hund",
+    "gloss": [
+      "pies"
+    ],
+    "example": "Dziecko mówi psu „dobranoc”."
+  },
+  {
+    "id": "da:kat",
+    "gloss": [
+      "kot"
+    ],
+    "example": "„Cześć, gdzie jest kot?” – pyta."
+  },
+  {
+    "id": "da:hus",
+    "gloss": [
+      "dom"
+    ],
+    "example": "„Witamy! Tu jest dom.”"
+  },
+  {
+    "id": "da:bord",
+    "gloss": [
+      "stół"
+    ],
+    "example": "Żegna się przy stole."
+  },
+  {
+    "id": "da:seng",
+    "gloss": [
+      "łóżko"
+    ],
+    "example": "Łóżko jest zrobione, a teraz czas powiedzieć dobranoc."
+  },
+  {
+    "id": "da:mad",
+    "gloss": [
+      "jedzenie",
+      "posiłek"
+    ],
+    "example": "„Dzień dobry. Jedzenie jest gotowe.”"
+  },
+  {
+    "id": "da:æble",
+    "gloss": [
+      "jabłko"
+    ],
+    "example": "„Dzień dobry. Chcesz jabłko?”"
+  },
+  {
+    "id": "da:mælk",
+    "gloss": [
+      "mleko"
+    ],
+    "example": "Dziecko pije mleko i mówi „dobranoc”."
+  },
+  {
+    "id": "da:vand",
+    "gloss": [
+      "woda"
+    ],
+    "example": "„Cześć, czy mogę dostać wody?”"
+  },
+  {
+    "id": "da:kaffe",
+    "gloss": [
+      "kawa"
+    ],
+    "example": "„Witamy. Kawa jest gotowa.”"
+  },
+  {
+    "id": "da:øje",
+    "gloss": [
+      "oko"
+    ],
+    "example": "Macha na pożegnanie ze łzami w oczach."
+  },
+  {
+    "id": "da:hånd",
+    "gloss": [
+      "ręka",
+      "dłoń"
+    ],
+    "example": "„Cześć” – mówi i ściska mi rękę."
+  },
+  {
+    "id": "da:dør",
+    "gloss": [
+      "drzwi"
+    ],
+    "example": "Wejdź drzwiami. Witamy!"
+  },
+  {
+    "id": "da:vindue",
+    "gloss": [
+      "okno"
+    ],
+    "example": "„Dzień dobry” – mówi i otwiera okno."
+  },
+  {
+    "id": "da:stol",
+    "gloss": [
+      "krzesło"
+    ],
+    "example": "Postaw krzesło tutaj. To w porządku?"
+  },
+  {
+    "id": "da:køkken",
+    "gloss": [
+      "kuchnia"
+    ],
+    "example": "„Cześć” – woła z kuchni."
+  },
+  {
+    "id": "da:mund",
+    "gloss": [
+      "usta"
+    ],
+    "example": "„Witamy” – mówi z uśmiechem na ustach."
+  },
+  {
+    "id": "da:hoved",
+    "gloss": [
+      "głowa"
+    ],
+    "example": "Żegna się i kiwa głową."
+  },
+  {
+    "id": "da:mand",
+    "gloss": [
+      "mężczyzna",
+      "mąż"
+    ],
+    "example": "„Cześć, nazywam się Bo” – mówi mężczyzna."
+  },
+  {
+    "id": "da:kvinde",
+    "gloss": [
+      "kobieta"
+    ],
+    "example": "„Dzień dobry” – mówi kobieta przy drzwiach."
+  },
+  {
+    "id": "da:pige",
+    "gloss": [
+      "dziewczyna",
+      "dziewczynka"
+    ],
+    "example": "Dziewczynka mówi „dzień dobry” swojej mamie."
+  },
+  {
+    "id": "da:dreng",
+    "gloss": [
+      "chłopiec",
+      "chłopak"
+    ],
+    "example": "Chłopiec mówi „dobranoc” i zamyka książkę."
+  },
+  {
+    "id": "da:bror",
+    "gloss": [
+      "brat"
+    ],
+    "example": "„Cześć, pochodzę z Aarhus” – mówi mój brat."
+  },
+  {
+    "id": "da:søster",
+    "gloss": [
+      "siostra"
+    ],
+    "example": "„Witamy” – mówi moja siostra."
+  },
+  {
+    "id": "da:rød",
+    "gloss": [
+      "czerwony"
+    ],
+    "example": "Macha na pożegnanie czerwonym szalikiem."
+  },
+  {
+    "id": "da:hvid",
+    "gloss": [
+      "biały"
+    ],
+    "example": "Na białym znaku widnieje napis „Cześć”."
+  },
+  {
+    "id": "da:sort",
+    "gloss": [
+      "czarny"
+    ],
+    "example": "Właściciel podchodzi do mnie z czarnym psem i mówi dzień dobry."
+  },
+  {
+    "id": "da:ost",
+    "gloss": [
+      "ser"
+    ],
+    "example": "„Dzień dobry. Czy jest ser?”"
+  },
+  {
+    "id": "da:æg",
+    "gloss": [
+      "jajko"
+    ],
+    "example": "Po tym jak mówi dobranoc, wkłada jajka do lodówki."
+  },
+  {
+    "id": "da:kød",
+    "gloss": [
+      "mięso"
+    ],
+    "example": "„Cześć, nie jem mięsa” – mówi."
+  },
+  {
+    "id": "da:fisk",
+    "gloss": [
+      "ryba"
+    ],
+    "example": "„Witamy. Dziś mamy rybę.”"
+  },
+  {
+    "id": "da:spise",
+    "gloss": [
+      "jeść",
+      "spożywać"
+    ],
+    "example": "Jemy i potem się żegnamy."
+  },
+  {
+    "id": "da:drikke",
+    "gloss": [
+      "pić"
+    ],
+    "example": "„Cześć” – mówi i pije wodę."
+  },
+  {
+    "id": "da:øl",
+    "gloss": [
+      "piwo"
+    ],
+    "example": "„Dzień dobry. Na zdrowie!” – mówi z piwem w ręce."
+  },
+  {
+    "id": "da:sol",
+    "gloss": [
+      "słońce"
+    ],
+    "example": "„Dzień dobry” – mówi do słońca."
+  },
+  {
+    "id": "da:træ",
+    "gloss": [
+      "drzewo",
+      "drewno"
+    ],
+    "example": "Mówią „dobranoc” pod drzewem."
+  },
+  {
+    "id": "da:blomst",
+    "gloss": [
+      "kwiat"
+    ],
+    "example": "„Cześć” – mówi i daje mi kwiat."
+  },
+  {
+    "id": "da:fugl",
+    "gloss": [
+      "ptak"
+    ],
+    "example": "W wolierze przewodnik mówi: „Witamy.”"
+  },
+  {
+    "id": "da:hest",
+    "gloss": [
+      "koń"
+    ],
+    "example": "Żegna się z koniem."
+  },
+  {
+    "id": "da:bil",
+    "gloss": [
+      "samochód"
+    ],
+    "example": "Kierowca mówi dzień dobry i czeka przy samochodzie."
+  },
+  {
+    "id": "da:by",
+    "gloss": [
+      "miasto"
+    ],
+    "example": "„Dziękuję. Pochodzę z małego miasta.”"
+  },
+  {
+    "id": "da:skole",
+    "gloss": [
+      "szkoła"
+    ],
+    "example": "„Dziękuję” – mówi dziecko w szkole."
+  },
+  {
+    "id": "da:bog",
+    "gloss": [
+      "książka"
+    ],
+    "example": "„Dziękuję. Co znaczy to słowo w książce?”"
+  },
+  {
+    "id": "da:ben",
+    "gloss": [
+      "noga",
+      "kość"
+    ],
+    "example": "„Dziękuję. Możesz mi pomóc? Boli mnie noga.”"
+  },
+  {
+    "id": "da:fod",
+    "gloss": [
+      "stopa"
+    ],
+    "example": "„Dziękuję” – mówi i wskazuje na swoją stopę."
+  },
+  {
+    "id": "da:arm",
+    "gloss": [
+      "ramię"
+    ],
+    "example": "„Przepraszam, boli mnie ramię.”"
+  },
+  {
+    "id": "da:finger",
+    "gloss": [
+      "palec"
+    ],
+    "example": "„Przepraszam, możesz mi pomóc? Krwawi mi palec.”"
+  },
+  {
+    "id": "da:næse",
+    "gloss": [
+      "nos"
+    ],
+    "example": "„Przepraszam” – mówi i ociera nos."
+  },
+  {
+    "id": "da:tand",
+    "gloss": [
+      "ząb"
+    ],
+    "example": "„Przepraszam, gdzie jest dentysta?”"
+  },
+  {
+    "id": "da:hår",
+    "gloss": [
+      "włosy"
+    ],
+    "example": "„Przepraszam, to twoje włosy?”"
+  },
+  {
+    "id": "da:hjerte",
+    "gloss": [
+      "serce"
+    ],
+    "example": "„Przepraszam, moje serce mocno bije.”"
+  },
+  {
+    "id": "da:dag",
+    "gloss": [
+      "dzień"
+    ],
+    "example": "„Okej, to jest dobry dzień.”"
+  },
+  {
+    "id": "da:nat",
+    "gloss": [
+      "noc"
+    ],
+    "example": "„Okej, do zobaczenia dziś w nocy.”"
+  },
+  {
+    "id": "da:aften",
+    "gloss": [
+      "wieczór"
+    ],
+    "example": "Dziś wieczorem mówimy „na zdrowie” przy stole."
+  },
+  {
+    "id": "da:uge",
+    "gloss": [
+      "tydzień"
+    ],
+    "example": "„Okej, do zobaczenia za tydzień.”"
+  },
+  {
+    "id": "da:stor",
+    "gloss": [
+      "duży",
+      "wielki"
+    ],
+    "example": "„Okej, dom jest bardzo duży.”"
+  },
+  {
+    "id": "da:lille",
+    "gloss": [
+      "mały"
+    ],
+    "example": "„Okej, mały pies jest tutaj.”"
+  },
+  {
+    "id": "da:gammel",
+    "gloss": [
+      "stary"
+    ],
+    "example": "„Tak, mój dziadek jest stary.”"
+  },
+  {
+    "id": "da:ung",
+    "gloss": [
+      "młody"
+    ],
+    "example": "„Tak, ona jest bardzo młoda.”"
+  },
+  {
+    "id": "da:glad",
+    "gloss": [
+      "szczęśliwy",
+      "zadowolony"
+    ],
+    "example": "„Tak, jestem szczęśliwa” – mówi i podnosi kieliszek: „Na zdrowie!”"
+  },
+  {
+    "id": "da:elske",
+    "gloss": [
+      "kochać"
+    ],
+    "example": "„Tak, kocham swoją rodzinę.”"
+  },
+  {
+    "id": "da:ven",
+    "gloss": [
+      "przyjaciel",
+      "kolega",
+      "przyjaciółka"
+    ],
+    "example": "„Tak, on jest moim przyjacielem.”"
+  },
+  {
+    "id": "da:søn",
+    "gloss": [
+      "syn"
+    ],
+    "example": "„Tak, mają syna.”"
+  },
+  {
+    "id": "da:datter",
+    "gloss": [
+      "córka"
+    ],
+    "example": "„Nie, jej córki tu nie ma.”"
+  },
+  {
+    "id": "da:kage",
+    "gloss": [
+      "ciasto"
+    ],
+    "example": "Ciasto jest dla mojego gospodarza; przywozę je z Odense."
+  },
+  {
+    "id": "da:smør",
+    "gloss": [
+      "masło"
+    ],
+    "example": "„Nie, nie chcę masła.”"
+  },
+  {
+    "id": "da:salt",
+    "gloss": [
+      "sól"
+    ],
+    "example": "Podaje mi sól, zanim podniesiemy kieliszki i powiemy „na zdrowie”."
+  },
+  {
+    "id": "da:sukker",
+    "gloss": [
+      "cukier"
+    ],
+    "example": "„Nie, nie biorę cukru.”"
+  },
+  {
+    "id": "da:kartoffel",
+    "gloss": [
+      "ziemniak",
+      "kartofel"
+    ],
+    "example": "Nie rozumiem: czy to ziemniak?"
+  },
+  {
+    "id": "da:grøntsag",
+    "gloss": [
+      "warzywo"
+    ],
+    "example": "„Możesz powtórzyć? Warzywa są zdrowe.”"
+  },
+  {
+    "id": "da:lampe",
+    "gloss": [
+      "lampa"
+    ],
+    "example": "„Możesz powtórzyć? Lampa jest zgaszona.”"
+  },
+  {
+    "id": "da:værelse",
+    "gloss": [
+      "pokój"
+    ],
+    "example": "„Możesz powtórzyć? Gdzie jest pokój?”"
+  },
+  {
+    "id": "da:himmel",
+    "gloss": [
+      "niebo"
+    ],
+    "example": "Co znaczy „niebo”? Możesz powtórzyć?"
+  },
+  {
+    "id": "da:regn",
+    "gloss": [
+      "deszcz"
+    ],
+    "example": "„Możesz powtórzyć? Nadciąga deszcz.”"
+  },
+  {
+    "id": "da:sne",
+    "gloss": [
+      "śnieg"
+    ],
+    "example": "„Możesz powtórzyć? Tu leży śnieg.”"
+  },
+  {
+    "id": "da:måne",
+    "gloss": [
+      "księżyc"
+    ],
+    "example": "„Trochę wolniej, proszę. Księżyc świeci jasno.”"
+  },
+  {
+    "id": "da:stjerne",
+    "gloss": [
+      "gwiazda"
+    ],
+    "example": "„Trochę wolniej, proszę. Gdzie jest gwiazda?”"
+  },
+  {
+    "id": "da:hav",
+    "gloss": [
+      "morze"
+    ],
+    "example": "„Trochę wolniej, proszę. Morze jest spokojne.”"
+  },
+  {
+    "id": "da:strand",
+    "gloss": [
+      "plaża"
+    ],
+    "example": "„Trochę wolniej, proszę. Plaża jest tutaj.”"
+  },
+  {
+    "id": "da:park",
+    "gloss": [
+      "park"
+    ],
+    "example": "„Trochę wolniej, proszę. Spotykamy się w parku.”"
+  },
+  {
+    "id": "da:gade",
+    "gloss": [
+      "ulica"
+    ],
+    "example": "Na ulicy proszę: trochę wolniej, proszę."
+  },
+  {
+    "id": "da:kirke",
+    "gloss": [
+      "kościół"
+    ],
+    "example": "„Co znaczy kirke?” – pyta."
+  },
+  {
+    "id": "da:hospital",
+    "gloss": [
+      "szpital"
+    ],
+    "example": "Nie rozumiem znaku przy szpitalu."
+  },
+  {
+    "id": "da:butik",
+    "gloss": [
+      "sklep"
+    ],
+    "example": "Nie rozumiem. Czy sklep jest otwarty?"
+  },
+  {
+    "id": "da:bank",
+    "gloss": [
+      "bank"
+    ],
+    "example": "W banku mówię: „Nie rozumiem.”"
+  },
+  {
+    "id": "da:penge",
+    "gloss": [
+      "pieniądze"
+    ],
+    "example": "„Co znaczy penge?” – pyta."
+  },
+  {
+    "id": "da:købe",
+    "gloss": [
+      "kupować",
+      "kupić"
+    ],
+    "example": "„Co znaczy købe?” – pyta dziecko."
+  },
+  {
+    "id": "da:arbejde",
+    "gloss": [
+      "praca",
+      "robota"
+    ],
+    "example": "Dziś pracuję w domu. Pochodzę z Odense, ale teraz mieszkam w Aarhus."
+  },
+  {
+    "id": "da:lærer",
+    "gloss": [
+      "nauczyciel",
+      "nauczycielka"
+    ],
+    "example": "Nauczyciel nie wie, kto stoi przy drzwiach."
+  },
+  {
+    "id": "da:tog",
+    "gloss": [
+      "pociąg"
+    ],
+    "example": "W pociągu spotykam mężczyznę, który mówi: „Pochodzę z Aarhus.”"
+  },
+  {
+    "id": "da:bus",
+    "gloss": [
+      "autobus",
+      "bus"
+    ],
+    "example": "„Gdzie jest autobus?” – pyta."
+  },
+  {
+    "id": "da:cykel",
+    "gloss": [
+      "rower"
+    ],
+    "example": "Rower zostaje w domu, bo odpowiedź brzmi nie."
+  },
+  {
+    "id": "da:fly",
+    "gloss": [
+      "samolot"
+    ],
+    "example": "Zwrot „Trochę wolniej, proszę” jest przydatny w trakcie lotu."
+  },
+  {
+    "id": "da:køre",
+    "gloss": [
+      "jechać",
+      "prowadzić"
+    ],
+    "example": "„Pomocy! Samochód nie może jechać.”"
+  },
+  {
+    "id": "da:sove",
+    "gloss": [
+      "spać"
+    ],
+    "example": "„Możesz mi pomóc? Dziecko nie może spać.”"
+  },
+  {
+    "id": "da:løbe",
+    "gloss": [
+      "biegać",
+      "biec"
+    ],
+    "example": "Na drodze dziecko woła o pomoc, gdy pies ucieka."
+  },
+  {
+    "id": "da:læse",
+    "gloss": [
+      "czytać"
+    ],
+    "example": "„Możesz mi pomóc? Nie umiem tego przeczytać.”"
+  },
+  {
+    "id": "da:år",
+    "gloss": [
+      "rok",
+      "lata"
+    ],
+    "example": "Moje lata w Danii mogą dać mi większą pewność siebie w języku."
+  },
+  {
+    "id": "da:få",
+    "gloss": [
+      "dostawać",
+      "dostać"
+    ],
+    "example": "Chcę tylko dzisiaj wysłać swoje listy."
+  },
+  {
+    "id": "da:dansk",
+    "gloss": [
+      "duński",
+      "duński (język)"
+    ],
+    "example": "Studuję duński i pracuję jako nauczyciel."
+  },
+  {
+    "id": "da:menneske",
+    "gloss": [
+      "człowiek"
+    ],
+    "example": "Człowiek może być miły dla mojego syna i pomóc mu."
+  },
+  {
+    "id": "da:komme",
+    "gloss": [
+      "przychodzić",
+      "przyjść"
+    ],
+    "example": "Przynieś moje książki i pamiętaj o własnej torbie."
+  },
+  {
+    "id": "da:spørgsmål",
+    "gloss": [
+      "pytanie"
+    ],
+    "example": "Twoje pytanie może mnie czegoś nauczyć."
+  },
+  {
+    "id": "da:god",
+    "gloss": [
+      "dobry"
+    ],
+    "example": "Dobrze też jest pytać."
+  },
+  {
+    "id": "da:hjem",
+    "gloss": [
+      "dom"
+    ],
+    "example": "Moi przyjaciele po prostu siedzą w domu i odpoczywają."
+  },
+  {
+    "id": "da:sige",
+    "gloss": [
+      "mówić",
+      "powiedzieć"
+    ],
+    "example": "Chcę mu to po prostu powiedzieć."
+  },
+  {
+    "id": "da:job",
+    "gloss": [
+      "praca",
+      "robota"
+    ],
+    "example": "Pracuję jako kucharz i mam dobrą pracę."
+  },
+  {
+    "id": "da:godt",
+    "gloss": [
+      "dobrze"
+    ],
+    "example": "Dobrze jest też wykonać tę pracę razem."
+  },
+  {
+    "id": "da:gå",
+    "gloss": [
+      "chodzić",
+      "pójść"
+    ],
+    "example": "Możesz po prostu pójść ze swoimi przyjaciółmi."
+  },
+  {
+    "id": "da:brød",
+    "gloss": [
+      "chleb"
+    ],
+    "example": "Pyta: „Czy mogę dostać chleb?”"
+  },
+  {
+    "id": "da:ny",
+    "gloss": [
+      "nowy"
+    ],
+    "example": "On ma nowy samochód."
+  },
+  {
+    "id": "da:te",
+    "gloss": [
+      "herbata"
+    ],
+    "example": "Pyta: „Czy mogę dostać herbatę?”"
+  },
+  {
+    "id": "da:se",
+    "gloss": [
+      "widzieć",
+      "patrzeć"
+    ],
+    "example": "Na karcie jest wydrukowane pytanie: „Czy mogę zobaczyć pokój?”"
+  },
+  {
+    "id": "da:hel",
+    "gloss": [
+      "cały"
+    ],
+    "example": "Moje ręce są pełne cały dzień."
+  },
+  {
+    "id": "da:krop",
+    "gloss": [
+      "ciało"
+    ],
+    "example": "Moje ciało może też być silne po treningu."
+  },
+  {
+    "id": "da:tage",
+    "gloss": [
+      "brać",
+      "wziąć"
+    ],
+    "example": "Możesz spokojnie wziąć swoje buty ze sobą."
+  },
+  {
+    "id": "da:læge",
+    "gloss": [
+      "lekarz",
+      "doktor"
+    ],
+    "example": "W szpitalu pracuję jako lekarz."
+  },
+  {
+    "id": "da:lang",
+    "gloss": [
+      "długi"
+    ],
+    "example": "Na długim formularzu jest napisane: „Mój e-mail to anna@example.dk.”"
+  },
+  {
+    "id": "da:elev",
+    "gloss": [
+      "uczeń",
+      "uczennica"
+    ],
+    "example": "Studuję duński razem z uczniem. Uczeń pisze: „Mój numer telefonu to 87 65 43 21. Czy możesz wyliterować swoje imię?”"
+  },
+  {
+    "id": "da:give",
+    "gloss": [
+      "dawać",
+      "dać"
+    ],
+    "example": "Mój numer telefonu to 12 34 56 78, i możesz go podać lekarzowi."
+  },
+  {
+    "id": "da:pris",
+    "gloss": [
+      "cena"
+    ],
+    "example": "Cena wynosi trzydzieści koron."
+  },
+  {
+    "id": "da:finde",
+    "gloss": [
+      "znajdować",
+      "znaleźć"
+    ],
+    "example": "Możecie znaleźć moje klucze?"
+  },
+  {
+    "id": "da:billet",
+    "gloss": [
+      "bilet"
+    ],
+    "example": "Ona ma ich bilety."
+  },
+  {
+    "id": "da:sidste",
+    "gloss": [
+      "ostatni"
+    ],
+    "example": "To jest nasz ostatni dzień tutaj."
+  },
+  {
+    "id": "da:stå",
+    "gloss": [
+      "stać"
+    ],
+    "example": "On stoi za nią."
+  },
+  {
+    "id": "da:natur",
+    "gloss": [
+      "przyroda",
+      "natura"
+    ],
+    "example": "Kochamy przyrodę wokół nas."
+  },
+  {
+    "id": "da:blå",
+    "gloss": [
+      "niebieski"
+    ],
+    "example": "Czy twoje oczy są niebieskie?"
+  },
+  {
+    "id": "da:dyr",
+    "gloss": [
+      "zwierzę"
+    ],
+    "example": "Jakie zwierzę mają?"
+  },
+  {
+    "id": "da:vide",
+    "gloss": [
+      "wiedzieć"
+    ],
+    "example": "Czy wiecie, gdzie on mieszka?"
+  },
+  {
+    "id": "da:vejr",
+    "gloss": [
+      "pogoda"
+    ],
+    "example": "Nasza pogoda nie zawsze jest dobra."
+  },
+  {
+    "id": "da:tro",
+    "gloss": [
+      "wierzyć",
+      "myśleć",
+      "uważać"
+    ],
+    "example": "Czy jej wierzysz?"
+  },
+  {
+    "id": "da:hotel",
+    "gloss": [
+      "hotel"
+    ],
+    "example": "Mieszkam w hotelu ze swoją rodziną."
+  },
+  {
+    "id": "da:høj",
+    "gloss": [
+      "wysoki",
+      "duży",
+      "głośny"
+    ],
+    "example": "Jego brat jest wysoki, ale mój jest niski."
+  },
+  {
+    "id": "da:glæde",
+    "gloss": [
+      "radość",
+      "rozkosz"
+    ],
+    "example": "Śpiewają dla nas z wielką radością."
+  },
+  {
+    "id": "da:holde",
+    "gloss": [
+      "trzymać"
+    ],
+    "example": "Czy możesz trzymać ich torbę?"
+  },
+  {
+    "id": "da:alene",
+    "gloss": [
+      "sam",
+      "samotnie"
+    ],
+    "example": "Ona mieszka sama, ale ja ją odwiedzam."
+  },
+  {
+    "id": "da:kæreste",
+    "gloss": [
+      "chłopak",
+      "dziewczyna",
+      "partner"
+    ],
+    "example": "Mój chłopak wie, że pracuję jako nauczyciel."
+  },
+  {
+    "id": "da:rigtig",
+    "gloss": [
+      "poprawny",
+      "prawdziwy"
+    ],
+    "example": "Czy twoja odpowiedź jest poprawna?"
+  },
+  {
+    "id": "da:bruge",
+    "gloss": [
+      "używać",
+      "zużywać"
+    ],
+    "example": "Używamy naszych telefonów tylko w domu."
+  },
+  {
+    "id": "da:kærlighed",
+    "gloss": [
+      "miłość"
+    ],
+    "example": "Ich miłość jest dla nich ważna."
+  },
+  {
+    "id": "da:frokost",
+    "gloss": [
+      "obiad"
+    ],
+    "example": "Zjecie z nami obiad?"
+  },
+  {
+    "id": "da:lave",
+    "gloss": [
+      "robić",
+      "zrobić"
+    ],
+    "example": "Co ona robi ze swoimi przyjaciółmi?"
+  },
+  {
+    "id": "da:vigtig",
+    "gloss": [
+      "ważny"
+    ],
+    "example": "To ważne, żeby być uczciwym."
+  },
+  {
+    "id": "da:lejlighed",
+    "gloss": [
+      "mieszkanie"
+    ],
+    "example": "Mieszkam w moim małym mieszkaniu."
+  },
+  {
+    "id": "da:sætte",
+    "gloss": [
+      "stawiać",
+      "położyć",
+      "ustawić"
+    ],
+    "example": "Stawiasz swoją filiżankę obok mojej?"
+  },
+  {
+    "id": "da:sø",
+    "gloss": [
+      "jezioro"
+    ],
+    "example": "Za ich domem jest jezioro."
+  },
+  {
+    "id": "da:fin",
+    "gloss": [
+      "ładny",
+      "fajny",
+      "elegancki"
+    ],
+    "example": "Twoja kurtka jest ładna, a jej też jest śliczna."
+  },
+  {
+    "id": "da:kontor",
+    "gloss": [
+      "biuro"
+    ],
+    "example": "W biurze piszę: „Mój e-mail to lea@example.dk.”"
+  },
+  {
+    "id": "da:ligge",
+    "gloss": [
+      "leżeć"
+    ],
+    "example": "Twoje książki leżą obok moich."
+  },
+  {
+    "id": "da:land",
+    "gloss": [
+      "kraj",
+      "ziemia"
+    ],
+    "example": "Z jakiego kraju pochodzicie?"
+  },
+  {
+    "id": "da:sidde",
+    "gloss": [
+      "siedzieć"
+    ],
+    "example": "Czy on siedzi między wami?"
+  },
+  {
+    "id": "da:klar",
+    "gloss": [
+      "gotowy",
+      "jasny",
+      "skończony"
+    ],
+    "example": "Czy oni są gotowi nas spotkać?"
+  },
+  {
+    "id": "da:liv",
+    "gloss": [
+      "życie"
+    ],
+    "example": "Ona ma dobre życie z nim i ich dziećmi."
+  },
+  {
+    "id": "da:hedde",
+    "gloss": [
+      "nazywać się"
+    ],
+    "example": "Nazywam się Lea. Czy możesz wyliterować swoje imię?"
+  },
+  {
+    "id": "da:øre",
+    "gloss": [
+      "ucho"
+    ],
+    "example": "Jego pies ma długie uszy."
+  },
+  {
+    "id": "da:international",
+    "gloss": [
+      "międzynarodowy"
+    ],
+    "example": "W międzynarodowej szkole mówię: „Studuję duński. Moje imię zapisuje się L-e-a.”"
+  },
+  {
+    "id": "da:verden",
+    "gloss": [
+      "świat"
+    ],
+    "example": "Świat jest dla nas wszystkich wielki."
+  },
+  {
+    "id": "da:tale",
+    "gloss": [
+      "mówić",
+      "rozmawiać"
+    ],
+    "example": "Mówisz z nimi po duńsku?"
+  },
+  {
+    "id": "da:morgenmad",
+    "gloss": [
+      "śniadanie"
+    ],
+    "example": "Robię wam śniadanie."
+  },
+  {
+    "id": "da:næste",
+    "gloss": [
+      "następny"
+    ],
+    "example": "Odwiedzamy ją w przyszłym tygodniu."
+  },
+  {
+    "id": "da:lade",
+    "gloss": [
+      "pozwalać",
+      "pozwolić"
+    ],
+    "example": "Pozwól, że zrobię to za ciebie."
+  },
+  {
+    "id": "da:gang",
+    "gloss": [
+      "raz",
+      "czas"
+    ],
+    "example": "Robicie to tylko raz?"
+  },
+  {
+    "id": "da:ord",
+    "gloss": [
+      "słowo"
+    ],
+    "example": "Napisz „Moje imię zapisuje się A-n-n-a” pod słowem imię."
+  },
+  {
+    "id": "da:høre",
+    "gloss": [
+      "słyszeć"
+    ],
+    "example": "Słyszycie też ich muzykę?"
+  },
+  {
+    "id": "da:fri",
+    "gloss": [
+      "wolny",
+      "swobodny"
+    ],
+    "example": "Ona jest wolna i odwiedza mnie w biurze. Mówię: „Mój numer telefonu to 12 34 56 78.”"
+  },
+  {
+    "id": "da:rejse",
+    "gloss": [
+      "podróż",
+      "wyjazd"
+    ],
+    "example": "Nasza podróż jest zaplanowana tylko dla nas dwojga."
+  },
+  {
+    "id": "da:desværre",
+    "gloss": [
+      "niestety"
+    ],
+    "example": "Niestety, ona nie może im pomóc."
+  },
+  {
+    "id": "da:spørge",
+    "gloss": [
+      "pytać"
+    ],
+    "example": "Pyta: „Czy możesz wyliterować swoje imię?”"
+  },
+  {
+    "id": "da:klasse",
+    "gloss": [
+      "klasa"
+    ],
+    "example": "Wasze dzieci i ich przyjaciele chodzą do naszej klasy."
+  },
+  {
+    "id": "da:kort",
+    "gloss": [
+      "krótki"
+    ],
+    "example": "Twoje włosy są krótkie, a jej są długie."
+  },
+  {
+    "id": "da:side",
+    "gloss": [
+      "strona"
+    ],
+    "example": "Możecie przeczytać nam tę stronę?"
+  },
+  {
+    "id": "da:følge",
+    "gloss": [
+      "podążać",
+      "iść za (kimś)"
+    ],
+    "example": "Idziesz za nim do domu?"
+  },
+  {
+    "id": "da:vind",
+    "gloss": [
+      "wiatr"
+    ],
+    "example": "Wiatr jest mocny przy ich domu."
+  },
+  {
+    "id": "da:begynde",
+    "gloss": [
+      "zaczynać się",
+      "zacząć się",
+      "rozpocząć"
+    ],
+    "example": "Kiedy zaczyna się wasze spotkanie?"
+  },
+  {
+    "id": "da:vej",
+    "gloss": [
+      "droga",
+      "ulica"
+    ],
+    "example": "Czy ona może nam pokazać drogę?"
+  },
+  {
+    "id": "da:sund",
+    "gloss": [
+      "zdrowy"
+    ],
+    "example": "Czy ich jedzenie jest zdrowe?"
+  },
+  {
+    "id": "da:familie",
+    "gloss": [
+      "rodzina"
+    ],
+    "example": "Mieszkam z moją rodziną."
+  },
+  {
+    "id": "da:vise",
+    "gloss": [
+      "pokazywać",
+      "pokazać"
+    ],
+    "example": "Pokazujecie jej swój dom?"
+  },
+  {
+    "id": "da:skov",
+    "gloss": [
+      "las"
+    ],
+    "example": "Chodzimy z nimi do lasu."
+  },
+  {
+    "id": "da:sikker",
+    "gloss": [
+      "pewny",
+      "bezpieczny"
+    ],
+    "example": "Czy jesteś pewien jego imienia?"
+  },
+  {
+    "id": "da:føle",
+    "gloss": [
+      "czuć",
+      "odczuwać"
+    ],
+    "example": "Jak się dziś czujecie?"
+  },
+  {
+    "id": "da:stue",
+    "gloss": [
+      "pokój dzienny",
+      "salon"
+    ],
+    "example": "Ich pokój dzienny jest większy niż nasz."
+  },
+  {
+    "id": "da:skrive",
+    "gloss": [
+      "pisać",
+      "napisać"
+    ],
+    "example": "Piszę: „Moje imię zapisuje się B-o.”"
+  },
+  {
+    "id": "da:chef",
+    "gloss": [
+      "szef",
+      "przełożony"
+    ],
+    "example": "Jej szef rozmawia z nami o jego nowej pracy i daje mi zadanie."
+  },
+  {
+    "id": "da:stærk",
+    "gloss": [
+      "mocny",
+      "silny"
+    ],
+    "example": "Czy twoja kawa jest za mocna?"
+  },
+  {
+    "id": "da:aftensmad",
+    "gloss": [
+      "kolacja"
+    ],
+    "example": "Co jemy na kolację?"
+  },
+  {
+    "id": "da:betyde",
+    "gloss": [
+      "znaczyć",
+      "oznaczać"
+    ],
+    "example": "Co to dla ciebie znaczy?"
+  },
+  {
+    "id": "da:krone",
+    "gloss": [
+      "korona"
+    ],
+    "example": "Macie tylko jedną koronę?"
+  },
+  {
+    "id": "da:svær",
+    "gloss": [
+      "trudny"
+    ],
+    "example": "To może być dla nich trudne."
+  },
+  {
+    "id": "da:leve",
+    "gloss": [
+      "żyć",
+      "mieszkać"
+    ],
+    "example": "Prowadzą razem dobre życie."
+  },
+  {
+    "id": "da:skab",
+    "gloss": [
+      "szafa",
+      "szafka",
+      "szafka kuchenna"
+    ],
+    "example": "Wasze filiżanki stoją w szafce."
+  },
+  {
+    "id": "da:hurtigt",
+    "gloss": [
+      "szybko"
+    ],
+    "example": "Czy on może to zrobić szybko?"
+  },
+  {
+    "id": "da:restaurant",
+    "gloss": [
+      "restauracja"
+    ],
+    "example": "Spotykamy ich w waszej restauracji."
+  },
+  {
+    "id": "da:spille",
+    "gloss": [
+      "grać",
+      "zagrać"
+    ],
+    "example": "Grasz też z nią?"
+  },
+  {
+    "id": "da:åben",
+    "gloss": [
+      "otwarty"
+    ],
+    "example": "Czy wasza kawiarnia jest otwarta?"
+  },
+  {
+    "id": "da:nøgle",
+    "gloss": [
+      "klucz"
+    ],
+    "example": "Czy to twoje klucze czy jego?"
+  },
+  {
+    "id": "da:møde",
+    "gloss": [
+      "spotkanie",
+      "zebranie"
+    ],
+    "example": "Mamy z nimi spotkanie."
+  },
+  {
+    "id": "da:tænke",
+    "gloss": [
+      "myśleć",
+      "pomyśleć"
+    ],
+    "example": "Chciałbym pomyśleć o dwóch, trzech lub czterech możliwościach."
+  },
+  {
+    "id": "da:syg",
+    "gloss": [
+      "chory"
+    ],
+    "example": "Pięcioro dzieci jest chorych, ale sześcioro innych jest zdrowe."
+  },
+  {
+    "id": "da:lykke",
+    "gloss": [
+      "szczęście",
+      "radość",
+      "powodzenie"
+    ],
+    "example": "Bilet do filmu „Lykke” (Szczęście) kosztuje zero koron, a nie siedem, dziewięć lub dwadzieścia."
+  },
+  {
+    "id": "da:lægge",
+    "gloss": [
+      "kłaść",
+      "położyć"
+    ],
+    "example": "Ona może położyć na stole cztery filiżanki i sześć szklanek."
+  },
+  {
+    "id": "da:telefon",
+    "gloss": [
+      "telefon"
+    ],
+    "example": "Na znaku stoi: „Ile kosztuje telefon?” Kosztuje sto koron."
+  },
+  {
+    "id": "da:grøn",
+    "gloss": [
+      "zielony"
+    ],
+    "example": "Trzy torby są zielone, a pięć jest żółtych."
+  },
+  {
+    "id": "da:bo",
+    "gloss": [
+      "mieszkać"
+    ],
+    "example": "Około dwóch tysięcy ludzi mieszka na tej wyspie."
+  },
+  {
+    "id": "da:computer",
+    "gloss": [
+      "komputer"
+    ],
+    "example": "Czy sklep ma cztery, sześć czy osiem komputerów?"
+  },
+  {
+    "id": "da:mave",
+    "gloss": [
+      "brzuch",
+      "żołądek"
+    ],
+    "example": "Czy mogę dostać dwie tabletki na ból brzucha?"
+  },
+  {
+    "id": "da:kende",
+    "gloss": [
+      "znać"
+    ],
+    "example": "Czy znasz dwadzieścioro z czterdziestu gości?"
+  },
+  {
+    "id": "da:national",
+    "gloss": [
+      "narodowy"
+    ],
+    "example": "Dziewięć muzeów ma bezpłatne wejście w święto narodowe."
+  },
+  {
+    "id": "da:sted",
+    "gloss": [
+      "miejsce"
+    ],
+    "example": "Są trzy wolne miejsca, ale żadne przy oknie."
+  },
+  {
+    "id": "da:prøve",
+    "gloss": [
+      "próbować",
+      "spróbować"
+    ],
+    "example": "Możesz wypróbować towar, choć cena wynosi zero koron."
+  },
+  {
+    "id": "da:sofa",
+    "gloss": [
+      "sofa",
+      "kanapa"
+    ],
+    "example": "Mamy dwie sofy, ale chciałbym tę małą."
+  },
+  {
+    "id": "da:dårlig",
+    "gloss": [
+      "zły",
+      "słaby"
+    ],
+    "example": "Czy sześć złych jabłek jest tańszych niż osiem albo dziesięć dobrych?"
+  },
+  {
+    "id": "da:skib",
+    "gloss": [
+      "statek",
+      "okręt"
+    ],
+    "example": "Statek ma miejsce na sto pasażerów, ale na pokładzie jest tylko pięćdziesiąt."
+  },
+  {
+    "id": "da:fortælle",
+    "gloss": [
+      "opowiadać",
+      "opowiedzieć"
+    ],
+    "example": "Na targu trzydzieściu innych klientów płaci, żeby posłuchać, jak ona opowiada."
+  },
+  {
+    "id": "da:samfund",
+    "gloss": [
+      "społeczeństwo",
+      "społeczność"
+    ],
+    "example": "Tysiąc rodzin należy do tej samej społeczności."
+  },
+  {
+    "id": "da:forstå",
+    "gloss": [
+      "rozumieć",
+      "zrozumieć"
+    ],
+    "example": "Nic nie rozumiem z tego, co jest w menu, ale chciałbym coś spróbować."
+  },
+  {
+    "id": "da:let",
+    "gloss": [
+      "łatwy",
+      "lekki"
+    ],
+    "example": "Pięć małych pudełek jest lekkich, ale duże nie jest lekkie."
+  },
+  {
+    "id": "da:luft",
+    "gloss": [
+      "powietrze"
+    ],
+    "example": "W powietrzu jest dużo dymu, ale powietrze z ogrodu jest całkiem świeże."
+  },
+  {
+    "id": "da:vente",
+    "gloss": [
+      "czekać",
+      "poczekać"
+    ],
+    "example": "Trzydziestu klientów czeka, a pięćdziesiąt kolejnych przychodzi o dziesiątej."
+  },
+  {
+    "id": "da:badeværelse",
+    "gloss": [
+      "łazienka"
+    ],
+    "example": "Jest kilka łazienek, ale mniej na pierwszym piętrze."
+  },
+  {
+    "id": "da:mulig",
+    "gloss": [
+      "możliwy"
+    ],
+    "example": "Czy możliwe jest kupienie czegoś za około dwadzieścia koron?"
+  },
+  {
+    "id": "da:tid",
+    "gloss": [
+      "czas"
+    ],
+    "example": "Ona spędza dużo czasu na tym zadaniu, a cały jej czas jest zaplanowany."
+  },
+  {
+    "id": "da:hjælpe",
+    "gloss": [
+      "pomagać",
+      "pomóc"
+    ],
+    "example": "Czy możesz pomóc komuś z tak wieloma torbami?"
+  },
+  {
+    "id": "da:navn",
+    "gloss": [
+      "imię",
+      "nazwisko",
+      "nazwa"
+    ],
+    "example": "Napisz na liście pięć, siedem albo dziewięć imion."
+  },
+  {
+    "id": "da:langsomt",
+    "gloss": [
+      "powoli",
+      "wolno"
+    ],
+    "example": "Ile to kosztuje, jeśli maszyna pracuje powoli?"
+  },
+  {
+    "id": "da:huske",
+    "gloss": [
+      "pamiętać",
+      "zapamiętać"
+    ],
+    "example": "Zapamiętaj trzydzieści, pięćdziesiąt i tysiąc jako trzy różne liczby."
+  },
+  {
+    "id": "da:station",
+    "gloss": [
+      "stacja",
+      "dworzec"
+    ],
+    "example": "Na stacji są jakieś bilety, ale żadne na jutro."
+  },
+  {
+    "id": "da:forskellig",
+    "gloss": [
+      "różny",
+      "różnorodny"
+    ],
+    "example": "Niektórzy wybierają kawę, inni herbatę, a jeszcze inni wybierają coś zupełnie innego."
+  },
+  {
+    "id": "da:maskine",
+    "gloss": [
+      "maszyna",
+      "urządzenie"
+    ],
+    "example": "Wyświetlacz pokazuje zero, zanim maszyna zrobi dwie filiżanki albo cztery małe szklanki."
+  },
+  {
+    "id": "da:betale",
+    "gloss": [
+      "płacić",
+      "zapłacić"
+    ],
+    "example": "W restauracji proszę o rachunek, proszę, zanim zapłacę za jedzenie."
+  },
+  {
+    "id": "da:kollega",
+    "gloss": [
+      "kolega",
+      "koleżanka"
+    ],
+    "example": "Pytanie kolegi brzmi: „Ile kosztuje lunch?”"
+  },
+  {
+    "id": "da:alvorlig",
+    "gloss": [
+      "poważny"
+    ],
+    "example": "Żaden z błędów nie jest poważny, ale niektóre są kosztowne."
+  },
+  {
+    "id": "da:håbe",
+    "gloss": [
+      "mieć nadzieję"
+    ],
+    "example": "Mam nadzieję, że ktoś kupi te liczne bilety."
+  },
+  {
+    "id": "da:person",
+    "gloss": [
+      "osoba"
+    ],
+    "example": "Około czterdziestu osób czeka, a każda może wybrać coś za najwyżej czterdzieści koron."
+  },
+  {
+    "id": "da:universitet",
+    "gloss": [
+      "uniwersytet"
+    ],
+    "example": "Na uniwersytecie jest dwadzieścia kursów, ale żaden nie jest bezpłatny."
+  },
+  {
+    "id": "da:ønske",
+    "gloss": [
+      "chcieć",
+      "życzyć sobie"
+    ],
+    "example": "Chciałaby mieć dwie książki, cztery ołówki i sześć teczek."
+  },
+  {
+    "id": "da:almindelig",
+    "gloss": [
+      "zwykły",
+      "normalny"
+    ],
+    "example": "Czy mogę dostać zwykłą kawę bez dużej ilości mleka?"
+  },
+  {
+    "id": "da:grund",
+    "gloss": [
+      "powód",
+      "przyczyna"
+    ],
+    "example": "Jest sto dobrych powodów, żeby oszczędzać dwadzieścia koron tygodniowo."
+  },
+  {
+    "id": "da:kalde",
+    "gloss": [
+      "nazywać",
+      "wołać"
+    ],
+    "example": "Jak się nazywa coś, co nic nie kosztuje?"
+  },
+  {
+    "id": "da:måde",
+    "gloss": [
+      "sposób"
+    ],
+    "example": "Większość ludzi płaci w jeden sposób, ale kilku używa dwóch kart."
+  },
+  {
+    "id": "da:nødvendig",
+    "gloss": [
+      "konieczny",
+      "potrzebny"
+    ],
+    "example": "Jeśli niczego ci nie brakuje, nie trzeba niczego kupować."
+  },
+  {
+    "id": "da:stemme",
+    "gloss": [
+      "głos",
+      "głosowanie"
+    ],
+    "example": "Czterech z sześciu klientów głosuje na najtańszy towar."
+  },
+  {
+    "id": "da:sende",
+    "gloss": [
+      "wysyłać",
+      "wysłać"
+    ],
+    "example": "Czy możesz wysłać osiem paczek przed dziesiątą?"
+  },
+  {
+    "id": "da:billede",
+    "gloss": [
+      "zdjęcie",
+      "obrazek"
+    ],
+    "example": "Czy mogę dostać zdjęcie większości towarów?"
+  },
+  {
+    "id": "da:offentlig",
+    "gloss": [
+      "publiczny",
+      "miejski"
+    ],
+    "example": "Około czterdziestu ze stu podróży odbywa się transportem publicznym."
+  },
+  {
+    "id": "da:ske",
+    "gloss": [
+      "dziać się",
+      "zdarzać się"
+    ],
+    "example": "Co pracownik może zrobić, jeśli nikt nie płaci, i co może się stać?"
+  },
+  {
+    "id": "da:plan",
+    "gloss": [
+      "plan"
+    ],
+    "example": "Plan niczego nie zmienia, ale mimo to płacimy za jedzenie."
+  },
+  {
+    "id": "da:heldigvis",
+    "gloss": [
+      "na szczęście"
+    ],
+    "example": "Na szczęście te trzy torby kosztują tylko pięć koron każda."
+  },
+  {
+    "id": "da:ryg",
+    "gloss": [
+      "plecy",
+      "tył"
+    ],
+    "example": "Dużo ciężaru w torbie powoduje u mnie ból pleców."
+  },
+  {
+    "id": "da:søge",
+    "gloss": [
+      "szukać",
+      "poszukiwać"
+    ],
+    "example": "Ona szuka wśród ośmiu, dziesięciu i trzydziestu różnych ofert."
+  },
+  {
+    "id": "da:bange",
+    "gloss": [
+      "przestraszony",
+      "wystraszony"
+    ],
+    "example": "Dziecko się boi, ale chce trzymać mnie za rękę."
+  },
+  {
+    "id": "da:ø",
+    "gloss": [
+      "wyspa"
+    ],
+    "example": "Na wyspie z około tysiącem mieszkańców spotyka się wielu ludzi."
+  },
+  {
+    "id": "da:svare",
+    "gloss": [
+      "odpowiadać",
+      "odpowiedzieć"
+    ],
+    "example": "Czy odpowiesz tak czy nie na dwa pytania?"
+  },
+  {
+    "id": "da:væg",
+    "gloss": [
+      "ściana"
+    ],
+    "example": "Na ścianie nic nie ma, ale chciałbym tam mieć obraz."
+  },
+  {
+    "id": "da:vred",
+    "gloss": [
+      "zły",
+      "gniewny"
+    ],
+    "example": "Trzech złych klientów wychodzi, ale pięciu innych zostaje."
+  },
+  {
+    "id": "da:nummer",
+    "gloss": [
+      "numer"
+    ],
+    "example": "Napisz zero jako pierwszy numer; na końcu też stoi zero."
+  },
+  {
+    "id": "da:bede",
+    "gloss": [
+      "prosić",
+      "poprosić"
+    ],
+    "example": "Prosisz o rachunek i płacisz za jedzenie?"
+  },
+  {
+    "id": "da:firma",
+    "gloss": [
+      "firma",
+      "przedsiębiorstwo"
+    ],
+    "example": "Firma ma wielu klientów, ale mniej pracowników."
+  },
+  {
+    "id": "da:vælge",
+    "gloss": [
+      "wybierać",
+      "wybrać"
+    ],
+    "example": "Wybierz coś z dużą ilością warzyw i bez cukru."
+  },
+  {
+    "id": "da:sur",
+    "gloss": [
+      "zrzędliwy",
+      "marudny",
+      "kwaśny"
+    ],
+    "example": "Dwa kwaśne jabłka nic nie kosztują, ale świeże kosztują więcej."
+  },
+  {
+    "id": "da:valg",
+    "gloss": [
+      "wybór",
+      "wybory"
+    ],
+    "example": "Wybór spośród całego jedzenia nie jest łatwy."
+  },
+  {
+    "id": "da:vinde",
+    "gloss": [
+      "wygrywać",
+      "wygrać"
+    ],
+    "example": "Siedem drużyn gra, ale tylko dziewięciu graczy może wygrać indywidualną nagrodę."
+  },
+  {
+    "id": "da:fejl",
+    "gloss": [
+      "błąd",
+      "pomyłka"
+    ],
+    "example": "Chciałbym nowy rachunek bez błędów."
+  },
+  {
+    "id": "da:engelsk",
+    "gloss": [
+      "angielski"
+    ],
+    "example": "Pięćdziesiąt z tysiąca towarów ma angielski opis."
+  },
+  {
+    "id": "da:lyst",
+    "gloss": [
+      "chęć",
+      "ochota"
+    ],
+    "example": "Czy komuś chce się coś słodkiego albo słonego?"
+  },
+  {
+    "id": "da:lære",
+    "gloss": [
+      "uczyć się",
+      "uczyć",
+      "nauczać"
+    ],
+    "example": "Nikt nie może nauczyć się wszystkich liczb w jeden dzień."
+  },
+  {
+    "id": "da:kop",
+    "gloss": [
+      "filiżanka",
+      "kubek"
+    ],
+    "example": "Podnoszę filiżankę i mówię: „Czy mogę dostać więcej kawy i rachunek, proszę?”"
+  },
+  {
+    "id": "da:falde",
+    "gloss": [
+      "spadać",
+      "spaść"
+    ],
+    "example": "Większość jabłek spada na dół, ale niektóre zostają na drzewie."
+  },
+  {
+    "id": "da:ond",
+    "gloss": [
+      "zły",
+      "nikczemny"
+    ],
+    "example": "Dziewięć złych figur wymaga dwudziestu albo czterdziestu pionków."
+  },
+  {
+    "id": "da:glas",
+    "gloss": [
+      "szklanka",
+      "szkło"
+    ],
+    "example": "W kawiarni moje pytanie brzmi: „Czy mogę dostać szklankę wody?”"
+  },
+  {
+    "id": "da:flaske",
+    "gloss": [
+      "butelka"
+    ],
+    "example": "Ktoś postawił kilka butelek obok jakiegoś jedzenia."
+  },
+  {
+    "id": "da:dø",
+    "gloss": [
+      "umierać",
+      "umrzeć"
+    ],
+    "example": "W doświadczeniu zero roślin umiera, jeśli wszystkie dostaną wystarczająco wody."
+  },
+  {
+    "id": "da:politisk",
+    "gloss": [
+      "polityczny"
+    ],
+    "example": "Czy to polityczny wybór za albo przeciw planowi?"
+  },
+  {
+    "id": "da:marked",
+    "gloss": [
+      "targ",
+      "rynek"
+    ],
+    "example": "Na targu płacimy za cztery jabłka i sześć jajek."
+  },
+  {
+    "id": "da:åbne",
+    "gloss": [
+      "otwierać",
+      "otworzyć"
+    ],
+    "example": "Otwórz aplikację; tam płacisz za bilet."
+  },
+  {
+    "id": "da:fest",
+    "gloss": [
+      "impreza",
+      "przyjęcie"
+    ],
+    "example": "Na przyjęciu pyta: „Ile kosztuje jedzenie?” Płacimy za około czterdziestu ze stu gości."
+  },
+  {
+    "id": "da:tidligt",
+    "gloss": [
+      "wcześnie"
+    ],
+    "example": "Większość ludzi przychodzi wcześnie, ale mniej zostaje długo."
+  },
+  {
+    "id": "da:museum",
+    "gloss": [
+      "muzeum"
+    ],
+    "example": "Czy jest jakiś rabat na niektóre bilety do muzeum?"
+  },
+  {
+    "id": "da:starte",
+    "gloss": [
+      "startować",
+      "uruchomić",
+      "zaczynać"
+    ],
+    "example": "W fabryce stoi sto maszyn, ale żadna nie może wystartować bez prądu."
+  },
+  {
+    "id": "da:genert",
+    "gloss": [
+      "nieśmiały",
+      "skrępowany"
+    ],
+    "example": "Kilku nieśmiałych gości mówi mało, a jeszcze mniej mówi dużo."
+  },
+  {
+    "id": "da:time",
+    "gloss": [
+      "godzina",
+      "lekcja"
+    ],
+    "example": "Kurs trwa osiem, dziesięć albo trzydzieści godzin."
+  },
+  {
+    "id": "da:stoppe",
+    "gloss": [
+      "zatrzymywać się",
+      "zatrzymać się",
+      "przestać"
+    ],
+    "example": "Ekspres do kawy się zatrzymuje, zanim klient zdąży powiedzieć: „Rachunek, proszę.”"
+  },
+  {
+    "id": "da:sang",
+    "gloss": [
+      "piosenka",
+      "pieśń"
+    ],
+    "example": "Wielu umie zaśpiewać piosenkę, ale nikt nie zna wszystkich zwrotek."
+  },
+  {
+    "id": "da:økonomisk",
+    "gloss": [
+      "ekonomiczny",
+      "opłacalny"
+    ],
+    "example": "Opłaca się kupować coś, co zużywa mniej kilowatogodzin."
+  },
+  {
+    "id": "da:kamp",
+    "gloss": [
+      "mecz",
+      "gra",
+      "walka"
+    ],
+    "example": "Chciałbym obejrzeć mecz z kilkoma kolegami."
+  },
+  {
+    "id": "da:fortsætte",
+    "gloss": [
+      "kontynuować",
+      "trwać"
+    ],
+    "example": "Czy pięcioro może kontynuować, jeśli siedmioro innych wyjdzie?"
+  },
+  {
+    "id": "da:historie",
+    "gloss": [
+      "historia",
+      "opowieść"
+    ],
+    "example": "Większość ludzi chciałaby historię z wieloma obrazkami."
+  },
+  {
+    "id": "da:privat",
+    "gloss": [
+      "prywatny"
+    ],
+    "example": "Dziesięć prywatnych pokoi kosztuje trzydzieści albo pięćdziesiąt koron."
+  },
+  {
+    "id": "da:turde",
+    "gloss": [
+      "odważyć się",
+      "odważać się"
+    ],
+    "example": "Nikt nie odważy się powiedzieć „Rachunek, proszę” zajętemu kelnerowi."
+  },
+  {
+    "id": "da:ferie",
+    "gloss": [
+      "urlop",
+      "wakacje"
+    ],
+    "example": "Ktoś chce mieć urlop, a niektórzy po prostu chcą pracować."
+  },
+  {
+    "id": "da:nå",
+    "gloss": [
+      "zdążyć",
+      "dotrzeć"
+    ],
+    "example": "Możemy zdążyć do dwóch sklepów, ale nie do wszystkich trzech."
+  },
+  {
+    "id": "da:sommerfugl",
+    "gloss": [
+      "motyl"
+    ],
+    "example": "Niektóre motyle mają wiele kolorów, ale żadne nie są identyczne."
+  },
+  {
+    "id": "da:gul",
+    "gloss": [
+      "żółty"
+    ],
+    "example": "Pięć, siedem albo dziewięć żółtych kwiatów kosztuje dwadzieścia koron."
+  },
+  {
+    "id": "da:sky",
+    "gloss": [
+      "chmura"
+    ],
+    "example": "Ile kosztuje obraz z czterdziestoma chmurami?"
+  },
+  {
+    "id": "da:opgave",
+    "gloss": [
+      "zadanie"
+    ],
+    "example": "System ma tysiąc zadań, a pięćdziesiąt jest otwartych; siedem wymaga dużo czasu."
+  },
+  {
+    "id": "da:sent",
+    "gloss": [
+      "późno"
+    ],
+    "example": "Nikt nie chce jeść późno, ale ktoś chętnie wypiłby kawę."
+  },
+  {
+    "id": "da:gulv",
+    "gloss": [
+      "podłoga",
+      "parkiet"
+    ],
+    "example": "Na podłodze coś leży, ale nic nie jest na sprzedaż."
+  },
+  {
+    "id": "da:mene",
+    "gloss": [
+      "uważać",
+      "sądzić",
+      "znaczyć"
+    ],
+    "example": "Ona często ma inne zdanie niż ja."
+  },
+  {
+    "id": "da:rask",
+    "gloss": [
+      "zdrowy",
+      "zdrów"
+    ],
+    "example": "Wkrótce znów będzie zdrowy, ale wczoraj był chory."
+  },
+  {
+    "id": "da:tabe",
+    "gloss": [
+      "przegrywać",
+      "tracić",
+      "gubić"
+    ],
+    "example": "Nigdy nie przegrywam jako pierwszy, ale często przegrywam na końcu."
+  },
+  {
+    "id": "da:jord",
+    "gloss": [
+      "ziemia",
+      "gleba"
+    ],
+    "example": "Najpierw ziemia jest sucha, a potem jest mokra."
+  },
+  {
+    "id": "da:glemme",
+    "gloss": [
+      "zapominać"
+    ],
+    "example": "Ona jeszcze nie zapomniała, dlaczego spotkanie zostało przesunięte."
+  },
+  {
+    "id": "da:lokal",
+    "gloss": [
+      "lokalny",
+      "miejscowy"
+    ],
+    "example": "Inne lokalne sklepy wkrótce zostaną otwarte."
+  },
+  {
+    "id": "da:båd",
+    "gloss": [
+      "łódź",
+      "łódka"
+    ],
+    "example": "Pierwsza łódź płynie teraz, a druga wkrótce popłynie; obie często pływają latem."
+  },
+  {
+    "id": "da:lukke",
+    "gloss": [
+      "zamykać"
+    ],
+    "example": "Kiedy muzeum się zamyka: przed czy po szesnastej?"
+  },
+  {
+    "id": "da:løn",
+    "gloss": [
+      "pensja",
+      "wynagrodzenie",
+      "wypłata"
+    ],
+    "example": "Pensja często wpływa w trzeci piątek miesiąca."
+  },
+  {
+    "id": "da:fremmed",
+    "gloss": [
+      "obcy",
+      "cudzoziemski",
+      "nieznany"
+    ],
+    "example": "Jak znaleźć drogę w obcym kraju?"
+  },
+  {
+    "id": "da:ansigt",
+    "gloss": [
+      "twarz",
+      "oblicze"
+    ],
+    "example": "Rano najpierw myje twarz, a potem ręce."
+  },
+  {
+    "id": "da:slutte",
+    "gloss": [
+      "kończyć się",
+      "kończyć"
+    ],
+    "example": "Ona czyta na głos pytanie „Kiedy kończy się film?”."
+  },
+  {
+    "id": "da:jakke",
+    "gloss": [
+      "kurtka",
+      "marynarka"
+    ],
+    "example": "Którą kurtkę i który szalik zakładasz teraz?"
+  },
+  {
+    "id": "da:slå",
+    "gloss": [
+      "uderzać",
+      "bić",
+      "trafiać"
+    ],
+    "example": "Wczoraj on pierwszy uderzył piłkę, ale dzisiaj uderzam ja."
+  },
+  {
+    "id": "da:amerikansk",
+    "gloss": [
+      "amerykański"
+    ],
+    "example": "Które amerykańskie filmy oglądacie często w piątki?"
+  },
+  {
+    "id": "da:kjole",
+    "gloss": [
+      "sukienka",
+      "suknia"
+    ],
+    "example": "Druga sukienka jest już sprzedana, ale trzecia jest tu jeszcze."
+  },
+  {
+    "id": "da:skjorte",
+    "gloss": [
+      "koszula"
+    ],
+    "example": "Przed spotkaniem najpierw wybiera białą koszulę, a potem niebieską."
+  },
+  {
+    "id": "da:bære",
+    "gloss": [
+      "nosić",
+      "dźwigać"
+    ],
+    "example": "Kto może zanieść jej walizkę, jeśli ona nie może?"
+  },
+  {
+    "id": "da:nervøs",
+    "gloss": [
+      "zdenerwowany",
+      "niespokojny"
+    ],
+    "example": "Dlaczego wciąż jesteś zdenerwowany, skoro egzamin się skończył?"
+  },
+  {
+    "id": "da:trøje",
+    "gloss": [
+      "sweter"
+    ],
+    "example": "Który sweter na niego pasuje, a które pasują na ciebie?"
+  },
+  {
+    "id": "da:trække",
+    "gloss": [
+      "ciągnąć",
+      "wciągać"
+    ],
+    "example": "Najpierw koń ciągnie jeden wóz, a potem ciągnie drugi."
+  },
+  {
+    "id": "da:frakke",
+    "gloss": [
+      "płaszcz"
+    ],
+    "example": "Jej płaszcz jest wciąż mokry po czwartkowym deszczu, ale inne kurtki są suche."
+  },
+  {
+    "id": "da:kendt",
+    "gloss": [
+      "znany",
+      "sławny"
+    ],
+    "example": "Ostatnim razem spotkaliśmy na stacji znanego kucharza."
+  },
+  {
+    "id": "da:nederdel",
+    "gloss": [
+      "spódnica"
+    ],
+    "example": "We wtorek kupuje spódnicę, a w środę kupuje inną."
+  },
+  {
+    "id": "da:kaste",
+    "gloss": [
+      "rzucać",
+      "rzucić"
+    ],
+    "example": "Dlaczego on zawsze odrzuca pierwszą piłkę?"
+  },
+  {
+    "id": "da:storm",
+    "gloss": [
+      "burza",
+      "sztorm"
+    ],
+    "example": "Dziś wieczorem burza jest już w drodze, ale jeszcze jej tu nie ma."
+  },
+  {
+    "id": "da:gribe",
+    "gloss": [
+      "łapać",
+      "chwytać"
+    ],
+    "example": "Która ręka łapie najpierw, a która łapie potem?"
+  },
+  {
+    "id": "da:hue",
+    "gloss": [
+      "czapka"
+    ],
+    "example": "Którą czapkę nosisz w poniedziałki, a które nosisz w piątki?"
+  },
+  {
+    "id": "da:populær",
+    "gloss": [
+      "popularny",
+      "lubiany"
+    ],
+    "example": "Piosenka jest już popularna, choć ukaże się dopiero w czerwcu."
+  },
+  {
+    "id": "da:springe",
+    "gloss": [
+      "skakać",
+      "wyskakiwać"
+    ],
+    "example": "Teraz kot potrafi skoczyć w górę, ale wcześniej nie potrafił."
+  },
+  {
+    "id": "da:tæppe",
+    "gloss": [
+      "dywan",
+      "koc"
+    ],
+    "example": "Który dywan kładziemy najpierw, a który zabieramy potem?"
+  },
+  {
+    "id": "da:moderne",
+    "gloss": [
+      "nowoczesny",
+      "współczesny"
+    ],
+    "example": "Pierwsze domy są stare, pozostałe są nowoczesne."
+  },
+  {
+    "id": "da:plads",
+    "gloss": [
+      "miejsce",
+      "plac",
+      "przestrzeń"
+    ],
+    "example": "Na placu jest jeszcze jedno wolne miejsce."
+  },
+  {
+    "id": "da:flyve",
+    "gloss": [
+      "latać",
+      "lecieć"
+    ],
+    "example": "Dlaczego ptaki zawsze odlatują przed zimą?"
+  },
+  {
+    "id": "da:hjælp",
+    "gloss": [
+      "pomoc",
+      "wsparcie"
+    ],
+    "example": "Kto ma teraz czas, żeby wam pomóc?"
+  },
+  {
+    "id": "da:svømme",
+    "gloss": [
+      "pływać"
+    ],
+    "example": "Często pływamy w soboty, ale nigdy w poniedziałki."
+  },
+  {
+    "id": "da:sag",
+    "gloss": [
+      "sprawa",
+      "przypadek"
+    ],
+    "example": "Czym pierwsza sprawa będzie się różnić od pozostałych?"
+  },
+  {
+    "id": "da:stolt",
+    "gloss": [
+      "dumny"
+    ],
+    "example": "Jej mama jest zawsze dumna, kiedy widzi twoje zdjęcia."
+  },
+  {
+    "id": "da:nogensinde",
+    "gloss": [
+      "kiedykolwiek"
+    ],
+    "example": "Nigdy nie pytaj, czy ona kiedykolwiek tu była."
+  },
+  {
+    "id": "da:tag",
+    "gloss": [
+      "dach"
+    ],
+    "example": "Wybierz inny dach do małego domu."
+  },
+  {
+    "id": "da:hænge",
+    "gloss": [
+      "wisieć",
+      "wieszać"
+    ],
+    "example": "Które kurtki powinny tu wisieć, a które powinny wisieć tam?"
+  },
+  {
+    "id": "da:sommer",
+    "gloss": [
+      "lato"
+    ],
+    "example": "Lato zaczyna się wkrótce, ale czerwiec wciąż wydaje się daleko."
+  },
+  {
+    "id": "da:normal",
+    "gloss": [
+      "normalny",
+      "zwykły"
+    ],
+    "example": "Ostatnio był to normalny tydzień: pracowałem od poniedziałku do piątku, a potem miałem wolne. W kalendarzu było napisane „Wczoraj pracowałem z domu”."
+  },
+  {
+    "id": "da:vende",
+    "gloss": [
+      "odwracać",
+      "przewracać"
+    ],
+    "example": "Odwróć teraz pierwszą stronę, a drugą potem."
+  },
+  {
+    "id": "da:morgen",
+    "gloss": [
+      "ranek",
+      "poranek"
+    ],
+    "example": "Na tablicy jest napisane „Kiedy zaczyna się ranek?”."
+  },
+  {
+    "id": "da:smerte",
+    "gloss": [
+      "ból"
+    ],
+    "example": "Jak długo cię boli i dlaczego to boli?"
+  },
+  {
+    "id": "da:flytte",
+    "gloss": [
+      "przeprowadzać się",
+      "przenosić"
+    ],
+    "example": "Kiedy się przeprowadzacie: trzeciego maja czy drugiego czerwca?"
+  },
+  {
+    "id": "da:særlig",
+    "gloss": [
+      "wyjątkowy",
+      "szczególny"
+    ],
+    "example": "Dziś jest wyjątkowy dzień, bo jesteśmy już gotowi."
+  },
+  {
+    "id": "da:svar",
+    "gloss": [
+      "odpowiedź"
+    ],
+    "example": "Odpowiedź pokazuje, która kurtka jest moja, który pociąg odjeżdża pierwszy i które buty są nowe."
+  },
+  {
+    "id": "da:ligne",
+    "gloss": [
+      "przypominać",
+      "wyglądać jak"
+    ],
+    "example": "Kogo ona teraz najbardziej przypomina: mamę czy tatę?"
+  },
+  {
+    "id": "da:måned",
+    "gloss": [
+      "miesiąc"
+    ],
+    "example": "Kalendarz pokazuje, który jest miesiąc, które spotkanie jest pierwsze, które dni są wolne i kiedy zaczyna się spotkanie."
+  },
+  {
+    "id": "da:umulig",
+    "gloss": [
+      "niemożliwy"
+    ],
+    "example": "Najpierw zadanie wydaje się niemożliwe, ale potem staje się łatwe."
+  },
+  {
+    "id": "da:politi",
+    "gloss": [
+      "policja"
+    ],
+    "example": "Dlaczego policja przyjeżdża dopiero po szesnastej?"
+  },
+  {
+    "id": "da:mangle",
+    "gloss": [
+      "brakować",
+      "braknąć"
+    ],
+    "example": "Której odpowiedzi jeszcze brakuje, a które już mamy?"
+  },
+  {
+    "id": "da:handske",
+    "gloss": [
+      "rękawiczka"
+    ],
+    "example": "Najpierw znajduje jedną rękawiczkę, a drugą znajduje później."
+  },
+  {
+    "id": "da:virke",
+    "gloss": [
+      "działać",
+      "wydawać się"
+    ],
+    "example": "Komputer działa prawie zawsze, ale dzisiaj nie działa."
+  },
+  {
+    "id": "da:nem",
+    "gloss": [
+      "łatwy",
+      "prosty"
+    ],
+    "example": "Jak trzecie zadanie może być łatwiejsze od pierwszego?"
+  },
+  {
+    "id": "da:tanke",
+    "gloss": [
+      "myśl",
+      "pomysł"
+    ],
+    "example": "Ona wie, dlaczego ta myśl wraca."
+  },
+  {
+    "id": "da:gælde",
+    "gloss": [
+      "obowiązywać",
+      "dotyczyć"
+    ],
+    "example": "Bilet jest ważny od wtorku do czwartku, ale nie w piątek."
+  },
+  {
+    "id": "da:drøm",
+    "gloss": [
+      "sen",
+      "marzenie"
+    ],
+    "example": "Pod koniec nocy miała sen, który wciąż pamięta."
+  },
+  {
+    "id": "da:flot",
+    "gloss": [
+      "ładny",
+      "przystojny"
+    ],
+    "example": "Który obraz jest ładny, a które są po prostu niezłe?"
+  },
+  {
+    "id": "da:vin",
+    "gloss": [
+      "wino"
+    ],
+    "example": "Rachunek poproszę; za wino zapłacimy najpierw."
+  },
+  {
+    "id": "da:klare",
+    "gloss": [
+      "dawać radę",
+      "poradzić sobie"
+    ],
+    "example": "Dziś zrobiłem pierwsze zadanie i mogę teraz zrobić drugie."
+  },
+  {
+    "id": "da:eksamen",
+    "gloss": [
+      "egzamin"
+    ],
+    "example": "Kiedy zaczyna się egzamin: o szesnastej czy trochę wcześniej?"
+  },
+  {
+    "id": "da:tysk",
+    "gloss": [
+      "niemiecki"
+    ],
+    "example": "Napisz „trzeci maja” po niemiecku."
+  },
+  {
+    "id": "da:minut",
+    "gloss": [
+      "minuta"
+    ],
+    "example": "Najpierw czekamy minutę, a potem czekamy jeszcze pięć."
+  },
+  {
+    "id": "da:passe",
+    "gloss": [
+      "pasować",
+      "odpowiadać"
+    ],
+    "example": "Czy inna pora bardziej pasuje?"
+  },
+  {
+    "id": "da:sommetider",
+    "gloss": [
+      "czasami",
+      "niekiedy"
+    ],
+    "example": "Czasami pracuję długo, ale nigdy w niedziele."
+  },
+  {
+    "id": "da:weekend",
+    "gloss": [
+      "weekend"
+    ],
+    "example": "Czy „Wczoraj pracowałem z domu” to dobry opis twojego weekendu? Kiedy zaczyna się twój weekend?"
+  },
+  {
+    "id": "da:ændre",
+    "gloss": [
+      "zmieniać",
+      "modyfikować"
+    ],
+    "example": "W wiadomości jest napisane, dlaczego trzeba zmienić godzinę."
+  },
+  {
+    "id": "da:sundhed",
+    "gloss": [
+      "zdrowie"
+    ],
+    "example": "Dlaczego sen jest zawsze ważny dla twojego zdrowia?"
+  },
+  {
+    "id": "da:lykkelig",
+    "gloss": [
+      "szczęśliwy"
+    ],
+    "example": "Ona jest teraz szczęśliwa, ale nie zawsze była szczęśliwa."
+  },
+  {
+    "id": "da:ringe",
+    "gloss": [
+      "dzwonić",
+      "telefonować"
+    ],
+    "example": "Kiedy dzwonisz: w środę czy w czwartek?"
+  },
+  {
+    "id": "da:feber",
+    "gloss": [
+      "gorączka"
+    ],
+    "example": "Dziecko wciąż ma gorączkę, więc kto dzwoni do lekarza?"
+  },
+  {
+    "id": "da:voksen",
+    "gloss": [
+      "dorosły"
+    ],
+    "example": "Pierwszy dorosły przychodzi teraz, a pozostali przyjdą wkrótce."
+  },
+  {
+    "id": "da:forkølelse",
+    "gloss": [
+      "przeziębienie"
+    ],
+    "example": "Jak długo trwa przeziębienie i kiedy się kończy?"
+  },
+  {
+    "id": "da:besøge",
+    "gloss": [
+      "odwiedzać"
+    ],
+    "example": "Często odwiedzamy ją w maju, ale prawie nigdy w czerwcu."
+  },
+  {
+    "id": "da:kone",
+    "gloss": [
+      "żona"
+    ],
+    "example": "Kto pracuje najdłużej: jego żona czy jej mąż?"
+  },
+  {
+    "id": "da:smile",
+    "gloss": [
+      "uśmiechać się"
+    ],
+    "example": "Wczoraj gotowałam, a dziecko przez cały czas się uśmiechało."
+  },
+  {
+    "id": "da:lufthavn",
+    "gloss": [
+      "lotnisko"
+    ],
+    "example": "Którego lotniska używacie w piątek, trzeciego maja?"
+  },
+  {
+    "id": "da:færdig",
+    "gloss": [
+      "gotowy",
+      "skończony"
+    ],
+    "example": "Dziś pracowałem długo, ale teraz już skończyłem."
+  },
+  {
+    "id": "da:blod",
+    "gloss": [
+      "krew"
+    ],
+    "example": "Kto pierwszy widzi krew, a kto potem sprowadza pomoc?"
+  },
+  {
+    "id": "da:grine",
+    "gloss": [
+      "śmiać się"
+    ],
+    "example": "„Wczoraj kupiłam śmieszną książkę” – mówi i zaczyna się śmiać."
+  },
+  {
+    "id": "da:hoste",
+    "gloss": [
+      "kaszel"
+    ],
+    "example": "Jej kaszel już prawie minął, ale ona wciąż często kaszle."
+  },
+  {
+    "id": "da:varm",
+    "gloss": [
+      "ciepły",
+      "gorący"
+    ],
+    "example": "Dlaczego zupa jest już ciepła, skoro goście przyjdą dopiero później?"
+  },
+  {
+    "id": "da:synge",
+    "gloss": [
+      "śpiewać"
+    ],
+    "example": "Dziś chcę śpiewać, a wczoraj też śpiewałem."
+  },
+  {
+    "id": "da:trappe",
+    "gloss": [
+      "schody"
+    ],
+    "example": "Które schody prowadzą w górę, a które w dół?"
+  },
+  {
+    "id": "da:danse",
+    "gloss": [
+      "tańczyć"
+    ],
+    "example": "Dziś ugotowałam, a potem chcę tańczyć."
+  },
+  {
+    "id": "da:vinter",
+    "gloss": [
+      "zima"
+    ],
+    "example": "Zima zawsze wydaje się długa, choć wkrótce się skończy."
+  },
+  {
+    "id": "da:hurtig",
+    "gloss": [
+      "szybki"
+    ],
+    "example": "Który pociąg jest najszybszy: pierwszy czy trzeci?"
+  },
+  {
+    "id": "da:håb",
+    "gloss": [
+      "nadzieja"
+    ],
+    "example": "Podczas rozmowy czuje nadzieję, gdy słyszy pytanie: „Kiedy kończy się oczekiwanie?”."
+  },
+  {
+    "id": "da:lytte",
+    "gloss": [
+      "słuchać"
+    ],
+    "example": "Dziś przeczytałem tekst, a teraz chcę go posłuchać."
+  },
+  {
+    "id": "da:temperatur",
+    "gloss": [
+      "temperatura"
+    ],
+    "example": "Jaką temperaturę mamy w styczniu, a jaką w lipcu?"
+  },
+  {
+    "id": "da:ensom",
+    "gloss": [
+      "samotny"
+    ],
+    "example": "Często czuje się samotny, ale nigdy, gdy odwiedza go rodzina."
+  },
+  {
+    "id": "da:bagefter",
+    "gloss": [
+      "potem",
+      "następnie"
+    ],
+    "example": "Wczoraj pracowałem w domu, a potem poszedłem na spacer."
+  },
+  {
+    "id": "da:støvle",
+    "gloss": [
+      "kozaki",
+      "but"
+    ],
+    "example": "Na wyprzedaży mówię: „Dziś kupiłam nowe buty.”"
+  },
+  {
+    "id": "da:følelse",
+    "gloss": [
+      "uczucie",
+      "emocja"
+    ],
+    "example": "Które uczucie pojawia się najpierw, a które potem?"
+  },
+  {
+    "id": "da:fred",
+    "gloss": [
+      "pokój",
+      "spokój"
+    ],
+    "example": "Każdy zawsze pragnie pokoju, ale on nie przychodzi od razu."
+  },
+  {
+    "id": "da:tidligere",
+    "gloss": [
+      "wcześniej",
+      "poprzednio"
+    ],
+    "example": "Wcześniej wybrała coś innego; teraz wraca do domu o szesnastej."
+  },
+  {
+    "id": "da:hovedpine",
+    "gloss": [
+      "ból głowy"
+    ],
+    "example": "Dlaczego po trzech dniach wciąż boli ją głowa?"
+  },
+  {
+    "id": "da:synes",
+    "gloss": [
+      "uważać",
+      "sądzić"
+    ],
+    "example": "Jak według ciebie dostanę się ze stacji na most?"
+  },
+  {
+    "id": "da:dreje",
+    "gloss": [
+      "skręcać",
+      "obracać"
+    ],
+    "example": "Instrukcja „Skręć w lewo” pokazuje, jak należy skręcić."
+  },
+  {
+    "id": "da:grå",
+    "gloss": [
+      "szary"
+    ],
+    "example": "Szary kot idzie pod mostem, podczas gdy ptaki lecą nad nim."
+  },
+  {
+    "id": "da:græde",
+    "gloss": [
+      "płakać"
+    ],
+    "example": "Wysiądź przy szkole; przed tobą stoi rodzic, a za drzwiami płacze dziecko."
+  },
+  {
+    "id": "da:speciel",
+    "gloss": [
+      "specjalny",
+      "wyjątkowy"
+    ],
+    "example": "Bilet do parku poproszę; specjalna trasa biegnie między jeziorami."
+  },
+  {
+    "id": "da:sprog",
+    "gloss": [
+      "język"
+    ],
+    "example": "Pomagam jej z językiem duńskim, zanim zapyta: „Jak dostanę się do ścieżki?”."
+  },
+  {
+    "id": "da:kigge",
+    "gloss": [
+      "patrzeć",
+      "spoglądać"
+    ],
+    "example": "Spójrz w dół i dookoła siebie, zanim pójdziesz dalej."
+  },
+  {
+    "id": "da:idé",
+    "gloss": [
+      "pomysł",
+      "idea"
+    ],
+    "example": "Mój pomysł jest taki: idź prosto, a potem wróć drugą drogą."
+  },
+  {
+    "id": "da:dejlig",
+    "gloss": [
+      "piękny"
+    ],
+    "example": "Idź dalej pod górę, aż do pięknego widoku."
+  },
+  {
+    "id": "da:krig",
+    "gloss": [
+      "wojna"
+    ],
+    "example": "Mapa pokazuje jedną drogę do miasta i drugą w dół, w stronę portu, w czasie wojny."
+  },
+  {
+    "id": "da:smage",
+    "gloss": [
+      "smakować"
+    ],
+    "example": "Jedzenie smakuje najlepiej na tarasie i na słońcu na zewnątrz."
+  },
+  {
+    "id": "da:sandhed",
+    "gloss": [
+      "prawda"
+    ],
+    "example": "Idź prosto; prawda jest w liście, a nie w notatce na dole."
+  },
+  {
+    "id": "da:lugte",
+    "gloss": [
+      "pachnieć",
+      "wąchać"
+    ],
+    "example": "Skręć w lewo; u piekarza w domu pachnie chlebem."
+  },
+  {
+    "id": "da:spejl",
+    "gloss": [
+      "lustro"
+    ],
+    "example": "Wysiądź przy placu i idź w stronę sklepu bez czerwonego szyldu; ma lustro w oknie."
+  },
+  {
+    "id": "da:europæisk",
+    "gloss": [
+      "europejski"
+    ],
+    "example": "Bilet na europejską wystawę poproszę; dokąd idzie kolejka?"
+  },
+  {
+    "id": "da:røre",
+    "gloss": [
+      "dotykać",
+      "mieszać"
+    ],
+    "example": "Nie dotykaj szyldu; idź pod wiatr i z dala od drogi."
+  },
+  {
+    "id": "da:forår",
+    "gloss": [
+      "wiosna"
+    ],
+    "example": "Wiosną idziemy z domu do parku i z powrotem."
+  },
+  {
+    "id": "da:trist",
+    "gloss": [
+      "smutny",
+      "przygnębiony"
+    ],
+    "example": "Na stacji jest smutna, ale przy pociągu jest wesoła."
+  },
+  {
+    "id": "da:hals",
+    "gloss": [
+      "gardło",
+      "szyja"
+    ],
+    "example": "Szalik leży na jej szyi, pod kurtką."
+  },
+  {
+    "id": "da:tælle",
+    "gloss": [
+      "liczyć"
+    ],
+    "example": "Policz drzwi za nami i okna przed nami."
+  },
+  {
+    "id": "da:viden",
+    "gloss": [
+      "wiedza"
+    ],
+    "example": "Moja wiedza o mieście pochodzi z tej wycieczki: „Jak dostanę się do biblioteki?” było moim pierwszym pytaniem."
+  },
+  {
+    "id": "da:koste",
+    "gloss": [
+      "kosztować"
+    ],
+    "example": "Kiedy ćwiczymy trasę, przewodnik mówi: „Idź prosto”, a my pytamy, ile kosztuje wycieczka."
+  },
+  {
+    "id": "da:politistation",
+    "gloss": [
+      "komisariat policji",
+      "posterunek policji"
+    ],
+    "example": "Obejdź komisariat policji, a potem idź ulicą w dół."
+  },
+  {
+    "id": "da:kold",
+    "gloss": [
+      "zimny"
+    ],
+    "example": "Wysiądź przy zimnym jeziorze i idź wzdłuż brzegu."
+  },
+  {
+    "id": "da:hat",
+    "gloss": [
+      "kapelusz"
+    ],
+    "example": "Na stacji mężczyzna w kapeluszu mówi: „Bilet do Aalborga poproszę.”"
+  },
+  {
+    "id": "da:tegne",
+    "gloss": [
+      "rysować"
+    ],
+    "example": "Narysuj okrąg wokół domu i linię przez ogród."
+  },
+  {
+    "id": "da:papir",
+    "gloss": [
+      "papier"
+    ],
+    "example": "Na papierze jedna strzałka wskazuje prosto, a druga w tył."
+  },
+  {
+    "id": "da:langsom",
+    "gloss": [
+      "wolny",
+      "powolny"
+    ],
+    "example": "Wolny autobus jedzie dalej, pod górę i wyjeżdża z miasta."
+  },
+  {
+    "id": "da:male",
+    "gloss": [
+      "malować"
+    ],
+    "example": "Namaluj jedną strzałkę przez drzwi do środka i drugą w dół schodów."
+  },
+  {
+    "id": "da:bibliotek",
+    "gloss": [
+      "biblioteka"
+    ],
+    "example": "Biblioteka jest przy kościele, a nie przy porcie."
+  },
+  {
+    "id": "da:vaske",
+    "gloss": [
+      "myć",
+      "prać"
+    ],
+    "example": "Umyj ręce w środku i włóż ręcznik do kosza na dole."
+  },
+  {
+    "id": "da:influenza",
+    "gloss": [
+      "grypa"
+    ],
+    "example": "Z grypą zostaje w domu u swojej mamy."
+  },
+  {
+    "id": "da:billig",
+    "gloss": [
+      "tani"
+    ],
+    "example": "Tani autobus jedzie w stronę centrum bez zatrzymywania."
+  },
+  {
+    "id": "da:supermarked",
+    "gloss": [
+      "supermarket"
+    ],
+    "example": "Dokąd idziesz ze supermarketu: do domu czy w stronę stacji?"
+  },
+  {
+    "id": "da:hente",
+    "gloss": [
+      "przynosić",
+      "zabierać"
+    ],
+    "example": "Odsuń torbę od drzwi i postaw ją za krzesłem."
+  },
+  {
+    "id": "da:fabrik",
+    "gloss": [
+      "fabryka"
+    ],
+    "example": "Droga do fabryki prowadzi z placu przez tunel."
+  },
+  {
+    "id": "da:gratis",
+    "gloss": [
+      "darmowy",
+      "bezpłatny"
+    ],
+    "example": "Darmowy parking jest na placu przy muzeum."
+  },
+  {
+    "id": "da:sælge",
+    "gloss": [
+      "sprzedawać"
+    ],
+    "example": "Sprzedają kawę za ladą, a mleko przechowują pod nią."
+  },
+  {
+    "id": "da:forening",
+    "gloss": [
+      "stowarzyszenie",
+      "związek"
+    ],
+    "example": "Stowarzyszenie spotyka się za biblioteką, przed starą szkołą."
+  },
+  {
+    "id": "da:svensk",
+    "gloss": [
+      "szwedzki"
+    ],
+    "example": "Szwedzki szyld stoi między drzewami wzdłuż drogi."
+  },
+  {
+    "id": "da:eksempel",
+    "gloss": [
+      "przykład"
+    ],
+    "example": "Jeden przykład pojawia się mniej więcej w środku, a inny powtarza się w całym tekście."
+  },
+  {
+    "id": "da:låne",
+    "gloss": [
+      "pożyczać"
+    ],
+    "example": "Pożycz rower, jedź prosto i wróć przed szóstą."
+  },
+  {
+    "id": "da:sorg",
+    "gloss": [
+      "smutek",
+      "żałoba"
+    ],
+    "example": "Po żałobie powoli idzie dalej, w górę, ku światłu."
+  },
+  {
+    "id": "da:norsk",
+    "gloss": [
+      "norweski"
+    ],
+    "example": "Na norweskiej mapie trasa prowadzi z miasta do lasu."
+  },
+  {
+    "id": "da:gemme",
+    "gloss": [
+      "chować",
+      "ukrywać"
+    ],
+    "example": "Schowaj klucz w szufladzie na dole, a nie na półce u góry."
+  },
+  {
+    "id": "da:hold",
+    "gloss": [
+      "zespół",
+      "drużyna"
+    ],
+    "example": "Zostańcie w środku i czekajcie u nas w domu."
+  },
+  {
+    "id": "da:taske",
+    "gloss": [
+      "torba",
+      "torebka"
+    ],
+    "example": "Włóż mapę do torby, która stoi oparta o ścianę."
+  },
+  {
+    "id": "da:smide",
+    "gloss": [
+      "rzucać",
+      "wyrzucać"
+    ],
+    "example": "Wyrzuć papier i idź w stronę drzwi."
+  },
+  {
+    "id": "da:fransk",
+    "gloss": [
+      "francuski"
+    ],
+    "example": "Francuska mapa pyta „Dokąd?” przy każdej strzałce."
+  },
+  {
+    "id": "da:bro",
+    "gloss": [
+      "most"
+    ],
+    "example": "Most jest na końcu ścieżki wzdłuż strumienia, za zakrętem wokół jeziora."
+  },
+  {
+    "id": "da:opleve",
+    "gloss": [
+      "przeżywać",
+      "doświadczać"
+    ],
+    "example": "W podróży przeżywamy zarówno drogę tam, jak i podróż powrotną."
+  },
+  {
+    "id": "da:bageri",
+    "gloss": [
+      "piekarnia"
+    ],
+    "example": "Wysiądź przy piekarni i idź wzdłuż strumienia."
+  },
+  {
+    "id": "da:spansk",
+    "gloss": [
+      "hiszpański"
+    ],
+    "example": "Skręć w lewo za hiszpańskim szyldem."
+  },
+  {
+    "id": "da:kuffert",
+    "gloss": [
+      "walizka"
+    ],
+    "example": "„Bilet do Aarhus poproszę” – mówi i wkłada go do walizki."
+  },
+  {
+    "id": "da:nyde",
+    "gloss": [
+      "cieszyć się",
+      "rozkoszować się"
+    ],
+    "example": "„Bilet do parku poproszę” – mówimy, zanim cieszymy się przejażdżką autobusem."
+  },
+  {
+    "id": "da:italiensk",
+    "gloss": [
+      "włoski"
+    ],
+    "example": "Włoska restauracja jest na prawo od banku."
+  },
+  {
+    "id": "da:kinesisk",
+    "gloss": [
+      "chiński"
+    ],
+    "example": "Przejdź z chińskiego targu do parku w pięć minut."
+  },
+  {
+    "id": "da:tallerken",
+    "gloss": [
+      "talerz"
+    ],
+    "example": "Postaw talerz na stole przy oknie."
+  },
+  {
+    "id": "da:behøve",
+    "gloss": [
+      "potrzebować"
+    ],
+    "example": "Nie musisz przechodzić przez most; tunel biegnie pod nim."
+  },
+  {
+    "id": "da:russisk",
+    "gloss": [
+      "rosyjski"
+    ],
+    "example": "Rosyjski szyld stoi za drzewem przed domem."
+  },
+  {
+    "id": "da:kniv",
+    "gloss": [
+      "nóż"
+    ],
+    "example": "Nóż leży między widelcem a łyżką wzdłuż krawędzi."
+  },
+  {
+    "id": "da:rygsæk",
+    "gloss": [
+      "plecak"
+    ],
+    "example": "Nieś plecak wokół jeziora i przez las."
+  },
+  {
+    "id": "da:savne",
+    "gloss": [
+      "tęsknić",
+      "brakować"
+    ],
+    "example": "Tęsknię za spacerami prosto krótką drogą i z powrotem przez park."
+  },
+  {
+    "id": "da:udenlandsk",
+    "gloss": [
+      "zagraniczny",
+      "cudzoziemski"
+    ],
+    "example": "Zagraniczny gość idzie dalej w górę, do punktu widokowego."
+  },
+  {
+    "id": "da:gaffel",
+    "gloss": [
+      "widelec"
+    ],
+    "example": "Wyjmij widelec z szuflady i zanieś do stołu."
+  },
+  {
+    "id": "da:forsøge",
+    "gloss": [
+      "próbować",
+      "starać się"
+    ],
+    "example": "Spróbuj najpierw pójść w dół, a potem w górę."
+  },
+  {
+    "id": "da:efterår",
+    "gloss": [
+      "jesień"
+    ],
+    "example": "Jesienią często jesteśmy w środku, podczas gdy pies jest na zewnątrz."
+  },
+  {
+    "id": "da:senere",
+    "gloss": [
+      "później"
+    ],
+    "example": "Później spotykamy się u ciebie w domu i idziemy stamtąd dalej."
+  },
+  {
+    "id": "da:pude",
+    "gloss": [
+      "poduszka"
+    ],
+    "example": "Poduszka leży na podłodze, a nie w łóżku u góry."
+  },
+  {
+    "id": "da:undgå",
+    "gloss": [
+      "unikać",
+      "omijać"
+    ],
+    "example": "Omijaj drogę w stronę portu i idź wokół centrum."
+  },
+  {
+    "id": "da:håndklæde",
+    "gloss": [
+      "ręcznik"
+    ],
+    "example": "Powieś ręcznik z dala od drzwi, w stronę okna."
+  },
+  {
+    "id": "da:opdage",
+    "gloss": [
+      "odkrywać",
+      "zauważać"
+    ],
+    "example": "Ona odkrywa ścieżkę z domu do jeziora."
+  },
+  {
+    "id": "da:varme",
+    "gloss": [
+      "ciepło"
+    ],
+    "example": "Na zewnątrz, na tarasie, wysoka ściana zatrzymuje ciepło."
+  },
+  {
+    "id": "da:beslutte",
+    "gloss": [
+      "decydować",
+      "postanawiać"
+    ],
+    "example": "Zdecyduj, czy idziemy przez wzgórze, czy pod mostem."
+  },
+  {
+    "id": "da:dårligt",
+    "gloss": [
+      "źle",
+      "słabo"
+    ],
+    "example": "On słabo widzi za oknem, ale dobrze przed nim."
+  },
+  {
+    "id": "da:fodbold",
+    "gloss": [
+      "piłka nożna",
+      "futbol"
+    ],
+    "example": "Piłka leży między krzesłami wzdłuż ściany."
+  },
+  {
+    "id": "da:svømning",
+    "gloss": [
+      "pływanie"
+    ],
+    "example": "Na pływanie idziemy wokół hali i przez główne wejście."
+  },
+  {
+    "id": "da:bestille",
+    "gloss": [
+      "zamawiać",
+      "rezerwować"
+    ],
+    "example": "Zarezerwuj stolik, idź prosto i tam czekaj."
+  },
+  {
+    "id": "da:sok",
+    "gloss": [
+      "skarpetka"
+    ],
+    "example": "Skarpetka jest z powrotem w torbie; wyjmij ją, zanim pójdziemy dalej."
+  },
+  {
+    "id": "da:bekymret",
+    "gloss": [
+      "zmartwiony",
+      "zatroskany"
+    ],
+    "example": "Ona się martwi, gdy dziecko wychodzi i nie wraca do środka."
+  },
+  {
+    "id": "da:overalt",
+    "gloss": [
+      "wszędzie"
+    ],
+    "example": "Wszędzie są strzałki: niektóre wskazują w górę, a inne w dół."
+  },
+  {
+    "id": "da:medicin",
+    "gloss": [
+      "lekarstwo",
+      "lek"
+    ],
+    "example": "Lekarstwo stoi w szafce u góry, a szklanka na dole."
+  },
+  {
+    "id": "da:udenfor",
+    "gloss": [
+      "na zewnątrz",
+      "na dworze"
+    ],
+    "example": "Pies jest na dworze; spójrz w dół, zanim do niego podejdziesz."
+  },
+  {
+    "id": "da:tilbyde",
+    "gloss": [
+      "oferować",
+      "proponować"
+    ],
+    "example": "W piekarni oferują kawę bez mleka."
+  },
+  {
+    "id": "da:besked",
+    "gloss": [
+      "wiadomość",
+      "informacja"
+    ],
+    "example": "Wiadomość mówi, że pociąg jedzie w stronę Aarhus i z dala od Aalborga."
+  },
+  {
+    "id": "da:forlade",
+    "gloss": [
+      "opuszczać",
+      "wychodzić"
+    ],
+    "example": "Dokąd pójdziecie, kiedy opuścicie dom: do domu czy w stronę miasta?"
+  },
+  {
+    "id": "da:træt",
+    "gloss": [
+      "zmęczony"
+    ],
+    "example": "Zmęczony gość idzie ze stacji do hotelu."
+  },
+  {
+    "id": "da:middag",
+    "gloss": [
+      "obiad",
+      "kolacja"
+    ],
+    "example": "Obiad jest na stole przy oknie."
+  },
+  {
+    "id": "da:bygge",
+    "gloss": [
+      "budować"
+    ],
+    "example": "Budują tunel pod drogą i most nad strumieniem."
+  },
+  {
+    "id": "da:gryde",
+    "gloss": [
+      "garnek"
+    ],
+    "example": "Garnek stoi za talerzem, przed miską."
+  },
+  {
+    "id": "da:sjov",
+    "gloss": [
+      "zabawny",
+      "fajny"
+    ],
+    "example": "Zabawna trasa biegnie między domami wzdłuż kanału."
+  },
+  {
+    "id": "da:tur",
+    "gloss": [
+      "wycieczka",
+      "spacer",
+      "przejażdżka"
+    ],
+    "example": "Czy trasa prowadzi wokół jeziora, a potem przez las?"
+  },
+  {
+    "id": "da:drømme",
+    "gloss": [
+      "marzyć",
+      "śnić"
+    ],
+    "example": "Marzę o tym, żeby iść prosto, nie zawracając."
+  },
+  {
+    "id": "da:skulder",
+    "gloss": [
+      "ramię",
+      "bark"
+    ],
+    "example": "Torba wisi na moim ramieniu, a ręka jest pod paskiem."
+  },
+  {
+    "id": "da:kedelig",
+    "gloss": [
+      "nudny"
+    ],
+    "example": "Nudna droga biegnie dalej w górę i z miasta."
+  },
+  {
+    "id": "da:lomme",
+    "gloss": [
+      "kieszeń"
+    ],
+    "example": "Włóż mapę do kieszeni i wyjmij bilet."
+  },
+  {
+    "id": "da:gave",
+    "gloss": [
+      "prezent",
+      "podarunek"
+    ],
+    "example": "Prezent jest na dole w pudełku, a nie na półce u góry."
+  },
+  {
+    "id": "da:grad",
+    "gloss": [
+      "stopień"
+    ],
+    "example": "Na zewnątrz jest pięć stopni, a w środku dwadzieścia."
+  },
+  {
+    "id": "da:tillid",
+    "gloss": [
+      "zaufanie"
+    ],
+    "example": "Ufam lekarzowi w naszym domu."
+  },
+  {
+    "id": "da:tvivl",
+    "gloss": [
+      "wątpliwość"
+    ],
+    "example": "Bez wątpienia idziemy w stronę stacji i z dala od ruchu."
+  },
+  {
+    "id": "da:indenfor",
+    "gloss": [
+      "w środku",
+      "do środka"
+    ],
+    "example": "Wejdź do środka, to wszyscy będziemy razem i będziemy mogli pracować wspólnie."
+  },
+  {
+    "id": "da:skifte",
+    "gloss": [
+      "zmieniać",
+      "przebierać się"
+    ],
+    "example": "Wszyscy zmieniamy się w tym samym czasie, bo oba pokoje są wolne."
+  },
+  {
+    "id": "da:kræve",
+    "gloss": [
+      "wymagać",
+      "żądać"
+    ],
+    "example": "Cała praca wymaga obu rąk, ale jest dość łatwa."
+  },
+  {
+    "id": "da:brun",
+    "gloss": [
+      "brązowy"
+    ],
+    "example": "Każdy brązowy but ma swoją metkę, a każda metka jest czytelna."
+  },
+  {
+    "id": "da:miste",
+    "gloss": [
+      "gubić",
+      "tracić"
+    ],
+    "example": "Oczywiście nie zgubię twojego portfela; tutaj jest całkiem bezpieczny."
+  },
+  {
+    "id": "da:pleje",
+    "gloss": [
+      "zwykle",
+      "mieć w zwyczaju",
+      "opiekować się"
+    ],
+    "example": "Zwykle jemy razem przy tym samym stole."
+  },
+  {
+    "id": "da:skuffet",
+    "gloss": [
+      "rozczarowany",
+      "zawiedziony"
+    ],
+    "example": "Wszyscy są rozczarowani, bo wszystko zostało odwołane."
+  },
+  {
+    "id": "da:frugt",
+    "gloss": [
+      "owoc"
+    ],
+    "example": "Oboje dzieci dostają owoc i każde dostaje po dwa kawałki."
+  },
+  {
+    "id": "da:vare",
+    "gloss": [
+      "trwać"
+    ],
+    "example": "Każde spotkanie trwa godzinę i oczywiście wszyscy przychodzą na czas."
+  },
+  {
+    "id": "da:internet",
+    "gloss": [
+      "internet"
+    ],
+    "example": "Internet całkiem padł, więc wszystko robimy bez niego."
+  },
+  {
+    "id": "da:interessant",
+    "gloss": [
+      "interesujący",
+      "ciekawy"
+    ],
+    "example": "Ta sama książka jest naprawdę interesująca dla nas obojga."
+  },
+  {
+    "id": "da:mail",
+    "gloss": [
+      "e-mail",
+      "mail"
+    ],
+    "example": "Każdy e-mail ma ten sam temat, ale wszystkie odpowiedzi są różne."
+  },
+  {
+    "id": "da:lykkes",
+    "gloss": [
+      "udać się",
+      "powieść się"
+    ],
+    "example": "Wszystko się udaje, bo oboje pracują razem bardzo spokojnie."
+  },
+  {
+    "id": "da:program",
+    "gloss": [
+      "program",
+      "audycja"
+    ],
+    "example": "Każdy program jest dość krótki i oczywiście oglądamy je wszystkie."
+  },
+  {
+    "id": "da:spændende",
+    "gloss": [
+      "ekscytujący",
+      "pasjonujący"
+    ],
+    "example": "Oba mecze są ekscytujące, ale ten sam zawodnik wygrywa za każdym razem."
+  },
+  {
+    "id": "da:bestemme",
+    "gloss": [
+      "decydować",
+      "ustalać"
+    ],
+    "example": "Zdecyduj sam, czy mamy robić wszystko razem, czy podzielić pracę."
+  },
+  {
+    "id": "da:fjernsyn",
+    "gloss": [
+      "telewizor",
+      "telewizja"
+    ],
+    "example": "Wszyscy oglądają telewizję, bo ten sam program jest dość popularny."
+  },
+  {
+    "id": "da:undersøge",
+    "gloss": [
+      "badać",
+      "sprawdzać"
+    ],
+    "example": "Lekarz bada oba kolana i każdą nogę bardzo dokładnie."
+  },
+  {
+    "id": "da:nabo",
+    "gloss": [
+      "sąsiad"
+    ],
+    "example": "Każdy sąsiad pomaga i oczywiście wszyscy robią trochę."
+  },
+  {
+    "id": "da:mærkelig",
+    "gloss": [
+      "dziwny",
+      "dziwaczny"
+    ],
+    "example": "To bardzo dziwne, że oba zegary pokazują tę samą godzinę."
+  },
+  {
+    "id": "da:kunde",
+    "gloss": [
+      "klient",
+      "kupujący"
+    ],
+    "example": "Wszyscy klienci czekają razem, bo każda kasa jest zamknięta."
+  },
+  {
+    "id": "da:forklare",
+    "gloss": [
+      "wyjaśniać",
+      "tłumaczyć"
+    ],
+    "example": "Wyjaśnij wszystko nam obojgu w ten sam spokojny sposób."
+  },
+  {
+    "id": "da:ild",
+    "gloss": [
+      "ogień"
+    ],
+    "example": "Każde dziecko siedzi przy ogniu i wszyscy są całkiem ciepli."
+  },
+  {
+    "id": "da:fantastisk",
+    "gloss": [
+      "fantastyczny",
+      "wspaniały"
+    ],
+    "example": "Obie wycieczki są fantastyczne, więc oczywiście wybieramy je razem."
+  },
+  {
+    "id": "da:overveje",
+    "gloss": [
+      "rozważać",
+      "zastanawiać się"
+    ],
+    "example": "Rozważamy wszystkie możliwości, ale na końcu wybieramy tę samą."
+  },
+  {
+    "id": "da:måltid",
+    "gloss": [
+      "posiłek"
+    ],
+    "example": "Każdy posiłek jest dość prosty, ale obie potrawy dobrze smakują."
+  },
+  {
+    "id": "da:suppe",
+    "gloss": [
+      "zupa"
+    ],
+    "example": "Cała zupa jest gorąca, bo garnek ma pokrywkę; jemy ją razem."
+  },
+  {
+    "id": "da:vurdere",
+    "gloss": [
+      "oceniać",
+      "szacować"
+    ],
+    "example": "Nauczyciel ocenia wszystkie zadania według tej samej zasady."
+  },
+  {
+    "id": "da:overrasket",
+    "gloss": [
+      "zaskoczony",
+      "zdziwiony"
+    ],
+    "example": "Oboje jesteśmy naprawdę zaskoczeni, bo wszystko jest gotowe."
+  },
+  {
+    "id": "da:salat",
+    "gloss": [
+      "sałatka",
+      "sałata"
+    ],
+    "example": "Każda sałatka ma własną nazwę i oczywiście próbujemy ich wszystkich."
+  },
+  {
+    "id": "da:behandle",
+    "gloss": [
+      "leczyć",
+      "traktować",
+      "obchodzić się"
+    ],
+    "example": "Lekarz leczy obu pacjentów dokładnie tak samo, bo mają ten sam uraz."
+  },
+  {
+    "id": "da:is",
+    "gloss": [
+      "lody",
+      "lód"
+    ],
+    "example": "Dzielimy się tymi samymi lodami i każdy dostaje trochę."
+  },
+  {
+    "id": "da:forfærdelig",
+    "gloss": [
+      "okropny",
+      "straszny"
+    ],
+    "example": "Wszystko jest mokre i pogoda jest okropna, ale jesteśmy razem."
+  },
+  {
+    "id": "da:kylling",
+    "gloss": [
+      "kurczak"
+    ],
+    "example": "Oboje dzieci jedzą kurczaka i każde ma swój talerz."
+  },
+  {
+    "id": "da:indeholde",
+    "gloss": [
+      "zawierać",
+      "mieścić"
+    ],
+    "example": "Każda szklanka może pomieścić tyle samo co butelka, ale nie wszystkie są pełne."
+  },
+  {
+    "id": "da:pizza",
+    "gloss": [
+      "pizza"
+    ],
+    "example": "Oczywiście dzielimy pizzę całkiem po równo między nas oboje."
+  },
+  {
+    "id": "da:perfekt",
+    "gloss": [
+      "doskonały",
+      "idealny"
+    ],
+    "example": "Ten sam dzień jest doskonały dla wszystkich, bo jesteśmy razem."
+  },
+  {
+    "id": "da:opnå",
+    "gloss": [
+      "osiągać",
+      "zdobywać"
+    ],
+    "example": "Oboje mogą osiągnąć wszystko, jeśli każde zrobi, co w jego mocy."
+  },
+  {
+    "id": "da:pølse",
+    "gloss": [
+      "kiełbasa",
+      "parówka"
+    ],
+    "example": "Każda kiełbasa kosztuje tyle samo i wszystkie są całkiem gorące."
+  },
+  {
+    "id": "da:tomat",
+    "gloss": [
+      "pomidor"
+    ],
+    "example": "Oczywiście myjemy wszystkie pomidory razem."
+  },
+  {
+    "id": "da:kæmpe",
+    "gloss": [
+      "walczyć",
+      "zmagać się"
+    ],
+    "example": "Obie drużyny walczą, bo każdy zawodnik chce wygrać."
+  },
+  {
+    "id": "da:forkert",
+    "gloss": [
+      "błędny",
+      "niewłaściwy"
+    ],
+    "example": "Wszystko jest źle, bo robimy to samo jeszcze raz."
+  },
+  {
+    "id": "da:tørklæde",
+    "gloss": [
+      "szalik",
+      "chustka"
+    ],
+    "example": "Każdy szalik jest dość miękki i oba są brązowe."
+  },
+  {
+    "id": "da:støtte",
+    "gloss": [
+      "wspierać",
+      "kibicować"
+    ],
+    "example": "Wszyscy wspieramy tę samą drużynę, bo jesteśmy razem."
+  },
+  {
+    "id": "da:pille",
+    "gloss": [
+      "tabletka",
+      "pigułka"
+    ],
+    "example": "Bierz każdą tabletkę zgodnie z umową i oczywiście nie bierz obu naraz."
+  },
+  {
+    "id": "da:ægte",
+    "gloss": [
+      "prawdziwy",
+      "autentyczny"
+    ],
+    "example": "Oba pierścionki są prawdziwe, ale nie wszystkie kamienie są."
+  },
+  {
+    "id": "da:børnehave",
+    "gloss": [
+      "przedszkole"
+    ],
+    "example": "Każde dziecko w przedszkolu ma to samo małe krzesełko."
+  },
+  {
+    "id": "da:lede",
+    "gloss": [
+      "szukać",
+      "prowadzić"
+    ],
+    "example": "Wszyscy razem szukamy, bo oba klucze zaginęły."
+  },
+  {
+    "id": "da:klub",
+    "gloss": [
+      "klub"
+    ],
+    "example": "Oczywiście każdy klub jest inny, ale wszystkie przestrzegają zasad."
+  },
+  {
+    "id": "da:deltage",
+    "gloss": [
+      "brać udział",
+      "uczestniczyć"
+    ],
+    "example": "Oboje chcą wziąć udział i robią wszystko razem."
+  },
+  {
+    "id": "da:tidlig",
+    "gloss": [
+      "wczesny"
+    ],
+    "example": "Wczesny prom całkiem dobrze pasuje nam obojgu."
+  },
+  {
+    "id": "da:sæbe",
+    "gloss": [
+      "mydło"
+    ],
+    "example": "Każde mydło naprawdę ładnie pachnie, ale niezupełnie tak samo."
+  },
+  {
+    "id": "da:opstå",
+    "gloss": [
+      "powstawać",
+      "pojawiać się"
+    ],
+    "example": "Mogą powstać problemy, bo obie maszyny robią to samo."
+  },
+  {
+    "id": "da:banan",
+    "gloss": [
+      "banan"
+    ],
+    "example": "Każdy dostaje banana i każdy banan jest dość dojrzały."
+  },
+  {
+    "id": "da:lys",
+    "gloss": [
+      "jasny",
+      "świetlisty"
+    ],
+    "example": "Oba pokoje są jasne, ale jeden jest dość mały."
+  },
+  {
+    "id": "da:politiker",
+    "gloss": [
+      "polityk"
+    ],
+    "example": "Każdy polityk odpowiada i wszyscy używają prawie tych samych słów."
+  },
+  {
+    "id": "da:regne",
+    "gloss": [
+      "padać (o deszczu)",
+      "liczyć"
+    ],
+    "example": "Pada bardzo mocno, więc wszyscy razem zostajemy w środku."
+  },
+  {
+    "id": "da:knæ",
+    "gloss": [
+      "kolano"
+    ],
+    "example": "Oba kolana bolą, ale prawe boli najbardziej."
+  },
+  {
+    "id": "da:nævne",
+    "gloss": [
+      "wymieniać",
+      "wspominać"
+    ],
+    "example": "Ona potrafi wymienić wszystkich, bo zna ich oboje."
+  },
+  {
+    "id": "da:spændt",
+    "gloss": [
+      "podekscytowany",
+      "napięty"
+    ],
+    "example": "Wszyscy jesteśmy podekscytowani i całkiem gotowi na ten sam wyścig."
+  },
+  {
+    "id": "da:pasta",
+    "gloss": [
+      "makaron",
+      "pasta"
+    ],
+    "example": "Makaron jest naprawdę pyszny, więc oczywiście zjadamy wszystko."
+  },
+  {
+    "id": "da:nyhed",
+    "gloss": [
+      "wiadomość",
+      "nowina"
+    ],
+    "example": "Obie gazety podają tę samą wiadomość i wszyscy czytają ją razem."
+  },
+  {
+    "id": "da:beskrive",
+    "gloss": [
+      "opisywać"
+    ],
+    "example": "Czy potrafisz opisać każdy obrazek i obie osoby?"
+  },
+  {
+    "id": "da:smuk",
+    "gloss": [
+      "piękny"
+    ],
+    "example": "Każdy widok jest piękny, ale ten jest naprawdę wyjątkowy."
+  },
+  {
+    "id": "da:ovn",
+    "gloss": [
+      "piekarnik"
+    ],
+    "example": "Piekarnik jest dość gorący, bo oba elementy grzewcze są włączone."
+  },
+  {
+    "id": "da:foreslå",
+    "gloss": [
+      "proponować",
+      "sugerować"
+    ],
+    "example": "Chciałbym zaproponować ten sam plan wam wszystkim."
+  },
+  {
+    "id": "da:radio",
+    "gloss": [
+      "radio"
+    ],
+    "example": "Każde radio gra coś innego, ale oba są dość głośne."
+  },
+  {
+    "id": "da:sød",
+    "gloss": [
+      "słodki",
+      "miły",
+      "uroczy"
+    ],
+    "example": "Ciasto jest dość słodkie, więc dzielimy się nim wszyscy."
+  },
+  {
+    "id": "da:recept",
+    "gloss": [
+      "recepta"
+    ],
+    "example": "Każda recepta jest na to samo lekarstwo i obie są napisane bardzo wyraźnie."
+  },
+  {
+    "id": "da:acceptere",
+    "gloss": [
+      "akceptować",
+      "przyjmować"
+    ],
+    "example": "Oczywiście przyjmujemy obie oferty, bo są dobre."
+  },
+  {
+    "id": "da:kulde",
+    "gloss": [
+      "zimno",
+      "mróz"
+    ],
+    "example": "W tym zimnie wszyscy razem zostajemy w domu."
+  },
+  {
+    "id": "da:tillade",
+    "gloss": [
+      "pozwalać",
+      "zezwalać"
+    ],
+    "example": "Zasady nie pozwalają na wszystko, ale są takie same dla wszystkich."
+  },
+  {
+    "id": "da:avis",
+    "gloss": [
+      "gazeta"
+    ],
+    "example": "Obie gazety podają tę samą historię, ale każda umieszcza ją na innej stronie."
+  },
+  {
+    "id": "da:lækker",
+    "gloss": [
+      "pyszny",
+      "smaczny"
+    ],
+    "example": "Cały chleb jest pyszny i oba ciasta są naprawdę dobre."
+  },
+  {
+    "id": "da:brev",
+    "gloss": [
+      "list"
+    ],
+    "example": "Każdy list pochodzi z tego samego miejsca, ale wszystkie mają różne nazwiska."
+  },
+  {
+    "id": "da:afvise",
+    "gloss": [
+      "odrzucać",
+      "odmawiać"
+    ],
+    "example": "Odrzucają obie propozycje, bo każda jest za droga."
+  },
+  {
+    "id": "da:frisk",
+    "gloss": [
+      "świeży",
+      "rześki"
+    ],
+    "example": "Każdy pomidor jest świeży i oczywiście używamy ich wszystkich."
+  },
+  {
+    "id": "da:bælte",
+    "gloss": [
+      "pasek"
+    ],
+    "example": "Oba paski są dość długie, ale niezupełnie takie same."
+  },
+  {
+    "id": "da:tekst",
+    "gloss": [
+      "tekst"
+    ],
+    "example": "Przeczytaj cały tekst i wyjaśnij wszystko własnymi słowami."
+  },
+  {
+    "id": "da:påstå",
+    "gloss": [
+      "twierdzić",
+      "utrzymywać"
+    ],
+    "example": "Ona będzie twierdzić to samo, bo oboje świadków się zgadzają."
+  },
+  {
+    "id": "da:indrømme",
+    "gloss": [
+      "przyznawać",
+      "wyznawać"
+    ],
+    "example": "Na końcu przyzna wszystko i oczywiście słuchamy."
+  },
+  {
+    "id": "da:sten",
+    "gloss": [
+      "kamień"
+    ],
+    "example": "Każdy kamień jest ciężki, ale oba można podnieść razem."
+  },
+  {
+    "id": "da:sulten",
+    "gloss": [
+      "głodny"
+    ],
+    "example": "Wszyscy jesteśmy głodni, bo nic nie jedliśmy."
+  },
+  {
+    "id": "da:tandbørste",
+    "gloss": [
+      "szczoteczka do zębów"
+    ],
+    "example": "Obie szczoteczki do zębów stoją w tej samej szklance."
+  },
+  {
+    "id": "da:påvirke",
+    "gloss": [
+      "wpływać",
+      "oddziaływać"
+    ],
+    "example": "Pogoda może wpływać na nas wszystkich, ale niezupełnie tak samo."
+  },
+  {
+    "id": "da:heldig",
+    "gloss": [
+      "szczęśliwy (mieć szczęście)"
+    ],
+    "example": "Oboje mają szczęście i każde dostaje prezent."
+  },
+  {
+    "id": "da:sen",
+    "gloss": [
+      "późny"
+    ],
+    "example": "Późny prom całkiem dobrze pasuje, bo wszyscy jesteśmy gotowi."
+  },
+  {
+    "id": "da:pas",
+    "gloss": [
+      "paszport"
+    ],
+    "example": "Każdy paszport ma numer i oba leżą w tym samym miejscu."
+  },
+  {
+    "id": "da:samle",
+    "gloss": [
+      "zbierać",
+      "gromadzić"
+    ],
+    "example": "Zbieramy wszystko razem, tak że każdy stół staje się pusty."
+  },
+  {
+    "id": "da:bygning",
+    "gloss": [
+      "budynek"
+    ],
+    "example": "Oba budynki są dość stare, ale każdy jest całkiem bezpieczny."
+  },
+  {
+    "id": "da:pung",
+    "gloss": [
+      "portfel",
+      "portmonetka"
+    ],
+    "example": "Mój portfel zaginął i nie rozumiem, gdzie jest."
+  },
+  {
+    "id": "da:gæst",
+    "gloss": [
+      "gość"
+    ],
+    "example": "Każdy gość wypełnia pole „Pochodzę z …”."
+  },
+  {
+    "id": "da:dele",
+    "gloss": [
+      "dzielić",
+      "dzielić się"
+    ],
+    "example": "Dzielimy się wszystkim i oboje dostają dokładnie tyle samo."
+  },
+  {
+    "id": "da:fjerne",
+    "gloss": [
+      "usuwać"
+    ],
+    "example": "Czy możesz to powtórzyć, podczas gdy usuwasz plamę?"
+  },
+  {
+    "id": "da:færge",
+    "gloss": [
+      "prom"
+    ],
+    "example": "Na szyldzie jest napisane „Wysiądź przy promie.”"
+  },
+  {
+    "id": "da:tung",
+    "gloss": [
+      "ciężki"
+    ],
+    "example": "Ciężki głośnik pasuje do dużego pomieszczenia. Uczeń mówi: „Proszę trochę wolniej.”"
+  },
+  {
+    "id": "da:ko",
+    "gloss": [
+      "krowa"
+    ],
+    "example": "Ćwiczymy pytanie „Co znaczy krowa?”."
+  },
+  {
+    "id": "da:gris",
+    "gloss": [
+      "świnia"
+    ],
+    "example": "Na mapie jest pytanie „Gdzie jest świnia?”."
+  },
+  {
+    "id": "da:dyne",
+    "gloss": [
+      "kołdra"
+    ],
+    "example": "Pracuję jako pielęgniarka i kładę kołdrę na łóżko."
+  },
+  {
+    "id": "da:chokolade",
+    "gloss": [
+      "czekolada"
+    ],
+    "example": "Mój numer telefonu jest zapisany na kartce leżącej razem z czekoladą."
+  },
+  {
+    "id": "da:styre",
+    "gloss": [
+      "sterować",
+      "kierować",
+      "zarządzać"
+    ],
+    "example": "Kiedy nadeszła burza, sterowała łodzią tak, jak robiła to wcześniej."
+  },
+  {
+    "id": "da:nægte",
+    "gloss": [
+      "odmawiać",
+      "zaprzeczać"
+    ],
+    "example": "Natychmiast odmówił jedzenia, bo zachorował."
+  },
+  {
+    "id": "da:mørk",
+    "gloss": [
+      "ciemny"
+    ],
+    "example": "Nagle zrobiło się ciemno, gdy słońce zniknęło."
+  },
+  {
+    "id": "da:gruppe",
+    "gloss": [
+      "grupa"
+    ],
+    "example": "Grupa była razem od dawna, ale w końcu skończyła pracę."
+  },
+  {
+    "id": "da:lyserød",
+    "gloss": [
+      "różowy"
+    ],
+    "example": "Miała różową sukienkę od dziecka."
+  },
+  {
+    "id": "da:tilføje",
+    "gloss": [
+      "dodawać",
+      "dopisywać"
+    ],
+    "example": "Gdy zupa wystygła, kucharz natychmiast dodał gorącej wody."
+  },
+  {
+    "id": "da:tjene",
+    "gloss": [
+      "zarabiać",
+      "służyć"
+    ],
+    "example": "Chciała zostać kucharką, bo zarobiła pieniądze w kawiarni."
+  },
+  {
+    "id": "da:lilla",
+    "gloss": [
+      "fioletowy"
+    ],
+    "example": "Kwiat był fioletowy, ale od tamtej pory stał się całkiem biały."
+  },
+  {
+    "id": "da:får",
+    "gloss": [
+      "owca"
+    ],
+    "example": "Owca przestraszyła się, gdy nagle nadbiegł pies."
+  },
+  {
+    "id": "da:spare",
+    "gloss": [
+      "oszczędzać"
+    ],
+    "example": "Oszczędzaliśmy długo i w końcu spełniliśmy marzenie o podróży."
+  },
+  {
+    "id": "da:orange",
+    "gloss": [
+      "pomarańczowy"
+    ],
+    "example": "Pomarańczowy kubek zaginął, ale od razu go znaleziono."
+  },
+  {
+    "id": "da:apotek",
+    "gloss": [
+      "apteka"
+    ],
+    "example": "Zgubiłem receptę; co mam zrobić w aptece?"
+  },
+  {
+    "id": "da:koncert",
+    "gloss": [
+      "koncert"
+    ],
+    "example": "Co się stało, gdy koncert nagle się zatrzymał?"
+  },
+  {
+    "id": "da:skylde",
+    "gloss": [
+      "być winnym",
+      "zawdzięczać"
+    ],
+    "example": "Był mi winien pieniądze od kwietnia, ale w końcu zapłacił."
+  },
+  {
+    "id": "da:blyant",
+    "gloss": [
+      "ołówek"
+    ],
+    "example": "Zgubiłem ołówek, a był właśnie tutaj."
+  },
+  {
+    "id": "da:eje",
+    "gloss": [
+      "posiadać",
+      "mieć"
+    ],
+    "example": "Posiadali ten dom od czasu, gdy został zbudowany."
+  },
+  {
+    "id": "da:knap",
+    "gloss": [
+      "guzik",
+      "przycisk"
+    ],
+    "example": "Guzik odpadł, gdy nagle go pociągnąłem."
+  },
+  {
+    "id": "da:pæn",
+    "gloss": [
+      "ładny",
+      "miły",
+      "schludny"
+    ],
+    "example": "Koszula była ładna, ale się zabrudziła."
+  },
+  {
+    "id": "da:hud",
+    "gloss": [
+      "skóra"
+    ],
+    "example": "Boli mnie skóra i jest podrażniona, odkąd się poparzyłem słońcem."
+  },
+  {
+    "id": "da:tilhøre",
+    "gloss": [
+      "należeć do"
+    ],
+    "example": "Torba należała do niej, zanim stała się moja."
+  },
+  {
+    "id": "da:vaskemaskine",
+    "gloss": [
+      "pralka"
+    ],
+    "example": "Pralka się zepsuła; co mam zrobić?"
+  },
+  {
+    "id": "da:tilfreds",
+    "gloss": [
+      "zadowolony",
+      "usatysfakcjonowany"
+    ],
+    "example": "Natychmiast poczuła się zadowolona, gdy problem został rozwiązany."
+  },
+  {
+    "id": "da:leje",
+    "gloss": [
+      "wynajmować",
+      "wypożyczać"
+    ],
+    "example": "Ponieważ skradziono nam samochód, co tydzień wynajmowaliśmy nowy."
+  },
+  {
+    "id": "da:kok",
+    "gloss": [
+      "kucharz",
+      "kucharka"
+    ],
+    "example": "Kucharz przygotował jedzenie, gdy przybyli goście."
+  },
+  {
+    "id": "da:levere",
+    "gloss": [
+      "dostarczać"
+    ],
+    "example": "Paczka zamokła, gdy kurier w końcu ją dostarczył."
+  },
+  {
+    "id": "da:grim",
+    "gloss": [
+      "brzydki"
+    ],
+    "example": "Blizna była brzydka, ale od tamtej pory się zmniejszyła."
+  },
+  {
+    "id": "da:græs",
+    "gloss": [
+      "trawa"
+    ],
+    "example": "Trawa nagle zmokła, gdy zaczął się deszcz."
+  },
+  {
+    "id": "da:pære",
+    "gloss": [
+      "gruszka",
+      "żarówka"
+    ],
+    "example": "Gruszka zmiękła, bo długo tam leżała."
+  },
+  {
+    "id": "da:tænde",
+    "gloss": [
+      "włączać",
+      "zapalać"
+    ],
+    "example": "Włącz natychmiast światło; zrobiło się ciemno."
+  },
+  {
+    "id": "da:køleskab",
+    "gloss": [
+      "lodówka"
+    ],
+    "example": "Lodówka była wyłączona, więc mleko się ogrzało."
+  },
+  {
+    "id": "da:tørstig",
+    "gloss": [
+      "spragniony"
+    ],
+    "example": "Był spragniony od początku wyścigu, gdy w końcu dotarł na metę."
+  },
+  {
+    "id": "da:afhænge",
+    "gloss": [
+      "zależeć"
+    ],
+    "example": "Podróż zaczęła zależeć od tego, co się wydarzyło."
+  },
+  {
+    "id": "da:øjeblik",
+    "gloss": [
+      "chwila",
+      "moment"
+    ],
+    "example": "Chwilę później nagle zakręciło jej się w głowie."
+  },
+  {
+    "id": "da:skærm",
+    "gloss": [
+      "ekran",
+      "monitor"
+    ],
+    "example": "Ekran zgasł, właśnie gdy otworzyłem program."
+  },
+  {
+    "id": "da:anbefale",
+    "gloss": [
+      "polecać",
+      "zalecać"
+    ],
+    "example": "Lekarz natychmiast zalecił odpoczynek, bo miałem gorączkę."
+  },
+  {
+    "id": "da:blød",
+    "gloss": [
+      "miękki"
+    ],
+    "example": "Poduszka zmiękła po tym, jak ją wypraliśmy."
+  },
+  {
+    "id": "da:kørekort",
+    "gloss": [
+      "prawo jazdy"
+    ],
+    "example": "Zgubiłem prawo jazdy; co się z nim stało?"
+  },
+  {
+    "id": "da:planlægge",
+    "gloss": [
+      "planować"
+    ],
+    "example": "Zaczęliśmy planować przyjęcie, ale nagle zostało odwołane."
+  },
+  {
+    "id": "da:tandlæge",
+    "gloss": [
+      "dentysta"
+    ],
+    "example": "Boli mnie ząb; co mam zrobić u dentysty?"
+  },
+  {
+    "id": "da:tyk",
+    "gloss": [
+      "gruby"
+    ],
+    "example": "Lód stał się gruby, gdy w końcu nadeszła zima."
+  },
+  {
+    "id": "da:tjener",
+    "gloss": [
+      "kelner"
+    ],
+    "example": "Kelner natychmiast posprzątał stół, gdy szklanka się przewróciła."
+  },
+  {
+    "id": "da:forberede",
+    "gloss": [
+      "przygotowywać"
+    ],
+    "example": "Przygotowywała się od początku kursu, gdy w końcu nadszedł test."
+  },
+  {
+    "id": "da:solskin",
+    "gloss": [
+      "słońce",
+      "słoneczna pogoda"
+    ],
+    "example": "Padał deszcz, ale teraz w końcu świeciło słońce."
+  },
+  {
+    "id": "da:arrangere",
+    "gloss": [
+      "organizować",
+      "urządzać"
+    ],
+    "example": "Zorganizowali spotkanie, zanim menedżer zachorował."
+  },
+  {
+    "id": "da:bred",
+    "gloss": [
+      "szeroki"
+    ],
+    "example": "Droga była szeroka, ale nagle się zwęziła."
+  },
+  {
+    "id": "da:undertøj",
+    "gloss": [
+      "bielizna"
+    ],
+    "example": "Moja bielizna zamokła, bo torba była na zewnątrz."
+  },
+  {
+    "id": "da:invitere",
+    "gloss": [
+      "zapraszać"
+    ],
+    "example": "Zapraszała nas kilka razy, odkąd się poznaliśmy."
+  },
+  {
+    "id": "da:citron",
+    "gloss": [
+      "cytryna"
+    ],
+    "example": "Cytryna wyschła, zanim w końcu jej użyłem."
+  },
+  {
+    "id": "da:dyb",
+    "gloss": [
+      "głęboki"
+    ],
+    "example": "Woda nagle stała się głęboka, gdy dno się urwało."
+  },
+  {
+    "id": "da:støvsuger",
+    "gloss": [
+      "odkurzacz"
+    ],
+    "example": "Odkurzacz był zepsuty, ale w końcu znowu działa."
+  },
+  {
+    "id": "da:aflyse",
+    "gloss": [
+      "odwoływać"
+    ],
+    "example": "Musieliśmy natychmiast odwołać, gdy droga została zamknięta."
+  },
+  {
+    "id": "da:bjerg",
+    "gloss": [
+      "góra"
+    ],
+    "example": "Góra była zasłonięta, zanim mgła nagle się podniosła."
+  },
+  {
+    "id": "da:gift",
+    "gloss": [
+      "żonaty",
+      "zamężna"
+    ],
+    "example": "Byli małżeństwem od dawna, gdy przeprowadzili się do Odense."
+  },
+  {
+    "id": "da:afslutte",
+    "gloss": [
+      "kończyć",
+      "zakończyć"
+    ],
+    "example": "Natychmiast zakończyła rozmowę, gdy rozległ się alarm."
+  },
+  {
+    "id": "da:vrede",
+    "gloss": [
+      "złość",
+      "gniew"
+    ],
+    "example": "Złość zmalała, gdy w końcu przeprosił."
+  },
+  {
+    "id": "da:sygeplejerske",
+    "gloss": [
+      "pielęgniarka"
+    ],
+    "example": "Pielęgniarka zapytała: „Co się stało?”"
+  },
+  {
+    "id": "da:forsvinde",
+    "gloss": [
+      "znikać"
+    ],
+    "example": "Klucz właśnie zniknął; co mam zrobić?"
+  },
+  {
+    "id": "da:lav",
+    "gloss": [
+      "niski"
+    ],
+    "example": "Cena była niska, ale nagle stała się wysoka."
+  },
+  {
+    "id": "da:muskel",
+    "gloss": [
+      "mięsień"
+    ],
+    "example": "Boli mnie mięsień i jest obolały, odkąd upadłem."
+  },
+  {
+    "id": "da:ankomme",
+    "gloss": [
+      "przybywać",
+      "przyjeżdżać"
+    ],
+    "example": "Pociąg się opóźnił, ale w końcu przybył."
+  },
+  {
+    "id": "da:rådhus",
+    "gloss": [
+      "ratusz"
+    ],
+    "example": "Ratusz był zamknięty, gdy przybyliśmy."
+  },
+  {
+    "id": "da:rund",
+    "gloss": [
+      "okrągły"
+    ],
+    "example": "Stół był okrągły, ale od tamtej pory stał się owalny."
+  },
+  {
+    "id": "da:biograf",
+    "gloss": [
+      "kino"
+    ],
+    "example": "Kino natychmiast ewakuowano, gdy rozległ się alarm."
+  },
+  {
+    "id": "da:hade",
+    "gloss": [
+      "nienawidzić"
+    ],
+    "example": "Zawsze nienawidził czekania, ale i tak to zrobił."
+  },
+  {
+    "id": "da:hård",
+    "gloss": [
+      "twardy",
+      "trudny"
+    ],
+    "example": "Materac był twardy, ale od tamtej pory zmiękł."
+  },
+  {
+    "id": "da:skat",
+    "gloss": [
+      "podatek",
+      "skarb"
+    ],
+    "example": "Podatek został zapłacony, zanim nadszedł list."
+  },
+  {
+    "id": "da:frygte",
+    "gloss": [
+      "bać się",
+      "obawiać się"
+    ],
+    "example": "Obawiała się odpowiedzi, odkąd wysłała list."
+  },
+  {
+    "id": "da:sodavand",
+    "gloss": [
+      "napój gazowany",
+      "soda"
+    ],
+    "example": "Napój gazowany ogrzał się, bo lodówka była wyłączona."
+  },
+  {
+    "id": "da:beskytte",
+    "gloss": [
+      "chronić"
+    ],
+    "example": "Kask chronił go, gdy nagle upadł."
+  },
+  {
+    "id": "da:pen",
+    "gloss": [
+      "długopis",
+      "pióro"
+    ],
+    "example": "Zgubiłem długopis; co mam teraz zrobić?"
+  },
+  {
+    "id": "da:ren",
+    "gloss": [
+      "czysty"
+    ],
+    "example": "Podłoga stała się czysta, gdy w końcu skończyła pracę."
+  },
+  {
+    "id": "da:tynd",
+    "gloss": [
+      "cienki"
+    ],
+    "example": "Kurtka stała się zbyt cienka, gdy nadeszła zima."
+  },
+  {
+    "id": "da:jordbær",
+    "gloss": [
+      "truskawka"
+    ],
+    "example": "Truskawki zmiękły, zanim je zjedliśmy."
+  },
+  {
+    "id": "da:advare",
+    "gloss": [
+      "ostrzegać"
+    ],
+    "example": "Policja ostrzegała nas, zanim droga została zamknięta."
+  },
+  {
+    "id": "da:tøj",
+    "gloss": [
+      "ubranie",
+      "odzież"
+    ],
+    "example": "Ubrania zmokły; co mam zrobić?"
+  },
+  {
+    "id": "da:lyve",
+    "gloss": [
+      "kłamać"
+    ],
+    "example": "Raz postanowił skłamać, ale nigdy więcej tego nie zrobił."
+  },
+  {
+    "id": "da:frisør",
+    "gloss": [
+      "fryzjer"
+    ],
+    "example": "Fryzjer właśnie skończył, gdy zgasło światło."
+  },
+  {
+    "id": "da:smal",
+    "gloss": [
+      "wąski"
+    ],
+    "example": "Ścieżka nagle się zwęziła, gdy dotarliśmy do lasu."
+  },
+  {
+    "id": "da:klokke",
+    "gloss": [
+      "zegar",
+      "dzwon"
+    ],
+    "example": "Wybiła dziesiąta, gdy spotkanie w końcu się zakończyło."
+  },
+  {
+    "id": "da:stjæle",
+    "gloss": [
+      "kraść"
+    ],
+    "example": "Ktoś ukradł mój rower; co się stało?"
+  },
+  {
+    "id": "da:kamera",
+    "gloss": [
+      "aparat",
+      "kamera"
+    ],
+    "example": "Zgubiłem aparat, który miałem od maja."
+  },
+  {
+    "id": "da:snyde",
+    "gloss": [
+      "oszukiwać"
+    ],
+    "example": "Raz oszukał i nigdy więcej tego nie zrobił."
+  },
+  {
+    "id": "da:pande",
+    "gloss": [
+      "patelnia",
+      "czoło"
+    ],
+    "example": "Patelnia się rozgrzała, gdy olej nagle chlusnął."
+  },
+  {
+    "id": "da:våd",
+    "gloss": [
+      "mokry"
+    ],
+    "example": "Zmokłem; co mam zrobić z ubraniami?"
+  },
+  {
+    "id": "da:beskidt",
+    "gloss": [
+      "brudny"
+    ],
+    "example": "Buty zabrudziły się, bo przeszliśmy przez błoto."
+  },
+  {
+    "id": "da:bagage",
+    "gloss": [
+      "bagaż"
+    ],
+    "example": "Mój bagaż zaginął; co się stało na lotnisku?"
+  },
+  {
+    "id": "da:love",
+    "gloss": [
+      "obiecać",
+      "obietnica"
+    ],
+    "example": "Obiecała przyjść, ale nagle zachorowała."
+  },
+  {
+    "id": "da:humør",
+    "gloss": [
+      "nastrój",
+      "humor"
+    ],
+    "example": "Jego nastrój poprawił się, odkąd otrzymał odpowiedź."
+  },
+  {
+    "id": "da:takke",
+    "gloss": [
+      "dziękować"
+    ],
+    "example": "Właśnie jej podziękowaliśmy, gdy wyszła."
+  },
+  {
+    "id": "da:kælder",
+    "gloss": [
+      "piwnica"
+    ],
+    "example": "Piwnica została zalana; co mam zrobić?"
+  },
+  {
+    "id": "da:flod",
+    "gloss": [
+      "rzeka"
+    ],
+    "example": "Rzeka nagle stała się szersza, gdy nadszedł deszcz."
+  },
+  {
+    "id": "da:hilse",
+    "gloss": [
+      "pozdrawiać",
+      "witać się"
+    ],
+    "example": "Zapomniał się przywitać, ale natychmiast to zrobił."
+  },
+  {
+    "id": "da:tør",
+    "gloss": [
+      "suchy"
+    ],
+    "example": "Ręcznik wysechł, gdy w końcu wyszło słońce."
+  },
+  {
+    "id": "da:tom",
+    "gloss": [
+      "pusty"
+    ],
+    "example": "Butelka była pusta, bo ktoś wszystko wypił."
+  },
+  {
+    "id": "da:ambulance",
+    "gloss": [
+      "karetka pogotowia",
+      "ambulans"
+    ],
+    "example": "Gdy doszło do wypadku, natychmiast przyjechała karetka."
+  },
+  {
+    "id": "da:undskylde",
+    "gloss": [
+      "przepraszać"
+    ],
+    "example": "Był zły, ale w końcu przeprosił."
+  },
+  {
+    "id": "da:gardin",
+    "gloss": [
+      "zasłona",
+      "firanka"
+    ],
+    "example": "Zasłona została zerwana, gdy okno nagle się otworzyło."
+  },
+  {
+    "id": "da:agurk",
+    "gloss": [
+      "ogórek"
+    ],
+    "example": "Ogórek zmiękł, bo został zostawiony na zewnątrz."
+  },
+  {
+    "id": "da:mus",
+    "gloss": [
+      "mysz"
+    ],
+    "example": "Mysz właśnie uciekła, gdy przybył kot."
+  },
+  {
+    "id": "da:ro",
+    "gloss": [
+      "spokój",
+      "cisza"
+    ],
+    "example": "Był niepokój; w końcu nastał spokój."
+  },
+  {
+    "id": "da:fuld",
+    "gloss": [
+      "pełny",
+      "pijany"
+    ],
+    "example": "„Niestety, nie mogę” – odpowiadam, bo autobus jest pełny i nie mogę wsiąść."
+  },
+  {
+    "id": "da:halv",
+    "gloss": [
+      "pół",
+      "połowa"
+    ],
+    "example": "Mamy podzielić się połową ciasta, czy wolałbyś mniej?"
+  },
+  {
+    "id": "da:lukket",
+    "gloss": [
+      "zamknięty"
+    ],
+    "example": "Drzwi są zamknięte; w przeciwnym razie weszlibyśmy do środka."
+  },
+  {
+    "id": "da:travl",
+    "gloss": [
+      "zajęty"
+    ],
+    "example": "Jutro jestem zajęty, więc niestety nie mogę."
+  },
+  {
+    "id": "da:rolig",
+    "gloss": [
+      "spokojny",
+      "opanowany"
+    ],
+    "example": "Powinieneś zachować spokój, nawet jeśli spotkanie może być długie."
+  },
+  {
+    "id": "da:stille",
+    "gloss": [
+      "cichy",
+      "spokojny"
+    ],
+    "example": "Zarówno pokój, jak i ulica są ciche, więc możemy spokojnie porozmawiać."
+  },
+  {
+    "id": "da:redde",
+    "gloss": [
+      "ratować",
+      "ocalić"
+    ],
+    "example": "Czy mógłbyś uratować najpierw kota albo psa?"
+  },
+  {
+    "id": "da:vild",
+    "gloss": [
+      "dziki",
+      "szalony"
+    ],
+    "example": "Ani film, ani książka nie były tak dzikie, jak się spodziewałem."
+  },
+  {
+    "id": "da:slukke",
+    "gloss": [
+      "wyłączyć",
+      "zgasić"
+    ],
+    "example": "Pamiętaj, aby zgasić światło, w przeciwnym razie bateria wkrótce się rozładuje."
+  },
+  {
+    "id": "da:sko",
+    "gloss": [
+      "but"
+    ],
+    "example": "Też nie kupię tego buta, jeśli jest za drogi."
+  },
+  {
+    "id": "da:farlig",
+    "gloss": [
+      "niebezpieczny"
+    ],
+    "example": "Mniej niebezpieczne byłoby pójść w drugą stronę."
+  },
+  {
+    "id": "da:klage",
+    "gloss": [
+      "narzekać",
+      "skarżyć się"
+    ],
+    "example": "Może powinieneś złożyć skargę, jeśli rachunek jest nieprawidłowy."
+  },
+  {
+    "id": "da:torden",
+    "gloss": [
+      "grzmot"
+    ],
+    "example": "Grzmot robi więcej hałasu, niż się spodziewałem."
+  },
+  {
+    "id": "da:frygt",
+    "gloss": [
+      "strach",
+      "lęk"
+    ],
+    "example": "Czy największy strach mógłby być w rzeczywistości spóźnieniem się?"
+  },
+  {
+    "id": "da:gætte",
+    "gloss": [
+      "zgadywać"
+    ],
+    "example": "Gdybym miał zgadywać, odpowiedź byłaby pewnie mniej dokładna."
+  },
+  {
+    "id": "da:tå",
+    "gloss": [
+      "palec u nogi"
+    ],
+    "example": "Co najmniej jeden palec u nogi bolałby w tak ciasnych butach."
+  },
+  {
+    "id": "da:tvivle",
+    "gloss": [
+      "wątpić"
+    ],
+    "example": "Właściwie musiałem wątpić w plan, choć brzmiał dobrze."
+  },
+  {
+    "id": "da:landmand",
+    "gloss": [
+      "rolnik",
+      "farmer"
+    ],
+    "example": "Odpowiedź rolnika brzmi: „Niestety, nie mogę”."
+  },
+  {
+    "id": "da:stole",
+    "gloss": [
+      "ufać",
+      "polegać na"
+    ],
+    "example": "Zarówno dzieci, jak i dorośli mogą ufać takiemu przyjaznemu nauczycielowi."
+  },
+  {
+    "id": "da:skade",
+    "gloss": [
+      "uraz",
+      "szkoda",
+      "uszkodzenie"
+    ],
+    "example": "Czy powinniśmy zadzwonić do lekarza, czy poczekać z leczeniem tego urazu?"
+  },
+  {
+    "id": "da:film",
+    "gloss": [
+      "film"
+    ],
+    "example": "Film nie jest ani za długi, ani zbyt poważny, gdy weźmie się pod uwagę jego publiczność, prawda?"
+  },
+  {
+    "id": "da:minde",
+    "gloss": [
+      "przypominać"
+    ],
+    "example": "Zegarek najwyraźniej ma przypominać nam o krótkim czasie pracy baterii."
+  },
+  {
+    "id": "da:venlig",
+    "gloss": [
+      "przyjazny",
+      "miły",
+      "uprzejmy"
+    ],
+    "example": "Czy ona rzeczywiście jest milsza dla gości niż druga recepcjonistka?"
+  },
+  {
+    "id": "da:appelsin",
+    "gloss": [
+      "pomarańcza"
+    ],
+    "example": "Około pół pomarańczy wystarczy, ale wolałbym jabłko."
+  },
+  {
+    "id": "da:rar",
+    "gloss": [
+      "miły",
+      "sympatyczny"
+    ],
+    "example": "Może nowy sąsiad jest na tyle miły, że pomoże."
+  },
+  {
+    "id": "da:genkende",
+    "gloss": [
+      "rozpoznać"
+    ],
+    "example": "Poza tym mogę teraz rozpoznać głos pewniej."
+  },
+  {
+    "id": "da:klog",
+    "gloss": [
+      "mądry",
+      "bystry"
+    ],
+    "example": "Bystry uczeń potrafił samodzielnie rozwiązać najtrudniejsze zadanie."
+  },
+  {
+    "id": "da:toilet",
+    "gloss": [
+      "toaleta",
+      "ubikacja"
+    ],
+    "example": "Musiała znaleźć toaletę, zanim mogła iść dalej."
+  },
+  {
+    "id": "da:ordbog",
+    "gloss": [
+      "słownik"
+    ],
+    "example": "Miał sprawdzić słowo w swoim słowniku i przeczytać co najmniej jeden przykład z jego ostatniego rozdziału."
+  },
+  {
+    "id": "da:overraske",
+    "gloss": [
+      "zaskoczyć",
+      "zdziwić"
+    ],
+    "example": "Musiało ją rzeczywiście zaskoczyć, że przyszli tak wcześnie."
+  },
+  {
+    "id": "da:dum",
+    "gloss": [
+      "głupi"
+    ],
+    "example": "Nie należy zwłaszcza nazywać siebie głupim."
+  },
+  {
+    "id": "da:plante",
+    "gloss": [
+      "roślina"
+    ],
+    "example": "Zarówno roślina, jak i jej doniczka tak wyglądają po zimie."
+  },
+  {
+    "id": "da:fejre",
+    "gloss": [
+      "świętować",
+      "obchodzić"
+    ],
+    "example": "Czy powinniśmy świętować urodziny w piątek, czy przenieść ich datę?"
+  },
+  {
+    "id": "da:lastbil",
+    "gloss": [
+      "ciężarówka",
+      "samochód ciężarowy"
+    ],
+    "example": "Ciężarówka nie jest ani mniej, ani bardziej niebezpieczna niż samochód, prawda?"
+  },
+  {
+    "id": "da:dygtig",
+    "gloss": [
+      "zdolny",
+      "utalentowany",
+      "zręczny"
+    ],
+    "example": "Najwyraźniej jest zdolna i powinna ćwiczyć zwłaszcza najtrudniejszą część."
+  },
+  {
+    "id": "da:bekymring",
+    "gloss": [
+      "zmartwienie",
+      "troska"
+    ],
+    "example": "To właściwie mniejsze zmartwienie, ale też go nie zignoruję."
+  },
+  {
+    "id": "da:doven",
+    "gloss": [
+      "leniwy"
+    ],
+    "example": "Około połowa wolałaby odpocząć, niż zostać nazwaną leniwą."
+  },
+  {
+    "id": "da:gifte",
+    "gloss": [
+      "pobrać się",
+      "ożenić się",
+      "wyjść za mąż"
+    ],
+    "example": "Może pobiorą się, jeśli przyjęcie nie będzie zbyt drogie."
+  },
+  {
+    "id": "da:pause",
+    "gloss": [
+      "przerwa"
+    ],
+    "example": "Poza tym przerwa powinna być dłuższa, abyśmy mieli więcej czasu."
+  },
+  {
+    "id": "da:kysse",
+    "gloss": [
+      "całować",
+      "pocałować"
+    ],
+    "example": "Mogła go pocałować, ale myślała głównie o tym, aby się powstrzymać."
+  },
+  {
+    "id": "da:batteri",
+    "gloss": [
+      "bateria"
+    ],
+    "example": "Bateria musiała być mniejsza, jeśli miała zmieścić się w swojej komorze."
+  },
+  {
+    "id": "da:modig",
+    "gloss": [
+      "odważny"
+    ],
+    "example": "Co najmniej jedno z nas powinno być na tyle odważne, aby to powiedzieć."
+  },
+  {
+    "id": "da:saks",
+    "gloss": [
+      "nożyczki"
+    ],
+    "example": "W rzeczywistości wybrałbym ostre nożyczki."
+  },
+  {
+    "id": "da:vågne",
+    "gloss": [
+      "budzić się"
+    ],
+    "example": "Szczególnie w poniedziałki musiała przypominać sobie, aby ustawić budzik, żeby obudzić się wcześnie."
+  },
+  {
+    "id": "da:grænse",
+    "gloss": [
+      "granica"
+    ],
+    "example": "Zarówno turyści, jak i miejscowi powinni szanować taką granicę."
+  },
+  {
+    "id": "da:hvile",
+    "gloss": [
+      "odpoczywać"
+    ],
+    "example": "Czy pies powinien odpocząć, jeśli boli go noga?"
+  },
+  {
+    "id": "da:bukser",
+    "gloss": [
+      "spodnie"
+    ],
+    "example": "Czy zarówno spodnie, jak i kurtka są za duże?"
+  },
+  {
+    "id": "da:slappe",
+    "gloss": [
+      "relaksować się",
+      "odpoczywać"
+    ],
+    "example": "Najwyraźniej musi się zrelaksować, choć nie jest ani zmęczony, ani chory."
+  },
+  {
+    "id": "da:fængsel",
+    "gloss": [
+      "więzienie"
+    ],
+    "example": "Więzienie jest właściwie zamknięte dla odwiedzających; w przeciwnym razie jego dziedziniec byłby pełny."
+  },
+  {
+    "id": "da:regning",
+    "gloss": [
+      "rachunek",
+      "faktura"
+    ],
+    "example": "Około połowa rachunku to jedzenie; też nie zapłacę więcej."
+  },
+  {
+    "id": "da:kede",
+    "gloss": [
+      "nudzić"
+    ],
+    "example": "Może dzieci się nudzą; wolałyby się bawić."
+  },
+  {
+    "id": "da:gulerod",
+    "gloss": [
+      "marchewka"
+    ],
+    "example": "Poza tym powinieneś zjeść co najmniej jedną marchewkę i może trochę więcej."
+  },
+  {
+    "id": "da:skynde",
+    "gloss": [
+      "spieszyć się"
+    ],
+    "example": "Czy mógłbyś spieszyć się trochę mniej, żebym mógł nadążyć?"
+  },
+  {
+    "id": "da:journalist",
+    "gloss": [
+      "dziennikarz"
+    ],
+    "example": "Dziennikarz musi rzeczywiście zbadać historię, o której ludzie mówią najczęściej."
+  },
+  {
+    "id": "da:gide",
+    "gloss": [
+      "chcieć się",
+      "mieć ochotę"
+    ],
+    "example": "Nie chciałoby mu się używać zegarka, gdyby chodził mniej dokładnie."
+  },
+  {
+    "id": "da:sår",
+    "gloss": [
+      "rana"
+    ],
+    "example": "Co najmniej dwie z jej ran trzeba było przykryć, ale pokazała swoje pozostałe rany."
+  },
+  {
+    "id": "da:forsikring",
+    "gloss": [
+      "ubezpieczenie"
+    ],
+    "example": "W rzeczywistości należy samemu przeczytać swoją polisę ubezpieczeniową przed wyborem."
+  },
+  {
+    "id": "da:fortryde",
+    "gloss": [
+      "żałować"
+    ],
+    "example": "Szczególnie później mogli żałować, że sobie nawzajem nie pomogli."
+  },
+  {
+    "id": "da:skuffelse",
+    "gloss": [
+      "rozczarowanie"
+    ],
+    "example": "Firma poza tym cieszyła się dobrą opinią; takie rozczarowanie nie powinno zniszczyć jej wizerunku."
+  },
+  {
+    "id": "da:øve",
+    "gloss": [
+      "ćwiczyć",
+      "trenować"
+    ],
+    "example": "Należałoby ćwiczyć, jeśli rzeczywiście chciało się poprawić."
+  },
+  {
+    "id": "da:bad",
+    "gloss": [
+      "kąpiel"
+    ],
+    "example": "Kąpiel była wystarczająco ciepła, ale też nie wolno mi było zostać zbyt długo."
+  },
+  {
+    "id": "da:træne",
+    "gloss": [
+      "ćwiczyć",
+      "trenować"
+    ],
+    "example": "Powinna chyba ćwiczyć mniej, jeśli choroba się pogarsza."
+  },
+  {
+    "id": "da:kind",
+    "gloss": [
+      "policzek"
+    ],
+    "example": "Właściwie położyła rękę na policzku dziecka."
+  },
+  {
+    "id": "da:blad",
+    "gloss": [
+      "liść",
+      "czasopismo"
+    ],
+    "example": "Mniej więcej co trzeci liść był już żółty."
+  },
+  {
+    "id": "da:studere",
+    "gloss": [
+      "studiować",
+      "uczyć się"
+    ],
+    "example": "Musi się uczyć, ale pewnie nie ma czasu na spotkanie z przyjaciółmi."
+  },
+  {
+    "id": "da:paraply",
+    "gloss": [
+      "parasol",
+      "parasolka"
+    ],
+    "example": "Poza tym powinieneś wziąć albo duży parasol, albo małą kurtkę przeciwdeszczową."
+  },
+  {
+    "id": "da:undervise",
+    "gloss": [
+      "uczyć",
+      "nauczać"
+    ],
+    "example": "Mogła uczyć się sama, ale wolała uczyć się razem z innymi."
+  },
+  {
+    "id": "da:ur",
+    "gloss": [
+      "zegarek",
+      "zegar"
+    ],
+    "example": "Musiał ustawić swój zegarek i chciał przyjść co najmniej dziesięć minut wcześniej."
+  },
+  {
+    "id": "da:rig",
+    "gloss": [
+      "bogaty"
+    ],
+    "example": "Może jest na tyle bogaty, aby pomóc, ale nikt tego nie wie."
+  },
+  {
+    "id": "da:oversætte",
+    "gloss": [
+      "tłumaczyć",
+      "przetłumaczyć"
+    ],
+    "example": "Potrafi tłumaczyć własne listy i czynić je jaśniejszymi."
+  },
+  {
+    "id": "da:briller",
+    "gloss": [
+      "okulary"
+    ],
+    "example": "Powinna sama wybrać okulary, przez które widzi najwyraźniej."
+  },
+  {
+    "id": "da:lyn",
+    "gloss": [
+      "błyskawica"
+    ],
+    "example": "Staliśmy blisko siebie, gdy błysnęła błyskawica; wydawało się to mniej przerażające."
+  },
+  {
+    "id": "da:gentage",
+    "gloss": [
+      "powtórzyć"
+    ],
+    "example": "Czy mam powtórzyć to jeszcze co najmniej raz?"
+  },
+  {
+    "id": "da:død",
+    "gloss": [
+      "martwy"
+    ],
+    "example": "W rzeczywistości roślina była martwa, ale jej liście wciąż były zielone."
+  },
+  {
+    "id": "da:løg",
+    "gloss": [
+      "cebula"
+    ],
+    "example": "Szczególnie ta cebula mogła nadać zupie najwięcej smaku."
+  },
+  {
+    "id": "da:rette",
+    "gloss": [
+      "poprawić",
+      "poprawiać"
+    ],
+    "example": "Tak nauczyciel miał poprawić tekst, jeśli odpowiedź była błędna."
+  },
+  {
+    "id": "da:alder",
+    "gloss": [
+      "wiek"
+    ],
+    "example": "Właściwie chciałem zapytać o jej wiek, ale zrezygnowałem."
+  },
+  {
+    "id": "da:forsigtig",
+    "gloss": [
+      "ostrożny"
+    ],
+    "example": "Trzeba było być ostrożnym, choć podłoga wyglądała na suchą."
+  },
+  {
+    "id": "da:lov",
+    "gloss": [
+      "prawo",
+      "ustawa"
+    ],
+    "example": "Powinieneś przeczytać prawo; w przeciwnym razie musisz zapytać eksperta."
+  },
+  {
+    "id": "da:lege",
+    "gloss": [
+      "bawić się",
+      "grać"
+    ],
+    "example": "Zarówno dzieci, jak i dorośli mogli bawić się razem."
+  },
+  {
+    "id": "da:stolthed",
+    "gloss": [
+      "duma"
+    ],
+    "example": "Albo jego duma wzrośnie, albo przeprosi."
+  },
+  {
+    "id": "da:svag",
+    "gloss": [
+      "słaby"
+    ],
+    "example": "Ani herbata, ani kawa nie powinny być takie słabe."
+  },
+  {
+    "id": "da:cykle",
+    "gloss": [
+      "jechać na rowerze",
+      "jeździć na rowerze"
+    ],
+    "example": "W przeciwnym razie możemy pojechać na rowerze, jeśli autobus nie przyjedzie."
+  },
+  {
+    "id": "da:musik",
+    "gloss": [
+      "muzyka"
+    ],
+    "example": "Też nie wyłączę muzyki, jeśli słuchasz."
+  },
+  {
+    "id": "da:sygdom",
+    "gloss": [
+      "choroba"
+    ],
+    "example": "Wolałaby rozmawiać o swojej chorobie, niż ją ukrywać."
+  },
+  {
+    "id": "da:fange",
+    "gloss": [
+      "złapać",
+      "schwytać"
+    ],
+    "example": "Może złapiemy autobus, jeśli się pospieszymy."
+  },
+  {
+    "id": "da:fattig",
+    "gloss": [
+      "biedny"
+    ],
+    "example": "Biedna rodzina otrzymuje mniej pomocy, niż faktycznie potrzebuje."
+  },
+  {
+    "id": "da:lektie",
+    "gloss": [
+      "praca domowa",
+      "zadanie domowe"
+    ],
+    "example": "Praca domowa zajęła najwięcej czasu, ale mogła zostać w rzeczywistości wykonana w domu."
+  },
+  {
+    "id": "da:løfte",
+    "gloss": [
+      "podnosić",
+      "podnieść"
+    ],
+    "example": "Musiała podnosić mniej, bo bolała ją ręka."
+  },
+  {
+    "id": "da:håndværker",
+    "gloss": [
+      "rzemieślnik"
+    ],
+    "example": "Co najmniej jeden rzemieślnik musiał przyjść; w przeciwnym razie drzwi nie zostały naprawione."
+  },
+  {
+    "id": "da:fast",
+    "gloss": [
+      "stały",
+      "solidny"
+    ],
+    "example": "Stała cena jest właściwie najlepsza, jeśli budżet jest mały."
+  },
+  {
+    "id": "da:hyggelig",
+    "gloss": [
+      "przytulny",
+      "miły"
+    ],
+    "example": "Salon jest szczególnie przytulny, gdy siedzimy blisko siebie."
+  },
+  {
+    "id": "da:mening",
+    "gloss": [
+      "opinia",
+      "zdanie"
+    ],
+    "example": "Taką opinię należałoby chyba wyjaśnić jaśniej."
+  },
+  {
+    "id": "da:skubbe",
+    "gloss": [
+      "pchać",
+      "popychać"
+    ],
+    "example": "Musiał pchać wózek, ale wolał go ciągnąć."
+  },
+  {
+    "id": "da:fødselsdag",
+    "gloss": [
+      "urodziny"
+    ],
+    "example": "Jutro proponuje: „Mamy świętować twoje urodziny?”"
+  },
+  {
+    "id": "da:bage",
+    "gloss": [
+      "piec"
+    ],
+    "example": "Pyta: „Czy chciałbyś piec w sobotę?”"
+  },
+  {
+    "id": "da:hjemmeside",
+    "gloss": [
+      "strona internetowa"
+    ],
+    "example": "Niestety, nie mogę; strona internetowa jest właśnie niedostępna."
+  },
+  {
+    "id": "da:fryser",
+    "gloss": [
+      "zamrażarka"
+    ],
+    "example": "Czy wtorek pasuje? W przeciwnym razie rzemieślnik może obejrzeć zamrażarkę w środę."
+  },
+  {
+    "id": "da:skarp",
+    "gloss": [
+      "ostry"
+    ],
+    "example": "Niestety, nie mogę; nożyczki nie są ani ostre, ani bezpieczne w użyciu."
+  },
+  {
+    "id": "da:turist",
+    "gloss": [
+      "turysta"
+    ],
+    "example": "Turysta pyta: „Czy chciałbyś zobaczyć miasto?”"
+  },
+  {
+    "id": "da:vække",
+    "gloss": [
+      "budzić",
+      "obudzić"
+    ],
+    "example": "Jeśli to nie zadziała, możesz mnie obudzić godzinę później, bo wiem, że i tak nie śpisz."
+  },
+  {
+    "id": "da:reparere",
+    "gloss": [
+      "naprawić",
+      "naprawiać"
+    ],
+    "example": "Rzemieślnik musi naprawić swoje narzędzia oraz zepsute okno."
+  },
+  {
+    "id": "da:pose",
+    "gloss": [
+      "torba",
+      "worek",
+      "reklamówka"
+    ],
+    "example": "Tej torby należy użyć, jeśli ta druga nie uniesie ciężaru towarów."
+  },
+  {
+    "id": "da:ødelægge",
+    "gloss": [
+      "zniszczyć",
+      "zepsuć"
+    ],
+    "example": "Wiem, że nie zniszczą tego mebla celowo."
+  },
+  {
+    "id": "da:levende",
+    "gloss": [
+      "żywy",
+      "żyjący"
+    ],
+    "example": "Choć roślina nie wygląda na żywą, jej liście są wciąż zielone."
+  },
+  {
+    "id": "da:kanal",
+    "gloss": [
+      "kanał"
+    ],
+    "example": "Kanał jest zamknięty, dlatego ta łódź musi poczekać do jutra."
+  },
+  {
+    "id": "da:skinke",
+    "gloss": [
+      "szynka"
+    ],
+    "example": "Gdy szynka nie jest ciepła, musi wrócić do lodówki."
+  },
+  {
+    "id": "da:koge",
+    "gloss": [
+      "gotować",
+      "wrzeć"
+    ],
+    "example": "Gdy woda się gotuje, nie wolno ci opuszczać tej kuchni."
+  },
+  {
+    "id": "da:enkel",
+    "gloss": [
+      "prosty",
+      "zwykły"
+    ],
+    "example": "To proste rozwiązanie, które nie wymaga nowej wizyty."
+  },
+  {
+    "id": "da:angst",
+    "gloss": [
+      "lęk",
+      "niepokój",
+      "strach"
+    ],
+    "example": "Odczuwałem niepokój, bo nie wiedziałem, co znaczy ten list. Co mam zrobić?"
+  },
+  {
+    "id": "da:rydde",
+    "gloss": [
+      "sprzątać",
+      "porządkować"
+    ],
+    "example": "Chciałbym zmienić moją wizytę, bo muszę posprzątać mieszkanie."
+  },
+  {
+    "id": "da:and",
+    "gloss": [
+      "kaczka"
+    ],
+    "example": "Zarówno ta kaczka, jak i jej kaczątka żyją wśród łabędzi oraz innych ptaków."
+  },
+  {
+    "id": "da:praktisk",
+    "gloss": [
+      "praktyczny",
+      "poręczny"
+    ],
+    "example": "To jest praktyczne, jeśli możesz przyjść wcześnie albo odebrać to później."
+  },
+  {
+    "id": "da:møbel",
+    "gloss": [
+      "mebel"
+    ],
+    "example": "Te meble muszą zostać naprawione, bo nie są bezpieczne."
+  },
+  {
+    "id": "da:overraskelse",
+    "gloss": [
+      "niespodzianka",
+      "zaskoczenie"
+    ],
+    "example": "To była niespodzianka, że jednak mogła przyjść; raz odwołała, a w przeszłości robiła tak niemal za każdym razem."
+  },
+  {
+    "id": "da:snakke",
+    "gloss": [
+      "rozmawiać",
+      "gawędzić",
+      "pogadać"
+    ],
+    "example": "Możemy porozmawiać, gdy czekamy, choć się nie znamy."
+  },
+  {
+    "id": "da:trykke",
+    "gloss": [
+      "naciskać",
+      "przyciskać"
+    ],
+    "example": "Naciśnij ten przycisk, jeśli ekran nie reaguje."
+  },
+  {
+    "id": "da:rimelig",
+    "gloss": [
+      "rozsądny",
+      "uczciwy"
+    ],
+    "example": "Cena jest rozsądna; musisz jednak nadal płacić, dopóki sprawa nie zostanie rozstrzygnięta."
+  },
+  {
+    "id": "da:sweater",
+    "gloss": [
+      "sweter"
+    ],
+    "example": "Zakładam ten sweter, gdy w biurze nie jest ciepło."
+  },
+  {
+    "id": "da:skam",
+    "gloss": [
+      "wstyd"
+    ],
+    "example": "Czuł wstyd, ale mimo to powiedział, że nie skłamał."
+  },
+  {
+    "id": "da:fylde",
+    "gloss": [
+      "wypełniać",
+      "napełniać"
+    ],
+    "example": "Musisz wypełnić ten formularz, bo gmina nie ma twoich danych."
+  },
+  {
+    "id": "da:berømt",
+    "gloss": [
+      "sławny",
+      "znany"
+    ],
+    "example": "Jest sławnym aktorem, którego rozpoznaje wielu ludzi."
+  },
+  {
+    "id": "da:ensomhed",
+    "gloss": [
+      "samotność"
+    ],
+    "example": "Samotność maleje, gdy nie siedzi się samemu."
+  },
+  {
+    "id": "da:skære",
+    "gloss": [
+      "ciąć",
+      "kroić",
+      "przekroić"
+    ],
+    "example": "Wiem, że nie wolno ci kroić chleba tym nożem."
+  },
+  {
+    "id": "da:læbe",
+    "gloss": [
+      "warga"
+    ],
+    "example": "Boli mnie warga; mimo to i tak uśmiechnąłem się do fotografa."
+  },
+  {
+    "id": "da:råbe",
+    "gloss": [
+      "krzyczeć",
+      "wołać"
+    ],
+    "example": "Musiał krzyczeć, bo nie mogli usłyszeć wiadomości."
+  },
+  {
+    "id": "da:motion",
+    "gloss": [
+      "ćwiczenia",
+      "ruch",
+      "aktywność fizyczna"
+    ],
+    "example": "Kiedyś ćwiczenia rzadko były częścią mojego dnia; teraz są ważne, bo ciało staje się silniejsze."
+  },
+  {
+    "id": "da:ærlig",
+    "gloss": [
+      "szczery",
+      "uczciwy"
+    ],
+    "example": "Mimo szczerej odpowiedzi miała wątpliwości; dlatego przeczytała ten list jeszcze raz."
+  },
+  {
+    "id": "da:tårn",
+    "gloss": [
+      "wieża"
+    ],
+    "example": "Wieża jest wysoka, ale jej schody w końcu nie są niebezpieczne."
+  },
+  {
+    "id": "da:ryge",
+    "gloss": [
+      "palić"
+    ],
+    "example": "Nie wolno palić, czekając wśród innych ludzi."
+  },
+  {
+    "id": "da:streng",
+    "gloss": [
+      "surowy",
+      "ostry",
+      "srogi"
+    ],
+    "example": "Zasada jest surowa; jest jednak rozsądna, bo dotyczy wszystkich."
+  },
+  {
+    "id": "da:kvittering",
+    "gloss": [
+      "paragon",
+      "pokwitowanie"
+    ],
+    "example": "Zachowaj ten paragon oraz gwarancję, dopóki nie upewnisz się, że kupiona rzecz działa."
+  },
+  {
+    "id": "da:tørre",
+    "gloss": [
+      "wycierać",
+      "suszyć"
+    ],
+    "example": "Choć ręcznik jest wilgotny, możesz mimo to wytrzeć stół."
+  },
+  {
+    "id": "da:tydelig",
+    "gloss": [
+      "wyraźny",
+      "jasny",
+      "oczywisty"
+    ],
+    "example": "Ten znak jest wyraźny, więc wiesz, że musisz poczekać."
+  },
+  {
+    "id": "da:peber",
+    "gloss": [
+      "pieprz"
+    ],
+    "example": "Wśród przypraw jest pieprz, ale rzadko się go tu używa."
+  },
+  {
+    "id": "da:politibetjent",
+    "gloss": [
+      "policjant"
+    ],
+    "example": "Policjant natychmiast dał jasno do zrozumienia, że nie wolno nam wejść, bo podłoga jest śliska."
+  },
+  {
+    "id": "da:blande",
+    "gloss": [
+      "mieszać",
+      "wymieszać"
+    ],
+    "example": "Możesz zmieszać te kolory, jeśli nie masz właściwego."
+  },
+  {
+    "id": "da:hylde",
+    "gloss": [
+      "półka"
+    ],
+    "example": "Półka nie utrzyma skrzyni, choć wygląda na mocną."
+  },
+  {
+    "id": "da:hoppe",
+    "gloss": [
+      "skakać"
+    ],
+    "example": "Dziecko chciało skakać, ale rzadko to robiło wśród obcych."
+  },
+  {
+    "id": "da:skygge",
+    "gloss": [
+      "cień"
+    ],
+    "example": "Cień wydłuża się, gdy zachodzi słońce; a więc wkrótce będzie wieczór."
+  },
+  {
+    "id": "da:mild",
+    "gloss": [
+      "łagodny",
+      "delikatny"
+    ],
+    "example": "Pogoda jest łagodna; dlatego możemy zostać na dworze do późna."
+  },
+  {
+    "id": "da:rulle",
+    "gloss": [
+      "toczyć",
+      "zwijać"
+    ],
+    "example": "Przetocz paczkę pod te drzwi, jeśli nie jest za ciężka."
+  },
+  {
+    "id": "da:bluse",
+    "gloss": [
+      "bluzka"
+    ],
+    "example": "Ta bluzka jest droga; jej materiał służy jednak długo."
+  },
+  {
+    "id": "da:nyttig",
+    "gloss": [
+      "przydatny",
+      "pożyteczny"
+    ],
+    "example": "Ta aplikacja jest przydatna, bo wyjaśnia te wiadomości."
+  },
+  {
+    "id": "da:tåge",
+    "gloss": [
+      "mgła"
+    ],
+    "example": "Mimo mgły mogliśmy zobaczyć wieżę, która nie była daleko."
+  },
+  {
+    "id": "da:bade",
+    "gloss": [
+      "kąpać się",
+      "pływać"
+    ],
+    "example": "Rzadko się kąpiemy, gdy woda nie jest ciepła."
+  },
+  {
+    "id": "da:smil",
+    "gloss": [
+      "uśmiech"
+    ],
+    "example": "Jej uśmiech pokazał, że jednak nie była zła."
+  },
+  {
+    "id": "da:binde",
+    "gloss": [
+      "wiązać",
+      "zawiązać"
+    ],
+    "example": "Zawiąż torbę, aż węzeł będzie mocny."
+  },
+  {
+    "id": "da:træning",
+    "gloss": [
+      "trening",
+      "ćwiczenia"
+    ],
+    "example": "Trening jest ciężki, ale wiemy, że w końcu działa."
+  },
+  {
+    "id": "da:behagelig",
+    "gloss": [
+      "przyjemny",
+      "wygodny"
+    ],
+    "example": "Krzesło jest wygodne; dlatego możemy poczekać trochę dłużej."
+  },
+  {
+    "id": "da:kursus",
+    "gloss": [
+      "kurs",
+      "szkolenie"
+    ],
+    "example": "Chciałbym zmienić moją wizytę, bo kurs trwa do piątku i wymaga też testu."
+  },
+  {
+    "id": "da:stege",
+    "gloss": [
+      "smażyć",
+      "piec"
+    ],
+    "example": "Smaż cebulę, gdy czekasz; nie może jednak zbrązowieć."
+  },
+  {
+    "id": "da:teater",
+    "gloss": [
+      "teatr"
+    ],
+    "example": "Ten teatr należy do najstarszych w mieście i dlatego jest sławny."
+  },
+  {
+    "id": "da:underlig",
+    "gloss": [
+      "dziwny",
+      "osobliwy"
+    ],
+    "example": "To dziwne, że nie odpowiada, skoro przecież jest w domu."
+  },
+  {
+    "id": "da:hælde",
+    "gloss": [
+      "lać",
+      "wlewać"
+    ],
+    "example": "Wlej wodę do tej miski, aż będzie do połowy pełna."
+  },
+  {
+    "id": "da:adresse",
+    "gloss": [
+      "adres"
+    ],
+    "example": "Te listy wróciły, bo adres był nieczytelny; kiedyś zdarzyło się to samo."
+  },
+  {
+    "id": "da:app",
+    "gloss": [
+      "aplikacja"
+    ],
+    "example": "Wiadomość „Co mam zrobić?” pozostaje w aplikacji, dopóki nie wybierzesz tej godziny w kalendarzu."
+  },
+  {
+    "id": "da:smøre",
+    "gloss": [
+      "smarować",
+      "posmarować"
+    ],
+    "example": "Posmaruj chleb masłem, gdy jest ciepły; w przeciwnym razie masło stwardnieje."
+  },
+  {
+    "id": "da:flink",
+    "gloss": [
+      "miły",
+      "uprzejmy"
+    ],
+    "example": "Miły pracownik wyjaśnia, że teraz nie trzeba płacić."
+  },
+  {
+    "id": "da:kalender",
+    "gloss": [
+      "kalendarz"
+    ],
+    "example": "W kalendarzu piszę: „Chciałbym zmienić moją wizytę.”"
+  },
+  {
+    "id": "da:servere",
+    "gloss": [
+      "podawać",
+      "serwować"
+    ],
+    "example": "Rzadko podają szynkę, ale robią to przy szczególnych okazjach."
+  },
+  {
+    "id": "da:skilt",
+    "gloss": [
+      "znak",
+      "tabliczka"
+    ],
+    "example": "Znak mówi, że nie wolno palić, bo pracują tu inni ludzie."
+  },
+  {
+    "id": "da:høflig",
+    "gloss": [
+      "uprzejmy",
+      "grzeczny"
+    ],
+    "example": "Uprzejmie jest powiedzieć, że nie można przyjść."
+  },
+  {
+    "id": "da:kurv",
+    "gloss": [
+      "kosz",
+      "koszyk"
+    ],
+    "example": "Ten kosz stoi wśród pustych skrzyń i przecież wciąż jest cały."
+  },
+  {
+    "id": "da:diskutere",
+    "gloss": [
+      "dyskutować",
+      "omawiać"
+    ],
+    "example": "Dyskutujemy o tym, co to znaczy, dopóki wszyscy nie zrozumieją wiadomości."
+  },
+  {
+    "id": "da:slik",
+    "gloss": [
+      "cukierki",
+      "słodycze"
+    ],
+    "example": "Dzieci rzadko dostają słodycze, choć proszą."
+  },
+  {
+    "id": "da:glat",
+    "gloss": [
+      "śliski",
+      "gładki"
+    ],
+    "example": "Mimo znaku poszedł dalej, choć podłoga była śliska."
+  },
+  {
+    "id": "da:ryste",
+    "gloss": [
+      "trząść się",
+      "drżeć",
+      "wstrząsać"
+    ],
+    "example": "Trzęsła się, bo miała gorączkę, ale mimo to wykonała pracę."
+  },
+  {
+    "id": "da:hjerne",
+    "gloss": [
+      "mózg"
+    ],
+    "example": "Mózg pracuje, gdy śpimy; dlatego sen jest ważny, choć nie pamiętamy wszystkiego."
+  },
+  {
+    "id": "da:hviske",
+    "gloss": [
+      "szeptać"
+    ],
+    "example": "Szepcze, że to nie zaczyna się przed dziesiątą."
+  },
+  {
+    "id": "da:interesse",
+    "gloss": [
+      "zainteresowanie",
+      "hobby"
+    ],
+    "example": "Ten kurs, który dotyczy też kultury, wzbudził moje zainteresowanie, więc go wybrałem."
+  },
+  {
+    "id": "da:kølig",
+    "gloss": [
+      "chłodny"
+    ],
+    "example": "Jest chłodno, bo drzwi nie są zamknięte; mimo to zostajemy tutaj."
+  },
+  {
+    "id": "da:aftale",
+    "gloss": [
+      "wizyta",
+      "spotkanie",
+      "umowa"
+    ],
+    "example": "„Chciałabym zmienić moją wizytę\", pisze, bo ta godzina nie pasuje."
+  },
+  {
+    "id": "da:glide",
+    "gloss": [
+      "ślizgać się",
+      "ześlizgiwać się",
+      "poślizgnąć się"
+    ],
+    "example": "Mogła się poślizgnąć, gdyby nie trzymała się tego pierścienia."
+  },
+  {
+    "id": "da:skuffe",
+    "gloss": [
+      "szuflada"
+    ],
+    "example": "Te szuflady są przecież puste, choć na takie nie wyglądają."
+  },
+  {
+    "id": "da:fugtig",
+    "gloss": [
+      "wilgotny"
+    ],
+    "example": "Ściana jest wilgotna; dlatego ten mebel nie powinien stać blisko niej."
+  },
+  {
+    "id": "da:klatre",
+    "gloss": [
+      "wspinać się"
+    ],
+    "example": "Chcą się wspinać po skałach wśród małych domów, choć rzadko jest to dozwolone."
+  },
+  {
+    "id": "da:udsigt",
+    "gloss": [
+      "widok"
+    ],
+    "example": "Widok jest piękny, ale mgła skrywa go do południa."
+  },
+  {
+    "id": "da:ring",
+    "gloss": [
+      "pierścień",
+      "pierścionek",
+      "obrączka"
+    ],
+    "example": "Nie chce też nosić pierścionka, bo jest luźny."
+  },
+  {
+    "id": "da:bekymre",
+    "gloss": [
+      "martwić",
+      "niepokoić"
+    ],
+    "example": "Martwi mnie, że nie wysłali tego paragonu."
+  },
+  {
+    "id": "da:stiv",
+    "gloss": [
+      "sztywny"
+    ],
+    "example": "Mimo odpoczynku jest sztywny i mówi: „Boli mnie plecy.”"
+  },
+  {
+    "id": "da:ulykke",
+    "gloss": [
+      "wypadek",
+      "nieszczęście"
+    ],
+    "example": "Po wypadku zapytała: „Co się stało?”"
+  },
+  {
+    "id": "da:irritere",
+    "gloss": [
+      "irytować",
+      "denerwować"
+    ],
+    "example": "Irytuje go, że to nie działa, choć aplikacja jest nowa."
+  },
+  {
+    "id": "da:opskrift",
+    "gloss": [
+      "przepis"
+    ],
+    "example": "Ten przepis mówi, że masz wymieszać mąkę, gdy woda się gotuje."
+  },
+  {
+    "id": "da:løs",
+    "gloss": [
+      "luźny",
+      "poluzowany"
+    ],
+    "example": "Śruba jest luźna i dlatego ten mebel nie nadaje się do użytku."
+  },
+  {
+    "id": "da:kommune",
+    "gloss": [
+      "gmina",
+      "urząd gminy"
+    ],
+    "example": "„Brakuje tych dokumentów”, pisze gmina."
+  },
+  {
+    "id": "da:kramme",
+    "gloss": [
+      "przytulać",
+      "ściskać"
+    ],
+    "example": "Przytulają się, choć rzadko się spotykają."
+  },
+  {
+    "id": "da:kultur",
+    "gloss": [
+      "kultura"
+    ],
+    "example": "Ta kultura była kiedyś nam obca, ale przecież możemy się od siebie uczyć."
+  },
+  {
+    "id": "da:tålmodig",
+    "gloss": [
+      "cierpliwy"
+    ],
+    "example": "Bądź cierpliwy, dopóki tego nie naprawią; wkrótce bowiem zaczną."
+  },
+  {
+    "id": "da:trøste",
+    "gloss": [
+      "pocieszać",
+      "pocieszyć"
+    ],
+    "example": "Próbuję ją pocieszyć, choć nie wiem, co powiedzieć."
+  },
+  {
+    "id": "da:regering",
+    "gloss": [
+      "rząd"
+    ],
+    "example": "Rząd zmienił swoje zasady oraz formularz; dlatego te listy trzeba napisać na nowo."
+  },
+  {
+    "id": "da:ordne",
+    "gloss": [
+      "załatwić",
+      "uporządkować",
+      "naprawić"
+    ],
+    "example": "Dziś piszę: „Chciałbym zmienić moją wizytę.” Potem gmina może załatwić resztę."
+  },
+  {
+    "id": "da:pakke",
+    "gloss": [
+      "paczka",
+      "pakunek"
+    ],
+    "example": "Pokaż mi taką paczkę, jeśli nie jest ciężka."
+  },
+  {
+    "id": "da:skøn",
+    "gloss": [
+      "piękny",
+      "cudowny"
+    ],
+    "example": "Jeśli to nie zadziała, wybierzemy inny wieczór z pięknym widokiem, więc wciąż mamy plan."
+  },
+  {
+    "id": "da:fritid",
+    "gloss": [
+      "wolny czas",
+      "czas wolny"
+    ],
+    "example": "Piszę, że w czwartek mam wolne, ale proponuję piątek, jeśli to nie pasuje."
+  },
+  {
+    "id": "da:klippe",
+    "gloss": [
+      "strzyc",
+      "ciąć",
+      "przycinać"
+    ],
+    "example": "Wiadomość mówi: „Jeśli to nie pasuje, możemy obciąć włosy w piątek.”"
+  },
+  {
+    "id": "da:venskab",
+    "gloss": [
+      "przyjaźń"
+    ],
+    "example": "Ich przyjaźń uczy ich pomagać sobie nawzajem, bo rozmawiają, choć się nie zgadzają."
+  },
+  {
+    "id": "da:sprød",
+    "gloss": [
+      "chrupiący"
+    ],
+    "example": "Jeśli to nie zadziała, możemy podać chrupiący chleb później."
+  },
+  {
+    "id": "da:skrige",
+    "gloss": [
+      "krzyczeć",
+      "wrzeszczeć"
+    ],
+    "example": "Jeśli but nie pasuje, dziecko może krzyczeć, bo uwiera; wybierz więc większy."
+  },
+  {
+    "id": "da:ægteskab",
+    "gloss": [
+      "małżeństwo"
+    ],
+    "example": "Małżeństwo jest silne, bo szczerze o tym rozmawiają."
+  }
+]

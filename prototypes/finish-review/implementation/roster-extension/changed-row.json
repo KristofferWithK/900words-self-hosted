@@ -1,0 +1,64 @@
+[
+  {
+    "kind": "review",
+    "wordId": "da:finde",
+    "before": {
+      "wordId": "da:finde",
+      "city": 0,
+      "sourceSha256": "19eec70ca9ddef8c5362e39cf9635afdd8841ec2395a3b49863ed8d0fcbe6277",
+      "version": 1,
+      "sentenceId": "city1:da:finde:review:sentence:v1",
+      "audioId": "city1:da:finde:review:audio:v1",
+      "text": {
+        "da": "Finder du den igen?",
+        "en": "Do you find it again?"
+      },
+      "wordSpan": {
+        "text": "Finder",
+        "start": 0,
+        "end": 6
+      },
+      "status": "editorial",
+      "approval": null,
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 14,
+        "end": 18
+      }
+    },
+    "after": {
+      "wordId": "da:finde",
+      "city": 0,
+      "sourceSha256": "19eec70ca9ddef8c5362e39cf9635afdd8841ec2395a3b49863ed8d0fcbe6277",
+      "version": 2,
+      "sentenceId": "city1:da:finde:review:sentence:v2",
+      "audioId": "city1:da:finde:review:audio:v2",
+      "text": {
+        "da": "Finder du den igen?",
+        "en": "Will you find it again?"
+      },
+      "wordSpan": {
+        "text": "Finder",
+        "start": 0,
+        "end": 6
+      },
+      "status": "editorial",
+      "approval": null,
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 14,
+        "end": 18
+      }
+    }
+  }
+]

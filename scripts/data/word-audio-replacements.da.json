@@ -1,0 +1,416 @@
+{
+  "about": "The sixteen Danish word-audio replacements installed for release/ios-1.0 on 2026-09-26. scripts/validate-audio-acoustics.mjs pins each by SHA-256 and holds it to `release`; measurements are Chromium decodeAudioData at 48 kHz, onset = first 5 ms window above -40 dBFS.",
+  "budget": "No synthesis was performed to install these. Ledger audio-bake-ledger/da-word-aoede-20260925-v1 stays at 19 of 32 reserved POSTs.",
+  "release": {
+    "minPeakDbfs": -15,
+    "maxLeadMs": 150,
+    "minLeadMs": 20,
+    "maxClipRun": 1
+  },
+  "variants": [
+    {
+      "id": "da:ben",
+      "path": "ben.mp3",
+      "speed": "normal",
+      "sha256": "855a8bc2af1d47421ebe6a2a8dd5173bbaa392f466640997ea11fd275309035a",
+      "measured": {
+        "durationMs": 576,
+        "leadMs": 80,
+        "tailMs": 106,
+        "peakDbfs": -5.57,
+        "activeRmsDbfs": -18.37
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/ben.mp3",
+        "audition": "Telegram message 157 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:bo",
+      "path": "bo.mp3",
+      "speed": "normal",
+      "sha256": "0a6b604dab84e58e107ecab0c852ce8457c3c082af91dcda02470e1399929dc7",
+      "measured": {
+        "durationMs": 384,
+        "leadMs": 65,
+        "tailMs": 109,
+        "peakDbfs": -2.94,
+        "activeRmsDbfs": -14.4
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/bo.mp3",
+        "audition": "Telegram message 158 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:bred",
+      "path": "bred.mp3",
+      "speed": "normal",
+      "sha256": "c3d654773948fbc6c536436d354d05320ed0ccf5a65d6d69760bd0f0a288a829",
+      "measured": {
+        "durationMs": 432,
+        "leadMs": 50,
+        "tailMs": 107,
+        "peakDbfs": -2.76,
+        "activeRmsDbfs": -15.26
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/bred.mp3",
+        "audition": "Telegram message 159 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:gide",
+      "path": "gide.mp3",
+      "speed": "normal",
+      "sha256": "2681711f58de398140207bfd2f16facded87c151451a59fd9adb329ce26d86eb",
+      "measured": {
+        "durationMs": 792,
+        "leadMs": 90,
+        "tailMs": 107,
+        "peakDbfs": -7.88,
+        "activeRmsDbfs": -16.9
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/gide.mp3",
+        "audition": "Telegram message 160 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:klar",
+      "path": "klar.mp3",
+      "speed": "normal",
+      "sha256": "744c74c99c72615cf5880fcd51ebafd6ed0db1b6289dd61bcb924f50a619cb58",
+      "measured": {
+        "durationMs": 552,
+        "leadMs": 65,
+        "tailMs": 107,
+        "peakDbfs": -1.56,
+        "activeRmsDbfs": -16.47
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/klar.mp3",
+        "audition": "Telegram message 161 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:nå",
+      "path": "naa.mp3",
+      "speed": "normal",
+      "sha256": "c65ac6f5aa2796482e1eb0810fab6396a3bb0cac78d33655033a9f92dd390285",
+      "measured": {
+        "durationMs": 360,
+        "leadMs": 55,
+        "tailMs": 120,
+        "peakDbfs": -4.59,
+        "activeRmsDbfs": -16.92
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/naa.mp3",
+        "audition": "Telegram message 162 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:ø",
+      "path": "oe.mp3",
+      "speed": "normal",
+      "sha256": "9fde956d527527bd56ebfd8d1195f57159e24c09390d5d5e4d845d9a4022af8b",
+      "measured": {
+        "durationMs": 576,
+        "leadMs": 110,
+        "tailMs": 111,
+        "peakDbfs": -4.93,
+        "activeRmsDbfs": -16.79
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/oe.mp3",
+        "audition": "Telegram message 163 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:ond",
+      "path": "ond.mp3",
+      "speed": "normal",
+      "sha256": "7de8b6aeb1d2e7413ec777860a3053aa6da4ab7da5998ced42e21cd2e806ef2f",
+      "measured": {
+        "durationMs": 288,
+        "leadMs": 45,
+        "tailMs": 103,
+        "peakDbfs": -2.73,
+        "activeRmsDbfs": -13.4
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/ond.mp3",
+        "audition": "Telegram message 164 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:pude",
+      "path": "pude.mp3",
+      "speed": "normal",
+      "sha256": "607963e88aa329303bd475abc3a7c017d49d2d2f5fc72a305203627627e34829",
+      "measured": {
+        "durationMs": 696,
+        "leadMs": 110,
+        "tailMs": 186,
+        "peakDbfs": -5.47,
+        "activeRmsDbfs": -14.94
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36229926708,
+        "artifact": "da-word-aoede-retries-36229926708",
+        "artifactZipSha256": "088467cc9b3dbd132967ef8c7ff77af5ffa849b1037002e25a6a13dce11150ff",
+        "rawArtifactPath": "words/pude.mp3",
+        "audition": "Telegram message 170 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:ske",
+      "path": "ske.mp3",
+      "speed": "normal",
+      "sha256": "b38fe299a0adf06df239a2118260895aeae7a756753d9027eb74b742b5b6ae17",
+      "measured": {
+        "durationMs": 528,
+        "leadMs": 80,
+        "tailMs": 113,
+        "peakDbfs": -6.17,
+        "activeRmsDbfs": -19.44
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 1,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words/ske.mp3",
+        "audition": "Telegram message 165 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:bro",
+      "path": "slow/bro.mp3",
+      "speed": "slow",
+      "sha256": "83cce103f98d03a8da23557c5b2a76ad2222bb10c902df347ad65109db314073",
+      "measured": {
+        "durationMs": 912,
+        "leadMs": 100,
+        "tailMs": 107,
+        "peakDbfs": -0.26,
+        "activeRmsDbfs": -11.9
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.6,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words-slow/bro.mp3",
+        "audition": "Telegram message 166 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:få",
+      "path": "slow/faa.mp3",
+      "speed": "slow",
+      "sha256": "79fa294f79abf4c4c77d431992d72a1ea95bf0296a6f078369627aeab6370b81",
+      "measured": {
+        "durationMs": 888,
+        "leadMs": 60,
+        "tailMs": 113,
+        "peakDbfs": -1.31,
+        "activeRmsDbfs": -13.65
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.6,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words-slow/faa.mp3",
+        "audition": "Telegram message 167 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:idé",
+      "path": "slow/ide.mp3",
+      "speed": "slow",
+      "sha256": "e8526c05ec342ecf9684aa3f9f5213684369f61ba6e43a2611cd0b69416f2cff",
+      "measured": {
+        "durationMs": 840,
+        "leadMs": 100,
+        "tailMs": 105,
+        "peakDbfs": -6.1,
+        "activeRmsDbfs": -16.02
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.6,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words-slow/ide.mp3",
+        "audition": "Telegram message 168 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:klar",
+      "path": "slow/klar.mp3",
+      "speed": "slow",
+      "sha256": "9811a3b7c7580b09364dec955f806f0f5dde457da231d8faaeadbe41b094823b",
+      "measured": {
+        "durationMs": 672,
+        "leadMs": 115,
+        "tailMs": 122,
+        "peakDbfs": -0.86,
+        "activeRmsDbfs": -12.94
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.6,
+        "run": 36197445180,
+        "artifact": "da-word-aoede-candidates-36197445180",
+        "artifactZipSha256": "8e2ece0d5bff203990f18be98bdca4cf1656c1c8dae5d3fd01d10a61adab5305",
+        "rawArtifactPath": "words-slow/klar.mp3",
+        "audition": "Telegram message 169 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:ø",
+      "path": "slow/oe.mp3",
+      "speed": "slow",
+      "sha256": "25aa05e725606645381a31142d499f47b7a9bdd36f1ee2146a62ae31e54230bb",
+      "measured": {
+        "durationMs": 1104,
+        "leadMs": 75,
+        "tailMs": 254,
+        "peakDbfs": -5.14,
+        "activeRmsDbfs": -15.62
+      },
+      "source": {
+        "kind": "new synthesis, owner-approved after listening",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.6,
+        "run": 36229926708,
+        "artifact": "da-word-aoede-retries-36229926708",
+        "artifactZipSha256": "088467cc9b3dbd132967ef8c7ff77af5ffa849b1037002e25a6a13dce11150ff",
+        "rawArtifactPath": "words-slow/oe.mp3",
+        "audition": "Telegram message 171 (bytes verified equal by getFile)",
+        "ownerAcceptance": "approved after listening to messages 157-171"
+      },
+      "processing": "leading silence removed by dropping whole MP3 frames from the raw synthesis (no re-encode); the kept frames are a contiguous run of the raw artifact's frames, re-checked 2026-09-26"
+    },
+    {
+      "id": "da:ord",
+      "path": "slow/ord.mp3",
+      "speed": "slow",
+      "sha256": "84bfa310071cbb3c8b6176f2870439d99b7e05e6e03305925d9f56af2bb0a101",
+      "measured": {
+        "durationMs": 458,
+        "leadMs": 65,
+        "tailMs": 98,
+        "peakDbfs": -11.26,
+        "activeRmsDbfs": -21.24
+      },
+      "source": {
+        "kind": "cut from an existing shipped sentence (not a new synthesis)",
+        "sentence": "public/audio/da/city1/board/ord/v1/slow.mp3",
+        "sentenceSha256": "2ff8a4df67a8a45c1a3b877551d87a87473fbe3b4ce9e4fb8045de2733ef134b",
+        "sentenceText": "Jeg læser et ord.",
+        "voice": "da-DK-Chirp3-HD-Aoede",
+        "bakeRate": 0.7,
+        "segmentInSentenceMs": [
+          1160,
+          1580
+        ],
+        "audition": "Telegram message 173, ord-existing-sentence-repeat3.mp3 (three copies of the same segment), sha256 f13a15781aaa18a73c078e36e876e20615d89fa67705314957621d6df6a054c4",
+        "ownerAcceptance": "accepted after messages 172-173: \"we got ord now so let's not overcomplicate things\""
+      },
+      "processing": "first 19 whole MP3 frames (456 ms) of the message-173 audition, stream-copied with ffmpeg 8.1.2 (-c copy, no re-encode, metadata dropped); decodes sample-identical to that audition's first repeat (max |diff| 0) and correlates 1.00000 with the source sentence at 1197 ms. Encoding: the shipped sentence is 32 kbps; the Rocky worker decoded its crop and re-encoded the audition at 96 kbps (one lossy generation before the owner heard it). This last step adds none. No gain: its speech level sits inside the slow family's shipped range.",
+      "notInstalled": "ord-from-et-ord-slow-audition.mp3 (74ad7a3968d0...), the earlier 0.42 s standalone cut of the same segment that the owner reported inaudible"
+    }
+  ]
+}

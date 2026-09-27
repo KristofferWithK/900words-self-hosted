@@ -1,0 +1,295 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 12,
+  "pairs": {
+    "da:kursus|da:regering": [
+      { "da": "politik", "en": "politics", "why": "politics can be studied and practised", "s": 1 }
+    ],
+    "da:kursus|da:fritid": [
+      { "da": "hobby", "en": "hobby", "why": "learning pursued outside work", "s": 2 },
+      { "da": "aften", "en": "evening", "why": "a common time for both", "s": 2 }
+    ],
+    "da:kursus|da:ægteskab": [
+      { "da": "forberedelse", "en": "preparation", "why": "preparation can precede both commitments", "s": 1 }
+    ],
+    "da:stege|da:hælde": [
+      { "da": "køkken", "en": "kitchen", "why": "two actions done while cooking", "s": 2 },
+      { "da": "olie", "en": "oil", "why": "used for both cooking actions", "s": 2 }
+    ],
+    "da:stege|da:smøre": [
+      { "da": "smør", "en": "butter", "why": "used in both food preparations", "s": 3 },
+      { "da": "mad", "en": "food", "why": "two ways to prepare food", "s": 2 }
+    ],
+    "da:stege|da:servere": [
+      { "da": "mad", "en": "food", "why": "food is cooked then presented", "s": 3 },
+      { "da": "middag", "en": "dinner", "why": "both actions prepare a meal", "s": 2 }
+    ],
+    "da:stege|da:slik": [
+      { "da": "mad", "en": "food", "why": "both belong to eating", "s": 1 }
+    ],
+    "da:stege|da:glat": [
+      { "da": "olie", "en": "oil", "why": "cooking oil makes surfaces slippery", "s": 2 }
+    ],
+    "da:stege|da:interesse": [
+      { "da": "madlavning", "en": "cooking", "why": "cooking can be a hobby", "s": 2 }
+    ],
+    "da:stege|da:kølig": [
+      { "da": "temperatur", "en": "temperature", "why": "both concern degrees of heat", "s": 1 }
+    ],
+    "da:stege|da:fugtig": [
+      { "da": "varme", "en": "heat", "why": "heat cooks and creates humidity", "s": 1 }
+    ],
+    "da:stege|da:ulykke": [
+      { "da": "brand", "en": "fire", "why": "hot cooking can cause accidents", "s": 2 }
+    ],
+    "da:stege|da:opskrift": [
+      { "da": "madlavning", "en": "cooking", "why": "instructions guide the cooking method", "s": 3 },
+      { "da": "køkken", "en": "kitchen", "why": "both are central in cooking", "s": 2 }
+    ],
+    "da:stege|da:kultur": [
+      { "da": "mad", "en": "food", "why": "cuisine reflects shared traditions", "s": 2 }
+    ],
+    "da:stege|da:trøste": [
+      { "da": "mad", "en": "food", "why": "warm food can give comfort", "s": 1 }
+    ],
+    "da:stege|da:fritid": [
+      { "da": "madlavning", "en": "cooking", "why": "cooking can fill leisure hours", "s": 2 }
+    ],
+    "da:stege|da:klippe": [
+      { "da": "saks", "en": "scissors", "why": "kitchen scissors cut food before cooking", "s": 1 }
+    ],
+    "da:stege|da:sprød": [
+      { "da": "varme", "en": "heat", "why": "high heat creates a crisp surface", "s": 3 },
+      { "da": "pande", "en": "pan", "why": "pan cooking makes food crisp", "s": 3 }
+    ],
+    "da:teater|da:underlig": [
+      { "da": "forestilling", "en": "performance", "why": "a show can be strange", "s": 2 }
+    ],
+    "da:teater|da:adresse": [
+      { "da": "sted", "en": "place", "why": "a venue has a location", "s": 2 }
+    ],
+    "da:teater|da:app": [
+      { "da": "billet", "en": "ticket", "why": "tickets are bought digitally", "s": 2 }
+    ],
+    "da:teater|da:kalender": [
+      { "da": "program", "en": "schedule", "why": "shows are listed by date", "s": 3 },
+      { "da": "dato", "en": "date", "why": "a performance happens on one", "s": 2 }
+    ],
+    "da:teater|da:skilt": [
+      { "da": "indgang", "en": "entrance", "why": "a venue entrance is marked", "s": 2 }
+    ],
+    "da:teater|da:høflig": [
+      { "da": "publikum", "en": "audience", "why": "audiences follow courteous behaviour", "s": 2 }
+    ],
+    "da:teater|da:diskutere": [
+      { "da": "drama", "en": "drama", "why": "drama is performed and debated", "s": 2 }
+    ],
+    "da:teater|da:slik": [
+      { "da": "pause", "en": "interval", "why": "sweets are bought between acts", "s": 2 }
+    ],
+    "da:teater|da:hviske": [
+      { "da": "stille", "en": "quiet", "why": "audiences speak softly during shows", "s": 3 },
+      { "da": "publikum", "en": "audience", "why": "quiet speech among seated viewers", "s": 2 }
+    ],
+    "da:teater|da:interesse": [
+      { "da": "hobby", "en": "hobby", "why": "performing arts can be recreational", "s": 3 },
+      { "da": "drama", "en": "drama", "why": "a performing art people enjoy", "s": 2 }
+    ],
+    "da:teater|da:udsigt": [
+      { "da": "plads", "en": "seat", "why": "the seat determines what you see", "s": 2 }
+    ],
+    "da:teater|da:stiv": [
+      { "da": "skuespil", "en": "acting", "why": "acting can appear rigid", "s": 1 }
+    ],
+    "da:teater|da:kommune": [
+      { "da": "by", "en": "city", "why": "cities often operate cultural venues", "s": 2 }
+    ],
+    "da:teater|da:kultur": [
+      { "da": "kunst", "en": "art", "why": "a major performing art", "s": 3 },
+      { "da": "scene", "en": "stage", "why": "public art presented on stage", "s": 2 }
+    ],
+    "da:teater|da:regering": [
+      { "da": "støtte", "en": "funding", "why": "public money supports performing arts", "s": 2 }
+    ],
+    "da:teater|da:ordne": [
+      { "da": "arrangere", "en": "arrange", "why": "a performance must be organised", "s": 2 }
+    ],
+    "da:teater|da:skøn": [
+      { "da": "forestilling", "en": "show", "why": "a performance may be delightful", "s": 2 }
+    ],
+    "da:teater|da:fritid": [
+      { "da": "underholdning", "en": "entertainment", "why": "a leisure activity for audiences", "s": 3 },
+      { "da": "aften", "en": "evening", "why": "shows fill an evening off", "s": 2 }
+    ],
+    "da:teater|da:skrige": [
+      { "da": "drama", "en": "drama", "why": "actors may shout in dramatic scenes", "s": 2 }
+    ],
+    "da:underlig|da:hjerne": [
+      { "da": "tanke", "en": "thought", "why": "odd thoughts arise in the mind", "s": 2 }
+    ],
+    "da:underlig|da:hviske": [
+      { "da": "hemmelig", "en": "secret", "why": "secret speech can seem odd", "s": 2 }
+    ],
+    "da:underlig|da:interesse": [
+      { "da": "sær", "en": "unusual", "why": "a hobby can be unusual", "s": 2 }
+    ],
+    "da:underlig|da:bekymre": [
+      { "da": "følelse", "en": "feeling", "why": "unease can feel unfamiliar", "s": 1 }
+    ],
+    "da:underlig|da:stiv": [
+      { "da": "akavet", "en": "awkward", "why": "both describe unnatural behaviour", "s": 3 }
+    ],
+    "da:underlig|da:irritere": [
+      { "da": "adfærd", "en": "behaviour", "why": "odd behaviour can annoy", "s": 2 }
+    ],
+    "da:underlig|da:kultur": [
+      { "da": "fremmed", "en": "foreign", "why": "unfamiliar customs may seem odd", "s": 2 }
+    ],
+    "da:underlig|da:skøn": [
+      { "da": "overraskende", "en": "surprising", "why": "something surprising can be delightful", "s": 2 }
+    ],
+    "da:underlig|da:skrige": [
+      { "da": "chok", "en": "shock", "why": "a bizarre shock can cause shouting", "s": 2 }
+    ],
+    "da:hælde|da:smøre": [
+      { "da": "olie", "en": "oil", "why": "oil can be poured and spread", "s": 3 }
+    ],
+    "da:hælde|da:servere": [
+      { "da": "drik", "en": "drink", "why": "a drink is poured for guests", "s": 3 },
+      { "da": "glas", "en": "glass", "why": "liquid is poured before presentation", "s": 2 }
+    ],
+    "da:hælde|da:ryste": [
+      { "da": "flaske", "en": "bottle", "why": "a bottle is shaken then poured", "s": 3 }
+    ],
+    "da:hælde|da:kølig": [
+      { "da": "drik", "en": "drink", "why": "a cool drink is poured", "s": 3 }
+    ],
+    "da:hælde|da:fugtig": [
+      { "da": "vand", "en": "water", "why": "poured water makes things damp", "s": 3 }
+    ],
+    "da:hælde|da:opskrift": [
+      { "da": "blande", "en": "mix", "why": "instructions often require adding liquid", "s": 3 },
+      { "da": "køkken", "en": "kitchen", "why": "both occur during food preparation", "s": 2 }
+    ],
+    "da:hælde|da:klippe": [
+      { "da": "åbne", "en": "open", "why": "cut a carton before pouring", "s": 1 }
+    ],
+    "da:adresse|da:app": [
+      { "da": "kort", "en": "map", "why": "digital maps locate places", "s": 3 },
+      { "da": "telefon", "en": "phone", "why": "saved locations appear on phones", "s": 2 }
+    ],
+    "da:adresse|da:kalender": [
+      { "da": "møde", "en": "meeting", "why": "events record their location", "s": 2 }
+    ],
+    "da:adresse|da:skilt": [
+      { "da": "gade", "en": "street", "why": "street information appears on signs", "s": 3 },
+      { "da": "nummer", "en": "number", "why": "house numbers identify locations", "s": 3 }
+    ],
+    "da:adresse|da:aftale": [
+      { "da": "møde", "en": "meeting", "why": "an appointment needs a location", "s": 3 }
+    ],
+    "da:adresse|da:ring": [
+      { "da": "telefon", "en": "phone", "why": "contact details include calls and location", "s": 2 }
+    ],
+    "da:adresse|da:kommune": [
+      { "da": "bopæl", "en": "residence", "why": "residence determines the local authority", "s": 3 },
+      { "da": "by", "en": "town", "why": "a location belongs to a municipality", "s": 2 }
+    ],
+    "da:adresse|da:regering": [
+      { "da": "offentlig", "en": "public", "why": "official institutions have contact locations", "s": 1 }
+    ],
+    "da:adresse|da:pakke": [
+      { "da": "post", "en": "mail", "why": "mail needs a delivery location", "s": 3 },
+      { "da": "levering", "en": "delivery", "why": "parcels go to written locations", "s": 3 }
+    ],
+    "da:app|da:kalender": [
+      { "da": "telefon", "en": "phone", "why": "a digital planner runs here", "s": 3 },
+      { "da": "digital", "en": "digital", "why": "both are common digital tools", "s": 3 }
+    ],
+    "da:app|da:skilt": [
+      { "da": "ikon", "en": "icon", "why": "a visual symbol identifies both", "s": 2 }
+    ],
+    "da:app|da:kurv": [
+      { "da": "indkøb", "en": "shopping", "why": "online shopping uses a basket", "s": 3 }
+    ],
+    "da:app|da:diskutere": [
+      { "da": "chat", "en": "chat", "why": "digital conversation allows debate", "s": 3 }
+    ],
+    "da:app|da:interesse": [
+      { "da": "hobby", "en": "hobby", "why": "software can support a hobby", "s": 2 }
+    ],
+    "da:app|da:aftale": [
+      { "da": "booking", "en": "booking", "why": "software can arrange appointments", "s": 3 },
+      { "da": "kalender", "en": "calendar", "why": "digital calendars hold appointments", "s": 3 }
+    ],
+    "da:app|da:skuffe": [
+      { "da": "opbevaring", "en": "storage", "why": "both hold things for later", "s": 1 }
+    ],
+    "da:app|da:ring": [
+      { "da": "telefon", "en": "phone", "why": "phone software can make calls", "s": 3 }
+    ],
+    "da:app|da:irritere": [
+      { "da": "reklame", "en": "advertisement", "why": "digital adverts often annoy users", "s": 3 }
+    ],
+    "da:app|da:opskrift": [
+      { "da": "madlavning", "en": "cooking", "why": "software provides cooking instructions", "s": 3 }
+    ],
+    "da:app|da:kommune": [
+      { "da": "borger", "en": "citizen", "why": "public software serves local residents", "s": 2 }
+    ],
+    "da:app|da:kultur": [
+      { "da": "museum", "en": "museum", "why": "museum software guides cultural visits", "s": 1 }
+    ],
+    "da:app|da:tålmodig": [
+      { "da": "vente", "en": "wait", "why": "slow software requires patience", "s": 2 }
+    ],
+    "da:app|da:regering": [
+      { "da": "offentlig", "en": "public", "why": "official software provides public services", "s": 2 }
+    ],
+    "da:app|da:ordne": [
+      { "da": "værktøj", "en": "tool", "why": "software helps organise tasks", "s": 3 }
+    ],
+    "da:app|da:pakke": [
+      { "da": "levering", "en": "delivery", "why": "software tracks a parcel", "s": 2 }
+    ],
+    "da:app|da:fritid": [
+      { "da": "underholdning", "en": "entertainment", "why": "software fills leisure time", "s": 3 },
+      { "da": "spil", "en": "game", "why": "a common leisure application", "s": 3 }
+    ],
+    "da:app|da:klippe": [
+      { "da": "video", "en": "video", "why": "editing software trims recordings", "s": 3 }
+    ],
+    "da:app|da:venskab": [
+      { "da": "social", "en": "social", "why": "social software connects friends", "s": 3 }
+    ],
+    "da:app|da:ægteskab": [
+      { "da": "dating", "en": "dating", "why": "digital dating can lead to marriage", "s": 2 }
+    ],
+    "da:smøre|da:servere": [
+      { "da": "brød", "en": "bread", "why": "bread is spread and presented", "s": 3 },
+      { "da": "mad", "en": "food", "why": "two actions preparing a meal", "s": 2 }
+    ],
+    "da:smøre|da:kurv": [
+      { "da": "picnic", "en": "picnic", "why": "sandwiches are packed in a basket", "s": 2 }
+    ],
+    "da:smøre|da:slik": [
+      { "da": "chokolade", "en": "chocolate", "why": "a sweet paste can be spread", "s": 3 }
+    ],
+    "da:smøre|da:glat": [
+      { "da": "olie", "en": "oil", "why": "lubrication creates a smooth surface", "s": 3 },
+      { "da": "creme", "en": "cream", "why": "cream spreads smoothly", "s": 2 }
+    ],
+    "da:smøre|da:glide": [
+      { "da": "olie", "en": "oil", "why": "lubrication helps things slide", "s": 3 },
+      { "da": "ski", "en": "ski", "why": "wax helps skis move smoothly", "s": 3 }
+    ],
+    "da:smøre|da:skuffe": [
+      { "da": "olie", "en": "oil", "why": "lubrication helps a drawer move", "s": 2 }
+    ],
+    "da:smøre|da:stiv": [
+      { "da": "creme", "en": "cream", "why": "cream softens stiff skin", "s": 2 }
+    ]
+  }
+}

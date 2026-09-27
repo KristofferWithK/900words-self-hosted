@@ -1,0 +1,151 @@
+{
+  "0": {
+    "cityIndex": 0,
+    "titleDa": "Morgen, by og tog",
+    "titleEn": "Manhã, cidade e comboio",
+    "chapters": [
+      {
+        "titleDa": "Huset",
+        "titleEn": "A casa",
+        "sentences": [
+          {
+            "da": "Solen står op over Sønderborg, og en fugl synger i et stort træ.",
+            "en": "O sol nasce sobre Sønderborg, e um pássaro canta numa árvore grande."
+          },
+          {
+            "da": "Huset er hvidt, og døren er rød.",
+            "en": "A casa é branca, e a porta é vermelha."
+          },
+          {
+            "da": "Der er et lille køkken med et bord, en stol og en gammel lampe.",
+            "en": "Há uma cozinha pequena com uma mesa, uma cadeira e uma lâmpada velha."
+          },
+          {
+            "da": "Mor laver mad, mens far drikker kaffe ved vinduet.",
+            "en": "A mãe está a fazer a comida, enquanto o pai bebe café à janela."
+          },
+          {
+            "da": "Barnet spiser et æble og drikker mælk.",
+            "en": "A criança come uma maçã e bebe leite."
+          },
+          {
+            "da": "På bordet står ost, smør, salt og et æg.",
+            "en": "Na mesa há queijo, manteiga, sal e um ovo."
+          },
+          {
+            "da": "Hunden løber ud ad døren, mens en kat sover stadig på en seng.",
+            "en": "O cão sai a correr pela porta, enquanto um gato ainda dorme numa cama."
+          },
+          {
+            "da": "Deres værelse er lille, men vinduet er stort.",
+            "en": "O quarto deles é pequeno, mas a janela é grande."
+          },
+          {
+            "da": "Pigen har en blomst i hånden, og drengen har mistet en tand.",
+            "en": "A menina tem uma flor na mão, e o rapaz perdeu um dente."
+          },
+          {
+            "da": "Hun har langt hår, en lille næse og en glad mund.",
+            "en": "Ela tem cabelo comprido, um nariz pequeno e uma boca alegre."
+          },
+          {
+            "da": "Han lukker det ene øje og sætter en hat på hovedet.",
+            "en": "Ele fecha um olho e põe um chapéu na cabeça."
+          },
+          {
+            "da": "Katten sidder ved hans ben, mens han har ondt i en fod.",
+            "en": "O gato está sentado junto à perna dele, enquanto ele tem dores num pé."
+          },
+          {
+            "da": "Drengen har en bold under armen, og faren drikker en øl.",
+            "en": "O rapaz tem uma bola debaixo do braço, e o pai bebe uma cerveja."
+          },
+          {
+            "da": "Pigen peger med en finger mod et sort fly på en klar himmel.",
+            "en": "A menina aponta com um dedo para um avião preto num céu limpo."
+          },
+          {
+            "da": "Hjertet banker, fordi familien skal rejse i dag.",
+            "en": "O coração dela bate, porque a família vai viajar hoje."
+          }
+        ]
+      },
+      {
+        "titleDa": "Byen",
+        "titleEn": "A cidade",
+        "sentences": [
+          {
+            "da": "De går ned ad en gade midt i en gammel by.",
+            "en": "Eles descem uma rua no meio de uma cidade velha."
+          },
+          {
+            "da": "En ung kvinde og en gammel mand venter ved en kirke.",
+            "en": "Uma mulher jovem e um homem velho esperam junto a uma igreja."
+          },
+          {
+            "da": "I en butik køber de kød, fisk og grøntsager.",
+            "en": "Numa loja eles compram carne, peixe e legumes."
+          },
+          {
+            "da": "De tager også en kartoffel, sukker og en stor kage.",
+            "en": "Eles também levam uma batata, açúcar e um bolo grande."
+          },
+          {
+            "da": "Far henter penge i en bank, fordi han vil købe en bog.",
+            "en": "O pai vai buscar dinheiro a um banco, porque quer comprar um livro."
+          },
+          {
+            "da": "Mor arbejder på et hospital, men i dag har hun fri.",
+            "en": "A mãe trabalha num hospital, mas hoje está de folga."
+          },
+          {
+            "da": "Hendes bror er lærer på en skole.",
+            "en": "O irmão dela é professor numa escola."
+          },
+          {
+            "da": "Hans søster kører en rød bil, og hendes søn har en cykel.",
+            "en": "A irmã dele conduz um carro vermelho, e o filho dela tem uma bicicleta."
+          },
+          {
+            "da": "En hest står i en park ved vandet.",
+            "en": "Um cavalo está parado num parque, junto à água."
+          },
+          {
+            "da": "Deres datter og en ven læser en bog, hvis det regner.",
+            "en": "A filha deles e um amigo leem um livro, se chover."
+          },
+          {
+            "da": "En aften i sidste uge faldt der sne over hele byen.",
+            "en": "Uma noite da semana passada caiu neve sobre toda a cidade."
+          }
+        ]
+      },
+      {
+        "titleDa": "Toget",
+        "titleEn": "O comboio",
+        "sentences": [
+          {
+            "da": "Nu venter et tog, og en bus kører forbi.",
+            "en": "Agora um comboio está à espera, e um autocarro passa."
+          },
+          {
+            "da": "Fra vinduet ser de stranden og et stort hav.",
+            "en": "Da janela eles veem a praia e um mar grande."
+          },
+          {
+            "da": "Det bliver nat, og man kan se månen og en klar stjerne.",
+            "en": "A noite cai, e vê-se a lua e uma estrela brilhante."
+          },
+          {
+            "da": "De elsker at rejse, selvom rejsen er lang.",
+            "en": "Eles adoram viajar, embora a viagem seja longa."
+          },
+          {
+            "da": "Casey er glad, fordi kufferten er fuld af ord.",
+            "en": "A Casey está feliz, porque a mala está cheia de palavras."
+          }
+        ]
+      }
+    ]
+  }
+}

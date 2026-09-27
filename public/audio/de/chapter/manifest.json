@@ -1,0 +1,24 @@
+{
+  "entries": {
+    "chapter-01": {
+      "id": "chapter-01",
+      "text": "Das ist ein Tisch.\n\nDer Tisch ist hier.\n\nDas ist eine Tür.\n\nWo ist die Tür?\n\nDas ist ein Haus.\n\nDas Haus ist klein.",
+      "stamp": "c187b648cd3d4129",
+      "bytes": 56064,
+      "at": "2026-09-26T20:55:55.027Z",
+      "sourceHash": "667ace701bedf52af9666635e022d7cfc1b241ebe3212e3f63d250e235226ac0"
+    },
+    "lesson-flensburg-du-sie": {
+      "id": "lesson-flensburg-du-sie",
+      "text": "Guten Tag! Wie heißen Sie?\n\nIch heiße Mia. Und Sie?\n\nHallo! Wie heißt du?\n\nEntschuldigung, können Sie mir helfen?\n\nIch komme aus Kanada.\n\nAuf Wiedersehen!",
+      "stamp": "b3c15005d78f6380",
+      "bytes": 72096,
+      "at": "2026-09-26T20:55:58.002Z",
+      "sourceHash": "e13056e843c0d65a7b54ecbb53b66410ff761122ad2625f007bb8d7db385684a"
+    }
+  },
+  "provider": "google",
+  "voice": "de-DE-Chirp3-HD-Leda",
+  "rate": 1,
+  "lang": "de"
+}

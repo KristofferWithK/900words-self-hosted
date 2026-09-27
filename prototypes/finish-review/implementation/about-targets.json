@@ -1,0 +1,945 @@
+{
+  "version": 1,
+  "base": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82",
+  "language": "da",
+  "city": 0,
+  "kind": "about",
+  "rows": [
+    {
+      "targetId": "ledger:hej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Hi; hello; also bye.",
+      "usageEn": "An everyday informal greeting. You can also use hej when leaving; hej hej is a common goodbye.",
+      "example": {
+        "da": "Hej, Anna.",
+        "en": "Hi, Anna."
+      },
+      "targetSpan": {
+        "text": "Hej",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:goddag",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Hello; good day.",
+      "usageEn": "A daytime greeting that is more formal than hej. Use it when greeting someone politely.",
+      "example": {
+        "da": "Goddag, Peter.",
+        "en": "Hello, Peter."
+      },
+      "targetSpan": {
+        "text": "Goddag",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:godmorgen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Good morning.",
+      "usageEn": "Use this greeting in the morning, including when someone has just got up.",
+      "example": {
+        "da": "Godmorgen, alle sammen.",
+        "en": "Good morning, everyone."
+      },
+      "targetSpan": {
+        "text": "Godmorgen",
+        "start": 0,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:godnat",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Good night.",
+      "usageEn": "Say this when someone is going to bed or when parting for the night. It is not a greeting on arrival.",
+      "example": {
+        "da": "Godnat, mor.",
+        "en": "Good night, Mum."
+      },
+      "targetSpan": {
+        "text": "Godnat",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:hallo",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 2,
+      "meaningEn": "Hello?; hello!",
+      "usageEn": "Often used to answer the phone, check whether someone can hear you, or attract attention. Calling it out can sound impatient.",
+      "example": {
+        "da": "Hallo, er du der?",
+        "en": "Hello, are you there?"
+      },
+      "targetSpan": {
+        "text": "Hallo",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:velkommen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Welcome.",
+      "usageEn": "Use it to greet someone arriving. Velkommen til introduces the place or event you are welcoming them to.",
+      "example": {
+        "da": "Velkommen til Danmark.",
+        "en": "Welcome to Denmark."
+      },
+      "targetSpan": {
+        "text": "Velkommen",
+        "start": 0,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:farvel",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Goodbye.",
+      "usageEn": "Use it when parting. Hej hej is a more casual alternative.",
+      "example": {
+        "da": "Farvel, Anna.",
+        "en": "Goodbye, Anna."
+      },
+      "targetSpan": {
+        "text": "Farvel",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Thank you; please in a short request.",
+      "usageEn": "On its own, tak expresses thanks. After an order or short request it often corresponds to please. Tak for names what you are thanking someone for.",
+      "example": {
+        "da": "Tak for hjælpen.",
+        "en": "Thank you for your help."
+      },
+      "targetSpan": {
+        "text": "Tak",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:undskyld",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Excuse me; sorry.",
+      "usageEn": "Use it to get someone's attention politely or to apologise. Context tells the listener which meaning you intend.",
+      "example": {
+        "da": "Undskyld, er du Anna?",
+        "en": "Excuse me, are you Anna?"
+      },
+      "targetSpan": {
+        "text": "Undskyld",
+        "start": 0,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:okay",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Okay; all right.",
+      "usageEn": "Use it to agree or acknowledge something. It can also describe something as acceptable or someone as all right.",
+      "example": {
+        "da": "Okay, jeg kommer.",
+        "en": "Okay, I am coming."
+      },
+      "targetSpan": {
+        "text": "Okay",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 2,
+      "meaningEn": "Yes.",
+      "usageEn": "Use it to confirm or agree. Ja tak accepts an offer politely and often means yes, please.",
+      "example": {
+        "da": "Ja tak.",
+        "en": "Yes, please."
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "No.",
+      "usageEn": "Use it to give a negative answer or refuse. Nej tak makes a refusal polite.",
+      "example": {
+        "da": "Nej tak, jeg er mæt.",
+        "en": "No thanks, I am full."
+      },
+      "targetSpan": {
+        "text": "Nej",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Again.",
+      "usageEn": "Use it for something repeated or happening once more. It often follows the action or its object in a short request.",
+      "example": {
+        "da": "Sig det igen.",
+        "en": "Say it again."
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 8,
+        "end": 12
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 2,
+      "meaningEn": "A little; a bit.",
+      "usageEn": "Before a substance, lidt gives a small quantity. With an adjective or action, it gives a small degree or extent. For a few individual objects, use nogle få.",
+      "example": {
+        "da": "Jeg er lidt træt.",
+        "en": "I am a little tired."
+      },
+      "targetSpan": {
+        "text": "lidt",
+        "start": 7,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "A; an; one, with common-gender nouns.",
+      "usageEn": "Use en before a singular common-gender noun. Learn the article with the noun. In a counting context, en can mean one.",
+      "example": {
+        "da": "Jeg har en hund.",
+        "en": "I have a dog."
+      },
+      "targetSpan": {
+        "text": "en",
+        "start": 8,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "A; an; one, with neuter nouns.",
+      "usageEn": "Use et before a singular neuter noun. Learn it together with the noun; English a and an do not tell you which Danish article to choose.",
+      "example": {
+        "da": "Jeg har et æble.",
+        "en": "I have an apple."
+      },
+      "targetSpan": {
+        "text": "et",
+        "start": 8,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:den",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "It; that one; that before a common-gender noun.",
+      "usageEn": "Den can refer back to a common-gender noun. Before a noun it can point out which one you mean; den plus an adjective can also mean the one with that quality.",
+      "example": {
+        "da": "Den er min.",
+        "en": "It is mine."
+      },
+      "targetSpan": {
+        "text": "Den",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:det",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "It; that; sometimes this in an introduction.",
+      "usageEn": "Use det to identify something or refer back to a neuter noun or a whole situation. Det er can introduce any kind of thing, even an en-noun. In weather or time expressions, English often uses it.",
+      "example": {
+        "da": "Det er en bog.",
+        "en": "That is a book."
+      },
+      "targetSpan": {
+        "text": "Det",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:her",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Here.",
+      "usageEn": "Use her for a place near the speaker or the present location. Her er can introduce someone or something you are showing or handing over.",
+      "example": {
+        "da": "Jeg bor her.",
+        "en": "I live here."
+      },
+      "targetSpan": {
+        "text": "her",
+        "start": 8,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:der",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "There; the introductory there in there is or there are.",
+      "usageEn": "Der can point to a place. In der er plus a new thing, it introduces existence or availability without pointing to a location. Context and speech stress help distinguish these uses.",
+      "example": {
+        "da": "Der er en bus.",
+        "en": "There is a bus."
+      },
+      "targetSpan": {
+        "text": "Der",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Where; how in some combinations.",
+      "usageEn": "On its own in a location question, hvor asks where. With an adjective, as in hvor stor, it asks about degree or size. Begin with the useful location pattern Hvor er ...?",
+      "example": {
+        "da": "Hvor bor du?",
+        "en": "Where do you live?"
+      },
+      "targetSpan": {
+        "text": "Hvor",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "What.",
+      "usageEn": "Use hvad to ask about a thing, an action, or information. Hvad hedder ...? asks what someone or something is called.",
+      "example": {
+        "da": "Hvad er det?",
+        "en": "What is that?"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Who; whom.",
+      "usageEn": "Use hvem to ask which person. It can ask who does something or who an action concerns.",
+      "example": {
+        "da": "Hvem er du?",
+        "en": "Who are you?"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:kan",
+      "targetStage": {
+        "city": 0,
+        "use": "preview-as-chunk"
+      },
+      "version": 1,
+      "meaningEn": "Can, as heard in familiar request chunks.",
+      "usageEn": "In City 1, recognise kan inside fixed requests such as Kan du sige det igen? and Kan du hjælpe mig? Practise the whole request; making new modal sentences is a later step.",
+      "example": {
+        "da": "Kan du hjælpe mig?",
+        "en": "Can you help me?"
+      },
+      "targetSpan": {
+        "text": "Kan",
+        "start": 0,
+        "end": 3
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:i",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 2,
+      "meaningEn": "In; also you, plural, when written I.",
+      "usageEn": "Lowercase i is a preposition, often meaning in. Uppercase I addresses more than one person and means you. A sentence-initial I may be either; use the sentence structure and meaning to decide.",
+      "example": {
+        "da": "I er her.",
+        "en": "You are here (plural)."
+      },
+      "targetSpan": {
+        "text": "I",
+        "start": 0,
+        "end": 1
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:skål",
+      "targetStage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "version": 1,
+      "meaningEn": "Cheers!",
+      "usageEn": "Recognise this toast when people raise their drinks. The same spelling can also mean a bowl; that noun is a different use. This entry is receptive in City 1.",
+      "example": {
+        "da": "Skål, alle sammen!",
+        "en": "Cheers, everyone!"
+      },
+      "targetSpan": {
+        "text": "Skål",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:om",
+      "targetStage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "version": 1,
+      "meaningEn": "About; also in other time and position expressions.",
+      "usageEn": "Recognise om when something is about a topic. Its meaning depends on the phrase; for example, om lidt means in a little while. City 1 asks for recognition, not independent mastery of its uses.",
+      "example": {
+        "da": "Bogen er om dyr.",
+        "en": "The book is about animals."
+      },
+      "targetSpan": {
+        "text": "om",
+        "start": 9,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "ledger:hen",
+      "targetStage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "version": 1,
+      "meaningEn": "Over; towards a place.",
+      "usageEn": "Recognise hen with movement towards a destination, often in hen til. It marks direction rather than being at a place. This is receptive in City 1.",
+      "example": {
+        "da": "Gå hen til døren.",
+        "en": "Go over to the door."
+      },
+      "targetSpan": {
+        "text": "hen",
+        "start": 3,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-name",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "My name is ...",
+      "usageEn": "Use Jeg hedder followed by your name to introduce yourself. Learn it as a whole introduction; Danish does not use er in this pattern.",
+      "example": {
+        "da": "Jeg hedder Anna.",
+        "en": "My name is Anna."
+      },
+      "targetSpan": {
+        "text": "Jeg hedder Anna",
+        "start": 0,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-origin",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "I come from ...; I am from ...",
+      "usageEn": "Use Jeg kommer fra followed by a country or place to say where you are from in an introduction.",
+      "example": {
+        "da": "Jeg kommer fra Danmark.",
+        "en": "I am from Denmark."
+      },
+      "targetSpan": {
+        "text": "Jeg kommer fra Danmark",
+        "start": 0,
+        "end": 22
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "I do not understand.",
+      "usageEn": "Use this whole sentence when you have not understood someone. It lets the other person know that you need help or a clearer explanation.",
+      "example": {
+        "da": "Jeg forstår ikke.",
+        "en": "I do not understand."
+      },
+      "targetSpan": {
+        "text": "Jeg forstår ikke.",
+        "start": 0,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-repeat",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Can you say that again?",
+      "usageEn": "Use this whole question to ask someone to repeat what they said. Det refers to what you just heard. Learn kan as part of the request at this stage.",
+      "example": {
+        "da": "Kan du sige det igen?",
+        "en": "Can you say that again?"
+      },
+      "targetSpan": {
+        "text": "Kan du sige det igen?",
+        "start": 0,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-slower",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "A little more slowly, please.",
+      "usageEn": "Use this short request when someone is speaking too fast. Lidt softens the request, langsommere means more slowly, and tak makes it polite.",
+      "example": {
+        "da": "Lidt langsommere, tak.",
+        "en": "A little more slowly, please."
+      },
+      "targetSpan": {
+        "text": "Lidt langsommere, tak.",
+        "start": 0,
+        "end": 22
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-meaning",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "What does ... mean?",
+      "usageEn": "Use Hvad betyder followed by the word or thing you want explained. Det can stand for something just heard or seen.",
+      "example": {
+        "da": "Hvad betyder det?",
+        "en": "What does that mean?"
+      },
+      "targetSpan": {
+        "text": "Hvad betyder det?",
+        "start": 0,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Where is ...?; where are ...?",
+      "usageEn": "Use Hvor er followed by the person or thing you want to locate. Er stays the same for one or more than one.",
+      "example": {
+        "da": "Hvor er min mor?",
+        "en": "Where is my mum?"
+      },
+      "targetSpan": {
+        "text": "Hvor er min mor?",
+        "start": 0,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "There is ...; there are ...; is there ...?; are there ...?",
+      "usageEn": "Use Der er to introduce something that exists or is available. Use Er der ...? to ask. This introductory der does not itself point to a place. Er stays the same with singular and plural.",
+      "example": {
+        "da": "Er der kaffe?",
+        "en": "Is there any coffee?"
+      },
+      "targetSpan": {
+        "text": "Er der kaffe?",
+        "start": 0,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-chunk-immediate-help",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 1,
+      "meaningEn": "Help!; can you help me?; call 112.",
+      "usageEn": "These are separate ready-made calls for help. Hjælp! is an urgent call; Kan du hjælpe mig? asks a person for help; Ring 112. asks someone to call the emergency number. Practise each as a whole chunk.",
+      "example": {
+        "da": "Hjælp!",
+        "en": "Help!"
+      },
+      "targetSpan": {
+        "text": "Hjælp!",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-word-uh",
+      "targetStage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "version": 1,
+      "meaningEn": "Uh; um.",
+      "usageEn": "Recognise øh as a hesitation sound while someone thinks or searches for a word. It is not part of the sentence's main message and is receptive in City 1.",
+      "example": {
+        "da": "Øh, jeg ved det ikke.",
+        "en": "Um, I do not know."
+      },
+      "targetSpan": {
+        "text": "Øh",
+        "start": 0,
+        "end": 2
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    },
+    {
+      "targetId": "supplemental:da-word-thing",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "version": 2,
+      "meaningEn": "A thing; the thing.",
+      "usageEn": "En ting means one thing and tingen means the thing, both singular. Ting can also be plural in other contexts. Use this general noun when you do not know or need a more specific name.",
+      "example": {
+        "da": "Jeg mangler en ting.",
+        "en": "I am missing one thing."
+      },
+      "targetSpan": {
+        "text": "ting",
+        "start": 15,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "32c7a290ec8e8363f19ca67f2497089e81da8b86ebdb45b60c36a210199545ef"
+      }
+    }
+  ]
+}

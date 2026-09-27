@@ -1,0 +1,18 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "authored-pairs.tsv": "cadd87592c0ae50918832113772b5a5cc9c201eecb66c19de372505673d48eac",
+    "board-sentences.json": "fb2da6c6f27805d4cf7deaf70bf3646054c37a6efc35e2d0f66580dd9a9ae216",
+    "boundary-check.json": "1a0d2e1d45253b7fdd605b3155473551dd0bbca407534d6129dcc98e02a3378a",
+    "build.mjs": "8004d517fe2ae1a062d67814ab3f1b9e22904f115fdaad455289b2c4e503cf59",
+    "editorial.md": "4f1151470c4a37e15ae69c07ab985e7e3109f727b97081e60c65b8f703d9bdcd",
+    "original-acceptance.log": "8228690bb7c97b62a7a068c357ebfc58b3f30b77b48857506a2c1b82b629cb37",
+    "original-tests.log": "8eb0a9552ef4c36bd223d029862a3646c20721a7273da01f2b4d9198eb13ab8b",
+    "review-sentences.json": "86185d2793a7243f6a78efca9f6b36168323f21c5d8dc4071150ada8e52d6f85",
+    "scope.json": "f2cb1a85802c100e6440c43e4883caa6285c697cae9870500b9dc8f2553e83bf",
+    "tests.log": "1a6277f91509b20ff4538a1836d5509b10deafb3520109935b73032750e3ef8e",
+    "validate.mjs": "7f0ddf6cc34155df0106d599975ab06ad9ad06b22ca4b2a74ff23c67597da96b",
+    "validate.test.mjs": "e599f6dc3e6d7ddc54c22c360b4013051b3fc2e1766d01a1ec29c56187556e50",
+    "validation.json": "cc7b26dc1f47e08e9400d95470dabb5d717027141e4a302bd664c073391717ee"
+  }
+}

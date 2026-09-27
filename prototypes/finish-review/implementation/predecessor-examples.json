@@ -1,0 +1,502 @@
+[
+  {
+    "id": "da:mor",
+    "exampleDa": "“Hej, jeg hedder Anna,” siger min mor.",
+    "exampleEn": "“Hi, my name is Anna,” says my mother."
+  },
+  {
+    "id": "da:far",
+    "exampleDa": "Min far bruger goddag, når han møder en fremmed.",
+    "exampleEn": "My father uses “hello” when he meets a stranger."
+  },
+  {
+    "id": "da:barn",
+    "exampleDa": "“Godmorgen,” siger barnet. “Jeg forstår ikke.”",
+    "exampleEn": "“Good morning,” says the child. “I do not understand.”"
+  },
+  {
+    "id": "da:hund",
+    "exampleDa": "Barnet siger “godnat” til hunden.",
+    "exampleEn": "The child says “good night” to the dog."
+  },
+  {
+    "id": "da:kat",
+    "exampleDa": "“Hallo, hvor er katten?” spørger hun.",
+    "exampleEn": "“Hello, where is the cat?” she asks."
+  },
+  {
+    "id": "da:hus",
+    "exampleDa": "“Velkommen! Der er et hus her.”",
+    "exampleEn": "“Welcome! There is a house here.”"
+  },
+  {
+    "id": "da:bord",
+    "exampleDa": "Hun siger farvel ved bordet.",
+    "exampleEn": "She says goodbye at the table."
+  },
+  {
+    "id": "da:seng",
+    "exampleDa": "Sengen er redt, og nu er det tid til at sige godnat.",
+    "exampleEn": "The bed is made, and now it is time to say good night."
+  },
+  {
+    "id": "da:mad",
+    "exampleDa": "“Goddag. Maden er klar.”",
+    "exampleEn": "“Hello. The food is ready.”"
+  },
+  {
+    "id": "da:æble",
+    "exampleDa": "“Godmorgen. Vil du have et æble?”",
+    "exampleEn": "“Good morning. Would you like an apple?”"
+  },
+  {
+    "id": "da:mælk",
+    "exampleDa": "Barnet drikker mælk og siger “godnat”.",
+    "exampleEn": "The child drinks milk and says “good night.”"
+  },
+  {
+    "id": "da:vand",
+    "exampleDa": "“Hallo, må jeg få vand?”",
+    "exampleEn": "“Hello, may I have some water?”"
+  },
+  {
+    "id": "da:kaffe",
+    "exampleDa": "“Velkommen. Kaffen er klar.”",
+    "exampleEn": "“Welcome. The coffee is ready.”"
+  },
+  {
+    "id": "da:øje",
+    "exampleDa": "Hun vinker farvel med tårer i øjnene.",
+    "exampleEn": "She waves goodbye with tears in her eyes."
+  },
+  {
+    "id": "da:hånd",
+    "exampleDa": "“Hej,” siger hun og giver mig hånden.",
+    "exampleEn": "“Hi,” she says and shakes my hand."
+  },
+  {
+    "id": "da:dør",
+    "exampleDa": "Kom ind ad døren. Velkommen!",
+    "exampleEn": "Come in through the door. Welcome!"
+  },
+  {
+    "id": "da:vindue",
+    "exampleDa": "“Godmorgen,” siger hun og åbner vinduet.",
+    "exampleEn": "“Good morning,” she says and opens the window."
+  },
+  {
+    "id": "da:stol",
+    "exampleDa": "Sæt stolen her. Er det okay?",
+    "exampleEn": "Put the chair here. Is that okay?"
+  },
+  {
+    "id": "da:køkken",
+    "exampleDa": "“Hallo,” råber han fra køkkenet.",
+    "exampleEn": "“Hello,” he calls from the kitchen."
+  },
+  {
+    "id": "da:mund",
+    "exampleDa": "“Velkommen,” siger hun med et smil om munden.",
+    "exampleEn": "“Welcome,” she says with a smile on her lips."
+  },
+  {
+    "id": "da:hoved",
+    "exampleDa": "Hun siger farvel og nikker med hovedet.",
+    "exampleEn": "She says goodbye and nods her head."
+  },
+  {
+    "id": "da:mand",
+    "exampleDa": "“Hej, jeg hedder Bo,” siger manden.",
+    "exampleEn": "“Hi, my name is Bo,” says the man."
+  },
+  {
+    "id": "da:kvinde",
+    "exampleDa": "“Goddag,” siger kvinden ved døren.",
+    "exampleEn": "“Hello,” says the woman by the door."
+  },
+  {
+    "id": "da:pige",
+    "exampleDa": "Pigen siger “godmorgen” til sin mor.",
+    "exampleEn": "The girl says “good morning” to her mother."
+  },
+  {
+    "id": "da:dreng",
+    "exampleDa": "Drengen siger “godnat” og lukker bogen.",
+    "exampleEn": "The boy says “good night” and closes the book."
+  },
+  {
+    "id": "da:bror",
+    "exampleDa": "“Hallo, jeg kommer fra Aarhus,” siger min bror.",
+    "exampleEn": "“Hello, I come from Aarhus,” says my brother."
+  },
+  {
+    "id": "da:søster",
+    "exampleDa": "“Velkommen,” siger min søster.",
+    "exampleEn": "“Welcome,” says my sister."
+  },
+  {
+    "id": "da:rød",
+    "exampleDa": "Hun vinker farvel med et rødt tørklæde.",
+    "exampleEn": "She waves goodbye with a red scarf."
+  },
+  {
+    "id": "da:hvid",
+    "exampleDa": "“Hej,” står der på det hvide skilt.",
+    "exampleEn": "“Hi” is written on the white sign."
+  },
+  {
+    "id": "da:sort",
+    "exampleDa": "Ejeren går med den sorte hund hen til mig og siger goddag.",
+    "exampleEn": "The owner walks over to me with the black dog and says hello."
+  },
+  {
+    "id": "da:ost",
+    "exampleDa": "“Godmorgen. Er der ost?”",
+    "exampleEn": "“Good morning. Is there any cheese?”"
+  },
+  {
+    "id": "da:æg",
+    "exampleDa": "Efter at hun har sagt godnat, lægger hun æggene i køleskabet.",
+    "exampleEn": "After saying good night, she puts the eggs in the fridge."
+  },
+  {
+    "id": "da:kød",
+    "exampleDa": "“Hallo, jeg spiser ikke kød,” siger han.",
+    "exampleEn": "“Hello, I do not eat meat,” he says."
+  },
+  {
+    "id": "da:fisk",
+    "exampleDa": "“Velkommen. Vi har fisk i dag.”",
+    "exampleEn": "“Welcome. We have fish today.”"
+  },
+  {
+    "id": "da:spise",
+    "exampleDa": "Vi spiser og siger farvel bagefter.",
+    "exampleEn": "We eat and say goodbye afterwards."
+  },
+  {
+    "id": "da:drikke",
+    "exampleDa": "“Hej,” siger hun og drikker vand.",
+    "exampleEn": "“Hi,” she says and drinks water."
+  },
+  {
+    "id": "da:øl",
+    "exampleDa": "“Goddag. Skål!” siger han med en øl.",
+    "exampleEn": "“Hello. Cheers!” he says with a beer."
+  },
+  {
+    "id": "da:sol",
+    "exampleDa": "“Godmorgen,” siger hun til solen.",
+    "exampleEn": "“Good morning,” she says to the sun."
+  },
+  {
+    "id": "da:træ",
+    "exampleDa": "De siger “godnat” under træet.",
+    "exampleEn": "They say “good night” under the tree."
+  },
+  {
+    "id": "da:blomst",
+    "exampleDa": "“Hallo,” siger hun og giver mig en blomst.",
+    "exampleEn": "“Hello,” she says and gives me a flower."
+  },
+  {
+    "id": "da:fugl",
+    "exampleDa": "Ved fuglehuset siger guiden: “Velkommen.”",
+    "exampleEn": "At the aviary, the guide says, “Welcome.”"
+  },
+  {
+    "id": "da:hest",
+    "exampleDa": "Hun siger farvel til hesten.",
+    "exampleEn": "She says goodbye to the horse."
+  },
+  {
+    "id": "da:bil",
+    "exampleDa": "Bilisten siger goddag og venter ved bilen.",
+    "exampleEn": "The driver says hello and waits by the car."
+  },
+  {
+    "id": "da:by",
+    "exampleDa": "“Tak. Jeg kommer fra en lille by.”",
+    "exampleEn": "“Thank you. I come from a small town.”"
+  },
+  {
+    "id": "da:skole",
+    "exampleDa": "“Tak,” siger barnet i skolen.",
+    "exampleEn": "“Thank you,” says the child at school."
+  },
+  {
+    "id": "da:bog",
+    "exampleDa": "“Tak. Hvad betyder ordet i bogen?”",
+    "exampleEn": "“Thank you. What does the word in the book mean?”"
+  },
+  {
+    "id": "da:ben",
+    "exampleDa": "“Tak. Kan du hjælpe mig? Mit ben gør ondt.”",
+    "exampleEn": "“Thank you. Can you help me? My leg hurts.”"
+  },
+  {
+    "id": "da:fod",
+    "exampleDa": "“Tak,” siger hun og peger på sin fod.",
+    "exampleEn": "“Thank you,” she says and points to her foot."
+  },
+  {
+    "id": "da:arm",
+    "exampleDa": "“Undskyld, min arm gør ondt.”",
+    "exampleEn": "“Excuse me, my arm hurts.”"
+  },
+  {
+    "id": "da:finger",
+    "exampleDa": "“Undskyld, kan du hjælpe mig? Min finger bløder.”",
+    "exampleEn": "“Excuse me, can you help me? My finger is bleeding.”"
+  },
+  {
+    "id": "da:næse",
+    "exampleDa": "“Undskyld,” siger hun og tørrer næsen.",
+    "exampleEn": "“Excuse me,” she says and wipes her nose."
+  },
+  {
+    "id": "da:tand",
+    "exampleDa": "“Undskyld, hvor er tandlægen?”",
+    "exampleEn": "“Excuse me, where is the dentist?”"
+  },
+  {
+    "id": "da:hår",
+    "exampleDa": "“Undskyld, er det dit hår?”",
+    "exampleEn": "“Excuse me, is that your hair?”"
+  },
+  {
+    "id": "da:hjerte",
+    "exampleDa": "“Undskyld, mit hjerte banker hurtigt.”",
+    "exampleEn": "“Excuse me, my heart is beating fast.”"
+  },
+  {
+    "id": "da:dag",
+    "exampleDa": "“Okay, det er en god dag.”",
+    "exampleEn": "“Okay, it is a good day.”"
+  },
+  {
+    "id": "da:nat",
+    "exampleDa": "“Okay, vi ses i nat.”",
+    "exampleEn": "“Okay, see you tonight.”"
+  },
+  {
+    "id": "da:aften",
+    "exampleDa": "I aften siger vi skål ved bordet.",
+    "exampleEn": "This evening we say cheers at the table."
+  },
+  {
+    "id": "da:uge",
+    "exampleDa": "“Okay, vi ses igen om en uge.”",
+    "exampleEn": "“Okay, see you again in a week.”"
+  },
+  {
+    "id": "da:stor",
+    "exampleDa": "“Okay, huset er meget stort.”",
+    "exampleEn": "“Okay, the house is very big.”"
+  },
+  {
+    "id": "da:lille",
+    "exampleDa": "“Okay, den lille hund er her.”",
+    "exampleEn": "“Okay, the small dog is here.”"
+  },
+  {
+    "id": "da:gammel",
+    "exampleDa": "“Ja, min farfar er gammel.”",
+    "exampleEn": "“Yes, my grandfather is old.”"
+  },
+  {
+    "id": "da:ung",
+    "exampleDa": "“Ja, hun er meget ung.”",
+    "exampleEn": "“Yes, she is very young.”"
+  },
+  {
+    "id": "da:glad",
+    "exampleDa": "“Ja, jeg er glad,” siger hun og løfter glasset: “Skål!”",
+    "exampleEn": "“Yes, I am happy,” she says and raises her glass: “Cheers!”"
+  },
+  {
+    "id": "da:elske",
+    "exampleDa": "“Ja, jeg elsker min familie.”",
+    "exampleEn": "“Yes, I love my family.”"
+  },
+  {
+    "id": "da:ven",
+    "exampleDa": "“Ja, han er min ven.”",
+    "exampleEn": "“Yes, he is my friend.”"
+  },
+  {
+    "id": "da:søn",
+    "exampleDa": "“Ja, de har en søn.”",
+    "exampleEn": "“Yes, they have a son.”"
+  },
+  {
+    "id": "da:datter",
+    "exampleDa": "“Nej, hendes datter er ikke her.”",
+    "exampleEn": "“No, her daughter is not here.”"
+  },
+  {
+    "id": "da:kage",
+    "exampleDa": "Kagen er til min vært; jeg kommer fra Odense med den.",
+    "exampleEn": "The cake is for my host; I come from Odense with it."
+  },
+  {
+    "id": "da:smør",
+    "exampleDa": "“Nej, jeg vil ikke have smør.”",
+    "exampleEn": "“No, I do not want butter.”"
+  },
+  {
+    "id": "da:salt",
+    "exampleDa": "Hun rækker mig saltet, før vi løfter glassene og siger skål.",
+    "exampleEn": "She passes me the salt before we raise our glasses and say cheers."
+  },
+  {
+    "id": "da:sukker",
+    "exampleDa": "“Nej, jeg tager ikke sukker.”",
+    "exampleEn": "“No, I do not take sugar.”"
+  },
+  {
+    "id": "da:kartoffel",
+    "exampleDa": "Jeg forstår ikke: Er det en kartoffel?",
+    "exampleEn": "I do not understand: Is it a potato?"
+  },
+  {
+    "id": "da:grøntsag",
+    "exampleDa": "“Kan du sige det igen? Grøntsager er sunde.”",
+    "exampleEn": "“Can you say that again? Vegetables are healthy.”"
+  },
+  {
+    "id": "da:lampe",
+    "exampleDa": "“Kan du sige det igen? Lampen er slukket.”",
+    "exampleEn": "“Can you say that again? The lamp is off.”"
+  },
+  {
+    "id": "da:værelse",
+    "exampleDa": "“Kan du sige det igen? Hvor er værelset?”",
+    "exampleEn": "“Can you say that again? Where is the room?”"
+  },
+  {
+    "id": "da:himmel",
+    "exampleDa": "Hvad betyder himmel? Kan du sige det igen?",
+    "exampleEn": "What does sky mean? Can you say it again?"
+  },
+  {
+    "id": "da:regn",
+    "exampleDa": "“Kan du sige det igen? Der er regn på vej.”",
+    "exampleEn": "“Can you say that again? Rain is on the way.”"
+  },
+  {
+    "id": "da:sne",
+    "exampleDa": "“Kan du sige det igen? Der ligger sne her.”",
+    "exampleEn": "“Can you say that again? There is snow here.”"
+  },
+  {
+    "id": "da:måne",
+    "exampleDa": "“Lidt langsommere, tak. Månen er klar.”",
+    "exampleEn": "“A little more slowly, please. The moon is bright.”"
+  },
+  {
+    "id": "da:stjerne",
+    "exampleDa": "“Lidt langsommere, tak. Hvor er stjernen?”",
+    "exampleEn": "“A little more slowly, please. Where is the star?”"
+  },
+  {
+    "id": "da:hav",
+    "exampleDa": "“Lidt langsommere, tak. Havet er roligt.”",
+    "exampleEn": "“A little more slowly, please. The sea is calm.”"
+  },
+  {
+    "id": "da:strand",
+    "exampleDa": "“Lidt langsommere, tak. Stranden er her.”",
+    "exampleEn": "“A little more slowly, please. The beach is here.”"
+  },
+  {
+    "id": "da:park",
+    "exampleDa": "“Lidt langsommere, tak. Vi mødes i parken.”",
+    "exampleEn": "“A little more slowly, please. We are meeting in the park.”"
+  },
+  {
+    "id": "da:gade",
+    "exampleDa": "I gaden beder jeg: lidt langsommere, tak.",
+    "exampleEn": "In the street, I ask: a little more slowly, please."
+  },
+  {
+    "id": "da:kirke",
+    "exampleDa": "“Hvad betyder kirke?” spørger hun.",
+    "exampleEn": "“What does kirke mean?” she asks."
+  },
+  {
+    "id": "da:hospital",
+    "exampleDa": "Jeg forstår ikke skiltet ved hospitalet.",
+    "exampleEn": "I do not understand the sign by the hospital."
+  },
+  {
+    "id": "da:butik",
+    "exampleDa": "Jeg forstår ikke. Er butikken åben?",
+    "exampleEn": "I do not understand. Is the shop open?"
+  },
+  {
+    "id": "da:bank",
+    "exampleDa": "I banken siger jeg: “Jeg forstår ikke.”",
+    "exampleEn": "At the bank, I say, “I do not understand.”"
+  },
+  {
+    "id": "da:penge",
+    "exampleDa": "“Hvad betyder penge?” spørger han.",
+    "exampleEn": "“What does penge mean?” he asks."
+  },
+  {
+    "id": "da:købe",
+    "exampleDa": "“Hvad betyder købe?” spørger barnet.",
+    "exampleEn": "“What does købe mean?” asks the child."
+  },
+  {
+    "id": "da:arbejde",
+    "exampleDa": "I dag arbejder jeg hjemme. Jeg kommer fra Odense, men bor nu i Aarhus.",
+    "exampleEn": "Today I am working from home. I come from Odense but now live in Aarhus."
+  },
+  {
+    "id": "da:lærer",
+    "exampleDa": "Læreren ved ikke, hvem der står ved døren.",
+    "exampleEn": "The teacher does not know who is standing by the door."
+  },
+  {
+    "id": "da:tog",
+    "exampleDa": "På toget møder jeg en mand, som siger: “Jeg kommer fra Aarhus.”",
+    "exampleEn": "On the train, I meet a man who says, “I come from Aarhus.”"
+  },
+  {
+    "id": "da:bus",
+    "exampleDa": "“Hvor er bussen?” spørger hun.",
+    "exampleEn": "“Where is the bus?” she asks."
+  },
+  {
+    "id": "da:cykel",
+    "exampleDa": "Cyklen bliver hjemme, for svaret er nej.",
+    "exampleEn": "The bicycle is staying at home because the answer is no."
+  },
+  {
+    "id": "da:fly",
+    "exampleDa": "Sætningen “Lidt langsommere, tak” er nyttig under flyveturen.",
+    "exampleEn": "The phrase “A little more slowly, please” is useful during the flight."
+  },
+  {
+    "id": "da:køre",
+    "exampleDa": "“Hjælp! Bilen kan ikke køre.”",
+    "exampleEn": "“Help! The car cannot drive.”"
+  },
+  {
+    "id": "da:sove",
+    "exampleDa": "“Kan du hjælpe mig? Barnet kan ikke sove.”",
+    "exampleEn": "“Can you help me? The child cannot sleep.”"
+  },
+  {
+    "id": "da:løbe",
+    "exampleDa": "På vejen råber barnet om hjælp, da hunden løber væk.",
+    "exampleEn": "On the road, the child calls for help when the dog runs away."
+  },
+  {
+    "id": "da:læse",
+    "exampleDa": "“Kan du hjælpe mig? Jeg kan ikke læse det.”",
+    "exampleEn": "“Can you help me? I cannot read it.”"
+  }
+]

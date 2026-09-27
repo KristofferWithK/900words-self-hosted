@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "schemaVersion": 2,
+    "checkpointId": "city1-index-legality-v1",
+    "protocol": "containment-meaning-v2",
+    "sha256": "b27cf47eec93535d0303fb224472662b63a7da2fb58d6ce2831df36c7b72116c"
+  },
+  "wordIds": [
+    "da:se", "da:tro", "da:sige", "da:vide", "da:komme", "da:synes", "da:gå", "da:god", "da:rigtig", "da:tage",
+    "da:tænke", "da:få", "da:gang", "da:nå", "da:lave", "da:prøve", "da:sjov", "da:hedde", "da:sidde", "da:huske",
+    "da:tid", "da:hel", "da:bo", "da:sted", "da:stå", "da:finde", "da:køre", "da:stor", "da:snakke", "da:høre",
+    "da:lille", "da:læse", "da:bruge", "da:år", "da:arbejde", "da:dag", "da:ligge", "da:måde", "da:svær", "da:forskellig",
+    "da:fin", "da:side", "da:lang", "da:spændende", "da:ny", "da:dårlig", "da:sidste", "da:gammel", "da:eksempel", "da:dansk",
+    "da:vej", "da:penge", "da:barn", "da:halv", "da:mulig", "da:mand", "da:menneske", "da:hjem", "da:time", "da:sikker",
+    "da:billede", "da:hus", "da:by", "da:klar", "da:ord", "da:sprog", "da:mening", "da:bil", "da:grund", "da:klokke",
+    "da:pige", "da:mad", "da:person", "da:mor", "da:ven", "da:uge", "da:land", "da:verden", "da:far", "da:historie",
+    "da:skole", "da:møde", "da:måned", "da:bus", "da:lov", "da:tanke", "da:vand", "da:kæreste", "da:tvivl", "da:dyr",
+    "da:krone", "da:lyst", "da:klasse", "da:liv", "da:film", "da:rejse", "da:musik", "da:navn", "da:hund", "da:kat"
+  ]
+}

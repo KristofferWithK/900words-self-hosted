@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CAPACITOR_DEBUG</key>
+	<string>$(CAPACITOR_DEBUG)</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+        <string>900words</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<!-- Answers Apple's export-compliance question in the build rather than by
+	     hand in App Store Connect for every upload, where an unanswered build
+	     sits at "Missing Compliance" and cannot be installed by a tester.
+	     False is the accurate answer: the app's only cryptography is HTTPS to
+	     its own proxy, which is exempt. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+    <false/>
+    <key>UISceneConfigurations</key>
+    <dict>
+      <key>UIWindowSceneSessionRoleApplication</key>
+      <array>
+        <dict>
+            <key>UISceneConfigurationName</key>
+            <string>Default Configuration</string>
+            <key>UISceneDelegateClassName</key>
+            <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+            <!-- Deliberately no UISceneStoryboardFile here, and no
+                 UIMainStoryboardFile below. SceneDelegate builds the window
+                 and the root view controller in code, and the class it builds
+                 (PassBridgeViewController) is the one thing that registers the
+                 Pass and Reminders plugins. Naming a storyboard here would
+                 make UIKit instantiate ITS controller as well: a stock
+                 CAPBridgeViewController with no plugins and a second webview,
+                 thrown away when the delegate replaces the window a moment
+                 later. Capacitor's template ships both paths because they name
+                 the same class upstream; this app subclasses, so it keeps one. -->
+        </dict>
+      </array>
+    </dict>
+	</dict>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<!-- Portrait only, matching the PWA manifest: the board layout is built for
+	     one orientation, and the no-scroll rule is measured in it.
+	     No ~ipad key: the app is iPhone-only (TARGETED_DEVICE_FAMILY = 1), and
+	     an iPad-specific orientation list is what App Store validation reads as
+	     a promise to support iPad multitasking — which then requires all four
+	     orientations and rejects the upload for offering one. -->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+</dict>
+</plist>

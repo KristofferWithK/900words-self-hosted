@@ -1,0 +1,31 @@
+(node:4) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ complete extension passes local checks; original acceptance remains green (388.351746ms)
+✔ missing film is rejected (389.110019ms)
+✔ duplicate row cannot stand in for a missing word (298.140547ms)
+✔ rank-100 word is not an extension member (289.566412ms)
+✔ source pair drift is rejected (331.785113ms)
+✔ row source hash drift is rejected (279.570159ms)
+✔ new row cannot self-accept (298.62667ms)
+✔ editorial row must have null approval (467.871514ms)
+✔ empty English is rejected (375.534662ms)
+✔ wrong UTF16 span is rejected (368.315592ms)
+✔ word-internal et match is rejected (494.848288ms)
+✔ receptive target cannot be focus (330.712881ms)
+✔ later stage cannot replace effective City1 stage (498.254942ms)
+✔ About example cannot duplicate linked review (341.183778ms)
+✔ board/review Danish must differ (329.519075ms)
+✔ board/review English must differ (380.119271ms)
+✔ review cannot share board audio identity (325.85978ms)
+✔ preview kan can focus only the existing fixed request context (640.239648ms)
+✔ span helper uses UTF16 units after an astral character (0.25706ms)
+✔ cycle provenance cannot silently change (266.748077ms)
+✔ immutable original file hash mismatch is detected (272.110627ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7391.420153

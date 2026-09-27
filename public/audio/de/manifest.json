@@ -1,0 +1,708 @@
+{
+  "entries": {
+    "mutter": {
+      "id": "de:Mutter",
+      "text": "Mutter",
+      "stamp": "a48a5961e840ef80",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:22.273Z"
+    },
+    "vater": {
+      "id": "de:Vater",
+      "text": "Vater",
+      "stamp": "53d5366bdbf01208",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:22.780Z"
+    },
+    "kind": {
+      "id": "de:Kind",
+      "text": "Kind",
+      "stamp": "2703b6adac69801b",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:23.285Z"
+    },
+    "hund": {
+      "id": "de:Hund",
+      "text": "Hund",
+      "stamp": "af50a9cb3546c89d",
+      "bytes": 3552,
+      "at": "2026-09-25T11:25:23.801Z"
+    },
+    "katze": {
+      "id": "de:Katze",
+      "text": "Katze",
+      "stamp": "42b03d12a270ba85",
+      "bytes": 4704,
+      "at": "2026-09-25T11:25:24.385Z"
+    },
+    "haus": {
+      "id": "de:Haus",
+      "text": "Haus",
+      "stamp": "1a3a26b97766d015",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:24.866Z"
+    },
+    "essen": {
+      "id": "de:Essen",
+      "text": "Essen",
+      "stamp": "0e2a8e12f7fa5094",
+      "bytes": 3744,
+      "at": "2026-09-25T11:25:25.381Z"
+    },
+    "wasser": {
+      "id": "de:Wasser",
+      "text": "Wasser",
+      "stamp": "d095e418d6028c3a",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:25.947Z"
+    },
+    "mann": {
+      "id": "de:Mann",
+      "text": "Mann",
+      "stamp": "4ad4b033cfbacb84",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:26.465Z"
+    },
+    "maedchen": {
+      "id": "de:Mädchen",
+      "text": "Mädchen",
+      "stamp": "a06a512d80897de4",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:27.026Z"
+    },
+    "auto": {
+      "id": "de:Auto",
+      "text": "Auto",
+      "stamp": "0817554a7bdff130",
+      "bytes": 5376,
+      "at": "2026-09-25T11:25:27.595Z"
+    },
+    "stadt": {
+      "id": "de:Stadt",
+      "text": "Stadt",
+      "stamp": "d013085b748cfc7c",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:28.103Z"
+    },
+    "schule": {
+      "id": "de:Schule",
+      "text": "Schule",
+      "stamp": "b51d96edb156ff69",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:28.631Z"
+    },
+    "tag": {
+      "id": "de:Tag",
+      "text": "Tag",
+      "stamp": "2bd99360e8ecebf0",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:29.125Z"
+    },
+    "woche": {
+      "id": "de:Woche",
+      "text": "Woche",
+      "stamp": "3261f5308a56480c",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:29.630Z"
+    },
+    "gross": {
+      "id": "de:groß",
+      "text": "groß",
+      "stamp": "4aa185445276b907",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:30.130Z"
+    },
+    "klein": {
+      "id": "de:klein",
+      "text": "klein",
+      "stamp": "19d45d518aefe0a9",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:30.652Z"
+    },
+    "alt": {
+      "id": "de:alt",
+      "text": "alt",
+      "stamp": "817023eb94aaf485",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:31.122Z"
+    },
+    "freund": {
+      "id": "de:Freund",
+      "text": "Freund",
+      "stamp": "6868b479d2e53820",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:31.626Z"
+    },
+    "geld": {
+      "id": "de:Geld",
+      "text": "Geld",
+      "stamp": "1073457d5316244a",
+      "bytes": 4896,
+      "at": "2026-09-25T11:25:32.175Z"
+    },
+    "arbeit": {
+      "id": "de:Arbeit",
+      "text": "Arbeit",
+      "stamp": "9a71dea7d6c93aa4",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:32.720Z"
+    },
+    "bus": {
+      "id": "de:Bus",
+      "text": "Bus",
+      "stamp": "1c26926355a8e891",
+      "bytes": 3744,
+      "at": "2026-09-25T11:25:33.205Z"
+    },
+    "fahren": {
+      "id": "de:fahren",
+      "text": "fahren",
+      "stamp": "854fdd08ef544124",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:33.720Z"
+    },
+    "lesen": {
+      "id": "de:lesen",
+      "text": "lesen",
+      "stamp": "e15fcda73138548b",
+      "bytes": 5856,
+      "at": "2026-09-25T11:25:34.275Z"
+    },
+    "jahr": {
+      "id": "de:Jahr",
+      "text": "Jahr",
+      "stamp": "c3f634b3c384877a",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:34.789Z"
+    },
+    "bekommen": {
+      "id": "de:bekommen",
+      "text": "bekommen",
+      "stamp": "7e31a121da6dba8c",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:35.272Z"
+    },
+    "daenisch": {
+      "id": "de:dänisch",
+      "text": "dänisch",
+      "stamp": "b6f454927e39e97b",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:35.798Z"
+    },
+    "mensch": {
+      "id": "de:Mensch",
+      "text": "Mensch",
+      "stamp": "5b8f60b7276cee07",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:36.288Z"
+    },
+    "kommen": {
+      "id": "de:kommen",
+      "text": "kommen",
+      "stamp": "00b4e494fefbd8cc",
+      "bytes": 3552,
+      "at": "2026-09-25T11:25:36.774Z"
+    },
+    "gut": {
+      "id": "de:gut",
+      "text": "gut",
+      "stamp": "4d448b19660814a9",
+      "bytes": 3936,
+      "at": "2026-09-25T11:25:37.277Z"
+    },
+    "zuhause": {
+      "id": "de:Zuhause",
+      "text": "Zuhause",
+      "stamp": "1457b7f0d31a2572",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:37.911Z"
+    },
+    "sagen": {
+      "id": "de:sagen",
+      "text": "sagen",
+      "stamp": "853563a3b7211731",
+      "bytes": 2784,
+      "at": "2026-09-25T11:25:38.401Z"
+    },
+    "gehen": {
+      "id": "de:gehen",
+      "text": "gehen",
+      "stamp": "bcf75a40e06497a9",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:38.900Z"
+    },
+    "neu": {
+      "id": "de:neu",
+      "text": "neu",
+      "stamp": "d204a1af7687b3c3",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:39.399Z"
+    },
+    "sehen": {
+      "id": "de:sehen",
+      "text": "sehen",
+      "stamp": "e926593f7bfaa42c",
+      "bytes": 2592,
+      "at": "2026-09-25T11:25:39.900Z"
+    },
+    "ganz": {
+      "id": "de:ganz",
+      "text": "ganz",
+      "stamp": "0d531b4c9bc198aa",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:40.377Z"
+    },
+    "nehmen": {
+      "id": "de:nehmen",
+      "text": "nehmen",
+      "stamp": "ecb3c9a20b08bf72",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:40.887Z"
+    },
+    "lang": {
+      "id": "de:lang",
+      "text": "lang",
+      "stamp": "0ae0f3e59e130582",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:41.352Z"
+    },
+    "finden": {
+      "id": "de:finden",
+      "text": "finden",
+      "stamp": "f61315f2b6d2f78d",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:41.883Z"
+    },
+    "letzte": {
+      "id": "de:letzte",
+      "text": "letzte",
+      "stamp": "0097e8203b4be427",
+      "bytes": 5856,
+      "at": "2026-09-25T11:25:42.435Z"
+    },
+    "stehen": {
+      "id": "de:stehen",
+      "text": "stehen",
+      "stamp": "bf9c4d78238c9a7c",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:42.944Z"
+    },
+    "tier": {
+      "id": "de:Tier",
+      "text": "Tier",
+      "stamp": "feb2b3f3e2e96aad",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:43.465Z"
+    },
+    "wissen": {
+      "id": "de:wissen",
+      "text": "wissen",
+      "stamp": "2b4aa5e1208f9723",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:44.056Z"
+    },
+    "glauben": {
+      "id": "de:glauben",
+      "text": "glauben",
+      "stamp": "d2cee3014f392469",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:44.584Z"
+    },
+    "partner": {
+      "id": "de:Partner",
+      "text": "Partner",
+      "stamp": "a207ebe508be6fb6",
+      "bytes": 4512,
+      "at": "2026-09-25T11:25:45.109Z"
+    },
+    "richtig": {
+      "id": "de:richtig",
+      "text": "richtig",
+      "stamp": "298550dd530aebf7",
+      "bytes": 4704,
+      "at": "2026-09-25T11:25:45.605Z"
+    },
+    "benutzen": {
+      "id": "de:benutzen",
+      "text": "benutzen",
+      "stamp": "43220784d68c0607",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:46.132Z"
+    },
+    "machen": {
+      "id": "de:machen",
+      "text": "machen",
+      "stamp": "7e4828cb7b4a2906",
+      "bytes": 3456,
+      "at": "2026-09-25T11:25:46.666Z"
+    },
+    "schoen": {
+      "id": "de:schön",
+      "text": "schön",
+      "stamp": "f0f9ab88f04f295f",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:47.155Z"
+    },
+    "liegen": {
+      "id": "de:liegen",
+      "text": "liegen",
+      "stamp": "e1875b11d43dbf74",
+      "bytes": 4704,
+      "at": "2026-09-25T11:25:47.664Z"
+    },
+    "land": {
+      "id": "de:Land",
+      "text": "Land",
+      "stamp": "d6f7b4cfa5d96aa7",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:48.204Z"
+    },
+    "sitzen": {
+      "id": "de:sitzen",
+      "text": "sitzen",
+      "stamp": "d68df4ba91db3abe",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:48.677Z"
+    },
+    "bereit": {
+      "id": "de:bereit",
+      "text": "bereit",
+      "stamp": "8fd3c1f3653455bd",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:49.144Z"
+    },
+    "leben": {
+      "id": "de:Leben",
+      "text": "Leben",
+      "stamp": "aa17a50a67cc1263",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:49.652Z"
+    },
+    "heissen": {
+      "id": "de:heißen",
+      "text": "heißen",
+      "stamp": "dcce5de824fb5140",
+      "bytes": 3552,
+      "at": "2026-09-25T11:25:50.123Z"
+    },
+    "welt": {
+      "id": "de:Welt",
+      "text": "Welt",
+      "stamp": "feb5b1f7f0530669",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:50.613Z"
+    },
+    "mal": {
+      "id": "de:Mal",
+      "text": "Mal",
+      "stamp": "712244d1452b53a7",
+      "bytes": 4704,
+      "at": "2026-09-25T11:25:51.137Z"
+    },
+    "wort": {
+      "id": "de:Wort",
+      "text": "Wort",
+      "stamp": "1d0ebdfc864e0e7a",
+      "bytes": 3552,
+      "at": "2026-09-25T11:25:51.640Z"
+    },
+    "hoeren": {
+      "id": "de:hören",
+      "text": "hören",
+      "stamp": "4ec8dafa7c49c117",
+      "bytes": 3744,
+      "at": "2026-09-25T11:25:52.121Z"
+    },
+    "reise": {
+      "id": "de:Reise",
+      "text": "Reise",
+      "stamp": "3ba5799d364bfe82",
+      "bytes": 4896,
+      "at": "2026-09-25T11:25:52.662Z"
+    },
+    "klasse": {
+      "id": "de:Klasse",
+      "text": "Klasse",
+      "stamp": "6d1abc583eda2379",
+      "bytes": 5184,
+      "at": "2026-09-25T11:25:53.240Z"
+    },
+    "seite": {
+      "id": "de:Seite",
+      "text": "Seite",
+      "stamp": "66484a451811f142",
+      "bytes": 2592,
+      "at": "2026-09-25T11:25:53.746Z"
+    },
+    "weg": {
+      "id": "de:Weg",
+      "text": "Weg",
+      "stamp": "e498938bf35e9e45",
+      "bytes": 2976,
+      "at": "2026-09-25T11:25:55.490Z"
+    },
+    "sicher": {
+      "id": "de:sicher",
+      "text": "sicher",
+      "stamp": "940a590d3846ea73",
+      "bytes": 2592,
+      "at": "2026-09-25T11:25:55.920Z"
+    },
+    "krone": {
+      "id": "de:Krone",
+      "text": "Krone",
+      "stamp": "5ea51e58ae94bde0",
+      "bytes": 3264,
+      "at": "2026-09-25T11:25:56.426Z"
+    },
+    "schwer": {
+      "id": "de:schwer",
+      "text": "schwer",
+      "stamp": "435d0a2716668eeb",
+      "bytes": 4416,
+      "at": "2026-09-25T11:25:56.932Z"
+    },
+    "treffen": {
+      "id": "de:Treffen",
+      "text": "Treffen",
+      "stamp": "f2043d0fe3c3a44c",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:57.436Z"
+    },
+    "denken": {
+      "id": "de:denken",
+      "text": "denken",
+      "stamp": "ffc5b6cca790d5cf",
+      "bytes": 5856,
+      "at": "2026-09-25T11:25:57.999Z"
+    },
+    "wohnen": {
+      "id": "de:wohnen",
+      "text": "wohnen",
+      "stamp": "291e22a84eaf310e",
+      "bytes": 1824,
+      "at": "2026-09-25T11:25:58.439Z"
+    },
+    "platz": {
+      "id": "de:Platz",
+      "text": "Platz",
+      "stamp": "580849fe6be8500f",
+      "bytes": 5472,
+      "at": "2026-09-25T11:25:58.962Z"
+    },
+    "probieren": {
+      "id": "de:probieren",
+      "text": "probieren",
+      "stamp": "6555f1593be6ee30",
+      "bytes": 4032,
+      "at": "2026-09-25T11:25:59.447Z"
+    },
+    "schlecht": {
+      "id": "de:schlecht",
+      "text": "schlecht",
+      "stamp": "3f2ff81ba74e87de",
+      "bytes": 4224,
+      "at": "2026-09-25T11:25:59.963Z"
+    },
+    "moeglich": {
+      "id": "de:möglich",
+      "text": "möglich",
+      "stamp": "8c81c216a5b615f3",
+      "bytes": 3936,
+      "at": "2026-09-25T11:26:00.461Z"
+    },
+    "zeit": {
+      "id": "de:Zeit",
+      "text": "Zeit",
+      "stamp": "d2bbeb511713dfc8",
+      "bytes": 4704,
+      "at": "2026-09-25T11:34:50.780Z"
+    },
+    "name": {
+      "id": "de:Name",
+      "text": "Name",
+      "stamp": "e83d0f56533cff78",
+      "bytes": 4416,
+      "at": "2026-09-25T11:26:01.417Z"
+    },
+    "erinnern": {
+      "id": "de:erinnern",
+      "text": "erinnern",
+      "stamp": "9d5cfd497cd8f8e7",
+      "bytes": 4032,
+      "at": "2026-09-25T11:26:01.904Z"
+    },
+    "verschieden": {
+      "id": "de:verschieden",
+      "text": "verschieden",
+      "stamp": "ede1e6abefd8a6ec",
+      "bytes": 4224,
+      "at": "2026-09-25T11:26:02.424Z"
+    },
+    "person": {
+      "id": "de:Person",
+      "text": "Person",
+      "stamp": "78aba08a493c9cac",
+      "bytes": 4032,
+      "at": "2026-09-25T11:26:02.903Z"
+    },
+    "grund": {
+      "id": "de:Grund",
+      "text": "Grund",
+      "stamp": "29a5824d874ec79c",
+      "bytes": 2592,
+      "at": "2026-09-25T11:26:03.354Z"
+    },
+    "weise": {
+      "id": "de:Weise",
+      "text": "Weise",
+      "stamp": "d6142eeb68601e75",
+      "bytes": 4896,
+      "at": "2026-09-25T11:26:03.857Z"
+    },
+    "bild": {
+      "id": "de:Bild",
+      "text": "Bild",
+      "stamp": "8dca68be56cc1d6d",
+      "bytes": 3456,
+      "at": "2026-09-25T11:26:04.356Z"
+    },
+    "lust": {
+      "id": "de:Lust",
+      "text": "Lust",
+      "stamp": "db324b7fe9f978ee",
+      "bytes": 4704,
+      "at": "2026-09-25T11:26:04.879Z"
+    },
+    "stunde": {
+      "id": "de:Stunde",
+      "text": "Stunde",
+      "stamp": "a51c4c7bcaec7a45",
+      "bytes": 4416,
+      "at": "2026-09-25T11:26:05.383Z"
+    },
+    "geschichte": {
+      "id": "de:Geschichte",
+      "text": "Geschichte",
+      "stamp": "45442ecd61429df1",
+      "bytes": 4512,
+      "at": "2026-09-25T11:26:05.920Z"
+    },
+    "erreichen": {
+      "id": "de:erreichen",
+      "text": "erreichen",
+      "stamp": "f0d3366af052c7b8",
+      "bytes": 5184,
+      "at": "2026-09-25T11:26:06.435Z"
+    },
+    "monat": {
+      "id": "de:Monat",
+      "text": "Monat",
+      "stamp": "340c5b1cf7dbe9f8",
+      "bytes": 4032,
+      "at": "2026-09-25T11:26:06.920Z"
+    },
+    "gedanke": {
+      "id": "de:Gedanke",
+      "text": "Gedanke",
+      "stamp": "43e516d3bc81023f",
+      "bytes": 4032,
+      "at": "2026-09-25T11:26:07.411Z"
+    },
+    "meinen": {
+      "id": "de:meinen",
+      "text": "meinen",
+      "stamp": "93b553b94ad3bb61",
+      "bytes": 3552,
+      "at": "2026-09-25T11:26:07.878Z"
+    },
+    "sprache": {
+      "id": "de:Sprache",
+      "text": "Sprache",
+      "stamp": "4dea17788ccc2a17",
+      "bytes": 5184,
+      "at": "2026-09-25T11:26:08.400Z"
+    },
+    "beispiel": {
+      "id": "de:Beispiel",
+      "text": "Beispiel",
+      "stamp": "05b9d4ff74a4707e",
+      "bytes": 4992,
+      "at": "2026-09-25T11:26:08.954Z"
+    },
+    "lustig": {
+      "id": "de:lustig",
+      "text": "lustig",
+      "stamp": "e2d6484764e18964",
+      "bytes": 4416,
+      "at": "2026-09-25T11:26:09.532Z"
+    },
+    "zweifel": {
+      "id": "de:Zweifel",
+      "text": "Zweifel",
+      "stamp": "f993623b89a9dfad",
+      "bytes": 5184,
+      "at": "2026-09-25T11:26:10.059Z"
+    },
+    "spannend": {
+      "id": "de:spannend",
+      "text": "spannend",
+      "stamp": "935def4c7f76b6a3",
+      "bytes": 5856,
+      "at": "2026-09-25T11:26:10.611Z"
+    },
+    "uhr": {
+      "id": "de:Uhr",
+      "text": "Uhr",
+      "stamp": "28fa9486e701c6c7",
+      "bytes": 3264,
+      "at": "2026-09-25T11:26:11.051Z"
+    },
+    "halb": {
+      "id": "de:halb",
+      "text": "halb",
+      "stamp": "2dcf856e1f7e06e3",
+      "bytes": 2976,
+      "at": "2026-09-25T11:26:11.513Z"
+    },
+    "film": {
+      "id": "de:Film",
+      "text": "Film",
+      "stamp": "de4f19d30c7ca8c8",
+      "bytes": 3456,
+      "at": "2026-09-25T11:26:11.987Z"
+    },
+    "gesetz": {
+      "id": "de:Gesetz",
+      "text": "Gesetz",
+      "stamp": "82c7bdc9eb9bf0b4",
+      "bytes": 3552,
+      "at": "2026-09-25T11:26:12.472Z"
+    },
+    "musik": {
+      "id": "de:Musik",
+      "text": "Musik",
+      "stamp": "d48f929628b5904c",
+      "bytes": 2784,
+      "at": "2026-09-25T11:26:12.922Z"
+    },
+    "meinung": {
+      "id": "de:Meinung",
+      "text": "Meinung",
+      "stamp": "637dac092bac739e",
+      "bytes": 5184,
+      "at": "2026-09-25T11:26:13.437Z"
+    },
+    "reden": {
+      "id": "de:reden",
+      "text": "reden",
+      "stamp": "215b0ead0df36800",
+      "bytes": 3552,
+      "at": "2026-09-25T11:26:13.917Z"
+    }
+  },
+  "provider": "google",
+  "voice": "de-DE-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "de"
+}

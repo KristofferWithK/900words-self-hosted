@@ -1,0 +1,1160 @@
+{
+  "entries": {
+    "sonderborg-notice-audio-1": {
+      "id": "sonderborg-notice-audio-1",
+      "text": "Der er et hus her. Huset er lille.",
+      "stamp": "ea32b19d4321c44b",
+      "bytes": 11424,
+      "at": "2026-08-23T00:07:01.525Z",
+      "sourceHash": "2e076c5fe30900d7c67923713606b61a45cd4ae9131386b57dd0928320afd0a2"
+    },
+    "sonderborg-discriminate-audio-1": {
+      "id": "sonderborg-discriminate-audio-1",
+      "text": "Se på kortet med ordet bord.",
+      "stamp": "ca6709598a910390",
+      "bytes": 8832,
+      "at": "2026-08-23T00:07:02.040Z",
+      "sourceHash": "d05c8c8fbef99599e1338a5d7f22a43b82959bf4c3ead4dec259b0236ffbc4e8"
+    },
+    "sonderborg-manipulate-audio-1": {
+      "id": "sonderborg-manipulate-audio-1",
+      "text": "Nu taler vi om en bestemt kat.",
+      "stamp": "09a11276988e57fc",
+      "bytes": 7872,
+      "at": "2026-08-23T00:07:02.557Z",
+      "sourceHash": "b7a8f0edba321b795fa09c2816e5717bcd6bf359c38af5f4d1fd97d776c2ae46"
+    },
+    "sonderborg-listen-audio-1": {
+      "id": "sonderborg-listen-audio-1",
+      "text": "Øh, døren er åben.",
+      "stamp": "e3d3f9b33608936f",
+      "bytes": 8544,
+      "at": "2026-08-23T20:45:46.201Z",
+      "sourceHash": "565a4eeaba6ef0db692ff035a9faef1e23f263a4ec76f48712eb0253429f5e21"
+    },
+    "sonderborg-transfer-audio-1": {
+      "id": "sonderborg-transfer-audio-1",
+      "text": "Kan du vise mig vinduet?",
+      "stamp": "fdc57dbeff672953",
+      "bytes": 6144,
+      "at": "2026-08-23T00:07:03.485Z",
+      "sourceHash": "f69d68edf7385bbcaea1b4bb679b3e2cfd4fe1b23fee60c68e1836b80e8f1afa"
+    },
+    "sonderborg-situation-1-audio-1": {
+      "id": "sonderborg-situation-1-audio-1",
+      "text": "Hej! Hvad hedder du?",
+      "stamp": "354f66944e8e24ae",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:04.012Z",
+      "sourceHash": "dbdfe2c51fc1e6446bb9f121b580911b363c7f81a24be76f865d6fad3f8b7a68"
+    },
+    "sonderborg-situation-2-audio-1": {
+      "id": "sonderborg-situation-2-audio-1",
+      "text": "Kommer du fra Canada? Jeg skal videre nu.",
+      "stamp": "162b6cee6692ed93",
+      "bytes": 12096,
+      "at": "2026-08-23T00:07:04.577Z",
+      "sourceHash": "de017209b8e133f13c33cdc5843d3f220d04484c702e04d24ebe0ae7ef94fbcc"
+    },
+    "sonderborg-situation-3-audio-1": {
+      "id": "sonderborg-situation-3-audio-1",
+      "text": "Øh, bussen kører fra spor tre om fem minutter.",
+      "stamp": "5c27db525f53d404",
+      "bytes": 13824,
+      "at": "2026-08-23T20:45:46.794Z",
+      "sourceHash": "b96853e60e6afb7f6d3dd09a4f1f5795dff11163991f99dcf52b0b62444b02d8"
+    },
+    "sonderborg-situation-4-audio-1": {
+      "id": "sonderborg-situation-4-audio-1",
+      "text": "Ja?",
+      "stamp": "ccb12e9129d386da",
+      "bytes": 4704,
+      "at": "2026-08-23T00:07:05.607Z",
+      "sourceHash": "256779c7553b59f22aace3d570ada6718be8e20ccadbb2b2f3efff0b7bf69dfc"
+    },
+    "sonderborg-due-review-audio-1": {
+      "id": "sonderborg-due-review-audio-1",
+      "text": "Begge ved, hvilken bus det er.",
+      "stamp": "e2ef67bda1311f8e",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:06.120Z",
+      "sourceHash": "0223db3c4022683a63e16b63aa139053fab07dbd8732f78bc654606e2e700a4a"
+    },
+    "sonderborg-exit-listen-audio-1": {
+      "id": "sonderborg-exit-listen-audio-1",
+      "text": "Lea skal vente ved døren.",
+      "stamp": "c1426a241d61791f",
+      "bytes": 8544,
+      "at": "2026-08-23T00:07:06.632Z",
+      "sourceHash": "140993c2dbaabd40a3f621149914d8ec7157a9b0b8520321a3286d63ec61a332"
+    },
+    "sonderborg-exit-interact-audio-1": {
+      "id": "sonderborg-exit-interact-audio-1",
+      "text": "Hej! Kan jeg hjælpe dig?",
+      "stamp": "8b11fb8704841c73",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:07.146Z",
+      "sourceHash": "d8e46d351892b10cb4939774732630864bf95fe18195878cbca7758a6e40fbc3"
+    },
+    "sonderborg-exit-form-audio-1": {
+      "id": "sonderborg-exit-form-audio-1",
+      "text": "Nu kan du se stationen.",
+      "stamp": "b89121718fbaf70b",
+      "bytes": 6144,
+      "at": "2026-08-23T00:07:07.703Z",
+      "sourceHash": "6014c53edb7287efa22bb92937a8f5c9383f5e81968c19faa25fb478674e8509"
+    },
+    "ribe-notice-audio-1": {
+      "id": "ribe-notice-audio-1",
+      "text": "Jeg bor i Ribe. Hun bor i Aarhus.",
+      "stamp": "d980056962cc3ac5",
+      "bytes": 13824,
+      "at": "2026-08-23T00:07:08.320Z",
+      "sourceHash": "35e8fcfe0ada662b4c084a734c2d76ae979c4a09efe7ddf4113dc6a42ae73734"
+    },
+    "ribe-discriminate-audio-1": {
+      "id": "ribe-discriminate-audio-1",
+      "text": "Hvor arbejder Anna?",
+      "stamp": "ebf3f6e9dcf735b3",
+      "bytes": 5856,
+      "at": "2026-08-23T00:07:08.787Z",
+      "sourceHash": "7b579b315a1cfdf9646bd20e9c309d09a2af26a3761b3ede76a55cee5fe06c51"
+    },
+    "ribe-manipulate-audio-1": {
+      "id": "ribe-manipulate-audio-1",
+      "text": "Maja bor i Ribe og arbejder på en skole.",
+      "stamp": "4215d549aa52f9c2",
+      "bytes": 13536,
+      "at": "2026-08-23T00:07:09.386Z",
+      "sourceHash": "8c9879c22f51c34f179bc594ff4751f901c92b59bc837110275eefcee27ecc1d"
+    },
+    "ribe-listen-audio-1": {
+      "id": "ribe-listen-audio-1",
+      "text": "Det er mine ting.",
+      "stamp": "e158befbd6cfae21",
+      "bytes": 4032,
+      "at": "2026-08-23T20:45:47.285Z",
+      "sourceHash": "e7cfe732f3a7771f95274d123dfee6e91ac98cf507417ee691ad247c9b45168c"
+    },
+    "ribe-transfer-audio-1": {
+      "id": "ribe-transfer-audio-1",
+      "text": "Hvad hedder du, og hvor bor du?",
+      "stamp": "8c67fc1b810e9242",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:10.336Z",
+      "sourceHash": "3d77653914f0909107528e6e66d2e8023bf12a7b488d744acf1f72c5395d1994"
+    },
+    "ribe-situation-1-audio-1": {
+      "id": "ribe-situation-1-audio-1",
+      "text": "Hvor bor du?",
+      "stamp": "9e40b8a2cce029c4",
+      "bytes": 4512,
+      "at": "2026-08-23T00:07:10.774Z",
+      "sourceHash": "39730c04ccf4be05f2086c07167ec4e33cec4130f50b871dfc1081d40bd0f1b0"
+    },
+    "ribe-situation-2-audio-1": {
+      "id": "ribe-situation-2-audio-1",
+      "text": "Hvad arbejder du med?",
+      "stamp": "dda5d71c48385967",
+      "bytes": 5952,
+      "at": "2026-08-23T00:07:11.201Z",
+      "sourceHash": "5782373cda5b5b6698fdf11d5da3cbe650b296273cc93e94dac0363da5c4e238"
+    },
+    "ribe-situation-3-audio-1": {
+      "id": "ribe-situation-3-audio-1",
+      "text": "Hvordan staver du dit navn?",
+      "stamp": "37aa14a3b603ef89",
+      "bytes": 7776,
+      "at": "2026-08-23T00:07:11.699Z",
+      "sourceHash": "b020e3e3c4dadac0f3866cbb266edac595bfd5bef53104ebf88a8b59ad2fff86"
+    },
+    "ribe-situation-4-audio-1": {
+      "id": "ribe-situation-4-audio-1",
+      "text": "Er det dine ting?",
+      "stamp": "b0e25b12a6419d9a",
+      "bytes": 5184,
+      "at": "2026-08-23T20:45:47.752Z",
+      "sourceHash": "a7e341a3d0a8585742f845ea98209316daf186350c091459e1afd178870d62b0"
+    },
+    "ribe-due-review-audio-1": {
+      "id": "ribe-due-review-audio-1",
+      "text": "Anna bor i Kolding og arbejder på et hotel.",
+      "stamp": "ea519bdcfea3c213",
+      "bytes": 10176,
+      "at": "2026-08-23T00:07:12.722Z",
+      "sourceHash": "963f7bc56fc8c9f1cfbc085d8e4636ddbafd07d1aceb2e1f103bd4d033d74ec2"
+    },
+    "ribe-exit-read-audio-1": {
+      "id": "ribe-exit-read-audio-1",
+      "text": "Læs Noras korte kontaktkort.",
+      "stamp": "ac8e281478635cc7",
+      "bytes": 9312,
+      "at": "2026-08-23T00:07:13.253Z",
+      "sourceHash": "ea5d38c2d1c82dbedb7715ae96a123b41ee0a55ddf481cb5adbc05ecc843a09d"
+    },
+    "ribe-exit-interact-audio-1": {
+      "id": "ribe-exit-interact-audio-1",
+      "text": "Jeg hedder Nora Holm.",
+      "stamp": "4e90df6570d290c5",
+      "bytes": 7296,
+      "at": "2026-08-23T00:07:13.743Z",
+      "sourceHash": "698cabac3341ba1808cfe13ad892420541f4927fa7ef62e114026bbf282ce856"
+    },
+    "ribe-exit-write-audio-1": {
+      "id": "ribe-exit-write-audio-1",
+      "text": "Skriv telefonnummeret som en hel sætning.",
+      "stamp": "a70e2f658c3f1a57",
+      "bytes": 10656,
+      "at": "2026-08-23T00:07:14.293Z",
+      "sourceHash": "ec3742520d0b405a4171af691ed60936e3aea90c5a572cc8c66ef06572a899c2"
+    },
+    "kolding-notice-audio-1": {
+      "id": "kolding-notice-audio-1",
+      "text": "Et æble. To æbler.",
+      "stamp": "3d2a96d1bf14d3b9",
+      "bytes": 11616,
+      "at": "2026-08-23T00:07:14.933Z",
+      "sourceHash": "f71c3be26d008ce65efc52f575360051ffb78c67e20d5dcaa6a74fbbaf83f017"
+    },
+    "kolding-discriminate-audio-1": {
+      "id": "kolding-discriminate-audio-1",
+      "text": "Bestil tre af dem.",
+      "stamp": "78f581ac186443cc",
+      "bytes": 5184,
+      "at": "2026-08-23T00:07:15.421Z",
+      "sourceHash": "51cc928d3011ab7719248d530b4f7765b29ae94d046d6ed7d9fa9bbd2456baa7"
+    },
+    "kolding-manipulate-audio-1": {
+      "id": "kolding-manipulate-audio-1",
+      "text": "Sig nej til sukkeret.",
+      "stamp": "c541e48297266123",
+      "bytes": 5952,
+      "at": "2026-08-23T00:07:15.928Z",
+      "sourceHash": "0640dab34286e740cb0d7eb233a78926e4f1587529c9aed4f4f6a573b725ce51"
+    },
+    "kolding-listen-audio-1": {
+      "id": "kolding-listen-audio-1",
+      "text": "Jamen, så bliver det fyrre kroner.",
+      "stamp": "797e274a91debb18",
+      "bytes": 8832,
+      "at": "2026-08-23T20:45:48.350Z",
+      "sourceHash": "8c7ebbd1683fe018ca0e67f1e10cfb510c1252c30710a2499d919d468080e6f9"
+    },
+    "kolding-transfer-audio-1": {
+      "id": "kolding-transfer-audio-1",
+      "text": "Hvad vil du gerne have?",
+      "stamp": "e43da6adf5b9ec40",
+      "bytes": 6144,
+      "at": "2026-08-23T00:07:16.904Z",
+      "sourceHash": "26e7d3562a541f69237379217806826aa4dd002a7aa5c5186b5e8eea0594c3ca"
+    },
+    "kolding-situation-1-audio-1": {
+      "id": "kolding-situation-1-audio-1",
+      "text": "Hvad vil du gerne have?",
+      "stamp": "e43da6adf5b9ec40",
+      "bytes": 6144,
+      "at": "2026-08-23T00:07:17.374Z",
+      "sourceHash": "26e7d3562a541f69237379217806826aa4dd002a7aa5c5186b5e8eea0594c3ca"
+    },
+    "kolding-situation-2-audio-1": {
+      "id": "kolding-situation-2-audio-1",
+      "text": "Kan jeg hjælpe?",
+      "stamp": "d3ad7279f6f20710",
+      "bytes": 5184,
+      "at": "2026-08-23T00:07:17.834Z",
+      "sourceHash": "31a382eb7ab1f1e01c4d69e5e601df458e2f54d3078e516689706db0abc15b18"
+    },
+    "kolding-situation-3-audio-1": {
+      "id": "kolding-situation-3-audio-1",
+      "text": "Jamen, vi har desværre ikke te. Vi har kaffe.",
+      "stamp": "0a29ab3f7d7961a7",
+      "bytes": 14112,
+      "at": "2026-08-23T20:45:48.945Z",
+      "sourceHash": "339da66054b94b8249800083fe714fe6f7ca264edd8a582aeec4fde8a2d3c922"
+    },
+    "kolding-situation-4-audio-1": {
+      "id": "kolding-situation-4-audio-1",
+      "text": "Var der andet?",
+      "stamp": "ad8c9a469ea8adaf",
+      "bytes": 3552,
+      "at": "2026-08-23T00:07:18.897Z",
+      "sourceHash": "5356600048ec1c601c5c12b025a2229582d99d9e0a5873ac76413f6e1a58c678"
+    },
+    "kolding-due-review-audio-1": {
+      "id": "kolding-due-review-audio-1",
+      "text": "Vil du have tre æbler?",
+      "stamp": "dd9654427f851a7c",
+      "bytes": 6624,
+      "at": "2026-08-23T00:07:19.379Z",
+      "sourceHash": "d4107a7c848a13b7ed1f835f657bb16e347fd7c3929c118b63e9453bac24f5de"
+    },
+    "kolding-exit-listen-audio-1": {
+      "id": "kolding-exit-listen-audio-1",
+      "text": "To supper koster tres kroner.",
+      "stamp": "3a310b64ee98d7bd",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:19.899Z",
+      "sourceHash": "06815e32a89c1603343252ab8b6a098fdada408329ae6959e0f36fd4705f045a"
+    },
+    "kolding-exit-read-audio-1": {
+      "id": "kolding-exit-read-audio-1",
+      "text": "Læs opslaget, og find det, der er på lager.",
+      "stamp": "6ee8887c8dd64be2",
+      "bytes": 13152,
+      "at": "2026-08-23T00:07:20.475Z",
+      "sourceHash": "c8815b5d6fa4760a70b96cc8c4f5154fdceaac667e334a97b68b8af1b7fd00b3"
+    },
+    "kolding-exit-interact-audio-1": {
+      "id": "kolding-exit-interact-audio-1",
+      "text": "Vi har desværre ikke suppe.",
+      "stamp": "0da007274304a4be",
+      "bytes": 6816,
+      "at": "2026-08-23T00:07:20.979Z",
+      "sourceHash": "20c3c7c9c0c1b74302105359cb28be6f710f7973d41d07aabdeeca0e4272659d"
+    },
+    "aarhus-notice-audio-1": {
+      "id": "aarhus-notice-audio-1",
+      "text": "I dag arbejder jeg hjemme.",
+      "stamp": "e59bc4e4980fd5f9",
+      "bytes": 6912,
+      "at": "2026-08-23T00:07:21.465Z",
+      "sourceHash": "171dd94c0808afc6c226fd8770d3a218e2055aad174caceb732c519ab80fa795"
+    },
+    "aarhus-discriminate-audio-1": {
+      "id": "aarhus-discriminate-audio-1",
+      "text": "Planen gælder i morgen klokken otte.",
+      "stamp": "b36cf19d70f13796",
+      "bytes": 10176,
+      "at": "2026-08-23T00:07:22.042Z",
+      "sourceHash": "8fd11a860ed3a012bb437954155ac91bdfafc6e9089c0fcdc12d151658f2505e"
+    },
+    "aarhus-manipulate-audio-1": {
+      "id": "aarhus-manipulate-audio-1",
+      "text": "Begynd sætningen med “om morgenen”.",
+      "stamp": "4b7a64e9ad75aab9",
+      "bytes": 9984,
+      "at": "2026-08-23T00:07:22.577Z",
+      "sourceHash": "2e7fa5088b4d5843262c0239c452a0fb26572d87545d0f6d355b7cb8faf273d1"
+    },
+    "aarhus-listen-audio-1": {
+      "id": "aarhus-listen-audio-1",
+      "text": "I dag arbejdede jeg fra otte til ti.",
+      "stamp": "8b8a341c592380c5",
+      "bytes": 10176,
+      "at": "2026-08-23T00:07:23.522Z",
+      "sourceHash": "10f5a8c6373fea35a5b98b06479a249e7d06a8894cd5b1c518d39e70dd0828bf"
+    },
+    "aarhus-listen-audio-2": {
+      "id": "aarhus-listen-audio-2",
+      "text": "I dag har jeg arbejdet hjemme, så nu er jeg træt.",
+      "stamp": "0f65e4bbea3666e3",
+      "bytes": 11424,
+      "at": "2026-08-23T00:07:24.086Z",
+      "sourceHash": "22c300fb5b3afe9ef36d8f7f53c1319f8a8c228c35d13420cd4ba8f46b7fae62"
+    },
+    "aarhus-listen-audio-3": {
+      "id": "aarhus-listen-audio-3",
+      "text": "I dag købte jeg brød klokken otte.",
+      "stamp": "5714d4784fd269cf",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:24.613Z",
+      "sourceHash": "5cb8dc3246d7f5c9f261028f1387bc4fbf9c3eeff3380964423b45f3f14a94bb"
+    },
+    "aarhus-listen-audio-4": {
+      "id": "aarhus-listen-audio-4",
+      "text": "I dag har jeg købt brød, så vi har mad.",
+      "stamp": "ed9eba80939cf9bb",
+      "bytes": 11904,
+      "at": "2026-08-23T00:07:25.186Z",
+      "sourceHash": "4c923a6a3ec8cd48d6b0f5a07dc45aa497d5323ae387c0aeabc5ce1e1e3560c2"
+    },
+    "aarhus-transfer-audio-1": {
+      "id": "aarhus-transfer-audio-1",
+      "text": "Hold i går og i dag adskilt i to korte sætninger.",
+      "stamp": "5c9dcae572a82a0e",
+      "bytes": 12864,
+      "at": "2026-08-23T00:07:25.781Z",
+      "sourceHash": "ddefb047f23f80f7822e83d66acf1d6493872282442ef7bc99ab77ea49f7be24"
+    },
+    "aarhus-situation-1-audio-1": {
+      "id": "aarhus-situation-1-audio-1",
+      "text": "Undervisningen er i lokale tre.",
+      "stamp": "fc7f14476a87f143",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:26.315Z",
+      "sourceHash": "ffaf18aa17590bd76dcb4eee0fb3e80703a1ebb481dfa5ba0432a6db5d088e04"
+    },
+    "aarhus-situation-2-audio-1": {
+      "id": "aarhus-situation-2-audio-1",
+      "text": "Fortæl kort om i går og i dag.",
+      "stamp": "09632bf74488f427",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:26.851Z",
+      "sourceHash": "8c070f673ae91ce1574c766f076c03259af42c36de4f02249e28cc46ad0278bf"
+    },
+    "aarhus-situation-3-audio-1": {
+      "id": "aarhus-situation-3-audio-1",
+      "text": "Øh, kan vi mødes klokken ni?",
+      "stamp": "dd2116ca5910c1eb",
+      "bytes": 9024,
+      "at": "2026-08-23T20:45:49.475Z",
+      "sourceHash": "aa6edf7fd6165b9cc95074680512050e54dba312e789fa1fdffd58075a69b96e"
+    },
+    "aarhus-situation-4-audio-1": {
+      "id": "aarhus-situation-4-audio-1",
+      "text": "Jeg kan i hvert fald ikke klokken ni. Kan du senere?",
+      "stamp": "ebb9663acc9577b7",
+      "bytes": 11904,
+      "at": "2026-08-23T20:45:50.075Z",
+      "sourceHash": "0337b274f416be51383ecd4456105492b55cc33e7518272f154774c4557ade33"
+    },
+    "aarhus-due-review-audio-1": {
+      "id": "aarhus-due-review-audio-1",
+      "text": "Begynd med “efter arbejde”.",
+      "stamp": "d7fb04abbe641d6e",
+      "bytes": 7872,
+      "at": "2026-08-23T00:07:28.302Z",
+      "sourceHash": "78fd5e697c5f2a91acae15525225d00cb85d82c1dd2ce730aaa5a913f5d29507"
+    },
+    "aarhus-exit-read-audio-1": {
+      "id": "aarhus-exit-read-audio-1",
+      "text": "Frokosten er klokken tolv.",
+      "stamp": "70d7c97ca27f7559",
+      "bytes": 7584,
+      "at": "2026-08-23T00:07:28.803Z",
+      "sourceHash": "fadab54e3a673d92f51a277e40d68b45627754fffeb3247c525cff4b20069fd0"
+    },
+    "aarhus-exit-listen-audio-1": {
+      "id": "aarhus-exit-listen-audio-1",
+      "text": "Mødet begynder ikke klokken tre. Det begynder klokken fire.",
+      "stamp": "f5139a68310ef3e5",
+      "bytes": 15072,
+      "at": "2026-08-23T00:07:29.426Z",
+      "sourceHash": "83f7c41a0d074503b12ddcf36cb60e833e227ac36b4dbc04d73e76852b0a9fac"
+    },
+    "aarhus-exit-write-audio-1": {
+      "id": "aarhus-exit-write-audio-1",
+      "text": "Skriv to korte sætninger om i går og i dag.",
+      "stamp": "e3b2b09ddac31137",
+      "bytes": 13152,
+      "at": "2026-08-23T00:07:30.045Z",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    "aalborg-notice-audio-1": {
+      "id": "aalborg-notice-audio-1",
+      "text": "Hvor ligger stationen?",
+      "stamp": "bebccd3de0d614a4",
+      "bytes": 4896,
+      "at": "2026-08-23T00:07:30.885Z",
+      "sourceHash": "6930670d93b2eb7300d7e1496817f9685cf18e36a1af8102d93c311e5e3fe903"
+    },
+    "aalborg-discriminate-audio-1": {
+      "id": "aalborg-discriminate-audio-1",
+      "text": "Du skal finde stationen.",
+      "stamp": "db8b55d85c85cfb3",
+      "bytes": 5664,
+      "at": "2026-08-23T00:07:31.360Z",
+      "sourceHash": "45c5b0b3c82546aa10072926b935188973e6014c1875b838a13449f35b9597e5"
+    },
+    "aalborg-manipulate-audio-1": {
+      "id": "aalborg-manipulate-audio-1",
+      "text": "Giv en kort instruktion.",
+      "stamp": "38e1b95add4a8aeb",
+      "bytes": 8736,
+      "at": "2026-08-23T00:07:31.861Z",
+      "sourceHash": "12736a13a36e9435c2eb66232ae8b2d308e6bd5d2b622fd1491b367f8831109a"
+    },
+    "aalborg-listen-audio-1": {
+      "id": "aalborg-listen-audio-1",
+      "text": "Jamen, gå ligeud, og drej til venstre ved kirken.",
+      "stamp": "ad38e0aeaa2af548",
+      "bytes": 9984,
+      "at": "2026-08-23T20:45:50.647Z",
+      "sourceHash": "b20446877a8228e30fca4f92873782398872f4f1fe22638b5d3ad70199819106"
+    },
+    "aalborg-transfer-audio-1": {
+      "id": "aalborg-transfer-audio-1",
+      "text": "Hvordan kommer jeg til hotellet?",
+      "stamp": "87aaa5d46b33d28d",
+      "bytes": 6624,
+      "at": "2026-08-23T00:07:32.818Z",
+      "sourceHash": "e7c9463018f22e93484ffc5830433545f7328d0445aa8c7efc4701e96c0c202f"
+    },
+    "aalborg-situation-1-audio-1": {
+      "id": "aalborg-situation-1-audio-1",
+      "text": "Kan jeg hjælpe dig?",
+      "stamp": "626dd2e241af3768",
+      "bytes": 4704,
+      "at": "2026-08-23T00:07:33.268Z",
+      "sourceHash": "e1a562a1b233e0a02a53974f1bb1d05b8922da9e8021df78a5c60157da5679e0"
+    },
+    "aalborg-situation-2-audio-1": {
+      "id": "aalborg-situation-2-audio-1",
+      "text": "Hvor skal du hen?",
+      "stamp": "97a08ace81a6a803",
+      "bytes": 4416,
+      "at": "2026-08-23T00:07:33.705Z",
+      "sourceHash": "d3b1489c77657b5b9cbd340543157562473a038fa2caa34fc6c4a8271811c690"
+    },
+    "aalborg-situation-3-audio-1": {
+      "id": "aalborg-situation-3-audio-1",
+      "text": "Stationen er tæt på.",
+      "stamp": "7b6e65334a5ad4d8",
+      "bytes": 6624,
+      "at": "2026-08-23T00:07:34.181Z",
+      "sourceHash": "d921b4bced3876ef7b4413ca4413b421af2d548739908c92a73d121d5fa3cf21"
+    },
+    "aalborg-situation-4-audio-1": {
+      "id": "aalborg-situation-4-audio-1",
+      "text": "Fortæl kort om i går og i dag.",
+      "stamp": "09632bf74488f427",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:34.701Z",
+      "sourceHash": "8c070f673ae91ce1574c766f076c03259af42c36de4f02249e28cc46ad0278bf"
+    },
+    "aalborg-due-review-audio-1": {
+      "id": "aalborg-due-review-audio-1",
+      "text": "Museet ligger ved parken.",
+      "stamp": "68d9c8cd95e93773",
+      "bytes": 8832,
+      "at": "2026-08-23T00:07:35.217Z",
+      "sourceHash": "cb64d53f51383e19eebf928401d3f42fd5662447a3685b9df6f8c8333907b229"
+    },
+    "aalborg-exit-listen-audio-1": {
+      "id": "aalborg-exit-listen-audio-1",
+      "text": "Du finder spor fire bag butikken.",
+      "stamp": "84b77543831e61fb",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:35.734Z",
+      "sourceHash": "c67469fa3fdfbe8086b6864e6d75570dcc16e5471ec6a5ffd80321020d97750d"
+    },
+    "aalborg-exit-interact-audio-1": {
+      "id": "aalborg-exit-interact-audio-1",
+      "text": "Hvordan kommer jeg til spor fire?",
+      "stamp": "4d94b415272f9f22",
+      "bytes": 8064,
+      "at": "2026-08-23T00:07:36.363Z",
+      "sourceHash": "80f42b0985ab5ac887ded365b370d37b8fbd9caa7f9b49b8173ca9261a238628"
+    },
+    "aalborg-exit-form-audio-1": {
+      "id": "aalborg-exit-form-audio-1",
+      "text": "Det normale stoppested er lukket.",
+      "stamp": "3b2e799c46913b8b",
+      "bytes": 9696,
+      "at": "2026-08-23T00:07:36.902Z",
+      "sourceHash": "eb74beee629ea1f230531d96b9378b35b27a339a1eec7a0a6fb232382753c310"
+    },
+    "skagen-notice-audio-1": {
+      "id": "skagen-notice-audio-1",
+      "text": "En rød bil og et rødt hus.",
+      "stamp": "0a58a553180082b6",
+      "bytes": 9984,
+      "at": "2026-08-23T00:07:37.430Z",
+      "sourceHash": "3b9de4af1fc3718ada870cd1b745c3be3a6ceb3979433fee88d47800a4b8b232"
+    },
+    "skagen-discriminate-audio-1": {
+      "id": "skagen-discriminate-audio-1",
+      "text": "Beskriv husene i flertal.",
+      "stamp": "82c7b8114b0cf64f",
+      "bytes": 7296,
+      "at": "2026-08-23T00:07:37.930Z",
+      "sourceHash": "e23e8fabde100975e351b772b6d0d4acfd62409026de3886fa3db70fa175919a"
+    },
+    "skagen-manipulate-audio-1": {
+      "id": "skagen-manipulate-audio-1",
+      "text": "Skriv nu om den bestemte bil.",
+      "stamp": "610eec17ac2dcec2",
+      "bytes": 8064,
+      "at": "2026-08-23T00:07:38.435Z",
+      "sourceHash": "60e86cdf075bbde4d71f49c3bbe14714cc34eafad207cde7642ecad84f709bdb"
+    },
+    "skagen-listen-audio-1": {
+      "id": "skagen-listen-audio-1",
+      "text": "Det er koldt, men vejret er klart ved havet.",
+      "stamp": "b3532133b4375d9f",
+      "bytes": 10272,
+      "at": "2026-08-23T00:07:38.979Z",
+      "sourceHash": "3126b6ec5fc6139c0c84edc5eaeb5fa739454ece16f34d049f7ce42e9176a18d"
+    },
+    "skagen-transfer-audio-1": {
+      "id": "skagen-transfer-audio-1",
+      "text": "Hvorfor kan du lide stranden?",
+      "stamp": "72c2e8be99395e9f",
+      "bytes": 6432,
+      "at": "2026-08-23T00:07:39.439Z",
+      "sourceHash": "a348021cf59bc94ff8924fc85f64b242fd526f4ee23eb34a248f4cbfcfabe858"
+    },
+    "skagen-situation-1-audio-1": {
+      "id": "skagen-situation-1-audio-1",
+      "text": "Hvordan er vejret?",
+      "stamp": "400b31f4233c0c31",
+      "bytes": 4704,
+      "at": "2026-08-23T00:07:39.876Z",
+      "sourceHash": "c3dd07f2b882a6bca69d03d4e54d7f35e1aca7f5ee2e6ef06d56a82c83e3b296"
+    },
+    "skagen-situation-2-audio-1": {
+      "id": "skagen-situation-2-audio-1",
+      "text": "Vil du have salat eller suppe?",
+      "stamp": "a71e82c1201ce8dd",
+      "bytes": 12192,
+      "at": "2026-08-23T00:07:40.446Z",
+      "sourceHash": "f3857e876fdc171eb88c776a79db22d1b0d3f05ea8596f5df6f069ed08d12ad3"
+    },
+    "skagen-situation-3-audio-1": {
+      "id": "skagen-situation-3-audio-1",
+      "text": "Jamen, færgen sejler først klokken seksten.",
+      "stamp": "6015ccc67590cd5e",
+      "bytes": 11232,
+      "at": "2026-08-23T20:45:51.218Z",
+      "sourceHash": "d68ce65ec86f0c4e45d4c3d5863dcd09400dedffa86ed17a3e165ef779c2cbbf"
+    },
+    "skagen-situation-4-audio-1": {
+      "id": "skagen-situation-4-audio-1",
+      "text": "Hvordan er det?",
+      "stamp": "ac3f3faf0506b2a7",
+      "bytes": 4704,
+      "at": "2026-08-23T20:45:51.677Z",
+      "sourceHash": "fdcaed653f70694167a3733d895b0d18a5e645c31877ebeb3fb039c2ff0cd6e3"
+    },
+    "skagen-due-review-audio-1": {
+      "id": "skagen-due-review-audio-1",
+      "text": "Huset er lille, men smukt.",
+      "stamp": "e5dfa74e1bbe0963",
+      "bytes": 9024,
+      "at": "2026-08-23T00:07:42.211Z",
+      "sourceHash": "3d067c266a1a7e5bae30b5de976a5756a87192b8314de548e6077fbf31d2d78f"
+    },
+    "skagen-exit-listen-audio-1": {
+      "id": "skagen-exit-listen-audio-1",
+      "text": "Det regner, men færgen sejler klokken fjorten.",
+      "stamp": "fa59f9788cbe3f41",
+      "bytes": 12192,
+      "at": "2026-08-23T00:07:42.785Z",
+      "sourceHash": "16d6474234fe4ad780e559dac69e4cb9472b8742b1855639fcf4f8fb0515713f"
+    },
+    "skagen-exit-interact-audio-1": {
+      "id": "skagen-exit-interact-audio-1",
+      "text": "Følg vejen mod havet.",
+      "stamp": "1c560065dc9c18d5",
+      "bytes": 7584,
+      "at": "2026-08-23T00:07:43.263Z",
+      "sourceHash": "afeea81e33e110bb5c4eb0aecaccca2ea1310da9cfde32735281e5d47e0505c8"
+    },
+    "skagen-exit-write-audio-1": {
+      "id": "skagen-exit-write-audio-1",
+      "text": "Planen ændrer sig på grund af regnen.",
+      "stamp": "318fc544422aabdb",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:43.896Z",
+      "sourceHash": "91822166842dd9b5d84bde329a374b3069613c66beb81158de4a8ca344bdb292"
+    },
+    "odense-notice-audio-1": {
+      "id": "odense-notice-audio-1",
+      "text": "Jeg mistede min taske i går. Jeg har mistet min taske.",
+      "stamp": "66a62e022b3be742",
+      "bytes": 14016,
+      "at": "2026-08-23T00:07:44.493Z",
+      "sourceHash": "2562dcccda5889385062358752ab2544db1ed798828d79643ddc5d8bf9372e18"
+    },
+    "odense-discriminate-audio-1": {
+      "id": "odense-discriminate-audio-1",
+      "text": "I går aftes missede jeg bussen.",
+      "stamp": "cce31698337d30f6",
+      "bytes": 7104,
+      "at": "2026-08-23T00:07:44.998Z",
+      "sourceHash": "d2fabdf1afe6c0ddce0c4d57f2bdb06e4e6b609c6a2d8f4ea86c0b1bf0b80bb3"
+    },
+    "odense-manipulate-audio-1": {
+      "id": "odense-manipulate-audio-1",
+      "text": "Sæt de tre begivenheder i rækkefølge.",
+      "stamp": "07504aab96499a8f",
+      "bytes": 11424,
+      "at": "2026-08-23T00:07:45.547Z",
+      "sourceHash": "6106b2cb78117d429e0b64fa95dfb448b8090aa71c9e330908dfc3efcc415294"
+    },
+    "odense-listen-audio-1": {
+      "id": "odense-listen-audio-1",
+      "text": "Toget er aflyst. Ligesom i går skal I tage bussen fra holdeplads tre.",
+      "stamp": "268fbd15464bbc9b",
+      "bytes": 17472,
+      "at": "2026-08-23T20:45:52.998Z",
+      "sourceHash": "f57bb3eca5c7bc79a08cdcf5b80b360a076289dcb9ef02bf157f8810896b213b"
+    },
+    "odense-transfer-audio-1": {
+      "id": "odense-transfer-audio-1",
+      "text": "Hvad er problemet?",
+      "stamp": "be0f0e7418149328",
+      "bytes": 4992,
+      "at": "2026-08-23T00:07:46.596Z",
+      "sourceHash": "93b7051353b55b3cd55eb5834735b7d7495fb126dc0a81a6cf35855dd9fbf0b2"
+    },
+    "odense-situation-1-audio-1": {
+      "id": "odense-situation-1-audio-1",
+      "text": "Ej, hvad skete der?",
+      "stamp": "6edb0289eb3fa949",
+      "bytes": 6816,
+      "at": "2026-08-23T20:45:53.493Z",
+      "sourceHash": "7d3c153e8ec41b2f1e30c5aab20a8d162eec9fc2a2d435e670585abbf212d4ac"
+    },
+    "odense-situation-2-audio-1": {
+      "id": "odense-situation-2-audio-1",
+      "text": "Ej, var tasken sort, ligesom den her?",
+      "stamp": "f7326229aac52808",
+      "bytes": 9984,
+      "at": "2026-08-23T20:45:54.075Z",
+      "sourceHash": "33f00fa6802d366f3e43e6d153be41d8482fa480c049132c23474276ea5bc015"
+    },
+    "odense-situation-3-audio-1": {
+      "id": "odense-situation-3-audio-1",
+      "text": "Hvad er der galt?",
+      "stamp": "321a6515b8d2e840",
+      "bytes": 4512,
+      "at": "2026-08-23T00:07:48.180Z",
+      "sourceHash": "78ec8dcec3d356a4f85da3bab29c33b35f115cf2ef5421e53ae59cbcafffc17d"
+    },
+    "odense-situation-4-audio-1": {
+      "id": "odense-situation-4-audio-1",
+      "text": "Jeg kan godt se problemet.",
+      "stamp": "e73f689a8112c3d8",
+      "bytes": 5952,
+      "at": "2026-08-23T00:07:48.638Z",
+      "sourceHash": "286882a4efee76a547d882ecfeb5070c070916712508a6b640eadbbc2fc9a072"
+    },
+    "odense-due-review-audio-1": {
+      "id": "odense-due-review-audio-1",
+      "text": "Ej, nøglen er stadig væk.",
+      "stamp": "7b8f1343be27e6cf",
+      "bytes": 6816,
+      "at": "2026-08-23T20:45:55.306Z",
+      "sourceHash": "f04fde64e81b18bed5b18ced4e14af0dc60b8b5c21445a156cf6d0be6c12bb02"
+    },
+    "odense-exit-listen-audio-1": {
+      "id": "odense-exit-listen-audio-1",
+      "text": "Færgen er aflyst. Der kører en bus klokken atten.",
+      "stamp": "55e944beba987883",
+      "bytes": 14976,
+      "at": "2026-08-23T00:07:49.723Z",
+      "sourceHash": "817f43026c4d80c97ae233eae15f6b6ffce6b00307004e3ace5a393a46de7b93"
+    },
+    "odense-exit-interact-audio-1": {
+      "id": "odense-exit-interact-audio-1",
+      "text": "Hvornår og hvor så du kufferten sidst?",
+      "stamp": "37a61e246215bd49",
+      "bytes": 11424,
+      "at": "2026-08-23T00:07:50.289Z",
+      "sourceHash": "eb4018356cea32b68824d4d24bc82a4e2fe1a2ddc5be84f85e40ed0d507faf38"
+    },
+    "odense-exit-write-audio-1": {
+      "id": "odense-exit-write-audio-1",
+      "text": "Beskriv kufferten kort.",
+      "stamp": "6a0321af59388905",
+      "bytes": 7584,
+      "at": "2026-08-23T00:07:50.776Z",
+      "sourceHash": "cf6947926b93adfecca7532c21d19ec56c34b88a548a1f9dbb05e4f58b2862a8"
+    },
+    "roskilde-notice-audio-1": {
+      "id": "roskilde-notice-audio-1",
+      "text": "Vi skal mødes klokken syv.",
+      "stamp": "a003169898cf48f0",
+      "bytes": 6912,
+      "at": "2026-08-23T00:07:51.260Z",
+      "sourceHash": "d76d446ea3b56182fd64cb32c457a95ad80de20e08a3a76a391135f69e5b750b"
+    },
+    "roskilde-discriminate-audio-1": {
+      "id": "roskilde-discriminate-audio-1",
+      "text": "Planen er fastlagt til i morgen.",
+      "stamp": "b6993109d446cf2d",
+      "bytes": 8736,
+      "at": "2026-08-23T00:07:51.809Z",
+      "sourceHash": "7728d1050c0fc2888574bf9a8e9303f897fccc8275841b64e1c3c75ae5824be5"
+    },
+    "roskilde-manipulate-audio-1": {
+      "id": "roskilde-manipulate-audio-1",
+      "text": "Kan du komme til festen?",
+      "stamp": "82aab89f9aa45937",
+      "bytes": 5472,
+      "at": "2026-08-23T00:07:52.276Z",
+      "sourceHash": "09a58bf7d66cdf9ed7befbbd0a6e210d5ca637f28ef809162d127755dc648b36"
+    },
+    "roskilde-listen-audio-1": {
+      "id": "roskilde-listen-audio-1",
+      "text": "Ej, jeg kan desværre ikke på fredag, men lørdag passer godt.",
+      "stamp": "46380cfd2327a3b4",
+      "bytes": 13536,
+      "at": "2026-08-23T20:45:55.914Z",
+      "sourceHash": "2f5e27aa24d7bb0d1ac053a070d9f0444a2872ce38def0409636af6122979815"
+    },
+    "roskilde-transfer-audio-1": {
+      "id": "roskilde-transfer-audio-1",
+      "text": "Lav en konkret invitation.",
+      "stamp": "d0b57cc108ed88d9",
+      "bytes": 8256,
+      "at": "2026-08-23T00:07:53.411Z",
+      "sourceHash": "415fd673dfdbbb10bafbc62ac745578dbd89455df9da80fdc9e44e29b9640a0a"
+    },
+    "roskilde-situation-1-audio-1": {
+      "id": "roskilde-situation-1-audio-1",
+      "text": "Øh, har du planer på fredag?",
+      "stamp": "f539b35c62b74a0c",
+      "bytes": 9216,
+      "at": "2026-08-23T20:45:56.410Z",
+      "sourceHash": "d1a25638d7dceb028bc316ddf7d4a2330d9304188fcd5da03ed798305daf5631"
+    },
+    "roskilde-situation-2-audio-1": {
+      "id": "roskilde-situation-2-audio-1",
+      "text": "Kan du komme fredag?",
+      "stamp": "359a2b8bdd973bc0",
+      "bytes": 5376,
+      "at": "2026-08-23T00:07:54.364Z",
+      "sourceHash": "9e5daf85a7750e150ae64e0f646eedbe5db0675d2108eb171a6d00599e31a725"
+    },
+    "roskilde-situation-3-audio-1": {
+      "id": "roskilde-situation-3-audio-1",
+      "text": "Du skal bestille en billet. Du behøver ikke betale nu.",
+      "stamp": "05e5c784b9a68ce6",
+      "bytes": 18336,
+      "at": "2026-08-23T00:07:55.035Z",
+      "sourceHash": "8ce405581b225f0ca0ce1dacfac080a8f10c384129f1401bbbec016990123144"
+    },
+    "roskilde-situation-4-audio-1": {
+      "id": "roskilde-situation-4-audio-1",
+      "text": "Lørdag klokken seks eller søndag klokken elleve?",
+      "stamp": "1bfb914622565d07",
+      "bytes": 13056,
+      "at": "2026-08-23T00:07:55.632Z",
+      "sourceHash": "f971398f68d781220688568d782bafa42a0ac75737b1a635d8b62303bdddcec4"
+    },
+    "roskilde-due-review-audio-1": {
+      "id": "roskilde-due-review-audio-1",
+      "text": "Foreslå en ny tid.",
+      "stamp": "3c2491d7cea7f773",
+      "bytes": 5664,
+      "at": "2026-08-23T00:07:56.381Z",
+      "sourceHash": "2c2e183493fc94ac29bc4eae24f274805d94e426da80fb0875bcd9ced0a9e348"
+    },
+    "roskilde-exit-read-audio-1": {
+      "id": "roskilde-exit-read-audio-1",
+      "text": "Begge kan søndag formiddag.",
+      "stamp": "3df4d5780b0c17ee",
+      "bytes": 8544,
+      "at": "2026-08-23T00:07:56.898Z",
+      "sourceHash": "8f0e53e507fc5a2c788e98849f22422b65f3c477ef215eed0d451cd0d8115a98"
+    },
+    "roskilde-exit-interact-audio-1": {
+      "id": "roskilde-exit-interact-audio-1",
+      "text": "Skal vi tage på museum fredag klokken fem?",
+      "stamp": "249dcc0f41b151f6",
+      "bytes": 10176,
+      "at": "2026-08-23T00:07:57.435Z",
+      "sourceHash": "c2f113e6ab767b1e1787165808c6f5dc8a4f80f98441881f2761a1a8b2743497"
+    },
+    "roskilde-exit-write-audio-1": {
+      "id": "roskilde-exit-write-audio-1",
+      "text": "Send den endelige aftale.",
+      "stamp": "8001a73768fd444b",
+      "bytes": 8064,
+      "at": "2026-08-23T00:07:57.939Z",
+      "sourceHash": "8d456bb64789ec975d62230d8e961a137b5deda03e73bbe106b7413f268a98f8"
+    },
+    "kobenhavn-notice-audio-1": {
+      "id": "kobenhavn-notice-audio-1",
+      "text": "Jeg kan se, at tiden er ændret.",
+      "stamp": "b0b46a2da8d13d05",
+      "bytes": 7296,
+      "at": "2026-08-23T00:07:58.433Z",
+      "sourceHash": "8a559e9afbd8f268681ff5d35f244b229ff9b67e566102284c39b33dda782e5e"
+    },
+    "kobenhavn-discriminate-audio-1": {
+      "id": "kobenhavn-discriminate-audio-1",
+      "text": "Vælg ordstillingen i ledsætningen.",
+      "stamp": "a3c1c7a3ce850516",
+      "bytes": 9216,
+      "at": "2026-08-23T00:07:58.952Z",
+      "sourceHash": "a00cb956a05c900ef4b1e65523bc732065614bca43a9b43aefe87965eb286f1b"
+    },
+    "kobenhavn-manipulate-audio-1": {
+      "id": "kobenhavn-manipulate-audio-1",
+      "text": "Skriv en betingelse med tirsdag og onsdag.",
+      "stamp": "a22c9ed8d6c4ce6f",
+      "bytes": 9792,
+      "at": "2026-08-23T00:07:59.488Z",
+      "sourceHash": "52d6cfba39bf6dd621503e9cf3d27d88461ce6abb66d5c7f44d5b40e1a38a3ea"
+    },
+    "kobenhavn-listen-audio-1": {
+      "id": "kobenhavn-listen-audio-1",
+      "text": "Hvis du ikke kan komme, skal du aflyse aftalen senest dagen før.",
+      "stamp": "f75fa6c7196cef6e",
+      "bytes": 15744,
+      "at": "2026-08-23T00:08:00.131Z",
+      "sourceHash": "7551bd0fc8ad8f27ecb0aa867c35e66913be6c4c29e45a574e6e00e528e1baf9"
+    },
+    "kobenhavn-transfer-audio-1": {
+      "id": "kobenhavn-transfer-audio-1",
+      "text": "Hvordan kan jeg hjælpe dig?",
+      "stamp": "587d6de6d65fc043",
+      "bytes": 6912,
+      "at": "2026-08-23T00:08:00.628Z",
+      "sourceHash": "07f24a2986f0d390d2c6a36ac1cd6f211874b7f1a6703a1af69d80ec328f0aae"
+    },
+    "kobenhavn-situation-1-audio-1": {
+      "id": "kobenhavn-situation-1-audio-1",
+      "text": "Hvad kan jeg hjælpe med?",
+      "stamp": "57b37167a076c70b",
+      "bytes": 5184,
+      "at": "2026-08-23T00:08:01.179Z",
+      "sourceHash": "d53ea5001731fabef0fe9c202e2b6ca0e196dfc928ade0ef948098ba8af2a8c1"
+    },
+    "kobenhavn-situation-2-audio-1": {
+      "id": "kobenhavn-situation-2-audio-1",
+      "text": "Er problemet ligesom i går?",
+      "stamp": "0f990d892e5833e9",
+      "bytes": 6144,
+      "at": "2026-08-23T20:45:56.911Z",
+      "sourceHash": "2e333d3a1fa6afbbe4b4a8fe23e7aaedb7f9b5b0f53c089ecbb1754d86842af7"
+    },
+    "kobenhavn-situation-3-audio-1": {
+      "id": "kobenhavn-situation-3-audio-1",
+      "text": "Hvad er problemet i lejligheden?",
+      "stamp": "b2deddb0c112dc5d",
+      "bytes": 9024,
+      "at": "2026-08-23T00:08:02.216Z",
+      "sourceHash": "d7f3f19f3abfde5446a3a09887920f559c1efc301a4bf11628924745f2d84251"
+    },
+    "kobenhavn-situation-4-audio-1": {
+      "id": "kobenhavn-situation-4-audio-1",
+      "text": "Der er et gebyr ved sen aflysning.",
+      "stamp": "1e6ccbf25fa4fb76",
+      "bytes": 9984,
+      "at": "2026-08-23T00:08:02.749Z",
+      "sourceHash": "b6d56e0591010b8cc79c4536758785385eef536d7e0d6db08dac8e4ae5c4564b"
+    },
+    "kobenhavn-due-review-audio-1": {
+      "id": "kobenhavn-due-review-audio-1",
+      "text": "Det er ligesom i går: Tiden passer ikke.",
+      "stamp": "59d7f89ce52a2dce",
+      "bytes": 11904,
+      "at": "2026-08-23T20:45:57.502Z",
+      "sourceHash": "9fefa6903b9ff992159d78fe50604901b27b695a3e16b0feb6d7ad422e30085e"
+    },
+    "kobenhavn-exit-listen-audio-1": {
+      "id": "kobenhavn-exit-listen-audio-1",
+      "text": "Du kan aflyse gratis, hvis du gør det før onsdag.",
+      "stamp": "4ef7851a2cc33095",
+      "bytes": 11904,
+      "at": "2026-08-23T00:08:03.847Z",
+      "sourceHash": "9ab9b3734c817c7dee4b8b807ba6e1f8e1976b0d0d149702f88e684d7afc0668"
+    },
+    "kobenhavn-exit-interact-audio-1": {
+      "id": "kobenhavn-exit-interact-audio-1",
+      "text": "Hvilken aftale vil du ændre?",
+      "stamp": "63bd292c9747bc0e",
+      "bytes": 7872,
+      "at": "2026-08-23T00:08:04.387Z",
+      "sourceHash": "b71549fbd1a813529b4981c4ccfbb4214bdcd47e3933bdc3d92c18f2f197f52c"
+    },
+    "kobenhavn-exit-write-audio-1": {
+      "id": "kobenhavn-exit-write-audio-1",
+      "text": "Bekræft den nye aftale skriftligt.",
+      "stamp": "d8cb2688001bc061",
+      "bytes": 10272,
+      "at": "2026-08-23T00:08:04.927Z",
+      "sourceHash": "fa0e0e89dbe03ca1e7d50e494295e69b4fbf77d3873233aa8655524cd039c1f9"
+    },
+    "skagen-a1-listening-a-audio-1": {
+      "id": "skagen-a1-listening-a-audio-1",
+      "text": "Toget til Frederikshavn kører fra spor to klokken ni.",
+      "stamp": "cb509e41c0b7cd58",
+      "bytes": 13632,
+      "at": "2026-08-23T00:08:05.517Z",
+      "sourceHash": "ef3c6a3706394a2a55922f1e5686b5de0a12d1cc79b91d8849f763e7dd5c1c95"
+    },
+    "skagen-a1-listening-b-audio-1": {
+      "id": "skagen-a1-listening-b-audio-1",
+      "text": "Bussen til havnen kører fra stoppested tre klokken ti.",
+      "stamp": "4bb7815d9073be75",
+      "bytes": 13824,
+      "at": "2026-08-23T00:08:06.103Z",
+      "sourceHash": "089c68d9bf41ac0127b77db5ba7aeb18b752d59a366ec4c12cef6a556b409a8b"
+    },
+    "skagen-a1-reading-a-audio-1": {
+      "id": "skagen-a1-reading-a-audio-1",
+      "text": "Læs skiltet og find datoen.",
+      "stamp": "c70e702560024226",
+      "bytes": 10464,
+      "at": "2026-08-23T00:08:06.644Z",
+      "sourceHash": "6b3332bdbb5d38686fb5b6545b947dddf391905a20bdf44f2df6e5da7b172e76"
+    },
+    "skagen-a1-reading-b-audio-1": {
+      "id": "skagen-a1-reading-b-audio-1",
+      "text": "Læs skiltet og find datoen.",
+      "stamp": "c70e702560024226",
+      "bytes": 9984,
+      "at": "2026-08-23T00:08:07.231Z",
+      "sourceHash": "6b3332bdbb5d38686fb5b6545b947dddf391905a20bdf44f2df6e5da7b172e76"
+    },
+    "skagen-a1-interaction-a-audio-1": {
+      "id": "skagen-a1-interaction-a-audio-1",
+      "text": "Gå forbi banken, og drej til venstre ved broen.",
+      "stamp": "357d8c1e89d3cc33",
+      "bytes": 11136,
+      "at": "2026-08-23T00:08:07.783Z",
+      "sourceHash": "ff9e8115f3ad99695ae8e2bdad153674cb0c0c11ab455cb19627b99822342284"
+    },
+    "skagen-a1-interaction-b-audio-1": {
+      "id": "skagen-a1-interaction-b-audio-1",
+      "text": "Billetten koster firs kroner, og toget kører klokken sytten.",
+      "stamp": "41d79f1e0041caa6",
+      "bytes": 15264,
+      "at": "2026-08-23T00:08:08.398Z",
+      "sourceHash": "bebef00b33bf6a7919e60dd20e813213f0c3f7327c150b69e691d9ff5a1f29e4"
+    },
+    "skagen-a1-writing-a-audio-1": {
+      "id": "skagen-a1-writing-a-audio-1",
+      "text": "Skriv en kort besked med navn, land og telefonnummer.",
+      "stamp": "556f01d3e6693867",
+      "bytes": 13824,
+      "at": "2026-08-23T00:08:09.024Z",
+      "sourceHash": "867ffeef98af17abceb4d909ebb5c7c3f964695013dd91677aeae4938d7ee630"
+    },
+    "skagen-a1-writing-b-audio-1": {
+      "id": "skagen-a1-writing-b-audio-1",
+      "text": "Skriv en kort besked med navn, by og e-mail.",
+      "stamp": "216909be33585ae0",
+      "bytes": 14112,
+      "at": "2026-08-23T00:08:09.700Z",
+      "sourceHash": "b54c757fb6d4ff9a6d8725fab4bef48ff045722b828140aa0a90522bf19102a9"
+    },
+    "skagen-a1-recent-past-writing-a-audio-1": {
+      "id": "skagen-a1-recent-past-writing-a-audio-1",
+      "text": "Skriv to korte sætninger om i går og i dag.",
+      "stamp": "e3b2b09ddac31137",
+      "bytes": 12192,
+      "at": "2026-08-23T00:08:10.266Z",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    "skagen-a1-recent-past-writing-b-audio-1": {
+      "id": "skagen-a1-recent-past-writing-b-audio-1",
+      "text": "Skriv to korte sætninger om i går og i dag.",
+      "stamp": "e3b2b09ddac31137",
+      "bytes": 12192,
+      "at": "2026-08-23T00:08:10.963Z",
+      "sourceHash": "fcdb72db1864b7bc5ba9b22227afe9d7d021577b7e4a5aa4c713ccae656d37e6"
+    },
+    "kobenhavn-a2-listening-a-audio-1": {
+      "id": "kobenhavn-a2-listening-a-audio-1",
+      "text": "Din aftale er flyttet fra tirsdag til torsdag klokken tre. Ring til os, hvis tiden ikke passer.",
+      "stamp": "8f93ebb1251523cf",
+      "bytes": 21696,
+      "at": "2026-08-23T00:08:11.723Z",
+      "sourceHash": "7e7abd6a52aef33e9ce7820790cd3d371ef0b83ff98466b27ab5184ac8495355"
+    },
+    "kobenhavn-a2-listening-b-audio-1": {
+      "id": "kobenhavn-a2-listening-b-audio-1",
+      "text": "Din pakke kan hentes fredag efter klokken fire. Skriv til os, hvis du ikke kan komme.",
+      "stamp": "4a0fbc3d5f15b611",
+      "bytes": 26784,
+      "at": "2026-08-23T00:08:12.580Z",
+      "sourceHash": "207649a2d723900a034b91e2cfa608801206d35d5a5e161b397269dc5dbb7ddb"
+    },
+    "kobenhavn-a2-reading-a-audio-1": {
+      "id": "kobenhavn-a2-reading-a-audio-1",
+      "text": "Læs begge tekster, og vælg en tid, der passer.",
+      "stamp": "121d33d850669e7e",
+      "bytes": 11904,
+      "at": "2026-08-23T00:08:13.149Z",
+      "sourceHash": "d4682a057840eeae1041aff38a15416ec45acff1bec6adb472414af85e1a09cf"
+    },
+    "kobenhavn-a2-reading-b-audio-1": {
+      "id": "kobenhavn-a2-reading-b-audio-1",
+      "text": "Læs begge tekster, og vælg en tid, der passer.",
+      "stamp": "121d33d850669e7e",
+      "bytes": 12864,
+      "at": "2026-08-23T00:08:13.722Z",
+      "sourceHash": "d4682a057840eeae1041aff38a15416ec45acff1bec6adb472414af85e1a09cf"
+    },
+    "kobenhavn-a2-interaction-a-audio-1": {
+      "id": "kobenhavn-a2-interaction-a-audio-1",
+      "text": "Din aftale er mandag. Hvilken anden dag passer dig?",
+      "stamp": "29d01ce202a6780d",
+      "bytes": 18144,
+      "at": "2026-08-23T00:08:14.315Z",
+      "sourceHash": "4beeadbc64502fbe4591a393fcd06f81cca079824d434791dc7f4db313843727"
+    },
+    "kobenhavn-a2-interaction-a-audio-2": {
+      "id": "kobenhavn-a2-interaction-a-audio-2",
+      "text": "Kan du komme klokken halv fire?",
+      "stamp": "d6c91022b5530a3c",
+      "bytes": 7776,
+      "at": "2026-08-23T00:08:14.821Z",
+      "sourceHash": "f8a05f32f1d956bb5b6f935822592593376e46f1438f0dead4152689a8bd67fb"
+    },
+    "kobenhavn-a2-interaction-b-audio-1": {
+      "id": "kobenhavn-a2-interaction-b-audio-1",
+      "text": "Din aftale er fredag. Hvornår kan du hente pakken i stedet?",
+      "stamp": "87589b9f05a29227",
+      "bytes": 23232,
+      "at": "2026-08-23T00:08:15.581Z",
+      "sourceHash": "f97e4d672ad850035bf81ccbf611e355fdb5c7ccd915c190a41f63e3c10fbeca"
+    },
+    "kobenhavn-a2-interaction-b-audio-2": {
+      "id": "kobenhavn-a2-interaction-b-audio-2",
+      "text": "Kan du komme klokken sytten?",
+      "stamp": "97aaf815096bd788",
+      "bytes": 6144,
+      "at": "2026-08-23T00:08:16.058Z",
+      "sourceHash": "fc7b1a5910eab2f1ab13c024bac329ecf638c3e566c789d8b8f3accf0c17e2c1"
+    },
+    "kobenhavn-a2-writing-a-audio-1": {
+      "id": "kobenhavn-a2-writing-a-audio-1",
+      "text": "Skriv, hvad der skete, og hvad du gør bagefter.",
+      "stamp": "0c91586a1cb1110f",
+      "bytes": 13152,
+      "at": "2026-08-23T00:08:16.656Z",
+      "sourceHash": "7c1ae22e6730ed69a3bf0c23c432496183224b39694f2fee0a8ebb49e2ef28eb"
+    },
+    "kobenhavn-a2-writing-b-audio-1": {
+      "id": "kobenhavn-a2-writing-b-audio-1",
+      "text": "Skriv, hvad der skete, og hvad du gør bagefter.",
+      "stamp": "0c91586a1cb1110f",
+      "bytes": 11616,
+      "at": "2026-08-23T00:08:17.214Z",
+      "sourceHash": "7c1ae22e6730ed69a3bf0c23c432496183224b39694f2fee0a8ebb49e2ef28eb"
+    },
+    "kobenhavn-a2-grammar-a-audio-1": {
+      "id": "kobenhavn-a2-grammar-a-audio-1",
+      "text": "Sæt delene sammen til en besked med en grund og en betingelse.",
+      "stamp": "0145c5f4e93b3c7d",
+      "bytes": 15456,
+      "at": "2026-08-23T00:08:17.850Z",
+      "sourceHash": "7dd7b4fc91057558ae4db49697861a2cf8b8d1011431c29d9228e20f137d2b06"
+    },
+    "kobenhavn-a2-grammar-b-audio-1": {
+      "id": "kobenhavn-a2-grammar-b-audio-1",
+      "text": "Sæt delene sammen til en besked med en grund og en betingelse.",
+      "stamp": "0145c5f4e93b3c7d",
+      "bytes": 17472,
+      "at": "2026-08-23T00:08:18.515Z",
+      "sourceHash": "7dd7b4fc91057558ae4db49697861a2cf8b8d1011431c29d9228e20f137d2b06"
+    },
+    "skagen-situation-4-audio-2": {
+      "id": "skagen-situation-4-audio-2",
+      "text": "Og hvad lavede du?",
+      "stamp": "2d665edc865516c3",
+      "bytes": 4224,
+      "at": "2026-08-23T20:45:52.134Z",
+      "sourceHash": "4a3066639ab40cd7d6cc373b9869e19fe47688cc359dd96e7c810e2f791e5e26"
+    },
+    "odense-situation-2-audio-2": {
+      "id": "odense-situation-2-audio-2",
+      "text": "Hvor så du dem sidst?",
+      "stamp": "b7ffc71f82a23824",
+      "bytes": 5184,
+      "at": "2026-08-23T20:45:54.511Z",
+      "sourceHash": "13461ba47c8dd39909309c5f5ab57897b679fa7f8ca81617567ff0312900c0da"
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "da"
+}

@@ -1,0 +1,208 @@
+import { describe, expect, it } from 'vitest'
+import { BOARD } from '../engine/config'
+import { applyEvent as applyEventIn, createGame } from '../engine/game'
+import type { BoardWord, CardRole, GameState } from '../engine/types'
+import {
+  aiGuessableIds,
+  aiTargetableIds,
+  buildAiClueView,
+  buildAiGuessView,
+} from './projections'
+import { buildCluePrompt as buildCluePromptIn, buildGuessPrompt as buildGuessPromptIn } from './prompts'
+import { danish } from '../lang/da'
+
+/**
+ * The prompt builders take the language pack now (H1). Bound to Danish here so
+ * every assertion below keeps testing the prompt it was written against.
+ */
+const buildCluePrompt = (v: Parameters<typeof buildCluePromptIn>[0]) =>
+  buildCluePromptIn(v, danish)
+const buildGuessPrompt = (v: Parameters<typeof buildGuessPromptIn>[0]) =>
+  buildGuessPromptIn(v, danish)
+
+/**
+ * The engine takes the language pack now (H1). Wrapped here so the suite's
+ * call sites stay exactly as they were and keep pinning what they pinned.
+ */
+const applyEvent = (s: Parameters<typeof applyEventIn>[0], e: Parameters<typeof applyEventIn>[1]) =>
+  applyEventIn(s, e, danish)
+
+const words = (n: number): BoardWord[] =>
+  Array.from({ length: n }, (_, i) => ({
+    wordId: `w${i}`,
+    da: `dansk${i}ord${i}`,
+    en: [`gloss${i}word${i}`],
+    pos: 'noun',
+  }))
+
+const game = (seed: number): GameState =>
+  // firstGiver pinned so these fixtures do not move if the default does.
+  createGame({ config: BOARD, words: words(BOARD.totalWords), seed, firstGiver: 'player' })
+
+/** Cyclically reassign the roles among words — same counts, different key. */
+function permuteKey(key: Record<string, CardRole>): Record<string, CardRole> {
+  const ids = Object.keys(key).sort()
+  const roles = ids.map((id) => key[id]!)
+  const shifted = [...roles.slice(1), roles[0]!]
+  return Object.fromEntries(ids.map((id, i) => [id, shifted[i]!]))
+}
+
+/** A game paused mid-flow: player clue given (AI about to guess). */
+function atAiGuessing(seed: number): GameState {
+  return applyEvent(game(seed), { type: 'SUBMIT_CLUE', by: 'player', text: 'klods', number: 2 })
+}
+
+/** A game with an AI clue in history carrying secret targets + rationale. */
+function withAiSecrets(seed: number): GameState {
+  let s = atAiGuessing(seed)
+  const bystander = Object.keys(s.playerKey).find((w) => s.playerKey[w] === 'bystander')!
+  s = applyEvent(s, { type: 'GUESS', wordId: bystander })
+  return applyEvent(s, {
+    type: 'SUBMIT_CLUE',
+    by: 'ai',
+    text: 'zonk',
+    number: 1,
+    targets: ['w1'],
+    rationale: 'SECRETRATIONALE',
+  })
+}
+
+describe('firewall invariance', () => {
+  it('clue prompt is byte-identical under player-key permutation (100 seeds)', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const s = atAiGuessing(seed)
+      const permuted: GameState = { ...s, playerKey: permuteKey(s.playerKey) }
+      const a = JSON.stringify(buildCluePrompt(buildAiClueView(s)))
+      const b = JSON.stringify(buildCluePrompt(buildAiClueView(permuted)))
+      expect(b).toBe(a)
+    }
+  })
+
+  it('and still is with an authored board id on the view, which names a board and not a key', () => {
+    for (let seed = 1; seed <= 20; seed++) {
+      const s = atAiGuessing(seed)
+      const permuted: GameState = { ...s, playerKey: permuteKey(s.playerKey) }
+      const a = JSON.stringify(buildAiClueView(s, [], { boardId: 'bank_001' }))
+      const b = JSON.stringify(buildAiClueView(permuted, [], { boardId: 'bank_001' }))
+      expect(b).toBe(a)
+      expect(JSON.parse(a).boardId).toBe('bank_001')
+    }
+  })
+
+  it('and the guess view with a board id on it is too — the id names a board, not a key', () => {
+    for (let seed = 1; seed <= 20; seed++) {
+      const s = atAiGuessing(seed)
+      const permuted: GameState = { ...s, playerKey: permuteKey(s.playerKey), aiKey: permuteKey(s.aiKey) }
+      const a = JSON.stringify(buildAiGuessView(s, [], { boardId: 'bank_001' }))
+      const b = JSON.stringify(buildAiGuessView(permuted, [], { boardId: 'bank_001' }))
+      expect(b).toBe(a)
+      expect(JSON.parse(a).boardId).toBe('bank_001')
+      expect('boardId' in buildAiGuessView(s, [], { boardId: null })).toBe(false)
+    }
+  })
+
+  it('guess prompt is byte-identical under permutation of BOTH keys (100 seeds)', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const s = atAiGuessing(seed)
+      const permuted: GameState = {
+        ...s,
+        playerKey: permuteKey(s.playerKey),
+        aiKey: permuteKey(s.aiKey),
+      }
+      const a = JSON.stringify(buildGuessPrompt(buildAiGuessView(s)))
+      const b = JSON.stringify(buildGuessPrompt(buildAiGuessView(permuted)))
+      expect(b).toBe(a)
+    }
+  })
+
+  it('top-two guess prompt stays byte-identical under permutation of BOTH keys', () => {
+    for (let seed = 1; seed <= 20; seed++) {
+      const s = atAiGuessing(seed)
+      const permuted: GameState = {
+        ...s,
+        playerKey: permuteKey(s.playerKey),
+        aiKey: permuteKey(s.aiKey),
+      }
+      const a = JSON.stringify(buildGuessPromptIn(buildAiGuessView(s), danish, 'top-two'))
+      const b = JSON.stringify(buildGuessPromptIn(buildAiGuessView(permuted), danish, 'top-two'))
+      expect(b).toBe(a)
+      expect(a).not.toContain('playerKey')
+      expect(a).not.toContain('aiKey')
+    }
+  })
+
+  it.each([3, 4])('keeps initial and continued clue-%i prompts key-invariant', (number) => {
+    const initial = applyEvent(game(41 + number), {
+      type: 'SUBMIT_CLUE', by: 'player', text: 'forbindelse', number,
+    })
+    const green = Object.keys(initial.playerKey).find((id) => initial.playerKey[id] === 'green')!
+    const continued = applyEvent(initial, { type: 'GUESS', wordId: green })
+    for (const state of [initial, continued]) {
+      const permuted: GameState = {
+        ...state,
+        playerKey: permuteKey(state.playerKey),
+        aiKey: permuteKey(state.aiKey),
+      }
+      const a = JSON.stringify(buildGuessPromptIn(buildAiGuessView(state), danish, 'top-two'))
+      const b = JSON.stringify(buildGuessPromptIn(buildAiGuessView(permuted), danish, 'top-two'))
+      expect(b).toBe(a)
+      expect(a).not.toContain('playerKey')
+      expect(a).not.toContain('aiKey')
+    }
+  })
+
+  it('mid-game prompts never contain stored AI rationale/targets or key fields', () => {
+    const s = withAiSecrets(3)
+    const clueText = JSON.stringify(buildCluePrompt(buildAiClueView(s)))
+    expect(clueText).not.toContain('SECRETRATIONALE')
+    expect(clueText).not.toContain('playerKey')
+    // The player-clue guess view exists at the aiGuessing point of a fresh game.
+    const guessing = atAiGuessing(3)
+    const guessText = JSON.stringify(buildGuessPrompt(buildAiGuessView(guessing)))
+    expect(guessText).not.toContain('SECRETRATIONALE')
+    expect(guessText).not.toContain('my key')
+    expect(guessText).not.toContain('playerKey')
+    // The guesser is shown no key of any kind, so no card may be labelled with
+    // a role at all. This was 'FORBIDDEN on your key', which named the one
+    // marker the clue prompt drew and the guess prompt must not; that marker
+    // no longer exists anywhere, so the assertion had become one that could
+    // not fail. GREEN is the marker the clue prompt draws now.
+    expect(guessText).not.toContain('GREEN')
+    expect(guessText).not.toContain('YOU MAY TARGET THIS')
+  })
+})
+
+describe('projection helpers', () => {
+  it('aiTargetableIds returns exactly the unrevealed greens of the AI key', () => {
+    const s = atAiGuessing(5)
+    const view = buildAiClueView(s)
+    const expected = Object.keys(s.aiKey).filter((id) => s.aiKey[id] === 'green')
+    expect(aiTargetableIds(view).sort()).toEqual(expected.sort())
+  })
+
+  it('aiGuessableIds excludes revealed words and player-direction bystanders', () => {
+    let s = atAiGuessing(5)
+    const bystander = Object.keys(s.playerKey).find((w) => s.playerKey[w] === 'bystander')!
+    s = applyEvent(s, { type: 'GUESS', wordId: bystander })
+    // Re-enter an AI-guessing phase to build a guess view with history present.
+    // Clued as 2 so the deliberate stop below is still a choice: the number is
+    // the whole allowance now, and a 1 would have ended the turn on the guess.
+    s = applyEvent(s, { type: 'SUBMIT_CLUE', by: 'ai', text: 'zonk', number: 2 })
+    const greenOnAi = Object.keys(s.aiKey).find((w) => s.aiKey[w] === 'green')!
+    s = applyEvent(s, { type: 'GUESS', wordId: greenOnAi })
+    s = applyEvent(s, { type: 'STOP_GUESSING' })
+    s = applyEvent(s, { type: 'SUBMIT_CLUE', by: 'player', text: 'klods', number: 1 })
+
+    const ids = aiGuessableIds(buildAiGuessView(s))
+    expect(ids).not.toContain(bystander) // bystander revealed under a player clue
+    expect(ids).not.toContain(greenOnAi) // revealed green is done
+  })
+
+  /**
+   * There was a third projection here — `buildDebriefView`, the only one that
+   * exposed BOTH keys, guarded by a throw until the game was finished. It is
+   * gone with the debrief call. Nothing is asked of the model after the round
+   * ends, so the two views above are now the whole of what the firewall has to
+   * hold, and neither of them may ever show the player's key.
+   */
+})

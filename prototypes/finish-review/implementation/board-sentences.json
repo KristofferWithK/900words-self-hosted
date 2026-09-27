@@ -1,0 +1,2209 @@
+{
+  "version": 1,
+  "base": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82",
+  "language": "da",
+  "city": 0,
+  "kind": "board",
+  "rows": [
+    {
+      "wordId": "da:mor",
+      "city": 0,
+      "sourceSha256": "3e608dbd44ff66ceb963aa9f50d75cacb46530354d363afdf3217912b70f5fae",
+      "version": 1,
+      "sentenceId": "city1:da:mor:board:sentence:v1",
+      "audioId": "city1:da:mor:board:audio:v1",
+      "text": {
+        "da": "Min mor er hjemme.",
+        "en": "My mother is at home."
+      },
+      "wordSpan": {
+        "text": "mor",
+        "start": 4,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:far",
+      "city": 0,
+      "sourceSha256": "0b9d025cf0a47d8e66fb577b7a945632169cfad42d0899bbb2ebdce1c1ee42de",
+      "version": 1,
+      "sentenceId": "city1:da:far:board:sentence:v1",
+      "audioId": "city1:da:far:board:audio:v1",
+      "text": {
+        "da": "Min far laver mad.",
+        "en": "My father is cooking."
+      },
+      "wordSpan": {
+        "text": "far",
+        "start": 4,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:barn",
+      "city": 0,
+      "sourceSha256": "2a672925f63555c57196720ce24ae79efc9519ad63b7e8734cadd79e2cf84432",
+      "version": 1,
+      "sentenceId": "city1:da:barn:board:sentence:v1",
+      "audioId": "city1:da:barn:board:audio:v1",
+      "text": {
+        "da": "Barnet leger på gulvet.",
+        "en": "The child is playing on the floor."
+      },
+      "wordSpan": {
+        "text": "Barnet",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hund",
+      "city": 0,
+      "sourceSha256": "d94ded011d133a15fb11f8cf5764cffe5e6dc7060c846826ed7e7be0fe87690b",
+      "version": 1,
+      "sentenceId": "city1:da:hund:board:sentence:v1",
+      "audioId": "city1:da:hund:board:audio:v1",
+      "text": {
+        "da": "Hunden sover.",
+        "en": "The dog is sleeping."
+      },
+      "wordSpan": {
+        "text": "Hunden",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kat",
+      "city": 0,
+      "sourceSha256": "03c3440378c7d23b808d7db58f091161e971b168531726c4212f81c4a3f4b5a3",
+      "version": 1,
+      "sentenceId": "city1:da:kat:board:sentence:v1",
+      "audioId": "city1:da:kat:board:audio:v1",
+      "text": {
+        "da": "Katten sover.",
+        "en": "The cat is sleeping."
+      },
+      "wordSpan": {
+        "text": "Katten",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hus",
+      "city": 0,
+      "sourceSha256": "fddd42dbd9963a1c69254e2e83ffb6ceaa345586d2348f5cc987874f7d1c56cf",
+      "version": 1,
+      "sentenceId": "city1:da:hus:board:sentence:v1",
+      "audioId": "city1:da:hus:board:audio:v1",
+      "text": {
+        "da": "Huset har en have.",
+        "en": "The house has a garden."
+      },
+      "wordSpan": {
+        "text": "Huset",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bord",
+      "city": 0,
+      "sourceSha256": "17169ae37e7567144f3ee70fcbca283deabf2acd263c1a34117405dfe457165c",
+      "version": 1,
+      "sentenceId": "city1:da:bord:board:sentence:v1",
+      "audioId": "city1:da:bord:board:audio:v1",
+      "text": {
+        "da": "Bordet står i køkkenet.",
+        "en": "The table is in the kitchen."
+      },
+      "wordSpan": {
+        "text": "Bordet",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:seng",
+      "city": 0,
+      "sourceSha256": "f5a348a9080daa9497f8481663b94afd775430276e1b589875f0d8fc8f2cdaa3",
+      "version": 1,
+      "sentenceId": "city1:da:seng:board:sentence:v1",
+      "audioId": "city1:da:seng:board:audio:v1",
+      "text": {
+        "da": "Sengen er blød.",
+        "en": "The bed is soft."
+      },
+      "wordSpan": {
+        "text": "Sengen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:mad",
+      "city": 0,
+      "sourceSha256": "74003256d048d1459c9ced1272b2d8540f7bf4eac496bd52951bbfab390e9d68",
+      "version": 1,
+      "sentenceId": "city1:da:mad:board:sentence:v1",
+      "audioId": "city1:da:mad:board:audio:v1",
+      "text": {
+        "da": "Maden er varm.",
+        "en": "The food is hot."
+      },
+      "wordSpan": {
+        "text": "Maden",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:æble",
+      "city": 0,
+      "sourceSha256": "26135cc390ce7e2c2436f3d9e60bc90827f6c98c91a88bce6af1f47adfe21cef",
+      "version": 1,
+      "sentenceId": "city1:da:æble:board:sentence:v1",
+      "audioId": "city1:da:æble:board:audio:v1",
+      "text": {
+        "da": "Jeg spiser et æble.",
+        "en": "I am eating an apple."
+      },
+      "wordSpan": {
+        "text": "æble",
+        "start": 14,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:mælk",
+      "city": 0,
+      "sourceSha256": "992cae9721e0caea103495d66e51b81c09b90467cd692d12e67bf8be14ccd90f",
+      "version": 1,
+      "sentenceId": "city1:da:mælk:board:sentence:v1",
+      "audioId": "city1:da:mælk:board:audio:v1",
+      "text": {
+        "da": "Mælken er i køleskabet.",
+        "en": "The milk is in the fridge."
+      },
+      "wordSpan": {
+        "text": "Mælken",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:vand",
+      "city": 0,
+      "sourceSha256": "6e88266ffcd6ee49a2cd1715b5ccc41000774f9fd84a09483943028ecef8a9e4",
+      "version": 1,
+      "sentenceId": "city1:da:vand:board:sentence:v1",
+      "audioId": "city1:da:vand:board:audio:v1",
+      "text": {
+        "da": "Jeg drikker vand.",
+        "en": "I am drinking water."
+      },
+      "wordSpan": {
+        "text": "vand",
+        "start": 12,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kaffe",
+      "city": 0,
+      "sourceSha256": "9fdeaecd367edbc22ace0afb07c7fa47ca6f70b2fc72d76c1dc68d73b508dc43",
+      "version": 1,
+      "sentenceId": "city1:da:kaffe:board:sentence:v1",
+      "audioId": "city1:da:kaffe:board:audio:v1",
+      "text": {
+        "da": "Jeg drikker kaffe.",
+        "en": "I am drinking coffee."
+      },
+      "wordSpan": {
+        "text": "kaffe",
+        "start": 12,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:øje",
+      "city": 0,
+      "sourceSha256": "aab4acde09c48e6393abd844ac7bde010d8124ef74eb36e0561565879c6dd795",
+      "version": 1,
+      "sentenceId": "city1:da:øje:board:sentence:v1",
+      "audioId": "city1:da:øje:board:audio:v1",
+      "text": {
+        "da": "Hun har blå øjne.",
+        "en": "She has blue eyes."
+      },
+      "wordSpan": {
+        "text": "øjne",
+        "start": 12,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hånd",
+      "city": 0,
+      "sourceSha256": "db0665e2341cd0d8ea5f34faac162bb40179f61c783fb7cd06bd5aef911cbff5",
+      "version": 1,
+      "sentenceId": "city1:da:hånd:board:sentence:v1",
+      "audioId": "city1:da:hånd:board:audio:v1",
+      "text": {
+        "da": "Mine hænder er kolde.",
+        "en": "My hands are cold."
+      },
+      "wordSpan": {
+        "text": "hænder",
+        "start": 5,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:dør",
+      "city": 0,
+      "sourceSha256": "2ffc9f8cfed05bd9dcaa7848367d372af15a83da2048c14dd837395dfd5f0078",
+      "version": 1,
+      "sentenceId": "city1:da:dør:board:sentence:v1",
+      "audioId": "city1:da:dør:board:audio:v1",
+      "text": {
+        "da": "Døren er åben.",
+        "en": "The door is open."
+      },
+      "wordSpan": {
+        "text": "Døren",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:vindue",
+      "city": 0,
+      "sourceSha256": "52a101776dcc59e16b814bb13ed4678bfc3f307d5ad49fcb123cb2de237f3c8a",
+      "version": 1,
+      "sentenceId": "city1:da:vindue:board:sentence:v1",
+      "audioId": "city1:da:vindue:board:audio:v1",
+      "text": {
+        "da": "Vinduet er lukket.",
+        "en": "The window is closed."
+      },
+      "wordSpan": {
+        "text": "Vinduet",
+        "start": 0,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:stol",
+      "city": 0,
+      "sourceSha256": "e73507b043bbb6f839fabace060c6f7a7ec1c6334cc18903b3b685389dd74e17",
+      "version": 1,
+      "sentenceId": "city1:da:stol:board:sentence:v1",
+      "audioId": "city1:da:stol:board:audio:v1",
+      "text": {
+        "da": "Stolen står ved bordet.",
+        "en": "The chair is by the table."
+      },
+      "wordSpan": {
+        "text": "Stolen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:køkken",
+      "city": 0,
+      "sourceSha256": "b417b3e86556bb6ba55df90ceeaf24656136f80f2cba01d86e64c3bdea876557",
+      "version": 1,
+      "sentenceId": "city1:da:køkken:board:sentence:v1",
+      "audioId": "city1:da:køkken:board:audio:v1",
+      "text": {
+        "da": "Vi spiser i køkkenet.",
+        "en": "We are eating in the kitchen."
+      },
+      "wordSpan": {
+        "text": "køkkenet",
+        "start": 12,
+        "end": 20
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:mund",
+      "city": 0,
+      "sourceSha256": "a18d6cf2e0d7fc3757eaf22d42664a167996384c1f84927a25aa16d4a3264e43",
+      "version": 1,
+      "sentenceId": "city1:da:mund:board:sentence:v1",
+      "audioId": "city1:da:mund:board:audio:v1",
+      "text": {
+        "da": "Barnet åbner munden.",
+        "en": "The child opens their mouth."
+      },
+      "wordSpan": {
+        "text": "munden",
+        "start": 13,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hoved",
+      "city": 0,
+      "sourceSha256": "a6fc709f78dd49886aeed21fd044373b1c3f2de37e0ede0df505914ffd48bfc9",
+      "version": 1,
+      "sentenceId": "city1:da:hoved:board:sentence:v1",
+      "audioId": "city1:da:hoved:board:audio:v1",
+      "text": {
+        "da": "Han drejer hovedet.",
+        "en": "He turns his head."
+      },
+      "wordSpan": {
+        "text": "hovedet",
+        "start": 11,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:mand",
+      "city": 0,
+      "sourceSha256": "61a3b2dec71581514309980d6b1abb64e8fe33ab2823e2806f0bb34042580601",
+      "version": 1,
+      "sentenceId": "city1:da:mand:board:sentence:v1",
+      "audioId": "city1:da:mand:board:audio:v1",
+      "text": {
+        "da": "Manden venter på bussen.",
+        "en": "The man is waiting for the bus."
+      },
+      "wordSpan": {
+        "text": "Manden",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kvinde",
+      "city": 0,
+      "sourceSha256": "76532fd44159cc6aaf362d7227c8724160f5594c72df66ce386c02698873186d",
+      "version": 1,
+      "sentenceId": "city1:da:kvinde:board:sentence:v1",
+      "audioId": "city1:da:kvinde:board:audio:v1",
+      "text": {
+        "da": "Kvinden læser en avis.",
+        "en": "The woman is reading a newspaper."
+      },
+      "wordSpan": {
+        "text": "Kvinden",
+        "start": 0,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:pige",
+      "city": 0,
+      "sourceSha256": "012ccb9f9f97c4c9559eacfe7553c4f55ca881fa3aa8a2691cbc8aea18147938",
+      "version": 1,
+      "sentenceId": "city1:da:pige:board:sentence:v1",
+      "audioId": "city1:da:pige:board:audio:v1",
+      "text": {
+        "da": "Pigen tegner et hus.",
+        "en": "The girl is drawing a house."
+      },
+      "wordSpan": {
+        "text": "Pigen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:dreng",
+      "city": 0,
+      "sourceSha256": "9ba2faec6a2f9340454baf9cab2f555730334a719bfd6ffeb68f5902ad0846b3",
+      "version": 1,
+      "sentenceId": "city1:da:dreng:board:sentence:v1",
+      "audioId": "city1:da:dreng:board:audio:v1",
+      "text": {
+        "da": "Drengen spiller bold.",
+        "en": "The boy is playing ball."
+      },
+      "wordSpan": {
+        "text": "Drengen",
+        "start": 0,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bror",
+      "city": 0,
+      "sourceSha256": "373dd96d96ef51b805855fc9c2c50ab583027d40cb5ac6729e7c7e6c3ca6c5c5",
+      "version": 1,
+      "sentenceId": "city1:da:bror:board:sentence:v1",
+      "audioId": "city1:da:bror:board:audio:v1",
+      "text": {
+        "da": "Min bror bor i Aarhus.",
+        "en": "My brother lives in Aarhus."
+      },
+      "wordSpan": {
+        "text": "bror",
+        "start": 4,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:søster",
+      "city": 0,
+      "sourceSha256": "85023a5dfe77db5663884ed9f91b21c594111499b9dae8d656d20226c05cb2d3",
+      "version": 1,
+      "sentenceId": "city1:da:søster:board:sentence:v1",
+      "audioId": "city1:da:søster:board:audio:v1",
+      "text": {
+        "da": "Min søster er på arbejde.",
+        "en": "My sister is at work."
+      },
+      "wordSpan": {
+        "text": "søster",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:rød",
+      "city": 0,
+      "sourceSha256": "9146fc3adfb3542b8d3497bdd4dfd578c959d3762cbcb009c0a279927c9f1c07",
+      "version": 1,
+      "sentenceId": "city1:da:rød:board:sentence:v1",
+      "audioId": "city1:da:rød:board:audio:v1",
+      "text": {
+        "da": "Bilen er rød.",
+        "en": "The car is red."
+      },
+      "wordSpan": {
+        "text": "rød",
+        "start": 9,
+        "end": 12
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hvid",
+      "city": 0,
+      "sourceSha256": "7c0854b4db990bbe5f8bc4eed78d8b68d890b90663bc4593e314fe8f300820da",
+      "version": 1,
+      "sentenceId": "city1:da:hvid:board:sentence:v1",
+      "audioId": "city1:da:hvid:board:audio:v1",
+      "text": {
+        "da": "Huset er hvidt.",
+        "en": "The house is white."
+      },
+      "wordSpan": {
+        "text": "hvidt",
+        "start": 9,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:sort",
+      "city": 0,
+      "sourceSha256": "934671b1c2bd4bad2d2428b099493f8a19c98496ed8fe7b6f8ba52bb9fea5dbb",
+      "version": 1,
+      "sentenceId": "city1:da:sort:board:sentence:v1",
+      "audioId": "city1:da:sort:board:audio:v1",
+      "text": {
+        "da": "Skoene er sorte.",
+        "en": "The shoes are black."
+      },
+      "wordSpan": {
+        "text": "sorte",
+        "start": 10,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:ost",
+      "city": 0,
+      "sourceSha256": "f0afd1613b87345a9f0fcef3e149f817431e1cf6b6dc05e35263dcc3dd6a1078",
+      "version": 1,
+      "sentenceId": "city1:da:ost:board:sentence:v1",
+      "audioId": "city1:da:ost:board:audio:v1",
+      "text": {
+        "da": "Der er ost på brødet.",
+        "en": "There is cheese on the bread."
+      },
+      "wordSpan": {
+        "text": "ost",
+        "start": 7,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:æg",
+      "city": 0,
+      "sourceSha256": "0c9356af0ce96758dad2ecae7a6d0891f2f8d5d792c0dceb886cb8e56f87ed48",
+      "version": 1,
+      "sentenceId": "city1:da:æg:board:sentence:v1",
+      "audioId": "city1:da:æg:board:audio:v1",
+      "text": {
+        "da": "Jeg koger et æg.",
+        "en": "I am boiling an egg."
+      },
+      "wordSpan": {
+        "text": "æg",
+        "start": 13,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kød",
+      "city": 0,
+      "sourceSha256": "d1b85b110ccf081a6d35c2cc3762aca2ac3a8653fe1d8f46861169f5618538d8",
+      "version": 1,
+      "sentenceId": "city1:da:kød:board:sentence:v1",
+      "audioId": "city1:da:kød:board:audio:v1",
+      "text": {
+        "da": "Kødet ligger i køleskabet.",
+        "en": "The meat is in the fridge."
+      },
+      "wordSpan": {
+        "text": "Kødet",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:fisk",
+      "city": 0,
+      "sourceSha256": "7d96d0ec48993df55dabb3a563345d7aa1b844162166b40d1ab0edc366a7bc55",
+      "version": 1,
+      "sentenceId": "city1:da:fisk:board:sentence:v1",
+      "audioId": "city1:da:fisk:board:audio:v1",
+      "text": {
+        "da": "Fisken svømmer i vandet.",
+        "en": "The fish is swimming in the water."
+      },
+      "wordSpan": {
+        "text": "Fisken",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:spise",
+      "city": 0,
+      "sourceSha256": "0e91abafe43f2d25a103ccfb0fd128b1deb4d3c2ec6b06f42fedf2d88e6ce660",
+      "version": 1,
+      "sentenceId": "city1:da:spise:board:sentence:v1",
+      "audioId": "city1:da:spise:board:audio:v1",
+      "text": {
+        "da": "Vi spiser morgenmad.",
+        "en": "We are eating breakfast."
+      },
+      "wordSpan": {
+        "text": "spiser",
+        "start": 3,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:drikke",
+      "city": 0,
+      "sourceSha256": "bbda0b4a05b923c651827ae92f675b1c2aeb31273d937a147258520c678fe7fc",
+      "version": 1,
+      "sentenceId": "city1:da:drikke:board:sentence:v1",
+      "audioId": "city1:da:drikke:board:audio:v1",
+      "text": {
+        "da": "Hun drikker et glas vand.",
+        "en": "She is drinking a glass of water."
+      },
+      "wordSpan": {
+        "text": "drikker",
+        "start": 4,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:øl",
+      "city": 0,
+      "sourceSha256": "dc410ce8934ab8a6d9a303a4dd919a8da7121e974096a509dd9254024072a02a",
+      "version": 1,
+      "sentenceId": "city1:da:øl:board:sentence:v1",
+      "audioId": "city1:da:øl:board:audio:v1",
+      "text": {
+        "da": "Øllen er kold.",
+        "en": "The beer is cold."
+      },
+      "wordSpan": {
+        "text": "Øllen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:sol",
+      "city": 0,
+      "sourceSha256": "6dabc79b7ebde6f7fc10a4e9210ec4b62bec9d24863aabe7a03918b45c156f6b",
+      "version": 1,
+      "sentenceId": "city1:da:sol:board:sentence:v1",
+      "audioId": "city1:da:sol:board:audio:v1",
+      "text": {
+        "da": "Solen skinner i dag.",
+        "en": "The sun is shining today."
+      },
+      "wordSpan": {
+        "text": "Solen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:træ",
+      "city": 0,
+      "sourceSha256": "ca092dd52ebdcf96e3e0c5242e25469abfcbbb4395eb5e5d08f82f238f27a164",
+      "version": 1,
+      "sentenceId": "city1:da:træ:board:sentence:v1",
+      "audioId": "city1:da:træ:board:audio:v1",
+      "text": {
+        "da": "Træet står i haven.",
+        "en": "The tree is in the garden."
+      },
+      "wordSpan": {
+        "text": "Træet",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:blomst",
+      "city": 0,
+      "sourceSha256": "f3c4052405c7d2b5a1d4144e19975ac24f5bf331a47acd4df857986d463e8002",
+      "version": 1,
+      "sentenceId": "city1:da:blomst:board:sentence:v1",
+      "audioId": "city1:da:blomst:board:audio:v1",
+      "text": {
+        "da": "Blomsten står i en vase.",
+        "en": "The flower is in a vase."
+      },
+      "wordSpan": {
+        "text": "Blomsten",
+        "start": 0,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:fugl",
+      "city": 0,
+      "sourceSha256": "4232b8c18097aace428c37896d5744697a9e14a9bf72a08fe3f84d9fd911834e",
+      "version": 1,
+      "sentenceId": "city1:da:fugl:board:sentence:v1",
+      "audioId": "city1:da:fugl:board:audio:v1",
+      "text": {
+        "da": "Fuglen sidder i træet.",
+        "en": "The bird is sitting in the tree."
+      },
+      "wordSpan": {
+        "text": "Fuglen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hest",
+      "city": 0,
+      "sourceSha256": "9a7732bf507c9a410052273db929622954a3eefa7873a86f63edb2005bd64b9d",
+      "version": 1,
+      "sentenceId": "city1:da:hest:board:sentence:v1",
+      "audioId": "city1:da:hest:board:audio:v1",
+      "text": {
+        "da": "Hesten spiser græs.",
+        "en": "The horse is eating grass."
+      },
+      "wordSpan": {
+        "text": "Hesten",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bil",
+      "city": 0,
+      "sourceSha256": "9811b167429b91327178e0bd601324a9d3544c964659439ee94be094ee8f0096",
+      "version": 1,
+      "sentenceId": "city1:da:bil:board:sentence:v1",
+      "audioId": "city1:da:bil:board:audio:v1",
+      "text": {
+        "da": "Bilen holder foran huset.",
+        "en": "The car is parked in front of the house."
+      },
+      "wordSpan": {
+        "text": "Bilen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:by",
+      "city": 0,
+      "sourceSha256": "e0049946a9e0a5b9b950276e456557baef7e717005598b65edcf4dfda6811016",
+      "version": 1,
+      "sentenceId": "city1:da:by:board:sentence:v1",
+      "audioId": "city1:da:by:board:audio:v1",
+      "text": {
+        "da": "Vi bor i en lille by.",
+        "en": "We live in a small town."
+      },
+      "wordSpan": {
+        "text": "by",
+        "start": 18,
+        "end": 20
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:skole",
+      "city": 0,
+      "sourceSha256": "61ca2e343a8d720a9410047a4a3cb9980d3320d4f7be0a1aa2aa9732dc318ef7",
+      "version": 1,
+      "sentenceId": "city1:da:skole:board:sentence:v1",
+      "audioId": "city1:da:skole:board:audio:v1",
+      "text": {
+        "da": "Skolen ligger ved parken.",
+        "en": "The school is by the park."
+      },
+      "wordSpan": {
+        "text": "Skolen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bog",
+      "city": 0,
+      "sourceSha256": "5ec0cc79382144120c041bfe8b7a3264d65e8ef2fca2a0783fe754add4a57399",
+      "version": 1,
+      "sentenceId": "city1:da:bog:board:sentence:v1",
+      "audioId": "city1:da:bog:board:audio:v1",
+      "text": {
+        "da": "Jeg læser en bog.",
+        "en": "I am reading a book."
+      },
+      "wordSpan": {
+        "text": "bog",
+        "start": 13,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:ben",
+      "city": 0,
+      "sourceSha256": "d60fad70c56d8c23dda6c88701d7cee4413e791fcd51491ca279c3416c191248",
+      "version": 1,
+      "sentenceId": "city1:da:ben:board:sentence:v1",
+      "audioId": "city1:da:ben:board:audio:v1",
+      "text": {
+        "da": "Hun strækker benene.",
+        "en": "She stretches her legs."
+      },
+      "wordSpan": {
+        "text": "benene",
+        "start": 13,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:fod",
+      "city": 0,
+      "sourceSha256": "a73ca66c9a57c55bf278d806e39fe95b56c4edc5bc2c1bb0771e460de2c76b75",
+      "version": 1,
+      "sentenceId": "city1:da:fod:board:sentence:v1",
+      "audioId": "city1:da:fod:board:audio:v1",
+      "text": {
+        "da": "Min fod er kold.",
+        "en": "My foot is cold."
+      },
+      "wordSpan": {
+        "text": "fod",
+        "start": 4,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:arm",
+      "city": 0,
+      "sourceSha256": "780460eeba78bac317ba7611d59b8f3101d44612ac8a305de687e29ad788fbb4",
+      "version": 1,
+      "sentenceId": "city1:da:arm:board:sentence:v1",
+      "audioId": "city1:da:arm:board:audio:v1",
+      "text": {
+        "da": "Han løfter armen.",
+        "en": "He raises his arm."
+      },
+      "wordSpan": {
+        "text": "armen",
+        "start": 11,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:finger",
+      "city": 0,
+      "sourceSha256": "fab63f7945183543495ee8db39fff3cab7e77e77b7c9caf927ccdec78735f565",
+      "version": 1,
+      "sentenceId": "city1:da:finger:board:sentence:v1",
+      "audioId": "city1:da:finger:board:audio:v1",
+      "text": {
+        "da": "Hun har en ring på fingeren.",
+        "en": "She has a ring on her finger."
+      },
+      "wordSpan": {
+        "text": "fingeren",
+        "start": 19,
+        "end": 27
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:næse",
+      "city": 0,
+      "sourceSha256": "58bd775323319e8d69004d212e5e76acd375143201f4d3702090d57367439bf8",
+      "version": 1,
+      "sentenceId": "city1:da:næse:board:sentence:v1",
+      "audioId": "city1:da:næse:board:audio:v1",
+      "text": {
+        "da": "Min næse er kold.",
+        "en": "My nose is cold."
+      },
+      "wordSpan": {
+        "text": "næse",
+        "start": 4,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:tand",
+      "city": 0,
+      "sourceSha256": "acb82506099e4596872890821cfeee1989c2d62dd955880a27552a00c8c5c104",
+      "version": 1,
+      "sentenceId": "city1:da:tand:board:sentence:v1",
+      "audioId": "city1:da:tand:board:audio:v1",
+      "text": {
+        "da": "Barnet har en løs tand.",
+        "en": "The child has a loose tooth."
+      },
+      "wordSpan": {
+        "text": "tand",
+        "start": 18,
+        "end": 22
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hår",
+      "city": 0,
+      "sourceSha256": "58ebf89cb0d212608e2262ce5ce8c83fc1187e25cb6e2e7db2cc6da89382ad21",
+      "version": 1,
+      "sentenceId": "city1:da:hår:board:sentence:v1",
+      "audioId": "city1:da:hår:board:audio:v1",
+      "text": {
+        "da": "Hendes hår er langt.",
+        "en": "Her hair is long."
+      },
+      "wordSpan": {
+        "text": "hår",
+        "start": 7,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hjerte",
+      "city": 0,
+      "sourceSha256": "a4709e24a302d54c8743fb6b10f0935fe334edc5d2a5e865191c200ce1f2a24b",
+      "version": 1,
+      "sentenceId": "city1:da:hjerte:board:sentence:v1",
+      "audioId": "city1:da:hjerte:board:audio:v1",
+      "text": {
+        "da": "Hjertet slår hurtigt.",
+        "en": "The heart is beating fast."
+      },
+      "wordSpan": {
+        "text": "Hjertet",
+        "start": 0,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:dag",
+      "city": 0,
+      "sourceSha256": "dc4bf97a94a55934b14d5fd775ef5f48d001d6a36db307bdacc6c5f1bfd6d71f",
+      "version": 1,
+      "sentenceId": "city1:da:dag:board:sentence:v1",
+      "audioId": "city1:da:dag:board:audio:v1",
+      "text": {
+        "da": "Det er en varm dag.",
+        "en": "It is a warm day."
+      },
+      "wordSpan": {
+        "text": "dag",
+        "start": 15,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:nat",
+      "city": 0,
+      "sourceSha256": "46e59492beeaa00f7102aa55317c5c92ffe8a74dbdd79dbb920822bc71aa5aa6",
+      "version": 1,
+      "sentenceId": "city1:da:nat:board:sentence:v1",
+      "audioId": "city1:da:nat:board:audio:v1",
+      "text": {
+        "da": "Natten er stille.",
+        "en": "The night is quiet."
+      },
+      "wordSpan": {
+        "text": "Natten",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:aften",
+      "city": 0,
+      "sourceSha256": "ba66114d5f3133e3a188f99fc7bb40a4de046ac234c0b216d73409ca970ba2ee",
+      "version": 1,
+      "sentenceId": "city1:da:aften:board:sentence:v1",
+      "audioId": "city1:da:aften:board:audio:v1",
+      "text": {
+        "da": "Vi spiser sammen i aften.",
+        "en": "We are eating together this evening."
+      },
+      "wordSpan": {
+        "text": "aften",
+        "start": 19,
+        "end": 24
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:uge",
+      "city": 0,
+      "sourceSha256": "ff07faa5db1076af9ad006fdc0e80afd70de028e6b1af807bb9a00a814a85726",
+      "version": 1,
+      "sentenceId": "city1:da:uge:board:sentence:v1",
+      "audioId": "city1:da:uge:board:audio:v1",
+      "text": {
+        "da": "En uge har syv dage.",
+        "en": "A week has seven days."
+      },
+      "wordSpan": {
+        "text": "uge",
+        "start": 3,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:stor",
+      "city": 0,
+      "sourceSha256": "11e1a6165ddde7a7e1b5bbd7ee4c4c45ce835997f0856e5886f8e920a66e2b32",
+      "version": 1,
+      "sentenceId": "city1:da:stor:board:sentence:v1",
+      "audioId": "city1:da:stor:board:audio:v1",
+      "text": {
+        "da": "Haven er stor.",
+        "en": "The garden is big."
+      },
+      "wordSpan": {
+        "text": "stor",
+        "start": 9,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:lille",
+      "city": 0,
+      "sourceSha256": "5be57afe439281e98a420d56cc94d09c5a6424b4d634ae7a7b81e64cac2f7f8d",
+      "version": 1,
+      "sentenceId": "city1:da:lille:board:sentence:v1",
+      "audioId": "city1:da:lille:board:audio:v1",
+      "text": {
+        "da": "Værelset er lille.",
+        "en": "The room is small."
+      },
+      "wordSpan": {
+        "text": "lille",
+        "start": 12,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:gammel",
+      "city": 0,
+      "sourceSha256": "03b3dc95f6bb8df86599583f7b48f5181fd309faa22c5c4211bd36184905d9b7",
+      "version": 1,
+      "sentenceId": "city1:da:gammel:board:sentence:v1",
+      "audioId": "city1:da:gammel:board:audio:v1",
+      "text": {
+        "da": "Cyklen er gammel.",
+        "en": "The bicycle is old."
+      },
+      "wordSpan": {
+        "text": "gammel",
+        "start": 10,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:ung",
+      "city": 0,
+      "sourceSha256": "cc0157196dae39fd1fd72b3063c6cbad03747e93fa2baa493b7d732fa7ef2687",
+      "version": 1,
+      "sentenceId": "city1:da:ung:board:sentence:v1",
+      "audioId": "city1:da:ung:board:audio:v1",
+      "text": {
+        "da": "Hunden er ung.",
+        "en": "The dog is young."
+      },
+      "wordSpan": {
+        "text": "ung",
+        "start": 10,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:glad",
+      "city": 0,
+      "sourceSha256": "2fd5f505fda4b3fafc5b75925370a9ae4f9541e21e21e79273ad61b050f2486e",
+      "version": 1,
+      "sentenceId": "city1:da:glad:board:sentence:v1",
+      "audioId": "city1:da:glad:board:audio:v1",
+      "text": {
+        "da": "Jeg er glad i dag.",
+        "en": "I am happy today."
+      },
+      "wordSpan": {
+        "text": "glad",
+        "start": 7,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:elske",
+      "city": 0,
+      "sourceSha256": "46ad17b603fb66a74ff9dade3548d8333a7e904a8ecdcd922966ea162ab0e9f6",
+      "version": 1,
+      "sentenceId": "city1:da:elske:board:sentence:v1",
+      "audioId": "city1:da:elske:board:audio:v1",
+      "text": {
+        "da": "Jeg elsker min familie.",
+        "en": "I love my family."
+      },
+      "wordSpan": {
+        "text": "elsker",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:ven",
+      "city": 0,
+      "sourceSha256": "d7885eb7d6aa86b3485b7513ef11ebeedd470a0211bd3e0a652ec10c7ccc8f8e",
+      "version": 1,
+      "sentenceId": "city1:da:ven:board:sentence:v1",
+      "audioId": "city1:da:ven:board:audio:v1",
+      "text": {
+        "da": "Min ven kommer på besøg.",
+        "en": "My friend is coming to visit."
+      },
+      "wordSpan": {
+        "text": "ven",
+        "start": 4,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:søn",
+      "city": 0,
+      "sourceSha256": "83ba664b985ea53bb975af1d0175c484f86aa2825341da582fa396e1823ca37d",
+      "version": 1,
+      "sentenceId": "city1:da:søn:board:sentence:v1",
+      "audioId": "city1:da:søn:board:audio:v1",
+      "text": {
+        "da": "Deres søn er fem år.",
+        "en": "Their son is five years old."
+      },
+      "wordSpan": {
+        "text": "søn",
+        "start": 6,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:datter",
+      "city": 0,
+      "sourceSha256": "6b9fa61e8afe44c8ff55c378384ca13538f976863f06d5a01baaf46bae05d507",
+      "version": 1,
+      "sentenceId": "city1:da:datter:board:sentence:v1",
+      "audioId": "city1:da:datter:board:audio:v1",
+      "text": {
+        "da": "Min datter leger i haven.",
+        "en": "My daughter is playing in the garden."
+      },
+      "wordSpan": {
+        "text": "datter",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kage",
+      "city": 0,
+      "sourceSha256": "ef7f4e4a77a955b5e9df707dcd6ee69d04ce173e5f1e1f979f782cd56e43bd41",
+      "version": 1,
+      "sentenceId": "city1:da:kage:board:sentence:v1",
+      "audioId": "city1:da:kage:board:audio:v1",
+      "text": {
+        "da": "Kagen står på bordet.",
+        "en": "The cake is on the table."
+      },
+      "wordSpan": {
+        "text": "Kagen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:smør",
+      "city": 0,
+      "sourceSha256": "d54ddd826a4b05dcc9889a8a9e995fa42ee4fe6c4c262b9d9b8891b5fb6092f3",
+      "version": 1,
+      "sentenceId": "city1:da:smør:board:sentence:v1",
+      "audioId": "city1:da:smør:board:audio:v1",
+      "text": {
+        "da": "Der er smør på brødet.",
+        "en": "There is butter on the bread."
+      },
+      "wordSpan": {
+        "text": "smør",
+        "start": 7,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:salt",
+      "city": 0,
+      "sourceSha256": "ac006b2f78c3e0e424866409e60cc49a303a4a7d5980bf8efc9e1bbba7fb53d3",
+      "version": 1,
+      "sentenceId": "city1:da:salt:board:sentence:v1",
+      "audioId": "city1:da:salt:board:audio:v1",
+      "text": {
+        "da": "Suppen mangler salt.",
+        "en": "The soup needs salt."
+      },
+      "wordSpan": {
+        "text": "salt",
+        "start": 15,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:sukker",
+      "city": 0,
+      "sourceSha256": "641603cfc8c3155a893112bd38f49f19a08531f4b3ff36d4b6a6eeacf1ecb287",
+      "version": 1,
+      "sentenceId": "city1:da:sukker:board:sentence:v1",
+      "audioId": "city1:da:sukker:board:audio:v1",
+      "text": {
+        "da": "Jeg tager sukker i kaffen.",
+        "en": "I take sugar in my coffee."
+      },
+      "wordSpan": {
+        "text": "sukker",
+        "start": 10,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kartoffel",
+      "city": 0,
+      "sourceSha256": "627966a92631a3bc41aa21c5062e2ef3d4115e79fd5c857091234e3def5fcc5b",
+      "version": 1,
+      "sentenceId": "city1:da:kartoffel:board:sentence:v1",
+      "audioId": "city1:da:kartoffel:board:audio:v1",
+      "text": {
+        "da": "Jeg skræller en kartoffel.",
+        "en": "I am peeling a potato."
+      },
+      "wordSpan": {
+        "text": "kartoffel",
+        "start": 16,
+        "end": 25
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:grøntsag",
+      "city": 0,
+      "sourceSha256": "cfbc2fb17df5a66d32eeb87893e1da767f71c1c444f51c80e648b301b2fd69a0",
+      "version": 1,
+      "sentenceId": "city1:da:grøntsag:board:sentence:v1",
+      "audioId": "city1:da:grøntsag:board:audio:v1",
+      "text": {
+        "da": "Vi køber friske grøntsager.",
+        "en": "We are buying fresh vegetables."
+      },
+      "wordSpan": {
+        "text": "grøntsager",
+        "start": 16,
+        "end": 26
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:lampe",
+      "city": 0,
+      "sourceSha256": "5725a2351497f342360406a974535e749a41d2d355ec557b9a8c155030010529",
+      "version": 1,
+      "sentenceId": "city1:da:lampe:board:sentence:v1",
+      "audioId": "city1:da:lampe:board:audio:v1",
+      "text": {
+        "da": "Lampen står på bordet.",
+        "en": "The lamp is on the table."
+      },
+      "wordSpan": {
+        "text": "Lampen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:værelse",
+      "city": 0,
+      "sourceSha256": "01e0029005ee6881ba27aa30da42eb39ed2c5bf8bf2a76834cc9d9f6980c2b9f",
+      "version": 1,
+      "sentenceId": "city1:da:værelse:board:sentence:v1",
+      "audioId": "city1:da:værelse:board:audio:v1",
+      "text": {
+        "da": "Værelset har to vinduer.",
+        "en": "The room has two windows."
+      },
+      "wordSpan": {
+        "text": "Værelset",
+        "start": 0,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:himmel",
+      "city": 0,
+      "sourceSha256": "8c10f15dfb7dcf8eb55421d5e1914da0e6938edbb67f07730751761e3187c1ea",
+      "version": 1,
+      "sentenceId": "city1:da:himmel:board:sentence:v1",
+      "audioId": "city1:da:himmel:board:audio:v1",
+      "text": {
+        "da": "Himlen er blå.",
+        "en": "The sky is blue."
+      },
+      "wordSpan": {
+        "text": "Himlen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:regn",
+      "city": 0,
+      "sourceSha256": "00088a86227fbbb3ccf2726ff9989946a1d6c3bc2b92c84cc968f983158e2b95",
+      "version": 1,
+      "sentenceId": "city1:da:regn:board:sentence:v1",
+      "audioId": "city1:da:regn:board:audio:v1",
+      "text": {
+        "da": "Regnen falder på taget.",
+        "en": "The rain is falling on the roof."
+      },
+      "wordSpan": {
+        "text": "Regnen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:sne",
+      "city": 0,
+      "sourceSha256": "b73d79cade3acd17f8275333de3bd0e03d393a44000eacd6081ff1188351ba9c",
+      "version": 1,
+      "sentenceId": "city1:da:sne:board:sentence:v1",
+      "audioId": "city1:da:sne:board:audio:v1",
+      "text": {
+        "da": "Der ligger sne på vejen.",
+        "en": "There is snow on the road."
+      },
+      "wordSpan": {
+        "text": "sne",
+        "start": 11,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:måne",
+      "city": 0,
+      "sourceSha256": "1083bd6178ac9a1df7a938702405a2ba107b0c335d99680566cf928e036a214a",
+      "version": 1,
+      "sentenceId": "city1:da:måne:board:sentence:v1",
+      "audioId": "city1:da:måne:board:audio:v1",
+      "text": {
+        "da": "Månen lyser over havet.",
+        "en": "The moon is shining over the sea."
+      },
+      "wordSpan": {
+        "text": "Månen",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:stjerne",
+      "city": 0,
+      "sourceSha256": "f906ef69d9674116dd6ee68ebe37d75cef9f4aedc9211950ec04a2bcc7933e5f",
+      "version": 1,
+      "sentenceId": "city1:da:stjerne:board:sentence:v1",
+      "audioId": "city1:da:stjerne:board:audio:v1",
+      "text": {
+        "da": "Jeg ser en stjerne.",
+        "en": "I see a star."
+      },
+      "wordSpan": {
+        "text": "stjerne",
+        "start": 11,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hav",
+      "city": 0,
+      "sourceSha256": "1381464bc31cd1bedbc8e3ee74d7d42b5ac8034c74e004fc2fed0319cbb3e98b",
+      "version": 1,
+      "sentenceId": "city1:da:hav:board:sentence:v1",
+      "audioId": "city1:da:hav:board:audio:v1",
+      "text": {
+        "da": "Havet er roligt.",
+        "en": "The sea is calm."
+      },
+      "wordSpan": {
+        "text": "Havet",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:strand",
+      "city": 0,
+      "sourceSha256": "5879bf0f4fa942442fe80b754189b88c79e1ce9f45a6651bf18120bb8929a2e1",
+      "version": 1,
+      "sentenceId": "city1:da:strand:board:sentence:v1",
+      "audioId": "city1:da:strand:board:audio:v1",
+      "text": {
+        "da": "Vi går på stranden.",
+        "en": "We are walking on the beach."
+      },
+      "wordSpan": {
+        "text": "stranden",
+        "start": 10,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:park",
+      "city": 0,
+      "sourceSha256": "a1bac6aa60f84292b7d510bc91c8f7bcceac1725ebbf222f257aa1c8db7e3a03",
+      "version": 1,
+      "sentenceId": "city1:da:park:board:sentence:v1",
+      "audioId": "city1:da:park:board:audio:v1",
+      "text": {
+        "da": "Vi mødes i parken.",
+        "en": "We are meeting in the park."
+      },
+      "wordSpan": {
+        "text": "parken",
+        "start": 11,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:gade",
+      "city": 0,
+      "sourceSha256": "b243691ea0fe3e9dbc1c08d3607673402b56f39fa89f492adb43c9c197af2b24",
+      "version": 1,
+      "sentenceId": "city1:da:gade:board:sentence:v1",
+      "audioId": "city1:da:gade:board:audio:v1",
+      "text": {
+        "da": "Gaden er stille.",
+        "en": "The street is quiet."
+      },
+      "wordSpan": {
+        "text": "Gaden",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:kirke",
+      "city": 0,
+      "sourceSha256": "1694f85b2bd47776edf254e055d9e2ac0792719353b9bfb3fd9da438531f8f07",
+      "version": 1,
+      "sentenceId": "city1:da:kirke:board:sentence:v1",
+      "audioId": "city1:da:kirke:board:audio:v1",
+      "text": {
+        "da": "Kirken har et højt tårn.",
+        "en": "The church has a tall tower."
+      },
+      "wordSpan": {
+        "text": "Kirken",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:hospital",
+      "city": 0,
+      "sourceSha256": "ca2078c27e7e0b95708ca967dc5e14b0d7fc937e356e07e99cc1bb533f74001f",
+      "version": 1,
+      "sentenceId": "city1:da:hospital:board:sentence:v1",
+      "audioId": "city1:da:hospital:board:audio:v1",
+      "text": {
+        "da": "Hospitalet ligger tæt på stationen.",
+        "en": "The hospital is close to the station."
+      },
+      "wordSpan": {
+        "text": "Hospitalet",
+        "start": 0,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:butik",
+      "city": 0,
+      "sourceSha256": "e1904e467318fdcfec6ff7074d2e7a70e802f201f34c7e5ca216e5c56726aa17",
+      "version": 1,
+      "sentenceId": "city1:da:butik:board:sentence:v1",
+      "audioId": "city1:da:butik:board:audio:v1",
+      "text": {
+        "da": "Butikken sælger tøj.",
+        "en": "The shop sells clothes."
+      },
+      "wordSpan": {
+        "text": "Butikken",
+        "start": 0,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bank",
+      "city": 0,
+      "sourceSha256": "b35af0d087cc324d92df19cd45050e33b49e724c2d9705d246915b89d874eeb4",
+      "version": 1,
+      "sentenceId": "city1:da:bank:board:sentence:v1",
+      "audioId": "city1:da:bank:board:audio:v1",
+      "text": {
+        "da": "Banken er lukket i dag.",
+        "en": "The bank is closed today."
+      },
+      "wordSpan": {
+        "text": "Banken",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:penge",
+      "city": 0,
+      "sourceSha256": "8240d705c4b944acdf5b200f293f98776eea0cabc0f85b77e97849d4ab23ce6b",
+      "version": 1,
+      "sentenceId": "city1:da:penge:board:sentence:v1",
+      "audioId": "city1:da:penge:board:audio:v1",
+      "text": {
+        "da": "Jeg har penge i lommen.",
+        "en": "I have money in my pocket."
+      },
+      "wordSpan": {
+        "text": "penge",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:købe",
+      "city": 0,
+      "sourceSha256": "6ae20738594e5d6e1c0dcf38c71ba026b6087c539d23d3aeb13411126920b96a",
+      "version": 1,
+      "sentenceId": "city1:da:købe:board:sentence:v1",
+      "audioId": "city1:da:købe:board:audio:v1",
+      "text": {
+        "da": "Jeg køber et brød.",
+        "en": "I am buying a loaf of bread."
+      },
+      "wordSpan": {
+        "text": "køber",
+        "start": 4,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:arbejde",
+      "city": 0,
+      "sourceSha256": "f2e811ce84893116ee6f852acb9225fd89c52730d40438ead4eea13703965f39",
+      "version": 1,
+      "sentenceId": "city1:da:arbejde:board:sentence:v1",
+      "audioId": "city1:da:arbejde:board:audio:v1",
+      "text": {
+        "da": "Mit arbejde begynder klokken otte.",
+        "en": "My work starts at eight o’clock."
+      },
+      "wordSpan": {
+        "text": "arbejde",
+        "start": 4,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:lærer",
+      "city": 0,
+      "sourceSha256": "a551cb0ab09efb4a07cd1c9ae6bf6f6c8ad241950b11f801613f8f8bd693b500",
+      "version": 1,
+      "sentenceId": "city1:da:lærer:board:sentence:v1",
+      "audioId": "city1:da:lærer:board:audio:v1",
+      "text": {
+        "da": "Læreren skriver på tavlen.",
+        "en": "The teacher is writing on the board."
+      },
+      "wordSpan": {
+        "text": "Læreren",
+        "start": 0,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:tog",
+      "city": 0,
+      "sourceSha256": "68b98269a3b42c12b08fa65fbe43de1b8327e6ec5d8adf6d5a65b926b2c7e8ef",
+      "version": 1,
+      "sentenceId": "city1:da:tog:board:sentence:v1",
+      "audioId": "city1:da:tog:board:audio:v1",
+      "text": {
+        "da": "Toget kommer om fem minutter.",
+        "en": "The train is coming in five minutes."
+      },
+      "wordSpan": {
+        "text": "Toget",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:bus",
+      "city": 0,
+      "sourceSha256": "a8f530fde18f05ee06c4ec616e055cd7dd356730396133a44bd006cc90f77662",
+      "version": 1,
+      "sentenceId": "city1:da:bus:board:sentence:v1",
+      "audioId": "city1:da:bus:board:audio:v1",
+      "text": {
+        "da": "Bussen stopper ved skolen.",
+        "en": "The bus stops by the school."
+      },
+      "wordSpan": {
+        "text": "Bussen",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:cykel",
+      "city": 0,
+      "sourceSha256": "723593c927a412a002d178972c6d95d145a9d3e0cab1500d05a6af9e6ef880c5",
+      "version": 1,
+      "sentenceId": "city1:da:cykel:board:sentence:v1",
+      "audioId": "city1:da:cykel:board:audio:v1",
+      "text": {
+        "da": "Min cykel har en kurv.",
+        "en": "My bicycle has a basket."
+      },
+      "wordSpan": {
+        "text": "cykel",
+        "start": 4,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:fly",
+      "city": 0,
+      "sourceSha256": "ec49d29af8112089c3087b8fb4dfd77521f4f9ec9a394a3a96579d46b4f05dad",
+      "version": 1,
+      "sentenceId": "city1:da:fly:board:sentence:v1",
+      "audioId": "city1:da:fly:board:audio:v1",
+      "text": {
+        "da": "Flyet lander snart.",
+        "en": "The plane is landing soon."
+      },
+      "wordSpan": {
+        "text": "Flyet",
+        "start": 0,
+        "end": 5
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:køre",
+      "city": 0,
+      "sourceSha256": "1a932f7aca59139a5672a4374fcf2b349ec0c4faea7cf7a8507e9d19e6f6827e",
+      "version": 1,
+      "sentenceId": "city1:da:køre:board:sentence:v1",
+      "audioId": "city1:da:køre:board:audio:v1",
+      "text": {
+        "da": "Hun kører bilen.",
+        "en": "She is driving the car."
+      },
+      "wordSpan": {
+        "text": "kører",
+        "start": 4,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:sove",
+      "city": 0,
+      "sourceSha256": "90eb6272b467f28ad7877f8f097600d2f9f0458ff0017d88429cc0c7ef9f9b18",
+      "version": 1,
+      "sentenceId": "city1:da:sove:board:sentence:v1",
+      "audioId": "city1:da:sove:board:audio:v1",
+      "text": {
+        "da": "Barnet sover i sengen.",
+        "en": "The child is sleeping in the bed."
+      },
+      "wordSpan": {
+        "text": "sover",
+        "start": 7,
+        "end": 12
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:løbe",
+      "city": 0,
+      "sourceSha256": "df6703a16a90c7e4b9ac2a8ffc6ef1644a29cdacea82bc984e25db18219faf43",
+      "version": 1,
+      "sentenceId": "city1:da:løbe:board:sentence:v1",
+      "audioId": "city1:da:løbe:board:audio:v1",
+      "text": {
+        "da": "Han løber i parken.",
+        "en": "He is running in the park."
+      },
+      "wordSpan": {
+        "text": "løber",
+        "start": 4,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    },
+    {
+      "wordId": "da:læse",
+      "city": 0,
+      "sourceSha256": "a3bf3af8fb322b735bb65b747052b16b428ab74bebdac3ff625627e5404830dc",
+      "version": 1,
+      "sentenceId": "city1:da:læse:board:sentence:v1",
+      "audioId": "city1:da:læse:board:audio:v1",
+      "text": {
+        "da": "Hun læser en avis.",
+        "en": "She is reading a newspaper."
+      },
+      "wordSpan": {
+        "text": "læser",
+        "start": 4,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "board-editorial.md",
+        "sha256": "1ed22a8e8236c408cfda1d8e056ef218c84d5c743463ceac0e0f74b95382e83a"
+      }
+    }
+  ]
+}

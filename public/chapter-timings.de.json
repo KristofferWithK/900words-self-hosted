@@ -1,0 +1,31 @@
+{
+  "language": "de",
+  "entries": [
+    {
+      "id": "chapter-01",
+      "sourceHash": "667ace701bedf52af9666635e022d7cfc1b241ebe3212e3f63d250e235226ac0",
+      "duration": 14.016,
+      "starts": [
+        0,
+        2.944792,
+        5.400042,
+        7.868375,
+        10.234083,
+        12.754083
+      ]
+    },
+    {
+      "id": "lesson-flensburg-du-sie",
+      "sourceHash": "e13056e843c0d65a7b54ecbb53b66410ff761122ad2625f007bb8d7db385684a",
+      "duration": 18.024,
+      "starts": [
+        0,
+        3.210083,
+        6.5165,
+        10.267542,
+        13.901958,
+        16.967833
+      ]
+    }
+  ]
+}

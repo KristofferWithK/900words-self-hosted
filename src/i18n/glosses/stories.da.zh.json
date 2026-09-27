@@ -1,0 +1,151 @@
+{
+  "0": {
+    "cityIndex": 0,
+    "chapters": [
+      {
+        "titleDa": "Huset",
+        "titleEn": "房子",
+        "sentences": [
+          {
+            "da": "Solen står op over Sønderborg, og en fugl synger i et stort træ.",
+            "en": "太阳在 Sønderborg 上空升起，一只鸟在一棵大树上唱歌。"
+          },
+          {
+            "da": "Huset er hvidt, og døren er rød.",
+            "en": "房子是白色的，门是红色的。"
+          },
+          {
+            "da": "Der er et lille køkken med et bord, en stol og en gammel lampe.",
+            "en": "有一个小厨房，里面有一张桌子、一把椅子和一盏旧灯。"
+          },
+          {
+            "da": "Mor laver mad, mens far drikker kaffe ved vinduet.",
+            "en": "妈妈在做饭，爸爸在窗边喝咖啡。"
+          },
+          {
+            "da": "Barnet spiser et æble og drikker mælk.",
+            "en": "孩子吃着一个苹果，喝着牛奶。"
+          },
+          {
+            "da": "På bordet står ost, smør, salt og et æg.",
+            "en": "桌子上有奶酪、黄油、盐和一个鸡蛋。"
+          },
+          {
+            "da": "Hunden løber ud ad døren, mens en kat sover stadig på en seng.",
+            "en": "狗跑出门去，而一只猫还睡在床上。"
+          },
+          {
+            "da": "Deres værelse er lille, men vinduet er stort.",
+            "en": "他们的房间很小，但窗户很大。"
+          },
+          {
+            "da": "Pigen har en blomst i hånden, og drengen har mistet en tand.",
+            "en": "女孩手里拿着一朵花，男孩掉了一颗牙。"
+          },
+          {
+            "da": "Hun har langt hår, en lille næse og en glad mund.",
+            "en": "她有一头长发、一个小鼻子和一张开心的嘴。"
+          },
+          {
+            "da": "Han lukker det ene øje og sætter en hat på hovedet.",
+            "en": "他闭上一只眼睛，把一顶帽子戴在头上。"
+          },
+          {
+            "da": "Katten sidder ved hans ben, mens han har ondt i en fod.",
+            "en": "猫坐在他的腿边，而他的一只脚很疼。"
+          },
+          {
+            "da": "Drengen har en bold under armen, og faren drikker en øl.",
+            "en": "男孩胳膊下夹着一个球，爸爸喝着一杯啤酒。"
+          },
+          {
+            "da": "Pigen peger med en finger mod et sort fly på en klar himmel.",
+            "en": "女孩用手指指着晴朗天空中一架黑色的飞机。"
+          },
+          {
+            "da": "Hjertet banker, fordi familien skal rejse i dag.",
+            "en": "她的心怦怦跳，因为一家人今天要出门旅行。"
+          }
+        ]
+      },
+      {
+        "titleDa": "Byen",
+        "titleEn": "小镇",
+        "sentences": [
+          {
+            "da": "De går ned ad en gade midt i en gammel by.",
+            "en": "他们走在一座老城中央的一条街上。"
+          },
+          {
+            "da": "En ung kvinde og en gammel mand venter ved en kirke.",
+            "en": "一个年轻女人和一个老人在一座教堂旁等着。"
+          },
+          {
+            "da": "I en butik køber de kød, fisk og grøntsager.",
+            "en": "在一家商店里，他们买了肉、鱼和蔬菜。"
+          },
+          {
+            "da": "De tager også en kartoffel, sukker og en stor kage.",
+            "en": "他们还拿了一个土豆、糖和一个大蛋糕。"
+          },
+          {
+            "da": "Far henter penge i en bank, fordi han vil købe en bog.",
+            "en": "爸爸去银行取钱，因为他想买一本书。"
+          },
+          {
+            "da": "Mor arbejder på et hospital, men i dag har hun fri.",
+            "en": "妈妈在医院工作，但今天她休息。"
+          },
+          {
+            "da": "Hendes bror er lærer på en skole.",
+            "en": "她的哥哥是一所学校的老师。"
+          },
+          {
+            "da": "Hans søster kører en rød bil, og hendes søn har en cykel.",
+            "en": "他的姐姐开着一辆红色的汽车，她的儿子有一辆自行车。"
+          },
+          {
+            "da": "En hest står i en park ved vandet.",
+            "en": "一匹马站在水边的公园里。"
+          },
+          {
+            "da": "Deres datter og en ven læser en bog, hvis det regner.",
+            "en": "他们的女儿和一个朋友如果下雨了就读一本书。"
+          },
+          {
+            "da": "En aften i sidste uge faldt der sne over hele byen.",
+            "en": "上周的一个晚上，雪落满了整座小镇。"
+          }
+        ]
+      },
+      {
+        "titleDa": "Toget",
+        "titleEn": "火车",
+        "sentences": [
+          {
+            "da": "Nu venter et tog, og en bus kører forbi.",
+            "en": "现在一列火车在等着，一辆公交车开过去了。"
+          },
+          {
+            "da": "Fra vinduet ser de stranden og et stort hav.",
+            "en": "从窗户里，他们看到海滩和一片大海。"
+          },
+          {
+            "da": "Det bliver nat, og man kan se månen og en klar stjerne.",
+            "en": "天黑了，你可以看到月亮和一颗明亮的星星。"
+          },
+          {
+            "da": "De elsker at rejse, selvom rejsen er lang.",
+            "en": "他们热爱旅行，尽管旅途漫长。"
+          },
+          {
+            "da": "Casey er glad, fordi kufferten er fuld af ord.",
+            "en": "Casey 很开心，因为行李箱里装满了词语。"
+          }
+        ]
+      }
+    ],
+    "titleDa": "Morgen, by og tog",
+    "titleEn": "早晨、小镇和火车"
+  }
+}

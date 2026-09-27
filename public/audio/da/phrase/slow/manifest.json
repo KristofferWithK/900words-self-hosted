@@ -1,0 +1,372 @@
+{
+  "entries": {
+    "en-mor": {
+      "id": "phrase:da:mor",
+      "text": "En mor",
+      "stamp": "ee1756b724eb7050",
+      "bytes": 4800,
+      "at": "2026-09-26T18:05:43.306Z"
+    },
+    "et-barn": {
+      "id": "phrase:da:barn",
+      "text": "Et barn",
+      "stamp": "2f6ccbc7d779fa8b",
+      "bytes": 6144,
+      "at": "2026-09-26T18:05:43.737Z"
+    },
+    "en-hund": {
+      "id": "phrase:da:hund",
+      "text": "En hund",
+      "stamp": "04e12a3b3bfc6e9f",
+      "bytes": 7680,
+      "at": "2026-09-26T18:05:44.156Z"
+    },
+    "et-hus": {
+      "id": "phrase:da:hus",
+      "text": "Et hus",
+      "stamp": "1dbb67e063202cc1",
+      "bytes": 5088,
+      "at": "2026-09-26T18:05:44.582Z"
+    },
+    "et-aar": {
+      "id": "phrase:da:år",
+      "text": "Et år",
+      "stamp": "d4c72d4a6528d622",
+      "bytes": 6432,
+      "at": "2026-09-26T18:05:45.022Z"
+    },
+    "et-menneske": {
+      "id": "phrase:da:menneske",
+      "text": "Et menneske",
+      "stamp": "d8a2261bfdbb3a95",
+      "bytes": 9312,
+      "at": "2026-09-26T18:05:45.485Z"
+    },
+    "en-kaereste": {
+      "id": "phrase:da:kæreste",
+      "text": "En kæreste",
+      "stamp": "0a3dc20e4a452da2",
+      "bytes": 6432,
+      "at": "2026-09-26T18:05:46.029Z"
+    },
+    "et-ord": {
+      "id": "phrase:da:ord",
+      "text": "Et ord",
+      "stamp": "a52c30c20d19515d",
+      "bytes": 11712,
+      "at": "2026-09-26T18:05:46.526Z"
+    },
+    "en-historie": {
+      "id": "phrase:da:historie",
+      "text": "En historie",
+      "stamp": "7d44806beb5acdf9",
+      "bytes": 11232,
+      "at": "2026-09-26T18:05:47.125Z"
+    },
+    "en-maaned": {
+      "id": "phrase:da:måned",
+      "text": "En måned",
+      "stamp": "0e42b38e89af732b",
+      "bytes": 8256,
+      "at": "2026-09-26T18:05:47.593Z"
+    },
+    "et-eksempel": {
+      "id": "phrase:da:eksempel",
+      "text": "Et eksempel",
+      "stamp": "d099c8928381e3bf",
+      "bytes": 11712,
+      "at": "2026-09-26T18:05:48.124Z"
+    },
+    "en-klokke": {
+      "id": "phrase:da:klokke",
+      "text": "En klokke",
+      "stamp": "dd4de84ac411ba8c",
+      "bytes": 9312,
+      "at": "2026-09-26T18:05:48.610Z"
+    },
+    "en-far": {
+      "id": "phrase:da:far",
+      "text": "En far",
+      "stamp": "a7c7364feb97d459",
+      "bytes": 9888,
+      "at": "2026-09-26T18:11:04.302Z"
+    },
+    "en-kat": {
+      "id": "phrase:da:kat",
+      "text": "En kat",
+      "stamp": "0c59cc12e845203b",
+      "bytes": 6624,
+      "at": "2026-09-26T18:11:04.730Z"
+    },
+    "en-mand": {
+      "id": "phrase:da:mand",
+      "text": "En mand",
+      "stamp": "aa481391f5156d91",
+      "bytes": 8256,
+      "at": "2026-09-26T18:11:05.219Z"
+    },
+    "en-pige": {
+      "id": "phrase:da:pige",
+      "text": "En pige",
+      "stamp": "a740dae58b98aa6a",
+      "bytes": 10176,
+      "at": "2026-09-26T18:11:05.698Z"
+    },
+    "en-bil": {
+      "id": "phrase:da:bil",
+      "text": "En bil",
+      "stamp": "b5be365e212e88d8",
+      "bytes": 9600,
+      "at": "2026-09-26T18:11:06.182Z"
+    },
+    "en-by": {
+      "id": "phrase:da:by",
+      "text": "En by",
+      "stamp": "8f46e9b2094f0f47",
+      "bytes": 5088,
+      "at": "2026-09-26T18:11:06.590Z"
+    },
+    "en-skole": {
+      "id": "phrase:da:skole",
+      "text": "En skole",
+      "stamp": "58b21187ad983890",
+      "bytes": 9888,
+      "at": "2026-09-26T18:11:07.058Z"
+    },
+    "en-dag": {
+      "id": "phrase:da:dag",
+      "text": "En dag",
+      "stamp": "cade2dfb9b657422",
+      "bytes": 7200,
+      "at": "2026-09-26T18:11:07.473Z"
+    },
+    "en-uge": {
+      "id": "phrase:da:uge",
+      "text": "En uge",
+      "stamp": "ad74cfd809469b09",
+      "bytes": 7680,
+      "at": "2026-09-26T18:11:07.915Z"
+    },
+    "en-ven": {
+      "id": "phrase:da:ven",
+      "text": "En ven",
+      "stamp": "7151d127c4faa914",
+      "bytes": 6912,
+      "at": "2026-09-26T18:11:08.358Z"
+    },
+    "et-arbejde": {
+      "id": "phrase:da:arbejde",
+      "text": "Et arbejde",
+      "stamp": "705dd4d8ea74d959",
+      "bytes": 12864,
+      "at": "2026-09-26T18:11:08.858Z"
+    },
+    "en-bus": {
+      "id": "phrase:da:bus",
+      "text": "En bus",
+      "stamp": "b0aa6a2a7603e609",
+      "bytes": 6624,
+      "at": "2026-09-26T18:11:09.313Z"
+    },
+    "et-hjem": {
+      "id": "phrase:da:hjem",
+      "text": "Et hjem",
+      "stamp": "5016fa8949b3eed8",
+      "bytes": 5568,
+      "at": "2026-09-26T18:11:09.741Z"
+    },
+    "et-dyr": {
+      "id": "phrase:da:dyr",
+      "text": "Et dyr",
+      "stamp": "0b1d2d84e559402f",
+      "bytes": 7488,
+      "at": "2026-09-26T18:11:10.160Z"
+    },
+    "et-land": {
+      "id": "phrase:da:land",
+      "text": "Et land",
+      "stamp": "ad6e33b381aa6c2d",
+      "bytes": 7488,
+      "at": "2026-09-26T18:13:10.615Z"
+    },
+    "et-liv": {
+      "id": "phrase:da:liv",
+      "text": "Et liv",
+      "stamp": "8fba4f248ef25c1b",
+      "bytes": 5856,
+      "at": "2026-09-26T18:11:11.033Z"
+    },
+    "en-verden": {
+      "id": "phrase:da:verden",
+      "text": "En verden",
+      "stamp": "d49512c561251eba",
+      "bytes": 8544,
+      "at": "2026-09-26T18:11:11.497Z"
+    },
+    "en-gang": {
+      "id": "phrase:da:gang",
+      "text": "En gang",
+      "stamp": "c6af294fda5b0275",
+      "bytes": 6912,
+      "at": "2026-09-26T18:11:11.935Z"
+    },
+    "en-rejse": {
+      "id": "phrase:da:rejse",
+      "text": "En rejse",
+      "stamp": "c168744fa9e13839",
+      "bytes": 10368,
+      "at": "2026-09-26T18:11:12.416Z"
+    },
+    "en-klasse": {
+      "id": "phrase:da:klasse",
+      "text": "En klasse",
+      "stamp": "86bf1cc2610719bd",
+      "bytes": 9024,
+      "at": "2026-09-26T18:11:12.888Z"
+    },
+    "en-side": {
+      "id": "phrase:da:side",
+      "text": "En side",
+      "stamp": "b718e2319d6f2779",
+      "bytes": 8832,
+      "at": "2026-09-26T18:11:13.343Z"
+    },
+    "en-vej": {
+      "id": "phrase:da:vej",
+      "text": "En vej",
+      "stamp": "acee5269c4c98224",
+      "bytes": 9888,
+      "at": "2026-09-26T18:11:13.834Z"
+    },
+    "en-krone": {
+      "id": "phrase:da:krone",
+      "text": "En krone",
+      "stamp": "2c33df758030fd9c",
+      "bytes": 10368,
+      "at": "2026-09-26T18:11:14.316Z"
+    },
+    "et-moede": {
+      "id": "phrase:da:møde",
+      "text": "Et møde",
+      "stamp": "49a02e581e443f57",
+      "bytes": 6432,
+      "at": "2026-09-26T18:11:14.752Z"
+    },
+    "et-sted": {
+      "id": "phrase:da:sted",
+      "text": "Et sted",
+      "stamp": "5800d092cc47868d",
+      "bytes": 5568,
+      "at": "2026-09-26T18:11:15.171Z"
+    },
+    "et-navn": {
+      "id": "phrase:da:navn",
+      "text": "Et navn",
+      "stamp": "077cf69606ee6c40",
+      "bytes": 10368,
+      "at": "2026-09-26T18:11:15.667Z"
+    },
+    "en-person": {
+      "id": "phrase:da:person",
+      "text": "En person",
+      "stamp": "f80b938f82ca8dbe",
+      "bytes": 8256,
+      "at": "2026-09-26T18:11:16.123Z"
+    },
+    "en-grund": {
+      "id": "phrase:da:grund",
+      "text": "En grund",
+      "stamp": "0aa8544c67c69215",
+      "bytes": 8544,
+      "at": "2026-09-26T18:11:16.572Z"
+    },
+    "en-maade": {
+      "id": "phrase:da:måde",
+      "text": "En måde",
+      "stamp": "a53359f92dfee40d",
+      "bytes": 9888,
+      "at": "2026-09-26T18:11:17.079Z"
+    },
+    "et-billede": {
+      "id": "phrase:da:billede",
+      "text": "Et billede",
+      "stamp": "45f7ea0b4d03211f",
+      "bytes": 10176,
+      "at": "2026-09-26T18:11:17.547Z"
+    },
+    "en-time": {
+      "id": "phrase:da:time",
+      "text": "En time",
+      "stamp": "a7b839d285644a0b",
+      "bytes": 10944,
+      "at": "2026-09-26T18:11:18.077Z"
+    },
+    "en-tanke": {
+      "id": "phrase:da:tanke",
+      "text": "En tanke",
+      "stamp": "fab64642e600bb23",
+      "bytes": 6624,
+      "at": "2026-09-26T18:11:18.493Z"
+    },
+    "et-sprog": {
+      "id": "phrase:da:sprog",
+      "text": "Et sprog",
+      "stamp": "2819aaf0b5ec65f7",
+      "bytes": 4512,
+      "at": "2026-09-26T18:11:18.904Z"
+    },
+    "en-film": {
+      "id": "phrase:da:film",
+      "text": "En film",
+      "stamp": "c7ef2c62b12f5df2",
+      "bytes": 10368,
+      "at": "2026-09-26T18:11:19.396Z"
+    },
+    "en-lov": {
+      "id": "phrase:da:lov",
+      "text": "En lov",
+      "stamp": "896dc1416c9a9cde",
+      "bytes": 6624,
+      "at": "2026-09-26T18:11:19.828Z"
+    },
+    "en-mening": {
+      "id": "phrase:da:mening",
+      "text": "En mening",
+      "stamp": "e35a314c7177d1f6",
+      "bytes": 9888,
+      "at": "2026-09-26T18:11:20.289Z"
+    },
+    "et-aeble": {
+      "id": "phrase:da:æble",
+      "text": "Et æble",
+      "stamp": "94f6815a91d84531",
+      "bytes": 6624,
+      "at": "2026-09-27T00:10:50.406Z"
+    },
+    "en-kaffe": {
+      "id": "phrase:da:kaffe",
+      "text": "En kaffe",
+      "stamp": "9d703b4dc3d8166f",
+      "bytes": 6432,
+      "at": "2026-09-27T00:10:50.873Z"
+    },
+    "et-bord": {
+      "id": "phrase:da:bord",
+      "text": "Et bord",
+      "stamp": "e08690eb781da039",
+      "bytes": 6432,
+      "at": "2026-09-27T00:10:51.287Z"
+    },
+    "en-ost": {
+      "id": "phrase:da:ost",
+      "text": "En ost",
+      "stamp": "b559827b594d31c4",
+      "bytes": 8832,
+      "at": "2026-09-27T00:10:51.773Z"
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 0.6,
+  "lang": "da"
+}

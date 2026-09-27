@@ -1,0 +1,6769 @@
+{
+  "errors": [],
+  "counts": {
+    "board": 76,
+    "review": 76,
+    "aboutReused": 39,
+    "combinedBoard": 176,
+    "combinedReview": 176,
+    "uniqueSentenceAndAudioIds": 704
+  },
+  "originalAcceptance": {
+    "errors": 0
+  },
+  "originalRejectsExtension": {
+    "errors": 460,
+    "countAndEligibilityRejection": true
+  },
+  "extensionCoverage": [
+    {
+      "targetId": "ledger:hej",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:kæreste",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:kæreste"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:goddag",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-review-focus",
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:godmorgen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-review-focus",
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:godnat",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-review-focus",
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:hallo",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-review-focus",
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:velkommen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hjem",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klasse",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hjem",
+        "da:klasse"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:farvel",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "ledger:tak",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:gang",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:snakke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fin",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lyst",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:navn",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:gang",
+        "da:fin",
+        "da:rejse"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:undskyld",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "ledger:okay",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:tage",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:tage"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:ja",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:tro",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:god",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:nå",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:forskellig",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klar",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:tro",
+        "da:god",
+        "da:nå",
+        "da:forskellig",
+        "da:mulig",
+        "da:klar"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:nej",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:vide",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dårlig",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sikker",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lyst",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:vide",
+        "da:dårlig",
+        "da:sikker",
+        "da:lyst"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:igen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:prøve",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:finde",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:navn",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:prøve",
+        "da:finde",
+        "da:eksempel",
+        "da:historie",
+        "da:tvivl",
+        "da:navn"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:lidt",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:tænke",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tid",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:snakke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:svær",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:tænke",
+        "da:tid",
+        "da:svær"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:en",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:se",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:få",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:høre",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:side",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mening",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:person",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måned",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klasse",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:film",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:gang",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sjov",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:spændende",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sjov",
+        "da:spændende",
+        "da:tanke"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:et",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:hel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:år",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sprog",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:land",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:sted",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:år",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ny",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sted",
+        "da:år",
+        "da:menneske"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-discriminate",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:den",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:finde",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fin",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:person",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:måde",
+        "da:sidste"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:det",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:vide",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:synes",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:gang",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hjem",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vide",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rigtig",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sjov",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:år",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:svær",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:spændende",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:ny",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:rigtig",
+        "da:ny"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:her",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:eksempel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:sidde",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kæreste",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sidde",
+        "da:krone"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[3][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:der",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:grund",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:hel",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:stå",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:stå",
+        "da:halv"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvor",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:bo",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ligge",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:side",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vej",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:verden",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:møde",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:musik",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:bo",
+        "da:ligge",
+        "da:musik"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvad",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:se",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:synes",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lave",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:høre",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dansk",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sprog",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mening",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:land",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:måned",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:film",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:se",
+        "da:synes",
+        "da:lave",
+        "da:høre",
+        "da:billede",
+        "da:sprog",
+        "da:mening",
+        "da:grund",
+        "da:land",
+        "da:måned",
+        "da:film"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvem",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:gå",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:få",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:huske",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:stå",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:person",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:gå",
+        "da:få",
+        "da:huske",
+        "da:bruge",
+        "da:person"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:kan",
+      "stage": {
+        "city": 0,
+        "use": "preview-as-chunk"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "ledger:i",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:bo",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:menneske",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:verden",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:verden"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:skål",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:om",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hen",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-name",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hedde",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hedde"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-origin",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:komme",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:komme"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:ord",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:ord"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-repeat",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sige"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-slower",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:snakke",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:snakke"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-meaning",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:dansk",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:dansk",
+        "da:lov"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-where",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:side",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:vej",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:møde",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:musik",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:side",
+        "da:vej",
+        "da:møde",
+        "da:dyr"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-existence",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:grund",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:hel",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "accepted",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "accepted",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "accepted",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hel",
+        "da:lang",
+        "da:time",
+        "da:klokke",
+        "da:liv"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-immediate-help",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "supplemental:da-word-uh",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-listen",
+          "field": "audio[0].textDa",
+          "mode": "listening",
+          "role": "receptive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-word-thing",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    }
+  ],
+  "combinedCoverage": [
+    {
+      "targetId": "ledger:hej",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:søster",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ven",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kæreste",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:søster",
+        "da:ven",
+        "da:kæreste"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:goddag",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:bror",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lærer",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:bror",
+        "da:lærer"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:godmorgen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:far",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:far"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:godnat",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sove",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sove"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hallo",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:mor",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:mor"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:velkommen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:by",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hjem",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klasse",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:by",
+        "da:hjem",
+        "da:klasse"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:farvel",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:aften",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:aften"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:tak",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:mad",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:æble",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mælk",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vand",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kaffe",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sort",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:ost",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kød",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fisk",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:øl",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:blomst",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dag",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:aften",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lille",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kage",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:salt",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sukker",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kartoffel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:gang",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:snakke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fin",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lyst",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:navn",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:mad",
+        "da:vand",
+        "da:øl",
+        "da:blomst",
+        "da:dag",
+        "da:gang",
+        "da:fin",
+        "da:rejse"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:undskyld",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:bil",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:bank",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:bil",
+        "da:bank"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:okay",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:ben",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:køre",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tage",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:ben",
+        "da:køre",
+        "da:tage"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:ja",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:rød",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:stor",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ung",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kage",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tro",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:god",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:nå",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:forskellig",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klar",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:rød",
+        "da:stor",
+        "da:ung",
+        "da:kage",
+        "da:tro",
+        "da:god",
+        "da:nå",
+        "da:forskellig",
+        "da:mulig",
+        "da:klar"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:nej",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hvid",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kød",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sukker",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:vide",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dårlig",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sikker",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lyst",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hvid",
+        "da:kød",
+        "da:sukker",
+        "da:vide",
+        "da:dårlig",
+        "da:sikker",
+        "da:lyst"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:igen",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hånd",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:arm",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:glad",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:arbejde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:læse",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:prøve",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:finde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:navn",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hånd",
+        "da:arm",
+        "da:glad",
+        "da:arbejde",
+        "da:læse",
+        "da:prøve",
+        "da:finde",
+        "da:eksempel",
+        "da:historie",
+        "da:tvivl",
+        "da:navn"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:lidt",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:mælk",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kaffe",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mund",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hoved",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fod",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:næse",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hår",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:gammel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kage",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:salt",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sne",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tænke",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tid",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:snakke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:svær",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:mælk",
+        "da:kaffe",
+        "da:mund",
+        "da:hoved",
+        "da:fod",
+        "da:næse",
+        "da:hår",
+        "da:gammel",
+        "da:salt",
+        "da:sne",
+        "da:tænke",
+        "da:tid",
+        "da:svær"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:en",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:hus",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kvinde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:blomst",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:by",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bog",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:finger",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tand",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dag",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:uge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kartoffel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:stjerne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:cykel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:læse",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:se",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:få",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:høre",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:side",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mening",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:person",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:historie",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måned",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klasse",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:film",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:dør",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:pige",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ost",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fisk",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:øl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fugl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dag",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:uge",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kartoffel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:grøntsag",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:stjerne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:butik",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:gang",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sjov",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:spændende",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:pige",
+        "da:ost",
+        "da:fisk",
+        "da:uge",
+        "da:kartoffel",
+        "da:sjov",
+        "da:spændende",
+        "da:tanke"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:et",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:æble",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:pige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:æg",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:drikke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kirke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:købe",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:år",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:eksempel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sprog",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:land",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:hus",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:æble",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:vindue",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:træ",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hjerte",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fly",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:år",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ny",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:æble",
+        "da:træ",
+        "da:hjerte",
+        "da:fly",
+        "da:sted",
+        "da:år",
+        "da:menneske"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-discriminate",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:den",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:stol",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mand",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kvinde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dreng",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sort",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:stor",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lille",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:gammel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lampe",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:gade",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kirke",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lærer",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:cykel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:finde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fin",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:person",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:stol",
+        "da:dreng",
+        "da:sort",
+        "da:lille",
+        "da:lampe",
+        "da:kirke",
+        "da:cykel",
+        "da:måde",
+        "da:sidste"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:det",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:dag",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vide",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:synes",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:gang",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hjem",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tanke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:barn",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kat",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:træ",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hest",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:bil",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hjerte",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:nat",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:grøntsag",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:stjerne",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tog",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:læse",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vide",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rigtig",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sjov",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:år",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:svær",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:spændende",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:ny",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sidste",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mulig",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:barn",
+        "da:kat",
+        "da:hest",
+        "da:nat",
+        "da:stjerne",
+        "da:tog",
+        "da:rigtig",
+        "da:ny"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-due-review",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[2][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:her",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:eksempel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:seng",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:søster",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bog",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tand",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:uge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:søn",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:datter",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:værelse",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hav",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:butik",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:penge",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sidde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kæreste",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:krone",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:seng",
+        "da:bog",
+        "da:tand",
+        "da:søn",
+        "da:datter",
+        "da:værelse",
+        "da:hav",
+        "da:penge",
+        "da:sidde",
+        "da:krone"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[3][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:der",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:ost",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:smør",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:mor",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hus",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:øje",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dør",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:vindue",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:pige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:æg",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fugl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:smør",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:himmel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:regn",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måne",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:butik",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bus",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fly",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:løbe",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:stå",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hus",
+        "da:øje",
+        "da:dør",
+        "da:himmel",
+        "da:måne",
+        "da:bus",
+        "da:stå",
+        "da:halv"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvor",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hund",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:skole",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:strand",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hospital",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:bank",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bo",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ligge",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:side",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vej",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:verden",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:møde",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:musik",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hund",
+        "da:hospital",
+        "da:bo",
+        "da:ligge",
+        "da:musik"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvad",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:spise",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:drikke",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:finger",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:grøntsag",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:gade",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:købe",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:se",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:synes",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lave",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:høre",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dansk",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sprog",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mening",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:land",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:måned",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:film",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:spise",
+        "da:finger",
+        "da:grøntsag",
+        "da:gade",
+        "da:købe",
+        "da:se",
+        "da:synes",
+        "da:lave",
+        "da:høre",
+        "da:billede",
+        "da:sprog",
+        "da:mening",
+        "da:grund",
+        "da:land",
+        "da:måned",
+        "da:film"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hvem",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:køkken",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:mand",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:kvinde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:elske",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:løbe",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:gå",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:få",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:huske",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:stå",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bruge",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:person",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:køkken",
+        "da:mand",
+        "da:kvinde",
+        "da:elske",
+        "da:løbe",
+        "da:gå",
+        "da:få",
+        "da:huske",
+        "da:bruge",
+        "da:person"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:kan",
+      "stage": {
+        "city": 0,
+        "use": "preview-as-chunk"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-form",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "ledger:i",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:bord",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:mælk",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:køkken",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bror",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:kød",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fisk",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sol",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:træ",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:blomst",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:fugl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:by",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:aften",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:glad",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:datter",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sukker",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:park",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bank",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:penge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:sove",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:løbe",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bo",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:rejse",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:øje",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:køkken",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:drikke",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sol",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fugl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:aften",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:uge",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:park",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:verden",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:tvivl",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:drikke",
+        "da:sol",
+        "da:park",
+        "da:verden"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:skål",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "ledger:om",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:tog",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-manipulate",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "ledger:hen",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": [
+        "no-mapped-surface-source"
+      ]
+    },
+    {
+      "targetId": "supplemental:da-chunk-name",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hedde",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:hedde"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-1",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-origin",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:komme",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:komme"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-2",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:ord",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:ord"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-repeat",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:sige",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:sige"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-slower",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:snakke",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:snakke"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-meaning",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:dansk",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:ord",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lov",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:dansk",
+        "da:lov"
+      ],
+      "about": true,
+      "otherAcceptedSources": [],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-where",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:hund",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:skole",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:strand",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:hospital",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:bank",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:side",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:vej",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:møde",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:dyr",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:musik",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:skole",
+        "da:strand",
+        "da:side",
+        "da:vej",
+        "da:møde",
+        "da:dyr"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-exit-interact",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[5][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-existence",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [
+          {
+            "wordId": "da:ost",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:smør",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:grund",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          }
+        ],
+        "review": [
+          {
+            "wordId": "da:hus",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:øje",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:dør",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:vindue",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:pige",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:æg",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fugl",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:smør",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:himmel",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:regn",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:måne",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:butik",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:fly",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:hel",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:sted",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:lang",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:halv",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:menneske",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:time",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:billede",
+            "status": "editorial",
+            "mode": "incidental-presence"
+          },
+          {
+            "wordId": "da:klokke",
+            "status": "editorial",
+            "mode": "productive-target"
+          },
+          {
+            "wordId": "da:liv",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:vindue",
+        "da:æg",
+        "da:fugl",
+        "da:smør",
+        "da:regn",
+        "da:butik",
+        "da:hel",
+        "da:lang",
+        "da:time",
+        "da:klokke",
+        "da:liv"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-notice",
+          "field": "audio[0].textDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[4][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-chunk-immediate-help",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-4",
+          "field": "answer.modelDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": [
+        "no-review-focus"
+      ]
+    },
+    {
+      "targetId": "supplemental:da-word-uh",
+      "stage": {
+        "city": 0,
+        "use": "receptive-ambient"
+      },
+      "reviewEligible": false,
+      "presence": {
+        "board": [],
+        "review": []
+      },
+      "focusRows": [],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-listen",
+          "field": "audio[0].textDa",
+          "mode": "listening",
+          "role": "receptive",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-situation-3",
+          "field": "audio[0].textDa",
+          "mode": "supported-interaction",
+          "role": "productive",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "targetId": "supplemental:da-word-thing",
+      "stage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "reviewEligible": true,
+      "presence": {
+        "board": [],
+        "review": [
+          {
+            "wordId": "da:bord",
+            "status": "editorial",
+            "mode": "productive-target"
+          }
+        ]
+      },
+      "focusRows": [
+        "da:bord"
+      ],
+      "about": true,
+      "otherAcceptedSources": [
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "visualDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/curriculum-cities-1-3.ts",
+          "id": "sonderborg-transfer",
+          "field": "answer.modelDa",
+          "mode": "grammar-in-use",
+          "role": "controlled",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[0][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        },
+        {
+          "path": "src/lang/da/beginner-grammar-lessons.ts",
+          "id": "sonderborg-articles",
+          "field": "examples[1][0]",
+          "mode": "reading",
+          "role": "exposure",
+          "match": "surface-presence-only"
+        }
+      ],
+      "gaps": []
+    }
+  ],
+  "rowFindings": [
+    {
+      "wordId": "da:se",
+      "boardForm": "ser",
+      "reviewForm": "ser",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tro",
+      "boardForm": "tror",
+      "reviewForm": "tror",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sige",
+      "boardForm": "siger",
+      "reviewForm": "sige",
+      "targetId": "supplemental:da-chunk-repeat",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "kan du sige det igen?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:undskyld",
+        "ledger:igen",
+        "ledger:det",
+        "ledger:kan"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:vide",
+      "boardForm": "ved",
+      "reviewForm": "ved",
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Nej",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:komme",
+      "boardForm": "kommer",
+      "reviewForm": "kommer",
+      "targetId": "supplemental:da-chunk-origin",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Jeg kommer fra Norge",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:synes",
+      "boardForm": "synes",
+      "reviewForm": "synes",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:gå",
+      "boardForm": "går",
+      "reviewForm": "går",
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvem",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:god",
+      "boardForm": "god",
+      "reviewForm": "god",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:rigtig",
+      "boardForm": "rigtigt",
+      "reviewForm": "rigtigt",
+      "targetId": "ledger:det",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "det",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tage",
+      "boardForm": "tager",
+      "reviewForm": "tager",
+      "targetId": "ledger:okay",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Okay",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tænke",
+      "boardForm": "tænker",
+      "reviewForm": "tænker",
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "lidt",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:få",
+      "boardForm": "får",
+      "reviewForm": "får",
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvem",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:gang",
+      "boardForm": "gang",
+      "reviewForm": "gang",
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "tak",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:nå",
+      "boardForm": "når",
+      "reviewForm": "når",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:lave",
+      "boardForm": "laver",
+      "reviewForm": "laver",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:prøve",
+      "boardForm": "prøver",
+      "reviewForm": "Prøv",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sjov",
+      "boardForm": "sjov",
+      "reviewForm": "sjov",
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "en",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:hedde",
+      "boardForm": "hedder",
+      "reviewForm": "hedder",
+      "targetId": "supplemental:da-chunk-name",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Jeg hedder Nora",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sidde",
+      "boardForm": "sidder",
+      "reviewForm": "Sidder",
+      "targetId": "ledger:her",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "her",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:huske",
+      "boardForm": "husker",
+      "reviewForm": "husker",
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvem",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tid",
+      "boardForm": "tid",
+      "reviewForm": "tid",
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "lidt",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:hel",
+      "boardForm": "helt",
+      "reviewForm": "hel",
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Er der en hel kage?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en",
+        "ledger:der"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:bo",
+      "boardForm": "bor",
+      "reviewForm": "bor",
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sted",
+      "boardForm": "sted",
+      "reviewForm": "sted",
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "et",
+      "incidentalSurfaceTargetIds": [
+        "ledger:der",
+        "supplemental:da-chunk-existence"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:stå",
+      "boardForm": "står",
+      "reviewForm": "står",
+      "targetId": "ledger:der",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "der",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvem"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:finde",
+      "boardForm": "finder",
+      "reviewForm": "Finder",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [
+        "ledger:den"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:snakke",
+      "boardForm": "snakker",
+      "reviewForm": "snakker",
+      "targetId": "supplemental:da-chunk-slower",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Lidt langsommere, tak.",
+      "incidentalSurfaceTargetIds": [
+        "ledger:tak",
+        "ledger:lidt"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:høre",
+      "boardForm": "hører",
+      "reviewForm": "hører",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:bruge",
+      "boardForm": "bruger",
+      "reviewForm": "bruger",
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvem",
+      "incidentalSurfaceTargetIds": [
+        "ledger:den"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:år",
+      "boardForm": "år",
+      "reviewForm": "år",
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "et",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:ligge",
+      "boardForm": "ligger",
+      "reviewForm": "ligger",
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:måde",
+      "boardForm": "måde",
+      "reviewForm": "måde",
+      "targetId": "ledger:den",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "den",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:svær",
+      "boardForm": "svær",
+      "reviewForm": "svært",
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "lidt",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:forskellig",
+      "boardForm": "forskellige",
+      "reviewForm": "forskellige",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:fin",
+      "boardForm": "fin",
+      "reviewForm": "fine",
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Tak",
+      "incidentalSurfaceTargetIds": [
+        "ledger:den"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:side",
+      "boardForm": "side",
+      "reviewForm": "siden",
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor er siden?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvor"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:lang",
+      "boardForm": "lang",
+      "reviewForm": "lang",
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Er der en lang kø?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en",
+        "ledger:der"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:spændende",
+      "boardForm": "spændende",
+      "reviewForm": "spændende",
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "en",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:ny",
+      "boardForm": "ny",
+      "reviewForm": "nyt",
+      "targetId": "ledger:det",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "det",
+      "incidentalSurfaceTargetIds": [
+        "ledger:et"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:dårlig",
+      "boardForm": "dårlig",
+      "reviewForm": "dårlig",
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Nej",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sidste",
+      "boardForm": "sidste",
+      "reviewForm": "sidste",
+      "targetId": "ledger:den",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "den",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:eksempel",
+      "boardForm": "eksempel",
+      "reviewForm": "eksemplet",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [
+        "ledger:tak"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:dansk",
+      "boardForm": "dansk",
+      "reviewForm": "dansk",
+      "targetId": "supplemental:da-chunk-meaning",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad betyder dansk?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvad"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:vej",
+      "boardForm": "Vejen",
+      "reviewForm": "vejen",
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor er vejen til skolen?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvor"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:halv",
+      "boardForm": "halv",
+      "reviewForm": "halv",
+      "targetId": "ledger:der",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "der",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en",
+        "supplemental:da-chunk-existence"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:mulig",
+      "boardForm": "mulig",
+      "reviewForm": "muligt",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [
+        "ledger:det"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:menneske",
+      "boardForm": "menneske",
+      "reviewForm": "menneske",
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "et",
+      "incidentalSurfaceTargetIds": [
+        "ledger:der",
+        "ledger:i",
+        "supplemental:da-chunk-existence"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:hjem",
+      "boardForm": "hjem",
+      "reviewForm": "hjem",
+      "targetId": "ledger:velkommen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Velkommen",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:time",
+      "boardForm": "time",
+      "reviewForm": "time",
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Er der en time tilbage?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en",
+        "ledger:der"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sikker",
+      "boardForm": "sikker",
+      "reviewForm": "sikker",
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Nej",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:billede",
+      "boardForm": "Billedet",
+      "reviewForm": "billedet",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [
+        "ledger:der",
+        "supplemental:da-chunk-existence"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:klar",
+      "boardForm": "klar",
+      "reviewForm": "klar",
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Ja",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:ord",
+      "boardForm": "ord",
+      "reviewForm": "ordet",
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Jeg forstår ikke.",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvad",
+        "supplemental:da-chunk-meaning"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:sprog",
+      "boardForm": "sprog",
+      "reviewForm": "sproget",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:mening",
+      "boardForm": "mening",
+      "reviewForm": "mening",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:grund",
+      "boardForm": "grund",
+      "reviewForm": "grunden",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:klokke",
+      "boardForm": "Klokken",
+      "reviewForm": "klokke",
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Er der en klokke her?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en",
+        "ledger:her",
+        "ledger:der"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:person",
+      "boardForm": "person",
+      "reviewForm": "person",
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvem",
+      "incidentalSurfaceTargetIds": [
+        "ledger:den"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:land",
+      "boardForm": "land",
+      "reviewForm": "landet",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:verden",
+      "boardForm": "Verden",
+      "reviewForm": "verden",
+      "targetId": "ledger:i",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "i",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvor"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:historie",
+      "boardForm": "historie",
+      "reviewForm": "historien",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [
+        "ledger:tak"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:møde",
+      "boardForm": "Mødet",
+      "reviewForm": "mødet",
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor er mødet?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvor"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:måned",
+      "boardForm": "måned",
+      "reviewForm": "måneden",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:lov",
+      "boardForm": "Loven",
+      "reviewForm": "loven",
+      "targetId": "supplemental:da-chunk-meaning",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad betyder loven?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvad"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tanke",
+      "boardForm": "tanke",
+      "reviewForm": "tanke",
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "en",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:kæreste",
+      "boardForm": "kæreste",
+      "reviewForm": "kæreste",
+      "targetId": "ledger:hej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hej",
+      "incidentalSurfaceTargetIds": [
+        "ledger:her"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:tvivl",
+      "boardForm": "tvivl",
+      "reviewForm": "tvivl",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [
+        "ledger:i"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:dyr",
+      "boardForm": "Dyret",
+      "reviewForm": "dyret",
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor er dyret?",
+      "incidentalSurfaceTargetIds": [
+        "ledger:hvor"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:krone",
+      "boardForm": "krone",
+      "reviewForm": "krone",
+      "targetId": "ledger:her",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Her",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:lyst",
+      "boardForm": "lyst",
+      "reviewForm": "lyst",
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Nej",
+      "incidentalSurfaceTargetIds": [
+        "ledger:tak"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:klasse",
+      "boardForm": "Klassen",
+      "reviewForm": "klassen",
+      "targetId": "ledger:velkommen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Velkommen",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:liv",
+      "boardForm": "liv",
+      "reviewForm": "liv",
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Der er liv i huset",
+      "incidentalSurfaceTargetIds": [
+        "ledger:der",
+        "ledger:i"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:film",
+      "boardForm": "film",
+      "reviewForm": "filmen",
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvad",
+      "incidentalSurfaceTargetIds": [],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:rejse",
+      "boardForm": "Rejsen",
+      "reviewForm": "rejse",
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Tak",
+      "incidentalSurfaceTargetIds": [
+        "ledger:en"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:musik",
+      "boardForm": "musik",
+      "reviewForm": "musikken",
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "Hvor",
+      "incidentalSurfaceTargetIds": [
+        "supplemental:da-chunk-where"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    },
+    {
+      "wordId": "da:navn",
+      "boardForm": "navn",
+      "reviewForm": "navn",
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetForm": "igen",
+      "incidentalSurfaceTargetIds": [
+        "ledger:tak"
+      ],
+      "aboutExampleDistinct": true,
+      "editorialStatus": "parent-accepted independent model reports; no human/audio certification"
+    }
+  ],
+  "claim": "Dual-source validation; parent-reported independent model acceptance when requested. Optional exposure only, no retrieval/mastery, native-human/audio or whole-route certification."
+}

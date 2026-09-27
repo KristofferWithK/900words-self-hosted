@@ -1,0 +1,585 @@
+{
+  "status": "complete",
+  "recordings": [
+    {
+      "audioId": "city1:da:barn:review:audio:v3",
+      "sentenceId": "city1:da:barn:review:sentence:v3",
+      "version": 3,
+      "textDa": "Mit barn er også her.",
+      "url": "/audio/da/city1/review/barn/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:barn:review:audio:v3",
+      "sentenceId": "city1:da:barn:review:sentence:v3",
+      "version": 3,
+      "textDa": "Mit barn er også her.",
+      "url": "/audio/da/city1/review/barn/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:kat:review:audio:v3",
+      "sentenceId": "city1:da:kat:review:sentence:v3",
+      "version": 3,
+      "textDa": "Katten sover altid her.",
+      "url": "/audio/da/city1/review/kat/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:kat:review:audio:v3",
+      "sentenceId": "city1:da:kat:review:sentence:v3",
+      "version": 3,
+      "textDa": "Katten sover altid her.",
+      "url": "/audio/da/city1/review/kat/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:pige:review:audio:v3",
+      "sentenceId": "city1:da:pige:review:sentence:v3",
+      "version": 3,
+      "textDa": "Pigen spiller gerne fodbold.",
+      "url": "/audio/da/city1/review/pige/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:pige:review:audio:v3",
+      "sentenceId": "city1:da:pige:review:sentence:v3",
+      "version": 3,
+      "textDa": "Pigen spiller gerne fodbold.",
+      "url": "/audio/da/city1/review/pige/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:uge:review:audio:v3",
+      "sentenceId": "city1:da:uge:review:sentence:v3",
+      "version": 3,
+      "textDa": "Jeg er her kun en uge.",
+      "url": "/audio/da/city1/review/uge/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:uge:review:audio:v3",
+      "sentenceId": "city1:da:uge:review:sentence:v3",
+      "version": 3,
+      "textDa": "Jeg er her kun en uge.",
+      "url": "/audio/da/city1/review/uge/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:lille:review:audio:v3",
+      "sentenceId": "city1:da:lille:review:sentence:v3",
+      "version": 3,
+      "textDa": "Huset er meget lille.",
+      "url": "/audio/da/city1/review/lille/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:lille:review:audio:v3",
+      "sentenceId": "city1:da:lille:review:sentence:v3",
+      "version": 3,
+      "textDa": "Huset er meget lille.",
+      "url": "/audio/da/city1/review/lille/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:se:review:audio:v2",
+      "sentenceId": "city1:da:se:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi ses i morgen!",
+      "url": "/audio/da/city1/review/se/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:se:review:audio:v2",
+      "sentenceId": "city1:da:se:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi ses i morgen!",
+      "url": "/audio/da/city1/review/se/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:god:review:audio:v2",
+      "sentenceId": "city1:da:god:review:sentence:v2",
+      "version": 2,
+      "textDa": "Filmen var god.",
+      "url": "/audio/da/city1/review/god/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:god:review:audio:v2",
+      "sentenceId": "city1:da:god:review:sentence:v2",
+      "version": 2,
+      "textDa": "Filmen var god.",
+      "url": "/audio/da/city1/review/god/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:rigtig:review:audio:v2",
+      "sentenceId": "city1:da:rigtig:review:sentence:v2",
+      "version": 2,
+      "textDa": "Nej, det er ikke rigtigt.",
+      "url": "/audio/da/city1/review/rigtig/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:rigtig:review:audio:v2",
+      "sentenceId": "city1:da:rigtig:review:sentence:v2",
+      "version": 2,
+      "textDa": "Nej, det er ikke rigtigt.",
+      "url": "/audio/da/city1/review/rigtig/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sjov:review:audio:v2",
+      "sentenceId": "city1:da:sjov:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er virkelig sjovt!",
+      "url": "/audio/da/city1/review/sjov/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sjov:review:audio:v2",
+      "sentenceId": "city1:da:sjov:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er virkelig sjovt!",
+      "url": "/audio/da/city1/review/sjov/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sted:review:audio:v2",
+      "sentenceId": "city1:da:sted:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi mødes samme sted i morgen.",
+      "url": "/audio/da/city1/review/sted/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sted:review:audio:v2",
+      "sentenceId": "city1:da:sted:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi mødes samme sted i morgen.",
+      "url": "/audio/da/city1/review/sted/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:finde:review:audio:v3",
+      "sentenceId": "city1:da:finde:review:sentence:v3",
+      "version": 3,
+      "textDa": "Jeg kan ikke finde banegården.",
+      "url": "/audio/da/city1/review/finde/v3/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:finde:review:audio:v3",
+      "sentenceId": "city1:da:finde:review:sentence:v3",
+      "version": 3,
+      "textDa": "Jeg kan ikke finde banegården.",
+      "url": "/audio/da/city1/review/finde/v3/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:høre:review:audio:v2",
+      "sentenceId": "city1:da:høre:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg kan ikke høre dig.",
+      "url": "/audio/da/city1/review/hoere/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:høre:review:audio:v2",
+      "sentenceId": "city1:da:høre:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg kan ikke høre dig.",
+      "url": "/audio/da/city1/review/hoere/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:bruge:review:audio:v2",
+      "sentenceId": "city1:da:bruge:review:sentence:v2",
+      "version": 2,
+      "textDa": "Må jeg bruge din telefon?",
+      "url": "/audio/da/city1/review/bruge/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:bruge:review:audio:v2",
+      "sentenceId": "city1:da:bruge:review:sentence:v2",
+      "version": 2,
+      "textDa": "Må jeg bruge din telefon?",
+      "url": "/audio/da/city1/review/bruge/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:år:review:audio:v2",
+      "sentenceId": "city1:da:år:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg kommer tilbage næste år.",
+      "url": "/audio/da/city1/review/aar/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:år:review:audio:v2",
+      "sentenceId": "city1:da:år:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg kommer tilbage næste år.",
+      "url": "/audio/da/city1/review/aar/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:måde:review:audio:v2",
+      "sentenceId": "city1:da:måde:review:sentence:v2",
+      "version": 2,
+      "textDa": "Man kan også gøre det på en anden måde.",
+      "url": "/audio/da/city1/review/maade/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:måde:review:audio:v2",
+      "sentenceId": "city1:da:måde:review:sentence:v2",
+      "version": 2,
+      "textDa": "Man kan også gøre det på en anden måde.",
+      "url": "/audio/da/city1/review/maade/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:forskellig:review:audio:v2",
+      "sentenceId": "city1:da:forskellig:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi er meget forskellige.",
+      "url": "/audio/da/city1/review/forskellig/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:forskellig:review:audio:v2",
+      "sentenceId": "city1:da:forskellig:review:sentence:v2",
+      "version": 2,
+      "textDa": "Vi er meget forskellige.",
+      "url": "/audio/da/city1/review/forskellig/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:spændende:review:audio:v2",
+      "sentenceId": "city1:da:spændende:review:sentence:v2",
+      "version": 2,
+      "textDa": "Bogen er virkelig spændende.",
+      "url": "/audio/da/city1/review/spaendende/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:spændende:review:audio:v2",
+      "sentenceId": "city1:da:spændende:review:sentence:v2",
+      "version": 2,
+      "textDa": "Bogen er virkelig spændende.",
+      "url": "/audio/da/city1/review/spaendende/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:ny:review:audio:v2",
+      "sentenceId": "city1:da:ny:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er helt nyt for mig.",
+      "url": "/audio/da/city1/review/ny/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:ny:review:audio:v2",
+      "sentenceId": "city1:da:ny:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er helt nyt for mig.",
+      "url": "/audio/da/city1/review/ny/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sidste:review:audio:v2",
+      "sentenceId": "city1:da:sidste:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er den sidste bus i dag.",
+      "url": "/audio/da/city1/review/sidste/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:sidste:review:audio:v2",
+      "sentenceId": "city1:da:sidste:review:sentence:v2",
+      "version": 2,
+      "textDa": "Det er den sidste bus i dag.",
+      "url": "/audio/da/city1/review/sidste/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:eksempel:review:audio:v2",
+      "sentenceId": "city1:da:eksempel:review:sentence:v2",
+      "version": 2,
+      "textDa": "Kan du give mig et eksempel?",
+      "url": "/audio/da/city1/review/eksempel/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:eksempel:review:audio:v2",
+      "sentenceId": "city1:da:eksempel:review:sentence:v2",
+      "version": 2,
+      "textDa": "Kan du give mig et eksempel?",
+      "url": "/audio/da/city1/review/eksempel/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:menneske:review:audio:v2",
+      "sentenceId": "city1:da:menneske:review:sentence:v2",
+      "version": 2,
+      "textDa": "Der er mange mennesker her.",
+      "url": "/audio/da/city1/review/menneske/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:menneske:review:audio:v2",
+      "sentenceId": "city1:da:menneske:review:sentence:v2",
+      "version": 2,
+      "textDa": "Der er mange mennesker her.",
+      "url": "/audio/da/city1/review/menneske/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:grund:review:audio:v2",
+      "sentenceId": "city1:da:grund:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvorfor? Der er en god grund.",
+      "url": "/audio/da/city1/review/grund/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:grund:review:audio:v2",
+      "sentenceId": "city1:da:grund:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvorfor? Der er en god grund.",
+      "url": "/audio/da/city1/review/grund/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:land:review:audio:v2",
+      "sentenceId": "city1:da:land:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvilket land kommer du fra?",
+      "url": "/audio/da/city1/review/land/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:land:review:audio:v2",
+      "sentenceId": "city1:da:land:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvilket land kommer du fra?",
+      "url": "/audio/da/city1/review/land/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:verden:review:audio:v2",
+      "sentenceId": "city1:da:verden:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg vil gerne se verden.",
+      "url": "/audio/da/city1/review/verden/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:verden:review:audio:v2",
+      "sentenceId": "city1:da:verden:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg vil gerne se verden.",
+      "url": "/audio/da/city1/review/verden/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:måned:review:audio:v2",
+      "sentenceId": "city1:da:måned:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg har været her en måned nu.",
+      "url": "/audio/da/city1/review/maaned/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:måned:review:audio:v2",
+      "sentenceId": "city1:da:måned:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg har været her en måned nu.",
+      "url": "/audio/da/city1/review/maaned/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:tanke:review:audio:v2",
+      "sentenceId": "city1:da:tanke:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg havde samme tanke.",
+      "url": "/audio/da/city1/review/tanke/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:tanke:review:audio:v2",
+      "sentenceId": "city1:da:tanke:review:sentence:v2",
+      "version": 2,
+      "textDa": "Jeg havde samme tanke.",
+      "url": "/audio/da/city1/review/tanke/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:tvivl:review:audio:v2",
+      "sentenceId": "city1:da:tvivl:review:sentence:v2",
+      "version": 2,
+      "textDa": "Uden tvivl!",
+      "url": "/audio/da/city1/review/tvivl/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:tvivl:review:audio:v2",
+      "sentenceId": "city1:da:tvivl:review:sentence:v2",
+      "version": 2,
+      "textDa": "Uden tvivl!",
+      "url": "/audio/da/city1/review/tvivl/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:film:review:audio:v2",
+      "sentenceId": "city1:da:film:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvornår starter filmen?",
+      "url": "/audio/da/city1/review/film/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:film:review:audio:v2",
+      "sentenceId": "city1:da:film:review:sentence:v2",
+      "version": 2,
+      "textDa": "Hvornår starter filmen?",
+      "url": "/audio/da/city1/review/film/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:rejse:review:audio:v2",
+      "sentenceId": "city1:da:rejse:review:sentence:v2",
+      "version": 2,
+      "textDa": "God rejse og farvel!",
+      "url": "/audio/da/city1/review/rejse/v2/normal.mp3",
+      "variant": "normal",
+      "bakeRate": 1,
+      "playbackRate": 1
+    },
+    {
+      "audioId": "city1:da:rejse:review:audio:v2",
+      "sentenceId": "city1:da:rejse:review:sentence:v2",
+      "version": 2,
+      "textDa": "God rejse og farvel!",
+      "url": "/audio/da/city1/review/rejse/v2/slow.mp3",
+      "variant": "slow",
+      "bakeRate": 0.7,
+      "playbackRate": 1
+    }
+  ]
+}

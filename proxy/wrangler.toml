@@ -1,0 +1,105 @@
+name = "my-casey-worker"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# The authored matrices and clue books are private Worker modules. They deploy
+# with Casey's server and are never copied into the Pages/native client build.
+[[rules]]
+type = "Text"
+globs = ["data/*.json"]
+fallthrough = true
+
+[vars]
+# Exact browser origins allowed to call Casey. An Origin is scheme + host +
+# port, never a path. The only shipping caller is Capacitor; the two localhost
+# origins support private local development and preview. GitHub Pages is
+# retired and must never be re-added as a convenience origin.
+#
+# capacitor://localhost is the iOS shell's origin only. An Android shell
+# (Capacitor's default androidScheme) calls from https://localhost, which this
+# list does not carry — add it when an Android build exists, or Casey answers
+# every request from it with a CORS refusal and a blank screen.
+ALLOWED_ORIGIN = "http://localhost:5173, http://localhost:4173, capacitor://localhost"
+
+# The server-owned alias. Current clients never send or select a model.
+# Change Casey's model here without an app release.
+CASEY_MODEL = "cluey"
+# Optional opaque ledger label. It is intentionally separate from CASEY_MODEL
+# so a raw provider model id cannot leak in a decision response.
+CASEY_REPORT_ARM = "cluey"
+MODEL_ALIASES = '''{"cluey":{"model":"gpt-oss:120b"},
+  "casey-dictionary":{"model":"gpt-oss:120b"}}'''
+
+# L1's translation miss path always selects casey-dictionary on the server.
+# It currently uses Ollama's normal gpt-oss 120B with low reasoning, an empty
+# tool list, a 160-token cap and temperature 0.1.
+# This alias is deliberately separate from CASEY_MODEL: normal clues and
+# guesses remain independently configurable, while a malformed translation
+# gets exactly one normal-Casey retry. Both aliases use the Worker-only
+# OLLAMA_API_KEY; no device key is ever accepted or exposed.
+
+# Optional corrective cascade. The first alias handles the initial answer; a
+# server-side validation refusal resolves the `escalate` alias. Neither model
+# id, prompt nor correction reaches the browser.
+#
+# MODEL_ALIASES = '''{"cluey":{"model":"SMALL","escalate":"cluey-hard"},
+#   "cluey-hard":{"model":"FLAGSHIP"}}'''
+
+# An alias may use another OpenAI-compatible service without exposing it:
+#
+# MODEL_ALIASES = '''{"cluey":{"model":"gemini-model",
+#   "upstream":"https://generativelanguage.googleapis.com",
+#   "path":"/v1beta/openai","key":"GEMINI_API_KEY"}}'''
+#
+# Upload every named key with `wrangler secret put`; never put a secret here.
+
+# Global default upstream when an alias does not override it. `/v1` and
+# `OLLAMA_API_KEY` are the corresponding defaults in worker.js.
+# UPSTREAM = "https://ollama.com"
+
+# Optional best-effort KV fuse. worker.js defaults to 1000 attempts per install
+# and 25000 total attempts per UTC day. `0` disables one ceiling. Each actual
+# upstream model attempt is charged, including corrections and fallbacks.
+# DAILY_CAP = "1000"
+# GLOBAL_DAILY_CAP = "25000"
+
+# The Actions workflow creates/reuses the namespace and appends this binding
+# immediately before deploy. For a manual Wrangler deploy, create it once with
+# `npx wrangler kv namespace create QUOTA`, then uncomment and paste its id.
+# Without a binding the Worker fails open and logs that it is unmetered.
+#
+# [[kv_namespaces]]
+# binding = "QUOTA"
+# id = "paste-the-id-here"
+
+# H10 optional events use a separate namespace so data retention/deletion can
+# never touch rate-limit counters. Unlike QUOTA, the receiver fails closed when
+# this binding is absent. The deploy workflow creates and binds it; for a
+# manual deploy create DATA_SHARING and add its namespace id here.
+#
+# [[kv_namespaces]]
+# binding = "DATA_SHARING"
+# id = "paste-the-id-here"
+
+# Legacy pre-SEC3 clients still use the generic forwarding route. Its optional
+# cheap-tier timeout remains off unless configured. The current decision route
+# owns its validation/correction loop in the Worker.
+# CHEAP_TIMEOUT_MS = "20000"
+
+# Workers Logs. Every invocation's console lines and any resource-limit kill
+# ("exceeded CPU", "exceeded memory") are kept in the Cloudflare dashboard
+# (Workers & Pages → cluecabulary-proxy → Logs), which is the only place the
+# cause of a request that never answered can be read: a killed isolate sends
+# an error page without CORS headers, and the phone can only report that the
+# connection dropped. Switched on 2026-09-07 while hunting exactly that.
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+# Anonymous usage counters (src/analytics/stats.ts, the /v1/stats route).
+# One data point per event, no index, queried from the dashboard's Analytics
+# Engine SQL. The dataset is created on first write; nothing to provision.
+# Without this binding the route answers 204 and drops the count.
+[[analytics_engine_datasets]]
+binding = "STATS"
+dataset = "cluecab_stats"

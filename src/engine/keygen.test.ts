@@ -1,0 +1,245 @@
+import { describe, expect, it } from 'vitest'
+import {
+  BOARD,
+  SHIPPED_GREEN_OVERLAPS,
+  TUTORIAL_CONFIG,
+  assertConfigConsistent,
+  shippedBoardConfig,
+  type GridConfig,
+} from './config'
+import { distinctGreenIds, generateKeys, keysFromGreenIds } from './keygen'
+import { mulberry32 } from './rng'
+import type { CardRole } from './types'
+
+const wordIds = (n: number) => Array.from({ length: n }, (_, i) => `w${i}`)
+
+function countRoles(key: Record<string, CardRole>) {
+  const counts = { green: 0, bystander: 0 }
+  for (const role of Object.values(key)) counts[role]++
+  return counts
+}
+
+/**
+ * Every config the app can deal, not every board SIZE — there are no sizes
+ * (N1). Just the board and the tutorial mode you enter: the wrap-up ritual
+ * deals BOARD itself since N2, so it is not a config of its own any more.
+ */
+const CONFIGS: Array<[string, GridConfig]> = [
+  ['board', BOARD],
+  ['tutorial', TUTORIAL_CONFIG],
+]
+
+describe.each(CONFIGS)('keygen %s', (_name, config: GridConfig) => {
+  it('config is internally consistent', () => {
+    expect(() => assertConfigConsistent(config)).not.toThrow()
+  })
+
+  it('holds all invariants across 300 seeds', () => {
+    for (let seed = 1; seed <= 300; seed++) {
+      const ids = wordIds(config.totalWords)
+      const keys = generateKeys(config, ids, mulberry32(seed))
+
+      for (const key of [keys.playerKey, keys.aiKey]) {
+        expect(Object.keys(key).sort()).toEqual([...ids].sort())
+        const counts = countRoles(key)
+        expect(counts.green).toBe(config.greensPerSide)
+        expect(counts.bystander).toBe(config.totalWords - config.greensPerSide)
+      }
+
+      const overlap = ids.filter(
+        (id) => keys.playerKey[id] === 'green' && keys.aiKey[id] === 'green',
+      )
+      expect(overlap.length).toBe(config.greenOverlap)
+
+      // Every card the keys disagree about, counted from both sides. A green on
+      // one key and a bystander on the other is the card the clue-giver rule
+      // exists for, and there are exactly (greensPerSide - overlap) of them each
+      // way — the deal has no other shape left to produce.
+      for (const [own, other] of [
+        [keys.playerKey, keys.aiKey],
+        [keys.aiKey, keys.playerKey],
+      ] as const) {
+        const mineAlone = ids.filter((id) => own[id] === 'green' && other[id] === 'bystander')
+        expect(mineAlone.length).toBe(config.greensPerSide - config.greenOverlap)
+      }
+
+      // Nothing is on neither key AND on a key: the four counts partition it.
+      const deadCards = ids.filter(
+        (id) => keys.playerKey[id] === 'bystander' && keys.aiKey[id] === 'bystander',
+      )
+      expect(deadCards.length).toBe(
+        config.totalWords - (2 * config.greensPerSide - config.greenOverlap),
+      )
+
+      expect(distinctGreenIds(keys).length).toBe(2 * config.greensPerSide - config.greenOverlap)
+    }
+  })
+
+  it('shuffles: different seeds give different keys', () => {
+    const ids = wordIds(config.totalWords)
+    const a = generateKeys(config, ids, mulberry32(1))
+    const b = generateKeys(config, ids, mulberry32(2))
+    expect(JSON.stringify(a)).not.toBe(JSON.stringify(b))
+  })
+})
+
+describe('the shipped overlap resolver', () => {
+  it('is seeded, reproducible, and deals only one, two, or three shared greens', () => {
+    const counts = new Map(SHIPPED_GREEN_OVERLAPS.map((overlap) => [overlap, 0]))
+    const ids = wordIds(BOARD.totalWords)
+    for (let seed = 1; seed <= 3000; seed++) {
+      const config = shippedBoardConfig(seed)
+      expect(shippedBoardConfig(seed)).toEqual(config)
+      expect(SHIPPED_GREEN_OVERLAPS).toContain(config.greenOverlap)
+      counts.set(config.greenOverlap as 1 | 2 | 3, counts.get(config.greenOverlap as 1 | 2 | 3)! + 1)
+      const keys = generateKeys(config, ids, mulberry32(seed))
+      const actual = ids.filter(
+        (id) => keys.playerKey[id] === 'green' && keys.aiKey[id] === 'green',
+      ).length
+      expect(actual).toBe(config.greenOverlap)
+    }
+    for (const count of counts.values()) expect(count).toBeGreaterThan(900)
+  })
+})
+
+it('rejects wrong word count', () => {
+  expect(() => generateKeys(BOARD, wordIds(BOARD.totalWords - 1), mulberry32(1))).toThrow()
+})
+
+describe('authored keys', () => {
+  const config = shippedBoardConfig(1)
+  const ids = wordIds(config.totalWords)
+  const player = ids.slice(0, config.greensPerSide)
+  const ai = [
+    ...player.slice(0, config.greenOverlap),
+    ...ids.slice(config.greensPerSide, config.greensPerSide * 2 - config.greenOverlap),
+  ]
+
+  it('keeps exact roles instead of shuffling them', () => {
+    const keys = keysFromGreenIds(config, ids, { player, ai })
+    expect(ids.filter((id) => keys.playerKey[id] === 'green')).toEqual(player)
+    expect(ids.filter((id) => keys.aiKey[id] === 'green')).toEqual(ai)
+  })
+
+  it('rejects malformed green lists, off-board words, and the wrong overlap', () => {
+    expect(() => keysFromGreenIds(config, ids, { player: player.slice(1), ai })).toThrow()
+    expect(() => keysFromGreenIds(config, ids, { player, ai: [...ai.slice(1), 'elsewhere'] })).toThrow()
+    expect(() =>
+      keysFromGreenIds(config, ids, {
+        player,
+        ai: [...player.slice(0, config.greenOverlap + 1), ...ai.slice(config.greenOverlap + 1)],
+      }),
+    ).toThrow()
+  })
+})
+
+describe('SRS-biased dealing', () => {
+  const config = BOARD
+  const ids = wordIds(config.totalWords)
+  /** The first five words are ones the player keeps forgetting. */
+  const WEAK = ids.slice(0, 5)
+  const weakBias = {
+    need: Object.fromEntries(ids.map((id) => [id, WEAK.includes(id) ? 6 : 0.3])),
+  }
+
+  it('holds every invariant under an arbitrary bias', () => {
+    for (let seed = 1; seed <= 300; seed++) {
+      // A different random need map each seed, to catch weight-shape bugs.
+      const rngForNeed = mulberry32(seed * 7919)
+      const bias = { need: Object.fromEntries(ids.map((id) => [id, rngForNeed() * 10])) }
+      const keys = generateKeys(config, ids, mulberry32(seed), bias)
+
+      for (const key of [keys.playerKey, keys.aiKey]) {
+        expect(Object.keys(key).sort()).toEqual([...ids].sort())
+        const counts = countRoles(key)
+        expect(counts.green).toBe(config.greensPerSide)
+        expect(counts.bystander).toBe(config.totalWords - config.greensPerSide)
+      }
+      expect(
+        ids.filter((id) => keys.playerKey[id] === 'green' && keys.aiKey[id] === 'green').length,
+      ).toBe(config.greenOverlap)
+
+      for (const [own, other] of [
+        [keys.playerKey, keys.aiKey],
+        [keys.aiKey, keys.playerKey],
+      ] as const) {
+        const mineAlone = ids.filter((id) => own[id] === 'green' && other[id] === 'bystander')
+        expect(mineAlone.length).toBe(config.greensPerSide - config.greenOverlap)
+      }
+    }
+  })
+
+  /**
+   * The half of the bias that survived the hazard tier. Words the player keeps
+   * forgetting become CLUEY's greens, so the player has to recall them; words
+   * they know well drift to the back of the order and land in whatever is left.
+   * That used to be the forbidden slots, filled last on purpose — a hazard is
+   * only fair if you know the word well enough to steer around it. There is no
+   * such slot now, so "away from hazards" has become "away from a green, into a
+   * card that asks nothing", which is the same lean with less to show for it.
+   */
+  it('steers weak words into recall practice, and well-known ones out of the way', () => {
+    const rounds = 400
+    let weakRecall = 0
+    let weakDead = 0
+    let strongRecall = 0
+    let strongDead = 0
+
+    for (let seed = 1; seed <= rounds; seed++) {
+      const keys = generateKeys(config, ids, mulberry32(seed), weakBias)
+      for (const id of ids) {
+        // Recall = green on the AI's key: the player has to guess it.
+        const recall = keys.aiKey[id] === 'green'
+        const dead = keys.playerKey[id] === 'bystander' && keys.aiKey[id] === 'bystander'
+        if (WEAK.includes(id)) {
+          if (recall) weakRecall++
+          if (dead) weakDead++
+        } else {
+          if (recall) strongRecall++
+          if (dead) strongDead++
+        }
+      }
+    }
+
+    const weakRecallRate = weakRecall / (rounds * WEAK.length)
+    const strongRecallRate = strongRecall / (rounds * (ids.length - WEAK.length))
+    const weakDeadRate = weakDead / (rounds * WEAK.length)
+    const strongDeadRate = strongDead / (rounds * (ids.length - WEAK.length))
+
+    // Unbiased, every word would sit at 7/20 recall and 8/20 on neither key.
+    expect(weakRecallRate).toBeGreaterThan(0.6)
+    expect(weakRecallRate).toBeGreaterThan(strongRecallRate * 1.5)
+    expect(weakDeadRate).toBeLessThan(strongDeadRate)
+  })
+
+  it('still varies the board — bias is a lean, not a rule', () => {
+    const signatures = new Set<string>()
+    for (let seed = 1; seed <= 100; seed++) {
+      const keys = generateKeys(config, ids, mulberry32(seed), weakBias)
+      signatures.add(ids.map((id) => keys.aiKey[id]).join())
+    }
+    expect(signatures.size).toBeGreaterThan(80)
+  })
+
+  it('is deterministic for a given seed and need map', () => {
+    const a = generateKeys(config, ids, mulberry32(42), weakBias)
+    const b = generateKeys(config, ids, mulberry32(42), weakBias)
+    expect(a).toEqual(b)
+  })
+
+  it('shows no tier preference when every word is equally needed', () => {
+    const flat = { need: Object.fromEntries(ids.map((id) => [id, 1])) }
+    const recallCounts = new Map(ids.map((id) => [id, 0]))
+    const rounds = 600
+    for (let seed = 1; seed <= rounds; seed++) {
+      const keys = generateKeys(config, ids, mulberry32(seed), flat)
+      for (const id of ids) if (keys.aiKey[id] === 'green') recallCounts.set(id, recallCounts.get(id)! + 1)
+    }
+    const rates = [...recallCounts.values()].map((n) => n / rounds)
+    // Every word is equally likely to be green: greensPerSide of totalWords,
+    // which is 8/18 on the board. Read off the config rather than written out,
+    // so the tolerance stays honest if the board's shape ever moves again.
+    const expected = config.greensPerSide / config.totalWords
+    for (const rate of rates) expect(Math.abs(rate - expected)).toBeLessThan(0.08)
+  })
+})

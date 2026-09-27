@@ -1,0 +1,118 @@
+{
+  "language": "de",
+  "generatedFrom": "the authored German Survival Guide dialogue, City 1",
+  "entries": [
+    {
+      "id": "flensburg-situation-1-line-1",
+      "activityId": "flensburg-situation-1",
+      "lineIndex": 0,
+      "textDa": "Guten Tag! Willkommen in Flensburg.",
+      "sourceHash": "63b3f37db2fdcc6a2113ef8352ec29fa101b97a92f16d56e18be1e0ae41597b9"
+    },
+    {
+      "id": "flensburg-situation-1-line-2",
+      "activityId": "flensburg-situation-1",
+      "lineIndex": 1,
+      "textDa": "Guten Tag! Ich heiße Mia.",
+      "sourceHash": "d8d02ddc5d553cd4fe083d24d99bbbb97bd64286c7d33231d28fc21a183bacf0"
+    },
+    {
+      "id": "flensburg-situation-1-line-3",
+      "activityId": "flensburg-situation-1",
+      "lineIndex": 2,
+      "textDa": "Freut mich, Frau Berg.",
+      "sourceHash": "fdc47ee7c0c561bab235be3e060cdff99eee1ec9ff2158ff628861d8a299f9c7"
+    },
+    {
+      "id": "flensburg-situation-1-line-4",
+      "activityId": "flensburg-situation-1",
+      "lineIndex": 3,
+      "textDa": "Mich auch.",
+      "sourceHash": "6afc1c3963c13e4f27f5411b4f6c331e80e23e715ff9e9b9227b42c643321200"
+    },
+    {
+      "id": "flensburg-situation-2-line-1",
+      "activityId": "flensburg-situation-2",
+      "lineIndex": 0,
+      "textDa": "Kommen Sie aus Kanada?",
+      "sourceHash": "bcccf088feb58b7722f7ec575d23742238a70ad52141881b463758783bc084c6"
+    },
+    {
+      "id": "flensburg-situation-2-line-2",
+      "activityId": "flensburg-situation-2",
+      "lineIndex": 1,
+      "textDa": "Ja, ich komme aus Kanada.",
+      "sourceHash": "1f315f3d7300d467e5c428bcf6b609e85f6830ad1f1746a8ac2b0d4d1fc3cb50"
+    },
+    {
+      "id": "flensburg-situation-2-line-3",
+      "activityId": "flensburg-situation-2",
+      "lineIndex": 2,
+      "textDa": "Schön. Ich muss jetzt weiter.",
+      "sourceHash": "c94cbdf75f495060d334af46ec7c770c09ad369ddb94b1463b36a01e9bbeb050"
+    },
+    {
+      "id": "flensburg-situation-2-line-4",
+      "activityId": "flensburg-situation-2",
+      "lineIndex": 3,
+      "textDa": "Auf Wiedersehen!",
+      "sourceHash": "85d93305b1151f5f34c70c603b9d01c8354a616717077fb8d8fa0d14f60b25c4"
+    },
+    {
+      "id": "flensburg-situation-3-line-1",
+      "activityId": "flensburg-situation-3",
+      "lineIndex": 0,
+      "textDa": "Der Bus fährt in fünf Minuten von Steig drei.",
+      "sourceHash": "4659878339d2f8d6c11ef4c5530dc20172e057c6eb2204e44e3593b81172ba85"
+    },
+    {
+      "id": "flensburg-situation-3-line-2",
+      "activityId": "flensburg-situation-3",
+      "lineIndex": 1,
+      "textDa": "Können Sie das bitte wiederholen?",
+      "sourceHash": "9ff104602f5110166d7e3e963c79d6a6ba44665286feff33f1aade61cbfa3e53"
+    },
+    {
+      "id": "flensburg-situation-3-line-3",
+      "activityId": "flensburg-situation-3",
+      "lineIndex": 2,
+      "textDa": "Ja. Steig drei, in fünf Minuten.",
+      "sourceHash": "e4476280d0f5bda2b0f67f166433e37c797bfd8e0e54157af76c83943dac9730"
+    },
+    {
+      "id": "flensburg-situation-3-line-4",
+      "activityId": "flensburg-situation-3",
+      "lineIndex": 3,
+      "textDa": "Danke.",
+      "sourceHash": "f923f1001c61673323e2504d20c5eb042c74e96cea0f7e14c57a01a95058f633"
+    },
+    {
+      "id": "flensburg-situation-4-line-1",
+      "activityId": "flensburg-situation-4",
+      "lineIndex": 0,
+      "textDa": "Entschuldigung, können Sie mir helfen?",
+      "sourceHash": "ed022dc85da0fe650fb583c8b93be52760a4024638b08cead1035b5ed1ae90d5"
+    },
+    {
+      "id": "flensburg-situation-4-line-2",
+      "activityId": "flensburg-situation-4",
+      "lineIndex": 1,
+      "textDa": "Ja, natürlich.",
+      "sourceHash": "a075b28bc7776b2cb760a54f51687255aab88bbf1a2728f5dbab86362480ef33"
+    },
+    {
+      "id": "flensburg-situation-4-line-3",
+      "activityId": "flensburg-situation-4",
+      "lineIndex": 2,
+      "textDa": "Wo ist die Toilette?",
+      "sourceHash": "026bd601c7aef08660946597db1c191301b4d7ad849bfa97da5a764cbdaa6f1e"
+    },
+    {
+      "id": "flensburg-situation-4-line-4",
+      "activityId": "flensburg-situation-4",
+      "lineIndex": 3,
+      "textDa": "Gleich da drüben.",
+      "sourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f"
+    }
+  ]
+}

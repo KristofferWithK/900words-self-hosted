@@ -1,0 +1,2441 @@
+{
+  "version": 1,
+  "base": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82",
+  "language": "da",
+  "city": 0,
+  "kind": "review",
+  "rows": [
+    {
+      "wordId": "da:se",
+      "city": 0,
+      "sourceSha256": "d6d7b69f5f56de57b5498b372c885b3361d12d4e8823d15b13d3ff1abff325ea",
+      "version": 1,
+      "sentenceId": "city1:da:se:review:sentence:v1",
+      "audioId": "city1:da:se:review:audio:v1",
+      "text": {
+        "da": "Hvad ser du?",
+        "en": "What do you see?"
+      },
+      "wordSpan": {
+        "text": "ser",
+        "start": 5,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:tro",
+      "city": 0,
+      "sourceSha256": "ffc115251efc329dc0b583192d55dafd8281d65aaf6f7f3c41a748e9d8c0a66c",
+      "version": 1,
+      "sentenceId": "city1:da:tro:review:sentence:v1",
+      "audioId": "city1:da:tro:review:audio:v1",
+      "text": {
+        "da": "Ja, jeg tror på dig.",
+        "en": "Yes, I believe you."
+      },
+      "wordSpan": {
+        "text": "tror",
+        "start": 8,
+        "end": 12
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:sige",
+      "city": 0,
+      "sourceSha256": "5d32f9387098460da87e28b47551c830a56dda434e8c3427269d2bd52e6f7776",
+      "version": 1,
+      "sentenceId": "city1:da:sige:review:sentence:v1",
+      "audioId": "city1:da:sige:review:audio:v1",
+      "text": {
+        "da": "Undskyld, kan du sige det igen?",
+        "en": "Sorry, can you say that again?"
+      },
+      "wordSpan": {
+        "text": "sige",
+        "start": 17,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-repeat",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "kan du sige det igen?",
+        "start": 10,
+        "end": 31
+      }
+    },
+    {
+      "wordId": "da:vide",
+      "city": 0,
+      "sourceSha256": "308c1ad2ead244fbf682ccd32ed9a86ce39326b10fd6e22aec38da03b8163875",
+      "version": 1,
+      "sentenceId": "city1:da:vide:review:sentence:v1",
+      "audioId": "city1:da:vide:review:audio:v1",
+      "text": {
+        "da": "Nej, jeg ved det ikke.",
+        "en": "No, I do not know that."
+      },
+      "wordSpan": {
+        "text": "ved",
+        "start": 9,
+        "end": 12
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Nej",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:komme",
+      "city": 0,
+      "sourceSha256": "f25bb9c2b394975084b4d7ac9f47200338a81255442449cf46aa4062043141a6",
+      "version": 1,
+      "sentenceId": "city1:da:komme:review:sentence:v1",
+      "audioId": "city1:da:komme:review:audio:v1",
+      "text": {
+        "da": "Jeg kommer fra Norge.",
+        "en": "I come from Norway."
+      },
+      "wordSpan": {
+        "text": "kommer",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-origin",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Jeg kommer fra Norge",
+        "start": 0,
+        "end": 20
+      }
+    },
+    {
+      "wordId": "da:synes",
+      "city": 0,
+      "sourceSha256": "e124dbdf6b3c7963a5159ea102af4193a63b4e3e774dd0112e0ae1aee19376fa",
+      "version": 1,
+      "sentenceId": "city1:da:synes:review:sentence:v1",
+      "audioId": "city1:da:synes:review:audio:v1",
+      "text": {
+        "da": "Hvad synes du?",
+        "en": "What do you think?"
+      },
+      "wordSpan": {
+        "text": "synes",
+        "start": 5,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:gå",
+      "city": 0,
+      "sourceSha256": "280fe7e597dc84e81714cb564268c756bdc8661d93cb44c68a6342aeb8dfeefd",
+      "version": 1,
+      "sentenceId": "city1:da:gå:review:sentence:v1",
+      "audioId": "city1:da:gå:review:audio:v1",
+      "text": {
+        "da": "Hvem går med dig?",
+        "en": "Who is walking with you?"
+      },
+      "wordSpan": {
+        "text": "går",
+        "start": 5,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:god",
+      "city": 0,
+      "sourceSha256": "4fd07ec9315bdbd8f78bb30cd724f81d871eda17d0c7b5c66d876ad9f8ba9f0f",
+      "version": 1,
+      "sentenceId": "city1:da:god:review:sentence:v1",
+      "audioId": "city1:da:god:review:audio:v1",
+      "text": {
+        "da": "Ja, kaffen er god.",
+        "en": "Yes, the coffee is good."
+      },
+      "wordSpan": {
+        "text": "god",
+        "start": 14,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:rigtig",
+      "city": 0,
+      "sourceSha256": "82d00f674ab441ba1f4b15211b268f7326be67a76668e9a4e1c56a7642ad4946",
+      "version": 1,
+      "sentenceId": "city1:da:rigtig:review:sentence:v1",
+      "audioId": "city1:da:rigtig:review:audio:v1",
+      "text": {
+        "da": "Er det rigtigt?",
+        "en": "Is that correct?"
+      },
+      "wordSpan": {
+        "text": "rigtigt",
+        "start": 7,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:det",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "det",
+        "start": 3,
+        "end": 6
+      }
+    },
+    {
+      "wordId": "da:tage",
+      "city": 0,
+      "sourceSha256": "77cf07c05c0ca2998ba884465ca31a8727e17b661a9b4875552a561a042e20ea",
+      "version": 1,
+      "sentenceId": "city1:da:tage:review:sentence:v1",
+      "audioId": "city1:da:tage:review:audio:v1",
+      "text": {
+        "da": "Okay, vi tager toget.",
+        "en": "Okay, we will take the train."
+      },
+      "wordSpan": {
+        "text": "tager",
+        "start": 9,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:okay",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Okay",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:tænke",
+      "city": 0,
+      "sourceSha256": "900127f1b2efb216d467ece3a0725f3bad7700bd410e126ae34d202539c05fff",
+      "version": 1,
+      "sentenceId": "city1:da:tænke:review:sentence:v1",
+      "audioId": "city1:da:tænke:review:audio:v1",
+      "text": {
+        "da": "Jeg tænker lidt.",
+        "en": "I am thinking a little."
+      },
+      "wordSpan": {
+        "text": "tænker",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "lidt",
+        "start": 11,
+        "end": 15
+      }
+    },
+    {
+      "wordId": "da:få",
+      "city": 0,
+      "sourceSha256": "1b47b55772d2d5a584f645be44ddf0c30079ca0792cc6050352695a5a57f3b88",
+      "version": 1,
+      "sentenceId": "city1:da:få:review:sentence:v1",
+      "audioId": "city1:da:få:review:audio:v1",
+      "text": {
+        "da": "Hvem får brevet?",
+        "en": "Who gets the letter?"
+      },
+      "wordSpan": {
+        "text": "får",
+        "start": 5,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:gang",
+      "city": 0,
+      "sourceSha256": "f35fe765becdef39c45db7d505391df6fa732265f4e38b98642ce2ad18169709",
+      "version": 1,
+      "sentenceId": "city1:da:gang:review:sentence:v1",
+      "audioId": "city1:da:gang:review:audio:v1",
+      "text": {
+        "da": "En gang til, tak.",
+        "en": "One more time, please."
+      },
+      "wordSpan": {
+        "text": "gang",
+        "start": 3,
+        "end": 7
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "tak",
+        "start": 13,
+        "end": 16
+      }
+    },
+    {
+      "wordId": "da:nå",
+      "city": 0,
+      "sourceSha256": "78d1964e9072fc99c2fe74acff9ca0668644a7e1324d8ed477a13442d8942705",
+      "version": 1,
+      "sentenceId": "city1:da:nå:review:sentence:v1",
+      "audioId": "city1:da:nå:review:audio:v1",
+      "text": {
+        "da": "Ja, vi når bussen.",
+        "en": "Yes, we will catch the bus."
+      },
+      "wordSpan": {
+        "text": "når",
+        "start": 7,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:lave",
+      "city": 0,
+      "sourceSha256": "5c7f9c1f0075efb37cfba6a97a2c7415b6d47e7b2efba9de2f4c0bb987f80176",
+      "version": 1,
+      "sentenceId": "city1:da:lave:review:sentence:v1",
+      "audioId": "city1:da:lave:review:audio:v1",
+      "text": {
+        "da": "Hvad laver du?",
+        "en": "What are you doing?"
+      },
+      "wordSpan": {
+        "text": "laver",
+        "start": 5,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:prøve",
+      "city": 0,
+      "sourceSha256": "0ddeb60d97db04f1427c9ceb9522e13b9e77cdc5c81709859c179520a41387d8",
+      "version": 1,
+      "sentenceId": "city1:da:prøve:review:sentence:v1",
+      "audioId": "city1:da:prøve:review:audio:v1",
+      "text": {
+        "da": "Prøv igen.",
+        "en": "Try again."
+      },
+      "wordSpan": {
+        "text": "Prøv",
+        "start": 0,
+        "end": 4
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 5,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:sjov",
+      "city": 0,
+      "sourceSha256": "1941667591b9bbf6c151aadb7c33685d5cc0d0fc1e7b0625b834aeb3c81130b4",
+      "version": 1,
+      "sentenceId": "city1:da:sjov:review:sentence:v1",
+      "audioId": "city1:da:sjov:review:audio:v1",
+      "text": {
+        "da": "Det er en sjov historie.",
+        "en": "It is a funny story."
+      },
+      "wordSpan": {
+        "text": "sjov",
+        "start": 10,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "en",
+        "start": 7,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:hedde",
+      "city": 0,
+      "sourceSha256": "ba5ed937575d14b7a65357bcff0afde3226cf0f774c9209fef0902c9117f8ecf",
+      "version": 1,
+      "sentenceId": "city1:da:hedde:review:sentence:v1",
+      "audioId": "city1:da:hedde:review:audio:v1",
+      "text": {
+        "da": "Jeg hedder Nora.",
+        "en": "My name is Nora."
+      },
+      "wordSpan": {
+        "text": "hedder",
+        "start": 4,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-name",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Jeg hedder Nora",
+        "start": 0,
+        "end": 15
+      }
+    },
+    {
+      "wordId": "da:sidde",
+      "city": 0,
+      "sourceSha256": "c529440c0af036082042fa201457164f18fa1164d409da310abaf3677738cce3",
+      "version": 1,
+      "sentenceId": "city1:da:sidde:review:sentence:v1",
+      "audioId": "city1:da:sidde:review:audio:v1",
+      "text": {
+        "da": "Sidder du her?",
+        "en": "Are you sitting here?"
+      },
+      "wordSpan": {
+        "text": "Sidder",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:her",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "her",
+        "start": 10,
+        "end": 13
+      }
+    },
+    {
+      "wordId": "da:huske",
+      "city": 0,
+      "sourceSha256": "124568ca3f3722004937d0fd965121dd61ff81bcb7e86d29f8fb19fe2ac64c52",
+      "version": 1,
+      "sentenceId": "city1:da:huske:review:sentence:v1",
+      "audioId": "city1:da:huske:review:audio:v1",
+      "text": {
+        "da": "Hvem husker adressen?",
+        "en": "Who remembers the address?"
+      },
+      "wordSpan": {
+        "text": "husker",
+        "start": 5,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:tid",
+      "city": 0,
+      "sourceSha256": "85e0027af47f963d42ebf11810bba1fa59a45b9c56b72e4da12fed61797ce8ed",
+      "version": 1,
+      "sentenceId": "city1:da:tid:review:sentence:v1",
+      "audioId": "city1:da:tid:review:audio:v1",
+      "text": {
+        "da": "Har du lidt tid?",
+        "en": "Do you have a little time?"
+      },
+      "wordSpan": {
+        "text": "tid",
+        "start": 12,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "lidt",
+        "start": 7,
+        "end": 11
+      }
+    },
+    {
+      "wordId": "da:hel",
+      "city": 0,
+      "sourceSha256": "7755fc3e8310280b48fc559d4866f53be8b3fa301debd1bbdb06766a922bdd7c",
+      "version": 1,
+      "sentenceId": "city1:da:hel:review:sentence:v1",
+      "audioId": "city1:da:hel:review:audio:v1",
+      "text": {
+        "da": "Er der en hel kage?",
+        "en": "Is there a whole cake?"
+      },
+      "wordSpan": {
+        "text": "hel",
+        "start": 10,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Er der en hel kage?",
+        "start": 0,
+        "end": 19
+      }
+    },
+    {
+      "wordId": "da:bo",
+      "city": 0,
+      "sourceSha256": "07c65ba08e6b1a4bdc0c4731e17b370d908cba87b06b02b482fa39780fdeb735",
+      "version": 1,
+      "sentenceId": "city1:da:bo:review:sentence:v1",
+      "audioId": "city1:da:bo:review:audio:v1",
+      "text": {
+        "da": "Hvor bor din ven?",
+        "en": "Where does your friend live?"
+      },
+      "wordSpan": {
+        "text": "bor",
+        "start": 5,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:sted",
+      "city": 0,
+      "sourceSha256": "bff40e5278a2f3bd4fd80538840d19bf9975db9ec0bc01c0a227be359d8258dd",
+      "version": 1,
+      "sentenceId": "city1:da:sted:review:sentence:v1",
+      "audioId": "city1:da:sted:review:audio:v1",
+      "text": {
+        "da": "Er der et roligt sted?",
+        "en": "Is there a quiet place?"
+      },
+      "wordSpan": {
+        "text": "sted",
+        "start": 17,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "et",
+        "start": 7,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:stå",
+      "city": 0,
+      "sourceSha256": "03973455450c99c1d6c5d9a2067b403f2ba5f76717d65f4ff4b37dac4b44080f",
+      "version": 1,
+      "sentenceId": "city1:da:stå:review:sentence:v1",
+      "audioId": "city1:da:stå:review:audio:v1",
+      "text": {
+        "da": "Hvem står der?",
+        "en": "Who is standing there?"
+      },
+      "wordSpan": {
+        "text": "står",
+        "start": 5,
+        "end": 9
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:der",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "der",
+        "start": 10,
+        "end": 13
+      }
+    },
+    {
+      "wordId": "da:finde",
+      "city": 0,
+      "sourceSha256": "19eec70ca9ddef8c5362e39cf9635afdd8841ec2395a3b49863ed8d0fcbe6277",
+      "version": 2,
+      "sentenceId": "city1:da:finde:review:sentence:v2",
+      "audioId": "city1:da:finde:review:audio:v2",
+      "text": {
+        "da": "Finder du den igen?",
+        "en": "Will you find it again?"
+      },
+      "wordSpan": {
+        "text": "Finder",
+        "start": 0,
+        "end": 6
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 14,
+        "end": 18
+      }
+    },
+    {
+      "wordId": "da:snakke",
+      "city": 0,
+      "sourceSha256": "97468705dc69a724f4faa4702e641fad3f7293f16cb4ccad1b482872d0a8fdae",
+      "version": 1,
+      "sentenceId": "city1:da:snakke:review:sentence:v1",
+      "audioId": "city1:da:snakke:review:audio:v1",
+      "text": {
+        "da": "Du snakker hurtigt. Lidt langsommere, tak.",
+        "en": "You are talking fast. A little more slowly, please."
+      },
+      "wordSpan": {
+        "text": "snakker",
+        "start": 3,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-slower",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Lidt langsommere, tak.",
+        "start": 20,
+        "end": 42
+      }
+    },
+    {
+      "wordId": "da:høre",
+      "city": 0,
+      "sourceSha256": "f8e063443f3152ce8495fd7408d99c4c3ebfeb4c76bc0795274a2acfa0441f9e",
+      "version": 1,
+      "sentenceId": "city1:da:høre:review:sentence:v1",
+      "audioId": "city1:da:høre:review:audio:v1",
+      "text": {
+        "da": "Hvad hører du?",
+        "en": "What do you hear?"
+      },
+      "wordSpan": {
+        "text": "hører",
+        "start": 5,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:bruge",
+      "city": 0,
+      "sourceSha256": "b139a340b6426aaeb63af221ca0c908dc3e456e20a48c56068ff0810ec4facc7",
+      "version": 1,
+      "sentenceId": "city1:da:bruge:review:sentence:v1",
+      "audioId": "city1:da:bruge:review:audio:v1",
+      "text": {
+        "da": "Hvem bruger den?",
+        "en": "Who uses it?"
+      },
+      "wordSpan": {
+        "text": "bruger",
+        "start": 5,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:år",
+      "city": 0,
+      "sourceSha256": "ae146e07a41109422ebab233c5ec0e40f06e884677c5ad7eee213860f15bdfa7",
+      "version": 1,
+      "sentenceId": "city1:da:år:review:sentence:v1",
+      "audioId": "city1:da:år:review:audio:v1",
+      "text": {
+        "da": "Er det et godt år?",
+        "en": "Is it a good year?"
+      },
+      "wordSpan": {
+        "text": "år",
+        "start": 15,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "et",
+        "start": 7,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:ligge",
+      "city": 0,
+      "sourceSha256": "d0d5d1d3e286a0b15df2712d82a1b13585fbaa19735233f902759e78142a5129",
+      "version": 1,
+      "sentenceId": "city1:da:ligge:review:sentence:v1",
+      "audioId": "city1:da:ligge:review:audio:v1",
+      "text": {
+        "da": "Hvor ligger bogen?",
+        "en": "Where is the book?"
+      },
+      "wordSpan": {
+        "text": "ligger",
+        "start": 5,
+        "end": 11
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:måde",
+      "city": 0,
+      "sourceSha256": "c4fbe9b29e89675540fac07ddd3bb52a1d968ce496e7325593e18ba68ef10115",
+      "version": 1,
+      "sentenceId": "city1:da:måde:review:sentence:v1",
+      "audioId": "city1:da:måde:review:audio:v1",
+      "text": {
+        "da": "Prøv på den måde.",
+        "en": "Try it that way."
+      },
+      "wordSpan": {
+        "text": "måde",
+        "start": 12,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:den",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "den",
+        "start": 8,
+        "end": 11
+      }
+    },
+    {
+      "wordId": "da:svær",
+      "city": 0,
+      "sourceSha256": "29ebc4bc835d66ac3d35450a1944916fff3a50e7f58456a3d4bdaae2b28c2a3b",
+      "version": 1,
+      "sentenceId": "city1:da:svær:review:sentence:v1",
+      "audioId": "city1:da:svær:review:audio:v1",
+      "text": {
+        "da": "Det er lidt svært.",
+        "en": "It is a little difficult."
+      },
+      "wordSpan": {
+        "text": "svært",
+        "start": 12,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:lidt",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "lidt",
+        "start": 7,
+        "end": 11
+      }
+    },
+    {
+      "wordId": "da:forskellig",
+      "city": 0,
+      "sourceSha256": "dbfe5d960672531abd2329ccfae2e4cf4c402583959b999a721c5c6bdf061e0a",
+      "version": 1,
+      "sentenceId": "city1:da:forskellig:review:sentence:v1",
+      "audioId": "city1:da:forskellig:review:audio:v1",
+      "text": {
+        "da": "Ja, de er forskellige.",
+        "en": "Yes, they are different."
+      },
+      "wordSpan": {
+        "text": "forskellige",
+        "start": 10,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:fin",
+      "city": 0,
+      "sourceSha256": "432971dc8eb41aea498b981cf9dbd7518b6ce41c7a94ec6ecccdab7d8ad65b47",
+      "version": 1,
+      "sentenceId": "city1:da:fin:review:sentence:v1",
+      "audioId": "city1:da:fin:review:audio:v1",
+      "text": {
+        "da": "Tak for den fine gave.",
+        "en": "Thank you for the lovely gift."
+      },
+      "wordSpan": {
+        "text": "fine",
+        "start": 12,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Tak",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:side",
+      "city": 0,
+      "sourceSha256": "ea25dda0ead3ca24cd3919d60eb7ee45032a49fe115eb7e4027efb5b8501bae3",
+      "version": 1,
+      "sentenceId": "city1:da:side:review:sentence:v1",
+      "audioId": "city1:da:side:review:audio:v1",
+      "text": {
+        "da": "Hvor er siden?",
+        "en": "Where is the page?"
+      },
+      "wordSpan": {
+        "text": "siden",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor er siden?",
+        "start": 0,
+        "end": 14
+      }
+    },
+    {
+      "wordId": "da:lang",
+      "city": 0,
+      "sourceSha256": "b6a1fd6074b4cc1ea802c4b909c2ce6874dc54b569966f93118d94dafff95e14",
+      "version": 1,
+      "sentenceId": "city1:da:lang:review:sentence:v1",
+      "audioId": "city1:da:lang:review:audio:v1",
+      "text": {
+        "da": "Er der en lang kø?",
+        "en": "Is there a long queue?"
+      },
+      "wordSpan": {
+        "text": "lang",
+        "start": 10,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Er der en lang kø?",
+        "start": 0,
+        "end": 18
+      }
+    },
+    {
+      "wordId": "da:spændende",
+      "city": 0,
+      "sourceSha256": "88269fe2320a2c100a7d440ef9a5debdd82e2c3f5385249e3eb6673c25dd7fb7",
+      "version": 1,
+      "sentenceId": "city1:da:spændende:review:sentence:v1",
+      "audioId": "city1:da:spændende:review:audio:v1",
+      "text": {
+        "da": "Det er en spændende film.",
+        "en": "It is an exciting film."
+      },
+      "wordSpan": {
+        "text": "spændende",
+        "start": 10,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "en",
+        "start": 7,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:ny",
+      "city": 0,
+      "sourceSha256": "8bfb44a6ef9d41d96bbadd0408df76d2c44421df89b8a5a0af7e7fbaca920705",
+      "version": 1,
+      "sentenceId": "city1:da:ny:review:sentence:v1",
+      "audioId": "city1:da:ny:review:audio:v1",
+      "text": {
+        "da": "Er det et nyt hus?",
+        "en": "Is that a new house?"
+      },
+      "wordSpan": {
+        "text": "nyt",
+        "start": 10,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:det",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "det",
+        "start": 3,
+        "end": 6
+      }
+    },
+    {
+      "wordId": "da:dårlig",
+      "city": 0,
+      "sourceSha256": "b9d410b9fc1f11b26214a839dcbf5540e33e898fd260f6e0e9a41c7a293288b0",
+      "version": 1,
+      "sentenceId": "city1:da:dårlig:review:sentence:v1",
+      "audioId": "city1:da:dårlig:review:audio:v1",
+      "text": {
+        "da": "Nej, kaffen er dårlig.",
+        "en": "No, the coffee is bad."
+      },
+      "wordSpan": {
+        "text": "dårlig",
+        "start": 15,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Nej",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:sidste",
+      "city": 0,
+      "sourceSha256": "c11cb64f7b63794bbfed6d35172817ca89ead6f8d620d9dff5b60b8a9bff0df7",
+      "version": 1,
+      "sentenceId": "city1:da:sidste:review:sentence:v1",
+      "audioId": "city1:da:sidste:review:audio:v1",
+      "text": {
+        "da": "Er det den sidste bus?",
+        "en": "Is that the last bus?"
+      },
+      "wordSpan": {
+        "text": "sidste",
+        "start": 11,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:den",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "den",
+        "start": 7,
+        "end": 10
+      }
+    },
+    {
+      "wordId": "da:eksempel",
+      "city": 0,
+      "sourceSha256": "a3121f1c28f9c2a2e4e5b5db2d1605efa5ce95d6a5cc363dc259fc5f26913045",
+      "version": 1,
+      "sentenceId": "city1:da:eksempel:review:sentence:v1",
+      "audioId": "city1:da:eksempel:review:audio:v1",
+      "text": {
+        "da": "Vis eksemplet igen, tak.",
+        "en": "Show the example again, please."
+      },
+      "wordSpan": {
+        "text": "eksemplet",
+        "start": 4,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 14,
+        "end": 18
+      }
+    },
+    {
+      "wordId": "da:dansk",
+      "city": 0,
+      "sourceSha256": "6624c97dfbe302217e938dd199e97ffd56cd8481a6efc0abe29882f900a6319b",
+      "version": 1,
+      "sentenceId": "city1:da:dansk:review:sentence:v1",
+      "audioId": "city1:da:dansk:review:audio:v1",
+      "text": {
+        "da": "Hvad betyder dansk?",
+        "en": "What does Danish mean?"
+      },
+      "wordSpan": {
+        "text": "dansk",
+        "start": 13,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-meaning",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad betyder dansk?",
+        "start": 0,
+        "end": 19
+      }
+    },
+    {
+      "wordId": "da:vej",
+      "city": 0,
+      "sourceSha256": "915e0161bc9f589c29f8d6e15ef81e4773f8f1dc2fb273596c9e72d486567e45",
+      "version": 1,
+      "sentenceId": "city1:da:vej:review:sentence:v1",
+      "audioId": "city1:da:vej:review:audio:v1",
+      "text": {
+        "da": "Hvor er vejen til skolen?",
+        "en": "Where is the road to the school?"
+      },
+      "wordSpan": {
+        "text": "vejen",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor er vejen til skolen?",
+        "start": 0,
+        "end": 25
+      }
+    },
+    {
+      "wordId": "da:halv",
+      "city": 0,
+      "sourceSha256": "3d96a21452250d63a138c9c238e5fb249ff2e0e42f39bf4574b80d6c79a9a11a",
+      "version": 1,
+      "sentenceId": "city1:da:halv:review:sentence:v1",
+      "audioId": "city1:da:halv:review:audio:v1",
+      "text": {
+        "da": "Er der en halv kage tilbage?",
+        "en": "Is there half a cake left?"
+      },
+      "wordSpan": {
+        "text": "halv",
+        "start": 10,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:der",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "der",
+        "start": 3,
+        "end": 6
+      }
+    },
+    {
+      "wordId": "da:mulig",
+      "city": 0,
+      "sourceSha256": "e5a366110d871c0102cdf58228ce9de19e6ab1cd7125bfa61702513a07796894",
+      "version": 1,
+      "sentenceId": "city1:da:mulig:review:sentence:v1",
+      "audioId": "city1:da:mulig:review:audio:v1",
+      "text": {
+        "da": "Ja, det er muligt.",
+        "en": "Yes, it is possible."
+      },
+      "wordSpan": {
+        "text": "muligt",
+        "start": 11,
+        "end": 17
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:menneske",
+      "city": 0,
+      "sourceSha256": "a75579821a0b842919720c9b7d690039afd90b64edf0b1ce77c0d6c7d48d5052",
+      "version": 1,
+      "sentenceId": "city1:da:menneske:review:sentence:v1",
+      "audioId": "city1:da:menneske:review:audio:v1",
+      "text": {
+        "da": "Der er et menneske i huset.",
+        "en": "There is a person in the house."
+      },
+      "wordSpan": {
+        "text": "menneske",
+        "start": 10,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:et",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "et",
+        "start": 7,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:hjem",
+      "city": 0,
+      "sourceSha256": "023df175f5ca2f6d56f1b918196b75f286a8e1e469e1e788838f6fcce5935ecf",
+      "version": 1,
+      "sentenceId": "city1:da:hjem:review:sentence:v1",
+      "audioId": "city1:da:hjem:review:audio:v1",
+      "text": {
+        "da": "Velkommen til mit hjem.",
+        "en": "Welcome to my home."
+      },
+      "wordSpan": {
+        "text": "hjem",
+        "start": 18,
+        "end": 22
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:velkommen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Velkommen",
+        "start": 0,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:time",
+      "city": 0,
+      "sourceSha256": "045cda0c515f32a9257ec60b1d611f82b04b35c6e35c632fe6c7a62f6fe13a12",
+      "version": 1,
+      "sentenceId": "city1:da:time:review:sentence:v1",
+      "audioId": "city1:da:time:review:audio:v1",
+      "text": {
+        "da": "Er der en time tilbage?",
+        "en": "Is there an hour left?"
+      },
+      "wordSpan": {
+        "text": "time",
+        "start": 10,
+        "end": 14
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Er der en time tilbage?",
+        "start": 0,
+        "end": 23
+      }
+    },
+    {
+      "wordId": "da:sikker",
+      "city": 0,
+      "sourceSha256": "734ad4ba2fc3f63220ea5726ff7074e060df1fc425c43789e2131e3847513136",
+      "version": 1,
+      "sentenceId": "city1:da:sikker:review:sentence:v1",
+      "audioId": "city1:da:sikker:review:audio:v1",
+      "text": {
+        "da": "Nej, jeg er ikke sikker.",
+        "en": "No, I am not sure."
+      },
+      "wordSpan": {
+        "text": "sikker",
+        "start": 17,
+        "end": 23
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Nej",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:billede",
+      "city": 0,
+      "sourceSha256": "d05dd1ddccaaf1a885ed681ec8345ef83eac42d18eb56d4db3fd72b313bcc636",
+      "version": 1,
+      "sentenceId": "city1:da:billede:review:sentence:v1",
+      "audioId": "city1:da:billede:review:audio:v1",
+      "text": {
+        "da": "Hvad er der på billedet?",
+        "en": "What is in the picture?"
+      },
+      "wordSpan": {
+        "text": "billedet",
+        "start": 15,
+        "end": 23
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:klar",
+      "city": 0,
+      "sourceSha256": "bb45e1bb2929d33bb50d39cf91406ab1ffdc84d0f43753ba95202bbd0dff1e4a",
+      "version": 1,
+      "sentenceId": "city1:da:klar:review:sentence:v1",
+      "audioId": "city1:da:klar:review:audio:v1",
+      "text": {
+        "da": "Ja, jeg er klar.",
+        "en": "Yes, I am ready."
+      },
+      "wordSpan": {
+        "text": "klar",
+        "start": 11,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:ja",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Ja",
+        "start": 0,
+        "end": 2
+      }
+    },
+    {
+      "wordId": "da:ord",
+      "city": 0,
+      "sourceSha256": "e815955729895b9f5aa9690f865e3a8b91a91227a622bcbafa7bd07fa3398b76",
+      "version": 1,
+      "sentenceId": "city1:da:ord:review:sentence:v1",
+      "audioId": "city1:da:ord:review:audio:v1",
+      "text": {
+        "da": "Jeg forstår ikke. Hvad betyder ordet?",
+        "en": "I do not understand. What does the word mean?"
+      },
+      "wordSpan": {
+        "text": "ordet",
+        "start": 31,
+        "end": 36
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-dont-understand",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Jeg forstår ikke.",
+        "start": 0,
+        "end": 17
+      }
+    },
+    {
+      "wordId": "da:sprog",
+      "city": 0,
+      "sourceSha256": "8f3cdde237b0617d2317a3efa49e8a797b0daf7159306764f25bf2bd2f78c6ac",
+      "version": 1,
+      "sentenceId": "city1:da:sprog:review:sentence:v1",
+      "audioId": "city1:da:sprog:review:audio:v1",
+      "text": {
+        "da": "Hvad hedder sproget?",
+        "en": "What is the language called?"
+      },
+      "wordSpan": {
+        "text": "sproget",
+        "start": 12,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:mening",
+      "city": 0,
+      "sourceSha256": "5d010e40baf7bf1eb62c1829b538e2221643d8ac0478b6ba7d3ccd66bb45e5f6",
+      "version": 1,
+      "sentenceId": "city1:da:mening:review:sentence:v1",
+      "audioId": "city1:da:mening:review:audio:v1",
+      "text": {
+        "da": "Hvad er din mening?",
+        "en": "What is your opinion?"
+      },
+      "wordSpan": {
+        "text": "mening",
+        "start": 12,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:grund",
+      "city": 0,
+      "sourceSha256": "578890b0b0f0188bdc002697e5655683aa2a693b4273ea6b77d90ca917de6430",
+      "version": 1,
+      "sentenceId": "city1:da:grund:review:sentence:v1",
+      "audioId": "city1:da:grund:review:audio:v1",
+      "text": {
+        "da": "Hvad er grunden?",
+        "en": "What is the reason?"
+      },
+      "wordSpan": {
+        "text": "grunden",
+        "start": 8,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:klokke",
+      "city": 0,
+      "sourceSha256": "e5912847d64a0e1e15a895bf16f8dcf4a78933535cf59368f75da55015e27b29",
+      "version": 1,
+      "sentenceId": "city1:da:klokke:review:sentence:v1",
+      "audioId": "city1:da:klokke:review:audio:v1",
+      "text": {
+        "da": "Er der en klokke her?",
+        "en": "Is there a bell here?"
+      },
+      "wordSpan": {
+        "text": "klokke",
+        "start": 10,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Er der en klokke her?",
+        "start": 0,
+        "end": 21
+      }
+    },
+    {
+      "wordId": "da:person",
+      "city": 0,
+      "sourceSha256": "8e5856d0e2ffe12d1024e5cdf16a849dc0ed46952c7e1110151efb585c752d64",
+      "version": 1,
+      "sentenceId": "city1:da:person:review:sentence:v1",
+      "audioId": "city1:da:person:review:audio:v1",
+      "text": {
+        "da": "Hvem er den person?",
+        "en": "Who is that person?"
+      },
+      "wordSpan": {
+        "text": "person",
+        "start": 12,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvem",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvem",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:land",
+      "city": 0,
+      "sourceSha256": "bdf4aefa411e6a7d5e8b849d9135abedc15cde96f565657ae889a99624d2da57",
+      "version": 1,
+      "sentenceId": "city1:da:land:review:sentence:v1",
+      "audioId": "city1:da:land:review:audio:v1",
+      "text": {
+        "da": "Hvad hedder landet?",
+        "en": "What is the country called?"
+      },
+      "wordSpan": {
+        "text": "landet",
+        "start": 12,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:verden",
+      "city": 0,
+      "sourceSha256": "e7a6a5e297d88bcbe2dc5b67235b1594fcb94e4837848954db1f36a955d90aeb",
+      "version": 1,
+      "sentenceId": "city1:da:verden:review:sentence:v1",
+      "audioId": "city1:da:verden:review:audio:v1",
+      "text": {
+        "da": "Hvor i verden er vi?",
+        "en": "Where in the world are we?"
+      },
+      "wordSpan": {
+        "text": "verden",
+        "start": 7,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:i",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "i",
+        "start": 5,
+        "end": 6
+      }
+    },
+    {
+      "wordId": "da:historie",
+      "city": 0,
+      "sourceSha256": "348fc8e99e0b538a56b33c4d0b5bce34b3ed08d647d763e7465e9d1d602e3e9e",
+      "version": 1,
+      "sentenceId": "city1:da:historie:review:sentence:v1",
+      "audioId": "city1:da:historie:review:audio:v1",
+      "text": {
+        "da": "Fortæl historien igen, tak.",
+        "en": "Tell the story again, please."
+      },
+      "wordSpan": {
+        "text": "historien",
+        "start": 7,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 17,
+        "end": 21
+      }
+    },
+    {
+      "wordId": "da:møde",
+      "city": 0,
+      "sourceSha256": "ead83e29d163e9edd3ddb776fc4cb4ce1d511f306c3a7d1e878cebf56e1b852d",
+      "version": 1,
+      "sentenceId": "city1:da:møde:review:sentence:v1",
+      "audioId": "city1:da:møde:review:audio:v1",
+      "text": {
+        "da": "Hvor er mødet?",
+        "en": "Where is the meeting?"
+      },
+      "wordSpan": {
+        "text": "mødet",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor er mødet?",
+        "start": 0,
+        "end": 14
+      }
+    },
+    {
+      "wordId": "da:måned",
+      "city": 0,
+      "sourceSha256": "05dfa2e4056e76fe856ca4bfe8dec133bbcc6e266b9133266eee92df04351a6f",
+      "version": 1,
+      "sentenceId": "city1:da:måned:review:sentence:v1",
+      "audioId": "city1:da:måned:review:audio:v1",
+      "text": {
+        "da": "Hvad hedder måneden?",
+        "en": "What is the month called?"
+      },
+      "wordSpan": {
+        "text": "måneden",
+        "start": 12,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:lov",
+      "city": 0,
+      "sourceSha256": "ac0041776cb039d168eb56cd1d9cfe372819c6e54a84140b74e6036e70a97ec6",
+      "version": 1,
+      "sentenceId": "city1:da:lov:review:sentence:v1",
+      "audioId": "city1:da:lov:review:audio:v1",
+      "text": {
+        "da": "Hvad betyder loven?",
+        "en": "What does the law mean?"
+      },
+      "wordSpan": {
+        "text": "loven",
+        "start": 13,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-meaning",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad betyder loven?",
+        "start": 0,
+        "end": 19
+      }
+    },
+    {
+      "wordId": "da:tanke",
+      "city": 0,
+      "sourceSha256": "8a0102b8b4284837cae5f253e769f53f8ccc98d7bf32fa895b340cb54f6c564d",
+      "version": 1,
+      "sentenceId": "city1:da:tanke:review:sentence:v1",
+      "audioId": "city1:da:tanke:review:audio:v1",
+      "text": {
+        "da": "Jeg har en tanke.",
+        "en": "I have a thought."
+      },
+      "wordSpan": {
+        "text": "tanke",
+        "start": 11,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:en",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "en",
+        "start": 8,
+        "end": 10
+      }
+    },
+    {
+      "wordId": "da:kæreste",
+      "city": 0,
+      "sourceSha256": "8c93feffc126ea2070cadc17bb308c5bf96bef5718001e82df4e8b0c4c1fdb8f",
+      "version": 1,
+      "sentenceId": "city1:da:kæreste:review:sentence:v1",
+      "audioId": "city1:da:kæreste:review:audio:v1",
+      "text": {
+        "da": "Hej, er din kæreste her?",
+        "en": "Hi, is your partner here?"
+      },
+      "wordSpan": {
+        "text": "kæreste",
+        "start": 12,
+        "end": 19
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hej",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:tvivl",
+      "city": 0,
+      "sourceSha256": "eca9394b038cbbc06e83293f4eee6e1771db9507c6d00172c3fb5cae591fa8ad",
+      "version": 1,
+      "sentenceId": "city1:da:tvivl:review:sentence:v1",
+      "audioId": "city1:da:tvivl:review:audio:v1",
+      "text": {
+        "da": "Er du i tvivl igen?",
+        "en": "Are you in doubt again?"
+      },
+      "wordSpan": {
+        "text": "tvivl",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 14,
+        "end": 18
+      }
+    },
+    {
+      "wordId": "da:dyr",
+      "city": 0,
+      "sourceSha256": "40bb4158513733cc9e035d5355285e7ddcab454f9709caa8b653a188999b7524",
+      "version": 1,
+      "sentenceId": "city1:da:dyr:review:sentence:v1",
+      "audioId": "city1:da:dyr:review:audio:v1",
+      "text": {
+        "da": "Hvor er dyret?",
+        "en": "Where is the animal?"
+      },
+      "wordSpan": {
+        "text": "dyret",
+        "start": 8,
+        "end": 13
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-where",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor er dyret?",
+        "start": 0,
+        "end": 14
+      }
+    },
+    {
+      "wordId": "da:krone",
+      "city": 0,
+      "sourceSha256": "cf89423c1682e43a0e630a9b2b2440c31dbfb48c371001310c2c353a253801a8",
+      "version": 1,
+      "sentenceId": "city1:da:krone:review:sentence:v1",
+      "audioId": "city1:da:krone:review:audio:v1",
+      "text": {
+        "da": "Her er en krone.",
+        "en": "Here is one krone."
+      },
+      "wordSpan": {
+        "text": "krone",
+        "start": 10,
+        "end": 15
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:her",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Her",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:lyst",
+      "city": 0,
+      "sourceSha256": "63545eff54370ed710254e22bbc664b5080ef7ced8ad00598d1084d0f0119557",
+      "version": 1,
+      "sentenceId": "city1:da:lyst:review:sentence:v1",
+      "audioId": "city1:da:lyst:review:audio:v1",
+      "text": {
+        "da": "Nej tak, jeg har ikke lyst.",
+        "en": "No thanks, I do not feel like it."
+      },
+      "wordSpan": {
+        "text": "lyst",
+        "start": 22,
+        "end": 26
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:nej",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Nej",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:klasse",
+      "city": 0,
+      "sourceSha256": "6366f4e0e0d914a7a4d9a4e674b92b707dfb268f235afb1b0ac299157d8af162",
+      "version": 1,
+      "sentenceId": "city1:da:klasse:review:sentence:v1",
+      "audioId": "city1:da:klasse:review:audio:v1",
+      "text": {
+        "da": "Velkommen til klassen.",
+        "en": "Welcome to the class."
+      },
+      "wordSpan": {
+        "text": "klassen",
+        "start": 14,
+        "end": 21
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:velkommen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Velkommen",
+        "start": 0,
+        "end": 9
+      }
+    },
+    {
+      "wordId": "da:liv",
+      "city": 0,
+      "sourceSha256": "b36866d099f2c2a7cc6617541e90be213d132c7ed6be3319483f991c6add6c4b",
+      "version": 1,
+      "sentenceId": "city1:da:liv:review:sentence:v1",
+      "audioId": "city1:da:liv:review:audio:v1",
+      "text": {
+        "da": "Der er liv i huset.",
+        "en": "There is life in the house."
+      },
+      "wordSpan": {
+        "text": "liv",
+        "start": 7,
+        "end": 10
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "supplemental:da-chunk-existence",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Der er liv i huset",
+        "start": 0,
+        "end": 18
+      }
+    },
+    {
+      "wordId": "da:film",
+      "city": 0,
+      "sourceSha256": "97b93afd984c69dd6ec093862bd5a78172d92d96d0040a64c2594cb677b49cc8",
+      "version": 1,
+      "sentenceId": "city1:da:film:review:sentence:v1",
+      "audioId": "city1:da:film:review:audio:v1",
+      "text": {
+        "da": "Hvad hedder filmen?",
+        "en": "What is the film called?"
+      },
+      "wordSpan": {
+        "text": "filmen",
+        "start": 12,
+        "end": 18
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvad",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvad",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:rejse",
+      "city": 0,
+      "sourceSha256": "c2e1f1cfdef27b93be0d83b59a3b545e7690bb83b52446c55e14b27294a02b17",
+      "version": 1,
+      "sentenceId": "city1:da:rejse:review:sentence:v1",
+      "audioId": "city1:da:rejse:review:audio:v1",
+      "text": {
+        "da": "Tak for en god rejse.",
+        "en": "Thank you for a good trip."
+      },
+      "wordSpan": {
+        "text": "rejse",
+        "start": 15,
+        "end": 20
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:tak",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Tak",
+        "start": 0,
+        "end": 3
+      }
+    },
+    {
+      "wordId": "da:musik",
+      "city": 0,
+      "sourceSha256": "2d86cdcaeb7d04ec312e4f3d6e07d54b33281d58cfbbcff53e415794e53fa338",
+      "version": 1,
+      "sentenceId": "city1:da:musik:review:sentence:v1",
+      "audioId": "city1:da:musik:review:audio:v1",
+      "text": {
+        "da": "Hvor er musikken fra?",
+        "en": "Where is the music from?"
+      },
+      "wordSpan": {
+        "text": "musikken",
+        "start": 8,
+        "end": 16
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:hvor",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "Hvor",
+        "start": 0,
+        "end": 4
+      }
+    },
+    {
+      "wordId": "da:navn",
+      "city": 0,
+      "sourceSha256": "36e009d194bceeb658a912a2b77285a5a397f6187e2bf17480c27879c7f559d5",
+      "version": 1,
+      "sentenceId": "city1:da:navn:review:sentence:v1",
+      "audioId": "city1:da:navn:review:audio:v1",
+      "text": {
+        "da": "Dit navn igen, tak.",
+        "en": "Your name again, please."
+      },
+      "wordSpan": {
+        "text": "navn",
+        "start": 4,
+        "end": 8
+      },
+      "status": "accepted",
+      "approval": {
+        "artifact": "review-editorial.md",
+        "sha256": "a996c4fe6019906db9fa0105d06ccbd1f141b707b63835415ed5c74c8b790901"
+      },
+      "targetId": "ledger:igen",
+      "targetStage": {
+        "city": 0,
+        "use": "productive-target"
+      },
+      "targetSpan": {
+        "text": "igen",
+        "start": 9,
+        "end": 13
+      }
+    }
+  ]
+}

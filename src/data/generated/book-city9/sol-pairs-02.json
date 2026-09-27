@@ -1,0 +1,308 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 2,
+  "pairs": {
+    "da:ødelægge|da:skrige": [
+      { "da": "vrede", "en": "anger", "why": "an angry violent reaction", "s": 1 },
+      { "da": "raseri", "en": "rage", "why": "uncontrolled force and noise", "s": 2 }
+    ],
+    "da:ødelægge|da:ægteskab": [
+      { "da": "skilsmisse", "en": "divorce", "why": "the union falls apart", "s": 3 },
+      { "da": "utroskab", "en": "infidelity", "why": "it can end the union", "s": 2 }
+    ],
+    "da:levende|da:and": [
+      { "da": "dyr", "en": "animal", "why": "a creature with life", "s": 3 },
+      { "da": "natur", "en": "nature", "why": "wild creatures belong here", "s": 2 }
+    ],
+    "da:levende|da:snakke": [
+      { "da": "samtale", "en": "conversation", "why": "speech can be animated", "s": 2 },
+      { "da": "person", "en": "person", "why": "someone present and speaking", "s": 2 }
+    ],
+    "da:levende|da:ensomhed": [
+      { "da": "menneske", "en": "human", "why": "a person can feel isolated", "s": 1 }
+    ],
+    "da:levende|da:læbe": [
+      { "da": "mund", "en": "mouth", "why": "a moving part of the face", "s": 1 }
+    ],
+    "da:levende|da:råbe": [
+      { "da": "stemme", "en": "voice", "why": "a forceful sign of life", "s": 2 },
+      { "da": "aktiv", "en": "active", "why": "full of movement and noise", "s": 2 }
+    ],
+    "da:levende|da:motion": [
+      { "da": "aktiv", "en": "active", "why": "energetic physical activity", "s": 3 },
+      { "da": "sund", "en": "healthy", "why": "fitness supports vitality", "s": 2 }
+    ],
+    "da:levende|da:tørre": [
+      { "da": "våd", "en": "wet", "why": "skin after being washed", "s": 1 }
+    ],
+    "da:levende|da:politibetjent": [
+      { "da": "person", "en": "person", "why": "a human public servant", "s": 2 }
+    ],
+    "da:levende|da:hoppe": [
+      { "da": "aktiv", "en": "active", "why": "energetic movement", "s": 3 },
+      { "da": "frø", "en": "frog", "why": "an animal known for leaping", "s": 2 }
+    ],
+    "da:levende|da:bade": [
+      { "da": "menneske", "en": "human", "why": "a person in the water", "s": 1 }
+    ],
+    "da:levende|da:smil": [
+      { "da": "glad", "en": "happy", "why": "cheerful and expressive", "s": 3 },
+      { "da": "ansigt", "en": "face", "why": "an animated facial expression", "s": 2 }
+    ],
+    "da:levende|da:træning": [
+      { "da": "aktiv", "en": "active", "why": "energetic physical practice", "s": 3 },
+      { "da": "sund", "en": "healthy", "why": "practice builds vitality", "s": 2 }
+    ],
+    "da:levende|da:stege": [
+      { "da": "mad", "en": "food", "why": "ingredients before heat is applied", "s": 1 }
+    ],
+    "da:levende|da:teater": [
+      { "da": "forestilling", "en": "performance", "why": "an animated stage show", "s": 2 },
+      { "da": "skuespiller", "en": "actor", "why": "a person on stage", "s": 2 }
+    ],
+    "da:levende|da:skilt": [
+      { "da": "gade", "en": "street", "why": "busy public space with signs", "s": 1 }
+    ],
+    "da:levende|da:høflig": [
+      { "da": "person", "en": "person", "why": "a well mannered human", "s": 2 }
+    ],
+    "da:levende|da:diskutere": [
+      { "da": "samtale", "en": "conversation", "why": "an animated exchange of views", "s": 2 }
+    ],
+    "da:levende|da:ryste": [
+      { "da": "bevægelse", "en": "movement", "why": "visible energetic motion", "s": 2 }
+    ],
+    "da:levende|da:hjerne": [
+      { "da": "krop", "en": "body", "why": "an organ in a person", "s": 2 },
+      { "da": "tanke", "en": "thought", "why": "mental activity signals life", "s": 1 }
+    ],
+    "da:levende|da:klatre": [
+      { "da": "aktiv", "en": "active", "why": "energetic upward movement", "s": 2 }
+    ],
+    "da:levende|da:bekymre": [
+      { "da": "følelse", "en": "emotion", "why": "a human feeling", "s": 1 }
+    ],
+    "da:levende|da:stiv": [
+      { "da": "krop", "en": "body", "why": "a body can become rigid", "s": 1 }
+    ],
+    "da:levende|da:ulykke": [
+      { "da": "overleve", "en": "survive", "why": "remaining alive after disaster", "s": 3 }
+    ],
+    "da:levende|da:kramme": [
+      { "da": "person", "en": "person", "why": "people embrace one another", "s": 2 },
+      { "da": "varme", "en": "warmth", "why": "bodily warmth and affection", "s": 1 }
+    ],
+    "da:levende|da:kultur": [
+      { "da": "samfund", "en": "society", "why": "people sustain shared traditions", "s": 2 }
+    ],
+    "da:levende|da:trøste": [
+      { "da": "menneske", "en": "human", "why": "people give emotional support", "s": 2 }
+    ],
+    "da:levende|da:skøn": [
+      { "da": "natur", "en": "nature", "why": "beautiful and full of life", "s": 2 }
+    ],
+    "da:levende|da:venskab": [
+      { "da": "menneske", "en": "human", "why": "people form close bonds", "s": 2 },
+      { "da": "forhold", "en": "relationship", "why": "a bond between people", "s": 1 }
+    ],
+    "da:levende|da:skrige": [
+      { "da": "stemme", "en": "voice", "why": "a loud sign of life", "s": 2 },
+      { "da": "panik", "en": "panic", "why": "a frantic vocal reaction", "s": 2 }
+    ],
+    "da:levende|da:ægteskab": [
+      { "da": "menneske", "en": "human", "why": "people form the union", "s": 1 },
+      { "da": "forhold", "en": "relationship", "why": "a bond between people", "s": 2 }
+    ],
+    "da:kanal|da:rydde": [
+      { "da": "rense", "en": "clear", "why": "removing blockage from a waterway", "s": 2 }
+    ],
+    "da:kanal|da:and": [
+      { "da": "vand", "en": "water", "why": "a bird on a waterway", "s": 3 },
+      { "da": "svømme", "en": "swim", "why": "moving through the waterway", "s": 2 }
+    ],
+    "da:kanal|da:snakke": [
+      { "da": "radio", "en": "radio", "why": "a broadcast channel with speech", "s": 2 }
+    ],
+    "da:kanal|da:fylde": [
+      { "da": "vand", "en": "water", "why": "what occupies the waterway", "s": 2 }
+    ],
+    "da:kanal|da:skære": [
+      { "da": "grave", "en": "dig", "why": "making a passage through land", "s": 2 }
+    ],
+    "da:kanal|da:tørre": [
+      { "da": "vand", "en": "water", "why": "removed from a wet passage", "s": 1 }
+    ],
+    "da:kanal|da:tydelig": [
+      { "da": "signal", "en": "signal", "why": "a channel carries clear information", "s": 2 }
+    ],
+    "da:kanal|da:tåge": [
+      { "da": "vand", "en": "water", "why": "waterway and water vapour", "s": 1 }
+    ],
+    "da:kanal|da:bade": [
+      { "da": "vand", "en": "water", "why": "a place to enter water", "s": 3 },
+      { "da": "svømme", "en": "swim", "why": "recreation in the waterway", "s": 2 }
+    ],
+    "da:kanal|da:kursus": [
+      { "da": "forløb", "en": "route", "why": "a directed path to follow", "s": 1 }
+    ],
+    "da:kanal|da:hælde": [
+      { "da": "vand", "en": "water", "why": "liquid flowing into a passage", "s": 2 }
+    ],
+    "da:kanal|da:glat": [
+      { "da": "vand", "en": "water", "why": "wet surfaces can be slippery", "s": 1 }
+    ],
+    "da:kanal|da:kølig": [
+      { "da": "vand", "en": "water", "why": "a chilly waterway", "s": 2 }
+    ],
+    "da:kanal|da:glide": [
+      { "da": "båd", "en": "boat", "why": "it moves smoothly along waterways", "s": 3 },
+      { "da": "vand", "en": "water", "why": "a smooth surface for movement", "s": 2 }
+    ],
+    "da:kanal|da:fugtig": [
+      { "da": "vand", "en": "water", "why": "water makes surroundings damp", "s": 3 }
+    ],
+    "da:kanal|da:udsigt": [
+      { "da": "vindue", "en": "window", "why": "a television channel and viewing opening", "s": 1 }
+    ],
+    "da:kanal|da:kommune": [
+      { "da": "by", "en": "town", "why": "an urban waterway under local authority", "s": 2 }
+    ],
+    "da:kanal|da:pakke": [
+      { "da": "post", "en": "mail", "why": "a delivery route for parcels", "s": 1 }
+    ],
+    "da:kanal|da:fritid": [
+      { "da": "båd", "en": "boat", "why": "leisure travel on waterways", "s": 2 }
+    ],
+    "da:kanal|da:klippe": [
+      { "da": "grave", "en": "dig", "why": "cutting a passage through land", "s": 1 }
+    ],
+    "da:skinke|da:koge": [
+      { "da": "gryde", "en": "pot", "why": "meat prepared in hot water", "s": 3 },
+      { "da": "madlavning", "en": "cuisine", "why": "preparing meat with heat", "s": 3 }
+    ],
+    "da:skinke|da:and": [
+      { "da": "kød", "en": "meat", "why": "both are eaten as meat", "s": 3 },
+      { "da": "middag", "en": "dinner", "why": "two possible main dishes", "s": 2 }
+    ],
+    "da:skinke|da:fylde": [
+      { "da": "sandwich", "en": "sandwich", "why": "meat placed inside bread", "s": 3 },
+      { "da": "pizza", "en": "pizza", "why": "a topping that covers dough", "s": 2 }
+    ],
+    "da:skinke|da:skære": [
+      { "da": "kniv", "en": "knife", "why": "used to slice the meat", "s": 3 },
+      { "da": "skive", "en": "slice", "why": "a thin piece of meat", "s": 3 }
+    ],
+    "da:skinke|da:ryge": [
+      { "da": "røget", "en": "smoked", "why": "a traditional meat treatment", "s": 3 }
+    ],
+    "da:skinke|da:peber": [
+      { "da": "krydderi", "en": "seasoning", "why": "flavour added to meat", "s": 3 },
+      { "da": "mad", "en": "food", "why": "ingredients served together", "s": 2 }
+    ],
+    "da:skinke|da:mild": [
+      { "da": "smag", "en": "flavour", "why": "the meat has gentle flavour", "s": 3 }
+    ],
+    "da:skinke|da:rulle": [
+      { "da": "pålæg", "en": "coldcut", "why": "meat shaped for bread", "s": 2 }
+    ],
+    "da:skinke|da:stege": [
+      { "da": "pande", "en": "pan", "why": "meat heated in a pan", "s": 3 },
+      { "da": "madlavning", "en": "cuisine", "why": "preparing meat with heat", "s": 3 }
+    ],
+    "da:skinke|da:smøre": [
+      { "da": "brød", "en": "bread", "why": "spread it then add meat", "s": 2 },
+      { "da": "sandwich", "en": "sandwich", "why": "buttered bread with meat", "s": 3 }
+    ],
+    "da:skinke|da:servere": [
+      { "da": "tallerken", "en": "plate", "why": "meat presented for eating", "s": 3 },
+      { "da": "middag", "en": "dinner", "why": "bringing the meat to diners", "s": 2 }
+    ],
+    "da:skinke|da:slik": [
+      { "da": "mad", "en": "food", "why": "two things people eat", "s": 1 }
+    ],
+    "da:skinke|da:kølig": [
+      { "da": "køleskab", "en": "fridge", "why": "where the meat stays cold", "s": 3 }
+    ],
+    "da:skinke|da:opskrift": [
+      { "da": "ret", "en": "dish", "why": "a meat dish with instructions", "s": 3 },
+      { "da": "ingrediens", "en": "ingredient", "why": "the meat named in instructions", "s": 3 }
+    ],
+    "da:skinke|da:pakke": [
+      { "da": "plastik", "en": "plastic", "why": "the meat comes wrapped", "s": 2 }
+    ],
+    "da:skinke|da:klippe": [
+      { "da": "saks", "en": "scissors", "why": "opening the meat wrapping", "s": 1 }
+    ],
+    "da:skinke|da:sprød": [
+      { "da": "pande", "en": "pan", "why": "frying makes the meat crisp", "s": 2 }
+    ],
+    "da:koge|da:and": [
+      { "da": "gryde", "en": "pot", "why": "poultry prepared in hot water", "s": 3 },
+      { "da": "middag", "en": "dinner", "why": "preparing poultry for a meal", "s": 2 }
+    ],
+    "da:koge|da:skære": [
+      { "da": "køkken", "en": "kitchen", "why": "two food preparation actions", "s": 3 },
+      { "da": "grøntsag", "en": "vegetable", "why": "prepared with knife and heat", "s": 2 }
+    ],
+    "da:koge|da:ryge": [
+      { "da": "damp", "en": "steam", "why": "hot vapour rises visibly", "s": 2 }
+    ],
+    "da:koge|da:peber": [
+      { "da": "suppe", "en": "soup", "why": "simmered food with seasoning", "s": 3 },
+      { "da": "gryde", "en": "pot", "why": "seasoning goes into hot food", "s": 2 }
+    ],
+    "da:koge|da:blande": [
+      { "da": "gryde", "en": "pot", "why": "heating and combining ingredients", "s": 3 },
+      { "da": "suppe", "en": "soup", "why": "ingredients combine in hot liquid", "s": 3 }
+    ],
+    "da:koge|da:rulle": [
+      { "da": "dej", "en": "dough", "why": "food shaped before heating", "s": 1 }
+    ],
+    "da:koge|da:tåge": [
+      { "da": "damp", "en": "steam", "why": "warm vapour clouds the air", "s": 3 }
+    ],
+    "da:koge|da:kursus": [
+      { "da": "køkken", "en": "kitchen", "why": "a place for culinary lessons", "s": 2 }
+    ],
+    "da:koge|da:stege": [
+      { "da": "madlavning", "en": "cuisine", "why": "two ways to prepare food", "s": 3 },
+      { "da": "varme", "en": "heat", "why": "both methods use heat", "s": 3 },
+      { "da": "køkken", "en": "kitchen", "why": "both happen while preparing food", "s": 3 }
+    ],
+    "da:koge|da:hælde": [
+      { "da": "vand", "en": "water", "why": "pour liquid before heating it", "s": 3 },
+      { "da": "gryde", "en": "pot", "why": "liquid goes into the vessel", "s": 3 }
+    ],
+    "da:koge|da:smøre": [
+      { "da": "madlavning", "en": "cuisine", "why": "two food preparation actions", "s": 2 }
+    ],
+    "da:koge|da:servere": [
+      { "da": "middag", "en": "dinner", "why": "prepare then present the meal", "s": 3 },
+      { "da": "køkken", "en": "kitchen", "why": "food moves from preparation to table", "s": 2 }
+    ],
+    "da:koge|da:slik": [
+      { "da": "sukker", "en": "sugar", "why": "heated to make confectionery", "s": 2 }
+    ],
+    "da:koge|da:ryste": [
+      { "da": "boble", "en": "bubble", "why": "vigorous heating makes liquid move", "s": 1 }
+    ],
+    "da:koge|da:interesse": [
+      { "da": "hobby", "en": "hobby", "why": "culinary activity done for pleasure", "s": 2 }
+    ],
+    "da:koge|da:kølig": [
+      { "da": "temperatur", "en": "temperature", "why": "food changes from hot to cool", "s": 2 }
+    ],
+    "da:koge|da:opskrift": [
+      { "da": "madlavning", "en": "cuisine", "why": "instructions guide food preparation", "s": 3 },
+      { "da": "køkken", "en": "kitchen", "why": "following instructions while preparing food", "s": 3 }
+    ],
+    "da:koge|da:ordne": [
+      { "da": "forberede", "en": "prepare", "why": "getting food ready", "s": 2 }
+    ],
+    "da:koge|da:klippe": [
+      { "da": "køkken", "en": "kitchen", "why": "culinary heat and food scissors", "s": 1 }
+    ]
+  }
+}

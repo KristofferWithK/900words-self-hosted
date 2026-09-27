@@ -1,0 +1,152 @@
+{
+  "entries": {
+    "chapter-01": {
+      "id": "chapter-01",
+      "text": "Det er en ting.\n\nHvor er tingen?\n\nDet er en stol.\n\nStolen er her.\n\nDer er et hus her.\n\nHvor er huset?",
+      "stamp": "4b1dca4fa4a4db6e",
+      "bytes": 62016,
+      "at": "2026-08-24T09:17:41.945Z",
+      "sourceHash": "b7c079ed32737c7126baf9b200829a87661d59d556e3b0e22342576bf7a5cc7f"
+    },
+    "chapter-02": {
+      "id": "chapter-02",
+      "text": "Jeg hedder Lea, og jeg bor i Ribe.\n\nDu bor i Ribe.\n\nLea arbejder på et hotel.\n\nJeg er her.\n\nHan har et kort.\n\nHun hjælper mig.",
+      "stamp": "cd096d042dc82e05",
+      "bytes": 62112,
+      "at": "2026-08-24T09:17:44.399Z",
+      "sourceHash": "500e2bdf601ecb1c6113f7240f823e361f28e912198668ee64e34b68b2c82c1c"
+    },
+    "chapter-03": {
+      "id": "chapter-03",
+      "text": "Der står en kop på bordet.\n\nDer står to kopper på bordet.\n\nKopperne står ved døren.\n\nDer står et hus ved vejen.\n\nDer står to huse ved vejen.\n\nHusene ligger ved vejen.\n\nKurset varer to år.",
+      "stamp": "8fb53e862745f0ee",
+      "bytes": 78336,
+      "at": "2026-08-24T09:17:50.260Z",
+      "sourceHash": "26c27bd6b7363fae94ffb796feb11e205596bba79c9b53b5e3bb7cc57e0e60d1"
+    },
+    "chapter-04": {
+      "id": "chapter-04",
+      "text": "Jeg arbejder klokken otte.\n\nKlokken otte arbejder jeg.\n\nOm aftenen læser jeg ikke.\n\nPå mandag tager jeg toget.\n\nDen tredje maj arbejder jeg klokken 16.30.\n\nHvornår arbejder du?",
+      "stamp": "8860c53dad71696c",
+      "bytes": 62784,
+      "at": "2026-08-24T09:17:55.203Z",
+      "sourceHash": "ff8007852eba51f4c2d2076588925ce4611aa2bdbe5e50b97e599877fbd2c417"
+    },
+    "chapter-05": {
+      "id": "chapter-05",
+      "text": "Øh, hvor er spor tre?\n\nHvordan kommer jeg til centrum?\n\nHvornår går toget?\n\nHvilken bus skal jeg tage?\n\nHvilket tog går til Aarhus?\n\nHvilke billetter har du?",
+      "stamp": "f4e7ea17287284a1",
+      "bytes": 64704,
+      "at": "2026-08-24T09:18:00.166Z",
+      "sourceHash": "cde309402737e8464942788d591d90df4ae1b6a5eaf73eef7196cb749bdf4f28"
+    },
+    "chapter-06": {
+      "id": "chapter-06",
+      "text": "Det er en lille café.\n\nVi bor i et stort hus.\n\nByen er stor.\n\nHuset er stort.\n\nBilerne er røde.\n\nDet er et frit valg.",
+      "stamp": "f1c863a3f279fd66",
+      "bytes": 54432,
+      "at": "2026-08-24T09:18:04.439Z",
+      "sourceHash": "5a117978bfa83eabeeed508ac25c048dd90ba485c9749bedae3dc0e33aba297c"
+    },
+    "chapter-07": {
+      "id": "chapter-07",
+      "text": "Hvad er der sket?\n\nToget stoppede, så jeg kom for sent.\n\nJeg mistede min billet i går.\n\nJeg har mistet min taske.\n\nHun kom til Odense i går.\n\nHun er kommet til Odense.",
+      "stamp": "ca616b9ba3aaabd5",
+      "bytes": 61824,
+      "at": "2026-08-24T09:18:09.277Z",
+      "sourceHash": "1be11d8f9ed5f7ca114d68e67f6e3149c9dbdf8d41bfc1c7b13351b04c35d0be"
+    },
+    "chapter-08": {
+      "id": "chapter-08",
+      "text": "Jeg kan komme lørdag.\n\nJeg vil bestille billetterne.\n\nVi skal mødes fredag.\n\nMå jeg tage en ven med?\n\nJeg kan ikke komme fredag.\n\nHun vil gerne med.",
+      "stamp": "9194fe91f1967c61",
+      "bytes": 58944,
+      "at": "2026-08-24T09:18:13.379Z",
+      "sourceHash": "70d623076a005c30e7086d412c402912fcafca34ab1245212627616442b5920d"
+    },
+    "chapter-09": {
+      "id": "chapter-09",
+      "text": "Jeg ringer, fordi kortet ikke virker.\n\nJamen, hvis tiden ikke passer, kan vi ændre aftalen.\n\nRing, når du er klar.\n\nJeg venter, mens du ringer.\n\nJeg kommer, selvom toget er forsinket.\n\nJeg kan se, at tiden er ændret.",
+      "stamp": "682cab20f3dc8acf",
+      "bytes": 83616,
+      "at": "2026-08-24T09:18:20.592Z",
+      "sourceHash": "7c13aa2ebd22daf29b7007b41ca46c330e527124dd10bd13ca6a46f50284dad9"
+    },
+    "lesson-aarhus-practical-recent-past": {
+      "id": "lesson-aarhus-practical-recent-past",
+      "text": "I dag arbejdede jeg fra otte til ti.\n\nI dag har jeg arbejdet hjemme, så nu er jeg træt.\n\nI dag købte jeg brød klokken otte.\n\nI dag har jeg købt brød, så vi har mad.\n\nI går lavede jeg mad.\n\nI dag har jeg læst bogen, så du kan få den nu.",
+      "stamp": "c94facc0326dc116",
+      "bytes": 85824,
+      "at": "2026-08-24T09:17:57.917Z",
+      "sourceHash": "07f1e666f96b51dd656fa8fad88b1e8275b9c4aadb8de912782dd637027228b5"
+    },
+    "lesson-ribe-possessives": {
+      "id": "lesson-ribe-possessives",
+      "text": "Jeg har en taske. Det er min taske.\n\nJeg har et kort. Det er mit kort.\n\nMine billetter er her.\n\nDet er hendes taske.\n\nDet er hans kort.\n\nBilletterne er deres.",
+      "stamp": "5967c9498ed4b079",
+      "bytes": 69312,
+      "at": "2026-08-24T09:17:47.413Z",
+      "sourceHash": "bc95566971ebbc2d8f6eb0a33c6107ad454689ae457f9466930985c1a79db49f"
+    },
+    "lesson-kolding-simple-negation": {
+      "id": "lesson-kolding-simple-negation",
+      "text": "Vi har ikke te.\n\nJeg køber ikke kaffe.\n\nKaffen er ikke varm.\n\nJeg køber ikke tre billetter.\n\nBussen kommer ikke i dag.\n\nDet koster ikke meget.",
+      "stamp": "4b45c5d6dc0052cf",
+      "bytes": 60576,
+      "at": "2026-08-24T09:17:52.693Z",
+      "sourceHash": "e3170f511fb09cde6a369c0d23b249685f8cde934a2cf58ca5a14571e01b70ed"
+    },
+    "lesson-aalborg-direction-forms": {
+      "id": "lesson-aalborg-direction-forms",
+      "text": "Gå ligeud, og drej til højre.\n\nTag bus nummer to.\n\nStå af ved stationen.\n\nGå til stationen.\n\nBussen holder på spor tre.",
+      "stamp": "06c9a8ad1b0b49d4",
+      "bytes": 51456,
+      "at": "2026-08-24T09:18:02.475Z",
+      "sourceHash": "15bfdac8c3d15c81680f557c508d56882960ccc5b81a330c234577226c5c8811"
+    },
+    "lesson-skagen-joining-ideas": {
+      "id": "lesson-skagen-joining-ideas",
+      "text": "Byen er stor, og stranden er rolig.\n\nCaféen er lille, men huset er stort.\n\nJeg vælger stranden, fordi den er rolig.\n\nCaféen er lille, ligesom huset ved siden af.\n\nDet er koldt, men vandet er blåt.",
+      "stamp": "3afff41e349ac35d",
+      "bytes": 73056,
+      "at": "2026-08-24T09:18:06.823Z",
+      "sourceHash": "14fa76a0abcd5f7ce6808c1aa0fc507f860a0674a4529a57a8e3afa420871a03"
+    },
+    "lesson-odense-perfect-auxiliary": {
+      "id": "lesson-odense-perfect-auxiliary",
+      "text": "Jeg har mistet min taske.\n\nHun er kommet til Odense.\n\nJeg er gået hjem, men jeg har gået fem kilometer i dag.\n\nVi har arbejdet hele dagen.\n\nHun har læst bogen.",
+      "stamp": "697453171a80b072",
+      "bytes": 54144,
+      "at": "2026-08-24T09:18:11.344Z",
+      "sourceHash": "a2b7447fb26236edabf2a4ef5faa12f9875d518b9edee307ec04470f544c81a7"
+    },
+    "lesson-roskilde-future-plans": {
+      "id": "lesson-roskilde-future-plans",
+      "text": "Jamen, så mødes vi i morgen.\n\nSkal vi mødes på fredag?\n\nJeg kan ikke fredag, men jeg kan i hvert fald lørdag.\n\nVi mødes i morgen.\n\nJeg vil bestille billetterne.\n\nVi skal mødes fredag.",
+      "stamp": "d84059fae4208cca",
+      "bytes": 70176,
+      "at": "2026-08-24T09:18:15.798Z",
+      "sourceHash": "8842e6d7582f711ea863cc9e460b98cd7f8a5532ba24ee9bf360949fe0a28a46"
+    },
+    "lesson-roskilde-own-possessives": {
+      "id": "lesson-roskilde-own-possessives",
+      "text": "Hun tager sin taske.\n\nHan viser sit kort.\n\nHun finder sine billetter.\n\nDe tager deres tasker.\n\nHun tager hendes taske.\n\nHun tager sin taske, men de tager deres tasker.",
+      "stamp": "66d534bf77689c0e",
+      "bytes": 60096,
+      "at": "2026-08-24T09:18:17.914Z",
+      "sourceHash": "bae665ccf87f205669260b9842b4eb3f43591b441baf74bbe38d9ddc79cc62fe"
+    },
+    "lesson-kobenhavn-ikke-placement": {
+      "id": "lesson-kobenhavn-ikke-placement",
+      "text": "Jeg kommer ikke.\n\nJeg skriver, fordi jeg ikke kommer.\n\nTiden passer ikke.\n\nHvis tiden ikke passer, kan vi ændre aftalen.\n\nKortet virker ikke.\n\nJeg ringer, fordi kortet ikke virker.",
+      "stamp": "c5f2a00d0ee27093",
+      "bytes": 69504,
+      "at": "2026-08-24T09:18:23.269Z",
+      "sourceHash": "3949991f43eeb524790c2d99cf58fa081e71c44a04590664306f1c4f3078087b"
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "da"
+}

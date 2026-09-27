@@ -1,0 +1,438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "City1 staging authoring contract v1",
+  "description": "Structural schema; validate.mjs additionally enforces actual inventory, spans, identities, sources, missing IDs and successor evidence. UTF-16 end-exclusive spans.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "base",
+        "language",
+        "city",
+        "kind",
+        "rows"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "base": {
+          "const": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82"
+        },
+        "language": {
+          "const": "da"
+        },
+        "city": {
+          "const": 0
+        },
+        "kind": {
+          "const": "board"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/board"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "base",
+        "language",
+        "city",
+        "kind",
+        "rows"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "base": {
+          "const": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82"
+        },
+        "language": {
+          "const": "da"
+        },
+        "city": {
+          "const": 0
+        },
+        "kind": {
+          "const": "review"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "base",
+        "language",
+        "city",
+        "kind",
+        "rows"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "base": {
+          "const": "21cd5ac2f9c2eaa24ca34674f6b9a580d77a8a82"
+        },
+        "language": {
+          "const": "da"
+        },
+        "city": {
+          "const": 0
+        },
+        "kind": {
+          "const": "about"
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/about"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "da",
+        "en"
+      ],
+      "properties": {
+        "da": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "city",
+        "use"
+      ],
+      "properties": {
+        "city": {
+          "const": 0
+        },
+        "use": {
+          "enum": [
+            "productive-target",
+            "controlled-target",
+            "preview-as-chunk",
+            "receptive-ambient"
+          ]
+        }
+      }
+    },
+    "board": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wordId",
+        "city",
+        "sourceSha256",
+        "version",
+        "sentenceId",
+        "audioId",
+        "text",
+        "wordSpan",
+        "status",
+        "approval"
+      ],
+      "properties": {
+        "wordId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "city": {
+          "const": 0
+        },
+        "sourceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sentenceId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "audioId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "text": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "wordSpan": {
+          "$ref": "#/$defs/span"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "editorial",
+            "accepted"
+          ]
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "artifact",
+                "sha256"
+              ],
+              "properties": {
+                "artifact": {
+                  "enum": [
+                    "board-editorial.md",
+                    "review-editorial.md"
+                  ]
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wordId",
+        "city",
+        "sourceSha256",
+        "version",
+        "sentenceId",
+        "audioId",
+        "text",
+        "wordSpan",
+        "status",
+        "approval",
+        "targetId",
+        "targetStage",
+        "targetSpan"
+      ],
+      "properties": {
+        "wordId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "city": {
+          "const": 0
+        },
+        "sourceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sentenceId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "audioId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "text": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "wordSpan": {
+          "$ref": "#/$defs/span"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "editorial",
+            "accepted"
+          ]
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "artifact",
+                "sha256"
+              ],
+              "properties": {
+                "artifact": {
+                  "enum": [
+                    "board-editorial.md",
+                    "review-editorial.md"
+                  ]
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          ]
+        },
+        "targetId": {
+          "type": "string",
+          "pattern": "^(ledger|supplemental):.+$"
+        },
+        "targetStage": {
+          "$ref": "#/$defs/stage"
+        },
+        "targetSpan": {
+          "$ref": "#/$defs/span"
+        }
+      }
+    },
+    "about": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "targetId",
+        "targetStage",
+        "version",
+        "meaningEn",
+        "usageEn",
+        "example",
+        "targetSpan",
+        "status",
+        "approval"
+      ],
+      "properties": {
+        "targetId": {
+          "type": "string",
+          "pattern": "^(ledger|supplemental):.+$"
+        },
+        "targetStage": {
+          "$ref": "#/$defs/stage"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "meaningEn": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "usageEn": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "example": {
+          "$ref": "#/$defs/bilingual"
+        },
+        "targetSpan": {
+          "$ref": "#/$defs/span"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "editorial",
+            "accepted"
+          ]
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "artifact",
+                "sha256"
+              ],
+              "properties": {
+                "artifact": {
+                  "enum": [
+                    "board-editorial.md",
+                    "review-editorial.md"
+                  ]
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

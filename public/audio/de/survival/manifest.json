@@ -1,0 +1,136 @@
+{
+  "entries": {
+    "flensburg-situation-1-line-1": {
+      "id": "flensburg-situation-1-line-1",
+      "text": "Guten Tag! Willkommen in Flensburg.",
+      "stamp": "cdbf009898e6e119",
+      "bytes": 9216,
+      "at": "2026-09-26T20:55:41.410Z",
+      "sourceHash": "63b3f37db2fdcc6a2113ef8352ec29fa101b97a92f16d56e18be1e0ae41597b9"
+    },
+    "flensburg-situation-1-line-2": {
+      "id": "flensburg-situation-1-line-2",
+      "text": "Guten Tag! Ich heiße Mia.",
+      "stamp": "a6540aef87efeeda",
+      "bytes": 8352,
+      "at": "2026-09-26T20:55:42.061Z",
+      "sourceHash": "d8d02ddc5d553cd4fe083d24d99bbbb97bd64286c7d33231d28fc21a183bacf0"
+    },
+    "flensburg-situation-1-line-3": {
+      "id": "flensburg-situation-1-line-3",
+      "text": "Freut mich, Frau Berg.",
+      "stamp": "8c72ee2d1e51c018",
+      "bytes": 9216,
+      "at": "2026-09-26T20:55:43.048Z",
+      "sourceHash": "fdc47ee7c0c561bab235be3e060cdff99eee1ec9ff2158ff628861d8a299f9c7"
+    },
+    "flensburg-situation-1-line-4": {
+      "id": "flensburg-situation-1-line-4",
+      "text": "Mich auch.",
+      "stamp": "60d5529d56c7eff1",
+      "bytes": 4032,
+      "at": "2026-09-26T20:55:43.558Z",
+      "sourceHash": "6afc1c3963c13e4f27f5411b4f6c331e80e23e715ff9e9b9227b42c643321200"
+    },
+    "flensburg-situation-2-line-1": {
+      "id": "flensburg-situation-2-line-1",
+      "text": "Kommen Sie aus Kanada?",
+      "stamp": "6a39d57e1b17327f",
+      "bytes": 6816,
+      "at": "2026-09-26T20:55:44.144Z",
+      "sourceHash": "bcccf088feb58b7722f7ec575d23742238a70ad52141881b463758783bc084c6"
+    },
+    "flensburg-situation-2-line-2": {
+      "id": "flensburg-situation-2-line-2",
+      "text": "Ja, ich komme aus Kanada.",
+      "stamp": "32d1c0e52c513ba9",
+      "bytes": 9792,
+      "at": "2026-09-26T20:55:44.887Z",
+      "sourceHash": "1f315f3d7300d467e5c428bcf6b609e85f6830ad1f1746a8ac2b0d4d1fc3cb50"
+    },
+    "flensburg-situation-2-line-3": {
+      "id": "flensburg-situation-2-line-3",
+      "text": "Schön. Ich muss jetzt weiter.",
+      "stamp": "6ee2a50d8252a632",
+      "bytes": 13824,
+      "at": "2026-09-26T20:55:45.692Z",
+      "sourceHash": "c94cbdf75f495060d334af46ec7c770c09ad369ddb94b1463b36a01e9bbeb050"
+    },
+    "flensburg-situation-2-line-4": {
+      "id": "flensburg-situation-2-line-4",
+      "text": "Auf Wiedersehen!",
+      "stamp": "c8e452b3ee78ed69",
+      "bytes": 5664,
+      "at": "2026-09-26T20:55:46.231Z",
+      "sourceHash": "85d93305b1151f5f34c70c603b9d01c8354a616717077fb8d8fa0d14f60b25c4"
+    },
+    "flensburg-situation-3-line-1": {
+      "id": "flensburg-situation-3-line-1",
+      "text": "Der Bus fährt in fünf Minuten von Steig drei.",
+      "stamp": "065575f4206297f9",
+      "bytes": 12384,
+      "at": "2026-09-26T20:55:47.029Z",
+      "sourceHash": "4659878339d2f8d6c11ef4c5530dc20172e057c6eb2204e44e3593b81172ba85"
+    },
+    "flensburg-situation-3-line-2": {
+      "id": "flensburg-situation-3-line-2",
+      "text": "Können Sie das bitte wiederholen?",
+      "stamp": "b304e0045cb9865d",
+      "bytes": 10176,
+      "at": "2026-09-26T20:55:47.727Z",
+      "sourceHash": "9ff104602f5110166d7e3e963c79d6a6ba44665286feff33f1aade61cbfa3e53"
+    },
+    "flensburg-situation-3-line-3": {
+      "id": "flensburg-situation-3-line-3",
+      "text": "Ja. Steig drei, in fünf Minuten.",
+      "stamp": "54cd7f6be96d6520",
+      "bytes": 16704,
+      "at": "2026-09-26T20:55:48.643Z",
+      "sourceHash": "e4476280d0f5bda2b0f67f166433e37c797bfd8e0e54157af76c83943dac9730"
+    },
+    "flensburg-situation-3-line-4": {
+      "id": "flensburg-situation-3-line-4",
+      "text": "Danke.",
+      "stamp": "d6ffd8ccf175de30",
+      "bytes": 3744,
+      "at": "2026-09-26T20:55:49.157Z",
+      "sourceHash": "f923f1001c61673323e2504d20c5eb042c74e96cea0f7e14c57a01a95058f633"
+    },
+    "flensburg-situation-4-line-1": {
+      "id": "flensburg-situation-4-line-1",
+      "text": "Entschuldigung, können Sie mir helfen?",
+      "stamp": "9b025b229e5f30a6",
+      "bytes": 9024,
+      "at": "2026-09-26T20:55:49.864Z",
+      "sourceHash": "ed022dc85da0fe650fb583c8b93be52760a4024638b08cead1035b5ed1ae90d5"
+    },
+    "flensburg-situation-4-line-2": {
+      "id": "flensburg-situation-4-line-2",
+      "text": "Ja, natürlich.",
+      "stamp": "90bef772349a3469",
+      "bytes": 7392,
+      "at": "2026-09-26T20:55:50.497Z",
+      "sourceHash": "a075b28bc7776b2cb760a54f51687255aab88bbf1a2728f5dbab86362480ef33"
+    },
+    "flensburg-situation-4-line-3": {
+      "id": "flensburg-situation-4-line-3",
+      "text": "Wo ist die Toilette?",
+      "stamp": "c5b8c8980b38a41a",
+      "bytes": 5664,
+      "at": "2026-09-26T20:55:51.484Z",
+      "sourceHash": "026bd601c7aef08660946597db1c191301b4d7ad849bfa97da5a764cbdaa6f1e"
+    },
+    "flensburg-situation-4-line-4": {
+      "id": "flensburg-situation-4-line-4",
+      "text": "Gleich da drüben.",
+      "stamp": "0fcda7c959800d67",
+      "bytes": 9216,
+      "at": "2026-09-26T20:55:52.173Z",
+      "sourceHash": "c99f2e7ea34ff63ba35a0688b1fa302dc2faf6fdb5fb9ce14ba31c0a70e72b2f"
+    }
+  },
+  "provider": "google",
+  "voice": "de-DE-Chirp3-HD-Leda",
+  "rate": 1,
+  "lang": "de"
+}

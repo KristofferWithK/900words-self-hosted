@@ -1,0 +1,6 @@
+# One line ending everywhere, so a Windows checkout reads the same bytes the
+# data files and their tests were written with.
+* text=auto eol=lf
+*.mp3 binary
+*.wav binary
+*.png binary

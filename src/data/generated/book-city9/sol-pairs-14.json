@@ -1,0 +1,301 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 14,
+  "pairs": {
+    "da:diskutere|da:ægteskab": [
+      { "da": "parforhold", "en": "relationship", "why": "a subject couples talk about", "s": 1 }
+    ],
+    "da:slik|da:opskrift": [
+      { "da": "sukker", "en": "sugar", "why": "a common sweet ingredient", "s": 2 },
+      { "da": "køkken", "en": "kitchen", "why": "where treats are made", "s": 2 }
+    ],
+    "da:slik|da:trøste": [
+      { "da": "chokolade", "en": "chocolate", "why": "a familiar comforting treat", "s": 2 }
+    ],
+    "da:slik|da:pakke": [
+      { "da": "pose", "en": "bag", "why": "a container for either", "s": 2 },
+      { "da": "gave", "en": "gift", "why": "a wrapped sweet surprise", "s": 2 }
+    ],
+    "da:slik|da:sprød": [
+      { "da": "karamel", "en": "caramel", "why": "a treat with crunch", "s": 2 }
+    ],
+    "da:glat|da:glide": [
+      { "da": "is", "en": "ice", "why": "a surface that causes sliding", "s": 3 },
+      { "da": "skøjte", "en": "skate", "why": "smooth movement across ice", "s": 3 },
+      { "da": "sæbe", "en": "soap", "why": "makes surfaces slippery", "s": 2 }
+    ],
+    "da:glat|da:fugtig": [
+      { "da": "våd", "en": "wet", "why": "water creates both qualities", "s": 3 },
+      { "da": "sæbe", "en": "soap", "why": "wet soap feels smooth", "s": 2 }
+    ],
+    "da:glat|da:klatre": [
+      { "da": "bjerg", "en": "mountain", "why": "a difficult slippery ascent", "s": 2 }
+    ],
+    "da:glat|da:ulykke": [
+      { "da": "is", "en": "ice", "why": "a slippery accident hazard", "s": 3 },
+      { "da": "fald", "en": "fall", "why": "a likely slippery mishap", "s": 3 }
+    ],
+    "da:glat|da:sprød": [
+      { "da": "skorpe", "en": "crust", "why": "a smooth crunchy surface", "s": 1 }
+    ],
+    "da:ryste|da:hjerne": [
+      { "da": "slag", "en": "impact", "why": "a blow that jolts the mind", "s": 2 }
+    ],
+    "da:ryste|da:hviske": [
+      { "da": "frygt", "en": "fear", "why": "can cause trembling and quiet speech", "s": 2 }
+    ],
+    "da:ryste|da:kølig": [
+      { "da": "kulde", "en": "cold", "why": "low temperature causes trembling", "s": 3 },
+      { "da": "fryse", "en": "freeze", "why": "the bodily response to chill", "s": 3 }
+    ],
+    "da:ryste|da:bekymre": [
+      { "da": "nervøs", "en": "nervous", "why": "anxiety can cause trembling", "s": 3 },
+      { "da": "frygt", "en": "fear", "why": "a cause of both reactions", "s": 3 }
+    ],
+    "da:ryste|da:stiv": [
+      { "da": "kulde", "en": "cold", "why": "makes the body rigid and trembling", "s": 2 }
+    ],
+    "da:ryste|da:ulykke": [
+      { "da": "chok", "en": "shock", "why": "a trembling response after disaster", "s": 3 }
+    ],
+    "da:ryste|da:irritere": [
+      { "da": "støj", "en": "noise", "why": "vibration that can annoy", "s": 2 }
+    ],
+    "da:ryste|da:løs": [
+      { "da": "tand", "en": "tooth", "why": "something loose can wobble", "s": 2 }
+    ],
+    "da:ryste|da:kramme": [
+      { "da": "kulde", "en": "cold", "why": "trembling invites warming contact", "s": 1 }
+    ],
+    "da:ryste|da:trøste": [
+      { "da": "græde", "en": "cry", "why": "distress prompts both trembling and comfort", "s": 2 }
+    ],
+    "da:ryste|da:pakke": [
+      { "da": "gave", "en": "gift", "why": "something wrapped and shaken", "s": 2 }
+    ],
+    "da:ryste|da:skrige": [
+      { "da": "frygt", "en": "fear", "why": "can provoke both reactions", "s": 3 },
+      { "da": "chok", "en": "shock", "why": "a cause of violent reactions", "s": 2 }
+    ],
+    "da:hjerne|da:interesse": [
+      { "da": "tanke", "en": "thought", "why": "mental attention to a subject", "s": 2 }
+    ],
+    "da:hjerne|da:bekymre": [
+      { "da": "tanke", "en": "thought", "why": "worry occupies the mind", "s": 3 },
+      { "da": "stress", "en": "stress", "why": "mental pressure from worry", "s": 3 }
+    ],
+    "da:hjerne|da:ulykke": [
+      { "da": "skade", "en": "injury", "why": "a possible result of an accident", "s": 3 },
+      { "da": "hovedskade", "en": "concussion", "why": "a head injury after impact", "s": 3 }
+    ],
+    "da:hjerne|da:kultur": [
+      { "da": "viden", "en": "knowledge", "why": "learned ideas held in mind", "s": 2 }
+    ],
+    "da:hviske|da:aftale": [
+      { "da": "hemmelig", "en": "secret", "why": "a quiet private arrangement", "s": 2 }
+    ],
+    "da:hviske|da:bekymre": [
+      { "da": "nervøs", "en": "nervous", "why": "anxiety can lower the voice", "s": 2 }
+    ],
+    "da:hviske|da:irritere": [
+      { "da": "biograf", "en": "cinema", "why": "quiet talking annoys audiences", "s": 2 }
+    ],
+    "da:hviske|da:kramme": [
+      { "da": "kærlighed", "en": "love", "why": "affection expressed softly and physically", "s": 2 }
+    ],
+    "da:hviske|da:tålmodig": [
+      { "da": "rolig", "en": "calm", "why": "a quiet gentle manner", "s": 2 }
+    ],
+    "da:hviske|da:trøste": [
+      { "da": "rolig", "en": "calm", "why": "soft words reassure someone", "s": 3 },
+      { "da": "stemme", "en": "voice", "why": "used softly to reassure", "s": 2 }
+    ],
+    "da:hviske|da:venskab": [
+      { "da": "hemmelig", "en": "secret", "why": "friends share things quietly", "s": 2 }
+    ],
+    "da:hviske|da:skrige": [
+      { "da": "stemme", "en": "voice", "why": "two opposite uses of voice", "s": 3 },
+      { "da": "lyd", "en": "sound", "why": "quiet and loud vocal sounds", "s": 3 }
+    ],
+    "da:hviske|da:ægteskab": [
+      { "da": "kærlighed", "en": "love", "why": "soft words between spouses", "s": 1 }
+    ],
+    "da:interesse|da:aftale": [
+      { "da": "møde", "en": "meeting", "why": "scheduled around a shared topic", "s": 2 }
+    ],
+    "da:interesse|da:klatre": [
+      { "da": "hobby", "en": "hobby", "why": "an activity pursued for enjoyment", "s": 3 }
+    ],
+    "da:interesse|da:udsigt": [
+      { "da": "turist", "en": "tourist", "why": "someone drawn to scenic sights", "s": 2 }
+    ],
+    "da:interesse|da:bekymre": [
+      { "da": "optage", "en": "occupy", "why": "something that holds your attention", "s": 2 }
+    ],
+    "da:interesse|da:opskrift": [
+      { "da": "madlavning", "en": "cooking", "why": "a hobby using instructions", "s": 3 }
+    ],
+    "da:interesse|da:kultur": [
+      { "da": "kunst", "en": "art", "why": "a cultural subject people enjoy", "s": 3 },
+      { "da": "museum", "en": "museum", "why": "a place for cultural curiosity", "s": 2 }
+    ],
+    "da:interesse|da:regering": [
+      { "da": "politik", "en": "politics", "why": "a subject involving national leadership", "s": 3 }
+    ],
+    "da:interesse|da:fritid": [
+      { "da": "hobby", "en": "hobby", "why": "an activity enjoyed outside work", "s": 3 },
+      { "da": "aktivitet", "en": "activity", "why": "something pursued for enjoyment", "s": 3 }
+    ],
+    "da:interesse|da:klippe": [
+      { "da": "frisør", "en": "hairdresser", "why": "a career subject involving cutting", "s": 1 }
+    ],
+    "da:interesse|da:venskab": [
+      { "da": "fælles", "en": "shared", "why": "common ground between friends", "s": 3 }
+    ],
+    "da:kølig|da:glide": [
+      { "da": "is", "en": "ice", "why": "cold surface for sliding", "s": 3 }
+    ],
+    "da:kølig|da:fugtig": [
+      { "da": "kælder", "en": "basement", "why": "a typically cool damp place", "s": 3 },
+      { "da": "vejr", "en": "weather", "why": "conditions can be chilly and damp", "s": 2 }
+    ],
+    "da:kølig|da:klatre": [
+      { "da": "bjerg", "en": "mountain", "why": "a cold place to ascend", "s": 3 }
+    ],
+    "da:kølig|da:stiv": [
+      { "da": "kulde", "en": "cold", "why": "low temperature makes muscles rigid", "s": 3 },
+      { "da": "frossen", "en": "frozen", "why": "cold and unable to bend", "s": 3 }
+    ],
+    "da:kølig|da:kramme": [
+      { "da": "varme", "en": "warmth", "why": "an embrace counters chill", "s": 2 }
+    ],
+    "da:kølig|da:trøste": [
+      { "da": "varme", "en": "warmth", "why": "physical and emotional reassurance", "s": 2 }
+    ],
+    "da:kølig|da:sprød": [
+      { "da": "salat", "en": "salad", "why": "served cold with crunchy leaves", "s": 3 }
+    ],
+    "da:aftale|da:ring": [
+      { "da": "bryllup", "en": "wedding", "why": "a commitment marked by jewellery", "s": 3 },
+      { "da": "telefon", "en": "phone", "why": "used to arrange and call", "s": 2 }
+    ],
+    "da:aftale|da:bekymre": [
+      { "da": "forsinket", "en": "late", "why": "missing a commitment causes worry", "s": 2 }
+    ],
+    "da:aftale|da:kommune": [
+      { "da": "møde", "en": "meeting", "why": "a scheduled municipal discussion", "s": 3 }
+    ],
+    "da:aftale|da:tålmodig": [
+      { "da": "vente", "en": "wait", "why": "appointments can require patience", "s": 3 }
+    ],
+    "da:aftale|da:regering": [
+      { "da": "politik", "en": "politics", "why": "leaders negotiate formal agreements", "s": 2 },
+      { "da": "forhandle", "en": "negotiate", "why": "how leaders reach agreements", "s": 3 }
+    ],
+    "da:aftale|da:ordne": [
+      { "da": "planlægge", "en": "plan", "why": "to organize a commitment", "s": 3 },
+      { "da": "kalender", "en": "calendar", "why": "used to organize commitments", "s": 2 }
+    ],
+    "da:aftale|da:fritid": [
+      { "da": "kalender", "en": "calendar", "why": "schedules commitments and spare hours", "s": 2 }
+    ],
+    "da:aftale|da:ægteskab": [
+      { "da": "løfte", "en": "promise", "why": "a commitment between spouses", "s": 3 },
+      { "da": "bryllup", "en": "wedding", "why": "a formal marital commitment", "s": 3 }
+    ],
+    "da:glide|da:skuffe": [
+      { "da": "skinne", "en": "rail", "why": "lets a drawer move smoothly", "s": 3 }
+    ],
+    "da:glide|da:fugtig": [
+      { "da": "våd", "en": "wet", "why": "water makes surfaces slippery", "s": 3 },
+      { "da": "sæbe", "en": "soap", "why": "moist soap slips easily", "s": 2 }
+    ],
+    "da:glide|da:klatre": [
+      { "da": "bjerg", "en": "mountain", "why": "place for upward and downward movement", "s": 2 },
+      { "da": "ski", "en": "ski", "why": "ascending before sliding downhill", "s": 2 }
+    ],
+    "da:glide|da:stiv": [
+      { "da": "ski", "en": "ski", "why": "rigid equipment made to slide", "s": 3 }
+    ],
+    "da:glide|da:ulykke": [
+      { "da": "fald", "en": "fall", "why": "a slip that causes injury", "s": 3 },
+      { "da": "is", "en": "ice", "why": "a surface causing dangerous slips", "s": 3 }
+    ],
+    "da:glide|da:løs": [
+      { "da": "sko", "en": "shoe", "why": "poor fit can make it slip", "s": 2 }
+    ],
+    "da:glide|da:fritid": [
+      { "da": "ski", "en": "ski", "why": "sliding as a leisure activity", "s": 3 }
+    ],
+    "da:glide|da:skrige": [
+      { "da": "rutsjebane", "en": "rollercoaster", "why": "fast movement that prompts screams", "s": 2 }
+    ],
+    "da:skuffe|da:ring": [
+      { "da": "smykke", "en": "jewellery", "why": "valuable item stored inside", "s": 2 }
+    ],
+    "da:skuffe|da:stiv": [
+      { "da": "træ", "en": "wood", "why": "rigid material used for furniture", "s": 2 }
+    ],
+    "da:skuffe|da:opskrift": [
+      { "da": "køkken", "en": "kitchen", "why": "where instructions may be stored", "s": 2 }
+    ],
+    "da:skuffe|da:løs": [
+      { "da": "håndtag", "en": "handle", "why": "a drawer part that wobbles", "s": 3 }
+    ],
+    "da:skuffe|da:ordne": [
+      { "da": "rydde", "en": "clean", "why": "organizing a storage space", "s": 3 },
+      { "da": "system", "en": "system", "why": "a way to organize contents", "s": 2 }
+    ],
+    "da:skuffe|da:pakke": [
+      { "da": "opbevare", "en": "store", "why": "putting an item safely away", "s": 2 }
+    ],
+    "da:skuffe|da:klippe": [
+      { "da": "saks", "en": "scissors", "why": "a cutting tool kept inside", "s": 3 }
+    ],
+    "da:fugtig|da:klatre": [
+      { "da": "regn", "en": "rain", "why": "makes an ascent wet", "s": 2 }
+    ],
+    "da:fugtig|da:stiv": [
+      { "da": "tøj", "en": "clothes", "why": "fabric can be damp and rigid", "s": 2 }
+    ],
+    "da:fugtig|da:løs": [
+      { "da": "jord", "en": "soil", "why": "wet material that is not firm", "s": 2 }
+    ],
+    "da:fugtig|da:sprød": [
+      { "da": "mad", "en": "food", "why": "moisture removes its crunch", "s": 2 },
+      { "da": "kiks", "en": "biscuit", "why": "loses crunch when damp", "s": 3 }
+    ],
+    "da:klatre|da:udsigt": [
+      { "da": "bjerg", "en": "mountain", "why": "an ascent rewarded by scenery", "s": 3 },
+      { "da": "top", "en": "summit", "why": "destination with a wide view", "s": 3 }
+    ],
+    "da:klatre|da:bekymre": [
+      { "da": "højde", "en": "height", "why": "a source of climbing anxiety", "s": 3 }
+    ],
+    "da:klatre|da:stiv": [
+      { "da": "stige", "en": "ladder", "why": "a rigid tool for ascent", "s": 3 }
+    ],
+    "da:klatre|da:ulykke": [
+      { "da": "fald", "en": "fall", "why": "a major danger during ascent", "s": 3 }
+    ],
+    "da:klatre|da:løs": [
+      { "da": "reb", "en": "rope", "why": "unfixed equipment used for ascent", "s": 2 }
+    ],
+    "da:klatre|da:fritid": [
+      { "da": "sport", "en": "sport", "why": "an ascent activity done recreationally", "s": 3 },
+      { "da": "hobby", "en": "hobby", "why": "a pursuit enjoyed outside work", "s": 3 }
+    ],
+    "da:klatre|da:skrige": [
+      { "da": "frygt", "en": "fear", "why": "heights can provoke a yell", "s": 2 }
+    ],
+    "da:udsigt|da:skøn": [
+      { "da": "smuk", "en": "beautiful", "why": "a common description of scenery", "s": 3 },
+      { "da": "natur", "en": "nature", "why": "lovely scenery outdoors", "s": 3 }
+    ],
+    "da:udsigt|da:fritid": [
+      { "da": "ferie", "en": "holiday", "why": "time off spent enjoying scenery", "s": 2 }
+    ]
+  }
+}

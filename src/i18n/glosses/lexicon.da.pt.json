@@ -1,0 +1,10402 @@
+[
+  {
+    "da": "abe",
+    "gloss": "macaco"
+  },
+  {
+    "da": "absurd",
+    "gloss": "absurdo"
+  },
+  {
+    "da": "accent",
+    "gloss": "acento"
+  },
+  {
+    "da": "accept",
+    "gloss": "aceitar"
+  },
+  {
+    "da": "adfærd",
+    "gloss": "comportamento"
+  },
+  {
+    "da": "adgang",
+    "gloss": "acesso"
+  },
+  {
+    "da": "adlyde",
+    "gloss": "obedecer"
+  },
+  {
+    "da": "advarsel",
+    "gloss": "aviso"
+  },
+  {
+    "da": "afbrudt",
+    "gloss": "interrompido"
+  },
+  {
+    "da": "afbryde",
+    "gloss": "interromper"
+  },
+  {
+    "da": "afbud",
+    "gloss": "cancelamento"
+  },
+  {
+    "da": "afdeling",
+    "gloss": "departamento"
+  },
+  {
+    "da": "affald",
+    "gloss": "resíduos"
+  },
+  {
+    "da": "afgang",
+    "gloss": "partida"
+  },
+  {
+    "da": "afgørende",
+    "gloss": "crucial"
+  },
+  {
+    "da": "afhængig",
+    "gloss": "dependente"
+  },
+  {
+    "da": "afhængighed",
+    "gloss": "dependência"
+  },
+  {
+    "da": "afklæde",
+    "gloss": "despir"
+  },
+  {
+    "da": "afkom",
+    "gloss": "descendência"
+  },
+  {
+    "da": "aflyst",
+    "gloss": "cancelado"
+  },
+  {
+    "da": "afsked",
+    "gloss": "despedida"
+  },
+  {
+    "da": "afslag",
+    "gloss": "rejeição"
+  },
+  {
+    "da": "afslapning",
+    "gloss": "relaxamento"
+  },
+  {
+    "da": "afslappet",
+    "gloss": "relaxado"
+  },
+  {
+    "da": "afslutning",
+    "gloss": "conclusão"
+  },
+  {
+    "da": "afsløre",
+    "gloss": "revelar"
+  },
+  {
+    "da": "afstand",
+    "gloss": "distância"
+  },
+  {
+    "da": "afsted",
+    "gloss": "fora"
+  },
+  {
+    "da": "aftryk",
+    "gloss": "impressão"
+  },
+  {
+    "da": "agn",
+    "gloss": "isca"
+  },
+  {
+    "da": "akavet",
+    "gloss": "embaraçoso"
+  },
+  {
+    "da": "akse",
+    "gloss": "eixo"
+  },
+  {
+    "da": "aktiv",
+    "gloss": "ativo"
+  },
+  {
+    "da": "aktivitet",
+    "gloss": "atividade"
+  },
+  {
+    "da": "aktiviteter",
+    "gloss": "atividades"
+  },
+  {
+    "da": "akut",
+    "gloss": "emergência"
+  },
+  {
+    "da": "akvarium",
+    "gloss": "aquário"
+  },
+  {
+    "da": "alarm",
+    "gloss": "alarme"
+  },
+  {
+    "da": "albue",
+    "gloss": "cotovelo"
+  },
+  {
+    "da": "aldrig",
+    "gloss": "nunca"
+  },
+  {
+    "da": "alfabet",
+    "gloss": "alfabeto"
+  },
+  {
+    "da": "alkohol",
+    "gloss": "álcool"
+  },
+  {
+    "da": "alle",
+    "gloss": "todos"
+  },
+  {
+    "da": "allergi",
+    "gloss": "alergia"
+  },
+  {
+    "da": "almanak",
+    "gloss": "almanaque"
+  },
+  {
+    "da": "alt",
+    "gloss": "tudo"
+  },
+  {
+    "da": "altan",
+    "gloss": "varanda"
+  },
+  {
+    "da": "alter",
+    "gloss": "altar"
+  },
+  {
+    "da": "altid",
+    "gloss": "sempre"
+  },
+  {
+    "da": "alvor",
+    "gloss": "gravidade"
+  },
+  {
+    "da": "ambassade",
+    "gloss": "embaixada"
+  },
+  {
+    "da": "amme",
+    "gloss": "amamentar"
+  },
+  {
+    "da": "anatomi",
+    "gloss": "anatomia"
+  },
+  {
+    "da": "anderledes",
+    "gloss": "diferente"
+  },
+  {
+    "da": "anfald",
+    "gloss": "ataque"
+  },
+  {
+    "da": "anholdelse",
+    "gloss": "detenção"
+  },
+  {
+    "da": "ankel",
+    "gloss": "tornozelo"
+  },
+  {
+    "da": "anker",
+    "gloss": "âncora"
+  },
+  {
+    "da": "ankomst",
+    "gloss": "chegada"
+  },
+  {
+    "da": "anmeldelse",
+    "gloss": "crítica"
+  },
+  {
+    "da": "annonce",
+    "gloss": "anúncio"
+  },
+  {
+    "da": "ansat",
+    "gloss": "empregado"
+  },
+  {
+    "da": "anskaffe",
+    "gloss": "adquirir"
+  },
+  {
+    "da": "ansvar",
+    "gloss": "dever"
+  },
+  {
+    "da": "ansætte",
+    "gloss": "contratar"
+  },
+  {
+    "da": "ansøgning",
+    "gloss": "candidatura"
+  },
+  {
+    "da": "antage",
+    "gloss": "presumir"
+  },
+  {
+    "da": "antenne",
+    "gloss": "antena"
+  },
+  {
+    "da": "antik",
+    "gloss": "antigo"
+  },
+  {
+    "da": "anvende",
+    "gloss": "aplicar"
+  },
+  {
+    "da": "appetit",
+    "gloss": "apetite"
+  },
+  {
+    "da": "applaus",
+    "gloss": "aplauso"
+  },
+  {
+    "da": "april",
+    "gloss": "abril"
+  },
+  {
+    "da": "arbejdsløs",
+    "gloss": "desempregado"
+  },
+  {
+    "da": "arbejdsplads",
+    "gloss": "local de trabalho"
+  },
+  {
+    "da": "arbejdstid",
+    "gloss": "horário de trabalho"
+  },
+  {
+    "da": "argument",
+    "gloss": "argumento"
+  },
+  {
+    "da": "argumentere",
+    "gloss": "argumentar"
+  },
+  {
+    "da": "ark",
+    "gloss": "folha"
+  },
+  {
+    "da": "armbånd",
+    "gloss": "pulseira"
+  },
+  {
+    "da": "armbåndsur",
+    "gloss": "relógio de pulso"
+  },
+  {
+    "da": "arme",
+    "gloss": "braços"
+  },
+  {
+    "da": "armlæn",
+    "gloss": "apoio de braço"
+  },
+  {
+    "da": "art",
+    "gloss": "espécie"
+  },
+  {
+    "da": "arv",
+    "gloss": "herança"
+  },
+  {
+    "da": "arve",
+    "gloss": "herdar"
+  },
+  {
+    "da": "arving",
+    "gloss": "herdeiro"
+  },
+  {
+    "da": "asfalt",
+    "gloss": "asfalto"
+  },
+  {
+    "da": "aske",
+    "gloss": "cinza"
+  },
+  {
+    "da": "astronaut",
+    "gloss": "astronauta"
+  },
+  {
+    "da": "astronom",
+    "gloss": "astrónomo"
+  },
+  {
+    "da": "atlas",
+    "gloss": "atlas"
+  },
+  {
+    "da": "atlet",
+    "gloss": "atleta"
+  },
+  {
+    "da": "atletik",
+    "gloss": "atletismo"
+  },
+  {
+    "da": "atmosfære",
+    "gloss": "atmosfera"
+  },
+  {
+    "da": "atten",
+    "gloss": "dezoito"
+  },
+  {
+    "da": "audition",
+    "gloss": "audição"
+  },
+  {
+    "da": "auktion",
+    "gloss": "leilão"
+  },
+  {
+    "da": "autograf",
+    "gloss": "autógrafo"
+  },
+  {
+    "da": "automat",
+    "gloss": "multibanco"
+  },
+  {
+    "da": "autoritet",
+    "gloss": "autoridade"
+  },
+  {
+    "da": "autostol",
+    "gloss": "cadeira auto"
+  },
+  {
+    "da": "baby",
+    "gloss": "bebé"
+  },
+  {
+    "da": "bacon",
+    "gloss": "bacon"
+  },
+  {
+    "da": "badebro",
+    "gloss": "pontão"
+  },
+  {
+    "da": "badedragt",
+    "gloss": "fato de banho"
+  },
+  {
+    "da": "badetøj",
+    "gloss": "fato de banho"
+  },
+  {
+    "da": "badge",
+    "gloss": "distintivo"
+  },
+  {
+    "da": "bag",
+    "gloss": "atrás"
+  },
+  {
+    "da": "bagagerum",
+    "gloss": "mala"
+  },
+  {
+    "da": "bager",
+    "gloss": "padeiro"
+  },
+  {
+    "da": "bagerst",
+    "gloss": "traseiro"
+  },
+  {
+    "da": "bagning",
+    "gloss": "cozedura"
+  },
+  {
+    "da": "bagved",
+    "gloss": "atrás"
+  },
+  {
+    "da": "bajer",
+    "gloss": "imperial"
+  },
+  {
+    "da": "bakke",
+    "gloss": "colina"
+  },
+  {
+    "da": "balance",
+    "gloss": "equilíbrio"
+  },
+  {
+    "da": "balkon",
+    "gloss": "varanda"
+  },
+  {
+    "da": "ballade",
+    "gloss": "confusão"
+  },
+  {
+    "da": "ballon",
+    "gloss": "balão"
+  },
+  {
+    "da": "balsam",
+    "gloss": "bálsamo"
+  },
+  {
+    "da": "bamse",
+    "gloss": "ursinho de peluche"
+  },
+  {
+    "da": "band",
+    "gloss": "banda"
+  },
+  {
+    "da": "bane",
+    "gloss": "campo"
+  },
+  {
+    "da": "banegård",
+    "gloss": "estação"
+  },
+  {
+    "da": "banke",
+    "gloss": "bater"
+  },
+  {
+    "da": "bar",
+    "gloss": "bar"
+  },
+  {
+    "da": "barber",
+    "gloss": "barbear"
+  },
+  {
+    "da": "barbere",
+    "gloss": "barbear"
+  },
+  {
+    "da": "barbering",
+    "gloss": "barbear"
+  },
+  {
+    "da": "barberkniv",
+    "gloss": "navalha de barbear"
+  },
+  {
+    "da": "barfodet",
+    "gloss": "descalço"
+  },
+  {
+    "da": "bark",
+    "gloss": "casca"
+  },
+  {
+    "da": "barndom",
+    "gloss": "infância"
+  },
+  {
+    "da": "barnebarn",
+    "gloss": "neto"
+  },
+  {
+    "da": "barnevogn",
+    "gloss": "carrinho de bebé"
+  },
+  {
+    "da": "barometer",
+    "gloss": "barómetro"
+  },
+  {
+    "da": "barsel",
+    "gloss": "maternidade"
+  },
+  {
+    "da": "bartender",
+    "gloss": "barman"
+  },
+  {
+    "da": "base",
+    "gloss": "base"
+  },
+  {
+    "da": "basketball",
+    "gloss": "basquetebol"
+  },
+  {
+    "da": "beboer",
+    "gloss": "morador"
+  },
+  {
+    "da": "bedre",
+    "gloss": "melhor"
+  },
+  {
+    "da": "bedst",
+    "gloss": "melhor"
+  },
+  {
+    "da": "bedste",
+    "gloss": "melhor"
+  },
+  {
+    "da": "bedstefar",
+    "gloss": "avô"
+  },
+  {
+    "da": "bedstemor",
+    "gloss": "avó"
+  },
+  {
+    "da": "befinde",
+    "gloss": "encontrar-se, sentir-se"
+  },
+  {
+    "da": "befolkning",
+    "gloss": "população"
+  },
+  {
+    "da": "begge",
+    "gloss": "ambos"
+  },
+  {
+    "da": "begivenhed",
+    "gloss": "acontecimento"
+  },
+  {
+    "da": "begravelse",
+    "gloss": "funeral"
+  },
+  {
+    "da": "begreb",
+    "gloss": "conceito"
+  },
+  {
+    "da": "begrundet",
+    "gloss": "justificado"
+  },
+  {
+    "da": "begyndelse",
+    "gloss": "começo"
+  },
+  {
+    "da": "begynder",
+    "gloss": "principiante"
+  },
+  {
+    "da": "behandling",
+    "gloss": "tratamento"
+  },
+  {
+    "da": "behersket",
+    "gloss": "controlado"
+  },
+  {
+    "da": "beholde",
+    "gloss": "manter"
+  },
+  {
+    "da": "beholder",
+    "gloss": "recipiente"
+  },
+  {
+    "da": "behov",
+    "gloss": "necessidade"
+  },
+  {
+    "da": "bekendelse",
+    "gloss": "confissão"
+  },
+  {
+    "da": "beklage",
+    "gloss": "lamentar"
+  },
+  {
+    "da": "beklager",
+    "gloss": "lamentar"
+  },
+  {
+    "da": "bekræfte",
+    "gloss": "confirmar"
+  },
+  {
+    "da": "bekvem",
+    "gloss": "cómodo"
+  },
+  {
+    "da": "beløb",
+    "gloss": "montante"
+  },
+  {
+    "da": "belønning",
+    "gloss": "recompensa"
+  },
+  {
+    "da": "bemærke",
+    "gloss": "notar"
+  },
+  {
+    "da": "benytte",
+    "gloss": "utilizar"
+  },
+  {
+    "da": "benzin",
+    "gloss": "gasolina"
+  },
+  {
+    "da": "benævne",
+    "gloss": "denominar"
+  },
+  {
+    "da": "berøring",
+    "gloss": "toque"
+  },
+  {
+    "da": "beskyttelse",
+    "gloss": "abrigo"
+  },
+  {
+    "da": "beslag",
+    "gloss": "suporte"
+  },
+  {
+    "da": "beslutning",
+    "gloss": "decisão"
+  },
+  {
+    "da": "bestemt",
+    "gloss": "definido"
+  },
+  {
+    "da": "bestik",
+    "gloss": "talheres"
+  },
+  {
+    "da": "besvær",
+    "gloss": "problema"
+  },
+  {
+    "da": "besøg",
+    "gloss": "visita"
+  },
+  {
+    "da": "betaling",
+    "gloss": "pagamento"
+  },
+  {
+    "da": "betegnelse",
+    "gloss": "designação, termo"
+  },
+  {
+    "da": "beton",
+    "gloss": "betão"
+  },
+  {
+    "da": "betydning",
+    "gloss": "significado"
+  },
+  {
+    "da": "betændelse",
+    "gloss": "infeção"
+  },
+  {
+    "da": "bevidst",
+    "gloss": "consciente"
+  },
+  {
+    "da": "bevidsthed",
+    "gloss": "consciência"
+  },
+  {
+    "da": "bevis",
+    "gloss": "confirmação"
+  },
+  {
+    "da": "bevæge",
+    "gloss": "mover"
+  },
+  {
+    "da": "bevægelse",
+    "gloss": "movimento"
+  },
+  {
+    "da": "bi",
+    "gloss": "abelha"
+  },
+  {
+    "da": "bibel",
+    "gloss": "Bíblia"
+  },
+  {
+    "da": "biceps",
+    "gloss": "bíceps"
+  },
+  {
+    "da": "bid",
+    "gloss": "mordida"
+  },
+  {
+    "da": "bide",
+    "gloss": "morder"
+  },
+  {
+    "da": "bidrage",
+    "gloss": "contribuir"
+  },
+  {
+    "da": "bikini",
+    "gloss": "bikini"
+  },
+  {
+    "da": "biler",
+    "gloss": "carros"
+  },
+  {
+    "da": "bilist",
+    "gloss": "automobilista"
+  },
+  {
+    "da": "billetautomat",
+    "gloss": "máquina de bilhetes"
+  },
+  {
+    "da": "billigt",
+    "gloss": "barato"
+  },
+  {
+    "da": "bind",
+    "gloss": "volume"
+  },
+  {
+    "da": "biologi",
+    "gloss": "biologia"
+  },
+  {
+    "da": "birk",
+    "gloss": "bétula"
+  },
+  {
+    "da": "bitte",
+    "gloss": "minúsculo"
+  },
+  {
+    "da": "bitter",
+    "gloss": "amargo"
+  },
+  {
+    "da": "bjergbestiger",
+    "gloss": "alpinista"
+  },
+  {
+    "da": "bjørn",
+    "gloss": "urso"
+  },
+  {
+    "da": "blade",
+    "gloss": "folhas"
+  },
+  {
+    "da": "blanchere",
+    "gloss": "branquear"
+  },
+  {
+    "da": "blank",
+    "gloss": "brilhante"
+  },
+  {
+    "da": "ble",
+    "gloss": "fralda"
+  },
+  {
+    "da": "bleg",
+    "gloss": "pálido"
+  },
+  {
+    "da": "blid",
+    "gloss": "suave"
+  },
+  {
+    "da": "blidt",
+    "gloss": "suavemente"
+  },
+  {
+    "da": "blik",
+    "gloss": "olhar"
+  },
+  {
+    "da": "blind",
+    "gloss": "cego"
+  },
+  {
+    "da": "blinke",
+    "gloss": "piscar"
+  },
+  {
+    "da": "blodtryk",
+    "gloss": "pressão"
+  },
+  {
+    "da": "blok",
+    "gloss": "bloco"
+  },
+  {
+    "da": "blomme",
+    "gloss": "gema"
+  },
+  {
+    "da": "blomster",
+    "gloss": "flores"
+  },
+  {
+    "da": "blond",
+    "gloss": "louro"
+  },
+  {
+    "da": "blæk",
+    "gloss": "tinta"
+  },
+  {
+    "da": "blæse",
+    "gloss": "soprar"
+  },
+  {
+    "da": "blæst",
+    "gloss": "ventania"
+  },
+  {
+    "da": "bløde",
+    "gloss": "sangrar"
+  },
+  {
+    "da": "boble",
+    "gloss": "bolha"
+  },
+  {
+    "da": "bogmærke",
+    "gloss": "marcador"
+  },
+  {
+    "da": "bogstav",
+    "gloss": "letra"
+  },
+  {
+    "da": "bogstaver",
+    "gloss": "letras"
+  },
+  {
+    "da": "boks",
+    "gloss": "cofre"
+  },
+  {
+    "da": "bokse",
+    "gloss": "caixa"
+  },
+  {
+    "da": "bokser",
+    "gloss": "pugilista"
+  },
+  {
+    "da": "boksning",
+    "gloss": "boxe"
+  },
+  {
+    "da": "bold",
+    "gloss": "bola"
+  },
+  {
+    "da": "bolig",
+    "gloss": "casa"
+  },
+  {
+    "da": "bolle",
+    "gloss": "pão doce"
+  },
+  {
+    "da": "bombe",
+    "gloss": "bomba"
+  },
+  {
+    "da": "bomuld",
+    "gloss": "algodão"
+  },
+  {
+    "da": "bon",
+    "gloss": "recibo"
+  },
+  {
+    "da": "bonde",
+    "gloss": "agricultor"
+  },
+  {
+    "da": "bondegård",
+    "gloss": "quinta"
+  },
+  {
+    "da": "booke",
+    "gloss": "reservar"
+  },
+  {
+    "da": "booking",
+    "gloss": "reserva"
+  },
+  {
+    "da": "bopæl",
+    "gloss": "residência"
+  },
+  {
+    "da": "bor",
+    "gloss": "broca"
+  },
+  {
+    "da": "bore",
+    "gloss": "furar"
+  },
+  {
+    "da": "borg",
+    "gloss": "castelo"
+  },
+  {
+    "da": "borger",
+    "gloss": "cidadão"
+  },
+  {
+    "da": "borgmester",
+    "gloss": "presidente da câmara"
+  },
+  {
+    "da": "brainstorm",
+    "gloss": "brainstorming"
+  },
+  {
+    "da": "brand",
+    "gloss": "fogo"
+  },
+  {
+    "da": "brandbil",
+    "gloss": "camião de bombeiros"
+  },
+  {
+    "da": "bredde",
+    "gloss": "largura"
+  },
+  {
+    "da": "bremse",
+    "gloss": "travão"
+  },
+  {
+    "da": "brik",
+    "gloss": "peça"
+  },
+  {
+    "da": "bringe",
+    "gloss": "trazer"
+  },
+  {
+    "da": "brise",
+    "gloss": "brisa"
+  },
+  {
+    "da": "broccoli",
+    "gloss": "brócolos"
+  },
+  {
+    "da": "brokke",
+    "gloss": "queixar-se"
+  },
+  {
+    "da": "brosten",
+    "gloss": "calçada"
+  },
+  {
+    "da": "brud",
+    "gloss": "ruptura"
+  },
+  {
+    "da": "brudgom",
+    "gloss": "noivo"
+  },
+  {
+    "da": "brudt",
+    "gloss": "partido"
+  },
+  {
+    "da": "brugbar",
+    "gloss": "utilizável"
+  },
+  {
+    "da": "bruger",
+    "gloss": "utilizador"
+  },
+  {
+    "da": "brugervenlig",
+    "gloss": "fácil de utilizar"
+  },
+  {
+    "da": "brugt",
+    "gloss": "usado"
+  },
+  {
+    "da": "brunch",
+    "gloss": "brunch"
+  },
+  {
+    "da": "brusebad",
+    "gloss": "duche"
+  },
+  {
+    "da": "bruser",
+    "gloss": "duche"
+  },
+  {
+    "da": "brygge",
+    "gloss": "preparar"
+  },
+  {
+    "da": "bryggeri",
+    "gloss": "cervejaria"
+  },
+  {
+    "da": "bryllup",
+    "gloss": "casamento"
+  },
+  {
+    "da": "bryn",
+    "gloss": "sobrancelha"
+  },
+  {
+    "da": "bryst",
+    "gloss": "peito"
+  },
+  {
+    "da": "brække",
+    "gloss": "partir"
+  },
+  {
+    "da": "brækket",
+    "gloss": "partido"
+  },
+  {
+    "da": "brænde",
+    "gloss": "queimar"
+  },
+  {
+    "da": "brændstof",
+    "gloss": "combustível"
+  },
+  {
+    "da": "brændt",
+    "gloss": "queimado"
+  },
+  {
+    "da": "bræt",
+    "gloss": "tábua"
+  },
+  {
+    "da": "brøk",
+    "gloss": "fração"
+  },
+  {
+    "da": "brønd",
+    "gloss": "poço"
+  },
+  {
+    "da": "bud",
+    "gloss": "estafeta"
+  },
+  {
+    "da": "budget",
+    "gloss": "orçamento"
+  },
+  {
+    "da": "budskab",
+    "gloss": "mensagem"
+  },
+  {
+    "da": "buffet",
+    "gloss": "buffet"
+  },
+  {
+    "da": "buket",
+    "gloss": "ramo"
+  },
+  {
+    "da": "bump",
+    "gloss": "saliência"
+  },
+  {
+    "da": "bund",
+    "gloss": "fundo"
+  },
+  {
+    "da": "bundet",
+    "gloss": "atado"
+  },
+  {
+    "da": "bur",
+    "gloss": "gaiola"
+  },
+  {
+    "da": "burger",
+    "gloss": "hambúrguer"
+  },
+  {
+    "da": "busk",
+    "gloss": "arbusto"
+  },
+  {
+    "da": "butikker",
+    "gloss": "lojas"
+  },
+  {
+    "da": "byde",
+    "gloss": "oferecer"
+  },
+  {
+    "da": "byg",
+    "gloss": "cevada"
+  },
+  {
+    "da": "byge",
+    "gloss": "aguaceiro"
+  },
+  {
+    "da": "byggeplads",
+    "gloss": "estaleiro de obras"
+  },
+  {
+    "da": "byggeri",
+    "gloss": "construção"
+  },
+  {
+    "da": "bytte",
+    "gloss": "trocar"
+  },
+  {
+    "da": "bål",
+    "gloss": "fogueira"
+  },
+  {
+    "da": "bånd",
+    "gloss": "laço"
+  },
+  {
+    "da": "bænk",
+    "gloss": "banco"
+  },
+  {
+    "da": "bær",
+    "gloss": "baga"
+  },
+  {
+    "da": "bærbar",
+    "gloss": "portátil"
+  },
+  {
+    "da": "bæve",
+    "gloss": "tremer"
+  },
+  {
+    "da": "bøde",
+    "gloss": "multa"
+  },
+  {
+    "da": "bøf",
+    "gloss": "bife"
+  },
+  {
+    "da": "bøger",
+    "gloss": "livros"
+  },
+  {
+    "da": "bøje",
+    "gloss": "curvar"
+  },
+  {
+    "da": "bøjle",
+    "gloss": "aparelho"
+  },
+  {
+    "da": "bølge",
+    "gloss": "onda"
+  },
+  {
+    "da": "bølger",
+    "gloss": "ondas"
+  },
+  {
+    "da": "bøn",
+    "gloss": "oração"
+  },
+  {
+    "da": "bønne",
+    "gloss": "feijão"
+  },
+  {
+    "da": "børn",
+    "gloss": "crianças"
+  },
+  {
+    "da": "børneopdragelse",
+    "gloss": "educação dos filhos"
+  },
+  {
+    "da": "børnesang",
+    "gloss": "canção infantil"
+  },
+  {
+    "da": "børste",
+    "gloss": "escova"
+  },
+  {
+    "da": "bøsse",
+    "gloss": "polvilhador"
+  },
+  {
+    "da": "cafe",
+    "gloss": "café"
+  },
+  {
+    "da": "café",
+    "gloss": "café"
+  },
+  {
+    "da": "camping",
+    "gloss": "camping"
+  },
+  {
+    "da": "celle",
+    "gloss": "célula"
+  },
+  {
+    "da": "center",
+    "gloss": "centro comercial"
+  },
+  {
+    "da": "centimeter",
+    "gloss": "centímetro"
+  },
+  {
+    "da": "central",
+    "gloss": "central"
+  },
+  {
+    "da": "centrifuge",
+    "gloss": "centrifugadora"
+  },
+  {
+    "da": "centrum",
+    "gloss": "centro"
+  },
+  {
+    "da": "ceremoni",
+    "gloss": "cerimónia"
+  },
+  {
+    "da": "champagne",
+    "gloss": "champanhe"
+  },
+  {
+    "da": "chance",
+    "gloss": "chance"
+  },
+  {
+    "da": "charme",
+    "gloss": "charme"
+  },
+  {
+    "da": "charmerende",
+    "gloss": "encantador"
+  },
+  {
+    "da": "chat",
+    "gloss": "chat"
+  },
+  {
+    "da": "chauffør",
+    "gloss": "motorista"
+  },
+  {
+    "da": "chili",
+    "gloss": "chili"
+  },
+  {
+    "da": "chips",
+    "gloss": "chips"
+  },
+  {
+    "da": "chok",
+    "gloss": "choque"
+  },
+  {
+    "da": "cigar",
+    "gloss": "charuto"
+  },
+  {
+    "da": "cigaret",
+    "gloss": "cigarro"
+  },
+  {
+    "da": "cirkel",
+    "gloss": "círculo"
+  },
+  {
+    "da": "coach",
+    "gloss": "treinador"
+  },
+  {
+    "da": "cocktail",
+    "gloss": "cocktail"
+  },
+  {
+    "da": "cola",
+    "gloss": "cola"
+  },
+  {
+    "da": "cornflakes",
+    "gloss": "cereais"
+  },
+  {
+    "da": "cowboy",
+    "gloss": "cowboy"
+  },
+  {
+    "da": "cowboybukser",
+    "gloss": "calças de ganga"
+  },
+  {
+    "da": "creme",
+    "gloss": "creme"
+  },
+  {
+    "da": "croissant",
+    "gloss": "croissant"
+  },
+  {
+    "da": "cv",
+    "gloss": "currículo"
+  },
+  {
+    "da": "cykelsti",
+    "gloss": "ciclovia"
+  },
+  {
+    "da": "cylinder",
+    "gloss": "cilindro"
+  },
+  {
+    "da": "dagbog",
+    "gloss": "diário"
+  },
+  {
+    "da": "daggry",
+    "gloss": "amanhecer"
+  },
+  {
+    "da": "daglig",
+    "gloss": "diário"
+  },
+  {
+    "da": "dagsorden",
+    "gloss": "agenda"
+  },
+  {
+    "da": "dal",
+    "gloss": "vale"
+  },
+  {
+    "da": "dam",
+    "gloss": "lagoa"
+  },
+  {
+    "da": "dame",
+    "gloss": "senhora"
+  },
+  {
+    "da": "damp",
+    "gloss": "vapor"
+  },
+  {
+    "da": "dampe",
+    "gloss": "evaporar"
+  },
+  {
+    "da": "danmark",
+    "gloss": "Danmark"
+  },
+  {
+    "da": "dans",
+    "gloss": "dança"
+  },
+  {
+    "da": "data",
+    "gloss": "dados"
+  },
+  {
+    "da": "date",
+    "gloss": "encontro"
+  },
+  {
+    "da": "dating",
+    "gloss": "encontros"
+  },
+  {
+    "da": "dato",
+    "gloss": "data"
+  },
+  {
+    "da": "de",
+    "gloss": "você"
+  },
+  {
+    "da": "deadline",
+    "gloss": "prazo"
+  },
+  {
+    "da": "debat",
+    "gloss": "debate"
+  },
+  {
+    "da": "december",
+    "gloss": "dezembro"
+  },
+  {
+    "da": "defekt",
+    "gloss": "defeituoso"
+  },
+  {
+    "da": "definition",
+    "gloss": "definição"
+  },
+  {
+    "da": "dej",
+    "gloss": "massa"
+  },
+  {
+    "da": "del",
+    "gloss": "parte"
+  },
+  {
+    "da": "delfin",
+    "gloss": "golfinho"
+  },
+  {
+    "da": "delt",
+    "gloss": "dividido, partilhado"
+  },
+  {
+    "da": "deltager",
+    "gloss": "participante"
+  },
+  {
+    "da": "deltid",
+    "gloss": "tempo parcial"
+  },
+  {
+    "da": "delvis",
+    "gloss": "em parte"
+  },
+  {
+    "da": "demokrati",
+    "gloss": "democracia"
+  },
+  {
+    "da": "demonstrere",
+    "gloss": "demonstrar"
+  },
+  {
+    "da": "denim",
+    "gloss": "ganga"
+  },
+  {
+    "da": "derefter",
+    "gloss": "depois"
+  },
+  {
+    "da": "design",
+    "gloss": "design"
+  },
+  {
+    "da": "dessert",
+    "gloss": "sobremesa"
+  },
+  {
+    "da": "destination",
+    "gloss": "destino"
+  },
+  {
+    "da": "detalje",
+    "gloss": "detalhe"
+  },
+  {
+    "da": "detektiv",
+    "gloss": "detetive"
+  },
+  {
+    "da": "diabetes",
+    "gloss": "diabetes"
+  },
+  {
+    "da": "dialog",
+    "gloss": "diálogo"
+  },
+  {
+    "da": "diamant",
+    "gloss": "diamante"
+  },
+  {
+    "da": "diesel",
+    "gloss": "gasóleo"
+  },
+  {
+    "da": "digital",
+    "gloss": "digital"
+  },
+  {
+    "da": "digt",
+    "gloss": "poema"
+  },
+  {
+    "da": "dinosaur",
+    "gloss": "dinossauro"
+  },
+  {
+    "da": "diplomatisk",
+    "gloss": "diplomático"
+  },
+  {
+    "da": "direkte",
+    "gloss": "direto"
+  },
+  {
+    "da": "direktør",
+    "gloss": "diretor"
+  },
+  {
+    "da": "dis",
+    "gloss": "bruma"
+  },
+  {
+    "da": "disciplin",
+    "gloss": "disciplina"
+  },
+  {
+    "da": "diskussion",
+    "gloss": "discussão"
+  },
+  {
+    "da": "distance",
+    "gloss": "distância"
+  },
+  {
+    "da": "dobbelt",
+    "gloss": "duplo"
+  },
+  {
+    "da": "dobbeltdækker",
+    "gloss": "autocarro de dois pisos"
+  },
+  {
+    "da": "dokument",
+    "gloss": "documento"
+  },
+  {
+    "da": "dom",
+    "gloss": "julgamento"
+  },
+  {
+    "da": "dommer",
+    "gloss": "juiz"
+  },
+  {
+    "da": "donere",
+    "gloss": "doar"
+  },
+  {
+    "da": "drage",
+    "gloss": "papagaio de papel"
+  },
+  {
+    "da": "drama",
+    "gloss": "drama"
+  },
+  {
+    "da": "dramatisk",
+    "gloss": "dramático"
+  },
+  {
+    "da": "drik",
+    "gloss": "bebida"
+  },
+  {
+    "da": "drikkepenge",
+    "gloss": "gorjeta"
+  },
+  {
+    "da": "drille",
+    "gloss": "gozar"
+  },
+  {
+    "da": "drink",
+    "gloss": "drink"
+  },
+  {
+    "da": "dronning",
+    "gloss": "rainha"
+  },
+  {
+    "da": "druer",
+    "gloss": "uvas"
+  },
+  {
+    "da": "drukne",
+    "gloss": "afogar-se"
+  },
+  {
+    "da": "dryppe",
+    "gloss": "pingar"
+  },
+  {
+    "da": "drysse",
+    "gloss": "polvilhar"
+  },
+  {
+    "da": "dråbe",
+    "gloss": "gota"
+  },
+  {
+    "da": "dråber",
+    "gloss": "gotas"
+  },
+  {
+    "da": "dræbe",
+    "gloss": "matar"
+  },
+  {
+    "da": "du",
+    "gloss": "tu"
+  },
+  {
+    "da": "due",
+    "gloss": "pomba"
+  },
+  {
+    "da": "duer",
+    "gloss": "pombos"
+  },
+  {
+    "da": "duft",
+    "gloss": "aroma"
+  },
+  {
+    "da": "dufte",
+    "gloss": "cheirar"
+  },
+  {
+    "da": "dug",
+    "gloss": "toalha"
+  },
+  {
+    "da": "dukke",
+    "gloss": "boneca"
+  },
+  {
+    "da": "dumpe",
+    "gloss": "chumbar"
+  },
+  {
+    "da": "dusin",
+    "gloss": "dúzia"
+  },
+  {
+    "da": "dværg",
+    "gloss": "anão"
+  },
+  {
+    "da": "dyd",
+    "gloss": "virtude"
+  },
+  {
+    "da": "dygtigt",
+    "gloss": "habilmente"
+  },
+  {
+    "da": "dykke",
+    "gloss": "mergulhar"
+  },
+  {
+    "da": "dyrke",
+    "gloss": "cultivar"
+  },
+  {
+    "da": "dyrlæge",
+    "gloss": "veterinário"
+  },
+  {
+    "da": "dyrt",
+    "gloss": "caro"
+  },
+  {
+    "da": "dytte",
+    "gloss": "buzinar"
+  },
+  {
+    "da": "dåb",
+    "gloss": "batismo"
+  },
+  {
+    "da": "dåse",
+    "gloss": "lata"
+  },
+  {
+    "da": "dåseåbner",
+    "gloss": "abre-latas"
+  },
+  {
+    "da": "dæk",
+    "gloss": "pneu"
+  },
+  {
+    "da": "dække",
+    "gloss": "pôr"
+  },
+  {
+    "da": "dæmpet",
+    "gloss": "contido"
+  },
+  {
+    "da": "døbe",
+    "gloss": "batizar"
+  },
+  {
+    "da": "døgn",
+    "gloss": "horas"
+  },
+  {
+    "da": "dørklokke",
+    "gloss": "campainha"
+  },
+  {
+    "da": "døsig",
+    "gloss": "sonolento"
+  },
+  {
+    "da": "døv",
+    "gloss": "surdo"
+  },
+  {
+    "da": "edderkop",
+    "gloss": "aranha"
+  },
+  {
+    "da": "effektiv",
+    "gloss": "eficaz"
+  },
+  {
+    "da": "efter",
+    "gloss": "depois de"
+  },
+  {
+    "da": "efterforskning",
+    "gloss": "investigação"
+  },
+  {
+    "da": "eftermiddag",
+    "gloss": "tarde"
+  },
+  {
+    "da": "efternavn",
+    "gloss": "apelido"
+  },
+  {
+    "da": "efterårsferie",
+    "gloss": "férias de outono"
+  },
+  {
+    "da": "eg",
+    "gloss": "carvalho"
+  },
+  {
+    "da": "egen",
+    "gloss": "próprio"
+  },
+  {
+    "da": "egern",
+    "gloss": "esquilo"
+  },
+  {
+    "da": "ejer",
+    "gloss": "dono"
+  },
+  {
+    "da": "ekko",
+    "gloss": "eco"
+  },
+  {
+    "da": "eks",
+    "gloss": "ex"
+  },
+  {
+    "da": "eksistere",
+    "gloss": "existir"
+  },
+  {
+    "da": "ekspedient",
+    "gloss": "balconista"
+  },
+  {
+    "da": "ekspert",
+    "gloss": "especialista"
+  },
+  {
+    "da": "eksport",
+    "gloss": "exportação"
+  },
+  {
+    "da": "ekspres",
+    "gloss": "expresso"
+  },
+  {
+    "da": "ekstra",
+    "gloss": "extra"
+  },
+  {
+    "da": "elastik",
+    "gloss": "elástico"
+  },
+  {
+    "da": "elastisk",
+    "gloss": "elástico"
+  },
+  {
+    "da": "elefant",
+    "gloss": "elefante"
+  },
+  {
+    "da": "elegant",
+    "gloss": "elegante"
+  },
+  {
+    "da": "elektrisk",
+    "gloss": "elétrico"
+  },
+  {
+    "da": "elevator",
+    "gloss": "elevador"
+  },
+  {
+    "da": "email",
+    "gloss": "email"
+  },
+  {
+    "da": "emballage",
+    "gloss": "embalagem"
+  },
+  {
+    "da": "embedsmand",
+    "gloss": "funcionário"
+  },
+  {
+    "da": "emne",
+    "gloss": "assunto"
+  },
+  {
+    "da": "emoji",
+    "gloss": "emoji"
+  },
+  {
+    "da": "ende",
+    "gloss": "fim"
+  },
+  {
+    "da": "endelig",
+    "gloss": "finalmente"
+  },
+  {
+    "da": "endeløs",
+    "gloss": "interminável"
+  },
+  {
+    "da": "endnu",
+    "gloss": "outro"
+  },
+  {
+    "da": "energi",
+    "gloss": "energia"
+  },
+  {
+    "da": "eng",
+    "gloss": "prado"
+  },
+  {
+    "da": "engel",
+    "gloss": "anjo"
+  },
+  {
+    "da": "enhed",
+    "gloss": "dispositivo"
+  },
+  {
+    "da": "enig",
+    "gloss": "concordar"
+  },
+  {
+    "da": "enighed",
+    "gloss": "acordo"
+  },
+  {
+    "da": "enkelt",
+    "gloss": "simples"
+  },
+  {
+    "da": "enorm",
+    "gloss": "enorme"
+  },
+  {
+    "da": "epoke",
+    "gloss": "época"
+  },
+  {
+    "da": "erfaring",
+    "gloss": "experiência"
+  },
+  {
+    "da": "erhverv",
+    "gloss": "profissão"
+  },
+  {
+    "da": "es",
+    "gloss": "ás"
+  },
+  {
+    "da": "espresso",
+    "gloss": "espresso"
+  },
+  {
+    "da": "etage",
+    "gloss": "andar"
+  },
+  {
+    "da": "etikette",
+    "gloss": "etiqueta"
+  },
+  {
+    "da": "europa",
+    "gloss": "Europa"
+  },
+  {
+    "da": "eventyr",
+    "gloss": "aventura"
+  },
+  {
+    "da": "eventyrlig",
+    "gloss": "fabuloso"
+  },
+  {
+    "da": "evig",
+    "gloss": "eterno"
+  },
+  {
+    "da": "evighed",
+    "gloss": "eternidade"
+  },
+  {
+    "da": "evigt",
+    "gloss": "para sempre"
+  },
+  {
+    "da": "evne",
+    "gloss": "habilidade"
+  },
+  {
+    "da": "facit",
+    "gloss": "solução"
+  },
+  {
+    "da": "fag",
+    "gloss": "disciplina"
+  },
+  {
+    "da": "fakta",
+    "gloss": "factos"
+  },
+  {
+    "da": "fald",
+    "gloss": "queda"
+  },
+  {
+    "da": "faldskærm",
+    "gloss": "paraquedas"
+  },
+  {
+    "da": "falk",
+    "gloss": "falcão"
+  },
+  {
+    "da": "falsk",
+    "gloss": "falso"
+  },
+  {
+    "da": "familiefoto",
+    "gloss": "fotografia de família"
+  },
+  {
+    "da": "familieliv",
+    "gloss": "vida familiar"
+  },
+  {
+    "da": "familietræ",
+    "gloss": "árvore genealógica"
+  },
+  {
+    "da": "fan",
+    "gloss": "fã"
+  },
+  {
+    "da": "fans",
+    "gloss": "fãs"
+  },
+  {
+    "da": "fantasi",
+    "gloss": "imaginação"
+  },
+  {
+    "da": "fare",
+    "gloss": "perigo"
+  },
+  {
+    "da": "farefuld",
+    "gloss": "perigoso"
+  },
+  {
+    "da": "fart",
+    "gloss": "ritmo"
+  },
+  {
+    "da": "farve",
+    "gloss": "cor"
+  },
+  {
+    "da": "farvel",
+    "gloss": "adeus"
+  },
+  {
+    "da": "farver",
+    "gloss": "cores"
+  },
+  {
+    "da": "fastgøre",
+    "gloss": "prender"
+  },
+  {
+    "da": "fe",
+    "gloss": "fada"
+  },
+  {
+    "da": "februar",
+    "gloss": "fevereiro"
+  },
+  {
+    "da": "fed",
+    "gloss": "gordo"
+  },
+  {
+    "da": "fedt",
+    "gloss": "gordura"
+  },
+  {
+    "da": "feje",
+    "gloss": "varrer"
+  },
+  {
+    "da": "fem",
+    "gloss": "cinco"
+  },
+  {
+    "da": "feminin",
+    "gloss": "feminino"
+  },
+  {
+    "da": "ferskvand",
+    "gloss": "água doce"
+  },
+  {
+    "da": "festival",
+    "gloss": "festival"
+  },
+  {
+    "da": "fiber",
+    "gloss": "fibra"
+  },
+  {
+    "da": "fikse",
+    "gloss": "arranjar"
+  },
+  {
+    "da": "filet",
+    "gloss": "filete"
+  },
+  {
+    "da": "filial",
+    "gloss": "filial"
+  },
+  {
+    "da": "filter",
+    "gloss": "filtro"
+  },
+  {
+    "da": "fingerled",
+    "gloss": "nó do dedo"
+  },
+  {
+    "da": "fingre",
+    "gloss": "dedos"
+  },
+  {
+    "da": "finne",
+    "gloss": "barbatana"
+  },
+  {
+    "da": "fint",
+    "gloss": "fino"
+  },
+  {
+    "da": "fire",
+    "gloss": "quatro"
+  },
+  {
+    "da": "firkant",
+    "gloss": "quadrado"
+  },
+  {
+    "da": "fiske",
+    "gloss": "pescar"
+  },
+  {
+    "da": "fisker",
+    "gloss": "pescador"
+  },
+  {
+    "da": "fiskeri",
+    "gloss": "pesca"
+  },
+  {
+    "da": "fiskestang",
+    "gloss": "cana de pesca"
+  },
+  {
+    "da": "fitness",
+    "gloss": "fitness"
+  },
+  {
+    "da": "fjende",
+    "gloss": "inimigo"
+  },
+  {
+    "da": "fjer",
+    "gloss": "pena"
+  },
+  {
+    "da": "fjern",
+    "gloss": "distante"
+  },
+  {
+    "da": "fjollet",
+    "gloss": "parvo"
+  },
+  {
+    "da": "flad",
+    "gloss": "plano"
+  },
+  {
+    "da": "flade",
+    "gloss": "superfície"
+  },
+  {
+    "da": "flag",
+    "gloss": "bandeira"
+  },
+  {
+    "da": "flagermus",
+    "gloss": "morcego"
+  },
+  {
+    "da": "flagstang",
+    "gloss": "mastro"
+  },
+  {
+    "da": "flamme",
+    "gloss": "chama"
+  },
+  {
+    "da": "flertal",
+    "gloss": "maioria"
+  },
+  {
+    "da": "flet",
+    "gloss": "trançar"
+  },
+  {
+    "da": "fletning",
+    "gloss": "trança"
+  },
+  {
+    "da": "flirte",
+    "gloss": "flertar"
+  },
+  {
+    "da": "flise",
+    "gloss": "azulejo"
+  },
+  {
+    "da": "fliser",
+    "gloss": "azulejos"
+  },
+  {
+    "da": "flittig",
+    "gloss": "aplicado"
+  },
+  {
+    "da": "flok",
+    "gloss": "multidão"
+  },
+  {
+    "da": "flue",
+    "gloss": "mosca"
+  },
+  {
+    "da": "flueben",
+    "gloss": "visto"
+  },
+  {
+    "da": "flugt",
+    "gloss": "fuga"
+  },
+  {
+    "da": "flyde",
+    "gloss": "flutuar"
+  },
+  {
+    "da": "flygte",
+    "gloss": "fugir"
+  },
+  {
+    "da": "fløde",
+    "gloss": "natas"
+  },
+  {
+    "da": "fløjte",
+    "gloss": "apito"
+  },
+  {
+    "da": "fnug",
+    "gloss": "floco"
+  },
+  {
+    "da": "foder",
+    "gloss": "forragem"
+  },
+  {
+    "da": "fodgænger",
+    "gloss": "peão"
+  },
+  {
+    "da": "fodre",
+    "gloss": "alimentar"
+  },
+  {
+    "da": "fodspor",
+    "gloss": "pegada"
+  },
+  {
+    "da": "fokus",
+    "gloss": "foco"
+  },
+  {
+    "da": "fold",
+    "gloss": "vinco"
+  },
+  {
+    "da": "folde",
+    "gloss": "dobrar"
+  },
+  {
+    "da": "folk",
+    "gloss": "pessoas"
+  },
+  {
+    "da": "folketing",
+    "gloss": "folketing"
+  },
+  {
+    "da": "fondue",
+    "gloss": "fondue"
+  },
+  {
+    "da": "foran",
+    "gloss": "à frente"
+  },
+  {
+    "da": "forandring",
+    "gloss": "mudança"
+  },
+  {
+    "da": "forbedring",
+    "gloss": "melhoria"
+  },
+  {
+    "da": "forberedelse",
+    "gloss": "preparação"
+  },
+  {
+    "da": "forbi",
+    "gloss": "terminado"
+  },
+  {
+    "da": "forbrydelse",
+    "gloss": "crime"
+  },
+  {
+    "da": "forbud",
+    "gloss": "proibição"
+  },
+  {
+    "da": "forbudt",
+    "gloss": "proibido"
+  },
+  {
+    "da": "forbyde",
+    "gloss": "proibir"
+  },
+  {
+    "da": "fordampe",
+    "gloss": "evaporar"
+  },
+  {
+    "da": "fordel",
+    "gloss": "vantagem"
+  },
+  {
+    "da": "foredrag",
+    "gloss": "palestra"
+  },
+  {
+    "da": "forelsket",
+    "gloss": "apaixonado"
+  },
+  {
+    "da": "forene",
+    "gloss": "unir"
+  },
+  {
+    "da": "forestille",
+    "gloss": "imaginar, apresentar"
+  },
+  {
+    "da": "forestilling",
+    "gloss": "espetáculo"
+  },
+  {
+    "da": "forfatter",
+    "gloss": "autor"
+  },
+  {
+    "da": "forfra",
+    "gloss": "de novo"
+  },
+  {
+    "da": "forhandle",
+    "gloss": "negociar"
+  },
+  {
+    "da": "forhandling",
+    "gloss": "negociação"
+  },
+  {
+    "da": "forhindring",
+    "gloss": "obstáculo"
+  },
+  {
+    "da": "forhistorisk",
+    "gloss": "pré-histórico"
+  },
+  {
+    "da": "forhold",
+    "gloss": "relacionamento"
+  },
+  {
+    "da": "forklaring",
+    "gloss": "explicação"
+  },
+  {
+    "da": "forkølet",
+    "gloss": "constipado"
+  },
+  {
+    "da": "forlag",
+    "gloss": "editora"
+  },
+  {
+    "da": "forlegen",
+    "gloss": "envergonhado"
+  },
+  {
+    "da": "forlovelse",
+    "gloss": "noivado"
+  },
+  {
+    "da": "forlovet",
+    "gloss": "noivo"
+  },
+  {
+    "da": "forlygte",
+    "gloss": "farol"
+  },
+  {
+    "da": "forlystelsespark",
+    "gloss": "parque de diversões"
+  },
+  {
+    "da": "forløb",
+    "gloss": "percurso"
+  },
+  {
+    "da": "form",
+    "gloss": "forma"
+  },
+  {
+    "da": "formel",
+    "gloss": "formal"
+  },
+  {
+    "da": "formular",
+    "gloss": "formulário"
+  },
+  {
+    "da": "formulere",
+    "gloss": "formular"
+  },
+  {
+    "da": "formål",
+    "gloss": "objetivo"
+  },
+  {
+    "da": "fornem",
+    "gloss": "chique"
+  },
+  {
+    "da": "fornuft",
+    "gloss": "razão"
+  },
+  {
+    "da": "fornuftig",
+    "gloss": "sensato"
+  },
+  {
+    "da": "forpligtelse",
+    "gloss": "compromisso"
+  },
+  {
+    "da": "forret",
+    "gloss": "entrada"
+  },
+  {
+    "da": "forretning",
+    "gloss": "negócio"
+  },
+  {
+    "da": "forrige",
+    "gloss": "anterior"
+  },
+  {
+    "da": "forsendelse",
+    "gloss": "expedição"
+  },
+  {
+    "da": "forsigtigt",
+    "gloss": "cuidadosamente"
+  },
+  {
+    "da": "forsinkelse",
+    "gloss": "atraso"
+  },
+  {
+    "da": "forsinket",
+    "gloss": "atrasado"
+  },
+  {
+    "da": "forskrækkelse",
+    "gloss": "susto"
+  },
+  {
+    "da": "forskrækket",
+    "gloss": "sobressaltado"
+  },
+  {
+    "da": "forsoning",
+    "gloss": "paz"
+  },
+  {
+    "da": "forståelig",
+    "gloss": "compreensível"
+  },
+  {
+    "da": "forståelse",
+    "gloss": "compreensão"
+  },
+  {
+    "da": "forsvar",
+    "gloss": "defesa"
+  },
+  {
+    "da": "forsøg",
+    "gloss": "tentativa"
+  },
+  {
+    "da": "fortid",
+    "gloss": "passado"
+  },
+  {
+    "da": "fortidsminde",
+    "gloss": "monumento antigo"
+  },
+  {
+    "da": "fortolke",
+    "gloss": "interpretar"
+  },
+  {
+    "da": "fortov",
+    "gloss": "passeio"
+  },
+  {
+    "da": "fortrolig",
+    "gloss": "íntimo"
+  },
+  {
+    "da": "fortælling",
+    "gloss": "conto"
+  },
+  {
+    "da": "forventning",
+    "gloss": "expetativa"
+  },
+  {
+    "da": "forvirre",
+    "gloss": "confundir"
+  },
+  {
+    "da": "forvirrende",
+    "gloss": "confuso"
+  },
+  {
+    "da": "forvirret",
+    "gloss": "confuso"
+  },
+  {
+    "da": "forvirring",
+    "gloss": "confusão"
+  },
+  {
+    "da": "forælder",
+    "gloss": "progenitor"
+  },
+  {
+    "da": "forældre",
+    "gloss": "progenitor"
+  },
+  {
+    "da": "forældremyndighed",
+    "gloss": "poder paternal"
+  },
+  {
+    "da": "forældremøde",
+    "gloss": "reunião de pais"
+  },
+  {
+    "da": "forældreskab",
+    "gloss": "parentalidade"
+  },
+  {
+    "da": "foto",
+    "gloss": "foto"
+  },
+  {
+    "da": "fotografi",
+    "gloss": "fotografia"
+  },
+  {
+    "da": "fragt",
+    "gloss": "carga"
+  },
+  {
+    "da": "fredag",
+    "gloss": "sexta-feira"
+  },
+  {
+    "da": "fredelig",
+    "gloss": "pacífico"
+  },
+  {
+    "da": "frem",
+    "gloss": "para a frente"
+  },
+  {
+    "da": "fremad",
+    "gloss": "em frente"
+  },
+  {
+    "da": "fremskridt",
+    "gloss": "progresso"
+  },
+  {
+    "da": "fremstille",
+    "gloss": "fabricar"
+  },
+  {
+    "da": "fremtid",
+    "gloss": "futuro"
+  },
+  {
+    "da": "frieri",
+    "gloss": "pedido de casamento"
+  },
+  {
+    "da": "frihed",
+    "gloss": "liberdade"
+  },
+  {
+    "da": "frikadelle",
+    "gloss": "almôndega"
+  },
+  {
+    "da": "friktion",
+    "gloss": "fricção"
+  },
+  {
+    "da": "frikvarter",
+    "gloss": "intervalo"
+  },
+  {
+    "da": "frimærke",
+    "gloss": "selo"
+  },
+  {
+    "da": "frist",
+    "gloss": "prazo"
+  },
+  {
+    "da": "frisure",
+    "gloss": "corte de cabelo"
+  },
+  {
+    "da": "frossen",
+    "gloss": "congelado"
+  },
+  {
+    "da": "frost",
+    "gloss": "geada"
+  },
+  {
+    "da": "frue",
+    "gloss": "senhora"
+  },
+  {
+    "da": "fryse",
+    "gloss": "congelar"
+  },
+  {
+    "da": "fræk",
+    "gloss": "atrevido"
+  },
+  {
+    "da": "frø",
+    "gloss": "rã"
+  },
+  {
+    "da": "fugle",
+    "gloss": "pássaros"
+  },
+  {
+    "da": "fugt",
+    "gloss": "humidade"
+  },
+  {
+    "da": "fuldkorn",
+    "gloss": "integral"
+  },
+  {
+    "da": "fuldstændig",
+    "gloss": "completamente"
+  },
+  {
+    "da": "fuldtid",
+    "gloss": "tempo inteiro"
+  },
+  {
+    "da": "fundament",
+    "gloss": "alicerce"
+  },
+  {
+    "da": "funkle",
+    "gloss": "cintilar"
+  },
+  {
+    "da": "funktion",
+    "gloss": "função"
+  },
+  {
+    "da": "funktionel",
+    "gloss": "funcional"
+  },
+  {
+    "da": "fyld",
+    "gloss": "recheio"
+  },
+  {
+    "da": "fyldt",
+    "gloss": "cheio"
+  },
+  {
+    "da": "fyr",
+    "gloss": "farol"
+  },
+  {
+    "da": "fyre",
+    "gloss": "despedir"
+  },
+  {
+    "da": "fyret",
+    "gloss": "despedido"
+  },
+  {
+    "da": "fyrtårn",
+    "gloss": "farol"
+  },
+  {
+    "da": "fyrværkeri",
+    "gloss": "fogos de artifício"
+  },
+  {
+    "da": "fysisk",
+    "gloss": "físico"
+  },
+  {
+    "da": "fælde",
+    "gloss": "cortar"
+  },
+  {
+    "da": "fælles",
+    "gloss": "mútuo"
+  },
+  {
+    "da": "fællesskab",
+    "gloss": "comunidade"
+  },
+  {
+    "da": "færdighed",
+    "gloss": "habilidade"
+  },
+  {
+    "da": "fæstning",
+    "gloss": "fortaleza"
+  },
+  {
+    "da": "fætter",
+    "gloss": "primo"
+  },
+  {
+    "da": "fødder",
+    "gloss": "pés"
+  },
+  {
+    "da": "føde",
+    "gloss": "nascimento"
+  },
+  {
+    "da": "fødsel",
+    "gloss": "nascimento"
+  },
+  {
+    "da": "født",
+    "gloss": "nascido"
+  },
+  {
+    "da": "føl",
+    "gloss": "poldro"
+  },
+  {
+    "da": "følgende",
+    "gloss": "seguinte"
+  },
+  {
+    "da": "føntørrer",
+    "gloss": "secador de cabelo"
+  },
+  {
+    "da": "før",
+    "gloss": "antes"
+  },
+  {
+    "da": "føre",
+    "gloss": "conduzir"
+  },
+  {
+    "da": "fører",
+    "gloss": "condutor"
+  },
+  {
+    "da": "først",
+    "gloss": "primeiro"
+  },
+  {
+    "da": "første",
+    "gloss": "primeiro"
+  },
+  {
+    "da": "førstehjælp",
+    "gloss": "primeiros socorros"
+  },
+  {
+    "da": "gab",
+    "gloss": "bocejo"
+  },
+  {
+    "da": "gabe",
+    "gloss": "bocejar"
+  },
+  {
+    "da": "galakse",
+    "gloss": "galáxia"
+  },
+  {
+    "da": "galop",
+    "gloss": "galope"
+  },
+  {
+    "da": "gammeldags",
+    "gloss": "antiquado"
+  },
+  {
+    "da": "gammelt",
+    "gloss": "velho"
+  },
+  {
+    "da": "ganske",
+    "gloss": "bastante"
+  },
+  {
+    "da": "garage",
+    "gloss": "garagem"
+  },
+  {
+    "da": "garanti",
+    "gloss": "garantia"
+  },
+  {
+    "da": "garderobe",
+    "gloss": "guarda-roupa"
+  },
+  {
+    "da": "garn",
+    "gloss": "fio"
+  },
+  {
+    "da": "gas",
+    "gloss": "gás"
+  },
+  {
+    "da": "gavmild",
+    "gloss": "generoso"
+  },
+  {
+    "da": "gear",
+    "gloss": "mudança"
+  },
+  {
+    "da": "gebis",
+    "gloss": "dentadura"
+  },
+  {
+    "da": "ged",
+    "gloss": "cabra"
+  },
+  {
+    "da": "gelænder",
+    "gloss": "corrimão"
+  },
+  {
+    "da": "genbrug",
+    "gloss": "reciclagem"
+  },
+  {
+    "da": "generation",
+    "gloss": "geração"
+  },
+  {
+    "da": "genere",
+    "gloss": "incomodar"
+  },
+  {
+    "da": "generøs",
+    "gloss": "generoso"
+  },
+  {
+    "da": "genforening",
+    "gloss": "reunião"
+  },
+  {
+    "da": "geni",
+    "gloss": "génio"
+  },
+  {
+    "da": "gennemføre",
+    "gloss": "realizar, concluir"
+  },
+  {
+    "da": "gennemsigtig",
+    "gloss": "transparente"
+  },
+  {
+    "da": "genre",
+    "gloss": "género"
+  },
+  {
+    "da": "gensyn",
+    "gloss": "reencontro"
+  },
+  {
+    "da": "gentagelse",
+    "gloss": "repetição"
+  },
+  {
+    "da": "geografi",
+    "gloss": "geografia"
+  },
+  {
+    "da": "gepard",
+    "gloss": "guepardo"
+  },
+  {
+    "da": "gerne",
+    "gloss": "com prazer"
+  },
+  {
+    "da": "gevinst",
+    "gloss": "ganhos"
+  },
+  {
+    "da": "gigantisk",
+    "gloss": "gigantesco"
+  },
+  {
+    "da": "gips",
+    "gloss": "gesso"
+  },
+  {
+    "da": "giraf",
+    "gloss": "girafa"
+  },
+  {
+    "da": "gjort",
+    "gloss": "feito"
+  },
+  {
+    "da": "glasur",
+    "gloss": "glacê"
+  },
+  {
+    "da": "glimrende",
+    "gloss": "esplêndido"
+  },
+  {
+    "da": "glimte",
+    "gloss": "cintilar"
+  },
+  {
+    "da": "glitre",
+    "gloss": "faiscar"
+  },
+  {
+    "da": "glo",
+    "gloss": "fitar"
+  },
+  {
+    "da": "global",
+    "gloss": "global"
+  },
+  {
+    "da": "globus",
+    "gloss": "globo"
+  },
+  {
+    "da": "glose",
+    "gloss": "termo"
+  },
+  {
+    "da": "gnave",
+    "gloss": "roer"
+  },
+  {
+    "da": "gnide",
+    "gloss": "esfregar"
+  },
+  {
+    "da": "godbid",
+    "gloss": "petisco"
+  },
+  {
+    "da": "godkende",
+    "gloss": "aprovar"
+  },
+  {
+    "da": "godnat",
+    "gloss": "boa noite"
+  },
+  {
+    "da": "gods",
+    "gloss": "carga"
+  },
+  {
+    "da": "gom",
+    "gloss": "palafreneiro"
+  },
+  {
+    "da": "gps",
+    "gloss": "GPS"
+  },
+  {
+    "da": "grader",
+    "gloss": "graus"
+  },
+  {
+    "da": "grammatik",
+    "gloss": "gramática"
+  },
+  {
+    "da": "gran",
+    "gloss": "abeto"
+  },
+  {
+    "da": "grave",
+    "gloss": "cavar"
+  },
+  {
+    "da": "gravid",
+    "gloss": "grávido"
+  },
+  {
+    "da": "graviditet",
+    "gloss": "gravidez"
+  },
+  {
+    "da": "greb",
+    "gloss": "aperto"
+  },
+  {
+    "da": "gren",
+    "gloss": "ramo"
+  },
+  {
+    "da": "grill",
+    "gloss": "grelhador"
+  },
+  {
+    "da": "grille",
+    "gloss": "grelhar"
+  },
+  {
+    "da": "grin",
+    "gloss": "riso"
+  },
+  {
+    "da": "gro",
+    "gloss": "crescer"
+  },
+  {
+    "da": "grov",
+    "gloss": "grosseiro"
+  },
+  {
+    "da": "grubleri",
+    "gloss": "cismar, ruminação"
+  },
+  {
+    "da": "grundlæggende",
+    "gloss": "básico"
+  },
+  {
+    "da": "gryder",
+    "gloss": "panelas"
+  },
+  {
+    "da": "gryning",
+    "gloss": "amanhecer"
+  },
+  {
+    "da": "gråd",
+    "gloss": "choro"
+  },
+  {
+    "da": "grød",
+    "gloss": "papas"
+  },
+  {
+    "da": "grøft",
+    "gloss": "vala"
+  },
+  {
+    "da": "grønthandler",
+    "gloss": "fruteiro"
+  },
+  {
+    "da": "grøntsager",
+    "gloss": "legumes"
+  },
+  {
+    "da": "gud",
+    "gloss": "deus"
+  },
+  {
+    "da": "gudstjeneste",
+    "gloss": "missa"
+  },
+  {
+    "da": "guide",
+    "gloss": "guia"
+  },
+  {
+    "da": "guitar",
+    "gloss": "guitarra"
+  },
+  {
+    "da": "guld",
+    "gloss": "ouro"
+  },
+  {
+    "da": "gummistøvler",
+    "gloss": "botas de borracha"
+  },
+  {
+    "da": "gylden",
+    "gloss": "dourado"
+  },
+  {
+    "da": "gyldig",
+    "gloss": "válido"
+  },
+  {
+    "da": "gymnasium",
+    "gloss": "faculdade"
+  },
+  {
+    "da": "gymnastik",
+    "gloss": "ginástica"
+  },
+  {
+    "da": "gymnastiksal",
+    "gloss": "ginásio"
+  },
+  {
+    "da": "gynge",
+    "gloss": "balançar"
+  },
+  {
+    "da": "gys",
+    "gloss": "arrepio"
+  },
+  {
+    "da": "gåde",
+    "gloss": "adivinha"
+  },
+  {
+    "da": "gård",
+    "gloss": "quinta"
+  },
+  {
+    "da": "gåsehud",
+    "gloss": "pele de galinha"
+  },
+  {
+    "da": "gåtur",
+    "gloss": "passeio"
+  },
+  {
+    "da": "gæld",
+    "gloss": "dívida"
+  },
+  {
+    "da": "gælle",
+    "gloss": "guelra"
+  },
+  {
+    "da": "gæller",
+    "gloss": "guelras"
+  },
+  {
+    "da": "gær",
+    "gloss": "levedura"
+  },
+  {
+    "da": "gæster",
+    "gloss": "convidados"
+  },
+  {
+    "da": "gæstfri",
+    "gloss": "acolhedor"
+  },
+  {
+    "da": "gæt",
+    "gloss": "palpite"
+  },
+  {
+    "da": "gø",
+    "gloss": "ladrar"
+  },
+  {
+    "da": "gøre",
+    "gloss": "agir"
+  },
+  {
+    "da": "had",
+    "gloss": "ódio"
+  },
+  {
+    "da": "hage",
+    "gloss": "queixo"
+  },
+  {
+    "da": "haj",
+    "gloss": "tubarão"
+  },
+  {
+    "da": "hakke",
+    "gloss": "picar"
+  },
+  {
+    "da": "hakket",
+    "gloss": "picado"
+  },
+  {
+    "da": "hale",
+    "gloss": "cauda"
+  },
+  {
+    "da": "halsbånd",
+    "gloss": "coleira"
+  },
+  {
+    "da": "halskæde",
+    "gloss": "colar"
+  },
+  {
+    "da": "halte",
+    "gloss": "coxear"
+  },
+  {
+    "da": "hammer",
+    "gloss": "martelo"
+  },
+  {
+    "da": "han",
+    "gloss": "ele"
+  },
+  {
+    "da": "handel",
+    "gloss": "negócio"
+  },
+  {
+    "da": "handle",
+    "gloss": "comprar"
+  },
+  {
+    "da": "hane",
+    "gloss": "galo"
+  },
+  {
+    "da": "hare",
+    "gloss": "lebre"
+  },
+  {
+    "da": "harmoni",
+    "gloss": "harmonia"
+  },
+  {
+    "da": "hast",
+    "gloss": "pressa"
+  },
+  {
+    "da": "haste",
+    "gloss": "urgente"
+  },
+  {
+    "da": "hastighed",
+    "gloss": "velocidade"
+  },
+  {
+    "da": "have",
+    "gloss": "jardim"
+  },
+  {
+    "da": "havearbejde",
+    "gloss": "jardinagem"
+  },
+  {
+    "da": "havfrue",
+    "gloss": "sereia"
+  },
+  {
+    "da": "havn",
+    "gloss": "porto"
+  },
+  {
+    "da": "havre",
+    "gloss": "aveia"
+  },
+  {
+    "da": "havregryn",
+    "gloss": "papas de aveia"
+  },
+  {
+    "da": "hegn",
+    "gloss": "cerca"
+  },
+  {
+    "da": "hej",
+    "gloss": "olá"
+  },
+  {
+    "da": "heks",
+    "gloss": "bruxa"
+  },
+  {
+    "da": "helbred",
+    "gloss": "saúde"
+  },
+  {
+    "da": "helbrede",
+    "gloss": "curar"
+  },
+  {
+    "da": "held",
+    "gloss": "sorte"
+  },
+  {
+    "da": "hellig",
+    "gloss": "santo"
+  },
+  {
+    "da": "helt",
+    "gloss": "completamente"
+  },
+  {
+    "da": "hemmelig",
+    "gloss": "secreto"
+  },
+  {
+    "da": "hemmelighed",
+    "gloss": "segredo"
+  },
+  {
+    "da": "hensyn",
+    "gloss": "consideração"
+  },
+  {
+    "da": "her",
+    "gloss": "aqui"
+  },
+  {
+    "da": "herlig",
+    "gloss": "maravilhoso"
+  },
+  {
+    "da": "herre",
+    "gloss": "cavalheiro"
+  },
+  {
+    "da": "hestehale",
+    "gloss": "rabo de cavalo"
+  },
+  {
+    "da": "hilsen",
+    "gloss": "cumprimento"
+  },
+  {
+    "da": "hindbær",
+    "gloss": "framboesa"
+  },
+  {
+    "da": "hjelm",
+    "gloss": "capacete"
+  },
+  {
+    "da": "hjemløs",
+    "gloss": "abandonado"
+  },
+  {
+    "da": "hjemme",
+    "gloss": "em casa"
+  },
+  {
+    "da": "hjort",
+    "gloss": "veado"
+  },
+  {
+    "da": "hjul",
+    "gloss": "roda"
+  },
+  {
+    "da": "hjælpsom",
+    "gloss": "prestável"
+  },
+  {
+    "da": "hjørne",
+    "gloss": "canto"
+  },
+  {
+    "da": "hobby",
+    "gloss": "passatempo"
+  },
+  {
+    "da": "hofte",
+    "gloss": "anca"
+  },
+  {
+    "da": "holdning",
+    "gloss": "atitude, posição"
+  },
+  {
+    "da": "honning",
+    "gloss": "mel"
+  },
+  {
+    "da": "hop",
+    "gloss": "salto"
+  },
+  {
+    "da": "horisont",
+    "gloss": "horizonte"
+  },
+  {
+    "da": "horn",
+    "gloss": "chifre, trompa"
+  },
+  {
+    "da": "horoskop",
+    "gloss": "horóscopo"
+  },
+  {
+    "da": "hov",
+    "gloss": "casco"
+  },
+  {
+    "da": "hoveddør",
+    "gloss": "porta de entrada"
+  },
+  {
+    "da": "hovedskade",
+    "gloss": "concussão cerebral"
+  },
+  {
+    "da": "hovedstad",
+    "gloss": "capital"
+  },
+  {
+    "da": "hovedtelefon",
+    "gloss": "auscultadores"
+  },
+  {
+    "da": "hukommelse",
+    "gloss": "memória"
+  },
+  {
+    "da": "hul",
+    "gloss": "cavidade"
+  },
+  {
+    "da": "hule",
+    "gloss": "caverna"
+  },
+  {
+    "da": "huller",
+    "gloss": "buracos"
+  },
+  {
+    "da": "humle",
+    "gloss": "lúpulo"
+  },
+  {
+    "da": "humor",
+    "gloss": "humor"
+  },
+  {
+    "da": "hun",
+    "gloss": "ela"
+  },
+  {
+    "da": "hundrede",
+    "gloss": "cem"
+  },
+  {
+    "da": "husarbejde",
+    "gloss": "tarefas domésticas"
+  },
+  {
+    "da": "husdyr",
+    "gloss": "animal de estimação"
+  },
+  {
+    "da": "huse",
+    "gloss": "casas"
+  },
+  {
+    "da": "husleje",
+    "gloss": "renda"
+  },
+  {
+    "da": "husnummer",
+    "gloss": "número"
+  },
+  {
+    "da": "hvad",
+    "gloss": "o que"
+  },
+  {
+    "da": "hval",
+    "gloss": "baleia"
+  },
+  {
+    "da": "hvalp",
+    "gloss": "cachorro"
+  },
+  {
+    "da": "hvede",
+    "gloss": "trigo"
+  },
+  {
+    "da": "hvem",
+    "gloss": "quem"
+  },
+  {
+    "da": "hver",
+    "gloss": "cada"
+  },
+  {
+    "da": "hverdag",
+    "gloss": "diário"
+  },
+  {
+    "da": "hvisken",
+    "gloss": "sussurro"
+  },
+  {
+    "da": "hvor",
+    "gloss": "onde"
+  },
+  {
+    "da": "hvordan",
+    "gloss": "como"
+  },
+  {
+    "da": "hvorfor",
+    "gloss": "porquê"
+  },
+  {
+    "da": "hvornår",
+    "gloss": "quando"
+  },
+  {
+    "da": "hvæse",
+    "gloss": "silvar"
+  },
+  {
+    "da": "hygge",
+    "gloss": "aconchego"
+  },
+  {
+    "da": "hyle",
+    "gloss": "uivar"
+  },
+  {
+    "da": "hynde",
+    "gloss": "almofada"
+  },
+  {
+    "da": "hyp",
+    "gloss": "toca"
+  },
+  {
+    "da": "hys",
+    "gloss": "psiu"
+  },
+  {
+    "da": "hytte",
+    "gloss": "cabana"
+  },
+  {
+    "da": "håndarbejde",
+    "gloss": "artesanato"
+  },
+  {
+    "da": "håndjern",
+    "gloss": "algemas"
+  },
+  {
+    "da": "håndlavet",
+    "gloss": "feito à mão"
+  },
+  {
+    "da": "håndled",
+    "gloss": "pulso"
+  },
+  {
+    "da": "håndtag",
+    "gloss": "puxador"
+  },
+  {
+    "da": "håndtryk",
+    "gloss": "aperto de mão"
+  },
+  {
+    "da": "håndværk",
+    "gloss": "ofício"
+  },
+  {
+    "da": "hårdt",
+    "gloss": "duro"
+  },
+  {
+    "da": "hæfte",
+    "gloss": "caderno"
+  },
+  {
+    "da": "hæk",
+    "gloss": "sebe"
+  },
+  {
+    "da": "hæl",
+    "gloss": "calcanhar"
+  },
+  {
+    "da": "hæle",
+    "gloss": "calcanhares"
+  },
+  {
+    "da": "hændelse",
+    "gloss": "incidente"
+  },
+  {
+    "da": "hænder",
+    "gloss": "mãos"
+  },
+  {
+    "da": "hængsel",
+    "gloss": "dobraiça"
+  },
+  {
+    "da": "hærværk",
+    "gloss": "vandalismo"
+  },
+  {
+    "da": "hæve",
+    "gloss": "levantar"
+  },
+  {
+    "da": "hø",
+    "gloss": "feno"
+  },
+  {
+    "da": "højde",
+    "gloss": "altura"
+  },
+  {
+    "da": "højlydt",
+    "gloss": "em voz alta"
+  },
+  {
+    "da": "højre",
+    "gloss": "direita"
+  },
+  {
+    "da": "højt",
+    "gloss": "em voz alta"
+  },
+  {
+    "da": "højtid",
+    "gloss": "celebração"
+  },
+  {
+    "da": "højttaler",
+    "gloss": "altifalante"
+  },
+  {
+    "da": "høne",
+    "gloss": "galinha"
+  },
+  {
+    "da": "høst",
+    "gloss": "colheita"
+  },
+  {
+    "da": "høstak",
+    "gloss": "meda de feno"
+  },
+  {
+    "da": "høste",
+    "gloss": "colher"
+  },
+  {
+    "da": "ide",
+    "gloss": "ideia"
+  },
+  {
+    "da": "identificere",
+    "gloss": "identificar"
+  },
+  {
+    "da": "identitet",
+    "gloss": "identidade"
+  },
+  {
+    "da": "idéudvikling",
+    "gloss": "desenvolvimento de ideias"
+  },
+  {
+    "da": "igen",
+    "gloss": "de novo"
+  },
+  {
+    "da": "ikon",
+    "gloss": "ícone"
+  },
+  {
+    "da": "illustration",
+    "gloss": "ilustração"
+  },
+  {
+    "da": "illustrere",
+    "gloss": "ilustrar"
+  },
+  {
+    "da": "ilt",
+    "gloss": "oxigénio"
+  },
+  {
+    "da": "import",
+    "gloss": "importação"
+  },
+  {
+    "da": "ind",
+    "gloss": "dentro"
+  },
+  {
+    "da": "indbygger",
+    "gloss": "habitante"
+  },
+  {
+    "da": "indeni",
+    "gloss": "dentro"
+  },
+  {
+    "da": "indflytning",
+    "gloss": "mudança (para casa nova)"
+  },
+  {
+    "da": "indgang",
+    "gloss": "entrada"
+  },
+  {
+    "da": "indhold",
+    "gloss": "conteúdo"
+  },
+  {
+    "da": "individ",
+    "gloss": "indivíduo"
+  },
+  {
+    "da": "indkomst",
+    "gloss": "rendimento"
+  },
+  {
+    "da": "indkøb",
+    "gloss": "compras"
+  },
+  {
+    "da": "indkørsel",
+    "gloss": "entrada (para carros)"
+  },
+  {
+    "da": "indlede",
+    "gloss": "iniciar"
+  },
+  {
+    "da": "indpakke",
+    "gloss": "embrulhar"
+  },
+  {
+    "da": "indre",
+    "gloss": "interior"
+  },
+  {
+    "da": "indretning",
+    "gloss": "interior"
+  },
+  {
+    "da": "indsats",
+    "gloss": "esforço"
+  },
+  {
+    "da": "indsætte",
+    "gloss": "depositar"
+  },
+  {
+    "da": "inflation",
+    "gloss": "inflação"
+  },
+  {
+    "da": "information",
+    "gloss": "informação"
+  },
+  {
+    "da": "informere",
+    "gloss": "informar"
+  },
+  {
+    "da": "ingen",
+    "gloss": "ninguém"
+  },
+  {
+    "da": "ingenting",
+    "gloss": "nada"
+  },
+  {
+    "da": "ingrediens",
+    "gloss": "ingrediente"
+  },
+  {
+    "da": "ingredienser",
+    "gloss": "ingredientes"
+  },
+  {
+    "da": "injektion",
+    "gloss": "injeção"
+  },
+  {
+    "da": "insekt",
+    "gloss": "inseto"
+  },
+  {
+    "da": "insekter",
+    "gloss": "insetos"
+  },
+  {
+    "da": "insistere",
+    "gloss": "insistir"
+  },
+  {
+    "da": "installere",
+    "gloss": "instalar"
+  },
+  {
+    "da": "instruktion",
+    "gloss": "instrução"
+  },
+  {
+    "da": "instruktør",
+    "gloss": "diretor"
+  },
+  {
+    "da": "instrument",
+    "gloss": "instrumento"
+  },
+  {
+    "da": "intakt",
+    "gloss": "intato"
+  },
+  {
+    "da": "integritet",
+    "gloss": "integridade"
+  },
+  {
+    "da": "intelligens",
+    "gloss": "inteligência"
+  },
+  {
+    "da": "interview",
+    "gloss": "entrevista"
+  },
+  {
+    "da": "intuitiv",
+    "gloss": "intuitivo"
+  },
+  {
+    "da": "investere",
+    "gloss": "investir"
+  },
+  {
+    "da": "invitation",
+    "gloss": "convite"
+  },
+  {
+    "da": "isolation",
+    "gloss": "isolamento"
+  },
+  {
+    "da": "isoleret",
+    "gloss": "isolado"
+  },
+  {
+    "da": "ja",
+    "gloss": "sim"
+  },
+  {
+    "da": "jage",
+    "gloss": "caçar"
+  },
+  {
+    "da": "jagt",
+    "gloss": "caça"
+  },
+  {
+    "da": "jagte",
+    "gloss": "perseguir"
+  },
+  {
+    "da": "jakkesæt",
+    "gloss": "fato"
+  },
+  {
+    "da": "jaloux",
+    "gloss": "ciumento"
+  },
+  {
+    "da": "januar",
+    "gloss": "janeiro"
+  },
+  {
+    "da": "jeans",
+    "gloss": "jeans"
+  },
+  {
+    "da": "jeg",
+    "gloss": "eu"
+  },
+  {
+    "da": "jern",
+    "gloss": "ferro"
+  },
+  {
+    "da": "jernbane",
+    "gloss": "caminho de ferro"
+  },
+  {
+    "da": "jet",
+    "gloss": "jato"
+  },
+  {
+    "da": "jogge",
+    "gloss": "fazer jogging"
+  },
+  {
+    "da": "joke",
+    "gloss": "piada"
+  },
+  {
+    "da": "jordskælv",
+    "gloss": "terramoto"
+  },
+  {
+    "da": "jubel",
+    "gloss": "júbilo"
+  },
+  {
+    "da": "jubilæum",
+    "gloss": "aniversário"
+  },
+  {
+    "da": "juble",
+    "gloss": "aclamar"
+  },
+  {
+    "da": "juice",
+    "gloss": "sumo"
+  },
+  {
+    "da": "jul",
+    "gloss": "Natal"
+  },
+  {
+    "da": "julefrokost",
+    "gloss": "almoço de Natal"
+  },
+  {
+    "da": "julemand",
+    "gloss": "Pai Natal"
+  },
+  {
+    "da": "juletræ",
+    "gloss": "árvore"
+  },
+  {
+    "da": "junior",
+    "gloss": "júnior"
+  },
+  {
+    "da": "juvel",
+    "gloss": "joia"
+  },
+  {
+    "da": "juveler",
+    "gloss": "joias"
+  },
+  {
+    "da": "jæger",
+    "gloss": "caçador"
+  },
+  {
+    "da": "jævn",
+    "gloss": "liso"
+  },
+  {
+    "da": "jævnt",
+    "gloss": "uniformemente"
+  },
+  {
+    "da": "kabale",
+    "gloss": "solitário"
+  },
+  {
+    "da": "kabel",
+    "gloss": "cabo"
+  },
+  {
+    "da": "kabine",
+    "gloss": "cabine"
+  },
+  {
+    "da": "kakao",
+    "gloss": "cacau"
+  },
+  {
+    "da": "kalcium",
+    "gloss": "cálcio"
+  },
+  {
+    "da": "kaldenavn",
+    "gloss": "alcunha"
+  },
+  {
+    "da": "kalenderaftale",
+    "gloss": "compromisso (agenda)"
+  },
+  {
+    "da": "kalenderblad",
+    "gloss": "folha de calendário"
+  },
+  {
+    "da": "kalenderår",
+    "gloss": "ano civil"
+  },
+  {
+    "da": "kalk",
+    "gloss": "cálcio"
+  },
+  {
+    "da": "kalorie",
+    "gloss": "caloria"
+  },
+  {
+    "da": "kalorier",
+    "gloss": "calorias"
+  },
+  {
+    "da": "kalv",
+    "gloss": "vitela"
+  },
+  {
+    "da": "kam",
+    "gloss": "pente"
+  },
+  {
+    "da": "kameramand",
+    "gloss": "operador de câmara"
+  },
+  {
+    "da": "kamille",
+    "gloss": "camomila"
+  },
+  {
+    "da": "kammer",
+    "gloss": "câmara"
+  },
+  {
+    "da": "kammerat",
+    "gloss": "companheiro"
+  },
+  {
+    "da": "kande",
+    "gloss": "jarra"
+  },
+  {
+    "da": "kane",
+    "gloss": "trenó"
+  },
+  {
+    "da": "kanin",
+    "gloss": "coelho"
+  },
+  {
+    "da": "kano",
+    "gloss": "canoa"
+  },
+  {
+    "da": "kant",
+    "gloss": "borda"
+  },
+  {
+    "da": "kantine",
+    "gloss": "cantina"
+  },
+  {
+    "da": "kaos",
+    "gloss": "caos"
+  },
+  {
+    "da": "kapitel",
+    "gloss": "capítulo"
+  },
+  {
+    "da": "kar",
+    "gloss": "tina"
+  },
+  {
+    "da": "karaffel",
+    "gloss": "garrafa"
+  },
+  {
+    "da": "karakter",
+    "gloss": "nota"
+  },
+  {
+    "da": "karamel",
+    "gloss": "caramelo"
+  },
+  {
+    "da": "karm",
+    "gloss": "moldura"
+  },
+  {
+    "da": "karriere",
+    "gloss": "carreira"
+  },
+  {
+    "da": "karry",
+    "gloss": "caril"
+  },
+  {
+    "da": "kartofler",
+    "gloss": "batatas"
+  },
+  {
+    "da": "karton",
+    "gloss": "embalagem de cartão"
+  },
+  {
+    "da": "kasino",
+    "gloss": "casino"
+  },
+  {
+    "da": "kasse",
+    "gloss": "caixa"
+  },
+  {
+    "da": "ked",
+    "gloss": "triste"
+  },
+  {
+    "da": "kedel",
+    "gloss": "chaleira"
+  },
+  {
+    "da": "kejser",
+    "gloss": "imperador"
+  },
+  {
+    "da": "kendis",
+    "gloss": "celebridade"
+  },
+  {
+    "da": "kerne",
+    "gloss": "núcleo"
+  },
+  {
+    "da": "ketchup",
+    "gloss": "ketchup"
+  },
+  {
+    "da": "kighul",
+    "gloss": "postigo"
+  },
+  {
+    "da": "kikkert",
+    "gloss": "binóculos"
+  },
+  {
+    "da": "kiks",
+    "gloss": "bolacha"
+  },
+  {
+    "da": "kilde",
+    "gloss": "fazer cócegas"
+  },
+  {
+    "da": "killing",
+    "gloss": "gatinho"
+  },
+  {
+    "da": "kilo",
+    "gloss": "quilo"
+  },
+  {
+    "da": "kilometer",
+    "gloss": "quilómetro"
+  },
+  {
+    "da": "kinder",
+    "gloss": "bochechas"
+  },
+  {
+    "da": "kiosk",
+    "gloss": "quiosque"
+  },
+  {
+    "da": "kirsebær",
+    "gloss": "cereja"
+  },
+  {
+    "da": "kiste",
+    "gloss": "caixão"
+  },
+  {
+    "da": "kittel",
+    "gloss": "casaco"
+  },
+  {
+    "da": "klang",
+    "gloss": "som, timbre"
+  },
+  {
+    "da": "klappe",
+    "gloss": "bater palmas"
+  },
+  {
+    "da": "klasseværelse",
+    "gloss": "sala de aula"
+  },
+  {
+    "da": "klassisk",
+    "gloss": "clássico"
+  },
+  {
+    "da": "klat",
+    "gloss": "borrão"
+  },
+  {
+    "da": "klaver",
+    "gloss": "piano"
+  },
+  {
+    "da": "klemme",
+    "gloss": "braçadeira"
+  },
+  {
+    "da": "klik",
+    "gloss": "clique"
+  },
+  {
+    "da": "klima",
+    "gloss": "clima"
+  },
+  {
+    "da": "klinik",
+    "gloss": "clínica"
+  },
+  {
+    "da": "klip",
+    "gloss": "clipe"
+  },
+  {
+    "da": "klit",
+    "gloss": "dunas"
+  },
+  {
+    "da": "klo",
+    "gloss": "garra"
+  },
+  {
+    "da": "klode",
+    "gloss": "globo"
+  },
+  {
+    "da": "klokken",
+    "gloss": "relógio"
+  },
+  {
+    "da": "klokker",
+    "gloss": "sinos"
+  },
+  {
+    "da": "klokkeslæt",
+    "gloss": "hora (do dia)"
+  },
+  {
+    "da": "klovn",
+    "gloss": "palhaço"
+  },
+  {
+    "da": "klud",
+    "gloss": "pano"
+  },
+  {
+    "da": "klæbrig",
+    "gloss": "pegajoso"
+  },
+  {
+    "da": "klæde",
+    "gloss": "vestir"
+  },
+  {
+    "da": "klø",
+    "gloss": "comichão"
+  },
+  {
+    "da": "kløe",
+    "gloss": "comichão"
+  },
+  {
+    "da": "knapper",
+    "gloss": "botões"
+  },
+  {
+    "da": "knips",
+    "gloss": "estalo"
+  },
+  {
+    "da": "knipse",
+    "gloss": "estalar"
+  },
+  {
+    "da": "kno",
+    "gloss": "nó dos dedos"
+  },
+  {
+    "da": "knogle",
+    "gloss": "osso"
+  },
+  {
+    "da": "knold",
+    "gloss": "tubérculo"
+  },
+  {
+    "da": "knop",
+    "gloss": "botão"
+  },
+  {
+    "da": "knude",
+    "gloss": "nó"
+  },
+  {
+    "da": "knurhår",
+    "gloss": "bigodes"
+  },
+  {
+    "da": "knurre",
+    "gloss": "rosnar"
+  },
+  {
+    "da": "knus",
+    "gloss": "abraço"
+  },
+  {
+    "da": "knuse",
+    "gloss": "partir"
+  },
+  {
+    "da": "knust",
+    "gloss": "partido"
+  },
+  {
+    "da": "knæk",
+    "gloss": "estalo"
+  },
+  {
+    "da": "knække",
+    "gloss": "rachar"
+  },
+  {
+    "da": "kode",
+    "gloss": "código"
+  },
+  {
+    "da": "koffein",
+    "gloss": "cafeína"
+  },
+  {
+    "da": "kogebog",
+    "gloss": "livro de receitas"
+  },
+  {
+    "da": "kogle",
+    "gloss": "pinha"
+  },
+  {
+    "da": "kogt",
+    "gloss": "cozido"
+  },
+  {
+    "da": "kolleger",
+    "gloss": "colegas"
+  },
+  {
+    "da": "kollegium",
+    "gloss": "residência universitária"
+  },
+  {
+    "da": "kombinere",
+    "gloss": "combinar"
+  },
+  {
+    "da": "komedie",
+    "gloss": "comédia"
+  },
+  {
+    "da": "komfort",
+    "gloss": "conforto"
+  },
+  {
+    "da": "komfur",
+    "gloss": "fogão"
+  },
+  {
+    "da": "kommando",
+    "gloss": "comando"
+  },
+  {
+    "da": "kommende",
+    "gloss": "próximo"
+  },
+  {
+    "da": "kommentar",
+    "gloss": "comentário"
+  },
+  {
+    "da": "kommode",
+    "gloss": "cómoda"
+  },
+  {
+    "da": "kommunikation",
+    "gloss": "comunicação"
+  },
+  {
+    "da": "kommunikere",
+    "gloss": "comunicar"
+  },
+  {
+    "da": "kompas",
+    "gloss": "bússola"
+  },
+  {
+    "da": "komplet",
+    "gloss": "completo"
+  },
+  {
+    "da": "kompliceret",
+    "gloss": "complicado"
+  },
+  {
+    "da": "kompliment",
+    "gloss": "elogio"
+  },
+  {
+    "da": "kompromis",
+    "gloss": "compromisso"
+  },
+  {
+    "da": "kondisko",
+    "gloss": "ténis"
+  },
+  {
+    "da": "kondition",
+    "gloss": "forma física"
+  },
+  {
+    "da": "konduktør",
+    "gloss": "revisor"
+  },
+  {
+    "da": "konference",
+    "gloss": "conferência"
+  },
+  {
+    "da": "konfirmation",
+    "gloss": "confirmação"
+  },
+  {
+    "da": "konflikt",
+    "gloss": "conflito"
+  },
+  {
+    "da": "konge",
+    "gloss": "rei"
+  },
+  {
+    "da": "kongedømme",
+    "gloss": "reino"
+  },
+  {
+    "da": "kongelig",
+    "gloss": "real"
+  },
+  {
+    "da": "kongerige",
+    "gloss": "reino"
+  },
+  {
+    "da": "konkurrence",
+    "gloss": "competição"
+  },
+  {
+    "da": "konsekvens",
+    "gloss": "consequência"
+  },
+  {
+    "da": "konservere",
+    "gloss": "conservar"
+  },
+  {
+    "da": "kontakt",
+    "gloss": "interruptor"
+  },
+  {
+    "da": "kontaktliste",
+    "gloss": "lista de contactos"
+  },
+  {
+    "da": "kontant",
+    "gloss": "dinheiro"
+  },
+  {
+    "da": "kontanter",
+    "gloss": "dinheiro"
+  },
+  {
+    "da": "kontinent",
+    "gloss": "continente"
+  },
+  {
+    "da": "konto",
+    "gloss": "conta"
+  },
+  {
+    "da": "kontrakt",
+    "gloss": "contrato"
+  },
+  {
+    "da": "kontrast",
+    "gloss": "contraste"
+  },
+  {
+    "da": "kontrol",
+    "gloss": "verificação"
+  },
+  {
+    "da": "kontrollør",
+    "gloss": "controlador"
+  },
+  {
+    "da": "kopi",
+    "gloss": "cópia"
+  },
+  {
+    "da": "kor",
+    "gloss": "coro"
+  },
+  {
+    "da": "korn",
+    "gloss": "grão"
+  },
+  {
+    "da": "korrekt",
+    "gloss": "correto"
+  },
+  {
+    "da": "korridor",
+    "gloss": "corredor"
+  },
+  {
+    "da": "kors",
+    "gloss": "cruz"
+  },
+  {
+    "da": "kost",
+    "gloss": "vassoura"
+  },
+  {
+    "da": "kostbar",
+    "gloss": "valioso"
+  },
+  {
+    "da": "kostume",
+    "gloss": "fato"
+  },
+  {
+    "da": "krabbe",
+    "gloss": "caranguejo"
+  },
+  {
+    "da": "kradse",
+    "gloss": "arranhar"
+  },
+  {
+    "da": "kraft",
+    "gloss": "força"
+  },
+  {
+    "da": "kraftig",
+    "gloss": "forte"
+  },
+  {
+    "da": "krage",
+    "gloss": "corvo"
+  },
+  {
+    "da": "kram",
+    "gloss": "abraço"
+  },
+  {
+    "da": "kranie",
+    "gloss": "crânio"
+  },
+  {
+    "da": "kranium",
+    "gloss": "crânio"
+  },
+  {
+    "da": "krasche",
+    "gloss": "colisão"
+  },
+  {
+    "da": "krater",
+    "gloss": "cratera"
+  },
+  {
+    "da": "krav",
+    "gloss": "exigência"
+  },
+  {
+    "da": "krave",
+    "gloss": "colarinho"
+  },
+  {
+    "da": "kredit",
+    "gloss": "crédito"
+  },
+  {
+    "da": "kreditkort",
+    "gloss": "cartão de crédito"
+  },
+  {
+    "da": "kredse",
+    "gloss": "orbitar"
+  },
+  {
+    "da": "kredsløb",
+    "gloss": "órbita"
+  },
+  {
+    "da": "kridt",
+    "gloss": "giz"
+  },
+  {
+    "da": "krimi",
+    "gloss": "thriller"
+  },
+  {
+    "da": "kriminalitet",
+    "gloss": "criminalidade"
+  },
+  {
+    "da": "krise",
+    "gloss": "crise"
+  },
+  {
+    "da": "kristen",
+    "gloss": "cristão"
+  },
+  {
+    "da": "kritik",
+    "gloss": "crítica"
+  },
+  {
+    "da": "kro",
+    "gloss": "estalagem"
+  },
+  {
+    "da": "krog",
+    "gloss": "gancho"
+  },
+  {
+    "da": "krokodille",
+    "gloss": "crocodilo"
+  },
+  {
+    "da": "kronblad",
+    "gloss": "pétala"
+  },
+  {
+    "da": "kronologi",
+    "gloss": "cronologia"
+  },
+  {
+    "da": "kropssprog",
+    "gloss": "linguagem corporal"
+  },
+  {
+    "da": "krumme",
+    "gloss": "migalha"
+  },
+  {
+    "da": "krus",
+    "gloss": "caneca"
+  },
+  {
+    "da": "krydderi",
+    "gloss": "tempero"
+  },
+  {
+    "da": "krydderier",
+    "gloss": "especiarias"
+  },
+  {
+    "da": "krydret",
+    "gloss": "picante"
+  },
+  {
+    "da": "kryds",
+    "gloss": "cruz"
+  },
+  {
+    "da": "krydse",
+    "gloss": "cruzar"
+  },
+  {
+    "da": "krydsord",
+    "gloss": "palavras cruzadas"
+  },
+  {
+    "da": "krympe",
+    "gloss": "encolher"
+  },
+  {
+    "da": "krystal",
+    "gloss": "cristal"
+  },
+  {
+    "da": "kræft",
+    "gloss": "cancro"
+  },
+  {
+    "da": "kræfter",
+    "gloss": "esforço"
+  },
+  {
+    "da": "krølle",
+    "gloss": "caracol"
+  },
+  {
+    "da": "kugle",
+    "gloss": "bola"
+  },
+  {
+    "da": "kuglepen",
+    "gloss": "caneta"
+  },
+  {
+    "da": "kul",
+    "gloss": "carvão"
+  },
+  {
+    "da": "kun",
+    "gloss": "só"
+  },
+  {
+    "da": "kunst",
+    "gloss": "arte"
+  },
+  {
+    "da": "kunstner",
+    "gloss": "artista"
+  },
+  {
+    "da": "kupon",
+    "gloss": "cupão"
+  },
+  {
+    "da": "kusine",
+    "gloss": "prima"
+  },
+  {
+    "da": "kuvert",
+    "gloss": "envelope"
+  },
+  {
+    "da": "kvalitet",
+    "gloss": "qualidade"
+  },
+  {
+    "da": "kvart",
+    "gloss": "quarto"
+  },
+  {
+    "da": "kvartal",
+    "gloss": "trimestre"
+  },
+  {
+    "da": "kvarter",
+    "gloss": "bairro"
+  },
+  {
+    "da": "kvidre",
+    "gloss": "chilrear"
+  },
+  {
+    "da": "kvække",
+    "gloss": "grasnar"
+  },
+  {
+    "da": "kværn",
+    "gloss": "moedor"
+  },
+  {
+    "da": "kys",
+    "gloss": "beijo"
+  },
+  {
+    "da": "kyst",
+    "gloss": "costa"
+  },
+  {
+    "da": "kål",
+    "gloss": "couve"
+  },
+  {
+    "da": "kæde",
+    "gloss": "corrente"
+  },
+  {
+    "da": "kæledyr",
+    "gloss": "animal de estimação"
+  },
+  {
+    "da": "kælk",
+    "gloss": "trenó"
+  },
+  {
+    "da": "kær",
+    "gloss": "querido"
+  },
+  {
+    "da": "kærlig",
+    "gloss": "carinhoso"
+  },
+  {
+    "da": "kærne",
+    "gloss": "manteigueira"
+  },
+  {
+    "da": "kø",
+    "gloss": "fila"
+  },
+  {
+    "da": "køb",
+    "gloss": "compra"
+  },
+  {
+    "da": "købmand",
+    "gloss": "merceeiro"
+  },
+  {
+    "da": "køje",
+    "gloss": "beliche"
+  },
+  {
+    "da": "køn",
+    "gloss": "género"
+  },
+  {
+    "da": "køreplan",
+    "gloss": "horário"
+  },
+  {
+    "da": "køretøj",
+    "gloss": "veículo"
+  },
+  {
+    "da": "lag",
+    "gloss": "camada"
+  },
+  {
+    "da": "lagen",
+    "gloss": "lençol"
+  },
+  {
+    "da": "lager",
+    "gloss": "armazém"
+  },
+  {
+    "da": "lagret",
+    "gloss": "curado"
+  },
+  {
+    "da": "lakrids",
+    "gloss": "alcaçuz"
+  },
+  {
+    "da": "laks",
+    "gloss": "salmão"
+  },
+  {
+    "da": "lam",
+    "gloss": "cordeiro"
+  },
+  {
+    "da": "lande",
+    "gloss": "países"
+  },
+  {
+    "da": "landevej",
+    "gloss": "estrada nacional"
+  },
+  {
+    "da": "landing",
+    "gloss": "aterragem"
+  },
+  {
+    "da": "landingsbane",
+    "gloss": "pista de aterragem"
+  },
+  {
+    "da": "landmærke",
+    "gloss": "ponto de referência"
+  },
+  {
+    "da": "landsby",
+    "gloss": "aldeia"
+  },
+  {
+    "da": "landskab",
+    "gloss": "paisagem"
+  },
+  {
+    "da": "langt",
+    "gloss": "longe"
+  },
+  {
+    "da": "lappe",
+    "gloss": "remendo"
+  },
+  {
+    "da": "larm",
+    "gloss": "barulho"
+  },
+  {
+    "da": "lasagne",
+    "gloss": "lasanha"
+  },
+  {
+    "da": "lastvogn",
+    "gloss": "camião"
+  },
+  {
+    "da": "latte",
+    "gloss": "latte"
+  },
+  {
+    "da": "latter",
+    "gloss": "riso"
+  },
+  {
+    "da": "le",
+    "gloss": "rir"
+  },
+  {
+    "da": "led",
+    "gloss": "articulação"
+  },
+  {
+    "da": "leder",
+    "gloss": "líder"
+  },
+  {
+    "da": "ledig",
+    "gloss": "vago"
+  },
+  {
+    "da": "ledning",
+    "gloss": "cabo"
+  },
+  {
+    "da": "leg",
+    "gloss": "brincadeira"
+  },
+  {
+    "da": "legeplads",
+    "gloss": "parque infantil"
+  },
+  {
+    "da": "legetøj",
+    "gloss": "brinquedo"
+  },
+  {
+    "da": "lektier",
+    "gloss": "trabalho de casa"
+  },
+  {
+    "da": "lektion",
+    "gloss": "lição"
+  },
+  {
+    "da": "lem",
+    "gloss": "membro"
+  },
+  {
+    "da": "ler",
+    "gloss": "argila"
+  },
+  {
+    "da": "lette",
+    "gloss": "descolagem"
+  },
+  {
+    "da": "levering",
+    "gloss": "entrega"
+  },
+  {
+    "da": "levetid",
+    "gloss": "vida útil"
+  },
+  {
+    "da": "lide",
+    "gloss": "gostar"
+  },
+  {
+    "da": "lidenskab",
+    "gloss": "paixão"
+  },
+  {
+    "da": "lidt",
+    "gloss": "poucos"
+  },
+  {
+    "da": "lige",
+    "gloss": "reto"
+  },
+  {
+    "da": "ligefrem",
+    "gloss": "direto"
+  },
+  {
+    "da": "ligegyldig",
+    "gloss": "irrelevante"
+  },
+  {
+    "da": "lighter",
+    "gloss": "isqueiro"
+  },
+  {
+    "da": "lilje",
+    "gloss": "lírio"
+  },
+  {
+    "da": "lim",
+    "gloss": "cola"
+  },
+  {
+    "da": "limonade",
+    "gloss": "limonada"
+  },
+  {
+    "da": "lineal",
+    "gloss": "régua"
+  },
+  {
+    "da": "linje",
+    "gloss": "linha"
+  },
+  {
+    "da": "linse",
+    "gloss": "lente"
+  },
+  {
+    "da": "liste",
+    "gloss": "lista"
+  },
+  {
+    "da": "liter",
+    "gloss": "litro"
+  },
+  {
+    "da": "livsstil",
+    "gloss": "estilo de vida"
+  },
+  {
+    "da": "lobby",
+    "gloss": "lobby"
+  },
+  {
+    "da": "lodret",
+    "gloss": "vertical"
+  },
+  {
+    "da": "loft",
+    "gloss": "tecto"
+  },
+  {
+    "da": "logik",
+    "gloss": "lógica"
+  },
+  {
+    "da": "login",
+    "gloss": "login"
+  },
+  {
+    "da": "logisk",
+    "gloss": "lógico"
+  },
+  {
+    "da": "logre",
+    "gloss": "abanar"
+  },
+  {
+    "da": "lokale",
+    "gloss": "sala de aula"
+  },
+  {
+    "da": "lokalisere",
+    "gloss": "localizar"
+  },
+  {
+    "da": "lokomotiv",
+    "gloss": "locomotiva"
+  },
+  {
+    "da": "lommetørklæde",
+    "gloss": "lenço"
+  },
+  {
+    "da": "loppe",
+    "gloss": "pulga"
+  },
+  {
+    "da": "lovlig",
+    "gloss": "legal"
+  },
+  {
+    "da": "loyal",
+    "gloss": "leal"
+  },
+  {
+    "da": "lugt",
+    "gloss": "cheiro"
+  },
+  {
+    "da": "lukketid",
+    "gloss": "fecho"
+  },
+  {
+    "da": "lukkke",
+    "gloss": "fechar"
+  },
+  {
+    "da": "luksus",
+    "gloss": "luxo"
+  },
+  {
+    "da": "lunge",
+    "gloss": "pulmão"
+  },
+  {
+    "da": "lunger",
+    "gloss": "pulmões"
+  },
+  {
+    "da": "lup",
+    "gloss": "lupa"
+  },
+  {
+    "da": "lur",
+    "gloss": "soneca"
+  },
+  {
+    "da": "lus",
+    "gloss": "piolhos"
+  },
+  {
+    "da": "ly",
+    "gloss": "abrigo"
+  },
+  {
+    "da": "lyd",
+    "gloss": "tilintar"
+  },
+  {
+    "da": "lyde",
+    "gloss": "som"
+  },
+  {
+    "da": "lydig",
+    "gloss": "obediente"
+  },
+  {
+    "da": "lygte",
+    "gloss": "lâmpada"
+  },
+  {
+    "da": "lygtepæl",
+    "gloss": "poste de luz"
+  },
+  {
+    "da": "lyse",
+    "gloss": "brilhar"
+  },
+  {
+    "da": "lysestage",
+    "gloss": "vela"
+  },
+  {
+    "da": "lyskryds",
+    "gloss": "semáforo"
+  },
+  {
+    "da": "låg",
+    "gloss": "tampa"
+  },
+  {
+    "da": "lån",
+    "gloss": "empréstimo"
+  },
+  {
+    "da": "lår",
+    "gloss": "coxa"
+  },
+  {
+    "da": "lås",
+    "gloss": "fechadura"
+  },
+  {
+    "da": "låsesmed",
+    "gloss": "serralheiro"
+  },
+  {
+    "da": "låst",
+    "gloss": "trancado"
+  },
+  {
+    "da": "læber",
+    "gloss": "lábios"
+  },
+  {
+    "da": "læbestift",
+    "gloss": "batom"
+  },
+  {
+    "da": "lækkert",
+    "gloss": "delicioso"
+  },
+  {
+    "da": "læne",
+    "gloss": "apoiar-se"
+  },
+  {
+    "da": "lænestol",
+    "gloss": "poltrona"
+  },
+  {
+    "da": "længde",
+    "gloss": "comprimento"
+  },
+  {
+    "da": "længe",
+    "gloss": "longo"
+  },
+  {
+    "da": "lænke",
+    "gloss": "corrente"
+  },
+  {
+    "da": "læring",
+    "gloss": "aprendizagem"
+  },
+  {
+    "da": "lærling",
+    "gloss": "aprendiz"
+  },
+  {
+    "da": "læsning",
+    "gloss": "leitura"
+  },
+  {
+    "da": "løb",
+    "gloss": "corrida"
+  },
+  {
+    "da": "løbebånd",
+    "gloss": "tapete rolante"
+  },
+  {
+    "da": "løbetur",
+    "gloss": "footing"
+  },
+  {
+    "da": "løgn",
+    "gloss": "mentira"
+  },
+  {
+    "da": "lønmodtager",
+    "gloss": "trabalhador por conta de outrem"
+  },
+  {
+    "da": "lørdag",
+    "gloss": "sábado"
+  },
+  {
+    "da": "løse",
+    "gloss": "resolver"
+  },
+  {
+    "da": "løsning",
+    "gloss": "solução"
+  },
+  {
+    "da": "løve",
+    "gloss": "leão"
+  },
+  {
+    "da": "madlavning",
+    "gloss": "culinária"
+  },
+  {
+    "da": "madpakke",
+    "gloss": "almoço"
+  },
+  {
+    "da": "madras",
+    "gloss": "colchão"
+  },
+  {
+    "da": "magasin",
+    "gloss": "revista"
+  },
+  {
+    "da": "magi",
+    "gloss": "magia"
+  },
+  {
+    "da": "magt",
+    "gloss": "poder"
+  },
+  {
+    "da": "majs",
+    "gloss": "milho"
+  },
+  {
+    "da": "makeup",
+    "gloss": "maquilhagem"
+  },
+  {
+    "da": "makker",
+    "gloss": "parceiro"
+  },
+  {
+    "da": "maler",
+    "gloss": "pintor"
+  },
+  {
+    "da": "maleri",
+    "gloss": "quadro"
+  },
+  {
+    "da": "maling",
+    "gloss": "tinta"
+  },
+  {
+    "da": "malt",
+    "gloss": "malte"
+  },
+  {
+    "da": "man",
+    "gloss": "juba"
+  },
+  {
+    "da": "mandag",
+    "gloss": "segunda-feira"
+  },
+  {
+    "da": "manerer",
+    "gloss": "modos"
+  },
+  {
+    "da": "mange",
+    "gloss": "muitos"
+  },
+  {
+    "da": "manke",
+    "gloss": "juba"
+  },
+  {
+    "da": "manuskript",
+    "gloss": "guião"
+  },
+  {
+    "da": "mappe",
+    "gloss": "pasta"
+  },
+  {
+    "da": "maraton",
+    "gloss": "maratona"
+  },
+  {
+    "da": "mareridt",
+    "gloss": "pesadelo"
+  },
+  {
+    "da": "margarine",
+    "gloss": "margarina"
+  },
+  {
+    "da": "mark",
+    "gloss": "campo"
+  },
+  {
+    "da": "marmelade",
+    "gloss": "doce"
+  },
+  {
+    "da": "marv",
+    "gloss": "medula"
+  },
+  {
+    "da": "maske",
+    "gloss": "máscara"
+  },
+  {
+    "da": "massage",
+    "gloss": "massagem"
+  },
+  {
+    "da": "massiv",
+    "gloss": "maciço"
+  },
+  {
+    "da": "matematik",
+    "gloss": "matemática"
+  },
+  {
+    "da": "mayonnaise",
+    "gloss": "maionese"
+  },
+  {
+    "da": "med",
+    "gloss": "ao longo de"
+  },
+  {
+    "da": "meget",
+    "gloss": "muito"
+  },
+  {
+    "da": "mejeri",
+    "gloss": "lacticínios"
+  },
+  {
+    "da": "mekaniker",
+    "gloss": "mecânico"
+  },
+  {
+    "da": "mel",
+    "gloss": "farinha"
+  },
+  {
+    "da": "melodi",
+    "gloss": "melodia"
+  },
+  {
+    "da": "meme",
+    "gloss": "meme"
+  },
+  {
+    "da": "menighed",
+    "gloss": "congregação"
+  },
+  {
+    "da": "mennesker",
+    "gloss": "pessoas"
+  },
+  {
+    "da": "menu",
+    "gloss": "menu"
+  },
+  {
+    "da": "mere",
+    "gloss": "mais"
+  },
+  {
+    "da": "metal",
+    "gloss": "metal"
+  },
+  {
+    "da": "meter",
+    "gloss": "metro"
+  },
+  {
+    "da": "metro",
+    "gloss": "metro"
+  },
+  {
+    "da": "miav",
+    "gloss": "miau"
+  },
+  {
+    "da": "middel",
+    "gloss": "moderado"
+  },
+  {
+    "da": "midnat",
+    "gloss": "meia-noite"
+  },
+  {
+    "da": "mikrofon",
+    "gloss": "microfone"
+  },
+  {
+    "da": "mikroskop",
+    "gloss": "microscópio"
+  },
+  {
+    "da": "miljø",
+    "gloss": "ambiente"
+  },
+  {
+    "da": "milliard",
+    "gloss": "mil milhões"
+  },
+  {
+    "da": "million",
+    "gloss": "milhão"
+  },
+  {
+    "da": "mine",
+    "gloss": "mina"
+  },
+  {
+    "da": "mini",
+    "gloss": "mini"
+  },
+  {
+    "da": "miniature",
+    "gloss": "miniatura"
+  },
+  {
+    "da": "minibar",
+    "gloss": "minibar"
+  },
+  {
+    "da": "minimal",
+    "gloss": "mínimo"
+  },
+  {
+    "da": "minister",
+    "gloss": "ministro"
+  },
+  {
+    "da": "ministerium",
+    "gloss": "ministério"
+  },
+  {
+    "da": "minutter",
+    "gloss": "minutos"
+  },
+  {
+    "da": "mistanke",
+    "gloss": "suspeita"
+  },
+  {
+    "da": "mistænkelig",
+    "gloss": "suspeito"
+  },
+  {
+    "da": "mjav",
+    "gloss": "miau"
+  },
+  {
+    "da": "mobil",
+    "gloss": "telemóvel"
+  },
+  {
+    "da": "mod",
+    "gloss": "coragem"
+  },
+  {
+    "da": "mode",
+    "gloss": "moda"
+  },
+  {
+    "da": "model",
+    "gloss": "modelo"
+  },
+  {
+    "da": "moden",
+    "gloss": "maduro"
+  },
+  {
+    "da": "moderat",
+    "gloss": "moderado"
+  },
+  {
+    "da": "modersmål",
+    "gloss": "língua materna"
+  },
+  {
+    "da": "modsat",
+    "gloss": "oposto"
+  },
+  {
+    "da": "modsætning",
+    "gloss": "oposição"
+  },
+  {
+    "da": "modtage",
+    "gloss": "aceitar"
+  },
+  {
+    "da": "moms",
+    "gloss": "IVA"
+  },
+  {
+    "da": "monster",
+    "gloss": "monstro"
+  },
+  {
+    "da": "moppe",
+    "gloss": "esfregão"
+  },
+  {
+    "da": "moral",
+    "gloss": "moral"
+  },
+  {
+    "da": "morgenlys",
+    "gloss": "luz do dia"
+  },
+  {
+    "da": "mos",
+    "gloss": "puré"
+  },
+  {
+    "da": "most",
+    "gloss": "sidra"
+  },
+  {
+    "da": "motor",
+    "gloss": "motor"
+  },
+  {
+    "da": "motorcykel",
+    "gloss": "mota"
+  },
+  {
+    "da": "motorvej",
+    "gloss": "autoestrada"
+  },
+  {
+    "da": "mudder",
+    "gloss": "lama"
+  },
+  {
+    "da": "mumle",
+    "gloss": "murmurar"
+  },
+  {
+    "da": "mundtlig",
+    "gloss": "oral"
+  },
+  {
+    "da": "munk",
+    "gloss": "monge"
+  },
+  {
+    "da": "munter",
+    "gloss": "alegre"
+  },
+  {
+    "da": "mur",
+    "gloss": "parede"
+  },
+  {
+    "da": "mursten",
+    "gloss": "tijolo"
+  },
+  {
+    "da": "muskler",
+    "gloss": "músculos"
+  },
+  {
+    "da": "musling",
+    "gloss": "mexilhão"
+  },
+  {
+    "da": "muslinger",
+    "gloss": "mexilhões"
+  },
+  {
+    "da": "myg",
+    "gloss": "mosquito"
+  },
+  {
+    "da": "myldretid",
+    "gloss": "hora de ponta"
+  },
+  {
+    "da": "myndighed",
+    "gloss": "autoridade"
+  },
+  {
+    "da": "myre",
+    "gloss": "formiga"
+  },
+  {
+    "da": "mystisk",
+    "gloss": "misterioso"
+  },
+  {
+    "da": "må",
+    "gloss": "poder"
+  },
+  {
+    "da": "måge",
+    "gloss": "gaivota"
+  },
+  {
+    "da": "mål",
+    "gloss": "destino"
+  },
+  {
+    "da": "måle",
+    "gloss": "medir"
+  },
+  {
+    "da": "måneskin",
+    "gloss": "luar"
+  },
+  {
+    "da": "måske",
+    "gloss": "talvez"
+  },
+  {
+    "da": "måtte",
+    "gloss": "capacho"
+  },
+  {
+    "da": "mælkebøtte",
+    "gloss": "dente-de-leão"
+  },
+  {
+    "da": "mængde",
+    "gloss": "quantidade"
+  },
+  {
+    "da": "mærkat",
+    "gloss": "etiqueta"
+  },
+  {
+    "da": "mærke",
+    "gloss": "distintivo"
+  },
+  {
+    "da": "mæt",
+    "gloss": "cheio"
+  },
+  {
+    "da": "møbler",
+    "gloss": "mobílias"
+  },
+  {
+    "da": "mølle",
+    "gloss": "moinho"
+  },
+  {
+    "da": "mønster",
+    "gloss": "padrão"
+  },
+  {
+    "da": "mønt",
+    "gloss": "moeda"
+  },
+  {
+    "da": "mør",
+    "gloss": "tenro"
+  },
+  {
+    "da": "mørke",
+    "gloss": "escuro"
+  },
+  {
+    "da": "mørkt",
+    "gloss": "escuro"
+  },
+  {
+    "da": "nabolag",
+    "gloss": "bairro"
+  },
+  {
+    "da": "nakke",
+    "gloss": "nuca"
+  },
+  {
+    "da": "nakkeskade",
+    "gloss": "lesão"
+  },
+  {
+    "da": "natbord",
+    "gloss": "mesa de cabeceira"
+  },
+  {
+    "da": "nation",
+    "gloss": "nação"
+  },
+  {
+    "da": "nationalitet",
+    "gloss": "nacionalidade"
+  },
+  {
+    "da": "nattøj",
+    "gloss": "pijama"
+  },
+  {
+    "da": "navigere",
+    "gloss": "navegar"
+  },
+  {
+    "da": "ned",
+    "gloss": "abaixo"
+  },
+  {
+    "da": "nedre",
+    "gloss": "inferior"
+  },
+  {
+    "da": "nedtælling",
+    "gloss": "contagem decrescente"
+  },
+  {
+    "da": "negl",
+    "gloss": "unha"
+  },
+  {
+    "da": "negle",
+    "gloss": "unhas"
+  },
+  {
+    "da": "nej",
+    "gloss": "não"
+  },
+  {
+    "da": "nerve",
+    "gloss": "nervo"
+  },
+  {
+    "da": "nerver",
+    "gloss": "nervos"
+  },
+  {
+    "da": "net",
+    "gloss": "rede"
+  },
+  {
+    "da": "netbutik",
+    "gloss": "loja online"
+  },
+  {
+    "da": "netværk",
+    "gloss": "rede"
+  },
+  {
+    "da": "neutral",
+    "gloss": "neutro"
+  },
+  {
+    "da": "nevø",
+    "gloss": "sobrinho"
+  },
+  {
+    "da": "niece",
+    "gloss": "sobrinha"
+  },
+  {
+    "da": "nik",
+    "gloss": "aceno"
+  },
+  {
+    "da": "nikke",
+    "gloss": "acenar"
+  },
+  {
+    "da": "nikotin",
+    "gloss": "nicotina"
+  },
+  {
+    "da": "niveau",
+    "gloss": "nível"
+  },
+  {
+    "da": "node",
+    "gloss": "nota"
+  },
+  {
+    "da": "nok",
+    "gloss": "suficiente"
+  },
+  {
+    "da": "nonne",
+    "gloss": "freira"
+  },
+  {
+    "da": "nord",
+    "gloss": "norte"
+  },
+  {
+    "da": "nordisk",
+    "gloss": "nórdico"
+  },
+  {
+    "da": "nostalgi",
+    "gloss": "nostalgia"
+  },
+  {
+    "da": "notat",
+    "gloss": "nota"
+  },
+  {
+    "da": "noter",
+    "gloss": "notas"
+  },
+  {
+    "da": "notesbog",
+    "gloss": "caderno"
+  },
+  {
+    "da": "nu",
+    "gloss": "agora"
+  },
+  {
+    "da": "nudler",
+    "gloss": "massa"
+  },
+  {
+    "da": "numse",
+    "gloss": "rabo"
+  },
+  {
+    "da": "nydelse",
+    "gloss": "mimo"
+  },
+  {
+    "da": "nyeste",
+    "gloss": "mais recente"
+  },
+  {
+    "da": "nyheder",
+    "gloss": "notícias"
+  },
+  {
+    "da": "nyse",
+    "gloss": "espirrar"
+  },
+  {
+    "da": "nysgerrig",
+    "gloss": "curioso"
+  },
+  {
+    "da": "nysgerrighed",
+    "gloss": "curiosidade"
+  },
+  {
+    "da": "nyt",
+    "gloss": "novo"
+  },
+  {
+    "da": "nål",
+    "gloss": "agulha"
+  },
+  {
+    "da": "næb",
+    "gloss": "bico"
+  },
+  {
+    "da": "nær",
+    "gloss": "próximo"
+  },
+  {
+    "da": "nærhed",
+    "gloss": "proximidade"
+  },
+  {
+    "da": "nærme",
+    "gloss": "aproximar-se"
+  },
+  {
+    "da": "næve",
+    "gloss": "punho"
+  },
+  {
+    "da": "nød",
+    "gloss": "emergência"
+  },
+  {
+    "da": "nødsituation",
+    "gloss": "emergência"
+  },
+  {
+    "da": "nøgen",
+    "gloss": "nu"
+  },
+  {
+    "da": "nøgler",
+    "gloss": "chaves"
+  },
+  {
+    "da": "nøjagtig",
+    "gloss": "exato"
+  },
+  {
+    "da": "obligatorisk",
+    "gloss": "obrigatório"
+  },
+  {
+    "da": "offentligtransport",
+    "gloss": "transportes públicos"
+  },
+  {
+    "da": "offer",
+    "gloss": "vítima"
+  },
+  {
+    "da": "ofte",
+    "gloss": "frequentemente"
+  },
+  {
+    "da": "ok",
+    "gloss": "ok"
+  },
+  {
+    "da": "okay",
+    "gloss": "ok"
+  },
+  {
+    "da": "okse",
+    "gloss": "boi"
+  },
+  {
+    "da": "oldtid",
+    "gloss": "Antiguidade"
+  },
+  {
+    "da": "olie",
+    "gloss": "óleo"
+  },
+  {
+    "da": "omelet",
+    "gloss": "omeleta"
+  },
+  {
+    "da": "omfavne",
+    "gloss": "abraçar"
+  },
+  {
+    "da": "omklædning",
+    "gloss": "mudança de roupa"
+  },
+  {
+    "da": "omrids",
+    "gloss": "contorno"
+  },
+  {
+    "da": "område",
+    "gloss": "área"
+  },
+  {
+    "da": "omslag",
+    "gloss": "capa"
+  },
+  {
+    "da": "omsorg",
+    "gloss": "cuidado"
+  },
+  {
+    "da": "omsorgsfuld",
+    "gloss": "cuidadoso"
+  },
+  {
+    "da": "omtale",
+    "gloss": "publicidade"
+  },
+  {
+    "da": "ondt",
+    "gloss": "dor"
+  },
+  {
+    "da": "onkel",
+    "gloss": "tio"
+  },
+  {
+    "da": "online",
+    "gloss": "online"
+  },
+  {
+    "da": "onsdag",
+    "gloss": "quarta-feira"
+  },
+  {
+    "da": "op",
+    "gloss": "topo"
+  },
+  {
+    "da": "opad",
+    "gloss": "para cima"
+  },
+  {
+    "da": "opbevare",
+    "gloss": "guardar"
+  },
+  {
+    "da": "opbevaring",
+    "gloss": "armazenamento"
+  },
+  {
+    "da": "opdagelse",
+    "gloss": "descoberta"
+  },
+  {
+    "da": "opdatere",
+    "gloss": "atualizar"
+  },
+  {
+    "da": "opdatering",
+    "gloss": "atualização"
+  },
+  {
+    "da": "opdrage",
+    "gloss": "educar"
+  },
+  {
+    "da": "operation",
+    "gloss": "operação"
+  },
+  {
+    "da": "opfattelse",
+    "gloss": "perceção, opinião"
+  },
+  {
+    "da": "opfinde",
+    "gloss": "inventar"
+  },
+  {
+    "da": "opfinder",
+    "gloss": "inventor"
+  },
+  {
+    "da": "opførsel",
+    "gloss": "comportamento"
+  },
+  {
+    "da": "opgang",
+    "gloss": "escadaria"
+  },
+  {
+    "da": "ophold",
+    "gloss": "estadia"
+  },
+  {
+    "da": "oplevelse",
+    "gloss": "experiência"
+  },
+  {
+    "da": "oplysning",
+    "gloss": "informação"
+  },
+  {
+    "da": "oplyst",
+    "gloss": "esclarecido, iluminado"
+  },
+  {
+    "da": "oplæsning",
+    "gloss": "leitura em voz alta"
+  },
+  {
+    "da": "opløse",
+    "gloss": "dissolver"
+  },
+  {
+    "da": "opmuntring",
+    "gloss": "encorajamento"
+  },
+  {
+    "da": "opmærksom",
+    "gloss": "atento"
+  },
+  {
+    "da": "opmærksomhed",
+    "gloss": "atenção"
+  },
+  {
+    "da": "oppe",
+    "gloss": "em cima"
+  },
+  {
+    "da": "opposition",
+    "gloss": "oposição"
+  },
+  {
+    "da": "oprigtig",
+    "gloss": "genuíno"
+  },
+  {
+    "da": "oprydning",
+    "gloss": "arrumação"
+  },
+  {
+    "da": "opsparing",
+    "gloss": "poupança"
+  },
+  {
+    "da": "optage",
+    "gloss": "ocupar"
+  },
+  {
+    "da": "optræde",
+    "gloss": "atuar"
+  },
+  {
+    "da": "opvarmning",
+    "gloss": "aquecimento"
+  },
+  {
+    "da": "opvask",
+    "gloss": "louça"
+  },
+  {
+    "da": "opvækst",
+    "gloss": "infância, crescimento"
+  },
+  {
+    "da": "orden",
+    "gloss": "ordem"
+  },
+  {
+    "da": "ordentlig",
+    "gloss": "decente"
+  },
+  {
+    "da": "ordentligt",
+    "gloss": "devidamente"
+  },
+  {
+    "da": "ordre",
+    "gloss": "ordem"
+  },
+  {
+    "da": "organ",
+    "gloss": "órgão"
+  },
+  {
+    "da": "organisation",
+    "gloss": "organização"
+  },
+  {
+    "da": "organisere",
+    "gloss": "organizar"
+  },
+  {
+    "da": "organisering",
+    "gloss": "organização"
+  },
+  {
+    "da": "organisme",
+    "gloss": "organismo"
+  },
+  {
+    "da": "orgel",
+    "gloss": "órgão"
+  },
+  {
+    "da": "orkan",
+    "gloss": "furacão"
+  },
+  {
+    "da": "orm",
+    "gloss": "verme"
+  },
+  {
+    "da": "otte",
+    "gloss": "oito"
+  },
+  {
+    "da": "oval",
+    "gloss": "oval"
+  },
+  {
+    "da": "over",
+    "gloss": "sobre"
+  },
+  {
+    "da": "overbevisning",
+    "gloss": "convicção"
+  },
+  {
+    "da": "overbevist",
+    "gloss": "convencido"
+  },
+  {
+    "da": "overflade",
+    "gloss": "superfície"
+  },
+  {
+    "da": "overføre",
+    "gloss": "transferir"
+  },
+  {
+    "da": "overførsel",
+    "gloss": "transferência"
+  },
+  {
+    "da": "overleve",
+    "gloss": "sobreviver"
+  },
+  {
+    "da": "overnatning",
+    "gloss": "pernoitação"
+  },
+  {
+    "da": "overnatte",
+    "gloss": "pernoitar"
+  },
+  {
+    "da": "overordnet",
+    "gloss": "superior"
+  },
+  {
+    "da": "overraskende",
+    "gloss": "surpreendente"
+  },
+  {
+    "da": "oversigt",
+    "gloss": "vista geral"
+  },
+  {
+    "da": "overskuelig",
+    "gloss": "controlável"
+  },
+  {
+    "da": "oversættelse",
+    "gloss": "tradução"
+  },
+  {
+    "da": "oversætter",
+    "gloss": "tradutor"
+  },
+  {
+    "da": "overvejelse",
+    "gloss": "ponderação"
+  },
+  {
+    "da": "pakket",
+    "gloss": "empacotado"
+  },
+  {
+    "da": "pandekage",
+    "gloss": "panqueca"
+  },
+  {
+    "da": "panik",
+    "gloss": "pânico"
+  },
+  {
+    "da": "panorama",
+    "gloss": "panorama"
+  },
+  {
+    "da": "panter",
+    "gloss": "pantera"
+  },
+  {
+    "da": "pap",
+    "gloss": "cartão"
+  },
+  {
+    "da": "papegøje",
+    "gloss": "papagaio"
+  },
+  {
+    "da": "papirer",
+    "gloss": "papéis"
+  },
+  {
+    "da": "paprika",
+    "gloss": "paprica"
+  },
+  {
+    "da": "par",
+    "gloss": "casal"
+  },
+  {
+    "da": "paradis",
+    "gloss": "paraíso"
+  },
+  {
+    "da": "parasol",
+    "gloss": "parasol"
+  },
+  {
+    "da": "parat",
+    "gloss": "preparado"
+  },
+  {
+    "da": "parforhold",
+    "gloss": "relação"
+  },
+  {
+    "da": "parfume",
+    "gloss": "perfume"
+  },
+  {
+    "da": "parkere",
+    "gloss": "estacionar"
+  },
+  {
+    "da": "parkering",
+    "gloss": "estacionamento"
+  },
+  {
+    "da": "parlament",
+    "gloss": "parlamento"
+  },
+  {
+    "da": "parti",
+    "gloss": "festa"
+  },
+  {
+    "da": "partner",
+    "gloss": "parceiro"
+  },
+  {
+    "da": "paryk",
+    "gloss": "peruca"
+  },
+  {
+    "da": "pasform",
+    "gloss": "caimento"
+  },
+  {
+    "da": "pasfoto",
+    "gloss": "fotografia tipo passe"
+  },
+  {
+    "da": "passager",
+    "gloss": "passageiro"
+  },
+  {
+    "da": "passende",
+    "gloss": "adequado"
+  },
+  {
+    "da": "passion",
+    "gloss": "paixão"
+  },
+  {
+    "da": "patient",
+    "gloss": "doente"
+  },
+  {
+    "da": "patrulje",
+    "gloss": "patrulha"
+  },
+  {
+    "da": "pattedyr",
+    "gloss": "mamífero"
+  },
+  {
+    "da": "peberfrugt",
+    "gloss": "pimentão"
+  },
+  {
+    "da": "pedal",
+    "gloss": "pedal"
+  },
+  {
+    "da": "pedaler",
+    "gloss": "pedais"
+  },
+  {
+    "da": "pege",
+    "gloss": "indicar"
+  },
+  {
+    "da": "pejs",
+    "gloss": "lareira"
+  },
+  {
+    "da": "pels",
+    "gloss": "pelo"
+  },
+  {
+    "da": "pelspleje",
+    "gloss": "cuidado do pelo"
+  },
+  {
+    "da": "pendler",
+    "gloss": "pendular"
+  },
+  {
+    "da": "pendul",
+    "gloss": "pêndulo"
+  },
+  {
+    "da": "pension",
+    "gloss": "pensão"
+  },
+  {
+    "da": "pensionist",
+    "gloss": "reformado"
+  },
+  {
+    "da": "pensum",
+    "gloss": "matéria (programa)"
+  },
+  {
+    "da": "periode",
+    "gloss": "período"
+  },
+  {
+    "da": "perle",
+    "gloss": "pérola"
+  },
+  {
+    "da": "perron",
+    "gloss": "cais"
+  },
+  {
+    "da": "persille",
+    "gloss": "salsa"
+  },
+  {
+    "da": "personale",
+    "gloss": "pessoal"
+  },
+  {
+    "da": "personligt",
+    "gloss": "pessoal"
+  },
+  {
+    "da": "petroleum",
+    "gloss": "querosene"
+  },
+  {
+    "da": "pibe",
+    "gloss": "cachimbo"
+  },
+  {
+    "da": "picnic",
+    "gloss": "piquenique"
+  },
+  {
+    "da": "piercing",
+    "gloss": "piercing"
+  },
+  {
+    "da": "pil",
+    "gloss": "flecha"
+  },
+  {
+    "da": "pilgrimsfærd",
+    "gloss": "peregrinação"
+  },
+  {
+    "da": "piller",
+    "gloss": "comprimidos"
+  },
+  {
+    "da": "pilot",
+    "gloss": "piloto"
+  },
+  {
+    "da": "pilsner",
+    "gloss": "pilsner"
+  },
+  {
+    "da": "pind",
+    "gloss": "pau"
+  },
+  {
+    "da": "pine",
+    "gloss": "doer"
+  },
+  {
+    "da": "pingvin",
+    "gloss": "pinguim"
+  },
+  {
+    "da": "pinlig",
+    "gloss": "constrangedor"
+  },
+  {
+    "da": "pip",
+    "gloss": "piar"
+  },
+  {
+    "da": "pirat",
+    "gloss": "pirata"
+  },
+  {
+    "da": "placering",
+    "gloss": "posição, localização"
+  },
+  {
+    "da": "plade",
+    "gloss": "superfície"
+  },
+  {
+    "da": "plage",
+    "gloss": "incomodar"
+  },
+  {
+    "da": "plakat",
+    "gloss": "cartaz"
+  },
+  {
+    "da": "planer",
+    "gloss": "planos"
+  },
+  {
+    "da": "planet",
+    "gloss": "planeta"
+  },
+  {
+    "da": "planke",
+    "gloss": "prancha"
+  },
+  {
+    "da": "planlægning",
+    "gloss": "planeamento"
+  },
+  {
+    "da": "planter",
+    "gloss": "plantas"
+  },
+  {
+    "da": "plaske",
+    "gloss": "salpicar"
+  },
+  {
+    "da": "plaster",
+    "gloss": "penso"
+  },
+  {
+    "da": "plastik",
+    "gloss": "plástico"
+  },
+  {
+    "da": "please",
+    "gloss": "por favor"
+  },
+  {
+    "da": "plet",
+    "gloss": "mancha"
+  },
+  {
+    "da": "pligt",
+    "gloss": "dever"
+  },
+  {
+    "da": "plov",
+    "gloss": "arado"
+  },
+  {
+    "da": "pludselig",
+    "gloss": "repentino"
+  },
+  {
+    "da": "plukke",
+    "gloss": "apanhar"
+  },
+  {
+    "da": "podcast",
+    "gloss": "podcast"
+  },
+  {
+    "da": "point",
+    "gloss": "ponto"
+  },
+  {
+    "da": "polere",
+    "gloss": "polir"
+  },
+  {
+    "da": "poleret",
+    "gloss": "polido"
+  },
+  {
+    "da": "politik",
+    "gloss": "política"
+  },
+  {
+    "da": "pollen",
+    "gloss": "pólen"
+  },
+  {
+    "da": "pomfritter",
+    "gloss": "batatas fritas"
+  },
+  {
+    "da": "pommes",
+    "gloss": "batatas fritas"
+  },
+  {
+    "da": "pony",
+    "gloss": "pónei"
+  },
+  {
+    "da": "pool",
+    "gloss": "piscina"
+  },
+  {
+    "da": "popcorn",
+    "gloss": "pipoca"
+  },
+  {
+    "da": "porcelæn",
+    "gloss": "porcelana"
+  },
+  {
+    "da": "porre",
+    "gloss": "alho-porro"
+  },
+  {
+    "da": "port",
+    "gloss": "portão"
+  },
+  {
+    "da": "portion",
+    "gloss": "porção"
+  },
+  {
+    "da": "porto",
+    "gloss": "porte"
+  },
+  {
+    "da": "portræt",
+    "gloss": "retrato"
+  },
+  {
+    "da": "position",
+    "gloss": "posição"
+  },
+  {
+    "da": "positiv",
+    "gloss": "positivo"
+  },
+  {
+    "da": "post",
+    "gloss": "correio"
+  },
+  {
+    "da": "postbud",
+    "gloss": "carteiro"
+  },
+  {
+    "da": "postkasse",
+    "gloss": "caixa de correio"
+  },
+  {
+    "da": "postnummer",
+    "gloss": "código postal"
+  },
+  {
+    "da": "pote",
+    "gloss": "pata"
+  },
+  {
+    "da": "poter",
+    "gloss": "patas"
+  },
+  {
+    "da": "potte",
+    "gloss": "vaso"
+  },
+  {
+    "da": "pragtfuld",
+    "gloss": "esplêndido"
+  },
+  {
+    "da": "praktik",
+    "gloss": "estágio"
+  },
+  {
+    "da": "premiere",
+    "gloss": "estreia"
+  },
+  {
+    "da": "pres",
+    "gloss": "pressão"
+  },
+  {
+    "da": "presse",
+    "gloss": "espremer"
+  },
+  {
+    "da": "prik",
+    "gloss": "ponto"
+  },
+  {
+    "da": "prikke",
+    "gloss": "espetar"
+  },
+  {
+    "da": "prikken",
+    "gloss": "formigueiro"
+  },
+  {
+    "da": "prins",
+    "gloss": "príncipe"
+  },
+  {
+    "da": "prinsesse",
+    "gloss": "princesa"
+  },
+  {
+    "da": "printer",
+    "gloss": "impressora"
+  },
+  {
+    "da": "prioritet",
+    "gloss": "prioridade"
+  },
+  {
+    "da": "problem",
+    "gloss": "problema"
+  },
+  {
+    "da": "producere",
+    "gloss": "produzir"
+  },
+  {
+    "da": "profession",
+    "gloss": "profissão"
+  },
+  {
+    "da": "professor",
+    "gloss": "professor"
+  },
+  {
+    "da": "profil",
+    "gloss": "perfil"
+  },
+  {
+    "da": "prognose",
+    "gloss": "previsão"
+  },
+  {
+    "da": "projekt",
+    "gloss": "projeto"
+  },
+  {
+    "da": "projektor",
+    "gloss": "projetor"
+  },
+  {
+    "da": "prop",
+    "gloss": "tampão"
+  },
+  {
+    "da": "protein",
+    "gloss": "proteína"
+  },
+  {
+    "da": "protest",
+    "gloss": "protesto"
+  },
+  {
+    "da": "provokere",
+    "gloss": "provocar"
+  },
+  {
+    "da": "præcis",
+    "gloss": "exato"
+  },
+  {
+    "da": "prædike",
+    "gloss": "pregar"
+  },
+  {
+    "da": "prædiken",
+    "gloss": "sermão"
+  },
+  {
+    "da": "præmie",
+    "gloss": "prémio"
+  },
+  {
+    "da": "præsentation",
+    "gloss": "introdução"
+  },
+  {
+    "da": "præsentere",
+    "gloss": "apresentar"
+  },
+  {
+    "da": "præsident",
+    "gloss": "presidente"
+  },
+  {
+    "da": "præst",
+    "gloss": "padre"
+  },
+  {
+    "da": "psykologi",
+    "gloss": "psicologia"
+  },
+  {
+    "da": "pub",
+    "gloss": "taberna"
+  },
+  {
+    "da": "publikum",
+    "gloss": "público"
+  },
+  {
+    "da": "pudse",
+    "gloss": "soprar"
+  },
+  {
+    "da": "puls",
+    "gloss": "pulso"
+  },
+  {
+    "da": "pult",
+    "gloss": "secretária"
+  },
+  {
+    "da": "pumpe",
+    "gloss": "bomba"
+  },
+  {
+    "da": "punkt",
+    "gloss": "ponto"
+  },
+  {
+    "da": "punkteret",
+    "gloss": "furar"
+  },
+  {
+    "da": "punktering",
+    "gloss": "furo"
+  },
+  {
+    "da": "punktlig",
+    "gloss": "pontual"
+  },
+  {
+    "da": "punktlighed",
+    "gloss": "pontualidade"
+  },
+  {
+    "da": "punktum",
+    "gloss": "ponto final"
+  },
+  {
+    "da": "pupil",
+    "gloss": "pupila"
+  },
+  {
+    "da": "puslespil",
+    "gloss": "puzzle"
+  },
+  {
+    "da": "pust",
+    "gloss": "sopro"
+  },
+  {
+    "da": "puste",
+    "gloss": "soprar"
+  },
+  {
+    "da": "putte",
+    "gloss": "enfiar"
+  },
+  {
+    "da": "pyjamas",
+    "gloss": "pijama"
+  },
+  {
+    "da": "pynt",
+    "gloss": "acessório"
+  },
+  {
+    "da": "pynte",
+    "gloss": "decorar"
+  },
+  {
+    "da": "pyt",
+    "gloss": "poça"
+  },
+  {
+    "da": "pålæg",
+    "gloss": "fiambre"
+  },
+  {
+    "da": "påmindelse",
+    "gloss": "lembrete"
+  },
+  {
+    "da": "påske",
+    "gloss": "Páscoa"
+  },
+  {
+    "da": "pædagog",
+    "gloss": "educador"
+  },
+  {
+    "da": "quiz",
+    "gloss": "quiz"
+  },
+  {
+    "da": "rabat",
+    "gloss": "desconto"
+  },
+  {
+    "da": "racer",
+    "gloss": "corredor"
+  },
+  {
+    "da": "radiator",
+    "gloss": "radiador"
+  },
+  {
+    "da": "raket",
+    "gloss": "foguetão"
+  },
+  {
+    "da": "ramme",
+    "gloss": "moldura"
+  },
+  {
+    "da": "rapport",
+    "gloss": "relatório"
+  },
+  {
+    "da": "rart",
+    "gloss": "agradável"
+  },
+  {
+    "da": "raseri",
+    "gloss": "fúria"
+  },
+  {
+    "da": "rasteplads",
+    "gloss": "área de repouso"
+  },
+  {
+    "da": "rat",
+    "gloss": "volante"
+  },
+  {
+    "da": "ravn",
+    "gloss": "corvo"
+  },
+  {
+    "da": "reaktion",
+    "gloss": "reação"
+  },
+  {
+    "da": "reb",
+    "gloss": "corda"
+  },
+  {
+    "da": "reception",
+    "gloss": "receção"
+  },
+  {
+    "da": "rede",
+    "gloss": "fazer"
+  },
+  {
+    "da": "redning",
+    "gloss": "resgate"
+  },
+  {
+    "da": "redskab",
+    "gloss": "utensílio"
+  },
+  {
+    "da": "referat",
+    "gloss": "ata"
+  },
+  {
+    "da": "refleksion",
+    "gloss": "reflexão"
+  },
+  {
+    "da": "reflektere",
+    "gloss": "refletir"
+  },
+  {
+    "da": "regel",
+    "gloss": "regra"
+  },
+  {
+    "da": "region",
+    "gloss": "região"
+  },
+  {
+    "da": "regler",
+    "gloss": "regras"
+  },
+  {
+    "da": "regnbue",
+    "gloss": "arco-íris"
+  },
+  {
+    "da": "regnskab",
+    "gloss": "contas"
+  },
+  {
+    "da": "rejer",
+    "gloss": "camarão"
+  },
+  {
+    "da": "rejsende",
+    "gloss": "passageiro"
+  },
+  {
+    "da": "reklame",
+    "gloss": "anúncio"
+  },
+  {
+    "da": "rekord",
+    "gloss": "recorde"
+  },
+  {
+    "da": "rektor",
+    "gloss": "diretor"
+  },
+  {
+    "da": "religion",
+    "gloss": "religião"
+  },
+  {
+    "da": "rengøre",
+    "gloss": "limpar"
+  },
+  {
+    "da": "rengøring",
+    "gloss": "limpeza"
+  },
+  {
+    "da": "rense",
+    "gloss": "limpar"
+  },
+  {
+    "da": "rent",
+    "gloss": "limpo"
+  },
+  {
+    "da": "rente",
+    "gloss": "juro"
+  },
+  {
+    "da": "reol",
+    "gloss": "estante"
+  },
+  {
+    "da": "reparation",
+    "gloss": "reparação"
+  },
+  {
+    "da": "replik",
+    "gloss": "fala"
+  },
+  {
+    "da": "reservation",
+    "gloss": "reserva"
+  },
+  {
+    "da": "reserve",
+    "gloss": "sobressalente"
+  },
+  {
+    "da": "reservedel",
+    "gloss": "peça sobressalente"
+  },
+  {
+    "da": "reservere",
+    "gloss": "reservar"
+  },
+  {
+    "da": "respekt",
+    "gloss": "respeito"
+  },
+  {
+    "da": "respektfuld",
+    "gloss": "respeitoso"
+  },
+  {
+    "da": "rester",
+    "gloss": "sobras"
+  },
+  {
+    "da": "resultat",
+    "gloss": "resultado"
+  },
+  {
+    "da": "ret",
+    "gloss": "prato"
+  },
+  {
+    "da": "retfærdig",
+    "gloss": "justo"
+  },
+  {
+    "da": "retning",
+    "gloss": "direção"
+  },
+  {
+    "da": "retskrivning",
+    "gloss": "ortografia"
+  },
+  {
+    "da": "retur",
+    "gloss": "regresso"
+  },
+  {
+    "da": "revne",
+    "gloss": "fenda"
+  },
+  {
+    "da": "revnet",
+    "gloss": "fendido"
+  },
+  {
+    "da": "ribben",
+    "gloss": "costelas"
+  },
+  {
+    "da": "ridder",
+    "gloss": "cavaleiro"
+  },
+  {
+    "da": "ride",
+    "gloss": "cavalgar"
+  },
+  {
+    "da": "rigtigt",
+    "gloss": "corretamente"
+  },
+  {
+    "da": "ris",
+    "gloss": "arroz"
+  },
+  {
+    "da": "risiko",
+    "gloss": "risco"
+  },
+  {
+    "da": "rist",
+    "gloss": "tostadeira"
+  },
+  {
+    "da": "rive",
+    "gloss": "demolir"
+  },
+  {
+    "da": "robot",
+    "gloss": "robô"
+  },
+  {
+    "da": "robust",
+    "gloss": "robusto"
+  },
+  {
+    "da": "rod",
+    "gloss": "confusão"
+  },
+  {
+    "da": "rodet",
+    "gloss": "desarrumado"
+  },
+  {
+    "da": "roe",
+    "gloss": "beterraba"
+  },
+  {
+    "da": "rokke",
+    "gloss": "abalhar"
+  },
+  {
+    "da": "roligt",
+    "gloss": "suavemente"
+  },
+  {
+    "da": "rolle",
+    "gloss": "papel"
+  },
+  {
+    "da": "roman",
+    "gloss": "romance"
+  },
+  {
+    "da": "romantik",
+    "gloss": "romance"
+  },
+  {
+    "da": "romantisk",
+    "gloss": "romântico"
+  },
+  {
+    "da": "ros",
+    "gloss": "elogio"
+  },
+  {
+    "da": "rose",
+    "gloss": "rosa"
+  },
+  {
+    "da": "ru",
+    "gloss": "áspero"
+  },
+  {
+    "da": "rude",
+    "gloss": "vidraça"
+  },
+  {
+    "da": "rug",
+    "gloss": "centeio"
+  },
+  {
+    "da": "rugbrød",
+    "gloss": "pão de centeio"
+  },
+  {
+    "da": "ruge",
+    "gloss": "chocar"
+  },
+  {
+    "da": "ruin",
+    "gloss": "ruína"
+  },
+  {
+    "da": "rum",
+    "gloss": "compartimento"
+  },
+  {
+    "da": "rummelig",
+    "gloss": "espaçoso"
+  },
+  {
+    "da": "rumskib",
+    "gloss": "nave espacial"
+  },
+  {
+    "da": "runde",
+    "gloss": "ronda"
+  },
+  {
+    "da": "rundkørsel",
+    "gloss": "rotunda"
+  },
+  {
+    "da": "rundstykke",
+    "gloss": "pãozinho"
+  },
+  {
+    "da": "rundt",
+    "gloss": "à volta"
+  },
+  {
+    "da": "rus",
+    "gloss": "embriagado"
+  },
+  {
+    "da": "rust",
+    "gloss": "ferrugem"
+  },
+  {
+    "da": "rustning",
+    "gloss": "armadura"
+  },
+  {
+    "da": "rute",
+    "gloss": "rota"
+  },
+  {
+    "da": "rutine",
+    "gloss": "rotina"
+  },
+  {
+    "da": "rutsjebane",
+    "gloss": "montanha-russa"
+  },
+  {
+    "da": "ry",
+    "gloss": "reputação"
+  },
+  {
+    "da": "rygte",
+    "gloss": "rumor"
+  },
+  {
+    "da": "rynke",
+    "gloss": "ruga"
+  },
+  {
+    "da": "rytter",
+    "gloss": "cavaleiro"
+  },
+  {
+    "da": "rå",
+    "gloss": "cru"
+  },
+  {
+    "da": "råd",
+    "gloss": "conselho"
+  },
+  {
+    "da": "rådden",
+    "gloss": "podre"
+  },
+  {
+    "da": "rådgiver",
+    "gloss": "conselheiro"
+  },
+  {
+    "da": "rådgivning",
+    "gloss": "aconselhamento"
+  },
+  {
+    "da": "række",
+    "gloss": "passar"
+  },
+  {
+    "da": "rækkefølge",
+    "gloss": "ordem"
+  },
+  {
+    "da": "ræv",
+    "gloss": "raposa"
+  },
+  {
+    "da": "rødme",
+    "gloss": "corar"
+  },
+  {
+    "da": "røg",
+    "gloss": "fumo"
+  },
+  {
+    "da": "røget",
+    "gloss": "fumado"
+  },
+  {
+    "da": "rør",
+    "gloss": "cana"
+  },
+  {
+    "da": "røver",
+    "gloss": "ladrão"
+  },
+  {
+    "da": "røveri",
+    "gloss": "assalto"
+  },
+  {
+    "da": "sadel",
+    "gloss": "sela"
+  },
+  {
+    "da": "saft",
+    "gloss": "sumo"
+  },
+  {
+    "da": "saftig",
+    "gloss": "suculento"
+  },
+  {
+    "da": "sal",
+    "gloss": "auditório"
+  },
+  {
+    "da": "salg",
+    "gloss": "venda"
+  },
+  {
+    "da": "salme",
+    "gloss": "hino"
+  },
+  {
+    "da": "salon",
+    "gloss": "salão"
+  },
+  {
+    "da": "salve",
+    "gloss": "unguento"
+  },
+  {
+    "da": "samarbejde",
+    "gloss": "cooperação"
+  },
+  {
+    "da": "samkørsel",
+    "gloss": "boleia partilhada"
+  },
+  {
+    "da": "samles",
+    "gloss": "reunir"
+  },
+  {
+    "da": "samlet",
+    "gloss": "combinado"
+  },
+  {
+    "da": "sammen",
+    "gloss": "juntos"
+  },
+  {
+    "da": "sammendrag",
+    "gloss": "resumo"
+  },
+  {
+    "da": "sammenhold",
+    "gloss": "união"
+  },
+  {
+    "da": "sammenligne",
+    "gloss": "comparar"
+  },
+  {
+    "da": "samtale",
+    "gloss": "conversa"
+  },
+  {
+    "da": "samvittighed",
+    "gloss": "consciência"
+  },
+  {
+    "da": "samvær",
+    "gloss": "convívio"
+  },
+  {
+    "da": "sand",
+    "gloss": "areia"
+  },
+  {
+    "da": "sandal",
+    "gloss": "sandalia"
+  },
+  {
+    "da": "sandslot",
+    "gloss": "castelo de areia"
+  },
+  {
+    "da": "sandt",
+    "gloss": "verdadeiro"
+  },
+  {
+    "da": "sandwich",
+    "gloss": "sanduíche"
+  },
+  {
+    "da": "sanger",
+    "gloss": "cantor"
+  },
+  {
+    "da": "sans",
+    "gloss": "sentido"
+  },
+  {
+    "da": "sart",
+    "gloss": "delicado"
+  },
+  {
+    "da": "sauce",
+    "gloss": "molho"
+  },
+  {
+    "da": "sauna",
+    "gloss": "sauna"
+  },
+  {
+    "da": "saus",
+    "gloss": "molho"
+  },
+  {
+    "da": "sav",
+    "gloss": "serra"
+  },
+  {
+    "da": "save",
+    "gloss": "serra"
+  },
+  {
+    "da": "savn",
+    "gloss": "saudade"
+  },
+  {
+    "da": "scanning",
+    "gloss": "digitalização"
+  },
+  {
+    "da": "scenarie",
+    "gloss": "cenário"
+  },
+  {
+    "da": "scene",
+    "gloss": "palco"
+  },
+  {
+    "da": "seddel",
+    "gloss": "nota"
+  },
+  {
+    "da": "sej",
+    "gloss": "duro"
+  },
+  {
+    "da": "sejl",
+    "gloss": "vela"
+  },
+  {
+    "da": "sejle",
+    "gloss": "navegar"
+  },
+  {
+    "da": "sejr",
+    "gloss": "vitória"
+  },
+  {
+    "da": "sekretær",
+    "gloss": "secretária"
+  },
+  {
+    "da": "sekund",
+    "gloss": "segundo"
+  },
+  {
+    "da": "sele",
+    "gloss": "cinto"
+  },
+  {
+    "da": "selfie",
+    "gloss": "selfie"
+  },
+  {
+    "da": "selleri",
+    "gloss": "aipo"
+  },
+  {
+    "da": "selskab",
+    "gloss": "empresa"
+  },
+  {
+    "da": "selv",
+    "gloss": "próprio"
+  },
+  {
+    "da": "selvstændig",
+    "gloss": "independente"
+  },
+  {
+    "da": "selvtillid",
+    "gloss": "autoconfiança"
+  },
+  {
+    "da": "semantik",
+    "gloss": "semântica"
+  },
+  {
+    "da": "seneste",
+    "gloss": "mais recente"
+  },
+  {
+    "da": "sengetid",
+    "gloss": "hora de dormir"
+  },
+  {
+    "da": "sennep",
+    "gloss": "mostarda"
+  },
+  {
+    "da": "service",
+    "gloss": "serviço"
+  },
+  {
+    "da": "serviet",
+    "gloss": "guardanapo"
+  },
+  {
+    "da": "sesam",
+    "gloss": "sésamo"
+  },
+  {
+    "da": "shampoo",
+    "gloss": "champô"
+  },
+  {
+    "da": "shoppe",
+    "gloss": "fazer compras"
+  },
+  {
+    "da": "shorts",
+    "gloss": "calções"
+  },
+  {
+    "da": "signal",
+    "gloss": "sinal"
+  },
+  {
+    "da": "sigt",
+    "gloss": "visibilidade"
+  },
+  {
+    "da": "sigtbarhed",
+    "gloss": "visibilidade"
+  },
+  {
+    "da": "sikkerhed",
+    "gloss": "segurança"
+  },
+  {
+    "da": "sikkert",
+    "gloss": "com segurança"
+  },
+  {
+    "da": "sild",
+    "gloss": "arenque"
+  },
+  {
+    "da": "silhuet",
+    "gloss": "silhueta"
+  },
+  {
+    "da": "silke",
+    "gloss": "seda"
+  },
+  {
+    "da": "single",
+    "gloss": "solteiro"
+  },
+  {
+    "da": "sirene",
+    "gloss": "sirene"
+  },
+  {
+    "da": "sirup",
+    "gloss": "xarope"
+  },
+  {
+    "da": "siv",
+    "gloss": "junco"
+  },
+  {
+    "da": "sjippe",
+    "gloss": "saltar"
+  },
+  {
+    "da": "sjippetov",
+    "gloss": "corda"
+  },
+  {
+    "da": "sjæl",
+    "gloss": "alma"
+  },
+  {
+    "da": "sjælden",
+    "gloss": "raro"
+  },
+  {
+    "da": "skabe",
+    "gloss": "criar"
+  },
+  {
+    "da": "skabning",
+    "gloss": "criatura"
+  },
+  {
+    "da": "skabslåge",
+    "gloss": "porta"
+  },
+  {
+    "da": "skadestue",
+    "gloss": "urgência"
+  },
+  {
+    "da": "skak",
+    "gloss": "xadrez"
+  },
+  {
+    "da": "skal",
+    "gloss": "concha"
+  },
+  {
+    "da": "skaldet",
+    "gloss": "careca"
+  },
+  {
+    "da": "skammel",
+    "gloss": "banqueta"
+  },
+  {
+    "da": "skandinavisk",
+    "gloss": "escandinavo"
+  },
+  {
+    "da": "skelet",
+    "gloss": "esqueleto"
+  },
+  {
+    "da": "skema",
+    "gloss": "formulário"
+  },
+  {
+    "da": "ski",
+    "gloss": "esqui"
+  },
+  {
+    "da": "skidt",
+    "gloss": "mal"
+  },
+  {
+    "da": "skik",
+    "gloss": "costume"
+  },
+  {
+    "da": "skilsmisse",
+    "gloss": "divórcio"
+  },
+  {
+    "da": "skimmel",
+    "gloss": "mofo"
+  },
+  {
+    "da": "skind",
+    "gloss": "pele"
+  },
+  {
+    "da": "skinne",
+    "gloss": "carril"
+  },
+  {
+    "da": "skinnende",
+    "gloss": "brilhante"
+  },
+  {
+    "da": "skinner",
+    "gloss": "carris"
+  },
+  {
+    "da": "skive",
+    "gloss": "fatia"
+  },
+  {
+    "da": "skjule",
+    "gloss": "esconder"
+  },
+  {
+    "da": "skjult",
+    "gloss": "escondido"
+  },
+  {
+    "da": "skorpe",
+    "gloss": "crosta"
+  },
+  {
+    "da": "skorsten",
+    "gloss": "chaminé"
+  },
+  {
+    "da": "skovl",
+    "gloss": "pá"
+  },
+  {
+    "da": "skrald",
+    "gloss": "lixo"
+  },
+  {
+    "da": "skrevet",
+    "gloss": "escrito"
+  },
+  {
+    "da": "skridt",
+    "gloss": "passo"
+  },
+  {
+    "da": "skrift",
+    "gloss": "escrita"
+  },
+  {
+    "da": "skriftlig",
+    "gloss": "escrito"
+  },
+  {
+    "da": "skrivebord",
+    "gloss": "secretária"
+  },
+  {
+    "da": "skrue",
+    "gloss": "parafuso"
+  },
+  {
+    "da": "skruetrækker",
+    "gloss": "chave de fendas"
+  },
+  {
+    "da": "skruue",
+    "gloss": "parafuso"
+  },
+  {
+    "da": "skræl",
+    "gloss": "casca"
+  },
+  {
+    "da": "skrælle",
+    "gloss": "descascar"
+  },
+  {
+    "da": "skrøbelig",
+    "gloss": "frágil"
+  },
+  {
+    "da": "skub",
+    "gloss": "empurrão"
+  },
+  {
+    "da": "skuespil",
+    "gloss": "representação"
+  },
+  {
+    "da": "skuespiller",
+    "gloss": "ator"
+  },
+  {
+    "da": "skuldre",
+    "gloss": "ombros"
+  },
+  {
+    "da": "skum",
+    "gloss": "espuma"
+  },
+  {
+    "da": "skumring",
+    "gloss": "crepúsculo"
+  },
+  {
+    "da": "skvæt",
+    "gloss": "respingo"
+  },
+  {
+    "da": "skybrud",
+    "gloss": "aguaceiro"
+  },
+  {
+    "da": "skyer",
+    "gloss": "nuvens"
+  },
+  {
+    "da": "skyld",
+    "gloss": "culpa"
+  },
+  {
+    "da": "skyskraber",
+    "gloss": "arranha-céus"
+  },
+  {
+    "da": "skål",
+    "gloss": "tigela"
+  },
+  {
+    "da": "skæg",
+    "gloss": "barba"
+  },
+  {
+    "da": "skæl",
+    "gloss": "escama"
+  },
+  {
+    "da": "skænderi",
+    "gloss": "discussão"
+  },
+  {
+    "da": "skændes",
+    "gloss": "discutir"
+  },
+  {
+    "da": "skæv",
+    "gloss": "torto"
+  },
+  {
+    "da": "skød",
+    "gloss": "colo"
+  },
+  {
+    "da": "skøjte",
+    "gloss": "patim"
+  },
+  {
+    "da": "skøjtning",
+    "gloss": "patinagem"
+  },
+  {
+    "da": "skør",
+    "gloss": "doido"
+  },
+  {
+    "da": "sladder",
+    "gloss": "mexerico"
+  },
+  {
+    "da": "slag",
+    "gloss": "impacto"
+  },
+  {
+    "da": "slagter",
+    "gloss": "açougueiro"
+  },
+  {
+    "da": "slang",
+    "gloss": "calão"
+  },
+  {
+    "da": "slange",
+    "gloss": "cobra"
+  },
+  {
+    "da": "slap",
+    "gloss": "frouxo"
+  },
+  {
+    "da": "slave",
+    "gloss": "escravo"
+  },
+  {
+    "da": "slette",
+    "gloss": "apagar"
+  },
+  {
+    "da": "slide",
+    "gloss": "desgastar"
+  },
+  {
+    "da": "slidt",
+    "gloss": "gasto"
+  },
+  {
+    "da": "slikke",
+    "gloss": "lamber"
+  },
+  {
+    "da": "slippe",
+    "gloss": "soltar"
+  },
+  {
+    "da": "slips",
+    "gloss": "gravata"
+  },
+  {
+    "da": "slot",
+    "gloss": "castelo"
+  },
+  {
+    "da": "slurk",
+    "gloss": "gole"
+  },
+  {
+    "da": "sluse",
+    "gloss": "eclusa"
+  },
+  {
+    "da": "slut",
+    "gloss": "fim"
+  },
+  {
+    "da": "slås",
+    "gloss": "lutar"
+  },
+  {
+    "da": "slæde",
+    "gloss": "trenó"
+  },
+  {
+    "da": "slægt",
+    "gloss": "parentela"
+  },
+  {
+    "da": "slægtning",
+    "gloss": "parente"
+  },
+  {
+    "da": "sløjfe",
+    "gloss": "laço"
+  },
+  {
+    "da": "smadre",
+    "gloss": "esmagar"
+  },
+  {
+    "da": "smag",
+    "gloss": "sabor"
+  },
+  {
+    "da": "smart",
+    "gloss": "esperto"
+  },
+  {
+    "da": "smelte",
+    "gloss": "derreter"
+  },
+  {
+    "da": "sminke",
+    "gloss": "maquilhagem"
+  },
+  {
+    "da": "sms",
+    "gloss": "SMS"
+  },
+  {
+    "da": "smule",
+    "gloss": "bocado"
+  },
+  {
+    "da": "smykke",
+    "gloss": "joia"
+  },
+  {
+    "da": "småting",
+    "gloss": "ninharia"
+  },
+  {
+    "da": "smække",
+    "gloss": "bater"
+  },
+  {
+    "da": "smørrebrød",
+    "gloss": "sanduíche"
+  },
+  {
+    "da": "snack",
+    "gloss": "lanche"
+  },
+  {
+    "da": "snak",
+    "gloss": "conversa"
+  },
+  {
+    "da": "snaps",
+    "gloss": "aguardente"
+  },
+  {
+    "da": "snart",
+    "gloss": "em breve"
+  },
+  {
+    "da": "snavs",
+    "gloss": "sujidade"
+  },
+  {
+    "da": "snavset",
+    "gloss": "sujo"
+  },
+  {
+    "da": "snedker",
+    "gloss": "carpinteiro"
+  },
+  {
+    "da": "snor",
+    "gloss": "trela"
+  },
+  {
+    "da": "snorke",
+    "gloss": "ressonar"
+  },
+  {
+    "da": "snot",
+    "gloss": "ranho"
+  },
+  {
+    "da": "snuse",
+    "gloss": "farejar"
+  },
+  {
+    "da": "snyd",
+    "gloss": "batota"
+  },
+  {
+    "da": "snøre",
+    "gloss": "atacador"
+  },
+  {
+    "da": "social",
+    "gloss": "sociável"
+  },
+  {
+    "da": "sod",
+    "gloss": "fuligem"
+  },
+  {
+    "da": "sokker",
+    "gloss": "meias"
+  },
+  {
+    "da": "solbriller",
+    "gloss": "óculos de sol"
+  },
+  {
+    "da": "solcreme",
+    "gloss": "protetor solar"
+  },
+  {
+    "da": "soldat",
+    "gloss": "soldado"
+  },
+  {
+    "da": "sole",
+    "gloss": "apanhar sol"
+  },
+  {
+    "da": "solid",
+    "gloss": "sólido"
+  },
+  {
+    "da": "solnedgang",
+    "gloss": "pôr do sol"
+  },
+  {
+    "da": "solo",
+    "gloss": "solo"
+  },
+  {
+    "da": "solopgang",
+    "gloss": "amanhecer"
+  },
+  {
+    "da": "solur",
+    "gloss": "relógio de sol"
+  },
+  {
+    "da": "sommerfugle",
+    "gloss": "borboletas"
+  },
+  {
+    "da": "sortere",
+    "gloss": "ordenar"
+  },
+  {
+    "da": "soundtrack",
+    "gloss": "banda sonora"
+  },
+  {
+    "da": "soveværelse",
+    "gloss": "quarto"
+  },
+  {
+    "da": "sovs",
+    "gloss": "molho"
+  },
+  {
+    "da": "spaghetti",
+    "gloss": "esparguete"
+  },
+  {
+    "da": "spand",
+    "gloss": "balde"
+  },
+  {
+    "da": "sparegris",
+    "gloss": "mealheiro"
+  },
+  {
+    "da": "spark",
+    "gloss": "pontapé"
+  },
+  {
+    "da": "sparke",
+    "gloss": "pontapear"
+  },
+  {
+    "da": "sparre",
+    "gloss": "poupar"
+  },
+  {
+    "da": "spatel",
+    "gloss": "espátula"
+  },
+  {
+    "da": "spekulation",
+    "gloss": "especulação"
+  },
+  {
+    "da": "spids",
+    "gloss": "ponta"
+  },
+  {
+    "da": "spil",
+    "gloss": "jogo"
+  },
+  {
+    "da": "spild",
+    "gloss": "desperdício"
+  },
+  {
+    "da": "spilde",
+    "gloss": "entornar"
+  },
+  {
+    "da": "spillekort",
+    "gloss": "cartas"
+  },
+  {
+    "da": "spiller",
+    "gloss": "jogador"
+  },
+  {
+    "da": "spinat",
+    "gloss": "espinafres"
+  },
+  {
+    "da": "spinde",
+    "gloss": "ronronar"
+  },
+  {
+    "da": "spir",
+    "gloss": "pináculo"
+  },
+  {
+    "da": "spire",
+    "gloss": "germinar"
+  },
+  {
+    "da": "splittet",
+    "gloss": "dividido"
+  },
+  {
+    "da": "spor",
+    "gloss": "rasto"
+  },
+  {
+    "da": "sport",
+    "gloss": "desporto"
+  },
+  {
+    "da": "sportstaske",
+    "gloss": "saco de desporto"
+  },
+  {
+    "da": "sportstøj",
+    "gloss": "roupa de desporto"
+  },
+  {
+    "da": "sporvogn",
+    "gloss": "elétrico"
+  },
+  {
+    "da": "springvand",
+    "gloss": "fonte"
+  },
+  {
+    "da": "sprinte",
+    "gloss": "sprintar"
+  },
+  {
+    "da": "sprukken",
+    "gloss": "gretado"
+  },
+  {
+    "da": "sprække",
+    "gloss": "fenda"
+  },
+  {
+    "da": "sprøjte",
+    "gloss": "injeção"
+  },
+  {
+    "da": "spurt",
+    "gloss": "sprint"
+  },
+  {
+    "da": "spyt",
+    "gloss": "saliva"
+  },
+  {
+    "da": "spæd",
+    "gloss": "minúsculo"
+  },
+  {
+    "da": "spædbarn",
+    "gloss": "bebé"
+  },
+  {
+    "da": "spænding",
+    "gloss": "emoção"
+  },
+  {
+    "da": "spøgelse",
+    "gloss": "fantasma"
+  },
+  {
+    "da": "stadion",
+    "gloss": "estádio"
+  },
+  {
+    "da": "stald",
+    "gloss": "estrebaria"
+  },
+  {
+    "da": "stamme",
+    "gloss": "tronco"
+  },
+  {
+    "da": "stamtræ",
+    "gloss": "árvore genealógica"
+  },
+  {
+    "da": "standse",
+    "gloss": "parar"
+  },
+  {
+    "da": "stang",
+    "gloss": "vara"
+  },
+  {
+    "da": "start",
+    "gloss": "início"
+  },
+  {
+    "da": "stat",
+    "gloss": "estado"
+  },
+  {
+    "da": "stativ",
+    "gloss": "suporte"
+  },
+  {
+    "da": "statsminister",
+    "gloss": "primeiro-ministro"
+  },
+  {
+    "da": "statue",
+    "gloss": "estátua"
+  },
+  {
+    "da": "stave",
+    "gloss": "soletrar"
+  },
+  {
+    "da": "stavning",
+    "gloss": "ortografia, soletração"
+  },
+  {
+    "da": "stearinlys",
+    "gloss": "vela"
+  },
+  {
+    "da": "steg",
+    "gloss": "assado"
+  },
+  {
+    "da": "stegning",
+    "gloss": "fritura"
+  },
+  {
+    "da": "stegt",
+    "gloss": "frito"
+  },
+  {
+    "da": "stejl",
+    "gloss": "íngreme"
+  },
+  {
+    "da": "stemning",
+    "gloss": "ambiente"
+  },
+  {
+    "da": "stempel",
+    "gloss": "carimbo"
+  },
+  {
+    "da": "stempelur",
+    "gloss": "relógio de ponto"
+  },
+  {
+    "da": "stetoskop",
+    "gloss": "estetoscópio"
+  },
+  {
+    "da": "stewardesse",
+    "gloss": "comissária de bordo"
+  },
+  {
+    "da": "sti",
+    "gloss": "caminho"
+  },
+  {
+    "da": "stige",
+    "gloss": "embarcar"
+  },
+  {
+    "da": "stigning",
+    "gloss": "aumento"
+  },
+  {
+    "da": "stik",
+    "gloss": "ficha"
+  },
+  {
+    "da": "stil",
+    "gloss": "redação"
+  },
+  {
+    "da": "stilhed",
+    "gloss": "silêncio"
+  },
+  {
+    "da": "stilk",
+    "gloss": "caule"
+  },
+  {
+    "da": "stilling",
+    "gloss": "cargo"
+  },
+  {
+    "da": "stirre",
+    "gloss": "fixar"
+  },
+  {
+    "da": "stivelse",
+    "gloss": "amido"
+  },
+  {
+    "da": "stjerner",
+    "gloss": "estrelas"
+  },
+  {
+    "da": "stjålet",
+    "gloss": "roubado"
+  },
+  {
+    "da": "stof",
+    "gloss": "tecido"
+  },
+  {
+    "da": "stok",
+    "gloss": "bengala"
+  },
+  {
+    "da": "stop",
+    "gloss": "paragem"
+  },
+  {
+    "da": "stoppested",
+    "gloss": "paragem"
+  },
+  {
+    "da": "stopur",
+    "gloss": "cronómetro"
+  },
+  {
+    "da": "straf",
+    "gloss": "pena"
+  },
+  {
+    "da": "straks",
+    "gloss": "imediatamente"
+  },
+  {
+    "da": "stram",
+    "gloss": "apertado"
+  },
+  {
+    "da": "strandtaske",
+    "gloss": "saco de praia"
+  },
+  {
+    "da": "streaming",
+    "gloss": "streaming"
+  },
+  {
+    "da": "streg",
+    "gloss": "linha"
+  },
+  {
+    "da": "stress",
+    "gloss": "stress"
+  },
+  {
+    "da": "strik",
+    "gloss": "tricotar"
+  },
+  {
+    "da": "struktur",
+    "gloss": "estrutura"
+  },
+  {
+    "da": "stryge",
+    "gloss": "engomar"
+  },
+  {
+    "da": "strygejern",
+    "gloss": "ferro de engomar"
+  },
+  {
+    "da": "strygning",
+    "gloss": "engomagem"
+  },
+  {
+    "da": "strå",
+    "gloss": "fio"
+  },
+  {
+    "da": "stræde",
+    "gloss": "viela, estreito"
+  },
+  {
+    "da": "strække",
+    "gloss": "esticar"
+  },
+  {
+    "da": "strækning",
+    "gloss": "troço"
+  },
+  {
+    "da": "strø",
+    "gloss": "polvilhar"
+  },
+  {
+    "da": "strøm",
+    "gloss": "eletricidade"
+  },
+  {
+    "da": "strømpe",
+    "gloss": "meia"
+  },
+  {
+    "da": "studerende",
+    "gloss": "estudante"
+  },
+  {
+    "da": "stykke",
+    "gloss": "pedaço"
+  },
+  {
+    "da": "styr",
+    "gloss": "guiador"
+  },
+  {
+    "da": "styrke",
+    "gloss": "força"
+  },
+  {
+    "da": "stål",
+    "gloss": "aço"
+  },
+  {
+    "da": "støj",
+    "gloss": "ruído"
+  },
+  {
+    "da": "størrelse",
+    "gloss": "tamanho"
+  },
+  {
+    "da": "støv",
+    "gloss": "poeira"
+  },
+  {
+    "da": "støve",
+    "gloss": "limpar o pó"
+  },
+  {
+    "da": "støvsuge",
+    "gloss": "aspirar"
+  },
+  {
+    "da": "succes",
+    "gloss": "sucesso"
+  },
+  {
+    "da": "sugerør",
+    "gloss": "palhinha"
+  },
+  {
+    "da": "sult",
+    "gloss": "fome"
+  },
+  {
+    "da": "sum",
+    "gloss": "soma"
+  },
+  {
+    "da": "summen",
+    "gloss": "zumbido"
+  },
+  {
+    "da": "super",
+    "gloss": "super"
+  },
+  {
+    "da": "sushi",
+    "gloss": "sushi"
+  },
+  {
+    "da": "sut",
+    "gloss": "chupeta"
+  },
+  {
+    "da": "sutte",
+    "gloss": "sugar"
+  },
+  {
+    "da": "svale",
+    "gloss": "andorinha"
+  },
+  {
+    "da": "svamp",
+    "gloss": "bolor"
+  },
+  {
+    "da": "svane",
+    "gloss": "cisne"
+  },
+  {
+    "da": "sved",
+    "gloss": "suor"
+  },
+  {
+    "da": "svede",
+    "gloss": "suor"
+  },
+  {
+    "da": "svigt",
+    "gloss": "traição"
+  },
+  {
+    "da": "svimmel",
+    "gloss": "tonto"
+  },
+  {
+    "da": "svin",
+    "gloss": "carne de porco"
+  },
+  {
+    "da": "sving",
+    "gloss": "curva"
+  },
+  {
+    "da": "svinge",
+    "gloss": "balançar"
+  },
+  {
+    "da": "svømmehal",
+    "gloss": "piscina"
+  },
+  {
+    "da": "sy",
+    "gloss": "coser"
+  },
+  {
+    "da": "syd",
+    "gloss": "sul"
+  },
+  {
+    "da": "sygehus",
+    "gloss": "hospital"
+  },
+  {
+    "da": "syltetøj",
+    "gloss": "compota"
+  },
+  {
+    "da": "symbol",
+    "gloss": "ícone"
+  },
+  {
+    "da": "syn",
+    "gloss": "visão"
+  },
+  {
+    "da": "syning",
+    "gloss": "costura"
+  },
+  {
+    "da": "synke",
+    "gloss": "engolir"
+  },
+  {
+    "da": "synlig",
+    "gloss": "visível"
+  },
+  {
+    "da": "synonym",
+    "gloss": "sinónimo"
+  },
+  {
+    "da": "synspunkt",
+    "gloss": "ponto de vista"
+  },
+  {
+    "da": "system",
+    "gloss": "sistema"
+  },
+  {
+    "da": "syv",
+    "gloss": "sete"
+  },
+  {
+    "da": "sårbar",
+    "gloss": "frágil"
+  },
+  {
+    "da": "sæde",
+    "gloss": "assento"
+  },
+  {
+    "da": "sæk",
+    "gloss": "saco"
+  },
+  {
+    "da": "sælger",
+    "gloss": "vendedor"
+  },
+  {
+    "da": "sær",
+    "gloss": "estranho"
+  },
+  {
+    "da": "sæson",
+    "gloss": "estação"
+  },
+  {
+    "da": "sætning",
+    "gloss": "frase"
+  },
+  {
+    "da": "søde",
+    "gloss": "doce"
+  },
+  {
+    "da": "sølv",
+    "gloss": "prata"
+  },
+  {
+    "da": "søm",
+    "gloss": "costura"
+  },
+  {
+    "da": "sømand",
+    "gloss": "marinheiro"
+  },
+  {
+    "da": "søndag",
+    "gloss": "domingo"
+  },
+  {
+    "da": "søskende",
+    "gloss": "irmão"
+  },
+  {
+    "da": "søvn",
+    "gloss": "sono"
+  },
+  {
+    "da": "tab",
+    "gloss": "perda"
+  },
+  {
+    "da": "taber",
+    "gloss": "perdedor"
+  },
+  {
+    "da": "taburet",
+    "gloss": "banqueta"
+  },
+  {
+    "da": "tagrende",
+    "gloss": "caleira"
+  },
+  {
+    "da": "tak",
+    "gloss": "obrigado"
+  },
+  {
+    "da": "takt",
+    "gloss": "ritmo"
+  },
+  {
+    "da": "tal",
+    "gloss": "número"
+  },
+  {
+    "da": "talent",
+    "gloss": "talento"
+  },
+  {
+    "da": "taler",
+    "gloss": "orador"
+  },
+  {
+    "da": "tallerkener",
+    "gloss": "pratos"
+  },
+  {
+    "da": "tandpasta",
+    "gloss": "pasta de dentes"
+  },
+  {
+    "da": "tang",
+    "gloss": "algas"
+  },
+  {
+    "da": "tank",
+    "gloss": "tanque"
+  },
+  {
+    "da": "tanker",
+    "gloss": "pensamentos"
+  },
+  {
+    "da": "tante",
+    "gloss": "tia"
+  },
+  {
+    "da": "tape",
+    "gloss": "fita"
+  },
+  {
+    "da": "tapet",
+    "gloss": "papel de parede"
+  },
+  {
+    "da": "tast",
+    "gloss": "tecla"
+  },
+  {
+    "da": "tastatur",
+    "gloss": "teclado"
+  },
+  {
+    "da": "taste",
+    "gloss": "escrever"
+  },
+  {
+    "da": "tatovering",
+    "gloss": "tatuagem"
+  },
+  {
+    "da": "tavle",
+    "gloss": "quadro"
+  },
+  {
+    "da": "tavs",
+    "gloss": "silencioso"
+  },
+  {
+    "da": "tavshed",
+    "gloss": "silêncio"
+  },
+  {
+    "da": "taxa",
+    "gloss": "táxi"
+  },
+  {
+    "da": "taxi",
+    "gloss": "táxi"
+  },
+  {
+    "da": "teenager",
+    "gloss": "adolescente"
+  },
+  {
+    "da": "tegn",
+    "gloss": "marca"
+  },
+  {
+    "da": "tegnebog",
+    "gloss": "carteira"
+  },
+  {
+    "da": "tegneserie",
+    "gloss": "banda desenhada"
+  },
+  {
+    "da": "tegning",
+    "gloss": "desenho"
+  },
+  {
+    "da": "tejp",
+    "gloss": "fita"
+  },
+  {
+    "da": "teknik",
+    "gloss": "técnica"
+  },
+  {
+    "da": "teknologi",
+    "gloss": "tecnologia"
+  },
+  {
+    "da": "telefonnummer",
+    "gloss": "número de telefone"
+  },
+  {
+    "da": "teleskop",
+    "gloss": "telescópio"
+  },
+  {
+    "da": "telt",
+    "gloss": "tenda"
+  },
+  {
+    "da": "tempo",
+    "gloss": "ritmo"
+  },
+  {
+    "da": "tennis",
+    "gloss": "ténis"
+  },
+  {
+    "da": "terapi",
+    "gloss": "terapia"
+  },
+  {
+    "da": "termokande",
+    "gloss": "termo"
+  },
+  {
+    "da": "termometer",
+    "gloss": "termómetro"
+  },
+  {
+    "da": "terning",
+    "gloss": "cubo"
+  },
+  {
+    "da": "terninger",
+    "gloss": "dados"
+  },
+  {
+    "da": "terrasse",
+    "gloss": "terraço"
+  },
+  {
+    "da": "test",
+    "gloss": "teste"
+  },
+  {
+    "da": "ti",
+    "gloss": "dez"
+  },
+  {
+    "da": "tidevand",
+    "gloss": "maré"
+  },
+  {
+    "da": "tidsalder",
+    "gloss": "era"
+  },
+  {
+    "da": "tidslinje",
+    "gloss": "linha do tempo"
+  },
+  {
+    "da": "tidsmåling",
+    "gloss": "medição do tempo"
+  },
+  {
+    "da": "tidspunkt",
+    "gloss": "momento"
+  },
+  {
+    "da": "tidsregning",
+    "gloss": "calendário (era)"
+  },
+  {
+    "da": "tidsrum",
+    "gloss": "período"
+  },
+  {
+    "da": "tiger",
+    "gloss": "tigre"
+  },
+  {
+    "da": "tilbage",
+    "gloss": "de volta"
+  },
+  {
+    "da": "tilberedning",
+    "gloss": "preparação"
+  },
+  {
+    "da": "tilbud",
+    "gloss": "oferta"
+  },
+  {
+    "da": "tildele",
+    "gloss": "atribuir"
+  },
+  {
+    "da": "tilfældig",
+    "gloss": "aleatório"
+  },
+  {
+    "da": "tilgive",
+    "gloss": "perdoar"
+  },
+  {
+    "da": "tilgivelse",
+    "gloss": "perdão"
+  },
+  {
+    "da": "tilgængelig",
+    "gloss": "disponível"
+  },
+  {
+    "da": "tilladelse",
+    "gloss": "permissão"
+  },
+  {
+    "da": "tilmelding",
+    "gloss": "reserva"
+  },
+  {
+    "da": "tilståelse",
+    "gloss": "confissão"
+  },
+  {
+    "da": "timer",
+    "gloss": "horas"
+  },
+  {
+    "da": "ting",
+    "gloss": "coisa"
+  },
+  {
+    "da": "tirsdag",
+    "gloss": "terça-feira"
+  },
+  {
+    "da": "titel",
+    "gloss": "título"
+  },
+  {
+    "da": "tjek",
+    "gloss": "exame"
+  },
+  {
+    "da": "tjekke",
+    "gloss": "verificar"
+  },
+  {
+    "da": "to",
+    "gloss": "duas vezes"
+  },
+  {
+    "da": "toast",
+    "gloss": "tosta"
+  },
+  {
+    "da": "tobak",
+    "gloss": "tabaco"
+  },
+  {
+    "da": "tolk",
+    "gloss": "intérprete"
+  },
+  {
+    "da": "tolv",
+    "gloss": "doze"
+  },
+  {
+    "da": "tomhed",
+    "gloss": "vazio"
+  },
+  {
+    "da": "tommel",
+    "gloss": "polegar"
+  },
+  {
+    "da": "tommelfinger",
+    "gloss": "polegar"
+  },
+  {
+    "da": "tomrum",
+    "gloss": "vazio"
+  },
+  {
+    "da": "tone",
+    "gloss": "tom"
+  },
+  {
+    "da": "tonefald",
+    "gloss": "tom de voz"
+  },
+  {
+    "da": "top",
+    "gloss": "cume"
+  },
+  {
+    "da": "torsdag",
+    "gloss": "quinta-feira"
+  },
+  {
+    "da": "torsk",
+    "gloss": "bacalhau"
+  },
+  {
+    "da": "torv",
+    "gloss": "mercado"
+  },
+  {
+    "da": "total",
+    "gloss": "total"
+  },
+  {
+    "da": "tov",
+    "gloss": "corda"
+  },
+  {
+    "da": "tradition",
+    "gloss": "tradição"
+  },
+  {
+    "da": "trafik",
+    "gloss": "trânsito"
+  },
+  {
+    "da": "trafiklys",
+    "gloss": "semáforo"
+  },
+  {
+    "da": "tragedie",
+    "gloss": "tragédia"
+  },
+  {
+    "da": "tragt",
+    "gloss": "funil"
+  },
+  {
+    "da": "trakt",
+    "gloss": "funil"
+  },
+  {
+    "da": "traktor",
+    "gloss": "trator"
+  },
+  {
+    "da": "trampe",
+    "gloss": "pisar"
+  },
+  {
+    "da": "trampolin",
+    "gloss": "trampolim"
+  },
+  {
+    "da": "transport",
+    "gloss": "transporte"
+  },
+  {
+    "da": "traume",
+    "gloss": "trauma"
+  },
+  {
+    "da": "trav",
+    "gloss": "trote"
+  },
+  {
+    "da": "trave",
+    "gloss": "trote"
+  },
+  {
+    "da": "travlt",
+    "gloss": "ocupado"
+  },
+  {
+    "da": "tre",
+    "gloss": "três"
+  },
+  {
+    "da": "trekant",
+    "gloss": "triângulo"
+  },
+  {
+    "da": "trin",
+    "gloss": "degrau"
+  },
+  {
+    "da": "trives",
+    "gloss": "prosperar"
+  },
+  {
+    "da": "trofast",
+    "gloss": "leal"
+  },
+  {
+    "da": "tromme",
+    "gloss": "tambor"
+  },
+  {
+    "da": "tropisk",
+    "gloss": "tropical"
+  },
+  {
+    "da": "troværdig",
+    "gloss": "fiável"
+  },
+  {
+    "da": "trussel",
+    "gloss": "ameaça"
+  },
+  {
+    "da": "tryg",
+    "gloss": "confortável"
+  },
+  {
+    "da": "tryghed",
+    "gloss": "segurança"
+  },
+  {
+    "da": "tryk",
+    "gloss": "pressão"
+  },
+  {
+    "da": "tråd",
+    "gloss": "fio"
+  },
+  {
+    "da": "træde",
+    "gloss": "pisar"
+  },
+  {
+    "da": "træer",
+    "gloss": "árvores"
+  },
+  {
+    "da": "træk",
+    "gloss": "corrente de ar"
+  },
+  {
+    "da": "træner",
+    "gloss": "treinador"
+  },
+  {
+    "da": "trøst",
+    "gloss": "consolo"
+  },
+  {
+    "da": "tulipan",
+    "gloss": "tulipa"
+  },
+  {
+    "da": "tunge",
+    "gloss": "língua"
+  },
+  {
+    "da": "tunnel",
+    "gloss": "túnel"
+  },
+  {
+    "da": "turbulens",
+    "gloss": "turbulência"
+  },
+  {
+    "da": "tv",
+    "gloss": "televisão"
+  },
+  {
+    "da": "tvilling",
+    "gloss": "gémeo"
+  },
+  {
+    "da": "tygge",
+    "gloss": "mastigar"
+  },
+  {
+    "da": "tyr",
+    "gloss": "touro"
+  },
+  {
+    "da": "tyv",
+    "gloss": "ladrão"
+  },
+  {
+    "da": "tålmodighed",
+    "gloss": "paciência"
+  },
+  {
+    "da": "tåre",
+    "gloss": "lágrima"
+  },
+  {
+    "da": "tårer",
+    "gloss": "lágrimas"
+  },
+  {
+    "da": "tænd",
+    "gloss": "acender"
+  },
+  {
+    "da": "tænder",
+    "gloss": "dentes"
+  },
+  {
+    "da": "tændstik",
+    "gloss": "fósforo"
+  },
+  {
+    "da": "tærskel",
+    "gloss": "limiar"
+  },
+  {
+    "da": "tærte",
+    "gloss": "tarte"
+  },
+  {
+    "da": "tæt",
+    "gloss": "próximo"
+  },
+  {
+    "da": "tø",
+    "gloss": "degelo"
+  },
+  {
+    "da": "tøffel",
+    "gloss": "pantufa"
+  },
+  {
+    "da": "tømme",
+    "gloss": "esvaziar"
+  },
+  {
+    "da": "tømrer",
+    "gloss": "carpinteiro"
+  },
+  {
+    "da": "tønde",
+    "gloss": "barril"
+  },
+  {
+    "da": "tørst",
+    "gloss": "sede"
+  },
+  {
+    "da": "tørt",
+    "gloss": "seco"
+  },
+  {
+    "da": "tøvende",
+    "gloss": "hesitante"
+  },
+  {
+    "da": "uafhængig",
+    "gloss": "independente"
+  },
+  {
+    "da": "ubehag",
+    "gloss": "desconforto"
+  },
+  {
+    "da": "ubehagelig",
+    "gloss": "desagradável"
+  },
+  {
+    "da": "ubrugt",
+    "gloss": "não usado"
+  },
+  {
+    "da": "ud",
+    "gloss": "fora"
+  },
+  {
+    "da": "udbedre",
+    "gloss": "reparar"
+  },
+  {
+    "da": "uddannelse",
+    "gloss": "educação"
+  },
+  {
+    "da": "ude",
+    "gloss": "fora"
+  },
+  {
+    "da": "udfordring",
+    "gloss": "desafio"
+  },
+  {
+    "da": "udforske",
+    "gloss": "explorar"
+  },
+  {
+    "da": "udgang",
+    "gloss": "saída"
+  },
+  {
+    "da": "udgave",
+    "gloss": "edição"
+  },
+  {
+    "da": "udgift",
+    "gloss": "despesa"
+  },
+  {
+    "da": "udholdenhed",
+    "gloss": "resistência"
+  },
+  {
+    "da": "udkig",
+    "gloss": "vigia"
+  },
+  {
+    "da": "udland",
+    "gloss": "estrangeiro"
+  },
+  {
+    "da": "udlejer",
+    "gloss": "senhorio"
+  },
+  {
+    "da": "udmærket",
+    "gloss": "excelente"
+  },
+  {
+    "da": "udsagn",
+    "gloss": "afirmação"
+  },
+  {
+    "da": "udsalg",
+    "gloss": "saldos"
+  },
+  {
+    "da": "udskifte",
+    "gloss": "substituir"
+  },
+  {
+    "da": "udsolgt",
+    "gloss": "esgotado"
+  },
+  {
+    "da": "udstilling",
+    "gloss": "exposição"
+  },
+  {
+    "da": "udstyr",
+    "gloss": "equipamento"
+  },
+  {
+    "da": "udtale",
+    "gloss": "pronunciar"
+  },
+  {
+    "da": "udtryk",
+    "gloss": "expressão"
+  },
+  {
+    "da": "udtrykke",
+    "gloss": "exprimir"
+  },
+  {
+    "da": "udvej",
+    "gloss": "saída"
+  },
+  {
+    "da": "uendelig",
+    "gloss": "infinito"
+  },
+  {
+    "da": "uenig",
+    "gloss": "discussão"
+  },
+  {
+    "da": "uenighed",
+    "gloss": "desacordo"
+  },
+  {
+    "da": "uerfaren",
+    "gloss": "inexperiente"
+  },
+  {
+    "da": "uforklarlig",
+    "gloss": "inexplicável"
+  },
+  {
+    "da": "ugle",
+    "gloss": "coruja"
+  },
+  {
+    "da": "uheld",
+    "gloss": "acidente"
+  },
+  {
+    "da": "uhyggelig",
+    "gloss": "sinistro"
+  },
+  {
+    "da": "ukendt",
+    "gloss": "desconhecido"
+  },
+  {
+    "da": "uklar",
+    "gloss": "confuso"
+  },
+  {
+    "da": "uld",
+    "gloss": "lã"
+  },
+  {
+    "da": "ulovlig",
+    "gloss": "ilegal"
+  },
+  {
+    "da": "ulv",
+    "gloss": "lobo"
+  },
+  {
+    "da": "underholdende",
+    "gloss": "divertido"
+  },
+  {
+    "da": "underholdning",
+    "gloss": "entretenimento"
+  },
+  {
+    "da": "underskrift",
+    "gloss": "assinatura"
+  },
+  {
+    "da": "understrege",
+    "gloss": "sublinhar"
+  },
+  {
+    "da": "undervisning",
+    "gloss": "aula"
+  },
+  {
+    "da": "undre",
+    "gloss": "espantar-se"
+  },
+  {
+    "da": "undskyld",
+    "gloss": "desculpa"
+  },
+  {
+    "da": "undskyldning",
+    "gloss": "desculpa"
+  },
+  {
+    "da": "unge",
+    "gloss": "pintinho"
+  },
+  {
+    "da": "uniform",
+    "gloss": "uniforme"
+  },
+  {
+    "da": "univers",
+    "gloss": "universo"
+  },
+  {
+    "da": "upartisk",
+    "gloss": "imparcial"
+  },
+  {
+    "da": "uretfærdig",
+    "gloss": "injusto"
+  },
+  {
+    "da": "uro",
+    "gloss": "inquietação"
+  },
+  {
+    "da": "urolig",
+    "gloss": "inquieto"
+  },
+  {
+    "da": "urskive",
+    "gloss": "mostrador"
+  },
+  {
+    "da": "urt",
+    "gloss": "erva"
+  },
+  {
+    "da": "urter",
+    "gloss": "ervas"
+  },
+  {
+    "da": "urværk",
+    "gloss": "mecanismo de relógio"
+  },
+  {
+    "da": "usikker",
+    "gloss": "incerto"
+  },
+  {
+    "da": "usikkerhed",
+    "gloss": "incerteza"
+  },
+  {
+    "da": "uskadt",
+    "gloss": "ileso"
+  },
+  {
+    "da": "uskyld",
+    "gloss": "inocência"
+  },
+  {
+    "da": "ustabil",
+    "gloss": "instável"
+  },
+  {
+    "da": "usund",
+    "gloss": "insalubre"
+  },
+  {
+    "da": "usynlig",
+    "gloss": "invisível"
+  },
+  {
+    "da": "usædvanlig",
+    "gloss": "incomum"
+  },
+  {
+    "da": "utroskab",
+    "gloss": "infidelidade"
+  },
+  {
+    "da": "utvetydig",
+    "gloss": "inequívoco"
+  },
+  {
+    "da": "utålmodig",
+    "gloss": "impaciente"
+  },
+  {
+    "da": "utæt",
+    "gloss": "com fuga"
+  },
+  {
+    "da": "uventet",
+    "gloss": "inesperado"
+  },
+  {
+    "da": "vabel",
+    "gloss": "bolha"
+  },
+  {
+    "da": "vaccine",
+    "gloss": "vacina"
+  },
+  {
+    "da": "vaffel",
+    "gloss": "gofre"
+  },
+  {
+    "da": "vagt",
+    "gloss": "guarda"
+  },
+  {
+    "da": "vagtplan",
+    "gloss": "escala de serviço"
+  },
+  {
+    "da": "valuta",
+    "gloss": "moeda"
+  },
+  {
+    "da": "vampyr",
+    "gloss": "vampiro"
+  },
+  {
+    "da": "vande",
+    "gloss": "água"
+  },
+  {
+    "da": "vandhane",
+    "gloss": "torneira"
+  },
+  {
+    "da": "vandpyt",
+    "gloss": "poça"
+  },
+  {
+    "da": "vandre",
+    "gloss": "caminhar"
+  },
+  {
+    "da": "vandrer",
+    "gloss": "caminhante"
+  },
+  {
+    "da": "vandrerhjem",
+    "gloss": "albergue"
+  },
+  {
+    "da": "vandret",
+    "gloss": "horizontal"
+  },
+  {
+    "da": "vandring",
+    "gloss": "caminhada"
+  },
+  {
+    "da": "vandskade",
+    "gloss": "danos de água"
+  },
+  {
+    "da": "vandskål",
+    "gloss": "taça de água"
+  },
+  {
+    "da": "vandvej",
+    "gloss": "via navegável"
+  },
+  {
+    "da": "vane",
+    "gloss": "costume"
+  },
+  {
+    "da": "vante",
+    "gloss": "manopla"
+  },
+  {
+    "da": "varer",
+    "gloss": "mercadorias"
+  },
+  {
+    "da": "varighed",
+    "gloss": "duração"
+  },
+  {
+    "da": "vartegn",
+    "gloss": "marco"
+  },
+  {
+    "da": "vase",
+    "gloss": "vaso"
+  },
+  {
+    "da": "vask",
+    "gloss": "lavandaria"
+  },
+  {
+    "da": "vasketøj",
+    "gloss": "roupa suja"
+  },
+  {
+    "da": "vatpind",
+    "gloss": "cotonete"
+  },
+  {
+    "da": "vedligeholde",
+    "gloss": "manter"
+  },
+  {
+    "da": "vegetar",
+    "gloss": "vegetariano"
+  },
+  {
+    "da": "vejledning",
+    "gloss": "guia"
+  },
+  {
+    "da": "vejnavn",
+    "gloss": "nome da rua"
+  },
+  {
+    "da": "vejrudsigt",
+    "gloss": "previsão do tempo"
+  },
+  {
+    "da": "velgørenhed",
+    "gloss": "caridade"
+  },
+  {
+    "da": "velkommen",
+    "gloss": "bem-vindo"
+  },
+  {
+    "da": "veninde",
+    "gloss": "amiga"
+  },
+  {
+    "da": "venlighed",
+    "gloss": "simpatia"
+  },
+  {
+    "da": "venner",
+    "gloss": "amigos"
+  },
+  {
+    "da": "venstre",
+    "gloss": "esquerda"
+  },
+  {
+    "da": "vent",
+    "gloss": "esperar"
+  },
+  {
+    "da": "ventetid",
+    "gloss": "espera"
+  },
+  {
+    "da": "version",
+    "gloss": "versão"
+  },
+  {
+    "da": "vest",
+    "gloss": "oeste"
+  },
+  {
+    "da": "veterinær",
+    "gloss": "veterinário"
+  },
+  {
+    "da": "vibration",
+    "gloss": "vibração"
+  },
+  {
+    "da": "video",
+    "gloss": "vídeo"
+  },
+  {
+    "da": "videre",
+    "gloss": "em frente"
+  },
+  {
+    "da": "vidne",
+    "gloss": "testemunha"
+  },
+  {
+    "da": "vidt",
+    "gloss": "largo"
+  },
+  {
+    "da": "vielse",
+    "gloss": "cerimónia"
+  },
+  {
+    "da": "viking",
+    "gloss": "viking"
+  },
+  {
+    "da": "villa",
+    "gloss": "mansão"
+  },
+  {
+    "da": "vinge",
+    "gloss": "asa"
+  },
+  {
+    "da": "vinger",
+    "gloss": "asas"
+  },
+  {
+    "da": "vingeslag",
+    "gloss": "batida de asas"
+  },
+  {
+    "da": "vingummi",
+    "gloss": "goma"
+  },
+  {
+    "da": "vinke",
+    "gloss": "acenar"
+  },
+  {
+    "da": "vinterferie",
+    "gloss": "férias de inverno"
+  },
+  {
+    "da": "violin",
+    "gloss": "violino"
+  },
+  {
+    "da": "virkelig",
+    "gloss": "real"
+  },
+  {
+    "da": "virus",
+    "gloss": "vírus"
+  },
+  {
+    "da": "vis",
+    "gloss": "mostrar"
+  },
+  {
+    "da": "visdom",
+    "gloss": "sabedoria"
+  },
+  {
+    "da": "vished",
+    "gloss": "certeza"
+  },
+  {
+    "da": "visne",
+    "gloss": "murchar"
+  },
+  {
+    "da": "visualisere",
+    "gloss": "visualizar"
+  },
+  {
+    "da": "visuel",
+    "gloss": "visual"
+  },
+  {
+    "da": "vitamin",
+    "gloss": "vitamina"
+  },
+  {
+    "da": "vittighed",
+    "gloss": "piada"
+  },
+  {
+    "da": "vogn",
+    "gloss": "carruagem"
+  },
+  {
+    "da": "vognbane",
+    "gloss": "faixa de rodagem"
+  },
+  {
+    "da": "voks",
+    "gloss": "cera"
+  },
+  {
+    "da": "vokse",
+    "gloss": "crescer"
+  },
+  {
+    "da": "vold",
+    "gloss": "violência"
+  },
+  {
+    "da": "volumen",
+    "gloss": "volume"
+  },
+  {
+    "da": "vrag",
+    "gloss": "naufrágio"
+  },
+  {
+    "da": "vrinske",
+    "gloss": "relinchar"
+  },
+  {
+    "da": "vrøvl",
+    "gloss": "disparates"
+  },
+  {
+    "da": "vugge",
+    "gloss": "berço"
+  },
+  {
+    "da": "våben",
+    "gloss": "arma"
+  },
+  {
+    "da": "vågen",
+    "gloss": "acordado"
+  },
+  {
+    "da": "væddeløb",
+    "gloss": "corrida"
+  },
+  {
+    "da": "vægt",
+    "gloss": "peso"
+  },
+  {
+    "da": "væk",
+    "gloss": "fora"
+  },
+  {
+    "da": "vækkeur",
+    "gloss": "despertador"
+  },
+  {
+    "da": "vældig",
+    "gloss": "enorme"
+  },
+  {
+    "da": "vælte",
+    "gloss": "derrubar"
+  },
+  {
+    "da": "værd",
+    "gloss": "valia"
+  },
+  {
+    "da": "værdi",
+    "gloss": "valor"
+  },
+  {
+    "da": "værdier",
+    "gloss": "valores"
+  },
+  {
+    "da": "værdifuld",
+    "gloss": "valioso"
+  },
+  {
+    "da": "være",
+    "gloss": "ser"
+  },
+  {
+    "da": "værelser",
+    "gloss": "quartos"
+  },
+  {
+    "da": "værksted",
+    "gloss": "oficina"
+  },
+  {
+    "da": "værktøj",
+    "gloss": "ferramenta"
+  },
+  {
+    "da": "væsen",
+    "gloss": "criatura"
+  },
+  {
+    "da": "væske",
+    "gloss": "líquido"
+  },
+  {
+    "da": "webkamera",
+    "gloss": "webcam"
+  },
+  {
+    "da": "wienerbrød",
+    "gloss": "pastel"
+  },
+  {
+    "da": "wow",
+    "gloss": "uau"
+  },
+  {
+    "da": "yngre",
+    "gloss": "mais jovem"
+  },
+  {
+    "da": "yoga",
+    "gloss": "ioga"
+  },
+  {
+    "da": "yoghurt",
+    "gloss": "iogurte"
+  },
+  {
+    "da": "ytring",
+    "gloss": "enunciado, declaração"
+  },
+  {
+    "da": "yver",
+    "gloss": "úbere"
+  },
+  {
+    "da": "zebra",
+    "gloss": "zebra"
+  },
+  {
+    "da": "zoo",
+    "gloss": "zoo"
+  },
+  {
+    "da": "å",
+    "gloss": "riacho"
+  },
+  {
+    "da": "åbenhed",
+    "gloss": "transparência"
+  },
+  {
+    "da": "åkande",
+    "gloss": "nenúfar"
+  },
+  {
+    "da": "ånd",
+    "gloss": "génio"
+  },
+  {
+    "da": "ånde",
+    "gloss": "respiração"
+  },
+  {
+    "da": "åre",
+    "gloss": "veia"
+  },
+  {
+    "da": "årsag",
+    "gloss": "causa"
+  },
+  {
+    "da": "årsdag",
+    "gloss": "aniversário"
+  },
+  {
+    "da": "ægtefælle",
+    "gloss": "cônjuge"
+  },
+  {
+    "da": "ældre",
+    "gloss": "idosos"
+  },
+  {
+    "da": "ælling",
+    "gloss": "patinho"
+  },
+  {
+    "da": "æra",
+    "gloss": "era"
+  },
+  {
+    "da": "ære",
+    "gloss": "honra"
+  },
+  {
+    "da": "ærgerlig",
+    "gloss": "irritante"
+  },
+  {
+    "da": "ærgerligt",
+    "gloss": "pena"
+  },
+  {
+    "da": "ærme",
+    "gloss": "manga"
+  },
+  {
+    "da": "ærmer",
+    "gloss": "mangas"
+  },
+  {
+    "da": "ært",
+    "gloss": "ervilha"
+  },
+  {
+    "da": "æsel",
+    "gloss": "burro"
+  },
+  {
+    "da": "æske",
+    "gloss": "caixa"
+  },
+  {
+    "da": "øde",
+    "gloss": "deserto"
+  },
+  {
+    "da": "ødelagt",
+    "gloss": "partido"
+  },
+  {
+    "da": "øjne",
+    "gloss": "olhos"
+  },
+  {
+    "da": "økonomi",
+    "gloss": "economia"
+  },
+  {
+    "da": "økse",
+    "gloss": "machado"
+  },
+  {
+    "da": "øm",
+    "gloss": "dolorido"
+  },
+  {
+    "da": "ømhed",
+    "gloss": "ternura"
+  },
+  {
+    "da": "ørn",
+    "gloss": "águia"
+  },
+  {
+    "da": "ørred",
+    "gloss": "truta"
+  },
+  {
+    "da": "øse",
+    "gloss": "verter"
+  },
+  {
+    "da": "øst",
+    "gloss": "este"
+  },
+  {
+    "da": "øv",
+    "gloss": "caramba"
+  },
+  {
+    "da": "øvelse",
+    "gloss": "atividade"
+  },
+  {
+    "da": "øvre",
+    "gloss": "superior"
+  }
+]

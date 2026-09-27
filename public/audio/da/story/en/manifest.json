@@ -1,0 +1,225 @@
+{
+  "entries": {
+    "0-000": {
+      "id": "story:0:0",
+      "text": "The sun rises over Sønderborg, and a bird sings in a big tree.",
+      "stamp": "392b8a155f6624e0",
+      "bytes": 17472,
+      "at": "2026-08-23T00:06:36.494Z"
+    },
+    "0-001": {
+      "id": "story:0:1",
+      "text": "The house is white, and the door is red.",
+      "stamp": "2a5f53585ea8f579",
+      "bytes": 10752,
+      "at": "2026-08-23T00:06:37.200Z"
+    },
+    "0-002": {
+      "id": "story:0:2",
+      "text": "There is a small kitchen with a table, a chair and an old lamp.",
+      "stamp": "53fabacaa71bd631",
+      "bytes": 17184,
+      "at": "2026-08-23T00:06:38.131Z"
+    },
+    "0-003": {
+      "id": "story:0:3",
+      "text": "Mum is making food, while dad drinks coffee by the window.",
+      "stamp": "6706e47b61f4d359",
+      "bytes": 13344,
+      "at": "2026-08-23T00:06:38.918Z"
+    },
+    "0-004": {
+      "id": "story:0:4",
+      "text": "The child eats an apple and drinks milk.",
+      "stamp": "c3acfe9b22385154",
+      "bytes": 13344,
+      "at": "2026-08-23T00:06:39.707Z"
+    },
+    "0-005": {
+      "id": "story:0:5",
+      "text": "On the table there is cheese, butter, salt and an egg.",
+      "stamp": "fb34f403b00e3cac",
+      "bytes": 15072,
+      "at": "2026-08-23T00:06:40.572Z"
+    },
+    "0-006": {
+      "id": "story:0:6",
+      "text": "The dog runs out of the door, while a cat still sleeps on a bed.",
+      "stamp": "77a9a0dc1048c147",
+      "bytes": 16992,
+      "at": "2026-08-23T00:06:41.490Z"
+    },
+    "0-007": {
+      "id": "story:0:7",
+      "text": "Their room is small, but the window is big.",
+      "stamp": "4ca35dd8251f313d",
+      "bytes": 11232,
+      "at": "2026-08-23T00:06:42.218Z"
+    },
+    "0-008": {
+      "id": "story:0:8",
+      "text": "The girl has a flower in her hand, and the boy has lost a tooth.",
+      "stamp": "7bd811bd5a768ffc",
+      "bytes": 16512,
+      "at": "2026-08-23T00:06:43.140Z"
+    },
+    "0-009": {
+      "id": "story:0:9",
+      "text": "She has long hair, a small nose and a happy mouth.",
+      "stamp": "fa8f5a1f7e64f8db",
+      "bytes": 16512,
+      "at": "2026-08-23T00:06:44.027Z"
+    },
+    "0-010": {
+      "id": "story:0:10",
+      "text": "He closes one eye and puts a hat on his head.",
+      "stamp": "3a71d9f399286528",
+      "bytes": 12576,
+      "at": "2026-08-23T00:06:44.788Z"
+    },
+    "0-011": {
+      "id": "story:0:11",
+      "text": "The cat sits by his leg, while his foot hurts.",
+      "stamp": "435a3fc35c98ae98",
+      "bytes": 11712,
+      "at": "2026-08-23T00:06:45.523Z"
+    },
+    "0-012": {
+      "id": "story:0:12",
+      "text": "The boy has a ball under his arm, and the father drinks a beer.",
+      "stamp": "b3312155c3bb2d8d",
+      "bytes": 12576,
+      "at": "2026-08-23T00:06:46.293Z"
+    },
+    "0-013": {
+      "id": "story:0:13",
+      "text": "The girl points with a finger at a black plane in a clear sky.",
+      "stamp": "ed4d7f9715d1ec98",
+      "bytes": 16896,
+      "at": "2026-08-23T00:06:47.213Z"
+    },
+    "0-014": {
+      "id": "story:0:14",
+      "text": "Her heart beats, because the family is travelling today.",
+      "stamp": "4b3dd38b0f46f8ad",
+      "bytes": 14304,
+      "at": "2026-08-23T00:06:48.059Z"
+    },
+    "0-015": {
+      "id": "story:0:15",
+      "text": "They walk down a street in the middle of an old town.",
+      "stamp": "45863afe0422f2dd",
+      "bytes": 10656,
+      "at": "2026-08-23T00:06:48.753Z"
+    },
+    "0-016": {
+      "id": "story:0:16",
+      "text": "A young woman and an old man wait by a church.",
+      "stamp": "2739133151256f5e",
+      "bytes": 12864,
+      "at": "2026-08-23T00:06:49.532Z"
+    },
+    "0-017": {
+      "id": "story:0:17",
+      "text": "In a shop they buy meat, fish and vegetables.",
+      "stamp": "1534a3c682641e46",
+      "bytes": 14016,
+      "at": "2026-08-23T00:06:50.348Z"
+    },
+    "0-018": {
+      "id": "story:0:18",
+      "text": "They also take a potato, sugar and a big cake.",
+      "stamp": "6ee740d85a738299",
+      "bytes": 13344,
+      "at": "2026-08-23T00:06:51.127Z"
+    },
+    "0-019": {
+      "id": "story:0:19",
+      "text": "Dad fetches money at a bank, because he wants to buy a book.",
+      "stamp": "fef6a1a5fb525033",
+      "bytes": 15552,
+      "at": "2026-08-23T00:06:52.000Z"
+    },
+    "0-020": {
+      "id": "story:0:20",
+      "text": "Mum works at a hospital, but today she is off.",
+      "stamp": "2e01a4c884c3ba3c",
+      "bytes": 14016,
+      "at": "2026-08-23T00:06:52.809Z"
+    },
+    "0-021": {
+      "id": "story:0:21",
+      "text": "Her brother is a teacher at a school.",
+      "stamp": "f4ba437290edf8f4",
+      "bytes": 7776,
+      "at": "2026-08-23T00:06:53.442Z"
+    },
+    "0-022": {
+      "id": "story:0:22",
+      "text": "His sister drives a red car, and her son has a bicycle.",
+      "stamp": "03f892295fd88217",
+      "bytes": 15264,
+      "at": "2026-08-23T00:06:54.309Z"
+    },
+    "0-023": {
+      "id": "story:0:23",
+      "text": "A horse stands in a park by the water.",
+      "stamp": "6cf97955a40bf70d",
+      "bytes": 11712,
+      "at": "2026-08-23T00:06:55.043Z"
+    },
+    "0-024": {
+      "id": "story:0:24",
+      "text": "Their daughter and a friend read a book if it rains.",
+      "stamp": "7984c782f0f00523",
+      "bytes": 12192,
+      "at": "2026-08-23T00:06:55.781Z"
+    },
+    "0-025": {
+      "id": "story:0:25",
+      "text": "One evening last week snow fell over the whole town.",
+      "stamp": "fe1fcc9e684f4a98",
+      "bytes": 11136,
+      "at": "2026-08-23T00:06:56.487Z"
+    },
+    "0-026": {
+      "id": "story:0:26",
+      "text": "Now a train is waiting, and a bus drives past.",
+      "stamp": "64d3651c2ed5a662",
+      "bytes": 15552,
+      "at": "2026-08-23T00:06:57.383Z"
+    },
+    "0-027": {
+      "id": "story:0:27",
+      "text": "From the window they see the beach and a big sea.",
+      "stamp": "2cdeb1d89489a708",
+      "bytes": 12864,
+      "at": "2026-08-23T00:06:58.152Z"
+    },
+    "0-028": {
+      "id": "story:0:28",
+      "text": "Night falls, and you can see the moon and a bright star.",
+      "stamp": "6f259193f5de2d6f",
+      "bytes": 15936,
+      "at": "2026-08-23T00:06:59.030Z"
+    },
+    "0-029": {
+      "id": "story:0:29",
+      "text": "They love to travel, even though the journey is long.",
+      "stamp": "2d4412a60b3ebb8e",
+      "bytes": 14784,
+      "at": "2026-08-23T00:06:59.883Z"
+    },
+    "0-030": {
+      "id": "story:0:30",
+      "text": "Casey is happy, because the suitcase is full of words.",
+      "stamp": "165e5b33be2cfe5e",
+      "bytes": 14976,
+      "at": "2026-08-23T00:07:00.725Z"
+    }
+  },
+  "provider": "google",
+  "voice": "en-US-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "da"
+}

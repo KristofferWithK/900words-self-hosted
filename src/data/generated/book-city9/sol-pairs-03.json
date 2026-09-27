@@ -1,0 +1,316 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "pairs",
+  "batch": 3,
+  "pairs": {
+    "da:koge|da:sprød": [
+      { "da": "kartoffel", "en": "potato", "why": "two ways to prepare potatoes", "s": 2 },
+      { "da": "grøntsag", "en": "vegetable", "why": "often cooked with either result", "s": 1 }
+    ],
+    "da:enkel|da:rydde": [
+      { "da": "overskuelig", "en": "manageable", "why": "the result of less clutter", "s": 2 }
+    ],
+    "da:enkel|da:praktisk": [
+      { "da": "løsning", "en": "solution", "why": "a good usable answer", "s": 3 },
+      { "da": "design", "en": "design", "why": "best without needless complexity", "s": 2 }
+    ],
+    "da:enkel|da:rimelig": [
+      { "da": "krav", "en": "request", "why": "easy and fair to meet", "s": 2 }
+    ],
+    "da:enkel|da:ærlig": [
+      { "da": "svar", "en": "answer", "why": "direct and truthful words", "s": 2 },
+      { "da": "besked", "en": "message", "why": "plain and sincere communication", "s": 2 }
+    ],
+    "da:enkel|da:tydelig": [
+      { "da": "forklaring", "en": "explanation", "why": "easy to understand", "s": 3 },
+      { "da": "sprog", "en": "language", "why": "words without confusion", "s": 2 }
+    ],
+    "da:enkel|da:mild": [
+      { "da": "smag", "en": "flavor", "why": "plain and not strong", "s": 2 }
+    ],
+    "da:enkel|da:nyttig": [
+      { "da": "værktøj", "en": "tool", "why": "easy and helpful to use", "s": 2 },
+      { "da": "råd", "en": "advice", "why": "straightforward help", "s": 2 }
+    ],
+    "da:enkel|da:behagelig": [
+      { "da": "hverdag", "en": "daily", "why": "easy and comfortable living", "s": 1 }
+    ],
+    "da:enkel|da:underlig": [
+      { "da": "forklaring", "en": "explanation", "why": "can be plain or odd", "s": 1 }
+    ],
+    "da:enkel|da:app": [
+      { "da": "intuitiv", "en": "intuitive", "why": "software requiring little explanation", "s": 3 },
+      { "da": "telefon", "en": "phone", "why": "simple mobile software", "s": 2 }
+    ],
+    "da:enkel|da:glat": [
+      { "da": "overflade", "en": "surface", "why": "plain and smooth finish", "s": 2 }
+    ],
+    "da:enkel|da:opskrift": [
+      { "da": "madlavning", "en": "cooking", "why": "easy kitchen instructions", "s": 3 },
+      { "da": "trin", "en": "steps", "why": "few clear instructions", "s": 2 }
+    ],
+    "da:enkel|da:ordne": [
+      { "da": "løsning", "en": "solution", "why": "an easy way to fix it", "s": 3 }
+    ],
+    "da:angst|da:overraskelse": [
+      { "da": "chok", "en": "shock", "why": "sudden frightening news", "s": 3 },
+      { "da": "forskrækkelse", "en": "fright", "why": "an unexpected fearful reaction", "s": 3 }
+    ],
+    "da:angst|da:snakke": [
+      { "da": "terapi", "en": "therapy", "why": "talking through fear", "s": 2 }
+    ],
+    "da:angst|da:skam": [
+      { "da": "følelse", "en": "emotion", "why": "both are painful emotions", "s": 3 },
+      { "da": "hemmelighed", "en": "secret", "why": "often kept from others", "s": 2 }
+    ],
+    "da:angst|da:berømt": [
+      { "da": "scene", "en": "stage", "why": "fame and fear of performing", "s": 1 }
+    ],
+    "da:angst|da:ensomhed": [
+      { "da": "følelse", "en": "feeling", "why": "both can cause distress", "s": 2 },
+      { "da": "isolation", "en": "isolation", "why": "being alone can intensify fear", "s": 2 }
+    ],
+    "da:angst|da:råbe": [
+      { "da": "panik", "en": "panic", "why": "fear can make people yell", "s": 3 }
+    ],
+    "da:angst|da:motion": [
+      { "da": "stress", "en": "stress", "why": "exercise can reduce worry", "s": 2 },
+      { "da": "sundhed", "en": "health", "why": "mental and physical wellbeing", "s": 1 }
+    ],
+    "da:angst|da:tårn": [
+      { "da": "højde", "en": "height", "why": "a common fear atop towers", "s": 2 }
+    ],
+    "da:angst|da:ryge": [
+      { "da": "stress", "en": "stress", "why": "a reason some people smoke", "s": 2 }
+    ],
+    "da:angst|da:streng": [
+      { "da": "frygt", "en": "fear", "why": "harsh authority can frighten", "s": 2 }
+    ],
+    "da:angst|da:politibetjent": [
+      { "da": "frygt", "en": "fear", "why": "authority can feel frightening", "s": 1 }
+    ],
+    "da:angst|da:hoppe": [
+      { "da": "forskrækket", "en": "startled", "why": "fear causes a sudden jump", "s": 3 }
+    ],
+    "da:angst|da:skygge": [
+      { "da": "mørke", "en": "darkness", "why": "shadows can cause fear", "s": 3 },
+      { "da": "uhyggelig", "en": "spooky", "why": "a frightening dark shape", "s": 2 }
+    ],
+    "da:angst|da:mild": [
+      { "da": "grad", "en": "degree", "why": "fear can be low intensity", "s": 2 }
+    ],
+    "da:angst|da:tåge": [
+      { "da": "usikkerhed", "en": "uncertainty", "why": "not seeing what lies ahead", "s": 2 },
+      { "da": "uhyggelig", "en": "spooky", "why": "mist creates a fearful mood", "s": 2 }
+    ],
+    "da:angst|da:bade": [
+      { "da": "vand", "en": "water", "why": "some fear entering it", "s": 2 }
+    ],
+    "da:angst|da:træning": [
+      { "da": "stress", "en": "stress", "why": "workouts can ease worry", "s": 2 },
+      { "da": "terapi", "en": "therapy", "why": "practice used to face fears", "s": 1 }
+    ],
+    "da:angst|da:behagelig": [
+      { "da": "rolig", "en": "calm", "why": "comfort opposes fear", "s": 2 }
+    ],
+    "da:angst|da:kursus": [
+      { "da": "eksamen", "en": "exam", "why": "classes can bring test worry", "s": 2 }
+    ],
+    "da:angst|da:teater": [
+      { "da": "scene", "en": "stage", "why": "performing can cause fear", "s": 3 },
+      { "da": "drama", "en": "drama", "why": "strong feelings in performance", "s": 2 }
+    ],
+    "da:angst|da:underlig": [
+      { "da": "følelse", "en": "feeling", "why": "fear can feel unfamiliar", "s": 1 }
+    ],
+    "da:angst|da:kalender": [
+      { "da": "frist", "en": "deadline", "why": "dated obligations cause worry", "s": 2 }
+    ],
+    "da:angst|da:skilt": [
+      { "da": "advarsel", "en": "warning", "why": "a sign of possible danger", "s": 3 },
+      { "da": "fare", "en": "danger", "why": "marked hazards cause fear", "s": 2 }
+    ],
+    "da:angst|da:diskutere": [
+      { "da": "konflikt", "en": "conflict", "why": "arguments can cause worry", "s": 2 }
+    ],
+    "da:angst|da:glat": [
+      { "da": "falde", "en": "fall", "why": "slippery ground creates fear", "s": 3 },
+      { "da": "is", "en": "ice", "why": "a slippery source of worry", "s": 2 }
+    ],
+    "da:angst|da:ryste": [
+      { "da": "frygt", "en": "fear", "why": "fear makes the body tremble", "s": 3 },
+      { "da": "nervøs", "en": "nervous", "why": "nerves cause shaking", "s": 3 }
+    ],
+    "da:angst|da:hjerne": [
+      { "da": "tanke", "en": "thought", "why": "worry happens in the mind", "s": 2 },
+      { "da": "psykologi", "en": "psychology", "why": "mental source of fear", "s": 2 }
+    ],
+    "da:angst|da:hviske": [
+      { "da": "nervøs", "en": "nervous", "why": "fear can quiet the voice", "s": 2 }
+    ],
+    "da:angst|da:kølig": [
+      { "da": "gys", "en": "shiver", "why": "cold and fear both cause it", "s": 3 }
+    ],
+    "da:angst|da:aftale": [
+      { "da": "tandlæge", "en": "dentist", "why": "a feared scheduled visit", "s": 3 }
+    ],
+    "da:angst|da:glide": [
+      { "da": "falde", "en": "fall", "why": "losing footing causes fear", "s": 3 }
+    ],
+    "da:angst|da:klatre": [
+      { "da": "højde", "en": "height", "why": "climbing can trigger fear", "s": 3 },
+      { "da": "falde", "en": "fall", "why": "a climber may fear this", "s": 2 }
+    ],
+    "da:angst|da:bekymre": [
+      { "da": "uro", "en": "unease", "why": "the feeling behind worry", "s": 3 },
+      { "da": "nervøs", "en": "nervous", "why": "fearful concern", "s": 3 }
+    ],
+    "da:angst|da:stiv": [
+      { "da": "fryse", "en": "freeze", "why": "fear can make the body rigid", "s": 3 }
+    ],
+    "da:angst|da:ulykke": [
+      { "da": "fare", "en": "danger", "why": "possible disaster causes fear", "s": 3 },
+      { "da": "chok", "en": "shock", "why": "a frightening harmful event", "s": 2 }
+    ],
+    "da:angst|da:irritere": [
+      { "da": "stress", "en": "stress", "why": "both cause mental tension", "s": 2 }
+    ],
+    "da:angst|da:kramme": [
+      { "da": "tryghed", "en": "security", "why": "an embrace can calm fear", "s": 3 },
+      { "da": "trøst", "en": "comfort", "why": "physical reassurance when afraid", "s": 3 }
+    ],
+    "da:angst|da:tålmodig": [
+      { "da": "rolig", "en": "calm", "why": "patience helps with fear", "s": 2 }
+    ],
+    "da:angst|da:trøste": [
+      { "da": "rolig", "en": "calm", "why": "comfort reduces fear", "s": 3 },
+      { "da": "tryghed", "en": "security", "why": "reassurance for someone afraid", "s": 3 }
+    ],
+    "da:angst|da:fritid": [
+      { "da": "afslapning", "en": "relaxation", "why": "leisure can ease worry", "s": 2 }
+    ],
+    "da:angst|da:venskab": [
+      { "da": "støtte", "en": "support", "why": "friends help against fear", "s": 2 },
+      { "da": "tryghed", "en": "security", "why": "friends can provide reassurance", "s": 2 }
+    ],
+    "da:angst|da:skrige": [
+      { "da": "panik", "en": "panic", "why": "extreme fear causes screaming", "s": 3 },
+      { "da": "forskrækket", "en": "startled", "why": "a frightened vocal reaction", "s": 3 }
+    ],
+    "da:angst|da:ægteskab": [
+      { "da": "forpligtelse", "en": "commitment", "why": "a bond some people fear", "s": 2 }
+    ],
+    "da:rydde|da:praktisk": [
+      { "da": "opbevaring", "en": "storage", "why": "useful help for tidying", "s": 3 },
+      { "da": "system", "en": "system", "why": "an efficient way to organize", "s": 2 }
+    ],
+    "da:rydde|da:møbel": [
+      { "da": "værelse", "en": "room", "why": "furniture is arranged while tidying", "s": 3 },
+      { "da": "hjem", "en": "home", "why": "where furniture and chores meet", "s": 2 }
+    ],
+    "da:rydde|da:sweater": [
+      { "da": "skab", "en": "closet", "why": "where clothes are put away", "s": 3 },
+      { "da": "folde", "en": "fold", "why": "a way to tidy clothing", "s": 3 }
+    ],
+    "da:rydde|da:fylde": [
+      { "da": "tømme", "en": "empty", "why": "clear space before filling it", "s": 2 },
+      { "da": "kasse", "en": "box", "why": "packed while clearing a room", "s": 2 }
+    ],
+    "da:rydde|da:kvittering": [
+      { "da": "papir", "en": "paper", "why": "receipts are sorted as clutter", "s": 3 },
+      { "da": "mappe", "en": "folder", "why": "where sorted receipts go", "s": 3 }
+    ],
+    "da:rydde|da:tørre": [
+      { "da": "rengøring", "en": "cleaning", "why": "two household chores", "s": 3 },
+      { "da": "klud", "en": "cloth", "why": "used while cleaning surfaces", "s": 2 }
+    ],
+    "da:rydde|da:tydelig": [
+      { "da": "overskuelig", "en": "orderly", "why": "tidying makes things clear", "s": 3 }
+    ],
+    "da:rydde|da:politibetjent": [
+      { "da": "sted", "en": "scene", "why": "police clear an area", "s": 1 }
+    ],
+    "da:rydde|da:blande": [
+      { "da": "sortere", "en": "sort", "why": "separate things that were mixed", "s": 2 }
+    ],
+    "da:rydde|da:hylde": [
+      { "da": "opbevaring", "en": "storage", "why": "putting things neatly away", "s": 3 },
+      { "da": "støve", "en": "dust", "why": "a shelf cleaning task", "s": 2 }
+    ],
+    "da:rydde|da:rulle": [
+      { "da": "tæppe", "en": "carpet", "why": "rolled up while clearing space", "s": 2 }
+    ],
+    "da:rydde|da:bluse": [
+      { "da": "skab", "en": "closet", "why": "where tops are put away", "s": 3 },
+      { "da": "folde", "en": "fold", "why": "a way to tidy clothing", "s": 3 }
+    ],
+    "da:rydde|da:bade": [
+      { "da": "bruser", "en": "shower", "why": "used for washing and cleaned regularly", "s": 2 }
+    ],
+    "da:rydde|da:binde": [
+      { "da": "samle", "en": "gather", "why": "bring things together neatly", "s": 2 }
+    ],
+    "da:rydde|da:kalender": [
+      { "da": "planlægge", "en": "plan", "why": "organize tasks and dates", "s": 3 }
+    ],
+    "da:rydde|da:kurv": [
+      { "da": "opbevaring", "en": "storage", "why": "a container used for tidying", "s": 3 },
+      { "da": "vasketøj", "en": "laundry", "why": "collected in a basket", "s": 2 }
+    ],
+    "da:rydde|da:aftale": [
+      { "da": "kalender", "en": "calendar", "why": "organize scheduled commitments", "s": 2 }
+    ],
+    "da:rydde|da:skuffe": [
+      { "da": "opbevaring", "en": "storage", "why": "a place to put things away", "s": 3 },
+      { "da": "sortere", "en": "sort", "why": "organizing drawer contents", "s": 3 }
+    ],
+    "da:rydde|da:ordne": [
+      { "da": "organisere", "en": "organize", "why": "put things into order", "s": 3 },
+      { "da": "sortere", "en": "sort", "why": "arrange things neatly", "s": 3 }
+    ],
+    "da:rydde|da:pakke": [
+      { "da": "kasse", "en": "box", "why": "used for clearing and packing", "s": 3 },
+      { "da": "flytte", "en": "move", "why": "requires packing and clearing rooms", "s": 3 }
+    ],
+    "da:rydde|da:klippe": [
+      { "da": "have", "en": "garden", "why": "trim and clear outdoor growth", "s": 2 }
+    ],
+    "da:and|da:overraskelse": [
+      { "da": "jul", "en": "christmas", "why": "a festive bird and surprises", "s": 2 }
+    ],
+    "da:and|da:skære": [
+      { "da": "kød", "en": "meat", "why": "the bird served in slices", "s": 3 },
+      { "da": "kniv", "en": "knife", "why": "used to carve the bird", "s": 2 }
+    ],
+    "da:and|da:læbe": [
+      { "da": "næb", "en": "bill", "why": "the bird equivalent of lips", "s": 3 },
+      { "da": "mund", "en": "mouth", "why": "facial opening on both", "s": 2 }
+    ],
+    "da:and|da:peber": [
+      { "da": "middag", "en": "dinner", "why": "seasoning for a served bird", "s": 2 }
+    ],
+    "da:and|da:rulle": [
+      { "da": "forår", "en": "spring", "why": "a roll served with duck", "s": 1 }
+    ],
+    "da:and|da:bade": [
+      { "da": "vand", "en": "water", "why": "where the bird swims", "s": 3 },
+      { "da": "sø", "en": "lake", "why": "a place for ducks and swimming", "s": 3 }
+    ],
+    "da:and|da:stege": [
+      { "da": "ovn", "en": "oven", "why": "where the bird is roasted", "s": 3 },
+      { "da": "middag", "en": "dinner", "why": "a roasted bird meal", "s": 3 }
+    ],
+    "da:and|da:underlig": [
+      { "da": "usædvanlig", "en": "unusual", "why": "an unexpected kind of bird", "s": 1 }
+    ],
+    "da:and|da:servere": [
+      { "da": "middag", "en": "dinner", "why": "the bird presented as a meal", "s": 3 },
+      { "da": "restaurant", "en": "restaurant", "why": "where the bird may be served", "s": 2 }
+    ],
+    "da:and|da:glide": [
+      { "da": "vand", "en": "water", "why": "the bird moves smoothly across it", "s": 3 },
+      { "da": "sø", "en": "lake", "why": "where ducks glide", "s": 3 }
+    ]
+  }
+}

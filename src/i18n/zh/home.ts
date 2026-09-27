@@ -1,0 +1,195 @@
+import type { Catalogue } from '../en'
+
+/**
+ * 简体中文。用“你”，不用“您”。中文与拉丁字母、数字之间留一个半角空格；
+ * «» 里的词和全角标点前后不留。城市名是丹麦语原名，所以前后留空格。
+ */
+export const home: Catalogue['home'] = {
+  brandName: '900words',
+  // ── 主页 ────────────────────────────────────────────────────────────────
+  settingsAria: '设置',
+  openMapAria: '打开地图',
+  homeMapAria: (stop, stops, city) => `第 ${stop} 站，共 ${stops} 站：${city}`,
+  needsPass: '下一班火车需要旅行通票',
+  // 加粗的数字画在前面：“12 个已打包 · 5 个已收集”。
+  wrappedWord: '个已打包',
+  collectedCount: (collected) => `${collected} 个已收集`,
+  journeyDone: (city) => `你在 ${city} 打包好了最后一个行李箱。`,
+  momentumLine: '每天玩 3 块词板，90 天就能收集全部单词。',
+  dailyPlayedAria: (outcome) => `每日挑战：今天已玩（${outcome}）`,
+  dailyAria: '每日挑战：每天一块共享词板',
+  play: '开始游戏',
+  previewHeading: '暂无单词游戏',
+  previewNote: '地图和旅行指南已经就位。牌面、线索和语音还没有做好。',
+  previewGuideCta: '打开旅行指南',
+  continueGame: '继续这局',
+  continueWrapUp: '继续打包回合',
+  continueReview: '继续回顾',
+  continuePrimary: '继续这块词板', continueReplay: '继续重玩', returnToPrimary: '回到你的词板',
+  viewResult: '查看结果', improveBoards: '提升你的词板', postcardsEarned: '张已获得明信片',
+  postcardsRemaining: (remaining) => `还差 ${remaining} 张明信片才能旅行`, postcardReadiness: (earned, remaining) => `已获得 ${earned} 张明信片；还差 ${remaining} 张才能旅行。`,
+  readyToTravel: '可以旅行了', nextStopNotReleased: (city) => `可以旅行了。${city} 尚未推出。`, cityMedalInProgress: '尚未获得', cityMedal: (tier) => `城市奖牌：${tier}`,
+  backToCity: (city) => `返回 ${city}`,
+
+  // ── 地图 ────────────────────────────────────────────────────────────────
+  back: '返回',
+  journeyTitle: '旅程',
+  mapAria: (country, stop, stops, city) => `${country}地图。第 ${stop} 站，共 ${stops} 站：${city}。`,
+  stopAria: (city, stop, status) => `${city}，第 ${stop} 站，${status}`,
+  statusVisited: '已到过',
+  statusHere: '你在这里',
+  statusNotReached: '还没到',
+  statusAhead: '在前方',
+  stopOf: (stop, stops) => `第 ${stop} 站，共 ${stops} 站`,
+  arrivedOn: (date) => `${date} 到达`,
+  previousStopAria: '上一站',
+  nextStopAria: '下一站',
+  wordsWaiting: (words, city) => `${words} 个词在等你。到了 ${city} 就能解锁。`,
+  lookAhead: '向前看',
+  travelAhead: '提前出发',
+  enableTravelAhead: '开启提前出发',
+  // 加粗的已打包数画在前面：“12 / 100 已打包 · 5 已收集 · 30 已发现”。
+  mapCounts: (goal, collected, discovered) => `/ ${goal} 已打包 · ${collected} 已收集 · ${discovered} 已发现`,
+  suitcasePacked: '行李箱已打包',
+  lineClosedNote: '线路维修停运。点击火车查看通知。',
+  travelBackTo: (city) => `返回 → ${city}`,
+  travelOnTo: (city) => `继续旅程 → ${city}`,
+  trainToClosed: (city) => `开往 ${city} 的火车：线路停运`,
+  getPassFor: (city) => `购买前往 ${city} 的旅行通票`,
+  mapCredit: 'Kort · 地图数据：Geodatastyrelsen / DAGI (FOT)，1:500 000',
+  backToTheMap: '返回地图',
+
+  // ── 火车，两个界面共用 ──────────────────────────────────────────────────
+  trainJourneyOver: '行李箱已打包。旅程到此结束。',
+  trainReady: (city) => `行李箱已打包。开往 ${city} 的火车准备好了。`,
+  wordsToFinish: (words) => `再打包 ${words} 个词，就能走完这趟旅程。`,
+  wordsToTrain: (words, city) => `再打包 ${words} 个词，就能坐上开往 ${city} 的火车。`,
+  boardTrain: (city) => `登上开往 ${city} 的火车`,
+
+  // ── 抵达 ────────────────────────────────────────────────────────────────
+  arrivalAgain: (words) =>
+    `又回来了。你在这里收的 ${words} 个词还在行李箱里。可以再玩一遍，也可以随时继续旅程。`,
+  arrivalNew: (words) => `${words} 个新词等你去发现。Casey 已经敞开，等着装它们。`,
+  getStarted: '开始吧',
+  seeTheMap: '看看地图',
+
+  // ── 行李箱 ──────────────────────────────────────────────────────────────
+  suitcaseTitle: '行李箱',
+  filterAria: '按城市筛选行李箱',
+  filterAll: '全部',
+  pagerPreviousAria: (band) => `${band}，上一页`,
+  pagerNextAria: (band) => `${band}，下一页`,
+  looseLabel: (words) => `还在外面：${words}`,
+  looseEmpty: '没有散落的词。这里的每个词都在箱子里。',
+  lidLabel: (words) => `已收集：${words}`,
+  lidEmpty: '给一个词出提示，再猜中它（一来一回都翻到绿色），它就会收进箱盖。',
+  trayLabel: (words, goal) => `已打包：${words} / ${goal}`,
+  trayEmpty: '箱底还是空的。打包回合会把词永久放进这里。',
+  undiscoveredAria: '未发现的词',
+  wordAria: {
+    undiscovered: (word) => `${word}，未发现`,
+    discovered: (word) => `${word}，已发现`,
+    collected: (word) => `${word}，已收集`,
+    wrapped: (word) => `${word}，已打包`,
+  },
+  wrapUpWords: '打包词语',
+  wrapUpBankedAria: (banked) => `打包词语：已存 ${banked} 个`,
+  postcardBalance: (banked) => `明信片 · ${banked}`,
+  postcardHelp: '需要答案？用一张明信片。',
+  packingAnswerShown: '答案已显示。按“打包”。',
+  packingNoPostcards: '赢一局普通回合，获得一张明信片。',
+  packingFirstPostcardHint: (language) => `输入${language}词语来打包。用明信片就能显示它。`,
+  packingPostcardTitle: (state, language) => state === 'shown' ? '免费再次显示这个答案。' : state === 'select' ? '先选择一张未打包的卡。' : state === 'empty' ? '赢一局普通回合，获得一张翻译明信片。' : `用一张明信片显示这张卡的${language}答案。`,
+  packingPostcardAria: (shown, banked) => shown ? '免费再次显示翻译' : `使用翻译明信片：有 ${banked} 张`,
+  packingPostcardShowAnswer: '显示答案',
+  usePostcard: '使用明信片',
+  wrapUpContinueAria: '继续进行中的打包回合',
+  hintWrapUpWaiting: '有一个打包回合还没打完。接着上次的继续吧。',
+  hintCollectFirst: (city) => `先在 ${city} 收集一个词（一来一回都翻到绿色），打包回合才有东西可装。`,
+  hintFirstWrapUp: (wins) => `赢 ${wins} 个回合，换来你的第一个打包回合。`,
+  hintMoreWins: (wins) => `再赢 ${wins} 个回合，就有一个打包回合。`,
+  hintPacksRange: (collected, city) => `${city} 已收集 ${collected} 个。一个打包回合能装 13 到 15 个，具体看底牌。`,
+  hintPacksUpTo: (collected, city, cap) =>
+    `${city} 已收集 ${collected} 个。下一个打包回合最多能装 ${cap} 个，具体看底牌。`,
+
+  // ── 打包台，打包回合的开场 ──────────────────────────────────────────────
+  // 标题一行放不下“装进行李箱”，这里用它的简写“装箱”；«» 里是卡片上的英文词。
+  packWord: (word) => `把«${word}»装箱`,
+  packTheBoard: '把词板装箱',
+  packCount: (packed, packable) => `（${packed} / ${packable}）`,
+  startEarlyWarning: (remaining) => `还有 ${remaining} 个没装就开始。它们会一直是英语，这一回合也打包不了`,
+  startEarly: (remaining) => `剩 ${remaining} 个也开始`,
+  tapEnglishCard: '点一张英文卡片',
+  theWordFor: (language, word) => `${word} 的${language}说法`,
+  tapEnglishCardFirst: '先点一张英文卡片',
+  pack: '装箱',
+  packMiss: '不对。这一次记下了。再试试。',
+  packFirstTime: '输入丹麦语来装箱。提前开始的话，卡片会一直是英语，也打包不了。',
+  packRecall: '词典关着。这一步靠记忆。',
+  packTapAndType: (language) => `点一张英文卡片，输入它的${language}。`,
+
+  // ── 旅行通票 ────────────────────────────────────────────────────────────
+  passBackAria: '返回地图',
+  passTitle: '接下来的火车',
+  passKicker: '前两座城市免费。',
+  passHeading: '丹麦其余路段的旅行通票',
+  passIntro: '很遗憾，丹麦的公共交通不是免费的。想坐后面的火车，你需要一张旅行通票。',
+  passOptionsAria: '旅行通票选项',
+  passMonthly: '月度旅行通票',
+  passMonthlyHelp: '旅行通票有效期内，可以一直旅行。',
+  passLifetime: '终身旅行通票',
+  passLifetimeHelp: '一张旅行通票，走遍我们推出的每一段旅程。',
+  passPriceMonthly: '1.99 / 月',
+  passPriceLifetime: '19.99 一次付清',
+  passReady: '你的旅行通票已经生效。下一班火车开放了。',
+  passRestore: '恢复购买',
+  passRedeem: '使用 App Store 兑换码',
+  passKindness: '学习不该取决于钱。',
+  // 页面在邮箱地址前后各放一个空格，所以后半句不以标点开头。
+  passReviewBefore: '在 App Store 写一条评价，拍张照片，发送到',
+  passReviewAfter: '就能拿到 6 个月旅行通票的兑换码。好评差评都行，看你觉得这个应用怎么样。',
+
+  // ── 每日游戏升级 ─────────────────────────────────────────────────────────
+  dailyLimitKicker: '今天的两场免费游戏已经玩完了。',
+  dailyLimitHeading: '继续和 Casey 一起玩',
+  dailyLimitBody: '明天再来玩两场免费游戏，也可以解锁无限畅玩。',
+  dailyLimitOptionsAria: '无限畅玩选项',
+  dailyLimitMonthly: '按月订阅',
+  dailyLimitMonthlyHelp: '每月自动续订，直到取消。',
+  dailyLimitLifetime: '一次性购买',
+  dailyLimitLifetimeHelp: '无需订阅，即可无限畅玩。',
+  dailyLimitUnavailable: '暂不可用',
+  dailyLimitCloseAria: '关闭升级对话框',
+  dailyLimitRestore: '恢复购买',
+  dailyLimitDismiss: '明天再说',
+  dailyLimitDisclosure: '价格和购买确认由 Apple 提供。请在 Apple 账户中管理或取消订阅。',
+  passThanksHeading: '感谢你支持 900words 的开发',
+  passThanksBody: '无限畅玩已解锁。',
+  passThanksContinue: '继续玩',
+
+  // ── 可选的语言站 ────────────────────────────────────────────────────────
+  stopKicker: '可选语言站',
+  stopKindGrammar: '语法练习',
+  stopKindSituation: '一个小情景',
+  stopKindExit: '可选出发检查',
+  stopKindReview: '该复习了',
+  stopFocus: '你下一个语言重点',
+  stopNote: '这一站和行李箱分开保存，不影响你能打包哪些词，也不影响火车能不能开。',
+  stopAuthoring:
+    '丹麦语题目和评分还在随课程内容一起编写。可以留到以后，也可以先放在指南里；占位内容上的尝试不会记为学习记录。',
+  stopContinue: '继续',
+  stopLater: '以后再说',
+  stopSkip: '跳过这一站',
+  stopStart: '开始',
+  stopOpen: '语言站',
+
+  // ── 停运的线路 ───────────────────────────────────────────────────────────
+  trainClosedLabel: (city) => `开往 ${city} 的火车还没开通，线路维修中`,
+  trainClosedTitle: '线路维修中',
+  trainClosedBody: (city, here) =>
+    `开往 ${city} 的火车暂时还不发车，线路在施工。` +
+    `很快就会恢复，一恢复我们就在这里告诉你。` +
+    `在那之前，${here} 都是你的：每一块词板、每一个打包回合，还有你的连续天数。`,
+  trainReopenedTitle: (city) => `开往 ${city} 的火车恢复运行了`,
+  trainReopenedBody: '线路通了。你的行李箱已经打包好，Casey 就在站台上。随时上车。',
+}

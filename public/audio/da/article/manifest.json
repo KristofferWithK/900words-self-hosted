@@ -1,0 +1,22 @@
+{
+  "entries": {
+    "en": {
+      "id": "article:da:en",
+      "text": "En",
+      "stamp": "43484efc140997ee",
+      "bytes": 3744,
+      "at": "2026-09-07T17:43:42.625Z"
+    },
+    "et": {
+      "id": "article:da:et",
+      "text": "Et",
+      "stamp": "d4f25f2f193842cf",
+      "bytes": 4416,
+      "at": "2026-09-07T17:43:43.037Z"
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "da"
+}

@@ -1,0 +1,187 @@
+.ride-controls .ride-skip {
+  margin-left: auto;
+}
+
+.grammar-lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.chapter-performance {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--paper) 88%, var(--green) 12%);
+}
+
+.chapter-performance-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.chapter-performance-head > div {
+  min-width: 0;
+}
+
+.chapter-performance h2,
+.chapter-performance p,
+.chapter-lines {
+  margin: 0;
+}
+
+.chapter-performance h2 {
+  font-size: 0.9rem;
+}
+
+.chapter-performance p,
+.chapter-audio-status {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.chapter-listen,
+.chapter-stop {
+  margin-left: auto;
+  flex: none;
+  min-height: 44px;
+  padding-inline: 10px;
+}
+
+.chapter-audio-status:empty {
+  display: none;
+}
+
+.chapter-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-line {
+  width: 100%;
+  min-height: 44px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1.32;
+  text-align: left;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.chapter-line.is-playing {
+  border-color: var(--green);
+  background: color-mix(in srgb, var(--green) 16%, transparent);
+}
+
+.chapter-line:disabled {
+  color: inherit;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-line {
+    transition: none;
+  }
+}
+
+.grammar-lesson p,
+.grammar-lesson blockquote {
+  margin: 0;
+}
+
+.grammar-lesson blockquote {
+  border-left: 3px solid var(--green);
+  padding-left: 10px;
+  font-family: var(--serif);
+}
+
+.grammar-lesson code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.grammar-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.grammar-table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.grammar-table th,
+.grammar-table td {
+  padding: 5px 7px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.grammar-table th {
+  color: var(--text-dim);
+}
+
+.map-lessons {
+  margin-left: auto;
+  flex: none;
+  padding: 7px 9px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.grammar-library-screen {
+  gap: 10px;
+}
+
+.grammar-library-tabs {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  flex: none;
+  padding-bottom: 2px;
+}
+
+.grammar-chapter-tab {
+  min-width: 38px;
+  min-height: 38px;
+  flex: none;
+}
+
+.grammar-chapter-tab.is-on {
+  background: var(--green);
+  color: #fff;
+}
+
+.grammar-library-scroll {
+  gap: 10px;
+}
+
+.grammar-library-scroll h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.grammar-library-kicker,
+.grammar-empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}

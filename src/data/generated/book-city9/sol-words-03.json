@@ -1,0 +1,3808 @@
+{
+  "model": "sol",
+  "city": 9,
+  "kind": "words",
+  "batch": 3,
+  "words": {
+    "da:kursus": [
+      {
+        "da": "undervisning",
+        "en": "teaching",
+        "why": "the activity taking place",
+        "s": 3
+      },
+      {
+        "da": "lærer",
+        "en": "teacher",
+        "why": "the person leading it",
+        "s": 3
+      },
+      {
+        "da": "elev",
+        "en": "student",
+        "why": "the person attending it",
+        "s": 3
+      },
+      {
+        "da": "lære",
+        "en": "learn",
+        "why": "what participants aim to do",
+        "s": 3
+      },
+      {
+        "da": "lektion",
+        "en": "lesson",
+        "why": "one part of the program",
+        "s": 3
+      },
+      {
+        "da": "skole",
+        "en": "school",
+        "why": "a common place for it",
+        "s": 2
+      },
+      {
+        "da": "hold",
+        "en": "group",
+        "why": "people learning together",
+        "s": 2
+      },
+      {
+        "da": "fag",
+        "en": "subject",
+        "why": "the topic being taught",
+        "s": 2
+      },
+      {
+        "da": "bog",
+        "en": "book",
+        "why": "common learning material",
+        "s": 2
+      },
+      {
+        "da": "opgave",
+        "en": "assignment",
+        "why": "work given to learners",
+        "s": 2
+      },
+      {
+        "da": "eksamen",
+        "en": "exam",
+        "why": "a possible final test",
+        "s": 2
+      },
+      {
+        "da": "viden",
+        "en": "knowledge",
+        "why": "what participants gain",
+        "s": 2
+      },
+      {
+        "da": "øvelse",
+        "en": "practice",
+        "why": "how skills are developed",
+        "s": 2
+      },
+      {
+        "da": "lokale",
+        "en": "room",
+        "why": "where lessons often happen",
+        "s": 2
+      },
+      {
+        "da": "uddannelse",
+        "en": "education",
+        "why": "part of formal learning",
+        "s": 2
+      },
+      {
+        "da": "deltager",
+        "en": "participant",
+        "why": "someone who has enrolled",
+        "s": 2
+      },
+      {
+        "da": "tilmelding",
+        "en": "enrollment",
+        "why": "how a place is reserved",
+        "s": 2
+      },
+      {
+        "da": "sprog",
+        "en": "language",
+        "why": "a common learning topic",
+        "s": 2
+      },
+      {
+        "da": "tavle",
+        "en": "board",
+        "why": "a teaching surface",
+        "s": 1
+      },
+      {
+        "da": "online",
+        "en": "online",
+        "why": "a possible learning format",
+        "s": 1
+      },
+      {
+        "da": "pause",
+        "en": "break",
+        "why": "a rest between lessons",
+        "s": 1
+      },
+      {
+        "da": "bevis",
+        "en": "proof",
+        "why": "proof of completion",
+        "s": 1
+      },
+      {
+        "da": "uge",
+        "en": "week",
+        "why": "a common program length",
+        "s": 1
+      },
+      {
+        "da": "aften",
+        "en": "evening",
+        "why": "when adults often attend",
+        "s": 1
+      },
+      {
+        "da": "arbejde",
+        "en": "work",
+        "why": "a reason to learn skills",
+        "s": 1
+      }
+    ],
+    "da:stege": [
+      {
+        "da": "pande",
+        "en": "pan",
+        "why": "the usual cooking vessel",
+        "s": 3
+      },
+      {
+        "da": "ovn",
+        "en": "oven",
+        "why": "a place meat cooks",
+        "s": 3
+      },
+      {
+        "da": "varme",
+        "en": "heat",
+        "why": "what cooks the food",
+        "s": 3
+      },
+      {
+        "da": "olie",
+        "en": "oil",
+        "why": "cooking fat in the pan",
+        "s": 3
+      },
+      {
+        "da": "kød",
+        "en": "meat",
+        "why": "a common food cooked this way",
+        "s": 3
+      },
+      {
+        "da": "mad",
+        "en": "food",
+        "why": "what is being cooked",
+        "s": 2
+      },
+      {
+        "da": "kartoffel",
+        "en": "potato",
+        "why": "often cooked until golden",
+        "s": 2
+      },
+      {
+        "da": "bacon",
+        "en": "bacon",
+        "why": "commonly cooked in a pan",
+        "s": 2
+      },
+      {
+        "da": "sprød",
+        "en": "crispy",
+        "why": "a desired cooked texture",
+        "s": 2
+      },
+      {
+        "da": "brun",
+        "en": "brown",
+        "why": "the color from cooking",
+        "s": 2
+      },
+      {
+        "da": "køkken",
+        "en": "kitchen",
+        "why": "where the cooking happens",
+        "s": 2
+      },
+      {
+        "da": "komfur",
+        "en": "stove",
+        "why": "the heat source below",
+        "s": 2
+      },
+      {
+        "da": "fedt",
+        "en": "fat",
+        "why": "what helps food brown",
+        "s": 2
+      },
+      {
+        "da": "vende",
+        "en": "turn",
+        "why": "what cooks both sides",
+        "s": 2
+      },
+      {
+        "da": "grille",
+        "en": "grill",
+        "why": "a related cooking method",
+        "s": 2
+      },
+      {
+        "da": "bage",
+        "en": "bake",
+        "why": "another dry heat method",
+        "s": 2
+      },
+      {
+        "da": "smør",
+        "en": "butter",
+        "why": "a common cooking fat",
+        "s": 2
+      },
+      {
+        "da": "æg",
+        "en": "egg",
+        "why": "often cooked in a pan",
+        "s": 2
+      },
+      {
+        "da": "bøf",
+        "en": "steak",
+        "why": "a classic pan cooked food",
+        "s": 2
+      },
+      {
+        "da": "kylling",
+        "en": "chicken",
+        "why": "a common cooked meat",
+        "s": 2
+      },
+      {
+        "da": "koge",
+        "en": "boil",
+        "why": "an opposite wet method",
+        "s": 1
+      },
+      {
+        "da": "løg",
+        "en": "onion",
+        "why": "often browned alongside food",
+        "s": 1
+      },
+      {
+        "da": "temperatur",
+        "en": "temperature",
+        "why": "must be controlled while cooking",
+        "s": 1
+      },
+      {
+        "da": "middag",
+        "en": "dinner",
+        "why": "a meal prepared this way",
+        "s": 1
+      },
+      {
+        "da": "duft",
+        "en": "aroma",
+        "why": "what cooking releases",
+        "s": 1
+      }
+    ],
+    "da:teater": [
+      {
+        "da": "scene",
+        "en": "stage",
+        "why": "where performers appear",
+        "s": 3
+      },
+      {
+        "da": "skuespiller",
+        "en": "actor",
+        "why": "a person performing there",
+        "s": 3
+      },
+      {
+        "da": "forestilling",
+        "en": "show",
+        "why": "the event people watch",
+        "s": 3
+      },
+      {
+        "da": "publikum",
+        "en": "audience",
+        "why": "the people watching",
+        "s": 3
+      },
+      {
+        "da": "drama",
+        "en": "drama",
+        "why": "a central performing art",
+        "s": 3
+      },
+      {
+        "da": "billet",
+        "en": "ticket",
+        "why": "needed to enter",
+        "s": 2
+      },
+      {
+        "da": "tæppe",
+        "en": "curtain",
+        "why": "it opens before the performance",
+        "s": 2
+      },
+      {
+        "da": "rolle",
+        "en": "role",
+        "why": "a character being performed",
+        "s": 2
+      },
+      {
+        "da": "manuskript",
+        "en": "script",
+        "why": "the words performers follow",
+        "s": 2
+      },
+      {
+        "da": "kostume",
+        "en": "costume",
+        "why": "clothing worn for a role",
+        "s": 2
+      },
+      {
+        "da": "lys",
+        "en": "light",
+        "why": "it illuminates the stage",
+        "s": 2
+      },
+      {
+        "da": "balkon",
+        "en": "balcony",
+        "why": "raised seating above the hall",
+        "s": 2
+      },
+      {
+        "da": "sal",
+        "en": "auditorium",
+        "why": "the room holding the audience",
+        "s": 2
+      },
+      {
+        "da": "instruktør",
+        "en": "director",
+        "why": "the person guiding performers",
+        "s": 2
+      },
+      {
+        "da": "komedie",
+        "en": "comedy",
+        "why": "a funny type of performance",
+        "s": 2
+      },
+      {
+        "da": "tragedie",
+        "en": "tragedy",
+        "why": "a serious type of drama",
+        "s": 2
+      },
+      {
+        "da": "applaus",
+        "en": "applause",
+        "why": "the audience response afterward",
+        "s": 2
+      },
+      {
+        "da": "premiere",
+        "en": "premiere",
+        "why": "the first public performance",
+        "s": 2
+      },
+      {
+        "da": "lyd",
+        "en": "sound",
+        "why": "part of the production",
+        "s": 1
+      },
+      {
+        "da": "pause",
+        "en": "interval",
+        "why": "a break between acts",
+        "s": 1
+      },
+      {
+        "da": "kultur",
+        "en": "culture",
+        "why": "part of public arts",
+        "s": 1
+      },
+      {
+        "da": "aften",
+        "en": "evening",
+        "why": "when performances often happen",
+        "s": 1
+      },
+      {
+        "da": "maske",
+        "en": "mask",
+        "why": "a traditional performance prop",
+        "s": 1
+      },
+      {
+        "da": "dans",
+        "en": "dance",
+        "why": "another stage art",
+        "s": 1
+      },
+      {
+        "da": "musik",
+        "en": "music",
+        "why": "often heard during performances",
+        "s": 1
+      }
+    ],
+    "da:underlig": [
+      {
+        "da": "mærkelig",
+        "en": "unusual",
+        "why": "the closest everyday description",
+        "s": 3
+      },
+      {
+        "da": "sær",
+        "en": "peculiar",
+        "why": "a close description",
+        "s": 3
+      },
+      {
+        "da": "usædvanlig",
+        "en": "uncommon",
+        "why": "outside what usually happens",
+        "s": 3
+      },
+      {
+        "da": "anderledes",
+        "en": "different",
+        "why": "not like the rest",
+        "s": 3
+      },
+      {
+        "da": "mystisk",
+        "en": "mysterious",
+        "why": "hard to understand normally",
+        "s": 2
+      },
+      {
+        "da": "forvirrende",
+        "en": "confusing",
+        "why": "difficult to make sense of",
+        "s": 2
+      },
+      {
+        "da": "overraskende",
+        "en": "surprising",
+        "why": "not what was expected",
+        "s": 2
+      },
+      {
+        "da": "skør",
+        "en": "crazy",
+        "why": "wildly outside normal behavior",
+        "s": 2
+      },
+      {
+        "da": "forkert",
+        "en": "wrong",
+        "why": "something that feels off",
+        "s": 2
+      },
+      {
+        "da": "uventet",
+        "en": "unexpected",
+        "why": "arriving without being anticipated",
+        "s": 2
+      },
+      {
+        "da": "uforklarlig",
+        "en": "inexplicable",
+        "why": "without an easy explanation",
+        "s": 2
+      },
+      {
+        "da": "akavet",
+        "en": "awkward",
+        "why": "socially uncomfortable or unusual",
+        "s": 2
+      },
+      {
+        "da": "normal",
+        "en": "normal",
+        "why": "the clear opposite",
+        "s": 2
+      },
+      {
+        "da": "ukendt",
+        "en": "unfamiliar",
+        "why": "not recognized from experience",
+        "s": 1
+      },
+      {
+        "da": "fremmed",
+        "en": "alien",
+        "why": "seeming unlike familiar things",
+        "s": 1
+      },
+      {
+        "da": "sjov",
+        "en": "funny",
+        "why": "sometimes amusing because unusual",
+        "s": 1
+      },
+      {
+        "da": "mistænkelig",
+        "en": "suspicious",
+        "why": "odd enough to cause doubt",
+        "s": 1
+      },
+      {
+        "da": "sjælden",
+        "en": "rare",
+        "why": "not often encountered",
+        "s": 1
+      },
+      {
+        "da": "ny",
+        "en": "new",
+        "why": "unfamiliar at first meeting",
+        "s": 1
+      },
+      {
+        "da": "følelse",
+        "en": "feeling",
+        "why": "an uneasy personal reaction",
+        "s": 1
+      },
+      {
+        "da": "opførsel",
+        "en": "behavior",
+        "why": "actions can seem unusual",
+        "s": 1
+      },
+      {
+        "da": "drøm",
+        "en": "dream",
+        "why": "often full of unusual events",
+        "s": 1
+      },
+      {
+        "da": "lyd",
+        "en": "sound",
+        "why": "something unexpected to hear",
+        "s": 1
+      },
+      {
+        "da": "spørgsmål",
+        "en": "question",
+        "why": "a reaction to confusion",
+        "s": 1
+      },
+      {
+        "da": "blik",
+        "en": "look",
+        "why": "an unusual facial expression",
+        "s": 1
+      }
+    ],
+    "da:hælde": [
+      {
+        "da": "vand",
+        "en": "water",
+        "why": "the most common liquid moved",
+        "s": 3
+      },
+      {
+        "da": "glas",
+        "en": "glass",
+        "why": "a usual destination for liquid",
+        "s": 3
+      },
+      {
+        "da": "kande",
+        "en": "jug",
+        "why": "a vessel made for this action",
+        "s": 3
+      },
+      {
+        "da": "flaske",
+        "en": "bottle",
+        "why": "a common liquid container",
+        "s": 3
+      },
+      {
+        "da": "væske",
+        "en": "liquid",
+        "why": "the substance being moved",
+        "s": 3
+      },
+      {
+        "da": "kop",
+        "en": "cup",
+        "why": "a small drinking destination",
+        "s": 2
+      },
+      {
+        "da": "fylde",
+        "en": "fill",
+        "why": "the purpose of moving liquid",
+        "s": 2
+      },
+      {
+        "da": "tømme",
+        "en": "empty",
+        "why": "the result for the container",
+        "s": 2
+      },
+      {
+        "da": "drikke",
+        "en": "drink",
+        "why": "what follows filling a glass",
+        "s": 2
+      },
+      {
+        "da": "strøm",
+        "en": "flow",
+        "why": "how the liquid moves",
+        "s": 2
+      },
+      {
+        "da": "spilde",
+        "en": "spill",
+        "why": "what happens when control fails",
+        "s": 2
+      },
+      {
+        "da": "dryppe",
+        "en": "drip",
+        "why": "a slower liquid movement",
+        "s": 2
+      },
+      {
+        "da": "karaffel",
+        "en": "carafe",
+        "why": "a vessel used at the table",
+        "s": 2
+      },
+      {
+        "da": "olie",
+        "en": "oil",
+        "why": "another liquid commonly moved",
+        "s": 2
+      },
+      {
+        "da": "sauce",
+        "en": "sauce",
+        "why": "added over food this way",
+        "s": 2
+      },
+      {
+        "da": "mælk",
+        "en": "milk",
+        "why": "often moved into a cup",
+        "s": 2
+      },
+      {
+        "da": "skål",
+        "en": "bowl",
+        "why": "a wide destination vessel",
+        "s": 2
+      },
+      {
+        "da": "tragt",
+        "en": "funnel",
+        "why": "a tool guiding the liquid",
+        "s": 2
+      },
+      {
+        "da": "beholder",
+        "en": "container",
+        "why": "where liquid starts or ends",
+        "s": 2
+      },
+      {
+        "da": "regn",
+        "en": "rain",
+        "why": "water falling in streams",
+        "s": 1
+      },
+      {
+        "da": "gryde",
+        "en": "pot",
+        "why": "a kitchen destination",
+        "s": 1
+      },
+      {
+        "da": "forsigtigt",
+        "en": "carefully",
+        "why": "how to avoid spilling",
+        "s": 1
+      },
+      {
+        "da": "skvæt",
+        "en": "splash",
+        "why": "a small amount thrown out",
+        "s": 1
+      },
+      {
+        "da": "vask",
+        "en": "sink",
+        "why": "where unwanted liquid goes",
+        "s": 1
+      },
+      {
+        "da": "liter",
+        "en": "litre",
+        "why": "a measure of the liquid",
+        "s": 1
+      }
+    ],
+    "da:adresse": [
+      {
+        "da": "bopæl",
+        "en": "residence",
+        "why": "the place where someone lives",
+        "s": 3
+      },
+      {
+        "da": "gade",
+        "en": "street",
+        "why": "the road named in it",
+        "s": 3
+      },
+      {
+        "da": "nummer",
+        "en": "number",
+        "why": "identifies the particular building",
+        "s": 3
+      },
+      {
+        "da": "postnummer",
+        "en": "postcode",
+        "why": "the postal area code",
+        "s": 3
+      },
+      {
+        "da": "hus",
+        "en": "house",
+        "why": "the building being located",
+        "s": 2
+      },
+      {
+        "da": "brev",
+        "en": "letter",
+        "why": "mail needs this destination",
+        "s": 2
+      },
+      {
+        "da": "post",
+        "en": "mail",
+        "why": "what uses this information",
+        "s": 2
+      },
+      {
+        "da": "kort",
+        "en": "map",
+        "why": "helps locate the place",
+        "s": 2
+      },
+      {
+        "da": "finde",
+        "en": "locate",
+        "why": "the purpose of the details",
+        "s": 2
+      },
+      {
+        "da": "bo",
+        "en": "live",
+        "why": "what someone does there",
+        "s": 2
+      },
+      {
+        "da": "navn",
+        "en": "name",
+        "why": "often written above the location",
+        "s": 2
+      },
+      {
+        "da": "sted",
+        "en": "place",
+        "why": "the location being described",
+        "s": 2
+      },
+      {
+        "da": "flytte",
+        "en": "move",
+        "why": "when these details change",
+        "s": 2
+      },
+      {
+        "da": "sende",
+        "en": "send",
+        "why": "what requires destination details",
+        "s": 2
+      },
+      {
+        "da": "kuvert",
+        "en": "envelope",
+        "why": "where postal details are written",
+        "s": 2
+      },
+      {
+        "da": "vej",
+        "en": "road",
+        "why": "part of many location details",
+        "s": 2
+      },
+      {
+        "da": "bolig",
+        "en": "home",
+        "why": "the personal place identified",
+        "s": 2
+      },
+      {
+        "da": "skrive",
+        "en": "write",
+        "why": "how details are recorded",
+        "s": 2
+      },
+      {
+        "da": "by",
+        "en": "city",
+        "why": "the town named in it",
+        "s": 1
+      },
+      {
+        "da": "dør",
+        "en": "door",
+        "why": "where the location leads",
+        "s": 1
+      },
+      {
+        "da": "pakke",
+        "en": "parcel",
+        "why": "an item needing a destination",
+        "s": 1
+      },
+      {
+        "da": "kommune",
+        "en": "municipality",
+        "why": "the larger local area",
+        "s": 1
+      },
+      {
+        "da": "land",
+        "en": "country",
+        "why": "needed for international mail",
+        "s": 1
+      },
+      {
+        "da": "kontakt",
+        "en": "contact",
+        "why": "details used to reach someone",
+        "s": 1
+      },
+      {
+        "da": "formular",
+        "en": "form",
+        "why": "often asks for location details",
+        "s": 1
+      }
+    ],
+    "da:app": [
+      {
+        "da": "telefon",
+        "en": "phone",
+        "why": "the usual device holding it",
+        "s": 3
+      },
+      {
+        "da": "mobil",
+        "en": "mobile",
+        "why": "the portable device format",
+        "s": 3
+      },
+      {
+        "da": "program",
+        "en": "software",
+        "why": "the general digital category",
+        "s": 3
+      },
+      {
+        "da": "ikon",
+        "en": "icon",
+        "why": "the picture used to open it",
+        "s": 3
+      },
+      {
+        "da": "hente",
+        "en": "download",
+        "why": "how it reaches a device",
+        "s": 3
+      },
+      {
+        "da": "skærm",
+        "en": "screen",
+        "why": "where it appears",
+        "s": 2
+      },
+      {
+        "da": "trykke",
+        "en": "tap",
+        "why": "how users select it",
+        "s": 2
+      },
+      {
+        "da": "internet",
+        "en": "internet",
+        "why": "many need an online connection",
+        "s": 2
+      },
+      {
+        "da": "digital",
+        "en": "digital",
+        "why": "existing as device software",
+        "s": 2
+      },
+      {
+        "da": "konto",
+        "en": "account",
+        "why": "often required for personal use",
+        "s": 2
+      },
+      {
+        "da": "kode",
+        "en": "code",
+        "why": "what software is built from",
+        "s": 2
+      },
+      {
+        "da": "spil",
+        "en": "game",
+        "why": "a common type of software",
+        "s": 2
+      },
+      {
+        "da": "besked",
+        "en": "message",
+        "why": "a common phone function",
+        "s": 2
+      },
+      {
+        "da": "butik",
+        "en": "store",
+        "why": "where software is downloaded",
+        "s": 2
+      },
+      {
+        "da": "opdatering",
+        "en": "update",
+        "why": "a newer software version",
+        "s": 2
+      },
+      {
+        "da": "installere",
+        "en": "install",
+        "why": "how software is added",
+        "s": 2
+      },
+      {
+        "da": "åbne",
+        "en": "open",
+        "why": "how a user starts it",
+        "s": 2
+      },
+      {
+        "da": "slette",
+        "en": "delete",
+        "why": "how it is removed",
+        "s": 2
+      },
+      {
+        "da": "bruger",
+        "en": "user",
+        "why": "the person operating it",
+        "s": 2
+      },
+      {
+        "da": "kamera",
+        "en": "camera",
+        "why": "a phone feature software uses",
+        "s": 1
+      },
+      {
+        "da": "kort",
+        "en": "map",
+        "why": "a common navigation tool",
+        "s": 1
+      },
+      {
+        "da": "netværk",
+        "en": "network",
+        "why": "connectivity used by software",
+        "s": 1
+      },
+      {
+        "da": "menu",
+        "en": "menu",
+        "why": "a list of available actions",
+        "s": 1
+      },
+      {
+        "da": "værktøj",
+        "en": "tool",
+        "why": "software can solve a task",
+        "s": 1
+      },
+      {
+        "da": "enhed",
+        "en": "device",
+        "why": "the hardware running it",
+        "s": 1
+      }
+    ],
+    "da:smøre": [
+      {
+        "da": "brød",
+        "en": "bread",
+        "why": "the usual food surface",
+        "s": 3
+      },
+      {
+        "da": "kniv",
+        "en": "knife",
+        "why": "the tool used for the action",
+        "s": 3
+      },
+      {
+        "da": "margarine",
+        "en": "margarine",
+        "why": "a common soft topping",
+        "s": 3
+      },
+      {
+        "da": "olie",
+        "en": "oil",
+        "why": "a lubricant for moving parts",
+        "s": 2
+      },
+      {
+        "da": "fedt",
+        "en": "fat",
+        "why": "reduces rubbing between parts",
+        "s": 2
+      },
+      {
+        "da": "madpakke",
+        "en": "lunch",
+        "why": "often contains prepared bread",
+        "s": 2
+      },
+      {
+        "da": "sandwich",
+        "en": "sandwich",
+        "why": "built by coating bread",
+        "s": 2
+      },
+      {
+        "da": "creme",
+        "en": "cream",
+        "why": "rubbed across the skin",
+        "s": 2
+      },
+      {
+        "da": "salve",
+        "en": "ointment",
+        "why": "applied as a thin layer",
+        "s": 2
+      },
+      {
+        "da": "marmelade",
+        "en": "jam",
+        "why": "a common bread topping",
+        "s": 2
+      },
+      {
+        "da": "honning",
+        "en": "honey",
+        "why": "a sticky bread topping",
+        "s": 2
+      },
+      {
+        "da": "motor",
+        "en": "engine",
+        "why": "moving parts need lubrication",
+        "s": 2
+      },
+      {
+        "da": "kæde",
+        "en": "chain",
+        "why": "a bicycle part needing oil",
+        "s": 2
+      },
+      {
+        "da": "hud",
+        "en": "skin",
+        "why": "a surface receiving cream",
+        "s": 2
+      },
+      {
+        "da": "lag",
+        "en": "layer",
+        "why": "the coating left behind",
+        "s": 2
+      },
+      {
+        "da": "overflade",
+        "en": "surface",
+        "why": "where material is applied",
+        "s": 2
+      },
+      {
+        "da": "gnide",
+        "en": "rub",
+        "why": "the hand movement involved",
+        "s": 2
+      },
+      {
+        "da": "glat",
+        "en": "smooth",
+        "why": "the result of lubrication",
+        "s": 2
+      },
+      {
+        "da": "skive",
+        "en": "slice",
+        "why": "one piece prepared with toppings",
+        "s": 2
+      },
+      {
+        "da": "ost",
+        "en": "cheese",
+        "why": "often added after a topping",
+        "s": 1
+      },
+      {
+        "da": "cykel",
+        "en": "bicycle",
+        "why": "its chain may need oil",
+        "s": 1
+      },
+      {
+        "da": "blød",
+        "en": "soft",
+        "why": "a useful texture for coating",
+        "s": 1
+      },
+      {
+        "da": "hånd",
+        "en": "hand",
+        "why": "can apply cream directly",
+        "s": 1
+      },
+      {
+        "da": "morgenmad",
+        "en": "breakfast",
+        "why": "when topped bread is eaten",
+        "s": 1
+      },
+      {
+        "da": "toast",
+        "en": "toast",
+        "why": "a warm bread base",
+        "s": 1
+      }
+    ],
+    "da:flink": [
+      {
+        "da": "venlig",
+        "en": "friendly",
+        "why": "the closest everyday quality",
+        "s": 3
+      },
+      {
+        "da": "sød",
+        "en": "sweet",
+        "why": "warm and pleasant toward others",
+        "s": 3
+      },
+      {
+        "da": "hjælpsom",
+        "en": "helpful",
+        "why": "ready to assist other people",
+        "s": 3
+      },
+      {
+        "da": "rar",
+        "en": "pleasant",
+        "why": "easy and warm to meet",
+        "s": 3
+      },
+      {
+        "da": "høflig",
+        "en": "polite",
+        "why": "showing respect in behavior",
+        "s": 2
+      },
+      {
+        "da": "omsorgsfuld",
+        "en": "caring",
+        "why": "looking after other people",
+        "s": 2
+      },
+      {
+        "da": "generøs",
+        "en": "generous",
+        "why": "willing to give and share",
+        "s": 2
+      },
+      {
+        "da": "smil",
+        "en": "smile",
+        "why": "a warm social gesture",
+        "s": 2
+      },
+      {
+        "da": "tillid",
+        "en": "trust",
+        "why": "often earned through warm behavior",
+        "s": 2
+      },
+      {
+        "da": "respekt",
+        "en": "respect",
+        "why": "shown through considerate actions",
+        "s": 2
+      },
+      {
+        "da": "tålmodig",
+        "en": "patient",
+        "why": "calm when others need time",
+        "s": 2
+      },
+      {
+        "da": "ærlig",
+        "en": "honest",
+        "why": "a valued personal quality",
+        "s": 2
+      },
+      {
+        "da": "gavmild",
+        "en": "giving",
+        "why": "generous toward other people",
+        "s": 2
+      },
+      {
+        "da": "støtte",
+        "en": "support",
+        "why": "help offered when needed",
+        "s": 2
+      },
+      {
+        "da": "dele",
+        "en": "share",
+        "why": "a generous social action",
+        "s": 2
+      },
+      {
+        "da": "lytte",
+        "en": "listen",
+        "why": "showing care through attention",
+        "s": 2
+      },
+      {
+        "da": "velkommen",
+        "en": "welcome",
+        "why": "making others feel accepted",
+        "s": 2
+      },
+      {
+        "da": "tak",
+        "en": "thanks",
+        "why": "a response to helpful behavior",
+        "s": 1
+      },
+      {
+        "da": "nabo",
+        "en": "neighbor",
+        "why": "someone who may offer help",
+        "s": 1
+      },
+      {
+        "da": "lærer",
+        "en": "teacher",
+        "why": "often patient and helpful",
+        "s": 1
+      },
+      {
+        "da": "kollega",
+        "en": "colleague",
+        "why": "someone supportive at work",
+        "s": 1
+      },
+      {
+        "da": "barn",
+        "en": "child",
+        "why": "often praised for warm behavior",
+        "s": 1
+      },
+      {
+        "da": "rolig",
+        "en": "calm",
+        "why": "a gentle personal manner",
+        "s": 1
+      },
+      {
+        "da": "varm",
+        "en": "warm",
+        "why": "emotionally open and welcoming",
+        "s": 1
+      },
+      {
+        "da": "social",
+        "en": "sociable",
+        "why": "comfortable and pleasant with others",
+        "s": 1
+      }
+    ],
+    "da:kalender": [
+      {
+        "da": "dato",
+        "en": "date",
+        "why": "a numbered point in time",
+        "s": 3
+      },
+      {
+        "da": "måned",
+        "en": "month",
+        "why": "a main time division",
+        "s": 3
+      },
+      {
+        "da": "år",
+        "en": "year",
+        "why": "the full period displayed",
+        "s": 3
+      },
+      {
+        "da": "uge",
+        "en": "week",
+        "why": "a row or section of days",
+        "s": 3
+      },
+      {
+        "da": "dag",
+        "en": "day",
+        "why": "the smallest usual time box",
+        "s": 3
+      },
+      {
+        "da": "skema",
+        "en": "schedule",
+        "why": "a planned view of time",
+        "s": 3
+      },
+      {
+        "da": "aftale",
+        "en": "appointment",
+        "why": "an event entered at a time",
+        "s": 2
+      },
+      {
+        "da": "tid",
+        "en": "time",
+        "why": "what the layout organizes",
+        "s": 2
+      },
+      {
+        "da": "plan",
+        "en": "plan",
+        "why": "events arranged for later",
+        "s": 2
+      },
+      {
+        "da": "ferie",
+        "en": "holiday",
+        "why": "days commonly marked",
+        "s": 2
+      },
+      {
+        "da": "fødselsdag",
+        "en": "birthday",
+        "why": "a yearly marked event",
+        "s": 2
+      },
+      {
+        "da": "møde",
+        "en": "meeting",
+        "why": "an event placed on a day",
+        "s": 2
+      },
+      {
+        "da": "påmindelse",
+        "en": "reminder",
+        "why": "an alert for an event",
+        "s": 2
+      },
+      {
+        "da": "deadline",
+        "en": "deadline",
+        "why": "an important marked day",
+        "s": 2
+      },
+      {
+        "da": "mandag",
+        "en": "monday",
+        "why": "a weekday shown in each row",
+        "s": 2
+      },
+      {
+        "da": "januar",
+        "en": "january",
+        "why": "the first month displayed",
+        "s": 2
+      },
+      {
+        "da": "oversigt",
+        "en": "overview",
+        "why": "a view across many days",
+        "s": 2
+      },
+      {
+        "da": "væg",
+        "en": "wall",
+        "why": "a common place to hang it",
+        "s": 1
+      },
+      {
+        "da": "papir",
+        "en": "paper",
+        "why": "a traditional printed material",
+        "s": 1
+      },
+      {
+        "da": "digital",
+        "en": "digital",
+        "why": "a common electronic format",
+        "s": 1
+      },
+      {
+        "da": "weekend",
+        "en": "weekend",
+        "why": "two days grouped together",
+        "s": 1
+      },
+      {
+        "da": "højtid",
+        "en": "celebration",
+        "why": "a special annual occasion",
+        "s": 1
+      },
+      {
+        "da": "nummer",
+        "en": "number",
+        "why": "how days are labeled",
+        "s": 1
+      },
+      {
+        "da": "skrivebord",
+        "en": "desk",
+        "why": "a place for a small planner",
+        "s": 1
+      },
+      {
+        "da": "fremtid",
+        "en": "future",
+        "why": "the period being planned",
+        "s": 1
+      }
+    ],
+    "da:servere": [
+      {
+        "da": "mad",
+        "en": "food",
+        "why": "what is brought to diners",
+        "s": 3
+      },
+      {
+        "da": "gæst",
+        "en": "guest",
+        "why": "the person receiving it",
+        "s": 3
+      },
+      {
+        "da": "tallerken",
+        "en": "plate",
+        "why": "what the food arrives on",
+        "s": 3
+      },
+      {
+        "da": "restaurant",
+        "en": "restaurant",
+        "why": "where this action commonly happens",
+        "s": 3
+      },
+      {
+        "da": "tjener",
+        "en": "waiter",
+        "why": "the person performing the action",
+        "s": 3
+      },
+      {
+        "da": "bord",
+        "en": "table",
+        "why": "the destination for dishes",
+        "s": 2
+      },
+      {
+        "da": "drikke",
+        "en": "beverage",
+        "why": "something brought with a meal",
+        "s": 2
+      },
+      {
+        "da": "måltid",
+        "en": "meal",
+        "why": "the complete food offering",
+        "s": 2
+      },
+      {
+        "da": "bakke",
+        "en": "tray",
+        "why": "used to carry dishes",
+        "s": 2
+      },
+      {
+        "da": "køkken",
+        "en": "kitchen",
+        "why": "where dishes come from",
+        "s": 2
+      },
+      {
+        "da": "menu",
+        "en": "menu",
+        "why": "the list guests choose from",
+        "s": 2
+      },
+      {
+        "da": "middag",
+        "en": "dinner",
+        "why": "an evening meal brought out",
+        "s": 2
+      },
+      {
+        "da": "frokost",
+        "en": "lunch",
+        "why": "a midday meal brought out",
+        "s": 2
+      },
+      {
+        "da": "morgenmad",
+        "en": "breakfast",
+        "why": "a morning meal brought out",
+        "s": 2
+      },
+      {
+        "da": "bringe",
+        "en": "bring",
+        "why": "the core movement to guests",
+        "s": 2
+      },
+      {
+        "da": "tilbyde",
+        "en": "offer",
+        "why": "presenting something for acceptance",
+        "s": 2
+      },
+      {
+        "da": "portion",
+        "en": "portion",
+        "why": "the amount given to one person",
+        "s": 2
+      },
+      {
+        "da": "skål",
+        "en": "bowl",
+        "why": "a vessel brought to diners",
+        "s": 1
+      },
+      {
+        "da": "varm",
+        "en": "hot",
+        "why": "a common desired food temperature",
+        "s": 1
+      },
+      {
+        "da": "kold",
+        "en": "cold",
+        "why": "a possible drink temperature",
+        "s": 1
+      },
+      {
+        "da": "dessert",
+        "en": "dessert",
+        "why": "the final dish of a meal",
+        "s": 1
+      },
+      {
+        "da": "kaffe",
+        "en": "coffee",
+        "why": "often brought after food",
+        "s": 1
+      },
+      {
+        "da": "vin",
+        "en": "wine",
+        "why": "a drink offered with dinner",
+        "s": 1
+      },
+      {
+        "da": "bestik",
+        "en": "cutlery",
+        "why": "placed beside the dishes",
+        "s": 1
+      },
+      {
+        "da": "værtskab",
+        "en": "hospitality",
+        "why": "the social role behind offering food",
+        "s": 1
+      }
+    ],
+    "da:skilt": [
+      {
+        "da": "tavle",
+        "en": "board",
+        "why": "a flat surface carrying information",
+        "s": 3
+      },
+      {
+        "da": "tekst",
+        "en": "text",
+        "why": "the written message displayed",
+        "s": 3
+      },
+      {
+        "da": "trafik",
+        "en": "traffic",
+        "why": "a major setting for directions",
+        "s": 3
+      },
+      {
+        "da": "advarsel",
+        "en": "warning",
+        "why": "a common public message",
+        "s": 3
+      },
+      {
+        "da": "vej",
+        "en": "road",
+        "why": "where drivers read directions",
+        "s": 2
+      },
+      {
+        "da": "butik",
+        "en": "shop",
+        "why": "a business displays one outside",
+        "s": 2
+      },
+      {
+        "da": "navn",
+        "en": "name",
+        "why": "what many displays identify",
+        "s": 2
+      },
+      {
+        "da": "retning",
+        "en": "direction",
+        "why": "information guiding travelers",
+        "s": 2
+      },
+      {
+        "da": "pil",
+        "en": "arrow",
+        "why": "a symbol pointing the way",
+        "s": 2
+      },
+      {
+        "da": "indgang",
+        "en": "entrance",
+        "why": "a doorway label",
+        "s": 2
+      },
+      {
+        "da": "udgang",
+        "en": "exit",
+        "why": "a safety and direction label",
+        "s": 2
+      },
+      {
+        "da": "stop",
+        "en": "stop",
+        "why": "a command beside a road",
+        "s": 2
+      },
+      {
+        "da": "information",
+        "en": "information",
+        "why": "the purpose of the display",
+        "s": 2
+      },
+      {
+        "da": "læse",
+        "en": "read",
+        "why": "what viewers do with it",
+        "s": 2
+      },
+      {
+        "da": "bogstav",
+        "en": "letter",
+        "why": "one unit of displayed text",
+        "s": 2
+      },
+      {
+        "da": "symbol",
+        "en": "icon",
+        "why": "a picture carrying meaning",
+        "s": 2
+      },
+      {
+        "da": "reklame",
+        "en": "advert",
+        "why": "a commercial outdoor display",
+        "s": 2
+      },
+      {
+        "da": "parkering",
+        "en": "parking",
+        "why": "a place marked for cars",
+        "s": 2
+      },
+      {
+        "da": "gade",
+        "en": "street",
+        "why": "an urban place for directions",
+        "s": 1
+      },
+      {
+        "da": "væg",
+        "en": "wall",
+        "why": "a surface holding the display",
+        "s": 1
+      },
+      {
+        "da": "metal",
+        "en": "metal",
+        "why": "a durable outdoor material",
+        "s": 1
+      },
+      {
+        "da": "træ",
+        "en": "wood",
+        "why": "a traditional display material",
+        "s": 1
+      },
+      {
+        "da": "farve",
+        "en": "color",
+        "why": "helps the message stand out",
+        "s": 1
+      },
+      {
+        "da": "dør",
+        "en": "door",
+        "why": "a place for labels",
+        "s": 1
+      },
+      {
+        "da": "hastighed",
+        "en": "speed",
+        "why": "a roadside limit shown publicly",
+        "s": 1
+      }
+    ],
+    "da:høflig": [
+      {
+        "da": "venlig",
+        "en": "friendly",
+        "why": "the closest social quality",
+        "s": 3
+      },
+      {
+        "da": "respekt",
+        "en": "respect",
+        "why": "the attitude shown to others",
+        "s": 3
+      },
+      {
+        "da": "tak",
+        "en": "thanks",
+        "why": "a basic respectful expression",
+        "s": 3
+      },
+      {
+        "da": "undskyld",
+        "en": "sorry",
+        "why": "a considerate response to mistakes",
+        "s": 3
+      },
+      {
+        "da": "manerer",
+        "en": "manners",
+        "why": "social rules for respectful behavior",
+        "s": 3
+      },
+      {
+        "da": "hilse",
+        "en": "greet",
+        "why": "a respectful social opening",
+        "s": 2
+      },
+      {
+        "da": "smile",
+        "en": "smile",
+        "why": "a warm social gesture",
+        "s": 2
+      },
+      {
+        "da": "lytte",
+        "en": "listen",
+        "why": "letting another person speak",
+        "s": 2
+      },
+      {
+        "da": "vente",
+        "en": "wait",
+        "why": "showing patience for others",
+        "s": 2
+      },
+      {
+        "da": "gæst",
+        "en": "guest",
+        "why": "someone treated with consideration",
+        "s": 2
+      },
+      {
+        "da": "tone",
+        "en": "tone",
+        "why": "the manner of respectful speech",
+        "s": 2
+      },
+      {
+        "da": "formel",
+        "en": "formal",
+        "why": "following careful social rules",
+        "s": 2
+      },
+      {
+        "da": "hensyn",
+        "en": "consideration",
+        "why": "thinking about other peoples needs",
+        "s": 2
+      },
+      {
+        "da": "hjælpe",
+        "en": "help",
+        "why": "a considerate action",
+        "s": 2
+      },
+      {
+        "da": "behagelig",
+        "en": "pleasant",
+        "why": "comfortable in social contact",
+        "s": 2
+      },
+      {
+        "da": "pæn",
+        "en": "proper",
+        "why": "socially correct and careful",
+        "s": 2
+      },
+      {
+        "da": "ordentlig",
+        "en": "decent",
+        "why": "behaving with care and respect",
+        "s": 2
+      },
+      {
+        "da": "respektfuld",
+        "en": "respectful",
+        "why": "showing regard for another person",
+        "s": 2
+      },
+      {
+        "da": "dør",
+        "en": "door",
+        "why": "often held open for others",
+        "s": 1
+      },
+      {
+        "da": "rolig",
+        "en": "calm",
+        "why": "a controlled social manner",
+        "s": 1
+      },
+      {
+        "da": "diplomatisk",
+        "en": "diplomatic",
+        "why": "careful not to offend",
+        "s": 1
+      },
+      {
+        "da": "samtale",
+        "en": "conversation",
+        "why": "where manners become visible",
+        "s": 1
+      },
+      {
+        "da": "fremmed",
+        "en": "stranger",
+        "why": "someone still treated with respect",
+        "s": 1
+      },
+      {
+        "da": "værtskab",
+        "en": "hospitality",
+        "why": "careful treatment of guests",
+        "s": 1
+      },
+      {
+        "da": "dæmpet",
+        "en": "restrained",
+        "why": "quietly controlled in behavior",
+        "s": 1
+      }
+    ],
+    "da:kurv": [
+      {
+        "da": "flet",
+        "en": "weave",
+        "why": "the classic woven construction",
+        "s": 3
+      },
+      {
+        "da": "håndtag",
+        "en": "handle",
+        "why": "the part used for carrying",
+        "s": 3
+      },
+      {
+        "da": "indkøb",
+        "en": "shopping",
+        "why": "a common use in stores",
+        "s": 3
+      },
+      {
+        "da": "frugt",
+        "en": "fruit",
+        "why": "often arranged inside",
+        "s": 2
+      },
+      {
+        "da": "brød",
+        "en": "bread",
+        "why": "a common food carried inside",
+        "s": 2
+      },
+      {
+        "da": "cykel",
+        "en": "bicycle",
+        "why": "often mounted on the front",
+        "s": 2
+      },
+      {
+        "da": "picnic",
+        "en": "picnic",
+        "why": "food is carried in one",
+        "s": 2
+      },
+      {
+        "da": "opbevaring",
+        "en": "storage",
+        "why": "a main household purpose",
+        "s": 2
+      },
+      {
+        "da": "bære",
+        "en": "carry",
+        "why": "what the container enables",
+        "s": 2
+      },
+      {
+        "da": "vasketøj",
+        "en": "laundry",
+        "why": "commonly carried around the home",
+        "s": 2
+      },
+      {
+        "da": "siv",
+        "en": "reed",
+        "why": "a natural weaving material",
+        "s": 2
+      },
+      {
+        "da": "æg",
+        "en": "eggs",
+        "why": "traditionally gathered inside",
+        "s": 2
+      },
+      {
+        "da": "blomster",
+        "en": "flowers",
+        "why": "often arranged and given inside",
+        "s": 2
+      },
+      {
+        "da": "skrald",
+        "en": "trash",
+        "why": "a container may collect waste",
+        "s": 2
+      },
+      {
+        "da": "pose",
+        "en": "bag",
+        "why": "a similar carrying container",
+        "s": 2
+      },
+      {
+        "da": "beholder",
+        "en": "container",
+        "why": "the broader object category",
+        "s": 2
+      },
+      {
+        "da": "marked",
+        "en": "market",
+        "why": "a place to carry purchases",
+        "s": 1
+      },
+      {
+        "da": "butik",
+        "en": "shop",
+        "why": "where shopping containers are used",
+        "s": 1
+      },
+      {
+        "da": "papir",
+        "en": "paper",
+        "why": "a possible woven material",
+        "s": 1
+      },
+      {
+        "da": "træ",
+        "en": "wood",
+        "why": "a possible frame material",
+        "s": 1
+      },
+      {
+        "da": "gave",
+        "en": "gift",
+        "why": "can be presented inside",
+        "s": 1
+      },
+      {
+        "da": "låg",
+        "en": "lid",
+        "why": "a cover some versions have",
+        "s": 1
+      },
+      {
+        "da": "fylde",
+        "en": "fill",
+        "why": "putting objects inside",
+        "s": 1
+      },
+      {
+        "da": "tømme",
+        "en": "empty",
+        "why": "removing everything inside",
+        "s": 1
+      },
+      {
+        "da": "hylde",
+        "en": "shelf",
+        "why": "a place to store it",
+        "s": 1
+      }
+    ],
+    "da:diskutere": [
+      {
+        "da": "tale",
+        "en": "talk",
+        "why": "the basic conversational action",
+        "s": 3
+      },
+      {
+        "da": "samtale",
+        "en": "conversation",
+        "why": "an exchange between people",
+        "s": 3
+      },
+      {
+        "da": "mening",
+        "en": "opinion",
+        "why": "what each person expresses",
+        "s": 3
+      },
+      {
+        "da": "uenig",
+        "en": "disagree",
+        "why": "when views do not match",
+        "s": 3
+      },
+      {
+        "da": "argument",
+        "en": "argument",
+        "why": "a reason supporting a view",
+        "s": 3
+      },
+      {
+        "da": "enig",
+        "en": "agree",
+        "why": "when views finally match",
+        "s": 3
+      },
+      {
+        "da": "emne",
+        "en": "topic",
+        "why": "the subject being considered",
+        "s": 2
+      },
+      {
+        "da": "lytte",
+        "en": "listen",
+        "why": "hearing the other viewpoint",
+        "s": 2
+      },
+      {
+        "da": "svare",
+        "en": "answer",
+        "why": "responding to another point",
+        "s": 2
+      },
+      {
+        "da": "spørge",
+        "en": "ask",
+        "why": "requesting more explanation",
+        "s": 2
+      },
+      {
+        "da": "forklare",
+        "en": "explain",
+        "why": "making a position clear",
+        "s": 2
+      },
+      {
+        "da": "møde",
+        "en": "meeting",
+        "why": "a common setting for exchange",
+        "s": 2
+      },
+      {
+        "da": "politik",
+        "en": "politics",
+        "why": "a frequent subject of disagreement",
+        "s": 2
+      },
+      {
+        "da": "problem",
+        "en": "issue",
+        "why": "something people seek to resolve",
+        "s": 2
+      },
+      {
+        "da": "løsning",
+        "en": "solution",
+        "why": "a possible shared outcome",
+        "s": 2
+      },
+      {
+        "da": "gruppe",
+        "en": "group",
+        "why": "several people exchanging views",
+        "s": 2
+      },
+      {
+        "da": "ide",
+        "en": "idea",
+        "why": "a proposal being considered",
+        "s": 2
+      },
+      {
+        "da": "stemme",
+        "en": "voice",
+        "why": "what carries each persons words",
+        "s": 2
+      },
+      {
+        "da": "synspunkt",
+        "en": "viewpoint",
+        "why": "one persons position",
+        "s": 2
+      },
+      {
+        "da": "forhandle",
+        "en": "negotiate",
+        "why": "working toward a shared result",
+        "s": 2
+      },
+      {
+        "da": "beslutning",
+        "en": "decision",
+        "why": "what the exchange may produce",
+        "s": 2
+      },
+      {
+        "da": "rolig",
+        "en": "calm",
+        "why": "a useful manner during disagreement",
+        "s": 1
+      },
+      {
+        "da": "vred",
+        "en": "angry",
+        "why": "a feeling during heated exchange",
+        "s": 1
+      },
+      {
+        "da": "ord",
+        "en": "word",
+        "why": "the material of spoken exchange",
+        "s": 1
+      },
+      {
+        "da": "kaffe",
+        "en": "coffee",
+        "why": "often present during long conversations",
+        "s": 1
+      }
+    ],
+    "da:slik": [
+      {
+        "da": "sukker",
+        "en": "sugar",
+        "why": "the defining ingredient",
+        "s": 3
+      },
+      {
+        "da": "chokolade",
+        "en": "chocolate",
+        "why": "a major type of treat",
+        "s": 3
+      },
+      {
+        "da": "lakrids",
+        "en": "liquorice",
+        "why": "a popular danish treat",
+        "s": 3
+      },
+      {
+        "da": "karamel",
+        "en": "caramel",
+        "why": "a chewy sugary treat",
+        "s": 3
+      },
+      {
+        "da": "pose",
+        "en": "bag",
+        "why": "the usual store packaging",
+        "s": 2
+      },
+      {
+        "da": "butik",
+        "en": "store",
+        "why": "where treats are bought",
+        "s": 2
+      },
+      {
+        "da": "børn",
+        "en": "children",
+        "why": "enthusiastic young eaters",
+        "s": 2
+      },
+      {
+        "da": "tand",
+        "en": "tooth",
+        "why": "affected by too much sugar",
+        "s": 2
+      },
+      {
+        "da": "fest",
+        "en": "party",
+        "why": "an occasion with bowls of treats",
+        "s": 2
+      },
+      {
+        "da": "dessert",
+        "en": "dessert",
+        "why": "another sugary food category",
+        "s": 2
+      },
+      {
+        "da": "tygge",
+        "en": "chew",
+        "why": "how many pieces are eaten",
+        "s": 2
+      },
+      {
+        "da": "sutte",
+        "en": "suck",
+        "why": "how hard pieces are enjoyed",
+        "s": 2
+      },
+      {
+        "da": "sur",
+        "en": "sour",
+        "why": "a common flavor",
+        "s": 2
+      },
+      {
+        "da": "vingummi",
+        "en": "gummy",
+        "why": "a chewy fruit flavored type",
+        "s": 2
+      },
+      {
+        "da": "jul",
+        "en": "christmas",
+        "why": "a season with many treats",
+        "s": 2
+      },
+      {
+        "da": "fødselsdag",
+        "en": "birthday",
+        "why": "a celebration offering treats",
+        "s": 2
+      },
+      {
+        "da": "usund",
+        "en": "unhealthy",
+        "why": "too much sugar is harmful",
+        "s": 2
+      },
+      {
+        "da": "smag",
+        "en": "taste",
+        "why": "the pleasure it provides",
+        "s": 2
+      },
+      {
+        "da": "farver",
+        "en": "colors",
+        "why": "pieces often look bright",
+        "s": 1
+      },
+      {
+        "da": "fredag",
+        "en": "friday",
+        "why": "a traditional weekly treat day",
+        "s": 1
+      },
+      {
+        "da": "gave",
+        "en": "gift",
+        "why": "sometimes given as a small present",
+        "s": 1
+      },
+      {
+        "da": "skål",
+        "en": "bowl",
+        "why": "a container at parties",
+        "s": 1
+      },
+      {
+        "da": "biograf",
+        "en": "cinema",
+        "why": "a place to eat treats",
+        "s": 1
+      },
+      {
+        "da": "belønning",
+        "en": "reward",
+        "why": "a small treat for success",
+        "s": 1
+      },
+      {
+        "da": "lille",
+        "en": "small",
+        "why": "the usual individual piece size",
+        "s": 1
+      }
+    ],
+    "da:glat": [
+      {
+        "da": "is",
+        "en": "ice",
+        "why": "the classic dangerous surface",
+        "s": 3
+      },
+      {
+        "da": "våd",
+        "en": "wet",
+        "why": "water makes surfaces dangerous",
+        "s": 3
+      },
+      {
+        "da": "gulv",
+        "en": "floor",
+        "why": "a common surface underfoot",
+        "s": 3
+      },
+      {
+        "da": "falde",
+        "en": "fall",
+        "why": "the likely accident",
+        "s": 3
+      },
+      {
+        "da": "poleret",
+        "en": "polished",
+        "why": "made even and shiny",
+        "s": 3
+      },
+      {
+        "da": "sæbe",
+        "en": "soap",
+        "why": "makes a surface hard to grip",
+        "s": 2
+      },
+      {
+        "da": "vej",
+        "en": "road",
+        "why": "dangerous after freezing",
+        "s": 2
+      },
+      {
+        "da": "regn",
+        "en": "rain",
+        "why": "water reduces road grip",
+        "s": 2
+      },
+      {
+        "da": "blank",
+        "en": "shiny",
+        "why": "an even reflective appearance",
+        "s": 2
+      },
+      {
+        "da": "silke",
+        "en": "silk",
+        "why": "a very even soft material",
+        "s": 2
+      },
+      {
+        "da": "olie",
+        "en": "oil",
+        "why": "reduces grip on a surface",
+        "s": 2
+      },
+      {
+        "da": "forsigtig",
+        "en": "careful",
+        "why": "how to move without falling",
+        "s": 2
+      },
+      {
+        "da": "vinter",
+        "en": "winter",
+        "why": "the season of icy paths",
+        "s": 2
+      },
+      {
+        "da": "overflade",
+        "en": "surface",
+        "why": "the thing having the quality",
+        "s": 2
+      },
+      {
+        "da": "skinnende",
+        "en": "glossy",
+        "why": "even and reflective in appearance",
+        "s": 2
+      },
+      {
+        "da": "glas",
+        "en": "glass",
+        "why": "an even hard material",
+        "s": 2
+      },
+      {
+        "da": "voks",
+        "en": "wax",
+        "why": "used to polish a surface",
+        "s": 2
+      },
+      {
+        "da": "skøjte",
+        "en": "skate",
+        "why": "movement across ice",
+        "s": 2
+      },
+      {
+        "da": "sko",
+        "en": "shoes",
+        "why": "need grip underneath",
+        "s": 1
+      },
+      {
+        "da": "dæk",
+        "en": "tyre",
+        "why": "needs traction on roads",
+        "s": 1
+      },
+      {
+        "da": "blød",
+        "en": "soft",
+        "why": "an even gentle texture",
+        "s": 1
+      },
+      {
+        "da": "metal",
+        "en": "metal",
+        "why": "can be polished until even",
+        "s": 1
+      },
+      {
+        "da": "friktion",
+        "en": "friction",
+        "why": "the force that is missing",
+        "s": 1
+      },
+      {
+        "da": "gelænder",
+        "en": "railing",
+        "why": "something to hold for safety",
+        "s": 1
+      },
+      {
+        "da": "badeværelse",
+        "en": "bathroom",
+        "why": "a wet floor danger area",
+        "s": 1
+      }
+    ],
+    "da:ryste": [
+      {
+        "da": "kulde",
+        "en": "cold",
+        "why": "a common physical cause",
+        "s": 3
+      },
+      {
+        "da": "frygt",
+        "en": "fear",
+        "why": "an emotion causing body movement",
+        "s": 3
+      },
+      {
+        "da": "nervøs",
+        "en": "nervous",
+        "why": "a state causing unsteady movement",
+        "s": 3
+      },
+      {
+        "da": "jordskælv",
+        "en": "earthquake",
+        "why": "violent movement of the ground",
+        "s": 3
+      },
+      {
+        "da": "bæve",
+        "en": "shiver",
+        "why": "a close body movement",
+        "s": 3
+      },
+      {
+        "da": "vibration",
+        "en": "vibration",
+        "why": "rapid repeated movement",
+        "s": 3
+      },
+      {
+        "da": "hånd",
+        "en": "hand",
+        "why": "a body part that moves visibly",
+        "s": 2
+      },
+      {
+        "da": "krop",
+        "en": "body",
+        "why": "what moves from cold or fear",
+        "s": 2
+      },
+      {
+        "da": "blande",
+        "en": "mix",
+        "why": "why a bottle is moved",
+        "s": 2
+      },
+      {
+        "da": "flaske",
+        "en": "bottle",
+        "why": "a container moved before use",
+        "s": 2
+      },
+      {
+        "da": "chok",
+        "en": "shock",
+        "why": "a sudden cause of trembling",
+        "s": 2
+      },
+      {
+        "da": "feber",
+        "en": "fever",
+        "why": "illness can cause chills",
+        "s": 2
+      },
+      {
+        "da": "motor",
+        "en": "engine",
+        "why": "a machine producing vibration",
+        "s": 2
+      },
+      {
+        "da": "bevæge",
+        "en": "move",
+        "why": "the broader physical action",
+        "s": 2
+      },
+      {
+        "da": "urolig",
+        "en": "restless",
+        "why": "unable to remain still",
+        "s": 2
+      },
+      {
+        "da": "hoved",
+        "en": "head",
+        "why": "can move to refuse",
+        "s": 1
+      },
+      {
+        "da": "dans",
+        "en": "dance",
+        "why": "rhythmic movement of the body",
+        "s": 1
+      },
+      {
+        "da": "vrede",
+        "en": "anger",
+        "why": "strong emotion causing movement",
+        "s": 1
+      },
+      {
+        "da": "lyd",
+        "en": "noise",
+        "why": "loose objects may produce it",
+        "s": 1
+      },
+      {
+        "da": "svag",
+        "en": "weak",
+        "why": "muscles may become unsteady",
+        "s": 1
+      },
+      {
+        "da": "grin",
+        "en": "laughter",
+        "why": "can move the whole body",
+        "s": 1
+      },
+      {
+        "da": "våd",
+        "en": "wet",
+        "why": "animals move water from fur",
+        "s": 1
+      },
+      {
+        "da": "hund",
+        "en": "dog",
+        "why": "an animal moving water from fur",
+        "s": 1
+      },
+      {
+        "da": "tørre",
+        "en": "dry",
+        "why": "the purpose of removing water",
+        "s": 1
+      },
+      {
+        "da": "søvn",
+        "en": "sleep",
+        "why": "someone may be moved awake",
+        "s": 1
+      }
+    ],
+    "da:hjerne": [
+      {
+        "da": "hoved",
+        "en": "head",
+        "why": "the body area containing it",
+        "s": 3
+      },
+      {
+        "da": "tanke",
+        "en": "thought",
+        "why": "a mental product",
+        "s": 3
+      },
+      {
+        "da": "tænke",
+        "en": "think",
+        "why": "the central mental action",
+        "s": 3
+      },
+      {
+        "da": "hukommelse",
+        "en": "memory",
+        "why": "a major mental function",
+        "s": 3
+      },
+      {
+        "da": "intelligens",
+        "en": "intelligence",
+        "why": "the capacity associated with it",
+        "s": 3
+      },
+      {
+        "da": "kranium",
+        "en": "skull",
+        "why": "the bone protecting it",
+        "s": 3
+      },
+      {
+        "da": "organ",
+        "en": "organ",
+        "why": "its biological category",
+        "s": 3
+      },
+      {
+        "da": "krop",
+        "en": "body",
+        "why": "the larger system it controls",
+        "s": 2
+      },
+      {
+        "da": "nerve",
+        "en": "nerve",
+        "why": "carries signals to the body",
+        "s": 2
+      },
+      {
+        "da": "læring",
+        "en": "learning",
+        "why": "changes through new experience",
+        "s": 2
+      },
+      {
+        "da": "ide",
+        "en": "idea",
+        "why": "a new mental product",
+        "s": 2
+      },
+      {
+        "da": "viden",
+        "en": "knowledge",
+        "why": "information held in memory",
+        "s": 2
+      },
+      {
+        "da": "beslutning",
+        "en": "decision",
+        "why": "a choice made mentally",
+        "s": 2
+      },
+      {
+        "da": "følelse",
+        "en": "emotion",
+        "why": "a mental and physical response",
+        "s": 2
+      },
+      {
+        "da": "drøm",
+        "en": "dream",
+        "why": "an experience produced during sleep",
+        "s": 2
+      },
+      {
+        "da": "fokus",
+        "en": "focus",
+        "why": "directed mental attention",
+        "s": 2
+      },
+      {
+        "da": "puslespil",
+        "en": "puzzle",
+        "why": "something requiring mental effort",
+        "s": 2
+      },
+      {
+        "da": "søvn",
+        "en": "sleep",
+        "why": "a state affecting mental function",
+        "s": 2
+      },
+      {
+        "da": "hovedpine",
+        "en": "headache",
+        "why": "pain felt around this organ",
+        "s": 2
+      },
+      {
+        "da": "kontrol",
+        "en": "control",
+        "why": "its role over the body",
+        "s": 2
+      },
+      {
+        "da": "læge",
+        "en": "doctor",
+        "why": "a person treating injury",
+        "s": 1
+      },
+      {
+        "da": "grå",
+        "en": "grey",
+        "why": "a color associated with tissue",
+        "s": 1
+      },
+      {
+        "da": "venstre",
+        "en": "left",
+        "why": "one side of the organ",
+        "s": 1
+      },
+      {
+        "da": "højre",
+        "en": "right",
+        "why": "the other side of the organ",
+        "s": 1
+      },
+      {
+        "da": "skade",
+        "en": "injury",
+        "why": "can impair mental function",
+        "s": 1
+      }
+    ],
+    "da:hviske": [
+      {
+        "da": "stille",
+        "en": "quiet",
+        "why": "the defining sound level",
+        "s": 3
+      },
+      {
+        "da": "lav",
+        "en": "low",
+        "why": "how the voice is kept",
+        "s": 3
+      },
+      {
+        "da": "stemme",
+        "en": "voice",
+        "why": "what is made quiet",
+        "s": 3
+      },
+      {
+        "da": "hemmelighed",
+        "en": "secret",
+        "why": "something often said quietly",
+        "s": 3
+      },
+      {
+        "da": "mumle",
+        "en": "murmur",
+        "why": "a close quiet speech action",
+        "s": 3
+      },
+      {
+        "da": "hys",
+        "en": "hush",
+        "why": "a request for quiet",
+        "s": 3
+      },
+      {
+        "da": "øre",
+        "en": "ear",
+        "why": "the listener must be close to it",
+        "s": 2
+      },
+      {
+        "da": "tale",
+        "en": "speak",
+        "why": "the broader vocal action",
+        "s": 2
+      },
+      {
+        "da": "lyd",
+        "en": "sound",
+        "why": "kept at a low level",
+        "s": 2
+      },
+      {
+        "da": "mund",
+        "en": "mouth",
+        "why": "where the quiet words come from",
+        "s": 2
+      },
+      {
+        "da": "bibliotek",
+        "en": "library",
+        "why": "a place requiring quiet voices",
+        "s": 2
+      },
+      {
+        "da": "forsigtigt",
+        "en": "softly",
+        "why": "how the words are delivered",
+        "s": 2
+      },
+      {
+        "da": "lytte",
+        "en": "listen",
+        "why": "what the receiver must do",
+        "s": 2
+      },
+      {
+        "da": "besked",
+        "en": "message",
+        "why": "information passed quietly",
+        "s": 2
+      },
+      {
+        "da": "privat",
+        "en": "private",
+        "why": "speech meant for few people",
+        "s": 2
+      },
+      {
+        "da": "tæt",
+        "en": "close",
+        "why": "how near the listener must be",
+        "s": 1
+      },
+      {
+        "da": "nat",
+        "en": "night",
+        "why": "a time for quiet voices",
+        "s": 1
+      },
+      {
+        "da": "biograf",
+        "en": "cinema",
+        "why": "a place where voices stay low",
+        "s": 1
+      },
+      {
+        "da": "barn",
+        "en": "child",
+        "why": "someone spoken to without waking",
+        "s": 1
+      },
+      {
+        "da": "ånde",
+        "en": "breath",
+        "why": "quiet speech carries little air",
+        "s": 1
+      },
+      {
+        "da": "mørke",
+        "en": "darkness",
+        "why": "a setting for secret speech",
+        "s": 1
+      },
+      {
+        "da": "frygt",
+        "en": "fear",
+        "why": "a reason not to speak loudly",
+        "s": 1
+      },
+      {
+        "da": "dele",
+        "en": "share",
+        "why": "passing a secret to someone",
+        "s": 1
+      },
+      {
+        "da": "nabo",
+        "en": "neighbour",
+        "why": "someone not meant to hear",
+        "s": 1
+      },
+      {
+        "da": "sove",
+        "en": "sleep",
+        "why": "what quiet speech avoids disturbing",
+        "s": 1
+      }
+    ],
+    "da:interesse": [
+      {
+        "da": "nysgerrighed",
+        "en": "curiosity",
+        "why": "the desire to know more",
+        "s": 3
+      },
+      {
+        "da": "fritid",
+        "en": "leisure",
+        "why": "when personal activities happen",
+        "s": 3
+      },
+      {
+        "da": "passion",
+        "en": "passion",
+        "why": "a strong personal enthusiasm",
+        "s": 3
+      },
+      {
+        "da": "emne",
+        "en": "topic",
+        "why": "a subject drawing attention",
+        "s": 2
+      },
+      {
+        "da": "sport",
+        "en": "sport",
+        "why": "a common personal activity",
+        "s": 2
+      },
+      {
+        "da": "musik",
+        "en": "music",
+        "why": "a common personal enthusiasm",
+        "s": 2
+      },
+      {
+        "da": "læse",
+        "en": "reading",
+        "why": "a common free time activity",
+        "s": 2
+      },
+      {
+        "da": "samle",
+        "en": "collect",
+        "why": "a common enthusiast activity",
+        "s": 2
+      },
+      {
+        "da": "glæde",
+        "en": "enjoyment",
+        "why": "the feeling the activity gives",
+        "s": 2
+      },
+      {
+        "da": "fokus",
+        "en": "focus",
+        "why": "attention directed toward something",
+        "s": 2
+      },
+      {
+        "da": "lære",
+        "en": "learn",
+        "why": "what curiosity encourages",
+        "s": 2
+      },
+      {
+        "da": "klub",
+        "en": "club",
+        "why": "people sharing an enthusiasm",
+        "s": 2
+      },
+      {
+        "da": "aktivitet",
+        "en": "activity",
+        "why": "something chosen in free time",
+        "s": 2
+      },
+      {
+        "da": "viden",
+        "en": "knowledge",
+        "why": "gained about a favored subject",
+        "s": 2
+      },
+      {
+        "da": "kunst",
+        "en": "art",
+        "why": "a common cultural enthusiasm",
+        "s": 2
+      },
+      {
+        "da": "havearbejde",
+        "en": "gardening",
+        "why": "a common home activity",
+        "s": 2
+      },
+      {
+        "da": "madlavning",
+        "en": "cooking",
+        "why": "a common practical enthusiasm",
+        "s": 2
+      },
+      {
+        "da": "rejse",
+        "en": "travel",
+        "why": "a common personal enthusiasm",
+        "s": 2
+      },
+      {
+        "da": "fotografi",
+        "en": "photography",
+        "why": "a common creative activity",
+        "s": 2
+      },
+      {
+        "da": "opmærksomhed",
+        "en": "attention",
+        "why": "what a subject receives",
+        "s": 2
+      },
+      {
+        "da": "tid",
+        "en": "time",
+        "why": "what people give favored activities",
+        "s": 1
+      },
+      {
+        "da": "personligt",
+        "en": "personal",
+        "why": "belonging to individual taste",
+        "s": 1
+      },
+      {
+        "da": "spørgsmål",
+        "en": "question",
+        "why": "a sign of curiosity",
+        "s": 1
+      },
+      {
+        "da": "valg",
+        "en": "choice",
+        "why": "guided by personal enthusiasm",
+        "s": 1
+      },
+      {
+        "da": "samtale",
+        "en": "conversation",
+        "why": "easier around a shared topic",
+        "s": 1
+      }
+    ],
+    "da:kølig": [
+      {
+        "da": "kold",
+        "en": "cold",
+        "why": "the closest lower temperature",
+        "s": 3
+      },
+      {
+        "da": "vind",
+        "en": "wind",
+        "why": "air that lowers felt temperature",
+        "s": 3
+      },
+      {
+        "da": "temperatur",
+        "en": "temperature",
+        "why": "the measured physical quality",
+        "s": 3
+      },
+      {
+        "da": "brise",
+        "en": "breeze",
+        "why": "a gentle refreshing wind",
+        "s": 3
+      },
+      {
+        "da": "frisk",
+        "en": "fresh",
+        "why": "pleasantly low in temperature",
+        "s": 2
+      },
+      {
+        "da": "luft",
+        "en": "air",
+        "why": "what often carries the feeling",
+        "s": 2
+      },
+      {
+        "da": "skygge",
+        "en": "shade",
+        "why": "a place away from sun heat",
+        "s": 2
+      },
+      {
+        "da": "efterår",
+        "en": "autumn",
+        "why": "a season of lower temperatures",
+        "s": 2
+      },
+      {
+        "da": "vejr",
+        "en": "weather",
+        "why": "the outdoor condition described",
+        "s": 2
+      },
+      {
+        "da": "vand",
+        "en": "water",
+        "why": "often refreshing at low temperature",
+        "s": 2
+      },
+      {
+        "da": "kælder",
+        "en": "basement",
+        "why": "a naturally colder room",
+        "s": 2
+      },
+      {
+        "da": "jakke",
+        "en": "jacket",
+        "why": "clothing for lower temperatures",
+        "s": 2
+      },
+      {
+        "da": "is",
+        "en": "ice",
+        "why": "something at a much lower temperature",
+        "s": 2
+      },
+      {
+        "da": "behagelig",
+        "en": "pleasant",
+        "why": "refreshing rather than freezing",
+        "s": 2
+      },
+      {
+        "da": "aften",
+        "en": "evening",
+        "why": "when daytime heat fades",
+        "s": 1
+      },
+      {
+        "da": "forår",
+        "en": "spring",
+        "why": "a mildly cold season",
+        "s": 1
+      },
+      {
+        "da": "rum",
+        "en": "room",
+        "why": "an indoor place with low heat",
+        "s": 1
+      },
+      {
+        "da": "grå",
+        "en": "grey",
+        "why": "a color suggesting low warmth",
+        "s": 1
+      },
+      {
+        "da": "fugtig",
+        "en": "damp",
+        "why": "often paired with low temperature",
+        "s": 1
+      },
+      {
+        "da": "nord",
+        "en": "north",
+        "why": "a direction associated with cold",
+        "s": 1
+      },
+      {
+        "da": "morgen",
+        "en": "morning",
+        "why": "a colder part of the day",
+        "s": 1
+      },
+      {
+        "da": "hav",
+        "en": "sea",
+        "why": "a source of refreshing air",
+        "s": 1
+      },
+      {
+        "da": "regn",
+        "en": "rain",
+        "why": "often lowers the air temperature",
+        "s": 1
+      },
+      {
+        "da": "metal",
+        "en": "metal",
+        "why": "feels cold to the touch",
+        "s": 1
+      },
+      {
+        "da": "vindue",
+        "en": "window",
+        "why": "an opening letting cold air in",
+        "s": 1
+      }
+    ],
+    "da:aftale": [
+      {
+        "da": "møde",
+        "en": "meeting",
+        "why": "an arranged time with someone",
+        "s": 3
+      },
+      {
+        "da": "tid",
+        "en": "time",
+        "why": "what must be fixed in advance",
+        "s": 3
+      },
+      {
+        "da": "dato",
+        "en": "date",
+        "why": "the chosen day",
+        "s": 3
+      },
+      {
+        "da": "plan",
+        "en": "plan",
+        "why": "an arrangement for later",
+        "s": 3
+      },
+      {
+        "da": "løfte",
+        "en": "promise",
+        "why": "a commitment between people",
+        "s": 3
+      },
+      {
+        "da": "kontrakt",
+        "en": "contract",
+        "why": "a formal written commitment",
+        "s": 3
+      },
+      {
+        "da": "kalender",
+        "en": "calendar",
+        "why": "where the event is recorded",
+        "s": 2
+      },
+      {
+        "da": "enig",
+        "en": "consensus",
+        "why": "a shared understanding",
+        "s": 2
+      },
+      {
+        "da": "læge",
+        "en": "doctor",
+        "why": "a common professional visit",
+        "s": 2
+      },
+      {
+        "da": "tandlæge",
+        "en": "dentist",
+        "why": "a common booked visit",
+        "s": 2
+      },
+      {
+        "da": "sted",
+        "en": "place",
+        "why": "where people will meet",
+        "s": 2
+      },
+      {
+        "da": "bekræfte",
+        "en": "confirm",
+        "why": "checking that it will happen",
+        "s": 2
+      },
+      {
+        "da": "aflyse",
+        "en": "cancel",
+        "why": "stopping the planned event",
+        "s": 2
+      },
+      {
+        "da": "ændre",
+        "en": "change",
+        "why": "moving the planned details",
+        "s": 2
+      },
+      {
+        "da": "underskrift",
+        "en": "signature",
+        "why": "what formalizes a written commitment",
+        "s": 2
+      },
+      {
+        "da": "håndtryk",
+        "en": "handshake",
+        "why": "a traditional way to confirm",
+        "s": 2
+      },
+      {
+        "da": "samtale",
+        "en": "conversation",
+        "why": "how terms are settled",
+        "s": 2
+      },
+      {
+        "da": "fælles",
+        "en": "mutual",
+        "why": "shared by both sides",
+        "s": 2
+      },
+      {
+        "da": "invitation",
+        "en": "invitation",
+        "why": "a request to attend",
+        "s": 2
+      },
+      {
+        "da": "telefon",
+        "en": "phone",
+        "why": "a way to arrange it",
+        "s": 1
+      },
+      {
+        "da": "arbejde",
+        "en": "work",
+        "why": "a common reason for meetings",
+        "s": 1
+      },
+      {
+        "da": "besked",
+        "en": "message",
+        "why": "a way to confirm details",
+        "s": 1
+      },
+      {
+        "da": "email",
+        "en": "email",
+        "why": "a written way to arrange it",
+        "s": 1
+      },
+      {
+        "da": "frist",
+        "en": "deadline",
+        "why": "a time both sides accept",
+        "s": 1
+      },
+      {
+        "da": "præcis",
+        "en": "punctual",
+        "why": "arriving at the chosen time",
+        "s": 1
+      }
+    ],
+    "da:glide": [
+      {
+        "da": "skøjte",
+        "en": "skate",
+        "why": "the classic movement across ice",
+        "s": 3
+      },
+      {
+        "da": "is",
+        "en": "ice",
+        "why": "the classic low friction surface",
+        "s": 3
+      },
+      {
+        "da": "ski",
+        "en": "ski",
+        "why": "equipment moving across snow",
+        "s": 3
+      },
+      {
+        "da": "glat",
+        "en": "smooth",
+        "why": "a surface allowing easy movement",
+        "s": 2
+      },
+      {
+        "da": "bevæge",
+        "en": "move",
+        "why": "the broader physical action",
+        "s": 2
+      },
+      {
+        "da": "gulv",
+        "en": "floor",
+        "why": "a surface for controlled movement",
+        "s": 2
+      },
+      {
+        "da": "sne",
+        "en": "snow",
+        "why": "a surface for skis",
+        "s": 2
+      },
+      {
+        "da": "vand",
+        "en": "water",
+        "why": "a surface for boats",
+        "s": 2
+      },
+      {
+        "da": "bølge",
+        "en": "wave",
+        "why": "carries movement across water",
+        "s": 2
+      },
+      {
+        "da": "ned",
+        "en": "down",
+        "why": "the direction on a slope",
+        "s": 2
+      },
+      {
+        "da": "falde",
+        "en": "fall",
+        "why": "what lost control can cause",
+        "s": 2
+      },
+      {
+        "da": "fødder",
+        "en": "feet",
+        "why": "body parts moving across a surface",
+        "s": 2
+      },
+      {
+        "da": "sko",
+        "en": "shoes",
+        "why": "what contacts the surface",
+        "s": 2
+      },
+      {
+        "da": "bakke",
+        "en": "hill",
+        "why": "a slope enabling downward movement",
+        "s": 2
+      },
+      {
+        "da": "fart",
+        "en": "speed",
+        "why": "easy movement can build it",
+        "s": 2
+      },
+      {
+        "da": "elegant",
+        "en": "graceful",
+        "why": "the quality of flowing movement",
+        "s": 2
+      },
+      {
+        "da": "slæde",
+        "en": "sled",
+        "why": "a vehicle moving over snow",
+        "s": 2
+      },
+      {
+        "da": "skib",
+        "en": "ship",
+        "why": "a vessel moving through water",
+        "s": 2
+      },
+      {
+        "da": "langsom",
+        "en": "slow",
+        "why": "a possible gentle speed",
+        "s": 1
+      },
+      {
+        "da": "stille",
+        "en": "quietly",
+        "why": "movement without much sound",
+        "s": 1
+      },
+      {
+        "da": "friktion",
+        "en": "friction",
+        "why": "low resistance enables movement",
+        "s": 1
+      },
+      {
+        "da": "sæbe",
+        "en": "soap",
+        "why": "reduces grip on a surface",
+        "s": 1
+      },
+      {
+        "da": "olie",
+        "en": "oil",
+        "why": "allows parts to move easily",
+        "s": 1
+      },
+      {
+        "da": "overflade",
+        "en": "surface",
+        "why": "what the motion travels across",
+        "s": 1
+      },
+      {
+        "da": "dans",
+        "en": "dance",
+        "why": "movement that can look flowing",
+        "s": 1
+      }
+    ],
+    "da:skuffe": [
+      {
+        "da": "kommode",
+        "en": "dresser",
+        "why": "the furniture commonly containing it",
+        "s": 3
+      },
+      {
+        "da": "møbel",
+        "en": "furniture",
+        "why": "the broader object category",
+        "s": 3
+      },
+      {
+        "da": "håndtag",
+        "en": "handle",
+        "why": "the part used to open it",
+        "s": 3
+      },
+      {
+        "da": "opbevaring",
+        "en": "storage",
+        "why": "its main practical purpose",
+        "s": 3
+      },
+      {
+        "da": "åbne",
+        "en": "open",
+        "why": "pulling it outward",
+        "s": 2
+      },
+      {
+        "da": "lukke",
+        "en": "close",
+        "why": "pushing it inward",
+        "s": 2
+      },
+      {
+        "da": "sokker",
+        "en": "socks",
+        "why": "clothing often kept inside",
+        "s": 2
+      },
+      {
+        "da": "bestik",
+        "en": "cutlery",
+        "why": "kitchen items often kept inside",
+        "s": 2
+      },
+      {
+        "da": "skrivebord",
+        "en": "desk",
+        "why": "furniture often containing one",
+        "s": 2
+      },
+      {
+        "da": "køkken",
+        "en": "kitchen",
+        "why": "a room with many of them",
+        "s": 2
+      },
+      {
+        "da": "træ",
+        "en": "wood",
+        "why": "a common construction material",
+        "s": 2
+      },
+      {
+        "da": "skab",
+        "en": "cabinet",
+        "why": "similar storage furniture",
+        "s": 2
+      },
+      {
+        "da": "hylde",
+        "en": "shelf",
+        "why": "another flat storage space",
+        "s": 2
+      },
+      {
+        "da": "rum",
+        "en": "compartment",
+        "why": "the enclosed storage space",
+        "s": 2
+      },
+      {
+        "da": "organisere",
+        "en": "organize",
+        "why": "arranging the contents",
+        "s": 2
+      },
+      {
+        "da": "skinne",
+        "en": "rail",
+        "why": "the hardware it moves along",
+        "s": 2
+      },
+      {
+        "da": "spor",
+        "en": "track",
+        "why": "the path guiding its movement",
+        "s": 2
+      },
+      {
+        "da": "trække",
+        "en": "pull",
+        "why": "the motion used to open it",
+        "s": 2
+      },
+      {
+        "da": "knap",
+        "en": "knob",
+        "why": "a small round handle",
+        "s": 2
+      },
+      {
+        "da": "tøj",
+        "en": "clothes",
+        "why": "items stored in bedroom furniture",
+        "s": 1
+      },
+      {
+        "da": "papirer",
+        "en": "papers",
+        "why": "items stored in office furniture",
+        "s": 1
+      },
+      {
+        "da": "rod",
+        "en": "mess",
+        "why": "what can collect inside",
+        "s": 1
+      },
+      {
+        "da": "nøgle",
+        "en": "key",
+        "why": "a small item hidden inside",
+        "s": 1
+      },
+      {
+        "da": "skjult",
+        "en": "hidden",
+        "why": "kept out of sight inside",
+        "s": 1
+      },
+      {
+        "da": "natbord",
+        "en": "nightstand",
+        "why": "small furniture often containing one",
+        "s": 1
+      }
+    ]
+  }
+}

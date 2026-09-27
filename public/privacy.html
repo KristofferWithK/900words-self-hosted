@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>900words self-build: data</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0 auto; max-width: 42rem; padding: 2.5rem 1.25rem 4rem;
+    font: 1rem/1.6 -apple-system, system-ui, 'Segoe UI', sans-serif;
+    color: #1c2030; background: #fdfcf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e6df; background: #16181f; }
+    a { color: #9db8e8; }
+  }
+  h1 { font-size: 1.6rem; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+  p { margin: 0.5rem 0; }
+</style>
+</head>
+<body>
+<h1>What a self-built 900words sends, and where</h1>
+
+<p>This copy of 900words was built from its source code by whoever runs it,
+not by 900words. It has no account and no cloud save. This page describes
+what the software does; it is not a promise about any particular copy.</p>
+
+<h2>On this device</h2>
+<p>Your progress and settings are stored on this device (in the browser's
+storage, or in the iPhone app's). A backup from Settings is a file you keep;
+the app never sends it anywhere. Your own AI key is stored in its own slot on
+this device and is never part of a backup.</p>
+
+<h2>When Casey plays</h2>
+<p>Casey needs an AI model to give and guess clues. Where her requests go
+depends on the choice under Settings &rarr; Casey's AI:</p>
+<p><strong>Gemma on this iPhone:</strong> nothing leaves the phone. The model
+itself is downloaded once from Hugging Face when you ask for it.</p>
+<p><strong>Your own AI key:</strong> the board's words, the round so far, your
+clue or guess, and any word you look up go to the AI service you set, with
+your key. That service's own terms and logging apply. In a browser on your
+own computer, requests to Ollama Cloud pass through the local server that
+serves the app, and go on to ollama.com.</p>
+<p><strong>Your own Casey server:</strong> the same information goes to the
+Casey server you set, which asks its AI service. A random installation ID goes
+with it so the server can limit how much one device asks. Anonymous usage
+counters (no identifier of any kind) go to that server too, unless you turn
+them off in Settings, and the app may ask whether you want to share more.</p>
+
+<h2>Nothing else</h2>
+<p>With no Casey server set, the app sends no usage counters and no shared
+data. It does not contact 900words' own servers.</p>
+</body>
+</html>

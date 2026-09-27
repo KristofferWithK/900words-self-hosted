@@ -1,0 +1,1872 @@
+{
+  "schemaVersion": 1,
+  "status": "complete",
+  "version": "city1-leda-v1",
+  "manifestSha256": "6a13c0a1e6fe6df3a3c1d790f8d880360ff3c270657fa173e6f42e9545b89487",
+  "thresholdDbfs": -40,
+  "windowMs": 5,
+  "prerollMs": 60,
+  "onsetMethod": "First 5 ms RMS window above -40 dBFS after FFmpeg mono float32 decode at 48 kHz; raw bytes are not trimmed or re-encoded.",
+  "entries": {
+    "city1-leda-v1/word/stadt.mp3": {
+      "leadMs": 805,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "13568ed8e23b82fae1d5b99a8a647bae8c851505a377ecc875379402458eb307",
+      "bytes": 5472
+    },
+    "city1-leda-v1/word/land.mp3": {
+      "leadMs": 355,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d4b3b86ed05ea7f5d56905c7038400f718084367e7bb7d52332bae6526714fd9",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/uhr.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "160f195e36cdd3ee88f495be1a561131be19844a7c262d46d05068564b7b8272",
+      "bytes": 3456
+    },
+    "city1-leda-v1/word/monat.mp3": {
+      "leadMs": 670,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4cc95d5c6d264b63450e7691f7fffff3f6ad0768fdac30fd36d59b920e4ed277",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/mensch.mp3": {
+      "leadMs": 790,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9c4a9c548836dbdf98c148da85667e3370b0dc8cbb2dce61fb5fe723a1a0f891",
+      "bytes": 5664
+    },
+    "city1-leda-v1/word/klein.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c2a01d7004041fa047f8cb8359c6a2ce79441874b96ae70c922c8578b713879c",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/halb.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "54d9f4552e6c942b4b64981921cf1fdbd70990e338a25b8e1ff564c5103f8e1e",
+      "bytes": 3552
+    },
+    "city1-leda-v1/word/schwer.mp3": {
+      "leadMs": 675,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7e15cb438c8a74c09842857a2e4ad418debfc3edea4cd78f4c7bd81d55f5b893",
+      "bytes": 4704
+    },
+    "city1-leda-v1/word/meinen.mp3": {
+      "leadMs": 670,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5445b858b7f17b21c9968fd7952465afb5f37cdf4a53285117278aed49206b7b",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/kommen.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "eb2ae3582486ac1e0930cbdebeb616c0646a93808e2af73d8a6d4b020002d09c",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/wohnen.mp3": {
+      "leadMs": 370,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "42c58faa99bca1edc6998f4b0cfc2ab9b2f0194b65d80ad2ae1d2602805d7cc9",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/letzte.mp3": {
+      "leadMs": 360,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "384ae274dc0b9662017a6ebaaa6ab8dc0abcca495c6acd2970a8eba70bf67ee8",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/haus.mp3": {
+      "leadMs": 470,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c7eca63cb1f7a15b9ced53e66d18efd917c108c6387decfecfa33dd8cd49ab5d",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/moeglich.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6ec4bb5483f20a5c4558912e2cc8e76e031e0acd48eab85b96367b0542ab2912",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/leben.mp3": {
+      "leadMs": 690,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d2efa978ea044984a3bef4a377baba551722a307a6617e87dbefc5016b0f4bc4",
+      "bytes": 4992
+    },
+    "city1-leda-v1/word/ganz.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "346bc32324d26a837957886afa8dc41221016f39f3e9fb8e1a5af2364d5f962d",
+      "bytes": 3264
+    },
+    "city1-leda-v1/word/sicher.mp3": {
+      "leadMs": 675,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7a633f20ba027f374fc419df590bc4869c0a023c080a190db24234ab6c2c8e05",
+      "bytes": 4992
+    },
+    "city1-leda-v1/word/woche.mp3": {
+      "leadMs": 365,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e547345c3cdb2b5ef7dca772979e4836586df7dc809103c42eed1e15864bf3b4",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/denken.mp3": {
+      "leadMs": 595,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "96813c39c12b704c0f8d0ebf7a10c3448770d9ea94938590d5c894ae55d2edf4",
+      "bytes": 4704
+    },
+    "city1-leda-v1/word/hund.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b698b1f274644f3c6004f13089512585ca46d545af90e48d9442d8ca0fc36e5c",
+      "bytes": 4992
+    },
+    "city1-leda-v1/word/reden.mp3": {
+      "leadMs": 400,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7dbd973a03ab006e5c2acf5ab8f865a1cf78acb192291c2afa8798cab3de922f",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/erinnern.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "92465564e906bc343491cdb481af7919405715f894d9d69811497a1a9ed24781",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/sagen.mp3": {
+      "leadMs": 365,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "af58588b6391dd8460976dd28ce66edd5ac6280ee4f9294cfba329e85d1358ff",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/musik.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "be0dc7dec238f522bfbfbaa1d53758b978364f1e138205d5eb54f990f28c09c7",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/bekommen.mp3": {
+      "leadMs": 415,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "984e8f06438ee6a95a2283c4c7d181c0801cb18e96ad4225867584fa9cba1e94",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/benutzen.mp3": {
+      "leadMs": 190,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "77d411b9b30c0c2ac7f0fd6bad5f8a4e0c0a162c4c488c6620658f48b5dc5422",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/glauben.mp3": {
+      "leadMs": 345,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0498353c99e40b169eb55bb9afa0dca1b3441224f7dc10768c2adedb37aaf8d3",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/essen.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "41cb6a155050e8fffc39031c67ce762778eca27f5cfd23b61709c11ce8498a43",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/nehmen.mp3": {
+      "leadMs": 545,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a41ce861eeea95e4eb076e313c5e0607ba7022ef2035f91c874f5a60d7978495",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/mann.mp3": {
+      "leadMs": 745,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f7dca5cd962205950716701bed22ea4dba4f0936ed85b01d624130b73016323e",
+      "bytes": 4896
+    },
+    "city1-leda-v1/word/alt.mp3": {
+      "leadMs": 400,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d49d7a5c00e63e150d96688da813eeda939b61a14a4a8fbaa0b3153380e20f3e",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/zeit.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "113ea37b88431c83a417e40a767e81ec20145cd8336186a1a4c2403169d41e56",
+      "bytes": 1824
+    },
+    "city1-leda-v1/word/stunde.mp3": {
+      "leadMs": 705,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6b5401de9d8ad455257776d9061c2a52ada1a7ec8823196d63c6ac4ecec08f17",
+      "bytes": 6336
+    },
+    "city1-leda-v1/word/person.mp3": {
+      "leadMs": 490,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e3097479d78a7df7453fb642fb51650b8b584c61c90d509ba04d178790d7df50",
+      "bytes": 5472
+    },
+    "city1-leda-v1/word/probieren.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3e2726fe4d7b5968941d555097e7643c421c667d7041fc16df9e0af10e99e7d7",
+      "bytes": 5472
+    },
+    "city1-leda-v1/word/klasse.mp3": {
+      "leadMs": 95,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "f934264fe7d20b7b6774c15a1bfd43aa09688d657ec5daaf4287c6f940156981",
+      "bytes": 2496
+    },
+    "city1-leda-v1/word/gut.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cdbc4c94580ea42314d2311b3a727715d7b38a5fce5690f3fc3e996dfc223d81",
+      "bytes": 3264
+    },
+    "city1-leda-v1/word/richtig.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f6a1493423cc87e30f6ffcfd320268af00b171d1400952485b9087651c20ed56",
+      "bytes": 4896
+    },
+    "city1-leda-v1/word/jahr.mp3": {
+      "leadMs": 355,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ca9e083aa7b73e2ce87556edce978746c399336350f055579961fc2542ff8499",
+      "bytes": 3552
+    },
+    "city1-leda-v1/word/schoen.mp3": {
+      "leadMs": 705,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7f2477962e22462fc295ed4c5b5184ec356d5d28e9bfc24e81f62bc57f575272",
+      "bytes": 6144
+    },
+    "city1-leda-v1/word/mutter.mp3": {
+      "leadMs": 475,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d538e96ed8efb52ee30655cfe490c34a68cc1840066d023b2ea946f39791abc1",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/meinung.mp3": {
+      "leadMs": 470,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b59d96462575435528fc29a9bdd4699d65ca1177974d8f577dff691919f83fe4",
+      "bytes": 5472
+    },
+    "city1-leda-v1/word/treffen.mp3": {
+      "leadMs": 725,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6a94ec73087fb59da852628ac45be58cad03411a4f41f4221baf855fd2c76855",
+      "bytes": 5664
+    },
+    "city1-leda-v1/word/sitzen.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "af97bab9baf3f191a68aed03d84fcc05c91e149ec5e554ee3b4856c07f8d4361",
+      "bytes": 2976
+    },
+    "city1-leda-v1/word/schule.mp3": {
+      "leadMs": 675,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8632558417e6665cbd71ca17229ff14b26d5ef44c33e8cc6d638d3dc82cbd24e",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/stehen.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "cf7ad7ff5d90f2d14ab2c1d1aaaf950ae6367fa3c9ce2d90da31aa5cffe51307",
+      "bytes": 2784
+    },
+    "city1-leda-v1/word/verschieden.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c66b49445d57c483604738c0573f9a3d4ebddaeafe7eafc181eda00f1d3510d3",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/liegen.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bac834996c67b1c5eba8d60860167c90af0f95584507a5814307faf278b96f5a",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/vater.mp3": {
+      "leadMs": 190,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "592ca1bf3f60aac629d4d1ed38f68dbbe17091c4f921a91cc18466cc217da575",
+      "bytes": 2976
+    },
+    "city1-leda-v1/word/arbeit.mp3": {
+      "leadMs": 515,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4eead63e245908dd2c6f35ed5b3ec67b1a0954cf584106ca4f49bc76f69769e6",
+      "bytes": 4992
+    },
+    "city1-leda-v1/word/platz.mp3": {
+      "leadMs": 815,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ca5a4031d5d280bbde2d63e49a28349827bcb03c14e9da12077a9eb90148eae8",
+      "bytes": 6144
+    },
+    "city1-leda-v1/word/lesen.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a0c72649b017869a173b706c1031b47e9442813215d7fcd9361faa656b3dea29",
+      "bytes": 3456
+    },
+    "city1-leda-v1/word/geschichte.mp3": {
+      "leadMs": 345,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ca57ba288f13973d26840c9854dd0bcb783af61de13900857fb21f5c4ac6ccbc",
+      "bytes": 3936
+    },
+    "city1-leda-v1/word/schlecht.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c82e4160c6cb690450bac99049073f37e96df6869bf4c649479ae54093ad7619",
+      "bytes": 6144
+    },
+    "city1-leda-v1/word/auto.mp3": {
+      "leadMs": 705,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0530f977945a420a9bd1a284df3998b78860ce6a2073300c6377cdcf7a8fd9c5",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/name.mp3": {
+      "leadMs": 270,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "77bd1842ae5aa655015a9f2678a822bb9427f1f52629a05e8868c09828ed5626",
+      "bytes": 3936
+    },
+    "city1-leda-v1/word/gross.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "45c2b5058c15b526c6b055de523f7f021a38a8f15d81330750a88c3e9e9fe83d",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/erreichen.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d67ccfde00618438e57238ab3a8cde35f472788917d62efeca51822ddf07d718",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/machen.mp3": {
+      "leadMs": 60,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "5e267c6bbe6f25bcc87fd735eb4d99c33acd2209b633ae29bf75edac0b202855",
+      "bytes": 1824
+    },
+    "city1-leda-v1/word/kind.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "33d04130c9b6b418d9489b84b0d87f11d0e10506d47218b9fb6785ee078882b0",
+      "bytes": 3552
+    },
+    "city1-leda-v1/word/film.mp3": {
+      "leadMs": 370,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bc9079a3aa7b2cc9728e7440d6c379b9c03c4d94959bccfa9bd077791d7d6c7e",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/maedchen.mp3": {
+      "leadMs": 60,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "049296507de03541ae648f38570e6551a58487ec0901c7dc20b68162eb87f86a",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/spannend.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "86b0ab6c9490a7a7eb21e8ae80128ada3cfe340859cab9c92646e25ad76a6869",
+      "bytes": 4704
+    },
+    "city1-leda-v1/word/geld.mp3": {
+      "leadMs": 435,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cf2e9240fc7831f10313ff3c5482b0a5ec89ac9a9aa8d0b40c0326a3ff40042f",
+      "bytes": 3552
+    },
+    "city1-leda-v1/word/tier.mp3": {
+      "leadMs": 710,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "275b0f1de6a261b3bd9258e488d4f44aae75ce8a2dd0f34cf7489508b71a1324",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/fahren.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "96435e62b33cd0ec4332beb27fd7157b38825e5a8b0b4f56a18f86ae0a6aaf67",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/heissen.mp3": {
+      "leadMs": 115,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "4acd4cbb3b9dd8b03d2e48efbacdf40c2292e0c94015dcfbc4077716743f3ada",
+      "bytes": 2496
+    },
+    "city1-leda-v1/word/seite.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "72176e83ff0aaf45f6bb1e5ffbe968bd9ecd4f13d23e6e2bf1fcd435549f2395",
+      "bytes": 2784
+    },
+    "city1-leda-v1/word/gehen.mp3": {
+      "leadMs": 515,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bc13514d1883eff3bf73b73c7c406c05f480b2eebf9ca47aa7b0be20a5077712",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/lang.mp3": {
+      "leadMs": 225,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cd4153d70274646ead304cde10a039e70bf30608d40dd5f34ec7a65fe0c70b7f",
+      "bytes": 3264
+    },
+    "city1-leda-v1/word/krone.mp3": {
+      "leadMs": 655,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "de8463618c19c890bce3b7619ee45bf8953b157dcfd2b8f7f2ba255867cb92db",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/neu.mp3": {
+      "leadMs": 55,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "81673bb62caaa551135d391d1f470d7de8b9a9886ea63b4bc24afa21020e1087",
+      "bytes": 1632
+    },
+    "city1-leda-v1/word/daenisch.mp3": {
+      "leadMs": 550,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "36ed3a7d9868a91d983da517afb75e64d6ff5bc85fa9782f28d8be7487d0f199",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/bereit.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c501b98794997dbb0d7e08a3d58c0cfe2c84c0257101dc11cb5728fef6e9913e",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/weise.mp3": {
+      "leadMs": 480,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6ca291d29cf452510b286236617f6cc0abbcb1ca282509ad52dbd23466c1f817",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/sprache.mp3": {
+      "leadMs": 395,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "09878230d4fbe540376e887f5bcb9867fa7502385024f63de9be9be9d893e3e3",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/welt.mp3": {
+      "leadMs": 340,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7331f259bb5ededb63a3dc4d9786fa3113ece135e926e1515806e339a7da23de",
+      "bytes": 4512
+    },
+    "city1-leda-v1/word/zweifel.mp3": {
+      "leadMs": 655,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fb8da0636594bc8b7c19f55e2adcb2c47411d7486dc4fc79800840129edae3fd",
+      "bytes": 4896
+    },
+    "city1-leda-v1/word/zuhause.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "21ab0a36d7454f9d9e21879b06a2c54470cf4692d2a4b09df4e2792e796c96c5",
+      "bytes": 2592
+    },
+    "city1-leda-v1/word/gedanke.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "22ea4d30b437aef9cf8aafb36e42ad9484eccabe101c291cf93340392e3fe52a",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/wasser.mp3": {
+      "leadMs": 670,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d55945e7c7980a6fab1b8758b73cfbcd8f94f3349fc92a9c753521424f9a03a5",
+      "bytes": 4992
+    },
+    "city1-leda-v1/word/wort.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8082fc294f0dd62cb12472ca4365b8d071b3820b618f3f5401be5ebbb7f5cdfd",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/bild.mp3": {
+      "leadMs": 710,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9fa3a35925a1bbcf9e24fd28e58d48fca361ccabce2c3e28b8091caf0defa61c",
+      "bytes": 4896
+    },
+    "city1-leda-v1/word/sehen.mp3": {
+      "leadMs": 475,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f40fca0305541365e42575a7edcbc995dee91d4b6ae13e0478a5e74f9b0a0738",
+      "bytes": 4704
+    },
+    "city1-leda-v1/word/grund.mp3": {
+      "leadMs": 430,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "1bee309a6eb5f9b0f596d7eb05be4478220bc7656cbffd531db375f3ec919ac0",
+      "bytes": 3552
+    },
+    "city1-leda-v1/word/bus.mp3": {
+      "leadMs": 710,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e32d123971bd8ede2bf57066dd78ee90fc2187a1105e83938ffec60fb914f177",
+      "bytes": 4896
+    },
+    "city1-leda-v1/word/reise.mp3": {
+      "leadMs": 45,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "8b3d3ae8ae201d4733e23607658587b139bac87731826573263f215f4d1b5677",
+      "bytes": 3264
+    },
+    "city1-leda-v1/word/lustig.mp3": {
+      "leadMs": 800,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "34189e96047050da7856a78719eb6e4fe102c9503b89a9e17e4c12f1579354cc",
+      "bytes": 6144
+    },
+    "city1-leda-v1/word/beispiel.mp3": {
+      "leadMs": 190,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "890b738208913663e719e150428c09314ec0953ad97d4452210a159acb15a392",
+      "bytes": 4032
+    },
+    "city1-leda-v1/word/mal.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "857fbb05429bac7534a9fd9a540e223c97c0fffa55e043befc910989407a6494",
+      "bytes": 2976
+    },
+    "city1-leda-v1/word/wissen.mp3": {
+      "leadMs": 110,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "84326347c6d2d10c1467809ef63236523cf2c74eb70a21d99af714f53632defc",
+      "bytes": 2304
+    },
+    "city1-leda-v1/word/lust.mp3": {
+      "leadMs": 660,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ca6845031279d5f3d5606a5a69785e49f69b7c1fb0dc3b6abcccd372f0469ee7",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/freund.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "73c9f803bffa93143236cc2d73cc09db87ca6511ea452f8ffed30b5fd0136698",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/partner.mp3": {
+      "leadMs": 760,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6d59781daf91ffab8b97c82606293df9ef5d97943bcea808159b4569f0743dc0",
+      "bytes": 6624
+    },
+    "city1-leda-v1/word/hoeren.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a90867a66f7b3a9a16ba43c97b1b20f965f5804ea8418bd3acaefa9560a53f79",
+      "bytes": 5184
+    },
+    "city1-leda-v1/word/finden.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f4da1cebf002aa04d044a59a2893b3eb746f379bd6d4155acc8c4534650d980d",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/weg.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "293b46cbb6888eab139b7b5070e85d81219f9e8c0cceee40451f0ba1c7e4419e",
+      "bytes": 3072
+    },
+    "city1-leda-v1/word/tag.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5699a45ab0ba1fb500f2ad11a8fc727d867ca156cec6d773bbc5ba3da7794c24",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/gesetz.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "a4e1e8ff0cc6620f2eeaa0fd5241c80a6179c64600722ecfe708030df2b3e395",
+      "bytes": 2976
+    },
+    "city1-leda-v1/word/katze.mp3": {
+      "leadMs": 425,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "622e94116f4268300dfa8908d3e71cb9c85dbd27fd3b5425851831a128b728c3",
+      "bytes": 4224
+    },
+    "city1-leda-v1/phrase/die-stadt.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "43fa800b2805212b42f102ed7e2a3086d1350b94a4504daddec7950df6f79ba2",
+      "bytes": 3552
+    },
+    "city1-leda-v1/phrase/das-land.mp3": {
+      "leadMs": 490,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2342bcc11d4a813d0bf41f4367604c86cb09ba9b5bc22443aef3048eab7459fd",
+      "bytes": 4416
+    },
+    "city1-leda-v1/phrase/die-uhr.mp3": {
+      "leadMs": 820,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8156ca7a73deec5e5d33ab1d2798dd3a779185c44fa97454553e3b63bd618e8d",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/der-monat.mp3": {
+      "leadMs": 765,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e0f8ee6ae9c167df8194667e2b60810571e53b861c5ffdf1f0cebf2eac3cb7fb",
+      "bytes": 6624
+    },
+    "city1-leda-v1/phrase/der-mensch.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "241101eea92671fd3f58ff0d6e3bddd4e36ad9efa1540d3c944b74e301951e42",
+      "bytes": 4224
+    },
+    "city1-leda-v1/phrase/das-haus.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ff092ba414d5be45ec3e6c7ae7fc170d17f38ceab44df9e87ebd9a3b399e24d2",
+      "bytes": 4032
+    },
+    "city1-leda-v1/phrase/das-leben.mp3": {
+      "leadMs": 830,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "30ce951f729ca37e45cffcacd9eee6bcda153fccf49f125eca139d9a6c2203f9",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/die-woche.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b457fdf621736b6d3e1408fef4b86ebee72e698ee21520a5895eb36b8deb3540",
+      "bytes": 4704
+    },
+    "city1-leda-v1/phrase/der-hund.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e5f60213fb01950b821ad9b8a8130d442e0542ebc9ebe0f18a4c70762751e6fa",
+      "bytes": 5664
+    },
+    "city1-leda-v1/phrase/die-musik.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d9b736cf7b9737d3cb2bd5549b6c7b474903691f62de7d0d2d528bdc5b927343",
+      "bytes": 6624
+    },
+    "city1-leda-v1/phrase/das-essen.mp3": {
+      "leadMs": 500,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fcdc8a44596dc19fd3d4bfef1fce6e4cc878cc58dbe737ac72deae875460016b",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/der-mann.mp3": {
+      "leadMs": 500,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9858987cebc76c453bdcd52e26c71cf594725264b8f3fc5c4144ae045cc4ddfd",
+      "bytes": 4704
+    },
+    "city1-leda-v1/phrase/die-zeit.mp3": {
+      "leadMs": 765,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7d70388705ac5f19c2c016acabf901a48bb48affc8d5abfb8904efd53e9b41d3",
+      "bytes": 6432
+    },
+    "city1-leda-v1/phrase/die-stunde.mp3": {
+      "leadMs": 825,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "1ce48f2dba8ae0031ac75fa0c66fbad7c0bead01bbccc0381075520a6108b197",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/die-person.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "658edb79632304490b0e883d4e61a2e3305fec600a01741f577b4e11d0457a6e",
+      "bytes": 5856
+    },
+    "city1-leda-v1/phrase/die-klasse.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bbc042422f2e0d7edb5c74d03ace99b87249983684c05661e6e1693fe12fb3b3",
+      "bytes": 4512
+    },
+    "city1-leda-v1/phrase/das-jahr.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "88aee5caa2c70f4321e7b368615ce5d3fa68e2c3e0ed25d4bd6e39ac866abdef",
+      "bytes": 4032
+    },
+    "city1-leda-v1/phrase/die-mutter.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ba3d74b6e241b185963eb58a0fd01dcc454ce3fcbd1b068c89e953080e856fff",
+      "bytes": 5376
+    },
+    "city1-leda-v1/phrase/die-meinung.mp3": {
+      "leadMs": 695,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "90f5d33deef03208f281355fffd9b2d2753d376338a6a7e55fdd173e490f6f91",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/das-treffen.mp3": {
+      "leadMs": 710,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7283132567caf9b02440338a89fcb2793c59e1f3c50bc3dddc55c3fa6cfb2c1e",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/die-schule.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fea34d9f9615210f4148d234381be2ad88e1b53ed0a45bb6b320b2515016561b",
+      "bytes": 5856
+    },
+    "city1-leda-v1/phrase/der-vater.mp3": {
+      "leadMs": 500,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d7ad79959e040fab48604abfb7c6b2b6cf1ca1b76cc86618381db4872f3f2b53",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/die-arbeit.mp3": {
+      "leadMs": 765,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "85614a8442c7d81c3085dacfffb7eaff071f2cdde2099f001561a6b637a6cf37",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/der-platz.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ce4e7a698003c3b8159958d4af75d66fc8cba2314530b954256452b3769029a2",
+      "bytes": 4896
+    },
+    "city1-leda-v1/phrase/die-geschichte.mp3": {
+      "leadMs": 355,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bfe46ffe8fc6e6e23c0d3733f690f2ee445656746534212a521a9bc35d816bae",
+      "bytes": 4704
+    },
+    "city1-leda-v1/phrase/das-auto.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "b953446c768dd1517a4ac0028e376e632c599f63067962487d6b24730a9d5693",
+      "bytes": 2976
+    },
+    "city1-leda-v1/phrase/der-name.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b7efadd55b24819d6c2ac0f3a8fc8d6593520696ad2dd75228352fa78b57bae7",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/das-kind.mp3": {
+      "leadMs": 500,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9ec1bd38fa4db2074e2ed6ebf33e4f78d844feb4a0b50aa42c9e07ee90fc32aa",
+      "bytes": 4416
+    },
+    "city1-leda-v1/phrase/der-film.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9b87abc1f4d8f9fb55ab2a042804209a23bbffd866b071e1adfc638d49779ec7",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/das-maedchen.mp3": {
+      "leadMs": 695,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7e485dee18e486d45668a6f5a598e93f114d11437b92c48af158b53efdb7330c",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/das-geld.mp3": {
+      "leadMs": 695,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8c7e96f4023ec3bb48c54c1231904bf49c3c32e8c38e8621d68e3c6d8e360a73",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/das-tier.mp3": {
+      "leadMs": 710,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c3a3c8dbb425299c93265d996cb776922e6bfc5996932fb2faea8444df135e64",
+      "bytes": 6144
+    },
+    "city1-leda-v1/phrase/die-seite.mp3": {
+      "leadMs": 490,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0afacbd8e728cf44d59bf1a7b5f11fe65cccde31ba49851552466d930811d34c",
+      "bytes": 4224
+    },
+    "city1-leda-v1/phrase/die-krone.mp3": {
+      "leadMs": 445,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9ca70ba1064e78a437179d75c568106903b7ab16312a55ab3135fa7c25d4a46b",
+      "bytes": 4032
+    },
+    "city1-leda-v1/phrase/die-weise.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f4cf09525f859ccd0dc3a38ec586a4508346085e6057098c3e7a2feededb8485",
+      "bytes": 4512
+    },
+    "city1-leda-v1/phrase/die-sprache.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "add7c5c28c76af3dc5105c1a92738b95385834987c645c579701c8ab44585ea0",
+      "bytes": 4896
+    },
+    "city1-leda-v1/phrase/die-welt.mp3": {
+      "leadMs": 385,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "695d02b64caf19d2e8a1eb9b9270eefb00c0dfa317d07be5c11f8b8f5b87fb20",
+      "bytes": 4032
+    },
+    "city1-leda-v1/phrase/der-zweifel.mp3": {
+      "leadMs": 505,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3aba792df28c25da2cd9fca7f876b019445dc023184f22edf488dd2983b49af9",
+      "bytes": 4992
+    },
+    "city1-leda-v1/phrase/das-zuhause.mp3": {
+      "leadMs": 490,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f771d8f20c6f1e8ac639b3088aa6f11c16a12bbf18b71c47b05e77669fc9e61a",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/der-gedanke.mp3": {
+      "leadMs": 500,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4cd1b107e3574576b33726c2eb9d7e99b3d5056117c78bf489218236922172ac",
+      "bytes": 5376
+    },
+    "city1-leda-v1/phrase/das-wasser.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6da1383835f63a674c64c6ada1cc30a8a0752011dd6272160b681a4f82b1783a",
+      "bytes": 5184
+    },
+    "city1-leda-v1/phrase/das-wort.mp3": {
+      "leadMs": 830,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2386340b0e260acc338f1b7fdd572a0698fc73703bfa239c7217ca3cd0b3be3b",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/das-bild.mp3": {
+      "leadMs": 695,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "830c6812d6a0ccaf994af722df2235b1d1f6d93909e1802694d1c29ad5205cf6",
+      "bytes": 5856
+    },
+    "city1-leda-v1/phrase/der-grund.mp3": {
+      "leadMs": 585,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c70abe105f0b970424f5711927a9cf6f49a7c0dda3f25fddea49a154d8e8e544",
+      "bytes": 4896
+    },
+    "city1-leda-v1/phrase/der-bus.mp3": {
+      "leadMs": 390,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cfc699af5fbfe0cdeaa73ab50cba53211546001be965d79ec877a6b893aa9cf1",
+      "bytes": 3264
+    },
+    "city1-leda-v1/phrase/die-reise.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "355dfc439d370fea076646470ed05ca668a6cbf8e672a93238143951b4383111",
+      "bytes": 5856
+    },
+    "city1-leda-v1/phrase/das-beispiel.mp3": {
+      "leadMs": 365,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5898e456172e3ca4dce5e372c02d5fff8d668b3debd37136db240c0dd4d3b1d8",
+      "bytes": 4704
+    },
+    "city1-leda-v1/phrase/das-mal.mp3": {
+      "leadMs": 380,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8554a84c77867733df7d589b6a38fce3cadc9d94ebb2cc872400f0b7671869ea",
+      "bytes": 4512
+    },
+    "city1-leda-v1/phrase/die-lust.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "045c37f64a9e156a9308a0efaab04c32302e1116847aec484210beadcc37f4c0",
+      "bytes": 4416
+    },
+    "city1-leda-v1/phrase/der-freund.mp3": {
+      "leadMs": 405,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2c027111d5d7bec2ef5f91f3aa90c38f28f3a354c2e76c19f015acb4a2cfdec2",
+      "bytes": 4032
+    },
+    "city1-leda-v1/phrase/der-partner.mp3": {
+      "leadMs": 585,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ed2dbde569ff79a4360cf3a8d4ce72b60bf2b13dfa4897a4f32e8ff83ff3c6b6",
+      "bytes": 4992
+    },
+    "city1-leda-v1/phrase/der-weg.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3a6f4746af844a8bb534d76084c1af04b9400dbd4cea2a2663d1eea5bf0dea98",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/der-tag.mp3": {
+      "leadMs": 800,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e449e167a7bfbe256962cc6891a38f057c91a7028cc5e2d5140e00da3f1406a4",
+      "bytes": 5472
+    },
+    "city1-leda-v1/phrase/das-gesetz.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "c83a104e4d6a2426ffb80ec70eda4af167860184efff568c8b3e0c5f9ccbc246",
+      "bytes": 2976
+    },
+    "city1-leda-v1/phrase/die-katze.mp3": {
+      "leadMs": 705,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2831828fc60c086814dba345f3c539974e0e9cbc5a1e173cb24fbe02bfc6c947",
+      "bytes": 5664
+    },
+    "city1-leda-v1/word/slow/stadt.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "36dfde9f91677de4f935b3ce3805754f23a36e17b2f820f435fd08a9eb806e63",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/land.mp3": {
+      "leadMs": 955,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3d700daa2dbfe10ae441698c87799429791149c7f2cdbc08096e4504a4646c4a",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/uhr.mp3": {
+      "leadMs": 1050,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "1d3008d207c5dbe25a2661acc57224bb83a0919450e081b23d3d9dcd96f96c49",
+      "bytes": 6912
+    },
+    "city1-leda-v1/word/slow/monat.mp3": {
+      "leadMs": 480,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4459fd49adee703a45ad88da3b478611284a78ce70ac490e58fac2aa55fe2804",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/mensch.mp3": {
+      "leadMs": 475,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "965683c5cb1bb3bd5fb5a92ac7f8b97f802154f61173e6ae81bfdd2721629605",
+      "bytes": 5376
+    },
+    "city1-leda-v1/word/slow/klein.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "eb30102bed26ca04f9605d2fa4ae6ce2e92240f19dd27776b4d61c552756cef4",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/halb.mp3": {
+      "leadMs": 125,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "99fc4c754c4c6df8e191422a72db835390d90af5ae899c7d1b9359a23bad7110",
+      "bytes": 3072
+    },
+    "city1-leda-v1/word/slow/schwer.mp3": {
+      "leadMs": 930,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "95686b1eb79349c12a41dc288a090c1acfdbe1ff2e7a4a40050b29f6e77a626d",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/meinen.mp3": {
+      "leadMs": 925,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2cae34c739ac371a476d50c156497d03230ad44f71689107472c4983655e1a17",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/kommen.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "53b606f5f84f76f67a459e5d2ea4f38ced7a2f13f45f64b583d9365404fd437e",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/wohnen.mp3": {
+      "leadMs": 935,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "610a39b4be2826bd90682ee32adf1d889f900db18a2f103772ac9cb3aefc194c",
+      "bytes": 7392
+    },
+    "city1-leda-v1/word/slow/letzte.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "826bb5deb8a8486d4f62618e7b514d1b4da322e1de20901f77749ca0e803f1b6",
+      "bytes": 7680
+    },
+    "city1-leda-v1/word/slow/haus.mp3": {
+      "leadMs": 195,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "932bae715654c8f530cea8965bb133563e7c74f318f60bcc5684d13c2b74cd61",
+      "bytes": 3264
+    },
+    "city1-leda-v1/word/slow/moeglich.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7278dbbdce2299afc05ff61c16c6798effe21384ca158296f7529eef116b141f",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/leben.mp3": {
+      "leadMs": 1100,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "dea4264e29979a772ccc75b3a34f46fe04c8d8ca7050bcda4b2a44eb0f22c3b9",
+      "bytes": 7872
+    },
+    "city1-leda-v1/word/slow/ganz.mp3": {
+      "leadMs": 510,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "06d76769303b6fc535e60a483b504bc5fc404d264b9abccbe81d8e5cc352e9c9",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/slow/sicher.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "88ce10db612393ce9103969420c971ca2be580a6f8650d86edb8bbd05dfbe2de",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/woche.mp3": {
+      "leadMs": 550,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f751090bd9d9e6c629ee502509c27cc3544d72fe11ed1b48da9b8a04fd561842",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/denken.mp3": {
+      "leadMs": 100,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "f51c488c41b35ac38d0049b48aedd37633c66b549fdc69907ac8e8b1e118f58d",
+      "bytes": 3744
+    },
+    "city1-leda-v1/word/slow/hund.mp3": {
+      "leadMs": 970,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4de3b280e62566c82f68c06170052953fad3e02b319dc2aabf001e92b65d9769",
+      "bytes": 6912
+    },
+    "city1-leda-v1/word/slow/reden.mp3": {
+      "leadMs": 1105,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "aeba619853d90ba522182c1c859f4be768d9395beaa057ad106ae25b037ec35c",
+      "bytes": 8544
+    },
+    "city1-leda-v1/word/slow/erinnern.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e134c20cfa6088fd727105af432c26320f1c548809249b162c91fee2831580a3",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/sagen.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "22deb8edcfe27ec6bf1b05dc6f7df3c0dc89f84be58720b34a0bbf628f4ab852",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/musik.mp3": {
+      "leadMs": 530,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d9899f9b219caef81b660280aa51b2022588d00ed1cbe30a7557bc0674127cdb",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/bekommen.mp3": {
+      "leadMs": 655,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4914e8a9bb42b9dedc680ef07d721834c0f1c02e9658dd481acb61a964dc90ad",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/benutzen.mp3": {
+      "leadMs": 515,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "1a6142d43c2f0c19de060b7b4a0f7625df90b423352172c399bea2fb3afc8fc1",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/glauben.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d2cfd7bc2733ae878cb29bc647a43723c47de24d5e0ade820c6fae57cfa93193",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/essen.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "355dddeeba4ccd4e05aefaa4b8c603fa9a3f0c7e95c236839c12fdea4489e7ae",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/nehmen.mp3": {
+      "leadMs": 860,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5bcd7d2c2aeb5bc4266d0c5d109ce767c08dcbb5f0e0337b660b77e193bc76e8",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/mann.mp3": {
+      "leadMs": 635,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a26b137a3cf5342407d3fc88f8e26c5243a84f7b466d9427d546449b5fa87498",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/alt.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "672a297545bf106d931c30c629b960563b963c88f403214d1cc4d56245570e90",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/zeit.mp3": {
+      "leadMs": 160,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "65ea7e1c9a93346068d9bd57f3a9b777fe60cac3c37e89aab0c7d5e60a88496a",
+      "bytes": 3456
+    },
+    "city1-leda-v1/word/slow/stunde.mp3": {
+      "leadMs": 930,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0d1000da74c45c1c18f3946f96c62eab2e920179fe913ef21d195c9890d2b0ef",
+      "bytes": 8064
+    },
+    "city1-leda-v1/word/slow/person.mp3": {
+      "leadMs": 475,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8d202bf41e9546622419a71f556cc7e402e18c423f2386fb4efcc335016dc022",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/probieren.mp3": {
+      "leadMs": 530,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "329ee854e5d689bd439cbca50260c5cce8b69e727af0a15c8517e9282126dbe8",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/klasse.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f1939287b307f419660a530798980da2812e5d7e67043533755d84e43e704e0e",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/gut.mp3": {
+      "leadMs": 505,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cf84fe7aa5274daeec97ee43fcee50d94b3df3be92d7ebc6e3a9c7871717fdb7",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/slow/richtig.mp3": {
+      "leadMs": 575,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "365a8abf9ff23526c537cb1893f2f6fe40b9857d5cb954ea89e15007d6e3f59e",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/jahr.mp3": {
+      "leadMs": 930,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "565834226668964303d7c4006d8d9e859d78ce48bd487882edf97ff67da615bf",
+      "bytes": 6720
+    },
+    "city1-leda-v1/word/slow/schoen.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8bf80fbb3b359fd051ed28808b85c46391f59ad2988e85183e02bd31018fa5ed",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/mutter.mp3": {
+      "leadMs": 470,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ca51810e5c81d0aff557e7ed1578fa0b9d0b639d39c6f07a05498f1ff588c317",
+      "bytes": 4800
+    },
+    "city1-leda-v1/word/slow/meinung.mp3": {
+      "leadMs": 910,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "98e9756a49999fb99fc4bf9d666146655e46ba9343600e066cd5a5211062beb0",
+      "bytes": 6912
+    },
+    "city1-leda-v1/word/slow/treffen.mp3": {
+      "leadMs": 545,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "693ee9956181d87d0013eb197e81d98ddc2a94464ab87a54c1cea84ea01e9d7a",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/sitzen.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "159ba68d0194ee81724e22f2432f27f9c5d3d52c97fb81b1d0c5688dc0955df0",
+      "bytes": 3456
+    },
+    "city1-leda-v1/word/slow/schule.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "533995318aedecc0faf7e5a3169a3d80ef4ff5ff907f265157a6ce36659f1bec",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/stehen.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0040229a0bf9464bd0898df6fd7270b2d2fc48edee5ac6cfef7c0b120fe51c1a",
+      "bytes": 6720
+    },
+    "city1-leda-v1/word/slow/verschieden.mp3": {
+      "leadMs": 1090,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b9390d6ec9363fa3a7ddd3e727a53684407561dbcc0a9b5d6b085b6a3a10a39b",
+      "bytes": 8736
+    },
+    "city1-leda-v1/word/slow/liegen.mp3": {
+      "leadMs": 975,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c8608ce6946ef5499ca6ec9b7f0bf7f9ea5847af3606815eb1ed3108ec1d48d0",
+      "bytes": 8736
+    },
+    "city1-leda-v1/word/slow/vater.mp3": {
+      "leadMs": 730,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "527ce52b78c6f0d4244fbfa3d80d2f0173e5b5350e25adc9153778fd2c475499",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/arbeit.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "00d0d44cf990f4f4db1e4ac1507d952f133dd721dcad2cdd47f8aa15cff75389",
+      "bytes": 5760
+    },
+    "city1-leda-v1/word/slow/platz.mp3": {
+      "leadMs": 1135,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "beb2e53314b625e471ba7ac5045a0cd4f6d12a47c95387effbcb8b625a6baa91",
+      "bytes": 8544
+    },
+    "city1-leda-v1/word/slow/lesen.mp3": {
+      "leadMs": 955,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b341b9c7104ddfb819312711bc49e6912d6388fae1b7df7c3b52612e39443263",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/geschichte.mp3": {
+      "leadMs": 655,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a44039bf8dd432b90bd1a967c0cb8e52aa6044015dad16d123a5b8977afc6d53",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/schlecht.mp3": {
+      "leadMs": 935,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e82b677ddd626a93f18f50e04fabb7d06e4052fe9f141b30fae64bd8c033fc2c",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/auto.mp3": {
+      "leadMs": 975,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "47eb41b99c67ebf5f03b5cd0847f4b6e9a0b550e376a0ad517235e6498552bd1",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/name.mp3": {
+      "leadMs": 190,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "7b3a079f959f7def3fc5159f218d32d69341293c98053a3f19b1e50bf5932c7a",
+      "bytes": 4608
+    },
+    "city1-leda-v1/word/slow/gross.mp3": {
+      "leadMs": 915,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "25e199db9523d43fb371ca8ada8b63e488811a440891fdd156b83eb694d44f02",
+      "bytes": 7392
+    },
+    "city1-leda-v1/word/slow/erreichen.mp3": {
+      "leadMs": 905,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3b082ac43ad75e37b3fde861ce4748979fab26e2dc69c741b016d172d50283ec",
+      "bytes": 7872
+    },
+    "city1-leda-v1/word/slow/machen.mp3": {
+      "leadMs": 525,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "61e35e823740ccaae630e17292a3f48a3eecdb1843dffd1a55cf22919827e324",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/slow/kind.mp3": {
+      "leadMs": 1020,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "47535f6f9d47a5634e7c6e2d460cfb3be220e2afd6822067d4cd9d731c1215b0",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/film.mp3": {
+      "leadMs": 530,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "97dcb10a61cd640e4e34fc46822173acaca4cff8c46be8d0e39048c3706c982a",
+      "bytes": 4800
+    },
+    "city1-leda-v1/word/slow/maedchen.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0024c2527b2380fe91bd34d828730e173ea3265172d3039ba8f49dcc347c8ed9",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/spannend.mp3": {
+      "leadMs": 940,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "570bba538226e140bc9a1607a03ee2eb0be5b05ae7149f1d64ab665253ccb5be",
+      "bytes": 8064
+    },
+    "city1-leda-v1/word/slow/geld.mp3": {
+      "leadMs": 465,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e3d4da342737c0243f00ca67106614ca3b687d7928eddeb200e18f20842230a9",
+      "bytes": 4608
+    },
+    "city1-leda-v1/word/slow/tier.mp3": {
+      "leadMs": 510,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "18a6227c3074e1aec408e5cc971009a72b47c3245e506ac608844f98b0f06c94",
+      "bytes": 4800
+    },
+    "city1-leda-v1/word/slow/fahren.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a40efcc0b57494323c25c14ff87b66c1db5fef56c49974f5d96f3ef76eefe9b3",
+      "bytes": 5088
+    },
+    "city1-leda-v1/word/slow/heissen.mp3": {
+      "leadMs": 640,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "bd201666449eccf924b7655c661b9e7b2725aaa0ec8ce2aad2b5fea72ca8de12",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/seite.mp3": {
+      "leadMs": 645,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6dc4988a79a444f9a46b8cb7c0db9d7ee488651b8799e6c6fe715eb1378476f2",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/gehen.mp3": {
+      "leadMs": 700,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "11cd7b5e4ccac294dfba273fb8b5c1d2767ec8b48f65987165729b307f591d10",
+      "bytes": 7392
+    },
+    "city1-leda-v1/word/slow/lang.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b5fdb3863358877fbf8a5b47932fd178516ed236bfa5b524d4fefbf729a8a7f1",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/krone.mp3": {
+      "leadMs": 900,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9ef63ecf8d8dbcd066cd9c2300e12433b0ea24e4de135bfa04b83deedff37a4d",
+      "bytes": 7392
+    },
+    "city1-leda-v1/word/slow/neu.mp3": {
+      "leadMs": 455,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8dd6fc083dcbb9c87f4c53a4572ffe1c32eb0a01e8b484bf4f2b07c75409e5ae",
+      "bytes": 5088
+    },
+    "city1-leda-v1/word/slow/daenisch.mp3": {
+      "leadMs": 530,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d2f0110814aaa5781966b5ddff371dc6ccf70b6854320a16bfefc8482026499c",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/bereit.mp3": {
+      "leadMs": 510,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "36f5968f9696b482be971ba3d1c8a50db310ff237c513dcba14c9784188d25e9",
+      "bytes": 5088
+    },
+    "city1-leda-v1/word/slow/weise.mp3": {
+      "leadMs": 930,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "df6656e035c4fb7e6aa470e68895f2ba260a7b0c85fb84d1a3ca8bae21f1dec0",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/sprache.mp3": {
+      "leadMs": 525,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "496b82a9ec544df3d47d1253572bc6678ecf6519edbb4f6302da4c3664efcb45",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/welt.mp3": {
+      "leadMs": 920,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "315154622f5ecea2addfb410f71c58d1dfc788001fbc6fe54b8e49cdab120564",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/zweifel.mp3": {
+      "leadMs": 160,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4c1177f61801759034094db02af5a1e363a68b7db320c3fe9f88982a70690b72",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/slow/zuhause.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2b16e88795de9d63ecbcee8c849d839efa5e1a1377e0558e3e3960d35a817eb0",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/gedanke.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c649dbe7ae5d7eb5b775d8fe26981f0ce0aadb18cf9d81450947dbc3850396d0",
+      "bytes": 8256
+    },
+    "city1-leda-v1/word/slow/wasser.mp3": {
+      "leadMs": 930,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f21da8ebf06893784849e0e9ad4152e30e5a87885ce77afa0de18a9345829b11",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/wort.mp3": {
+      "leadMs": 925,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "02acb4d742e807bd2d0d3a95424476942be8f636334e592be52eb0d09f8a1222",
+      "bytes": 7872
+    },
+    "city1-leda-v1/word/slow/bild.mp3": {
+      "leadMs": 925,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "557df42e7e2ec61416bc796471ad5a46a551db9a488fb261a35dc3ac76180693",
+      "bytes": 6528
+    },
+    "city1-leda-v1/word/slow/sehen.mp3": {
+      "leadMs": 925,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "647d669264789d84ceb43f43de8e47b5ea09169d8f5419f19b71fd3755abbc61",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/grund.mp3": {
+      "leadMs": 665,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "89f97755d546a64230b5e01fc28f60cb0305c16e72faf96f5f77338cf596e86f",
+      "bytes": 5952
+    },
+    "city1-leda-v1/word/slow/bus.mp3": {
+      "leadMs": 565,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "99e749b537276af0c572c247699c963349192368f4f1f1e4d884e8f2982ad689",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/reise.mp3": {
+      "leadMs": 715,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cde5f1498996e20763d5f918754ccb5c6ae8be8c1526daf2d1d2794963413ada",
+      "bytes": 7392
+    },
+    "city1-leda-v1/word/slow/lustig.mp3": {
+      "leadMs": 905,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "338de3bea2ecc3f653d7f3119a87ac56be51408cc3850c8fe72a8941af2754a2",
+      "bytes": 6720
+    },
+    "city1-leda-v1/word/slow/beispiel.mp3": {
+      "leadMs": 960,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2e8941a4efbf18e092e8b3e8494816e5c0aa6c864af7eb0bd875b06778611343",
+      "bytes": 7104
+    },
+    "city1-leda-v1/word/slow/mal.mp3": {
+      "leadMs": 65,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "1b64276a1ce823fecd0244289159cd84057d0896d862b2f95742100659663b32",
+      "bytes": 2592
+    },
+    "city1-leda-v1/word/slow/wissen.mp3": {
+      "leadMs": 110,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "2d1bd6cdcfa1e5e9745fe27381f3b7e453210e6ff11696ef200fe134510d4392",
+      "bytes": 3072
+    },
+    "city1-leda-v1/word/slow/lust.mp3": {
+      "leadMs": 965,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "571ba5af49696acc12d0797d4524502444660cbc55fd295741e0703eb0a1e7fc",
+      "bytes": 6720
+    },
+    "city1-leda-v1/word/slow/freund.mp3": {
+      "leadMs": 490,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "cf312cf260c9d779f01cef61e7541fa560eb9872554e954c31c9c1fdd6d789fc",
+      "bytes": 6240
+    },
+    "city1-leda-v1/word/slow/partner.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "ece08dde74b207a1ac8796710937960d497f7b69540814e5764e60c62b2182cc",
+      "bytes": 5568
+    },
+    "city1-leda-v1/word/slow/hoeren.mp3": {
+      "leadMs": 965,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e7c3f1ae2def1dafcae54f05654ed00f34247dd5e949a3bfd274cd5d7b9747e6",
+      "bytes": 6912
+    },
+    "city1-leda-v1/word/slow/finden.mp3": {
+      "leadMs": 475,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "823cb41e791f5a814dcb2eeff3b1753fe8d67aaea8fa5dcfe707a3c2144d86fa",
+      "bytes": 4800
+    },
+    "city1-leda-v1/word/slow/weg.mp3": {
+      "leadMs": 510,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9f749f3a86ecb3a83233ef450555725d369f0ae53d214dccdbfe628672317967",
+      "bytes": 4224
+    },
+    "city1-leda-v1/word/slow/tag.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c9c9d93c9824f9ee4152fef2dee5c170eef0bca703f7e709987000a12d82781b",
+      "bytes": 4416
+    },
+    "city1-leda-v1/word/slow/gesetz.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "21a70639cd5ce068087303af1a3c6d37cff0e378f28850e12d998fd65ba4f021",
+      "bytes": 3936
+    },
+    "city1-leda-v1/word/slow/katze.mp3": {
+      "leadMs": 900,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5c627be811367e9f77e5d4c883364a03783326468f55bc9c91243e16eb8c238b",
+      "bytes": 7392
+    },
+    "city1-leda-v1/phrase/slow/die-stadt.mp3": {
+      "leadMs": 960,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d423f6ca2fc8658a6e423e241da9efe804bbbeedab686a0e9e8939fc123666a4",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/das-land.mp3": {
+      "leadMs": 485,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d1a280f1deaaf30ea5997a69b9ed97445baa6892a74d9c67a9e778f13c5ce509",
+      "bytes": 4800
+    },
+    "city1-leda-v1/phrase/slow/die-uhr.mp3": {
+      "leadMs": 955,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fd4ef8d3181650113015de90711db59926d6effc4c00eb0d4019024ef5dc4af7",
+      "bytes": 6720
+    },
+    "city1-leda-v1/phrase/slow/der-monat.mp3": {
+      "leadMs": 1080,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d3dc0741fbe6145cb3d50bb28769478602d1bb6afe6224e81d9147707237a712",
+      "bytes": 8256
+    },
+    "city1-leda-v1/phrase/slow/der-mensch.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "416b9acdb3ab6d2488d3bacb56bc3813c6650c3afdab20ef904f10c596cecde1",
+      "bytes": 6240
+    },
+    "city1-leda-v1/phrase/slow/das-haus.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "bd04f6516ae9e2b77276b4ea4ca8c75c66247e23d87ad7bb7ee24e90c8f13584",
+      "bytes": 3936
+    },
+    "city1-leda-v1/phrase/slow/das-leben.mp3": {
+      "leadMs": 1155,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "f5f8c60ce34a5bf376345f577dcfa4341e75bcc9221b45d46fc50a060676e392",
+      "bytes": 8544
+    },
+    "city1-leda-v1/phrase/slow/die-woche.mp3": {
+      "leadMs": 535,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "885bd521c252232efd0173dbeb8aaadd9a3aba22560ca6b8f3a2ebe0620ee881",
+      "bytes": 5088
+    },
+    "city1-leda-v1/phrase/slow/der-hund.mp3": {
+      "leadMs": 965,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "a8c9eb08b28fbddd93a820ee9853549bfb8400b3a8e9ef95e7942f6891d17286",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/die-musik.mp3": {
+      "leadMs": 510,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5dea3a02f4e423274fd1b52a825428f1f7b7cc5345344c67f37cda9d5203d8fc",
+      "bytes": 5760
+    },
+    "city1-leda-v1/phrase/slow/das-essen.mp3": {
+      "leadMs": 90,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "1208497c4c966f1865ec77f69cb70e545863efe15017eae3ef1533910dba6be5",
+      "bytes": 4224
+    },
+    "city1-leda-v1/phrase/slow/der-mann.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6746a265f37638da159166625338fdadc558ef780427baade46cb83945d649bf",
+      "bytes": 6528
+    },
+    "city1-leda-v1/phrase/slow/die-zeit.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "47c9c9163c122ae7e7bb9a1a6f2493f931997bd26d0bb0be24eff9d1d69725b0",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/die-stunde.mp3": {
+      "leadMs": 230,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "24644caa99931c86afabcf2cec8b69310d8fd5bdc540c3dc4a78e5db3fc2dfcb",
+      "bytes": 4800
+    },
+    "city1-leda-v1/phrase/slow/die-person.mp3": {
+      "leadMs": 505,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e75c22add352151fc12f4f922a4a31d7199bbf6c9ee5767762366262045bc8c9",
+      "bytes": 6720
+    },
+    "city1-leda-v1/phrase/slow/die-klasse.mp3": {
+      "leadMs": 505,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "dae4c96ce3c44b6a0e8764f59348e7b52c2f40e5ccfffa5d1a048e3fab9dff73",
+      "bytes": 6240
+    },
+    "city1-leda-v1/phrase/slow/das-jahr.mp3": {
+      "leadMs": 960,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "06679883389ffe410b33f680a32f667b153a4a05040e7eff9bcd07bc0b247617",
+      "bytes": 8544
+    },
+    "city1-leda-v1/phrase/slow/die-mutter.mp3": {
+      "leadMs": 660,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "e3c70e14027305fb44064034d5763e98ec749f152612afe79f492bf21d82e5c1",
+      "bytes": 5952
+    },
+    "city1-leda-v1/phrase/slow/die-meinung.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b78fc1fc9591e9e5d0c9338837c93a07ada4b9938e8880e48607dc53ef365038",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/das-treffen.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "f58ea24f69b8590a98d970a5f2c82554969e29eca69107e72b9a3074e1e689bb",
+      "bytes": 3936
+    },
+    "city1-leda-v1/phrase/slow/die-schule.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "12f26b8fbb2e108e9f7f8f325ccb6b5e59123ce0cdf8dfa6742308388d0da22a",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/der-vater.mp3": {
+      "leadMs": 970,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6402e252c507b4f0ac3bc5d685c1551d31abae6b1da74dfb5d8e3cc38f2a216c",
+      "bytes": 8064
+    },
+    "city1-leda-v1/phrase/slow/die-arbeit.mp3": {
+      "leadMs": 1070,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c01725ef912991c01363074cb8b186715329054cb93ed0ce7cbb6e45c490515f",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/der-platz.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8bb0611e4368d41f424c1bca694d53b79b89d2a5a2ac40a0d5809d3be4cd461c",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/die-geschichte.mp3": {
+      "leadMs": 1070,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2522ea4e31e1fb42615b64cc2e90ff1df043a4e5d284aa85920e3fb821897ae7",
+      "bytes": 9216
+    },
+    "city1-leda-v1/phrase/slow/das-auto.mp3": {
+      "leadMs": 885,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b4dcecd0a9ed26aafa9bea37b0948636f37c13b4c9346aed01ae3f52a3f4e5e5",
+      "bytes": 7872
+    },
+    "city1-leda-v1/phrase/slow/der-name.mp3": {
+      "leadMs": 520,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2d26beab7f9f6b63b47e7e3d79dbb7fac9679c9609b187401e232d82a5b137d2",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/das-kind.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "27f3cc53c632df2ca7b91abcaf9f02ea56c86f3c57a169b3cf82eb9efcc407ed",
+      "bytes": 5952
+    },
+    "city1-leda-v1/phrase/slow/der-film.mp3": {
+      "leadMs": 970,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0b7c28d0ce1db69a18ea3b346937c456551d20a5235ad68c0f14e0486bb7db9d",
+      "bytes": 7392
+    },
+    "city1-leda-v1/phrase/slow/das-maedchen.mp3": {
+      "leadMs": 85,
+      "leadClassification": "compensated-leading-silence",
+      "sha256": "01d6d2ee806a88198f592e6093fd0b6a287e7658b84805d9035b7167f313795b",
+      "bytes": 3936
+    },
+    "city1-leda-v1/phrase/slow/das-geld.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "17e09581bbfde53423191795e4a4873779fb4c0026832ebb5f187efc3d7511ea",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/das-tier.mp3": {
+      "leadMs": 545,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "4ee2c8811395e89680ee64f4df00e25b67a1c8bc1fe20c7b7582a908fa5a3760",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/die-seite.mp3": {
+      "leadMs": 945,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fddbc88e2d6cbc59e39a084f74951aed748ca76241ae758b068fa2716e2c8f1e",
+      "bytes": 6720
+    },
+    "city1-leda-v1/phrase/slow/die-krone.mp3": {
+      "leadMs": 980,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "0222bbfecbf122edd41fecf66db907927aa3d88833fd1778b05728997acc6b7e",
+      "bytes": 8064
+    },
+    "city1-leda-v1/phrase/slow/die-weise.mp3": {
+      "leadMs": 535,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "c215b8d252577969c05c456cba4bafd6b692f33e2cd9c58a32a8a5c9a3c2a00a",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/die-sprache.mp3": {
+      "leadMs": 955,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "9ade89a3109eb97c80d3146e3db3300b712df13b9757cfc6f662aa0d904e77ad",
+      "bytes": 8064
+    },
+    "city1-leda-v1/phrase/slow/die-welt.mp3": {
+      "leadMs": 480,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "73957e32fe884c4cf478cd6bf358cc02862e6b740102580c1d6a16f360a256d4",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/der-zweifel.mp3": {
+      "leadMs": 955,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "dc34fd6725c647d7d8e1ba74a9e1531db0d260bec4dc6b6f9551d336364f9b5f",
+      "bytes": 8544
+    },
+    "city1-leda-v1/phrase/slow/das-zuhause.mp3": {
+      "leadMs": 1080,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b6b43a7c1980d6b5d743d36abad9c2be8d33b960327966e021eed9c4718b8903",
+      "bytes": 9216
+    },
+    "city1-leda-v1/phrase/slow/der-gedanke.mp3": {
+      "leadMs": 565,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b9d93f40674c4eb8702a5a904d995e58b28fbd9ba45bc9d8e5662a00aae5e627",
+      "bytes": 5952
+    },
+    "city1-leda-v1/phrase/slow/das-wasser.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "fc80688ac54f49c7b850f040abf2a2bcea3bf73a177faa374cdb7dd2032a7e3b",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/das-wort.mp3": {
+      "leadMs": 1075,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3d11d772617d8378e83400503aa34e1b903334ca47e192daee1611b47fb17611",
+      "bytes": 8736
+    },
+    "city1-leda-v1/phrase/slow/das-bild.mp3": {
+      "leadMs": 1140,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "2bffaba92480b1f86fdca55ef90f8c6cfbc3f13f3a939cc8ea38230abb372590",
+      "bytes": 8544
+    },
+    "city1-leda-v1/phrase/slow/der-grund.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "d50f3b7f0833737d6abc1315ef8d6c6cacda51e2e8ba63c15b2613744b1d1b38",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/der-bus.mp3": {
+      "leadMs": 685,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "aa465e278d5d56dcab3ae81c198dae24c1901374bb3ab7f0030ea7b3dcf12f23",
+      "bytes": 5952
+    },
+    "city1-leda-v1/phrase/slow/die-reise.mp3": {
+      "leadMs": 1065,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "b7882026719c3f011edbc44ed8f2ff44a07aa6a6831337882d4818b4a98ea6da",
+      "bytes": 8256
+    },
+    "city1-leda-v1/phrase/slow/das-beispiel.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "53e2c799ee5f4aba8e40a948bdbe24023b081f799c99f53bcf7c985d5c4ecf5c",
+      "bytes": 7104
+    },
+    "city1-leda-v1/phrase/slow/das-mal.mp3": {
+      "leadMs": 680,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "6726ac9b32b6ffaaff3eb1f7cb9c9510589bf6a724b19cdc2eff1c2666d242c3",
+      "bytes": 5760
+    },
+    "city1-leda-v1/phrase/slow/die-lust.mp3": {
+      "leadMs": 565,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "68230009246b994eac1e0a5afb7f14f670c4ed0931bccc93ed555f7384ed1b93",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/der-freund.mp3": {
+      "leadMs": 540,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "61bd79ba905615eaacfa8719d09802b41d7b8fb3e78ce75c1517ab1731c5d43f",
+      "bytes": 5568
+    },
+    "city1-leda-v1/phrase/slow/der-partner.mp3": {
+      "leadMs": 965,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "8ed42d386fc9cbc22f8f31425757e0f4cd2b5be669543862e7308935e4343c3c",
+      "bytes": 8064
+    },
+    "city1-leda-v1/phrase/slow/der-weg.mp3": {
+      "leadMs": 970,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "87e4d696178705dc02b705b5f167060915de7ce568897040022b1b682a1969a1",
+      "bytes": 7680
+    },
+    "city1-leda-v1/phrase/slow/der-tag.mp3": {
+      "leadMs": 960,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5593377eba11fc28570b30b8a2930f9771ffae06bc11b018d3ac9386e63bcf94",
+      "bytes": 6912
+    },
+    "city1-leda-v1/phrase/slow/das-gesetz.mp3": {
+      "leadMs": 960,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "3ec50b5e12d2025b775f505eeda25f598e05a74b981f87e3066f8c6e6a829559",
+      "bytes": 8544
+    },
+    "city1-leda-v1/phrase/slow/die-katze.mp3": {
+      "leadMs": 600,
+      "leadClassification": "long-but-compensated-lead",
+      "sha256": "5eb5de63533bb6abcc8c4edf1dfc20f1149fcd1930964db4478f25ef116d73e8",
+      "bytes": 6528
+    }
+  }
+}

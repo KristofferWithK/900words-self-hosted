@@ -1,0 +1,15 @@
+{
+  "description": "Owner-selected Danish spoken-vocabulary additions for cross-corpus coverage research. This extends the 900 card words plus 252 support forms in research reports; it does not by itself create playable course cards.",
+  "selectedForms": [
+    "øh",
+    "jamen",
+    "ej",
+    "ligesom",
+    "ting",
+    "fald"
+  ],
+  "spokenFormEquivalences": {
+    "ha": "have",
+    "ik": "ikke"
+  }
+}

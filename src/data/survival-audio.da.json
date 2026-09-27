@@ -1,0 +1,1014 @@
+{
+  "language": "da",
+  "generatedFrom": "the authored Danish Survival Guide dialogue",
+  "entries": [
+    {
+      "id": "sonderborg-situation-1-line-1",
+      "activityId": "sonderborg-situation-1",
+      "lineIndex": 0,
+      "textDa": "Hej! Velkommen til Sønderborg.",
+      "sourceHash": "88666326a5a56bd940dbf44eab1d08a9843b421c14f3f117b69e493025b0e3bb"
+    },
+    {
+      "id": "sonderborg-situation-1-line-2",
+      "activityId": "sonderborg-situation-1",
+      "lineIndex": 1,
+      "textDa": "Hej! Jeg hedder Mia.",
+      "sourceHash": "6e1dbed3814df60da2944031ddf39263f012aa1dd28fbdc867f51d0e05a1c0bf"
+    },
+    {
+      "id": "sonderborg-situation-1-line-3",
+      "activityId": "sonderborg-situation-1",
+      "lineIndex": 2,
+      "textDa": "Hyggeligt at møde dig, Mia.",
+      "sourceHash": "d63702de050276bb100147b3b5fa8c3461a4283ec844549eafcd151c0ab13864"
+    },
+    {
+      "id": "sonderborg-situation-1-line-4",
+      "activityId": "sonderborg-situation-1",
+      "lineIndex": 3,
+      "textDa": "I lige måde.",
+      "sourceHash": "0a8fccb27d0e27c6cd60889e1fd75214d337ae5385c3f43d4525433902089f85"
+    },
+    {
+      "id": "sonderborg-situation-2-line-1",
+      "activityId": "sonderborg-situation-2",
+      "lineIndex": 0,
+      "textDa": "Kommer du fra Canada?",
+      "sourceHash": "c318348066d2785bd8d6671ee0c11d0428c90fbd40c58605e34f35efb85e1dff"
+    },
+    {
+      "id": "sonderborg-situation-2-line-2",
+      "activityId": "sonderborg-situation-2",
+      "lineIndex": 1,
+      "textDa": "Ja, jeg kommer fra Canada.",
+      "sourceHash": "fa3dee7197f9a904f1dc3e7d1a9243d0f18f160dab432d8e63065d270583e6e8"
+    },
+    {
+      "id": "sonderborg-situation-2-line-3",
+      "activityId": "sonderborg-situation-2",
+      "lineIndex": 2,
+      "textDa": "Velkommen. Jeg skal videre nu.",
+      "sourceHash": "977ec56941c63a9883d5fc61444115fff80473a974ee89db4bec445cdf8fb662"
+    },
+    {
+      "id": "sonderborg-situation-2-line-4",
+      "activityId": "sonderborg-situation-2",
+      "lineIndex": 3,
+      "textDa": "Farvel!",
+      "sourceHash": "01d2f69c1cb23720d50777d9ea2ab82ddba4744830fabbf312620fff80ead467"
+    },
+    {
+      "id": "sonderborg-situation-3-line-1",
+      "activityId": "sonderborg-situation-3",
+      "lineIndex": 0,
+      "textDa": "Øh, bussen kører fra spor tre om fem minutter.",
+      "sourceHash": "b96853e60e6afb7f6d3dd09a4f1f5795dff11163991f99dcf52b0b62444b02d8"
+    },
+    {
+      "id": "sonderborg-situation-3-line-2",
+      "activityId": "sonderborg-situation-3",
+      "lineIndex": 1,
+      "textDa": "Kan du sige det igen?",
+      "sourceHash": "9e7b81a97816f163ed10be4a25c5f1c7693be5058d6a8c9732cdb0959af0f7d9"
+    },
+    {
+      "id": "sonderborg-situation-3-line-3",
+      "activityId": "sonderborg-situation-3",
+      "lineIndex": 2,
+      "textDa": "Ja. Fra spor tre om fem minutter.",
+      "sourceHash": "bc44bf62af6342b5019784a3d7ada3c35fbb44e8da0c6317c0f723272259be20"
+    },
+    {
+      "id": "sonderborg-situation-3-line-4",
+      "activityId": "sonderborg-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "sonderborg-situation-4-line-1",
+      "activityId": "sonderborg-situation-4",
+      "lineIndex": 0,
+      "textDa": "Undskyld, kan du hjælpe mig?",
+      "sourceHash": "994b7c1956e2da81e8dac3faa190a0fe319cc248916a470cfa5315cd5b1430e0"
+    },
+    {
+      "id": "sonderborg-situation-4-line-2",
+      "activityId": "sonderborg-situation-4",
+      "lineIndex": 1,
+      "textDa": "Ja, selvfølgelig.",
+      "sourceHash": "bd8fb1de094e176bed6d0bcd29e439fba9ef41ee3a861ee3a191cfb3e6b093a2"
+    },
+    {
+      "id": "sonderborg-situation-4-line-3",
+      "activityId": "sonderborg-situation-4",
+      "lineIndex": 2,
+      "textDa": "Hvor er toilettet?",
+      "sourceHash": "d209ca175abb6106bb0f26347fd58cf3669e8ae6613add3c9c7a095339bdda09"
+    },
+    {
+      "id": "sonderborg-situation-4-line-4",
+      "activityId": "sonderborg-situation-4",
+      "lineIndex": 3,
+      "textDa": "Det er lige der.",
+      "sourceHash": "68dc4ea654f3e82959708017b1d79d4b704a0c0f32b42b51a94d782b2014b568"
+    },
+    {
+      "id": "ribe-situation-1-line-1",
+      "activityId": "ribe-situation-1",
+      "lineIndex": 0,
+      "textDa": "Hej, jeg hedder Anna. Hvor bor du?",
+      "sourceHash": "c4ee0c130a1f5a5932b15896be9560b7c51a9f95a97655a9c832e227d15140af"
+    },
+    {
+      "id": "ribe-situation-1-line-2",
+      "activityId": "ribe-situation-1",
+      "lineIndex": 1,
+      "textDa": "Jeg bor i Odense.",
+      "sourceHash": "bcc209de8822cbb9039e39f24739d788d0b3a18e3f8053acd8303f82b36b4435"
+    },
+    {
+      "id": "ribe-situation-1-line-3",
+      "activityId": "ribe-situation-1",
+      "lineIndex": 2,
+      "textDa": "Det er en fin by.",
+      "sourceHash": "410fe2fad54eec53e560780bf35b25cfda2ebba6d10d28c56ac449aa2d7726a0"
+    },
+    {
+      "id": "ribe-situation-1-line-4",
+      "activityId": "ribe-situation-1",
+      "lineIndex": 3,
+      "textDa": "Ja, det synes jeg også.",
+      "sourceHash": "b5812542447718c013ba7a3ea3fdfc8acea59551ae9941a5df580fdecb9615e4"
+    },
+    {
+      "id": "ribe-situation-2-line-1",
+      "activityId": "ribe-situation-2",
+      "lineIndex": 0,
+      "textDa": "Hvad arbejder du med?",
+      "sourceHash": "5782373cda5b5b6698fdf11d5da3cbe650b296273cc93e94dac0363da5c4e238"
+    },
+    {
+      "id": "ribe-situation-2-line-2",
+      "activityId": "ribe-situation-2",
+      "lineIndex": 1,
+      "textDa": "Jeg arbejder som lærer.",
+      "sourceHash": "1309f5df9962bd3b3993954068d3a950eeee9d7ebc7786a3302ed969f295366d"
+    },
+    {
+      "id": "ribe-situation-2-line-3",
+      "activityId": "ribe-situation-2",
+      "lineIndex": 2,
+      "textDa": "Hvor arbejder du?",
+      "sourceHash": "625507955dfa38d726c6eef4bee08e20ec8f7e83b4f977db27b0fe7c14f5c00f"
+    },
+    {
+      "id": "ribe-situation-2-line-4",
+      "activityId": "ribe-situation-2",
+      "lineIndex": 3,
+      "textDa": "På en skole i Ribe.",
+      "sourceHash": "ecfa5a94122b8b1048166ff8befb9ad0170f50a9e6a678a72fb26c98039590b3"
+    },
+    {
+      "id": "ribe-situation-3-line-1",
+      "activityId": "ribe-situation-3",
+      "lineIndex": 0,
+      "textDa": "Hvordan staver du dit navn?",
+      "sourceHash": "b020e3e3c4dadac0f3866cbb266edac595bfd5bef53104ebf88a8b59ad2fff86"
+    },
+    {
+      "id": "ribe-situation-3-line-2",
+      "activityId": "ribe-situation-3",
+      "lineIndex": 1,
+      "textDa": "Lea staves L-E-A.",
+      "sourceHash": "39ba8c34db1274b3202813157019febd169959af00eb4d45f7757c1f3c06dc02"
+    },
+    {
+      "id": "ribe-situation-3-line-3",
+      "activityId": "ribe-situation-3",
+      "lineIndex": 2,
+      "textDa": "Tak, Lea.",
+      "sourceHash": "e3533dc7bdadd618a4d7b330f6f8b2d9fe7c2136159f34df135a75fe86254b19"
+    },
+    {
+      "id": "ribe-situation-3-line-4",
+      "activityId": "ribe-situation-3",
+      "lineIndex": 3,
+      "textDa": "Selv tak.",
+      "sourceHash": "59a25c8386694b7c996b5d5358df6009ff73bf68226999fe14ce4f332128a75c"
+    },
+    {
+      "id": "ribe-situation-4-line-1",
+      "activityId": "ribe-situation-4",
+      "lineIndex": 0,
+      "textDa": "Er det dine ting?",
+      "sourceHash": "a7e341a3d0a8585742f845ea98209316daf186350c091459e1afd178870d62b0"
+    },
+    {
+      "id": "ribe-situation-4-line-2",
+      "activityId": "ribe-situation-4",
+      "lineIndex": 1,
+      "textDa": "Ja, det er mine ting.",
+      "sourceHash": "bc49a088885adb632454dbc81267624c9fb16c21b626543788481e0b48889154"
+    },
+    {
+      "id": "ribe-situation-4-line-3",
+      "activityId": "ribe-situation-4",
+      "lineIndex": 2,
+      "textDa": "Her er de.",
+      "sourceHash": "40a11df7b673baa2c6a08a0417bd564c47635309fba1bd8c5e4f9e47eb9af56e"
+    },
+    {
+      "id": "ribe-situation-4-line-4",
+      "activityId": "ribe-situation-4",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "kolding-situation-1-line-1",
+      "activityId": "kolding-situation-1",
+      "lineIndex": 0,
+      "textDa": "Hvad vil du gerne have?",
+      "sourceHash": "26e7d3562a541f69237379217806826aa4dd002a7aa5c5186b5e8eea0594c3ca"
+    },
+    {
+      "id": "kolding-situation-1-line-2",
+      "activityId": "kolding-situation-1",
+      "lineIndex": 1,
+      "textDa": "Jeg vil gerne have en sandwich og et glas vand, tak.",
+      "sourceHash": "91587ff909caa8fa7bd1e9ef426367a40e37612ce4efc1ffea4d08ceda1bce5e"
+    },
+    {
+      "id": "kolding-situation-1-line-3",
+      "activityId": "kolding-situation-1",
+      "lineIndex": 2,
+      "textDa": "Det kommer med det samme.",
+      "sourceHash": "5d3883c105c4406245855b9c3c2cd6bc43e7e2e1a136206b60e214213a2eb4ec"
+    },
+    {
+      "id": "kolding-situation-1-line-4",
+      "activityId": "kolding-situation-1",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "kolding-situation-2-line-1",
+      "activityId": "kolding-situation-2",
+      "lineIndex": 0,
+      "textDa": "Kan jeg hjælpe?",
+      "sourceHash": "31a382eb7ab1f1e01c4d69e5e601df458e2f54d3078e516689706db0abc15b18"
+    },
+    {
+      "id": "kolding-situation-2-line-2",
+      "activityId": "kolding-situation-2",
+      "lineIndex": 1,
+      "textDa": "Hvor meget koster brødet?",
+      "sourceHash": "9f539e6f6aeee04f127a57190f81afe944e81c5be54b33628814ecb34743e7ab"
+    },
+    {
+      "id": "kolding-situation-2-line-3",
+      "activityId": "kolding-situation-2",
+      "lineIndex": 2,
+      "textDa": "Det koster tyve kroner.",
+      "sourceHash": "3d2bef2ef2c5386d709938cce91ea0d4e3c6fbc464554722427c9a80d92cb43e"
+    },
+    {
+      "id": "kolding-situation-2-line-4",
+      "activityId": "kolding-situation-2",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "kolding-situation-3-line-1",
+      "activityId": "kolding-situation-3",
+      "lineIndex": 0,
+      "textDa": "Jamen, vi har desværre ikke te. Vi har kaffe.",
+      "sourceHash": "339da66054b94b8249800083fe714fe6f7ca264edd8a582aeec4fde8a2d3c922"
+    },
+    {
+      "id": "kolding-situation-3-line-2",
+      "activityId": "kolding-situation-3",
+      "lineIndex": 1,
+      "textDa": "Så vil jeg gerne have kaffe, tak.",
+      "sourceHash": "53fef872f02159d4a7ee2b66893d267b79809e40b9c60d4a8a76eeb48dea90d2"
+    },
+    {
+      "id": "kolding-situation-3-line-3",
+      "activityId": "kolding-situation-3",
+      "lineIndex": 2,
+      "textDa": "Selvfølgelig.",
+      "sourceHash": "4277ff999bd47bf1e411e1284a28fed08b95eda58f58ede89bbd8efd886a0ca9"
+    },
+    {
+      "id": "kolding-situation-3-line-4",
+      "activityId": "kolding-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "kolding-situation-4-line-1",
+      "activityId": "kolding-situation-4",
+      "lineIndex": 0,
+      "textDa": "Var der andet?",
+      "sourceHash": "5356600048ec1c601c5c12b025a2229582d99d9e0a5873ac76413f6e1a58c678"
+    },
+    {
+      "id": "kolding-situation-4-line-2",
+      "activityId": "kolding-situation-4",
+      "lineIndex": 1,
+      "textDa": "Ja, én ting mere: regningen, tak.",
+      "sourceHash": "5d298631a7fb45efc8ad1ae69ed65f2dc0e0fcd3bdd948c917be6d77f10eb080"
+    },
+    {
+      "id": "kolding-situation-4-line-3",
+      "activityId": "kolding-situation-4",
+      "lineIndex": 2,
+      "textDa": "Ja, et øjeblik.",
+      "sourceHash": "5a2b69f9734d3bff31b2f02b252f1244fc0871a0cfaa8ff2a4dbb51babb37a04"
+    },
+    {
+      "id": "kolding-situation-4-line-4",
+      "activityId": "kolding-situation-4",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "aarhus-situation-1-line-1",
+      "activityId": "aarhus-situation-1",
+      "lineIndex": 0,
+      "textDa": "Undervisningen er i lokale tre.",
+      "sourceHash": "ffaf18aa17590bd76dcb4eee0fb3e80703a1ebb481dfa5ba0432a6db5d088e04"
+    },
+    {
+      "id": "aarhus-situation-1-line-2",
+      "activityId": "aarhus-situation-1",
+      "lineIndex": 1,
+      "textDa": "Hvornår begynder undervisningen?",
+      "sourceHash": "710f81cc0fad729ccc7394dac07213d68fcdff6dd5906ded1f6678ccdad83245"
+    },
+    {
+      "id": "aarhus-situation-1-line-3",
+      "activityId": "aarhus-situation-1",
+      "lineIndex": 2,
+      "textDa": "Den begynder klokken ni.",
+      "sourceHash": "0f61fc692621756a2c7b6945a73ef76c84e1dae2df4ac22dd2c5fa389136e278"
+    },
+    {
+      "id": "aarhus-situation-1-line-4",
+      "activityId": "aarhus-situation-1",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "aarhus-situation-2-line-1",
+      "activityId": "aarhus-situation-2",
+      "lineIndex": 0,
+      "textDa": "Fortæl kort om i går og i dag.",
+      "sourceHash": "8c070f673ae91ce1574c766f076c03259af42c36de4f02249e28cc46ad0278bf"
+    },
+    {
+      "id": "aarhus-situation-2-line-2",
+      "activityId": "aarhus-situation-2",
+      "lineIndex": 1,
+      "textDa": "I går købte jeg brød og læste en bog.",
+      "sourceHash": "990acf61dd26cc066d29156c6a24664bd0b90e1ae93345c15499d368329becea"
+    },
+    {
+      "id": "aarhus-situation-2-line-3",
+      "activityId": "aarhus-situation-2",
+      "lineIndex": 2,
+      "textDa": "I dag har jeg lavet mad.",
+      "sourceHash": "e58e8c13c8d946971476c12133ae8b6cbee7e42ea4fdab9ea5f14ecd529cb830"
+    },
+    {
+      "id": "aarhus-situation-2-line-4",
+      "activityId": "aarhus-situation-2",
+      "lineIndex": 3,
+      "textDa": "Det lyder godt.",
+      "sourceHash": "b11a4e810f6d6d6fe4423c055a4bad77cf844c7ff6a45ceed283caeb22d95a32"
+    },
+    {
+      "id": "aarhus-situation-3-line-1",
+      "activityId": "aarhus-situation-3",
+      "lineIndex": 0,
+      "textDa": "Øh, kan vi mødes klokken ni?",
+      "sourceHash": "aa6edf7fd6165b9cc95074680512050e54dba312e789fa1fdffd58075a69b96e"
+    },
+    {
+      "id": "aarhus-situation-3-line-2",
+      "activityId": "aarhus-situation-3",
+      "lineIndex": 1,
+      "textDa": "Jeg kan ikke mødes klokken ni.",
+      "sourceHash": "b73d18604331d6dde264ed949c77e789960ad5fe1ebbce080dc7021fa9938753"
+    },
+    {
+      "id": "aarhus-situation-3-line-3",
+      "activityId": "aarhus-situation-3",
+      "lineIndex": 2,
+      "textDa": "Hvornår kan du?",
+      "sourceHash": "5729f7e210e68b53a4870737db1ed8f9d3eb11a85adc597ca486cac70a3ab814"
+    },
+    {
+      "id": "aarhus-situation-3-line-4",
+      "activityId": "aarhus-situation-3",
+      "lineIndex": 3,
+      "textDa": "Klokken ti passer bedre.",
+      "sourceHash": "fca1ce0e8a89c15e4a9c0ab62248b8a57d99db9e42ac107d5529df86df4a927e"
+    },
+    {
+      "id": "aarhus-situation-4-line-1",
+      "activityId": "aarhus-situation-4",
+      "lineIndex": 0,
+      "textDa": "Jeg kan i hvert fald ikke klokken ni. Kan du senere?",
+      "sourceHash": "0337b274f416be51383ecd4456105492b55cc33e7518272f154774c4557ade33"
+    },
+    {
+      "id": "aarhus-situation-4-line-2",
+      "activityId": "aarhus-situation-4",
+      "lineIndex": 1,
+      "textDa": "Kan vi mødes i morgen klokken ti i stedet?",
+      "sourceHash": "8bfabcaf5c363af46d8d3becb0ced65728197981d44312d747213a56cdb03972"
+    },
+    {
+      "id": "aarhus-situation-4-line-3",
+      "activityId": "aarhus-situation-4",
+      "lineIndex": 2,
+      "textDa": "Ja, det passer fint.",
+      "sourceHash": "2165bdc42355a1b0800aef33e5475c97c0e8bc072d1058c107929668bc810593"
+    },
+    {
+      "id": "aarhus-situation-4-line-4",
+      "activityId": "aarhus-situation-4",
+      "lineIndex": 3,
+      "textDa": "Godt, vi ses.",
+      "sourceHash": "5751ef3cdd948405c055f5004fb3b8e36aa067eb6af60aba38c8e38767d62909"
+    },
+    {
+      "id": "aalborg-situation-1-line-1",
+      "activityId": "aalborg-situation-1",
+      "lineIndex": 0,
+      "textDa": "Undskyld, hvor er spor to?",
+      "sourceHash": "bc090fc5c66baf81e3bcc6880b12fb17fab40eef2d7ee8ceb9761e530ae8f453"
+    },
+    {
+      "id": "aalborg-situation-1-line-2",
+      "activityId": "aalborg-situation-1",
+      "lineIndex": 1,
+      "textDa": "Ligeud og til højre.",
+      "sourceHash": "2fc8ad4a4b5a644cfa7a3fa11dfb374449d145bbe3f4ff281ab70b780b3d7f7c"
+    },
+    {
+      "id": "aalborg-situation-1-line-3",
+      "activityId": "aalborg-situation-1",
+      "lineIndex": 2,
+      "textDa": "Tak for hjælpen.",
+      "sourceHash": "dbb03b7a4ff74466e04a59e7f1aff17f779b75885a127cf314e0a67f5282dae4"
+    },
+    {
+      "id": "aalborg-situation-1-line-4",
+      "activityId": "aalborg-situation-1",
+      "lineIndex": 3,
+      "textDa": "Selv tak.",
+      "sourceHash": "59a25c8386694b7c996b5d5358df6009ff73bf68226999fe14ce4f332128a75c"
+    },
+    {
+      "id": "aalborg-situation-2-line-1",
+      "activityId": "aalborg-situation-2",
+      "lineIndex": 0,
+      "textDa": "Hvor skal du hen?",
+      "sourceHash": "d3b1489c77657b5b9cbd340543157562473a038fa2caa34fc6c4a8271811c690"
+    },
+    {
+      "id": "aalborg-situation-2-line-2",
+      "activityId": "aalborg-situation-2",
+      "lineIndex": 1,
+      "textDa": "En billet til Skagen, tak.",
+      "sourceHash": "7d99782eab0357da71bc53bf84fdd02a8b6444b8ddf7253267adc857fba4d623"
+    },
+    {
+      "id": "aalborg-situation-2-line-3",
+      "activityId": "aalborg-situation-2",
+      "lineIndex": 2,
+      "textDa": "En enkeltbillet?",
+      "sourceHash": "3f99cb8e8235fda6db1ccbb98eae3c52208c64831cc46b4f5023ea20da5b9ecb"
+    },
+    {
+      "id": "aalborg-situation-2-line-4",
+      "activityId": "aalborg-situation-2",
+      "lineIndex": 3,
+      "textDa": "Ja, tak.",
+      "sourceHash": "13e75d763391616598b11f24890091935fdfece714b83ac246c78e8604b3cf5b"
+    },
+    {
+      "id": "aalborg-situation-3-line-1",
+      "activityId": "aalborg-situation-3",
+      "lineIndex": 0,
+      "textDa": "Gå ligeud til kirken.",
+      "sourceHash": "66ee62f83933d0f74ff0f35c6a0e8690ec9a767e45afa326ef8f7517fa10ac3e"
+    },
+    {
+      "id": "aalborg-situation-3-line-2",
+      "activityId": "aalborg-situation-3",
+      "lineIndex": 1,
+      "textDa": "Skal jeg dreje til højre her?",
+      "sourceHash": "02de3dc83fe26e7f5471b75225f431ddf26d0477d270f02b9a9556b8a8920406"
+    },
+    {
+      "id": "aalborg-situation-3-line-3",
+      "activityId": "aalborg-situation-3",
+      "lineIndex": 2,
+      "textDa": "Ja, til højre ved kirken.",
+      "sourceHash": "0c421a2887face326b1b7d92cfe1973d857a81f3584df3b1bd346d061045bd00"
+    },
+    {
+      "id": "aalborg-situation-3-line-4",
+      "activityId": "aalborg-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "aalborg-situation-4-line-1",
+      "activityId": "aalborg-situation-4",
+      "lineIndex": 0,
+      "textDa": "Hvad lavede du i går?",
+      "sourceHash": "997518d57a4fa674e064b51ab36ea469c4372dd017c1c4df0f34d1782dedcc84"
+    },
+    {
+      "id": "aalborg-situation-4-line-2",
+      "activityId": "aalborg-situation-4",
+      "lineIndex": 1,
+      "textDa": "I går lavede jeg mad og købte brød.",
+      "sourceHash": "a46d32bf1c568c602bcda2e745e5d2d1fa0631b5a0530d4dcf9ecc0484468bfe"
+    },
+    {
+      "id": "aalborg-situation-4-line-3",
+      "activityId": "aalborg-situation-4",
+      "lineIndex": 2,
+      "textDa": "Og i dag?",
+      "sourceHash": "ca7c4cf89240950ec17eda20b37b8ddff9db9833f70abd129f06bc48ce8d0388"
+    },
+    {
+      "id": "aalborg-situation-4-line-4",
+      "activityId": "aalborg-situation-4",
+      "lineIndex": 3,
+      "textDa": "I dag har jeg arbejdet hjemme.",
+      "sourceHash": "02dba88858c6a28c7d783dbf614b4fcdba0485d11544ffebc8b51801449a50ae"
+    },
+    {
+      "id": "skagen-situation-1-line-1",
+      "activityId": "skagen-situation-1",
+      "lineIndex": 0,
+      "textDa": "Hvordan er vejret i dag?",
+      "sourceHash": "a7fe0421569cb87552d901e829c0255ae9a3b386abc2273e4c5b9cae1f77343d"
+    },
+    {
+      "id": "skagen-situation-1-line-2",
+      "activityId": "skagen-situation-1",
+      "lineIndex": 1,
+      "textDa": "Det er koldt, men der er sol.",
+      "sourceHash": "da8a3091580e1d211c083438d3267a6cefc5e901405065c7b5213a5527f38586"
+    },
+    {
+      "id": "skagen-situation-1-line-3",
+      "activityId": "skagen-situation-1",
+      "lineIndex": 2,
+      "textDa": "Så tager vi en jakke med.",
+      "sourceHash": "f144918bec44ad05e135d2596de0edbe50d767c263df0eafd8c6124edafc15a9"
+    },
+    {
+      "id": "skagen-situation-1-line-4",
+      "activityId": "skagen-situation-1",
+      "lineIndex": 3,
+      "textDa": "God idé.",
+      "sourceHash": "9b95610b90b2f38f21268505502f5e25ba5b3e437c6aa3c8414d94f777520fd3"
+    },
+    {
+      "id": "skagen-situation-2-line-1",
+      "activityId": "skagen-situation-2",
+      "lineIndex": 0,
+      "textDa": "Hvad vil du spise?",
+      "sourceHash": "b2147b0557d795804edca30c6cdb8327f3c66f9c38187ff2275ac8f2c470502e"
+    },
+    {
+      "id": "skagen-situation-2-line-2",
+      "activityId": "skagen-situation-2",
+      "lineIndex": 1,
+      "textDa": "Jeg vil gerne have suppe, fordi den er varm.",
+      "sourceHash": "67495abb7a22b93b8614269d7b5ef513de81545658678ff014316e275c261b41"
+    },
+    {
+      "id": "skagen-situation-2-line-3",
+      "activityId": "skagen-situation-2",
+      "lineIndex": 2,
+      "textDa": "Det er et godt valg.",
+      "sourceHash": "ab74cb582ac92225e375cc00e56decf063bea1c55771732a6add6f410c77f5b7"
+    },
+    {
+      "id": "skagen-situation-2-line-4",
+      "activityId": "skagen-situation-2",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "skagen-situation-3-line-1",
+      "activityId": "skagen-situation-3",
+      "lineIndex": 0,
+      "textDa": "Jamen, færgen sejler først klokken seksten.",
+      "sourceHash": "d68ce65ec86f0c4e45d4c3d5863dcd09400dedffa86ed17a3e165ef779c2cbbf"
+    },
+    {
+      "id": "skagen-situation-3-line-2",
+      "activityId": "skagen-situation-3",
+      "lineIndex": 1,
+      "textDa": "Kan du sige den nye tid igen?",
+      "sourceHash": "10b1220381878229922179be67c08596f4438138f14c760af445dacdad5d476f"
+    },
+    {
+      "id": "skagen-situation-3-line-3",
+      "activityId": "skagen-situation-3",
+      "lineIndex": 2,
+      "textDa": "Ja, klokken seksten.",
+      "sourceHash": "1da68ea5e598dfe196d0aecd0c48bd43ff38b11480bdd1bc474a8d110586e0d7"
+    },
+    {
+      "id": "skagen-situation-3-line-4",
+      "activityId": "skagen-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "skagen-situation-4-line-1",
+      "activityId": "skagen-situation-4",
+      "lineIndex": 0,
+      "textDa": "Hvordan er det?",
+      "sourceHash": "fdcaed653f70694167a3733d895b0d18a5e645c31877ebeb3fb039c2ff0cd6e3"
+    },
+    {
+      "id": "skagen-situation-4-line-2",
+      "activityId": "skagen-situation-4",
+      "lineIndex": 1,
+      "textDa": "Det er et smukt og roligt sted.",
+      "sourceHash": "e7b01c8426887b4cc0a8c1abc89fa63e0f95f1097ce9f840ddfb3cf52cf35d98"
+    },
+    {
+      "id": "skagen-situation-4-line-3",
+      "activityId": "skagen-situation-4",
+      "lineIndex": 2,
+      "textDa": "Og hvad lavede du?",
+      "sourceHash": "4a3066639ab40cd7d6cc373b9869e19fe47688cc359dd96e7c810e2f791e5e26"
+    },
+    {
+      "id": "skagen-situation-4-line-4",
+      "activityId": "skagen-situation-4",
+      "lineIndex": 3,
+      "textDa": "I går læste jeg en bog der. I dag har jeg købt kaffe på caféen.",
+      "sourceHash": "84b167cae41efe43b30a38e79835d78274d13cc2cb1d2aba07848934d97e2768"
+    },
+    {
+      "id": "odense-situation-1-line-1",
+      "activityId": "odense-situation-1",
+      "lineIndex": 0,
+      "textDa": "Ej, hvad skete der?",
+      "sourceHash": "7d3c153e8ec41b2f1e30c5aab20a8d162eec9fc2a2d435e670585abbf212d4ac"
+    },
+    {
+      "id": "odense-situation-1-line-2",
+      "activityId": "odense-situation-1",
+      "lineIndex": 1,
+      "textDa": "Toget var forsinket, så jeg missede bussen.",
+      "sourceHash": "6c46ee1bdb49f5d689ae0c1df0f3963b31a78e68c9b4dfa2bfaccb02dc89fbb8"
+    },
+    {
+      "id": "odense-situation-1-line-3",
+      "activityId": "odense-situation-1",
+      "lineIndex": 2,
+      "textDa": "Jeg kan hjælpe dig med en ny billet.",
+      "sourceHash": "eba51500ccc3ad77b5d8797fa0fb19d009b40429db9bb24325513a9b00c6bc77"
+    },
+    {
+      "id": "odense-situation-1-line-4",
+      "activityId": "odense-situation-1",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "odense-situation-2-line-1",
+      "activityId": "odense-situation-2",
+      "lineIndex": 0,
+      "textDa": "Ej, var tasken sort, ligesom den her?",
+      "sourceHash": "33f00fa6802d366f3e43e6d153be41d8482fa480c049132c23474276ea5bc015"
+    },
+    {
+      "id": "odense-situation-2-line-2",
+      "activityId": "odense-situation-2",
+      "lineIndex": 1,
+      "textDa": "Ja. Jeg har mistet to ting: tasken og et kamera.",
+      "sourceHash": "297e529dda1f1585c41bf596942382803dd91f77d4f87e249ab9910017b7bcc9"
+    },
+    {
+      "id": "odense-situation-2-line-3",
+      "activityId": "odense-situation-2",
+      "lineIndex": 2,
+      "textDa": "Hvor så du dem sidst?",
+      "sourceHash": "13461ba47c8dd39909309c5f5ab57897b679fa7f8ca81617567ff0312900c0da"
+    },
+    {
+      "id": "odense-situation-2-line-4",
+      "activityId": "odense-situation-2",
+      "lineIndex": 3,
+      "textDa": "I bussen.",
+      "sourceHash": "8b3097453fd30cd0fd2bfbffd69bea25b701799d2f4252ff8687b877f1cb4f92"
+    },
+    {
+      "id": "odense-situation-3-line-1",
+      "activityId": "odense-situation-3",
+      "lineIndex": 0,
+      "textDa": "Hvad er der galt?",
+      "sourceHash": "78ec8dcec3d356a4f85da3bab29c33b35f115cf2ef5421e53ae59cbcafffc17d"
+    },
+    {
+      "id": "odense-situation-3-line-2",
+      "activityId": "odense-situation-3",
+      "lineIndex": 1,
+      "textDa": "Jeg har ondt i hovedet.",
+      "sourceHash": "94e58aada03cd21687d03b3db7e8e78e162a33cf8ade02dcc5db00cbf444a3cb"
+    },
+    {
+      "id": "odense-situation-3-line-3",
+      "activityId": "odense-situation-3",
+      "lineIndex": 2,
+      "textDa": "Har du haft feber?",
+      "sourceHash": "9621aeb8775d1a208f83d0d7f6d5571493abceca09b9d874724219d106b14415"
+    },
+    {
+      "id": "odense-situation-3-line-4",
+      "activityId": "odense-situation-3",
+      "lineIndex": 3,
+      "textDa": "Ja, jeg har haft feber siden i går.",
+      "sourceHash": "21519e43399ba3cd234c65c1e3813743eafaf49f71ae8fb56658c467ca4ca93b"
+    },
+    {
+      "id": "odense-situation-4-line-1",
+      "activityId": "odense-situation-4",
+      "lineIndex": 0,
+      "textDa": "Jeg kan godt se problemet.",
+      "sourceHash": "286882a4efee76a547d882ecfeb5070c070916712508a6b640eadbbc2fc9a072"
+    },
+    {
+      "id": "odense-situation-4-line-2",
+      "activityId": "odense-situation-4",
+      "lineIndex": 1,
+      "textDa": "Hvad skal jeg gøre nu?",
+      "sourceHash": "cf508520b6ff3d832a851e2d148d6d74b5c0a31a942387fc70da118cccdb40f4"
+    },
+    {
+      "id": "odense-situation-4-line-3",
+      "activityId": "odense-situation-4",
+      "lineIndex": 2,
+      "textDa": "Gå til skranken ved siden af.",
+      "sourceHash": "1df0d7b9dd8817f21b45fe6dbd6ef19358a7e6e2bd5c2bf50e8832c9ab86ab0a"
+    },
+    {
+      "id": "odense-situation-4-line-4",
+      "activityId": "odense-situation-4",
+      "lineIndex": 3,
+      "textDa": "Tak for hjælpen.",
+      "sourceHash": "dbb03b7a4ff74466e04a59e7f1aff17f779b75885a127cf314e0a67f5282dae4"
+    },
+    {
+      "id": "roskilde-situation-1-line-1",
+      "activityId": "roskilde-situation-1",
+      "lineIndex": 0,
+      "textDa": "Øh, har du planer på fredag?",
+      "sourceHash": "d1a25638d7dceb028bc316ddf7d4a2330d9304188fcd5da03ed798305daf5631"
+    },
+    {
+      "id": "roskilde-situation-1-line-2",
+      "activityId": "roskilde-situation-1",
+      "lineIndex": 1,
+      "textDa": "Har du lyst til at gå til koncert fredag?",
+      "sourceHash": "48d3b2a929893f18acee86a5fc17c676b81d8c8c33cc1ed2c2448fab36ac6ff5"
+    },
+    {
+      "id": "roskilde-situation-1-line-3",
+      "activityId": "roskilde-situation-1",
+      "lineIndex": 2,
+      "textDa": "Ja, det vil jeg gerne.",
+      "sourceHash": "eac5acd354fa1cc162ada60722e969c729458a4e0585d821201f5aa6f3f5028b"
+    },
+    {
+      "id": "roskilde-situation-1-line-4",
+      "activityId": "roskilde-situation-1",
+      "lineIndex": 3,
+      "textDa": "Godt.",
+      "sourceHash": "9350875666caca0fe107da0e3715f652e94fd3a2dda0d909f6e7180d0ef03b15"
+    },
+    {
+      "id": "roskilde-situation-2-line-1",
+      "activityId": "roskilde-situation-2",
+      "lineIndex": 0,
+      "textDa": "Kan du komme fredag?",
+      "sourceHash": "9e5daf85a7750e150ae64e0f646eedbe5db0675d2108eb171a6d00599e31a725"
+    },
+    {
+      "id": "roskilde-situation-2-line-2",
+      "activityId": "roskilde-situation-2",
+      "lineIndex": 1,
+      "textDa": "Det kan jeg desværre ikke på fredag.",
+      "sourceHash": "bd8abc97356ba630c3cfad2ef134e3ea813ec374e333a6000327598724dbb85e"
+    },
+    {
+      "id": "roskilde-situation-2-line-3",
+      "activityId": "roskilde-situation-2",
+      "lineIndex": 2,
+      "textDa": "Jeg kan i hvert fald lørdag. Passer det?",
+      "sourceHash": "d6989102e345fc2bc0b4114633737ee3be3f58ae3b94e49b97ee2ccde612ab6e"
+    },
+    {
+      "id": "roskilde-situation-2-line-4",
+      "activityId": "roskilde-situation-2",
+      "lineIndex": 3,
+      "textDa": "Ja, lørdag passer fint.",
+      "sourceHash": "824cfb3b33423a87304b60fd40a40273e75d68304f28510f33eb8f5b0b5637de"
+    },
+    {
+      "id": "roskilde-situation-3-line-1",
+      "activityId": "roskilde-situation-3",
+      "lineIndex": 0,
+      "textDa": "Du skal bestille en billet.",
+      "sourceHash": "54bd572e8516b7b05a7c162fa67bca070f75d9089a41afe36c92d260ed52ac14"
+    },
+    {
+      "id": "roskilde-situation-3-line-2",
+      "activityId": "roskilde-situation-3",
+      "lineIndex": 1,
+      "textDa": "Jeg skal bestille, men jeg må gerne betale senere?",
+      "sourceHash": "0ad7c21035c9f83df2765bf42b63c8b0d3a4da129ced21ff3bb4215551a81a1e"
+    },
+    {
+      "id": "roskilde-situation-3-line-3",
+      "activityId": "roskilde-situation-3",
+      "lineIndex": 2,
+      "textDa": "Ja, det må du gerne.",
+      "sourceHash": "bed8d6177e8602de1ab1b2bc6528f235d43fe0abc84f58eae20490ad89f61a07"
+    },
+    {
+      "id": "roskilde-situation-3-line-4",
+      "activityId": "roskilde-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "roskilde-situation-4-line-1",
+      "activityId": "roskilde-situation-4",
+      "lineIndex": 0,
+      "textDa": "Lørdag klokken seks eller søndag klokken elleve?",
+      "sourceHash": "f971398f68d781220688568d782bafa42a0ac75737b1a635d8b62303bdddcec4"
+    },
+    {
+      "id": "roskilde-situation-4-line-2",
+      "activityId": "roskilde-situation-4",
+      "lineIndex": 1,
+      "textDa": "Søndag klokken elleve passer bedre.",
+      "sourceHash": "3c920f6246d6af3aa406f4814572c667771cfda34539c079991be92f6b64734b"
+    },
+    {
+      "id": "roskilde-situation-4-line-3",
+      "activityId": "roskilde-situation-4",
+      "lineIndex": 2,
+      "textDa": "Vi mødes på stationen.",
+      "sourceHash": "7324a27a601e513a84b3117cc94b481f097beb86f691158b1746752ebaf73110"
+    },
+    {
+      "id": "roskilde-situation-4-line-4",
+      "activityId": "roskilde-situation-4",
+      "lineIndex": 3,
+      "textDa": "Aftale.",
+      "sourceHash": "fd8ab7f6bc1f4afd592a6a0be6460c966e9d05ce571ae6fa8975d9141ceacad7"
+    },
+    {
+      "id": "kobenhavn-situation-1-line-1",
+      "activityId": "kobenhavn-situation-1",
+      "lineIndex": 0,
+      "textDa": "Hvad kan jeg hjælpe med?",
+      "sourceHash": "d53ea5001731fabef0fe9c202e2b6ca0e196dfc928ade0ef948098ba8af2a8c1"
+    },
+    {
+      "id": "kobenhavn-situation-1-line-2",
+      "activityId": "kobenhavn-situation-1",
+      "lineIndex": 1,
+      "textDa": "Jeg vil gerne ændre min aftale, fordi tirsdag ikke passer.",
+      "sourceHash": "01e9674ab622f420175b278103d782c4af382e0b757452b00365ee4dfbcc1333"
+    },
+    {
+      "id": "kobenhavn-situation-1-line-3",
+      "activityId": "kobenhavn-situation-1",
+      "lineIndex": 2,
+      "textDa": "Hvilken dag passer bedre?",
+      "sourceHash": "9e8758dbc8f1eb558537cec9de70ea5f7f215a4ca166a6973bbe903e1e09d48a"
+    },
+    {
+      "id": "kobenhavn-situation-1-line-4",
+      "activityId": "kobenhavn-situation-1",
+      "lineIndex": 3,
+      "textDa": "Torsdag passer bedre.",
+      "sourceHash": "9bcbbe46b15d1aa25f9097a443dc43c3f12afd7cec7384630fa82e3b7c2d28fa"
+    },
+    {
+      "id": "kobenhavn-situation-2-line-1",
+      "activityId": "kobenhavn-situation-2",
+      "lineIndex": 0,
+      "textDa": "Er problemet ligesom i går?",
+      "sourceHash": "2e333d3a1fa6afbbe4b4a8fe23e7aaedb7f9b5b0f53c089ecbb1754d86842af7"
+    },
+    {
+      "id": "kobenhavn-situation-2-line-2",
+      "activityId": "kobenhavn-situation-2",
+      "lineIndex": 1,
+      "textDa": "Jeg kan ikke logge ind.",
+      "sourceHash": "18b83180b7487adbb66d1e9d7292052a2dfe0b92cdf9f8a3aa520c4db472ec2b"
+    },
+    {
+      "id": "kobenhavn-situation-2-line-3",
+      "activityId": "kobenhavn-situation-2",
+      "lineIndex": 2,
+      "textDa": "Hvad skal jeg gøre?",
+      "sourceHash": "f7e57e05b5f5fd0fff7579e97970910db3ac1142c449dfb18f3d6eee27bf58c8"
+    },
+    {
+      "id": "kobenhavn-situation-2-line-4",
+      "activityId": "kobenhavn-situation-2",
+      "lineIndex": 3,
+      "textDa": "Prøv at nulstille din adgangskode.",
+      "sourceHash": "fa7fb1a74169edddff672f789d723233df17bdf1fa3c4a63e115e4eb2915cff3"
+    },
+    {
+      "id": "kobenhavn-situation-3-line-1",
+      "activityId": "kobenhavn-situation-3",
+      "lineIndex": 0,
+      "textDa": "Hvad er problemet i lejligheden?",
+      "sourceHash": "d7f3f19f3abfde5446a3a09887920f559c1efc301a4bf11628924745f2d84251"
+    },
+    {
+      "id": "kobenhavn-situation-3-line-2",
+      "activityId": "kobenhavn-situation-3",
+      "lineIndex": 1,
+      "textDa": "Vinduet er i stykker, så værelset er koldt.",
+      "sourceHash": "d3f576792ea4a7769f60145e0d57e35d88c4f5a8f6a5ceb583e13442e5729b91"
+    },
+    {
+      "id": "kobenhavn-situation-3-line-3",
+      "activityId": "kobenhavn-situation-3",
+      "lineIndex": 2,
+      "textDa": "Jeg sender en vicevært.",
+      "sourceHash": "abf013743b6983e00941608aa81ddf84e991a1f492db470bfc65bc784266e387"
+    },
+    {
+      "id": "kobenhavn-situation-3-line-4",
+      "activityId": "kobenhavn-situation-3",
+      "lineIndex": 3,
+      "textDa": "Tak.",
+      "sourceHash": "513b01a3bb23dff8d293ea0ebd873ee7a355a9725a94e7275d16b9b8f7011f77"
+    },
+    {
+      "id": "kobenhavn-situation-4-line-1",
+      "activityId": "kobenhavn-situation-4",
+      "lineIndex": 0,
+      "textDa": "Der er et gebyr ved sen aflysning.",
+      "sourceHash": "b6d56e0591010b8cc79c4536758785385eef536d7e0d6db08dac8e4ae5c4564b"
+    },
+    {
+      "id": "kobenhavn-situation-4-line-2",
+      "activityId": "kobenhavn-situation-4",
+      "lineIndex": 1,
+      "textDa": "Skal jeg betale, hvis jeg aflyser i dag?",
+      "sourceHash": "cde40e85ab2da83ad6a64f5f220394241edb2f5396e80d04223f794acc5dcd3d"
+    },
+    {
+      "id": "kobenhavn-situation-4-line-3",
+      "activityId": "kobenhavn-situation-4",
+      "lineIndex": 2,
+      "textDa": "Nej, ikke hvis du aflyser i dag.",
+      "sourceHash": "48807f8f65c93de596e6181b81ab31669a5bb3a8adf19a63c0ef34b0b18c9ce8"
+    },
+    {
+      "id": "kobenhavn-situation-4-line-4",
+      "activityId": "kobenhavn-situation-4",
+      "lineIndex": 3,
+      "textDa": "Så aflyser jeg nu.",
+      "sourceHash": "e6c758aaf7d7f73dbcd78d7efb49531571ab627e6c78cccd54408725304ac2b9"
+    }
+  ]
+}
