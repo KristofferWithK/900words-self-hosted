@@ -1,16 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
+import { wheelMissedSegments } from '../../engine/game'
 import type { GameState } from '../../engine/types'
 import { UI } from '../../i18n'
 import { useGame } from '../../stores/gameStore'
 import { primeRewardDing, wheelSpinTick } from '../feedback'
+import { afterKeyboardAway } from '../nativeKeyboard'
 import { SPIN_EASING, SPIN_MS, angleStep, segmentCrossings, spinTarget, transformRotationDegrees } from './wheelAngle'
 
 /**
  * The Translation Wheel (owner, 2026-09-16) — DIRECTION B visuals.
  *
- * One segment per suitcase the challenge asked for, in the fixed order the
- * engine froze at open. A segment starts paper-beige and fills green when the
- * engine's RANDOM fill picks it — the wheel IS the progress bar, which is why
+ * One segment per key word on the board (owner, 2026-09-27), in the fixed
+ * order the engine froze at open. A segment starts paper-beige and fills green
+ * when the engine's RANDOM fill picks it; a key word the round never found
+ * keeps a darker, pencil-shaded slice that nothing can fill, placed at random
+ * the same way (`wheelMissedSegments`). The wheel IS the progress bar, which is why
  * the dock carries no separate progress bar. The wheel is ALWAYS spinnable
  * (no all-packed gate): filled segments are the win zones, empty ones the
  * loss zones, and the engine's SPIN_WHEEL judges the landing. The player taps
@@ -26,11 +30,19 @@ import { SPIN_EASING, SPIN_MS, angleStep, segmentCrossings, spinTarget, transfor
  * colour. The words live on the board's suitcase lids now.
  */
 
-/** Paper beige vs the green washes, by CSS variable name — the mockup's two crayons. */
+/**
+ * Paper beige vs the green washes, by CSS variable name — the mockup's two
+ * crayons — plus the darker, pencil-shaded paper of a MISSED slice: a key
+ * word the round never found, which nothing can fill (owner, 2026-09-27).
+ */
 const FILL = {
   empty: 'var(--beige, #e3dfd3)',
   filled: 'var(--green, #6aaa64)',
+  missed: 'var(--wheel-missed, #cbc6b6)',
 } as const
+
+/** The missed slice's pencil shading: the suitcase glyph's corner strokes. */
+const HATCH = 'var(--wheel-hatch, #7d786a)'
 
 const INK = 'var(--text, #121212)'
 
@@ -76,17 +88,41 @@ function arcPath(cx: number, cy: number, r: number, i: number, n: number): strin
   return `M ${coords} Z`
 }
 
+/**
+ * Two short parallel strokes across segment `i`, tilted off its radius — the
+ * same pencil "//" the suitcase glyph shades its corners with. Each stroke is
+ * kept inside the wedge at its radius, so a thin slice on a full wheel still
+ * holds its shading.
+ */
+function hatchStrokes(cx: number, cy: number, i: number, n: number): { x1: number; y1: number; x2: number; y2: number }[] {
+  const mid = n <= 1 ? -Math.PI / 2 : ((i + 0.5) / n) * Math.PI * 2 - Math.PI / 2
+  const tilt = mid + Math.PI / 2 + 0.6
+  const halfAngle = n <= 1 ? Math.PI / 2 : Math.PI / n
+  return [54, 74].map((radius) => {
+    const px = cx + radius * Math.cos(mid)
+    const py = cy + radius * Math.sin(mid)
+    const half = Math.min(12, Math.max(3, (radius * Math.sin(halfAngle) - 2.5) / 0.83))
+    const dx = half * Math.cos(tilt)
+    const dy = half * Math.sin(tilt)
+    return { x1: px - dx, y1: py - dy, x2: px + dx, y2: py + dy }
+  })
+}
+
 /** The rotation that puts segment `i`'s middle under the pointer at the top. */
 const segmentToRotation = (i: number, n: number) => 360 - ((i + 0.5) / n) * 360
 
 export function WheelSpinner({ game }: { game: GameState }) {
   const wheel = game.wheel!
   const spinWheel = useGame((s) => s.spinWheel)
+  // One spin per tap while the keyboard gets out of the way first.
+  const spinQueued = useRef(false)
   const clearSpinHold = useGame((s) => s.clearWheelSpinHold)
+  const holding = useGame((s) => s.wheelSpinHold)
   const attemptId = useGame((s) => s.attemptId)
   const activeSlot = useGame((s) => s.activeSlot)
   const eventGeneration = useGame((s) => s.eventGeneration)
   const n = wheel.segments.length
+  const missed = wheelMissedSegments(game)
 
   // The wheel's resting rotation between spins. After a spin it holds the
   // landing segment's angle (plus four turns, so the deceleration reads) until
@@ -189,10 +225,12 @@ export function WheelSpinner({ game }: { game: GameState }) {
       <button
         className={`wheel-disc${canSpin ? '' : ' wheel-done'}`}
         aria-label={
-          wheel.result
-            ? RESULT_LABEL[wheel.result]
-            : spinning
-              ? UI.game.wheelSpinning
+          // Never the verdict while the disc still turns: the dock announces
+          // it once the disc rests.
+          spinning || holding
+            ? UI.game.wheelSpinning
+            : wheel.result
+              ? RESULT_LABEL[wheel.result]
               : UI.game.wheelSpinAria
         }
         disabled={!canSpin || spinning}
@@ -202,7 +240,16 @@ export function WheelSpinner({ game }: { game: GameState }) {
           // the tick loop's rAF click-clacks, long after this tap, are
           // already allowed (the prime-on-gesture pattern of primeWordAudio).
           primeRewardDing()
-          spinWheel()
+          // With the translation field focused, the keyboard goes first and
+          // the spin after its first frame: the spin settles the round, and in
+          // the same task that held the composer up for 1.1s in the owner's
+          // recording. Off the phone this spins at once.
+          if (spinQueued.current) return
+          spinQueued.current = true
+          afterKeyboardAway(() => {
+            spinQueued.current = false
+            spinWheel()
+          })
         }}
       >
         <svg
@@ -233,8 +280,9 @@ export function WheelSpinner({ game }: { game: GameState }) {
             {wheel.segments.map((id, i) => (
               <path
                 key={id}
+                className={missed.includes(i) ? 'wheel-slice-missed' : undefined}
                 d={arcPath(cx, cy, r, i, n)}
-                fill={wheel.filled.includes(i) ? FILL.filled : FILL.empty}
+                fill={wheel.filled.includes(i) ? FILL.filled : missed.includes(i) ? FILL.missed : FILL.empty}
                 fillOpacity={
                   wheel.filled.includes(i) ? FILL_OPACITY[i % FILL_OPACITY.length] : undefined
                 }
@@ -242,6 +290,20 @@ export function WheelSpinner({ game }: { game: GameState }) {
                 strokeWidth="2"
               />
             ))}
+            {missed.map((i) =>
+              hatchStrokes(cx, cy, i, n).map((line, k) => (
+                <line
+                  key={`${i}-${k}`}
+                  x1={line.x1.toFixed(2)}
+                  y1={line.y1.toFixed(2)}
+                  x2={line.x2.toFixed(2)}
+                  y2={line.y2.toFixed(2)}
+                  stroke={HATCH}
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                />
+              )),
+            )}
             {/* The wonky hub: a slightly off-centre ellipse, the mockup's
                 hand-drawn middle. */}
             <ellipse cx={101} cy={99} rx={11} ry={10} fill="#fff" stroke={INK} strokeWidth="2" transform="rotate(-4 101 99)" />
@@ -254,13 +316,9 @@ export function WheelSpinner({ game }: { game: GameState }) {
             disc — the CSS draws the tag; it does not rotate with the disc. */}
         <span className="wheel-pointer" aria-hidden="true" />
       </button>
-      {/* The dock's ONE line stands here in the challenge bar; the verdict
-          lines below only exist while a result is on screen. */}
-      {wheel.result !== null && (
-        <p className="wheel-line" role="status">
-          {RESULT_LABEL[wheel.result]}
-        </p>
-      )}
+      {/* The verdict is the dock's top line once the disc rests
+          (TranslateChallengeBar): said under the wheel, it used to appear on
+          the tap, before the disc had landed. */}
     </div>
   )
 }

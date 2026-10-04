@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   AiError,
   CASEY_PROTOCOL,
+  caseyReachable,
   installId,
   requestDecision,
   type AiSettings,
@@ -161,5 +162,26 @@ describe('the Casey decision transport', () => {
     vi.resetModules()
     expect((await import('./client')).installId()).toMatch(/\S{8}/)
     expect(installId()).toMatch(/\S{8}/)
+  })
+})
+
+describe('the reachability check an offline round uses', () => {
+  it('asks the decision route with a bare OPTIONS: no install id, no body, no game', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }))
+    vi.stubGlobal('fetch', fetchMock)
+    await expect(caseyReachable(settings.baseUrl)).resolves.toBe(true)
+    const [url, init] = fetchMock.mock.calls[0]!
+    expect(String(url)).toBe('https://casey.example/v1/casey/decision')
+    expect(init.method).toBe('OPTIONS')
+    expect(init.headers).toBeUndefined()
+    expect(init.body).toBeUndefined()
+  })
+
+  it('says unreachable for a failed request, a refusal, or an unusable address', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Load failed')))
+    await expect(caseyReachable(settings.baseUrl)).resolves.toBe(false)
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('no', { status: 403 })))
+    await expect(caseyReachable(settings.baseUrl)).resolves.toBe(false)
+    await expect(caseyReachable('not a url')).resolves.toBe(false)
   })
 })

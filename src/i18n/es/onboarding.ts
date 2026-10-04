@@ -6,13 +6,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'alemán' : 'danés',
       countryName: german ? 'Alemania' : 'Dinamarca',
-      welcome: '¿Sabías que 900 palabras pueden cubrir más del 80 % del habla cotidiana en la mayoría de los idiomas? (Toca para continuar.)',
-      map: (destination) => german
-        ? `Este es nuestro mapa. Recorreremos Alemania y reuniremos cien palabras en cada ciudad. ${destination} es nuestro destino final.`
-        : `Este es nuestro mapa. Recorreremos Dinamarca y reuniremos cien palabras en cada ciudad. ${destination} es nuestro destino final.`,
-      guide: german
-        ? 'Si quieres consultar gramática o consejos prácticos para aprender alemán, abre la Guía de viaje. Puedes leer lo que viene cuando quieras.'
-        : 'Si quieres consultar gramática o consejos prácticos para aprender danés, abre la Guía de viaje. Puedes leer lo que viene cuando quieras.',
+      welcome: '¿Sabías que 900 palabras pueden cubrir más del 80 % del habla cotidiana en la mayoría de los idiomas?',
       clueField: german
         ? 'Cuando te toque, escribe aquí una palabra en alemán que conecte dos o tres palabras verdes tuyas.'
         : 'Cuando te toque, escribe aquí una palabra en danés que conecte dos o tres palabras verdes tuyas.',
@@ -46,33 +40,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} palabras · ${cities} ciudades`,
   ticketHintMany: 'Toca un billete para elegir.',
   ticketHintOne: 'Toca tu billete y nos vamos.',
+  ticketComingSoon: 'Próximamente',
 
-  // ── La presentación de Casey en Inicio, paso a paso ─────────────────────
-  introWelcome:
-    '¿Sabías que 900 palabras pueden cubrir más del 80 % del habla cotidiana en la mayoría de los idiomas? (Toca para continuar.)',
-  introMap:
-    'Este es nuestro mapa. Viajaremos por Dinamarca y conseguiremos cien palabras en cada ciudad. Copenhague es nuestro destino final.',
-  introGuide:
-    'Si alguna vez quieres gramática o danés práctico, abre la Guía de viaje. También puedes leer por adelantado siempre que quieras.',
-  introPlay:
-    'Eso es todo lo que necesitas por ahora. Toca Jugar y vamos a conseguir nuestras primeras palabras.',
-  introBubbleAria: (line) => `${line} Continuar.`,
-  introCaseyOpen: 'Abrir a Casey y ver las palabras que hemos conseguido',
-  introCaseyContinue: 'Continuar con Casey',
-  introPlayFirst: 'Juega tu primera partida',
-  introTapCasey: 'Toca a Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Las tarjetas de vocabulario son aburridas, así que jugamos a dos juegos: un paseo turístico para reunir palabras y un puzle de palabras en un café.',
+  introExplore: (city) => `Vamos a explorar ${city} y a ver si encontramos un café.`,
+  introGo: '¡Vamos!',
+  walkEndFound: 'Camina otra vez, o vuelve a Inicio y juega en el café que encontramos.',
+  walkEndNotFound: 'Camina otra vez para buscar un café, o vuelve a Inicio.',
 
   // ── Los avisos sobre las pantallas reales ───────────────────────────────
   tourNext: 'Siguiente',
   tourDone: 'En marcha',
-  tourLoose:
-    'Aquí está tu colección de palabras. Toca una palabra cuando quieras verla u oírla otra vez.',
-  tourLid:
-    'Esta es la colección de tableros de Casey. El número y el nivel escrito muestran el mejor intento de cada tablero.',
-  tourTray:
-    'Abre cualquier tablero terminado para repetirlo. Repetirlo puede mejorar su mejor nivel sin reiniciar tu siguiente tablero obligatorio.',
-  tourWrapUp:
-    'Aquí está tu siguiente tablero obligatorio. Termina tableros para ganar niveles. Las traducciones y la rueda pueden subir un tablero resuelto hasta Platino.',
+  tourLoose: 'Las palabras que hemos visto esperan aquí arriba. Cada anillo se llena un tercio por cada marca: una foto en un paseo, un intento con mi pista y una pista tuya.',
+  tourLid: 'Con tres marcas, la palabra queda reunida. Las palabras reunidas van a la maleta, y esta línea las cuenta.',
+  tourTray: 'Esta es la tarjeta de sellos de la ciudad. Cada café que juegas recibe aquí su sello. Un círculo discontinuo es un café encontrado pero aún sin jugar, y ? es un café por encontrar.',
   mapTourHere: (city, words) =>
     `Esta es ${city}, donde estamos. Cada ciudad tiene ${words} palabras para llevarte a casa.`,
   mapTourNext: (next, _words, city) =>
@@ -102,25 +84,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Cada respuesta correcta añade un segmento verde. Puedes girar cuando quieras, pero si cae en un segmento vacío, pierdes la ronda. Con la rueda llena, cualquier giro gana.',
   wheelReadyTour:
     'La rueda ya está toda verde, así que este giro gana. Toca la rueda para girarla.',
-  resultTourPostcards: (amount: string) =>
-    `Este tablero ha sumado ${amount} a tu ciudad. Cada resultado muestra aquí mismo lo que ha ganado.`,
   resultTourRewardNew: (rewards: string) => `Nuevo esta vez: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Ya conseguido antes, así que no cuenta otra vez: ${rewards}.`,
-  resultTourNoRewards: 'Esta vez este tablero no ha ganado postales. Puede pasar, y no pierdes nada.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Este resultado es ${tier}. La mejor marca de este tablero, por ahora: ${best}.`,
+    `Este puzle ha conseguido ${tier}. El mejor sello del café hasta ahora es ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Esta ronda se ha perdido. Aquí el Bronce solo indica que has jugado y no es una mejor marca. La mejor marca de este tablero, por ahora: ${best}.`,
+    `Este puzle se perdió. Un puzle perdido también da un sello de bronce. Uno ganado da plata, oro o platino. Lo mejor de este café hasta ahora es ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Cada sello de café suma para la medalla de ${city}: bronce desde el 25 %, plata desde el 50 %, oro desde el 75 % y platino al 100 %.`,
   resultTourNoBestYet: 'aún sin fijar',
   resultTourSentence:
     'Este es un repaso opcional. Muestra una palabra de este tablero en una frase. No es otra prueba.',
   resultTourNoReview:
     'Esta vez no hay ninguna frase para repasar. No pasa nada. Repasar siempre es opcional.',
-  homeTourPostcards:
-    'Este es tu total de postales en esta ciudad. Cada postal que gana un tablero se suma aquí.',
-  homeTourCollection:
-    'Tócame para abrir la maleta. Te enseñaré las palabras que hemos reunido y tus tableros.',
+  homeTourSightseeing: 'Turismo es el paseo que acabamos de dar. Cada paseo reúne palabras, y cuanto más caminas, más cafés encuentras.',
+  homeTourCafe: (name) =>
+    name ? `Nuestro primer café es ${name}. Toca Puzle del café para sentarte a jugarlo.` : 'Nuestro primer café te espera. Toca Puzle del café para sentarte a jugarlo.',
+  homeTourStamp: 'Cada café que juegas recibe un sello. Juntos forman la medalla de esta ciudad, y aquí ves cuánto llevas.',
+  homeTourCollection: 'Tócame para abrir la maleta. Te enseñaré las palabras que hemos reunido y el sello del café.',
 
   // ── La ronda de práctica: las razones escritas de Casey ─────────────────
   practiceRationaleDrink: 'El agua, el café y la leche son cosas que se beben.',
@@ -142,7 +124,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» no es verde en mi clave, así que ahí acaba mi pista. Tus verdes aparecerán cuando sea tu turno. Esta pista usaba mi clave.`,
   firstClue: (clue) =>
-    `Oye, ¿qué palabras de este tablero conectas con «${clue}»? Puedes tocar la ⓘ de una palabra para ver su traducción. Cuando quieras, toca una palabra y confírmala.`,
+    `¡Bienvenido al café! Esta primera mesa es una práctica corta. ¿Qué palabras de este tablero puedes relacionar con «${clue}»? Toca la ⓘ de una palabra para ver su traducción, luego toca una palabra y confírmala.`,
   clueFor: (clue, number) =>
     `Mi pista es «${clue}» para ${number}. Toca cualquier palabra que te haga pensar en ella.`,
   lastGreenLeft:
@@ -153,7 +135,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `Tu pista es «${clue}» para ${number}. Los ${tokens} puntos de arriba son nuestras fichas de pista compartidas. Cada pista, tuya o mía, gasta una. Voy pensando en voz alta aquí abajo.`,
   yourClue: (clue, number) =>
     `Tu pista es «${clue}» para ${number}. Ahora mis intentos usan tu clave. Voy pensando en voz alta aquí abajo.`,
-  practiceWon: 'Todas las verdes encontradas. ¡Hemos ganado! Los tableros completos no serán tan fáciles, pero cada palabra que veamos sigue contando.',
+  practiceWon: 'Todas las verdes encontradas. ¡Hemos ganado! Los puzles del café no serán tan fáciles, pero cada palabra que vemos cuenta.',
   practiceLost: 'Esa ronda se nos ha escapado, pero cada palabra que hemos visto cuenta.',
   findingAClue: 'Me toca. Estoy buscando una pista.',
   practiceTranslation:
@@ -161,7 +143,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'La rueda está llena. Gírala para caer en verde. En los tableros normales, así es como tu resultado puede llegar a Platino.',
   practiceFinish:
-    'Práctica terminada. Esta ronda no da postales ni nivel de ciudad. En los tableros normales, resolver, traducir y girar da un nivel. Repite un tablero terminado para mejorar su mejor marca.',
+    'Práctica completada. Esta mesa no da sello. En un puzle del café, resolver, traducir y girar la rueda le dan al café su sello. Puedes volver a jugar un café para mejorar su sello.',
   demoEndTitle: "Ese fue tu primer tablero completo.",
   demoEndLine: "En la app sigo jugando contigo, tablero tras tablero, y guardo cada palabra que reúnes.",
   demoAppStore: "Descarga 900words en el App Store",
@@ -170,6 +152,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey está descansando",
   demoRestingBody: "Hoy jugó mucha gente conmigo, así que necesito descansar. Vuelve mañana o juega conmigo en la app.",
   demoCheckFailed: "No pudimos comprobar que eres una persona. Vuelve a cargar la página e inténtalo de nuevo.",
-  playFullRound: 'Juega tu primer tablero completo',
+  playFullRound: 'Jugar el puzle del café',
   returnToParkedGame: 'Vuelve a tu partida',
 }

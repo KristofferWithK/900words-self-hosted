@@ -1,13 +1,15 @@
 {
   "name": "cluecab-gemma",
   "version": "0.1.0",
-  "description": "The private iOS bridge between 900words and Google's LiteRT-LM runtime.",
+  "description": "The private bridge between 900words and Google's LiteRT-LM runtime: Swift on iOS, Kotlin on Android, one \"Gemma\" plugin contract.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
     "ios/",
+    "android/src/",
+    "android/build.gradle",
     "vendor/",
     "Package.swift",
     "LICENSE"
@@ -15,6 +17,9 @@
   "capacitor": {
     "ios": {
       "src": "ios"
+    },
+    "android": {
+      "src": "android"
     }
   },
   "peerDependencies": {

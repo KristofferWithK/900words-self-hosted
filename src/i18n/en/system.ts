@@ -69,6 +69,10 @@ export const system = {
   passRestoreError: 'Apple could not restore purchases. Please try again.',
   passRedeemOpened: 'Apple opened its code redemption sheet.',
   passRedeemUnavailable: 'Code redemption is available in the iOS app.',
+  passPendingPlay: 'Google Play is still confirming this purchase. Keep the app open, then try Restore purchases.',
+  passErrorPlay: 'Google Play could not check this purchase. Please try again.',
+  passNotEntitledPlay: 'No purchase of unlimited play was found for this Google account.',
+  passRestoreErrorPlay: 'Google Play could not restore purchases. Please try again.',
 
   // ── storage would not do as it was asked ─────────────────────────────────
   backupFileUnreadable: 'That file could not be read.',

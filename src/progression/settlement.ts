@@ -1,7 +1,7 @@
-import { boardKey, firstCompletionKey, milestoneKey, receiptKey, requiredSetKey } from './identity'
+import { boardKey, cityKey, firstCompletionKey, milestoneKey, receiptKey, requiredSetKey } from './identity'
 import { completedPrimaryCount, emptyProgressFacts, mergeProgressFacts } from './facts'
 import { cityTier, claimDelta, evaluateAttempt, gameDelta, matchesAuthoredContent, maxTier, rewardEligibility } from './rules'
-import type { AttemptEvidence, AttemptEventOwner, AuthoredBoardContent, CompletionReceipt, LearningEffect, LocalSettlement, PrimaryContinuation, RequiredBoardSet, SettledReceiptFact, SettlementEffect, SettlementLedger, SettlementPersistence } from './types'
+import type { ArchivedReceipt, AttemptEvidence, AttemptEventOwner, AuthoredBoardContent, CompletionReceipt, LearningEffect, LocalSettlement, PrimaryContinuation, RequiredBoardSet, SettledReceiptFact, SettlementEffect, SettlementLedger, SettlementPersistence } from './types'
 import { effectKey } from './identity'
 import { claimTutorialAward } from './tutorialAward'
 import type { TutorialAwardIdentity } from './types'
@@ -48,6 +48,8 @@ export function prepareSettlement(ledger: SettlementLedger, input: SettlementInp
   const { attempt, required } = input
   let id: string
   try { id = receiptKey(attempt.attemptId) } catch { return { status: 'blocked', reason: 'invalid-attempt-id' } }
+  // An archived round was settled long ago: its attempt never settles again.
+  if (ledger.archived?.[id]) return { status: 'blocked', reason: 'attempt-archived' }
   const existing = ledger.settlements[id]
   if (existing) {
     const accepted = existing.receipt.evidence
@@ -106,7 +108,12 @@ export function prepareSettlement(ledger: SettlementLedger, input: SettlementInp
         const count = completedPrimaryCount(facts, required!)
         if (count % 10 === 0) {
           const milestoneId = milestoneKey(set, count)
-          if (!facts.milestones[milestoneId]) {
+          // A count is a city's clock, reached once: a player moved onto a
+          // superseding set whose overlap re-crosses a count the old set already
+          // celebrated gets neither a second notice nor a second lesson unlock.
+          const reached = Object.values(facts.milestones).some((fact) =>
+            cityKey(fact.requiredSet) === cityKey(set) && fact.completedCount === count)
+          if (!facts.milestones[milestoneId] && !reached) {
             facts = { ...facts, milestones: { ...facts.milestones, [milestoneId]: { requiredSet: set, completedCount: count, notificationHandled: false } } }
             newMilestoneIds.push(milestoneId)
           }
@@ -118,6 +125,11 @@ export function prepareSettlement(ledger: SettlementLedger, input: SettlementInp
       }
       primary = { completedBoardKey: key!, firstCompletionId: first && !completedLoss ? completionId : null, nextBoardKey: continuation.remainingBoardKeys.slice(1).find(stillMissing) ?? null }
     }
+    // The stored city achievement keeps the lowest-best rule it was written
+    // under (backup import proves it against `cityTier`). The medal shown is
+    // derived from the stamps (`cityMedalFromStamps`): these bests, plus the
+    // Bronze a completed loss earns, which is read from `completedLosses` and
+    // never written as a best (`savedStamps`).
     const achievement = completedLoss ? { tier: null } : cityTier(required, Object.fromEntries(Object.entries(facts.boards).map(([boardId, progress]) => [boardId, progress.best])))
     if (achievement.tier) {
       const set = { courseId: required!.courseId, cityId: required!.cityId, setVersion: required!.setVersion }
@@ -138,6 +150,42 @@ export function prepareSettlement(ledger: SettlementLedger, input: SettlementInp
     primary, newMilestoneIds, effects, ...(tutorialAward ? { tutorialAward } : {}),
   })
   return { status: 'prepared', receipt, ledger: { ...ledger, facts: structuredClone(facts), settlements: { ...ledger.settlements, [id]: { receipt, acknowledgedEffects: [] } } } }
+}
+
+/** A settled round, shortened for the ledger once its full receipt is archived. */
+export function archivedReceiptOf(r: CompletionReceipt): ArchivedReceipt {
+  return {
+    attemptId: r.attemptId, acceptedAt: r.acceptedAt, localDate: r.localDate, origin: r.evidence.origin,
+    board: r.evidence.board ? { ...r.evidence.board } : null, attemptTier: r.attemptTier,
+    ...(r.completedLoss !== undefined ? { completedLoss: r.completedLoss } : {}),
+    games: { ...r.games }, postcards: r.rewards.postcards,
+  }
+}
+
+/**
+ * The settled rounds that may leave the ledger for the history archive: all
+ * but the `keepFull` most recent, never a round still being settled, and never
+ * one something still points at (`inUse`, receipt keys).
+ */
+export function receiptsToArchive(ledger: SettlementLedger, keepFull: number, inUse: ReadonlySet<string>): string[] {
+  return Object.entries(ledger.settlements)
+    .sort(([, a], [, b]) => b.receipt.acceptedAt - a.receipt.acceptedAt)
+    .slice(keepFull)
+    .filter(([key, entry]) => pendingEffects(entry).length === 0 && !inUse.has(key))
+    .map(([key]) => key)
+}
+
+/** The ledger with `keys` moved from full receipts to archived summaries. */
+export function archiveSettlements(ledger: SettlementLedger, keys: readonly string[]): SettlementLedger {
+  const settlements = { ...ledger.settlements }
+  const archived = { ...(ledger.archived ?? {}) }
+  for (const key of keys) {
+    const entry = settlements[key]
+    if (!entry) throw new Error('Unknown receipt to archive')
+    archived[key] = archivedReceiptOf(entry.receipt)
+    delete settlements[key]
+  }
+  return { ...ledger, settlements, archived }
 }
 
 /** Call only AFTER the sink's atomic effect+marker write has succeeded. */

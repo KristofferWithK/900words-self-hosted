@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { dismissRoundGuidance, installRoundGuidanceHandler } from './round-guidance.mjs'
+import { createOnboardingFlow } from './_onboarding-flow.mjs'
 import { city1ReaderState } from './city1-review-geometry.mjs'
 import { audioSlug } from '../scripts/audio-slug.mjs'
 
@@ -35,6 +36,7 @@ console.log(`clips in dist: ${NORMAL_CLIPS} ordinary, ${SLOW_CLIPS} slow, ${EXAM
 const PORT = 4173
 const preview = await startPreview(PORT)
 import { setTimeout as sleep } from 'node:timers/promises'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const SHOT_DIR = process.env.SHOT_DIR ?? '.'
 
@@ -42,6 +44,8 @@ const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
 })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 await page.addInitScript(() => {
   window.__smokeAudioStarts = []
@@ -51,11 +55,11 @@ page.on('console', (m) => m.type() === 'error' && console.log('PAGE ERROR:', m.t
 page.on('pageerror', (e) => console.log('PAGE CRASH:', e.message))
 
 try {
-  // first=player: the first round below walks the composer (autocorrect off,
-  // the English warning, the lookup) before anything else, so it wants to open
-  // in it. Casey opens by default (2026-09-06); the round played to its end
-  // further down deals without the pin and takes the phases as they come.
-  await page.goto(preview.base + '?mock=1&seed=5&first=player')
+  // No ?first= pin: nothing this onboarding deals reads one. The practice
+  // board and the first full board both name Casey as the opener (owner,
+  // 2026-09-26; #298), so the first full board is played from her clue, and
+  // the composer is walked on the player's own clue turn after it.
+  await page.goto(preview.base + '?mock=1&seed=5')
 
   // The intro begins by asking which language you SPEAK, then hands over to
   // the country ticket — which language you want to LEARN — and then reveals
@@ -65,16 +69,16 @@ try {
   // behaviour.
   //
   // Answering reloads the app, which is how the choice takes effect, so the
-  // ticket is waited for after that rather than before it.
+  // ticket is waited for after that rather than before it. The ticket act
+  // offers every shipped course (Danish and German since #320/#322), so the
+  // smoke takes the Danish one by name, as the onboarding drives do.
   await page.waitForSelector('[data-act="language"]')
   await page.locator('.onboard-language').first().click()
   await page.waitForSelector('.onboard-ticket')
-  await page.locator('.onboard-ticket').click()
-  await page.waitForSelector('.home-intro-welcome')
+  const onboardingFlow = createOnboardingFlow(page)
+  await onboardingFlow.ticketToHome('Denmark')
   await page.screenshot({ path: `${SHOT_DIR}/00-home-intro.png` })
-  for (let i = 0; i < 3; i++) await page.locator('.home-intro-bubble').click()
-  await page.locator('.home-intro-actions .home-play').click()
-  await page.waitForSelector('.tutorial-game .board-grid')
+  await onboardingFlow.homeToTutorial()
   if ((await page.locator('.tutorial-game .word-card').count()) !== 9) throw new Error('practice board is not the 3×3 tutorial grid')
   if ((await page.locator('.tutorial-game .mykey-green').count()) !== 0) throw new Error('practice board revealed the player key too early')
   await page.screenshot({ path: `${SHOT_DIR}/00b-tutorial.png` })
@@ -297,7 +301,7 @@ try {
     throw new Error(`slow dictionary example came back ${exampleHit.status} ${exampleHit.type || '(no type)'}, not audio`)
   }
   console.log(`slow dictionary example: ${(exampleHit?.url ?? startedSlow).split('/audio/')[1]}`)
-  await page.click('.sheet .btn')
+  await page.click('.sheet .sheet-close')
 
   // A round opens on Danish words and nothing else. No study dock, no glosses.
   // Asserted rather than tolerated: this drive used to accept the study phase if
@@ -313,79 +317,18 @@ try {
   }
   console.log(`opened on ${cards.length} Danish words, 0 translations`)
 
-  // The clue box asks for a Danish word, and it was the only free-text field in
-  // the app leaving the phone keyboard's English autocorrect on. What comes
-  // back from that is an English word the player never typed — a plausible
-  // source of the clue «foster», which is legal, unguessable, and a
-  // Danish/English homograph besides.
-  const clueAttrs = await page.evaluate(() => {
-    const el = document.querySelector('.clue-input input')
-    return { correct: el.getAttribute('autocorrect'), spell: el.getAttribute('spellcheck') }
-  })
-  if (clueAttrs.correct !== 'off' || clueAttrs.spell !== 'false') {
-    throw new Error(`clue box still autocorrects: ${JSON.stringify(clueAttrs)}`)
-  }
-
-  // Casey reads a Danish board and gets the clue as a bare string, so an
-  // English word there is one he cannot place. The box says so and puts the
-  // lookup one tap away rather than passing the English along.
-  await page.fill('.clue-input input', 'water')
-  const warned = await page.evaluate(() => ({
-    label: document.querySelector('.clue-input .btn-primary').textContent,
-    error: document.querySelector('.clue-error')?.textContent ?? '',
-    // The one-tap lookup is the word itself, inside the verdict line, rather
-    // than a "Look up «x»" row of its own inside the dictionary — the row was
-    // the same word again one line lower, out of the dock's reserve.
-    lookup: [...document.querySelectorAll('.clue-input .clue-lookup')].map((b) => b.textContent),
-  }))
-  if (!/looks like/.test(warned.error)) throw new Error(`no English warning: ${warned.error}`)
-  if (!/anyway/.test(warned.label)) throw new Error(`no override offered: ${warned.label}`)
-  if (!warned.lookup.some((l) => l.includes('water'))) {
-    throw new Error(`no one-tap lookup offered: ${JSON.stringify(warned.lookup)}`)
-  }
-
-  // Everything the shipped nine hundred can settle offline must never reach that
-  // path: a compound of two known words and a Danish word we simply do not
-  // ship — 'unknown' is permission, not suspicion, which is where «trafik»
-  // and most real clues live. «salt» is deliberately separate: it is both a
-  // Danish headword and an English gloss, so P09 sends it through Casey rather
-  // than silently treating it as Danish. Leave it unsubmitted so this smoke's
-  // later player-clue phase stays on the same turn.
-  await page.fill('.clue-input input', 'salt')
-  const saltWarning = await page.locator('.clue-input .clue-error').textContent()
-  const saltLabel = await page.locator('.clue-input .btn-primary').textContent()
-  if (!/looks like/.test(saltWarning ?? '') || !/anyway/.test(saltLabel ?? '')) {
-    throw new Error(`the Danish/English homograph did not offer Casey clearance: ${saltWarning} / ${saltLabel}`)
-  }
-  for (const ok of ['dyreliv', 'trafik', 'kæledyr', 'hunden']) {
-    await page.fill('.clue-input input', ok)
-    const label = await page.locator('.clue-input .btn-primary').textContent()
-    if (/anyway/.test(label ?? '')) throw new Error(`«${ok}» was treated as English`)
-  }
-  console.log('English clue and Danish/English homograph warn with Casey clearance; Danish forms pass untouched')
-
-  // Player clue round
-  await page.fill('.clue-input input', 'huskeliste')
-  await page.click('.clue-input .btn-primary')
-  console.log('clue submitted; waiting for AI guesses…')
-  // Wait until phase leaves aiGuessing (AI finishes its guesses)
-  await page.waitForFunction(
-    () => !document.querySelector('.phase-caption')?.textContent?.includes('Casey is guessing'),
-    undefined,
-    { timeout: 20000 },
-  )
-  await page.screenshot({ path: `${SHOT_DIR}/03-after-ai-guess.png` })
-  console.log('phase now:', await page.locator('.phase-caption').textContent())
-
-  // If it's now the player's guessing turn (AI gave a clue), make one guess then stop.
-  const caption = await page.locator('.phase-caption').textContent()
-  if (caption?.includes('Your turn')) {
+  // One guess on Casey's clue, then stop. The card says the word on
+  // selection. Confirmation must only submit that selected guess: replaying it
+  // here was audible twice on a real phone even though cache-backed network
+  // checks could see just one request. Used twice (the first full board opens
+  // on her clue, and she clues again after the player's), so the listener is
+  // installed once and only the count is reset per guess.
+  async function guessOnceThenStop(shot) {
     console.log('AI clue:', await page.locator('.guess-bar .dock-title').textContent())
-    // The card says the word on selection. Confirmation must only submit that
-    // selected guess: replaying it here was audible twice on a real phone even
-    // though cache-backed network checks could see just one request.
     await page.evaluate(() => {
       window.__guessAudioPlays = []
+      if (window.__guessAudioListening) return
+      window.__guessAudioListening = true
       window.addEventListener('cluecab-audio', (e) => {
         // A noun is said with its article in front («et hus»): two clips,
         // one tap. Counted as one play of the word, which is what the
@@ -409,11 +352,92 @@ try {
     if (playsAfterConfirm !== playsAfterTap) {
       throw new Error(`confirming a selected guess replayed its audio: ${playsAfterTap} then ${playsAfterConfirm}`)
     }
-    await page.screenshot({ path: `${SHOT_DIR}/04-player-guessed.png` })
+    await page.screenshot({ path: `${SHOT_DIR}/${shot}` })
     console.log('after player guess phase:', await page.locator('.phase-caption').textContent())
-    const stop = page.locator('.btn-ghost')
+    const stop = page.locator('.guess-bar .btn-ghost')
     if (await stop.isVisible().catch(() => false)) await stop.click()
   }
+
+  // The first full board opens on Casey's clue (owner, 2026-09-26; #298), and
+  // the composer below is the player's clue turn, which follows hers. So her
+  // turn is played first: one guess, then stop, the same as later in the round.
+  // A wrong guess spends the turn, so either outcome hands the clue over.
+  const openingCaption = await page.locator('.phase-caption').textContent()
+  if (!openingCaption?.includes('Your turn')) {
+    throw new Error(`the first full board did not open on Casey's clue: ${openingCaption}`)
+  }
+  await guessOnceThenStop('02b-opening-guess.png')
+  await page.waitForSelector('.clue-input input', { timeout: 10_000 })
+
+  // The clue box asks for a Danish word, and it was the only free-text field in
+  // the app leaving the phone keyboard's English autocorrect on. What comes
+  // back from that is an English word the player never typed — a plausible
+  // source of the clue «foster», which is legal, unguessable, and a
+  // Danish/English homograph besides.
+  const clueAttrs = await page.evaluate(() => {
+    const el = document.querySelector('.clue-input input')
+    return { correct: el.getAttribute('autocorrect'), spell: el.getAttribute('spellcheck') }
+  })
+  if (clueAttrs.correct !== 'off' || clueAttrs.spell !== 'false') {
+    throw new Error(`clue box still autocorrects: ${JSON.stringify(clueAttrs)}`)
+  }
+
+  // A submitted clue is read as intended Danish (#276, 2026-09-25): an English
+  // gloss is not a language veto, so the composer neither refuses nor warns
+  // about an English-looking word, and the send stays a plain "Give clue".
+  // What it still refuses is the board itself, which is the positive control
+  // here: a word left on the board must draw a verdict and disable the send,
+  // or "no verdict" below would pass on a line that renders nothing. The
+  // verdict line no longer echoes a legal clue back as a lookup button either
+  // (#284); the Dictionary field beside the clue is where a word is looked up.
+  const composer = () => page.evaluate(() => {
+    const send = document.querySelector('.clue-input .btn-primary')
+    return {
+      error: document.querySelector('.clue-input .clue-error')?.textContent ?? '',
+      label: send?.textContent ?? '',
+      disabled: send ? send.disabled : true,
+      echoed: document.querySelectorAll('.clue-input .composer-line .clue-lookup').length,
+    }
+  })
+  const stillOnBoard = await page.evaluate(() => {
+    const game = JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game
+    return game.words.find((word) => game.reveals[word.wordId]?.kind !== 'green').da
+  })
+  await page.fill('.clue-input input', stillOnBoard)
+  const refused = await composer()
+  if (!refused.error || !refused.disabled) {
+    throw new Error(`the board word «${stillOnBoard}» was not refused: ${JSON.stringify(refused)}`)
+  }
+  // «water» is English only; «salt» is both a Danish headword and an English
+  // gloss, the word the old warning flagged; the rest are ordinary Danish
+  // clues (a compound, an inflection, a word outside the nine hundred). The
+  // last one is left unsubmitted: the clue below replaces it on the same turn.
+  for (const clue of ['water', 'salt', 'dyreliv', 'trafik', 'kæledyr', 'hunden']) {
+    await page.fill('.clue-input input', clue)
+    const state = await composer()
+    if (state.error || state.disabled || /anyway/.test(state.label)) {
+      throw new Error(`«${clue}» was not sendable as intended Danish: ${JSON.stringify(state)}`)
+    }
+    if (state.echoed) throw new Error(`the verdict line echoed «${clue}» as a lookup button`)
+  }
+  console.log(`the board word «${stillOnBoard}» is refused; English-looking and Danish clues are sendable, unechoed`)
+
+  // Player clue round
+  await page.fill('.clue-input input', 'huskeliste')
+  await page.click('.clue-input .btn-primary')
+  console.log('clue submitted; waiting for AI guesses…')
+  // Wait until phase leaves aiGuessing (AI finishes its guesses)
+  await page.waitForFunction(
+    () => !document.querySelector('.phase-caption')?.textContent?.includes('Casey is guessing'),
+    undefined,
+    { timeout: 20000 },
+  )
+  await page.screenshot({ path: `${SHOT_DIR}/03-after-ai-guess.png` })
+  console.log('phase now:', await page.locator('.phase-caption').textContent())
+
+  // If it's now the player's guessing turn (AI gave a clue), make one guess then stop.
+  const caption = await page.locator('.phase-caption').textContent()
+  if (caption?.includes('Your turn')) await guessOnceThenStop('04-player-guessed.png')
 
   // Dictionary sheet
   const info = page.locator('.card-info').first()
@@ -422,7 +446,7 @@ try {
     await page.waitForSelector('.sheet')
     await page.screenshot({ path: `${SHOT_DIR}/05-dictionary.png` })
     console.log('dictionary shows:', await page.locator('.sheet h2').textContent())
-    await page.click('.sheet .btn')
+    await page.click('.sheet .sheet-close')
   }
 
   if (await page.locator('.game-header .icon-btn[aria-label*="translation"]').count()) {
@@ -496,11 +520,14 @@ try {
     // would never run: take the panel's action first. The last chance's
     // panel (2026-09-11) is the one that opens in the middle of this loop.
     await dismissRoundGuidance(page)
+    // After the spin the board stays until See results (owner, 2026-09-27).
+    const seeResults = page.locator('.wheel-results:not([disabled])')
+    if (await seeResults.isVisible().catch(() => false)) await seeResults.click()
     const wheelState = await page.evaluate(() => {
       const raw = JSON.parse(localStorage.getItem('cluecab-game-v1') ?? 'null')
       const game = raw?.state?.game
       if (!game || (game.phase !== 'translateChallenge' && game.phase !== 'translateWheel')) return null
-      const untranslated = (game.wheel?.segments ?? []).filter((id) => !(game.wheel?.translated ?? []).includes(id))
+      const untranslated = (game.wheel?.segments ?? []).filter((id) => game.reveals[id]?.kind === 'green' && !(game.wheel?.translated ?? []).includes(id))
       const answer = untranslated.length
         ? game.words.find((word) => word.wordId === untranslated[0])?.da ?? null
         : null

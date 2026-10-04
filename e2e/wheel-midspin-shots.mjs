@@ -97,7 +97,9 @@ try {
     // on a real spin), so the disc is still armed: the tap lets the engine
     // commit the draw and the chooser takes over.
     await page.locator('.wheel-disc').click()
-    await page.waitForSelector('.wheel-chooser, .city1-review-dialog[open]', { timeout: 15_000 })
+    // The board stays after the spin until See results (owner, 2026-09-27).
+    await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
+    await page.waitForSelector('.city1-review-dialog[open]', { timeout: 15_000 })
     const after = await page.evaluate(() => {
       const g = JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game
       return { result: g.wheel?.result ?? null, phase: g.phase }

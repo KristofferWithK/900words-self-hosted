@@ -109,7 +109,7 @@ const config: CapacitorConfig = {
        * What either costs is the board reflowing into the smaller space, which
        * is the one thing it must never do. So the board is frozen at its full
        * height while the keyboard is up and clipped by the shrinking document
-       * — see .kb-up in index.css. Clipped and covered look the same; resized
+       * — see .kb-up in src/styles/36-composer.css. Clipped and covered look the same; resized
        * does not.
        */
       resize: 'body',

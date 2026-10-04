@@ -53,7 +53,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Cette URL de base ne peut pas être utilisée.',
 
   // ── le modèle sur l’appareil ─────────────────────────────────────────────
-  gemmaUnavailableNote: 'Le mode hors ligne fonctionne dans l’app iPhone de 900words.',
+  gemmaUnavailableNote: 'Le mode hors ligne fonctionne dans les apps 900words pour iPhone et Android.',
   gemmaReady: (size) => `Casey hors ligne est prête (${size} sur cet iPhone).`,
   gemmaRemoveConfirm: 'Supprimer Casey hors ligne de cet iPhone ? Tu pourras la retélécharger plus tard.',
   gemmaRemoveButton: 'Supprimer Casey hors ligne',
@@ -86,6 +86,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Ton service d’IA a répondu.',
   gemmaOption: 'Gemma sur cet iPhone',
   gemmaOptionHelp: 'Casey joue sur cet iPhone, sans internet et sans clé. Elle est plus lente.',
+  ossCaseyHelpAndroid: 'Ce 900words a été compilé par tes soins. Casey a besoin d’une IA pour jouer : ta propre clé d’IA ou Gemma sur ce téléphone Android.',
+  gemmaOptionAndroid: 'Gemma sur ce téléphone Android',
+  gemmaOptionHelpAndroid: 'Casey joue sur ce téléphone Android, sans internet et sans clé. Elle est plus lente.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Ce 900words compilé par tes soins joue avec Casey sur ce téléphone Android : sans compte ni clé. Gemma se télécharge une seule fois (${size}). Utilise le Wi-Fi et garde 900words ouvert jusqu’à la fin du téléchargement.\n\nElle fonctionne mieux sur un téléphone Android récent avec au moins 12 Go de mémoire, par exemple ${phones}.${lowMemory ? '\n\nCe téléphone a moins de mémoire que les modèles conseillés ; elle risque de mal fonctionner.' : ''}\n\nTu peux aussi ajouter ta propre clé d’IA dans les réglages.\n\nTélécharger Casey maintenant ?`,
   serverOption: 'Ton propre serveur Casey',
   serverOptionHelp: 'Un Worker Casey que tu as déployé toi-même (voir le README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -107,6 +112,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey propose alors de finir la manche avec Gemma. La première fois, cela la télécharge.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ce 900words joue avec Casey sur ton iPhone : sans compte et sans clé. Elle se télécharge une seule fois (${size}). Utilise le Wi-Fi et garde 900words ouverte jusqu’à la fin.\n\nElle a besoin d’un iPhone plus récent : ${iphones}.${lowMemory ? '\n\nCet iPhone a moins de mémoire que ces modèles. Elle risque de ne pas y fonctionner.' : ''}\n\nTu peux aussi ajouter ta propre clé d’IA dans les Réglages.\n\nTélécharger Casey maintenant ?`,
+  // ── Casey hors ligne sur Android ─────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Casey hors ligne a besoin d’un téléphone Android plus récent : Android 12 ou plus récent et au moins 8 Go de mémoire. Ce téléphone ne les a pas.',
+  gemmaReadyAndroid: (size) => `Casey hors ligne est prête (${size} sur ce téléphone).`,
+  gemmaRemoveConfirmAndroid:
+    'Supprimer Casey hors ligne de ce téléphone ? Tu pourras la retélécharger plus tard.',
+  offlineModeHelpAndroid:
+    'Casey normale joue depuis le serveur de 900words. Avec le mode hors ligne, tu peux finir une manche avec Casey hors ligne sur ce téléphone quand internet n’est plus là. Elle est plus lente.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `Le mode hors ligne est expérimental et encore en cours d’amélioration.\n\nLe mode hors ligne télécharge Casey hors ligne (${size}) sur ce téléphone. Utilise le Wi-Fi et garde 900words ouverte jusqu’à la fin du téléchargement.\n\nCasey hors ligne joue plus lentement que Casey normale.\n\nElle a besoin d’un téléphone Android plus récent avec au moins 12 Go de mémoire, par exemple ${phones}.${lowMemory ? '\n\nCe téléphone a moins de mémoire que cela. Elle risque de ne pas y fonctionner.' : ''}\n\nTélécharger maintenant ?`,
+  gemmaAnsweredAndroid: 'Gemma a répondu sur ce téléphone.',
 
   // ── le test de connexion ─────────────────────────────────────────────────
   testRunning: 'Test en cours…',
@@ -258,4 +274,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "aperçu",
   learnerLanguagePreviewHelp: "L’allemand est un aperçu : la carte et le Guide de voyage sont là, mais pas le jeu de mots. Les leçons n’ont pas encore été vérifiées par une personne de langue maternelle allemande.",
   playtestTravelHelp: "Pour avancer, ouvre la carte, choisis une ville plus loin et touche Voyager plus loin. Aucun mot n’est emballé et aucune progression n’est ajoutée. Désactive cette option pour tester à nouveau les conditions normales du voyage.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Accès pour l’examen Google Play',
+  reviewAccessHelp: 'Uniquement pour l’examen de l’appli par Google Play. Saisis le code d’examen indiqué dans les instructions pour débloquer le jeu illimité sur cet appareil.',
+  reviewAccessLabel: 'Code d’examen',
+  reviewAccessUnlock: 'Débloquer',
+  reviewAccessChecking: 'Vérification…',
+  reviewAccessOn: (date: string) =>
+    `L’accès d’examen est actif. Le jeu illimité est débloqué sur cet appareil jusqu’au ${date}.`,
+  reviewAccessInvalid: 'Ce code d’examen n’a pas été accepté.',
+  reviewAccessRateLimited: 'Trop de tentatives. Réessaie demain.',
+  reviewAccessError: 'Le code n’a pas pu être vérifié. Vérifie la connexion internet et réessaie.',
+
+  // ── Ton forfait (versions des stores uniquement). Apple sur iOS, Google Play sur Android.
+  planHeading: 'Ton forfait',
+  planFreeShort: 'Gratuit',
+  planUnlimitedShort: 'Illimité',
+  planChipAria: (plan: string) => `Ton forfait : ${plan}`,
+  planChecking: 'Vérification de ton forfait auprès d’Apple.',
+  planCheckingPlay: 'Vérification de ton forfait auprès de Google Play.',
+  planFree: 'Forfait gratuit. Deux balades et deux énigmes au café par jour.',
+  planMonthly: 'Parties illimitées. Abonnement mensuel. Il se renouvelle chaque mois jusqu’à ce que tu le résilies.',
+  planLifetime: 'Parties illimitées. Paiement unique. Rien ne se renouvelle.',
+  planBoth: 'Tu as le paiement unique. Ton abonnement mensuel est toujours actif, et tu n’en as plus besoin. Résilie-le pour ne plus être facturé.',
+  planError: 'Apple n’a pas pu vérifier ton forfait pour le moment. Réessaie plus tard.',
+  planErrorPlay: 'Google Play n’a pas pu vérifier ton forfait pour le moment. Réessaie plus tard.',
+  planGetUnlimited: 'Jouer sans limite',
+  planManage: 'Gérer ou résilier l’abonnement',
+  planSwitch: 'Passer au paiement unique',
+  planSwitchNote: 'Le paiement unique te donne des parties illimitées pour toujours. Il ne met pas fin à ton abonnement mensuel. Après l’achat, résilie l’abonnement mensuel dans ton compte Apple, sinon tu paieras les deux.',
+  planSwitchNotePlay: 'Le paiement unique te donne des parties illimitées pour toujours. Il ne met pas fin à ton abonnement mensuel. Après l’achat, résilie l’abonnement mensuel dans Google Play, sinon tu paieras les deux.',
+  planBuyFor: (price: string) => `Acheter pour ${price}`,
+  planNotNow: 'Pas maintenant',
 }

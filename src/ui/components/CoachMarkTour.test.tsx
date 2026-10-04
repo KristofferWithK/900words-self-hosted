@@ -14,8 +14,9 @@ describe('CoachMarkTour safe blocking surface', () => {
     expect(html).toContain('role="dialog"')
     expect(html).toContain('aria-modal="true"')
     expect(html).toContain('data-tour-kind="translation"')
-    expect(html).toContain('>Next</button>')
-    expect(html).toContain('>Skip</button>')
+    // Both are tags (CW-12): each label sits in its tag's label span.
+    expect(html).toContain('<span class="tag-label">Next</span>')
+    expect(html).toContain('<span class="tag-label">Skip</span>')
   })
 
   it('renders an empty step list as a safe no-step surface', () => {

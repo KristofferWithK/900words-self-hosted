@@ -9,7 +9,7 @@ import city1Roster from '../data/city1-replacement-corpus.da.json'
 import city1LedaLeadMap from '../data/audio-lead.de.city1.json'
 import { ACTIVE } from '../lang/active'
 import { tutorialScriptFor } from '../onboarding/tutorial'
-import { type AudioFailure, type ClipLoad, type WordAudioPorts, ARTICLE_MAX_MS, LEAD_PREROLL_MS, PRELOAD_LANES, articleAudioUrl, articlePhraseAudioUrl, audioSlug, city1LedaPhraseAudioUrl, city1LedaWordAudioUrl, clipStartAt, clipStartAtFromGermanLeadMap, createWordPlayer, exampleAudioUrl, loadBakedClip, spokenArticleOf, survivalAudioUrl, taskAudioUrl, wordAudioUrl, playCity1Sentence, stopWordAudio } from './speak'
+import { type AudioFailure, type ClipLoad, type WordAudioPorts, ARTICLE_MAX_MS, LEAD_PREROLL_MS, MEMO_MAX, PRELOAD_LANES, articleAudioUrl, articlePhraseAudioUrl, audioSlug, city1LedaPhraseAudioUrl, city1LedaWordAudioUrl, clipStartAt, clipStartAtFromGermanLeadMap, createWordPlayer, exampleAudioUrl, loadBakedClip, spokenArticleOf, survivalAudioUrl, taskAudioUrl, wordAudioUrl, playCity1Sentence, stopWordAudio } from './speak'
 
 /**
  * The filename rule is written twice — once in `speak.ts` for the app, once in
@@ -561,6 +561,21 @@ describe('playWord', () => {
     await h.player.playWord('da:hus')
     expect(h.calls.load).toHaveLength(1)
     expect(h.calls.played).toBe(2)
+  })
+
+  it('keeps a clip that keeps being played, however many others come after it', async () => {
+    // The memo drops the clip unheard longest, not the one dealt first. Under
+    // first-in-first-out, a board's own clips fell out after a few lookups
+    // and the next tap fetched before it played.
+    const h = harness()
+    await h.player.playWord('da:hus')
+    const husLoads = [...h.calls.load]
+    const others = WORDS.map(w => w.id).filter(id => id !== 'da:hus').slice(0, MEMO_MAX * 2)
+    for (const id of others) {
+      await h.player.playWord(id)
+      await h.player.playWord('da:hus')
+    }
+    for (const url of husLoads) expect(h.calls.load.filter(u => u === url)).toHaveLength(1)
   })
 
   it('reports a refusal to play as a failure of its own', async () => {

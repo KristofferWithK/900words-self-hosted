@@ -4,17 +4,18 @@ import type { ScheduledProgress } from '../journey/curriculumScheduler'
 import type { SurvivalProgress } from '../journey/survival'
 import { emptyProgressFacts, factsForImport, mergeProgressFacts, withLegacyCredit } from '../progression/facts'
 import { effectKey, receiptKey } from '../progression/identity'
-import { emptySettlementLedger, pendingSettlement, prepareSettlement, recoverSettlement, type SettlementInput } from '../progression/settlement'
-import { curriculumSchema, markersSchema, parseLedger, parseSessions, receiptFingerprint, sameValue, survivalSchema, tallySchema, wordStatsSchema } from '../progression/storageSchema'
+import { archiveSettlements, emptySettlementLedger, pendingSettlement, prepareSettlement, receiptsToArchive, recoverSettlement, type SettlementInput } from '../progression/settlement'
+import { curriculumSchema, markersSchema, parseSessions, receiptFingerprint, sameValue, survivalSchema, tallySchema, wordStatsSchema } from '../progression/storageSchema'
 import type { CompletionReceipt, CourseSessions, LessonEffect, ProgressFacts, SettlementEffect, SettlementLedger } from '../progression/types'
 import { prepareLearning } from '../srs/settlement'
 import type { SrsMap } from '../srs/types'
 import { useStreak } from '../streak/streak'
+import type { HistoryArchive } from './historyArchive'
 import { groupKey, roundGroups, useAssociations } from './associationStore'
 import { migrateCurriculum, useCurriculum } from './curriculumStore'
 import { migrateSrs, useSrs } from './srsStore'
 import { migrateSurvival, useSurvival } from './survivalStore'
-import { assertSettlementIdle, SESSION_KEY, SETTLEMENT_KEY, withEffectMarkers, withSettlementWriter, type AtomicStorage, type EffectMarkers } from './settlementStorage'
+import { assertSettlementIdle, SESSION_KEY, SETTLEMENT_KEY, validatedLedger, validatedLedgerJson, withEffectMarkers, withSettlementWriter, type AtomicStorage, type EffectMarkers } from './settlementStorage'
 
 const count = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER)
 const dictionary = <T extends z.ZodType>(schema: T) => z.record(z.string(), schema)
@@ -28,6 +29,7 @@ const curriculumStoreSchema = z.object({ byLanguage: dictionary(curriculumSchema
 const survivalStoreSchema = z.object({ byLanguage: dictionary(survivalSchema), settlementEffects: markersSchema, settlementMilestones: dictionary(count) }).passthrough()
 const envelope = z.object({ version: count, state: z.record(z.string(), z.unknown()) }).passthrough()
 type DurableState = Record<string, unknown> & { settlementEffects: EffectMarkers }
+const sessionsState = z.object({ byCourse: dictionary(z.unknown()), results: dictionary(z.object({ receiptId: z.string(), reviewRoundId: z.string().nullable() })), settlementEffects: markersSchema })
 
 export interface SettlementSessions {
   readonly byCourse: Readonly<Record<string, CourseSessions>>
@@ -52,7 +54,17 @@ export interface SettlementOptions {
   readonly planLessons?: (input: LessonPlanningInput) => LessonEffect
   /** Optional projection after a successful durable read, never before a write. */
   readonly published?: (key: string, state: unknown) => void
+  /** Where old rounds' full receipts go (historyArchive.ts). Without one, the
+   * ledger keeps every round in full. */
+  readonly archive?: HistoryArchive | null
 }
+
+/** Rounds the ledger keeps in full; older settled rounds move to the archive. */
+export const KEEP_FULL_RECEIPTS = 20
+
+// The session slots are validated once per stored string, like the ledger
+// (validatedLedger in settlementStorage.ts); readers get their own copy.
+let validSessions: { readonly raw: string; readonly sessions: SettlementSessions } | null = null
 
 /**
  * Concrete localStorage transaction journal. Every mutation reads current
@@ -71,14 +83,40 @@ export function createSettlementStore(options: SettlementOptions) {
       'cluecab-survival-v1': useSurvival }[key]
     void store?.persist?.rehydrate()
   }
-  const readLedger = (): SettlementLedger => {
+  /** The validated durable ledger, shared and frozen: read it, never keep or
+   * hand it out. `readLedger` is the copy for everyone else. */
+  const durableLedger = (): SettlementLedger => {
     const raw = storage.getItem(SETTLEMENT_KEY)
-    return raw === null ? emptySettlementLedger() : parseLedger(JSON.parse(raw))
+    return raw === null ? emptySettlementLedger() : validatedLedger(raw).ledger
+  }
+  /** A private copy. Most readers want only the (small) facts, and copying
+   * every receipt costs nearly as much as validating them, so the receipts are
+   * copied on first access to `settlements`, once per returned ledger. */
+  const readLedger = (): SettlementLedger => {
+    const durable = durableLedger()
+    let settlements: SettlementLedger['settlements'] | undefined
+    const ledger: SettlementLedger = {
+      schemaVersion: durable.schemaVersion,
+      facts: structuredClone(durable.facts),
+      get settlements() { return settlements ??= structuredClone(durable.settlements) },
+      set settlements(value) { settlements = value },
+    }
+    // The archived summaries likewise, copied only when read. Defined, not
+    // spread: a spread would read (and copy) them at once.
+    if (durable.archived) {
+      let archived: SettlementLedger['archived']
+      Object.defineProperty(ledger, 'archived', { enumerable: true, configurable: true,
+        get: () => archived ??= structuredClone(durable.archived), set: (value) => { archived = value } })
+    }
+    return ledger
   }
   const commitLedger = async (next: SettlementLedger) => {
-    parseLedger(next)
-    storage.setItem(SETTLEMENT_KEY, JSON.stringify(next))
-    const durable = readLedger()
+    // Validate exactly what is about to be stored, before storing it. Receipts
+    // shared unchanged with the last validated ledger are not re-checked, and
+    // the durability read below finds the stored string already validated.
+    const raw = validatedLedgerJson(next)
+    storage.setItem(SETTLEMENT_KEY, raw)
+    const durable = durableLedger()
     if (!sameValue(durable, next)) throw new Error('Settlement write was not durable')
     publish(SETTLEMENT_KEY, durable)
   }
@@ -105,10 +143,13 @@ export function createSettlementStore(options: SettlementOptions) {
   const readSessions = (): SettlementSessions => {
     const raw = storage.getItem(SESSION_KEY)
     if (raw === null) return { byCourse: {}, results: {}, settlementEffects: {} }
-    const saved = envelope.parse(JSON.parse(raw))
-    if (saved.version !== 1) throw new Error('Unsupported session version')
-    const state = z.object({ byCourse: dictionary(z.unknown()), results: dictionary(z.object({ receiptId: z.string(), reviewRoundId: z.string().nullable() })), settlementEffects: markersSchema }).parse(saved.state)
-    return { ...state, byCourse: Object.fromEntries(Object.entries(state.byCourse).map(([course, sessions]) => [course, parseSessions(sessions)])) }
+    if (validSessions?.raw !== raw) {
+      const saved = envelope.parse(JSON.parse(raw))
+      if (saved.version !== 1) throw new Error('Unsupported session version')
+      const state = sessionsState.parse(saved.state)
+      validSessions = { raw, sessions: { ...state, byCourse: Object.fromEntries(Object.entries(state.byCourse).map(([course, sessions]) => [course, parseSessions(sessions)])) } }
+    }
+    return structuredClone(validSessions.sessions)
   }
   const writeState = (key: string, version: number, state: unknown) => {
     const raw = JSON.stringify({ version, state })
@@ -135,7 +176,7 @@ export function createSettlementStore(options: SettlementOptions) {
 
   const applyEffectOnce = async (effectId: string, effect: SettlementEffect, r: CompletionReceipt): Promise<'applied' | 'already-applied'> => {
     // Even direct/mistaken calls cannot execute an uncommitted proposal.
-    const durable = readLedger().settlements[r.receiptId]?.receipt
+    const durable = durableLedger().settlements[r.receiptId]?.receipt
     if (!durable || !sameValue(durable, r) || effectId !== effectKey(r.receiptId, effect) || !r.effects.includes(effect)) throw new Error('Effect needs its durable receipt')
     switch (effect) {
       case 'learning':
@@ -230,26 +271,54 @@ export function createSettlementStore(options: SettlementOptions) {
       }
     }
   }
+  /**
+   * Move settled rounds past the most recent KEEP_FULL_RECEIPTS out of the
+   * ledger: the full receipt to the history archive first, and only once that
+   * is durable, the ledger's copy down to a summary. Never a round still being
+   * settled, and never one still held in a primary or replay slot. Best
+   * effort: any failure leaves the ledger as it was (whole, or already
+   * shortened, both valid), and never fails the settle that called it.
+   */
+  const archiveOldRounds = async () => {
+    const archive = options.archive
+    if (!archive) return
+    try {
+      const ledger = durableLedger()
+      const sessions = readSessions()
+      // A result screen reopens only from a primary or replay slot. Any other
+      // round's result is the latest round's, which the recent rounds keep.
+      const inUse = new Set<string>()
+      for (const course of Object.values(sessions.byCourse)) {
+        for (const slot of [course.primary, course.replay]) if (slot) inUse.add(receiptKey(slot.attemptId))
+      }
+      const keys = receiptsToArchive(ledger, KEEP_FULL_RECEIPTS, inUse)
+      if (!keys.length) return
+      await archive.put(keys.map((key) => ledger.settlements[key]!))
+      await commitLedger(archiveSettlements(ledger, keys))
+    } catch {
+      // The ledger stays as it was; the next read validates whatever is stored.
+    }
+  }
   const recover = async () => {
     try {
-      return await recoverSettlement(readLedger(), { commitLedger, applyEffectOnce })
+      return await recoverSettlement(durableLedger(), { commitLedger, applyEffectOnce })
     } catch (error) {
       // A write can succeed and then report failure. Reread immediately, but
       // still reject this call: Next must wait for a successful recovery.
-      readLedger()
+      durableLedger()
       throw error
     }
   }
   return {
     readLedger, readSessions,
-    recover: () => withSettlementWriter(storage, recover),
+    recover: () => withSettlementWriter(storage, async () => structuredClone(await recover())),
     finish: (input: FinishInput) => withSettlementWriter(storage, async () => {
       let ledger = await recover()
       const existing = ledger.settlements[receiptKey(input.attempt.attemptId)]
       if (existing) {
         const prepared = prepareSettlement(ledger, { ...input, learning: existing.receipt.learning, continuation: null })
         if (prepared.status === 'blocked') throw new Error(prepared.reason)
-        return prepared.receipt
+        return structuredClone(prepared.receipt)
       }
       const course = input.attempt.board?.courseId
       const sessions = course && readSessions().byCourse[course]
@@ -273,9 +342,11 @@ export function createSettlementStore(options: SettlementOptions) {
         receipt = { ...receipt, lessons }
       }
       ledger = { ...prepared.ledger, settlements: { ...prepared.ledger.settlements, [receipt.receiptId]: { receipt, acknowledgedEffects: [] } } }
-      try { await commitLedger(ledger) } catch (error) { readLedger(); throw error }
+      try { await commitLedger(ledger) } catch (error) { durableLedger(); throw error }
       await recover()
-      return readLedger().settlements[receipt.receiptId]!.receipt
+      const settled = structuredClone(durableLedger().settlements[receipt.receiptId]!.receipt)
+      await archiveOldRounds()
+      return settled
     }),
     /** C1-08 persists both exact slots before it dispatches callbacks/events. */
     saveSessions: (course: string, sessions: CourseSessions) => {
@@ -283,7 +354,7 @@ export function createSettlementStore(options: SettlementOptions) {
       const validated = parseSessions(sessions)
       if (validated.continuation.requiredSet.courseId !== course ||
         [validated.primary, validated.replay].some((slot) => slot && slot.board.courseId !== course)) throw new Error('Session course mismatch')
-      const ledger = readLedger()
+      const ledger = durableLedger()
       for (const slot of [validated.primary, validated.replay]) {
         if (!slot) continue
         const accepted = ledger.settlements[receiptKey(slot.attemptId)]?.receipt.evidence
@@ -307,7 +378,7 @@ export function createSettlementStore(options: SettlementOptions) {
       const slot = sessions?.[slotName]
       const state = readSessions()
       const pointer = state.results[attemptId]
-      const receipt = readLedger().settlements[receiptKey(attemptId)]?.receipt
+      const receipt = durableLedger().settlements[receiptKey(attemptId)]?.receipt
       if (!sessions || !slot || slot.attemptId !== attemptId || slot.origin !== slotName ||
         slot.game.phase !== 'finished' || !pointer || !receipt || pointer.receiptId !== receipt.receiptId ||
         pointer.reviewRoundId !== slot.reviewRoundId || receipt.attemptId !== attemptId ||
@@ -329,17 +400,17 @@ export function createSettlementStore(options: SettlementOptions) {
       const accepted = factsForImport(incoming)
       const ledger = await recover()
       const next = { ...ledger, facts: mergeProgressFacts(ledger.facts, accepted) }
-      try { await commitLedger(next) } catch (error) { readLedger(); throw error }
+      try { await commitLedger(next) } catch (error) { durableLedger(); throw error }
       return readLedger()
     }),
     /** Caller normalizes the source version; one credit identity takes a max. */
     preserveLegacyCredit: (amount: number) => withSettlementWriter(storage, async () => {
       const credit = withLegacyCredit(emptyProgressFacts(), amount)
       const ledger = await recover()
-      try { await commitLedger({ ...ledger, facts: mergeProgressFacts(ledger.facts, credit) }) } catch (error) { readLedger(); throw error }
+      try { await commitLedger({ ...ledger, facts: mergeProgressFacts(ledger.facts, credit) }) } catch (error) { durableLedger(); throw error }
       return readLedger()
     }),
-    isFullyRecorded: () => pendingSettlement(readLedger()) === null,
+    isFullyRecorded: () => pendingSettlement(durableLedger()) === null,
   }
 }
 

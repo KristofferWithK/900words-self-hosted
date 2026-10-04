@@ -1,14 +1,17 @@
 import { City1SentenceReview } from './City1SentenceReview'
-import { lazy, Suspense, useCallback, useState } from 'react'
+import { lazy, Suspense, useCallback, useMemo, useState } from 'react'
 import type { GameState, Outcome } from '../../engine/types'
 import type { CompletionReceipt } from '../../progression/types'
 import { UI } from '../../i18n'
 import { ReminderPrompt } from './ReminderPrompt'
 import { useGame } from '../../stores/gameStore'
 import { type GuideEntryIntent, useUi } from '../../stores/uiStore'
+import { dealOrFallBack } from '../cafeDeal'
 import { ROWS_BUDGET_PX, RoundSentences } from './RoundSentences'
 import { TurnLogSheet } from './TurnLogSheet'
+import { Tag } from './Tag'
 import { cityAt } from '../../journey/cities'
+import { CITY1_REQUIRED_BOARD_IDS } from '../../data/city1RequiredBoardManifest'
 import { activeSurvivalGuide } from '../../lang/bookshelf'
 import { lessonFinishOffers, type LessonFinishOffer } from '../../journey/lessonMilestones'
 import { RECEIPT_UI } from '../../i18n/receipt'
@@ -16,6 +19,12 @@ import { resultTourSteps } from '../../onboarding/tour'
 import type { OnboardLessonStatus } from '../../onboarding/flow'
 import { CoachMarkTour } from './SuitcaseTour'
 import { CITY1_CATALOG, currentReviewSentence } from '../../review/city1'
+import { cafeNameForBoard } from '../../cafe/cafeName'
+import { CITY1_REQUIRED_SET } from '../../session/courseRuntime'
+import { createSettlementStore } from '../../stores/settlementStore'
+import type { ProgressFacts } from '../../progression/types'
+import { finishStamp } from './finishStamp'
+import { emptyProgressFacts } from '../../progression/facts'
 
 const ReceiptResult = lazy(() => import('./ReceiptResult').then(module => ({ default: module.ReceiptResult })))
 // The Guide is an optional post-result detour, not finish-screen content. Keep
@@ -87,10 +96,47 @@ function RoundStats({ discoveredWords, collectedWords }: { discoveredWords: read
   )
 }
 
-/** "bank_007" → "07": an authored board's number, as the finish header prints it. */
+/**
+ * The number the finish header prints for an authored board: its place in the
+ * course ("07" for the seventh board), which is the number the collection
+ * shows too. Since the balanced City 1 set (v2) the course is not in bank
+ * order, so `bank_058` can be board 5. A board outside the course keeps its
+ * bank number.
+ */
 export function boardNumber(authoredBoardId: string | null): string | null {
-  const m = authoredBoardId?.match(/(\d+)$/)
+  if (!authoredBoardId) return null
+  const place = CITY1_REQUIRED_BOARD_IDS.indexOf(authoredBoardId)
+  if (place >= 0) return String(place + 1).padStart(2, '0')
+  const m = authoredBoardId.match(/(\d+)$/)
   return m ? String(Number(m[1])).padStart(2, '0') : null
+}
+
+/**
+ * The saved progress facts, for the stamp line. Settlement writes a round's
+ * facts together with its receipt, so by the time a receipt is on screen they
+ * include it. An unreadable save gives empty facts; `finishStamp` still lays
+ * the receipt's own stamp over them.
+ */
+function readSavedFacts(): ProgressFacts {
+  try {
+    return createSettlementStore({ storage: localStorage }).readLedger().facts
+  } catch {
+    return emptyProgressFacts()
+  }
+}
+
+/**
+ * The finish header's small line: the city, then the café (card CW-09; the
+ * café's name comes from `cafeNameForBoard`, CW-08's frozen assignment), or the
+ * board number for a board that has no café name.
+ */
+export function finishPlace(cityName: string, receipt: CompletionReceipt | null): string {
+  if (!receipt) return cityName
+  const board = receipt.evidence.board
+  const cafe = cafeNameForBoard(board)
+  if (cafe) return `${cityName} · ${cafe}`
+  const n = boardNumber(board?.authoredBoardId ?? null)
+  return n ? `${cityName} · ${RECEIPT_UI.boardLabel(n)}` : cityName
 }
 
 function receiptHeadline(receipt: CompletionReceipt): string {
@@ -120,9 +166,11 @@ export function ReceiptLessonOfferActions({ receipt, onOpen }: {
   if (!offers.length) return null
   return <section className="receipt-lesson-offer" aria-label={UI.game.resultLesson}>
     <p>{UI.game.resultLesson}</p>
-    {offers.map(({ offer, entry }) => <button className="btn receipt-lesson-open" key={`${offer.kind}:${offer.itemId}`} onClick={() => onOpen(entry)}>
-      {offer.kind === 'curriculum' ? UI.game.resultOpenGrammar : UI.game.resultOpenSurvival}
-    </button>)}
+    {offers.map(({ offer, entry }) => {
+      const grammar = offer.kind === 'curriculum'
+      return <Tag className="receipt-lesson-open" key={`${offer.kind}:${offer.itemId}`} onClick={() => onOpen(entry)}
+        label={grammar ? UI.game.resultOpenGrammar : UI.game.resultOpenSurvival} />
+    })}
   </section>
 }
 
@@ -135,7 +183,7 @@ export function ReceiptGuideOverlay({ entry, onReturn }: {
     <Suspense fallback={<div className="receipt-guide-loading" aria-busy="true" />}>
       <TravelGuideBook initialEntry={entry} onExit={onReturn} />
     </Suspense>
-    <button className="btn receipt-guide-return" onClick={onReturn}>{UI.game.resultBackToResult}</button>
+    <Tag className="receipt-guide-return" label={UI.game.resultBackToResult} onClick={onReturn} />
   </div>
 }
 
@@ -193,6 +241,12 @@ export function RoundSummary({
   const goTo = useUi((s) => s.goTo)
   const [guideEntry, setGuideEntry] = useState<GuideEntryIntent | null>(null)
   const [resultTourClosed, setResultTourClosed] = useState(false)
+  // The café's stamp and the city's percentage after this round. Read once
+  // per receipt: the saved ledger is parsed here, not on every store update.
+  const stamp = useMemo(
+    () => completionReceipt ? finishStamp(completionReceipt, readSavedFacts(), CITY1_REQUIRED_SET) : null,
+    [completionReceipt],
+  )
   // The normal/replay terminal screen is a projection of one settled receipt,
   // never a best effort from a mutable finished cache. C1-06 retires legacy
   // terminal saves; until then, fail closed rather than making any reward or
@@ -238,11 +292,12 @@ export function RoundSummary({
           sub: outcome.result === 'won' ? undefined : copy.sub,
           stats: <RoundStats discoveredWords={discoveredWords} collectedWords={collectedWords} />,
           meta: {
-            place: [cityAt(boardCityIndex).name, completionReceipt && boardNumber(completionReceipt.evidence.board?.authoredBoardId ?? null)]
-              .filter(Boolean).map((part, i) => i === 0 ? part : RECEIPT_UI.boardLabel(part as string)).join(' · '),
+            place: finishPlace(cityAt(boardCityIndex).name, completionReceipt),
             label: RECEIPT_UI.resultLabel,
           },
-          resultDetails: completionReceipt && <Suspense fallback={<div className="receipt-result" aria-busy="true" />}><ReceiptResult receipt={completionReceipt} /></Suspense>,
+          resultDetails: completionReceipt && <Suspense fallback={<div className="receipt-result" aria-busy="true" />}>
+            <ReceiptResult receipt={completionReceipt} stamp={stamp} cityName={cityAt(boardCityIndex).name} />
+          </Suspense>,
         }}
         // The reader's place when there is no accepted sentence to read: a
         // wrap-up's train (it builds no queue at all — finishRound refuses
@@ -282,7 +337,9 @@ export function RoundSummary({
         onNext={nextReviewSentence}
         onDismiss={dismissReview}
         onHome={home}
-        onReplay={!hideReplay ? () => newGame() : undefined}
+        // newGame refuses when the next café has not been found yet (CW-04):
+        // then Home, whose Café puzzle tag points the way to Sightseeing.
+        onReplay={!hideReplay ? () => { dealOrFallBack(() => newGame(), () => goTo('home')) } : undefined}
         // City 1 deals its next authored board; elsewhere it is the same deal again.
         replayLabel={boardCityIndex === 0 ? UI.game.playNextGame : UI.game.playAgain}
           specialActions={completionReceipt && !resultTourOpen ? <ReceiptLessonOfferActions receipt={completionReceipt} onOpen={setGuideEntry} /> : undefined}
@@ -293,7 +350,7 @@ export function RoundSummary({
         />}
         {guideEntry && <ReceiptGuideOverlay entry={guideEntry} onReturn={() => setGuideEntry(null)} />}
         {resultTourOpen && completionReceipt && <CoachMarkTour
-          steps={resultTourSteps(completionReceipt, { hasReview })}
+          steps={resultTourSteps(completionReceipt, { hasReview, cityPercentOf: stamp ? cityAt(boardCityIndex).name : null })}
           surfaceSelector=".city1-review-dialog"
           graceMs={8000}
           onDone={() => { setResultTourClosed(true); onResultLessonComplete?.('done') }}

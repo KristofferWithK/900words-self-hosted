@@ -171,7 +171,7 @@ try {
     await checkGeometry()
     await panel.getByText(longestAbout.text.en, { exact: true }).waitFor()
     await panel.getByText(notes.find(a => a.targetId === longestAbout.targetId).usageEn, { exact: true }).waitFor()
-    assert.match(await panel.getByRole('button', { name: 'Play next game' }).getAttribute('class'), /btn-primary/)
+    assert.match(await panel.getByRole('button', { name: 'Play next game' }).getAttribute('class'), /tag-primary/)
     await panel.getByRole('button', { name: 'Play next game' }).click()
     assert.equal(await page.locator('.city1-review-dialog').count(), 0)
     assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-game-v1')).state.roundRecorded), false)
@@ -193,7 +193,7 @@ try {
     assert.equal(await panel.locator('.log-toggle').count(), 1, 'and the transcript link closing the reader')
     assert.equal(await panel.locator('.city1-review-exit-row').count(), 1,
       'Play next game and Home share the second line while there is a next sentence')
-    assert.match(await panel.getByRole('button', { name: 'Next sentence' }).getAttribute('class'), /btn-primary/)
+    assert.match(await panel.getByRole('button', { name: 'Next sentence' }).getAttribute('class'), /tag-primary/)
     assert.equal(await panel.locator('.btn-primary').count(), 1, 'exactly one primary at a time')
     await panel.getByRole('button', { name: 'Next sentence' }).click()
     assert.equal(await panel.locator('.city1-review-exit-row').count(), 0,

@@ -1,0 +1,451 @@
+/* ---------- game header ---------- */
+
+.game-screen {
+  gap: 12px;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+/* Five 42px targets and the pips do not fit a 360px phone at a 10px gap, and
+   the failure is silent: nothing wraps and the header stays 58px, so the board
+   does not move and no drive complains — the pip row simply overflows its
+   column and paints on top of the buttons. Measured, with «hear the board» as
+   the fifth button: 328px of content, 210px of buttons, 50px of gaps, 68px
+   left for a column that needs 105. The first pip landed 8.5px inside the
+   re-deal button and the last 8.5px inside «hear the board», and the caption
+   clipped from its natural 104px to 68px — "Give Casey a clue" became "Give
+   Cas…".
+   The gap is the only slack that costs nothing real: 42px stays 42px, which is
+   the number that matters on a phone. At 2px the column gets 108px, so the
+   longest common caption fits whole and the pips stop overlapping.
+   Keyed to the viewport rather than the button count because the count is not
+   a thing CSS can ask about, and the two agree: the shell is max-width 480, so
+   above ~420px the roomy gap fits with 23px to spare. */
+@media (max-width: 419px) {
+  .game-header {
+    gap: 2px;
+  }
+
+  .game-header .token-row {
+    gap: 6px;
+  }
+}
+
+/* The tutorial's Skip stands where Home's 42px arrow does, so it wears the
+   arrow's measurements rather than a full pill — the header note above is the
+   arithmetic it must not break at 360px. */
+.game-header .onboard-skip {
+  flex-shrink: 0;
+}
+
+/* The required first real round keeps its header balanced without exposing a
+   Home arrow before the round summary is allowed to hand onboarding back. */
+.game-header-placeholder {
+  width: 42px;
+  min-height: 42px;
+  flex: none;
+}
+
+/* A pip row can never again paint outside its column, whatever the board's
+   token count turns out to be — the pips squash into ovals instead, which is
+   ugly and contained rather than tidy and wrong. */
+.turn-tokens,
+.game-header .token-row {
+  max-width: 100%;
+}
+
+.game-header-mid {
+  flex: 1;
+  /* Without this the caption can never shrink below its longest word, so
+     text-overflow has nothing to work with and it wraps instead. */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* One line, always — the header is the ceiling the board hangs from.
+   "Sudden death — no clues left" is the one caption too long for 360px with
+   the turn pips beside it, and it wrapped: the header went 58px to 76px and
+   took the whole board down 18px with it, in the one phase where the player
+   is staring hardest at the board. Measured on a seeded round; the other five
+   captions all fit. */
+.phase-caption {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.turn-tokens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.token-row {
+  display: flex;
+  gap: 7px;
+}
+
+/* The number the last-chance rule turns on, small enough to sit under the pips
+   without competing with the phase caption beside them. */
+.token-count {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
+.token {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.token-full {
+  background: var(--text);
+}
+
+.token-spent {
+  background: var(--line);
+}
+
+/* ---------- board ---------- */
+
+.board-area {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+.board-grid {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  /* Rows share whatever height the phase's dock leaves over (BoardGrid sets
+     the row count inline beside the columns), so the board shrinks instead
+     of scrolling. */
+  height: 100%;
+  min-height: 0;
+}
+
+.word-card-wrap {
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  /* Give the paper below a definite row-sized container. Percentage
+     max-height on an aspect-ratio box is not definite in this grid/flex
+     combination, so tall-phone rows let the 5:4 paper overflow its track and
+     erase the vertical gap between cards. */
+  container-type: size;
+}
+
+/* The card's own positioning surface. A sparse board can leave a grid row
+   taller than the 5:4 paper inside it; the lookup button must follow the paper
+   rather than sitting at the row's top edge. */
+.word-card-surface {
+  position: relative;
+  width: 100%;
+  /* Keep the 5:4 paper when a row is roomy, but let a dense board flatten it
+     to the row's actual height. Both lengths come from the definite grid item,
+     so the surface can never paint into the next row. */
+  height: min(100cqh, 80cqw);
+  /* Keep the 44px floor whenever the row has it, but never overflow a shorter
+     row. The grid is allowed to compress on a short effective phone viewport;
+     a hard 44px here made every card paint into the row below it. */
+  min-height: min(44px, 100%);
+  /* Lets the separate lookup button respond to the actual paper height. The
+     word itself keeps using .word-card as its nearer size container. */
+  container-type: size;
+  display: flex;
+}
+
+.word-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* The shape a card wants; max-height lets the row overrule it on short
+     phones â€” cards go flatter, never clipped, and cqw font sizing is off the
+     width so the word is unaffected. */
+  /* The floor under "flatter, never clipped": one 16px line inside the
+     padding box with a 3px key border on both edges still clears. */
+  min-height: min(44px, 100%);
+  /* The word is sized off the CARD, not the viewport â€” see .card-da. */
+  container-type: size;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  /* Top padding reserves the strip the key mark and the â“˜ live in, so the word
+     is never drawn underneath either of them. */
+  /* The top strip used to reserve room for a key dot as well as â“˜; the dot
+     is gone, and the room came back to the word â€” which is what pays for the
+     article now sitting in front of it. */
+  padding: 11px 4px 2px;
+  overflow: hidden;
+  transition: transform 0.1s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+/* The moving outline paints just outside the button's own rounded edge. Keep
+   the clipping treatment for normal card contents, but let this decorative
+   overlay escape it; overflow does not change the button's box or hit target. */
+.word-card.card-border-motion:not(.card-green) {
+  overflow: visible;
+  /* The SVG frame is the border while motion is active. Keep this width in the
+     box model but remove the duplicate static stroke beneath it. */
+  border-color: transparent;
+}
+
+/* Three pre-drawn pencil outlines boil around the card without moving its box,
+   text or hit area. Each holds for 240ms; the stable word-id delay desynchronizes
+   cards without introducing random values or a runtime clock. */
+.card-border-motion-frames {
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  overflow: visible;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card-border-motion-frames .card-border-frame,
+.card-suitcase-motion-frames .card-border-frame {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  pointer-events: none;
+  animation-duration: 720ms;
+  animation-delay: var(--word-border-delay, 0ms);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.card-border-motion-frames .card-border-frame {
+  stroke: var(--line);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  --border-frame-opacity: 1;
+}
+
+.word-card.card-border-motion.card-guessable .card-border-frame {
+  stroke: var(--beige-deep);
+}
+
+.card-border-motion-frames .card-border-frame-1,
+.card-suitcase-motion-frames .card-border-frame-1 {
+  animation-name: word-border-frame-1;
+}
+
+.card-border-motion-frames .card-border-frame-2,
+.card-suitcase-motion-frames .card-border-frame-2 {
+  animation-name: word-border-frame-2;
+}
+
+.card-border-motion-frames .card-border-frame-3,
+.card-suitcase-motion-frames .card-border-frame-3 {
+  animation-name: word-border-frame-3;
+}
+
+.word-card.mykey-green.card-border-motion .card-border-frame {
+  stroke: var(--green-tile);
+  stroke-width: 3px;
+  --border-frame-opacity: 1;
+}
+
+@keyframes word-border-frame-1 {
+  0% { opacity: var(--border-frame-opacity, 0.72); animation-timing-function: steps(1, end); }
+  33.333% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes word-border-frame-2 {
+  0% { opacity: 0; animation-timing-function: steps(1, end); }
+  33.333% { opacity: var(--border-frame-opacity, 0.72); animation-timing-function: steps(1, end); }
+  66.666% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes word-border-frame-3 {
+  0% { opacity: 0; animation-timing-function: steps(1, end); }
+  66.666% { opacity: var(--border-frame-opacity, 0.72); animation-timing-function: steps(1, end); }
+  100% { opacity: 0; }
+}
+
+.card-da {
+  font-weight: 700;
+  /* Sized off the card rather than the viewport. At 4vw every board got the
+     same 14.4px word, but a 4-wide card is a quarter narrower than a 3-wide
+     one â€” so the standard board was breaking seven-letter words with a single
+     letter left over ("smert/e", "levend/e") while the beginner board had
+     room to spare. In cqw the word shrinks only where the card is tight: 12.8px
+     on a 4-wide 360px board, and clamped up to 16px on the 3-wide ones, which
+     is larger than they had before. Measured over all 430 nouns with an
+     article in front: nothing clipped anywhere. */
+  font-size: clamp(0.62rem, 20cqw, 1rem);
+  /* Pinned, so two wrapped lines cost a predictable height: the content box
+     is 36px on a 4-wide board and a third line does not fit in it. */
+  line-height: 1.15;
+  word-break: break-word;
+  text-align: center;
+}
+
+/* Danish gender, in front of the word, which is how the pair is learned:
+   "et hus", not "hus (neuter)". It sat in the top strip for one build, where
+   it costs no layout at all, and there it was too easy to miss.
+   Inline it is not free. On a 4-wide board at 360px the word has 64px and
+   this takes about 13 of them, so 71 of the 430 nouns in the set gain a
+   second line. Measured across all of them, none is clipped. Demoted three
+   ways â€” smaller, lighter, greyer â€” so it reads at a glance without being
+   what the eye lands on when scanning twelve cards for a match. The gap is
+   sized in rem off the WORD, not in em off the article, or it comes out
+   narrower than a real word space and reads as "ethus". */
+.card-article {
+  font-size: 0.5rem;
+  font-weight: 500;
+  line-height: 1;
+  /* Set against the darkest ground it sits on â€” --beige on a bystander tile,
+     not the white card: 5.18:1 there, 6.9:1 on white. */
+  color: #5a5a5a;
+  margin-right: 0.2rem;
+  white-space: nowrap;
+}
+
+
+/* Tiles that paint themselves dark take the same ink the word takes: white on
+   --green-tile is already at the card's contrast floor, so dimming the article
+   there would fail at this size. Size and weight carry the distinction.
+   (No tile paints itself dark any more — the solved card came off --green-tile
+   and is paper now — but the article never lands on a solved card anyway: the
+   whole face is the suitcase glyph there, so this rule now only ever applies
+   to a card painted dark by something else. Kept for safety.) */
+.card-green .card-article {
+  color: #fff;
+}
+
+/* Struck bystanders match the article to the word, so the article is never
+   the loudest thing on a card that is finished with. (The old .card-spent
+   rule said the same thing; the class is gone — see .card-bystander-struck.) */
+.card-bystander-struck .card-article {
+  color: var(--text-dim);
+}
+
+.card-en {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* A SHORT card: drop the word to the size where two lines fit inside it, and
+   spend no line on the gloss. Height-queried off the card itself, which is why
+   the container tracks size, not inline-size.
+
+   N1 asked which side of this threshold the 3x6 board sits on, expecting it to
+   be a near thing: a sixth row measures 46.42px against a query that says 46,
+   which reads as missing it by 0.42. IT IS NOT A NEAR THING, and the reason is
+   worth writing down because the arithmetic is easy to get wrong twice. A size
+   container query resolves against the container's CONTENT box, not the border
+   box a card's height is. This card pays 2px of border on each edge (3px once
+   a key mark is showing) plus 11px + 2px of padding, so a 46.42px card is a
+   27-30px query.
+
+   MEASURED on the built app, every card of a real 3x6 board, seed 7:
+
+     360x640   card 46.42-47.34px   ->   content box 27.42-30.34   COMPACT
+     390x844   card 80.42-81.43px   ->   content box 61.42-64.43   full size
+
+   So the threshold has to sit above 30.34 and below 61.42, and 46 is within a
+   quarter-pixel of the middle of that band: 15.7px of clearance below it, 15.4
+   above. Nothing rides it, and it is left exactly where it was. The number
+   that would have needed re-choosing is the one the border box suggested, and
+   that number was never the one being compared.
+
+   Which side the 3x6 is on, at the phone that matters: the compact one, and it
+   has to be. A 360-wide card gives the content box 29px; the word at its full
+   16px is 18.4px of line, and a gloss under it wants about 16 more with the
+   gap. The board that fits six rows is the board whose cards cannot also carry
+   the English, which is what the Aa toggle and the card's info button are for.
+   */
+@container (max-height: 46px) {
+  .card-da {
+    /* Two lines of the dataset's longest noun inside a short card that is
+       also paying a 3px key border on both edges â€” measured, not estimated. */
+    font-size: clamp(0.62rem, 16cqw, 0.72rem);
+    line-height: 1;
+  }
+  .card-en {
+    display: none;
+  }
+}
+
+/* Disabled cards must keep full-contrast text (UA gray would dim the board
+   whenever it is not the player's guessing turn). */
+.word-card:disabled {
+  color: var(--text);
+  opacity: 1;
+  cursor: default;
+}
+
+/* Sits in the reserved top strip. Kept small so it cannot swallow a tap meant
+   for the word during your guessing turn, and given a wider invisible hit area
+   through ::after rather than by growing over the card. */
+.card-info {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: #565758;
+  padding: 5px 6px;
+  z-index: 2;
+}
+
+.card-info::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  width: 34px;
+  height: 30px;
+}
+
+/* At 360×568 the six board rows flatten below 42px. The ordinary icon's
+   23px painted box then reaches the centred word on three cards, even though
+   the cards themselves clear each other and the dock. Keep the icon on its
+   card, but compact both its paint and its invisible tap extension to the
+   short row instead of laying either over the word. */
+@container (max-height: 42px) {
+  .card-info {
+    top: 0;
+    right: 1px;
+    padding: 2px 4px;
+    font-size: 0.64rem;
+  }
+
+  .card-info::after {
+    width: 28px;
+    height: 18px;
+  }
+}
+
+/* `wrap-green` is still applied to a solved card's wrapper during wrap-up
+   packing (BoardGrid's `wrap-${kind}`), but it no longer needs any CSS: the
+   packed mark is the suitcase glyph on the card face itself, and ⓘ does not
+   render on a solved card at all (BoardGrid skips it), so the white-ink
+   override the old dark-green fill needed is gone with the fill. */
+

@@ -27,6 +27,14 @@ describe('RoundGuidanceDialog public content', () => {
     expect(html).toContain('type="checkbox"')
     expect(html).toContain(UI.game.guidanceHideReminder)
   })
+  it('gives Translation time the same labeled opt-out as the player turn', () => {
+    const html = renderToStaticMarkup(<RoundGuidanceDialog kind="translation" onDismiss={() => {}} />)
+    expect(html).toContain(`>${UI.game.phaseTranslateChallenge}</h2>`)
+    expect(html).toContain(UI.game.guidanceStartTranslation)
+    expect(html).toContain('round-guidance-preference')
+    expect(html).toContain('type="checkbox"')
+    expect(html).toContain(UI.game.guidanceHideReminder)
+  })
   it('announces the last chance with its rule and one action, and no opt-out', () => {
     const html = renderToStaticMarkup(<RoundGuidanceDialog kind="last-chance" onDismiss={() => {}} />)
     expect(html).toContain('<dialog')

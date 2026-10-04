@@ -1,0 +1,482 @@
+/* ---------- the internal scroller ---------- */
+
+/* The one sanctioned scroll region: a screen with more to say than a phone
+   is tall (Settings) scrolls INSIDE this, never the document. */
+.screen-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  /* Absolutely-positioned descendants (the hidden file input) stay inside
+     this scroller's coordinate space, where its own scrollbar owns them. */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Keep the last control clear of home-indicator bars. */
+  padding-bottom: 4px;
+}
+
+.settings-note {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+/* ------------------------------------------------------------------ *
+ * The train ride (H9): the destination's two fixed grammar sheets.
+ *
+ * The train window, book page, and controls all stay inside one phone frame.
+ * The page is deliberately paged rather than internally scrollable.
+ * ------------------------------------------------------------------ */
+.ride-screen {
+  gap: 6px;
+}
+
+.ride-window {
+  flex: none;
+  display: flex;
+  justify-content: center;
+}
+
+.ride-train {
+  width: min(100%, 260px);
+  height: auto;
+}
+
+/* Same graphite as Casey and the coastline — the same hand drew all three.
+   vector-effect for the reason the map comments give: the stroke width is in
+   viewBox units and this is letterboxed down to ~240px on a phone. */
+.ride-train .cluey-hatch rect,
+.ride-train .cluey-hatch circle,
+.ride-train .cluey-hatch path {
+  fill: none;
+  stroke: rgba(18, 18, 18, 0.5);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.ride-train .ride-rail {
+  stroke-dasharray: 6 5;
+  opacity: 0.55;
+}
+
+.ride-eyebrow {
+  flex: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.ride-title {
+  flex: none;
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.ride-subtitle {
+  flex: none;
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* The one part that gives. min-height:0 is what lets a flex child actually
+   shrink; without it this grows to its content and pushes the controls off. */
+.ride-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.ride-chapter-title {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ride-chapter-en {
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.ride-sentences {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The line IS the button, the bargain SpeakSentence already makes: a separate
+   play control per sentence would cost thirty tap targets and a lot of height
+   on a screen that has none to spare. */
+.ride-line {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  padding: 4px 0 4px 10px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ride-da {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.ride-en {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.ride-sentence.is-current .ride-line {
+  border-left-color: var(--green);
+  background: rgba(46, 125, 50, 0.07);
+}
+
+/* Which of the two lines is being read right now. The sentence is highlighted
+   for all four passes; this says whether what you are hearing is the Danish or
+   its translation, which is the only way to tell the second pass from the
+   first without listening for the language. */
+.ride-da.is-speaking,
+.ride-en.is-speaking {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.ride-controls {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.ride-controls .btn-primary {
+  flex: 1;
+}
+
+/* ------------------------------------------------------------------ *
+ * Onboarding: a language ticket, then Casey before the first walk (CW-13).
+ * ------------------------------------------------------------------ */
+.onboard-screen {
+  gap: 14px;
+}
+
+.onboard-ticket-heading {
+  text-align: center;
+}
+
+.onboard-ticket-heading h1 {
+  margin: 4px auto 0;
+  max-width: 310px;
+  font-size: clamp(1.6rem, 8vw, 2.15rem);
+}
+
+/* The list is never shorter than its own tickets; it only shares what is LEFT
+   with the spacer under the hint. It was `flex: 1; min-height: 0`, which split
+   the free height evenly with that spacer: room for the one ticket this was
+   built around (164px), not for Danish and German together (338px). At
+   360x640 the list got 203px and, centred, drew the Danish map 54px over
+   "Which language do you want to learn?" and the German ticket over the hint,
+   while the document stayed 640 tall and no-scroll passed. Layout-drive's
+   "tickets clear the heading and the hint" is the check that sees it; a list
+   that outgrows the phone now lengthens the document instead, which no-scroll
+   does see. */
+.onboard-tickets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+}
+
+/* The ticket: a card, not a select — one per shipped language, and one full
+   stop while Danish is alone. The dashes are the perforation.
+
+   The language act's cards borrow the LOOK and not the class: `.onboard-ticket`
+   has to keep meaning "a ticket for a language to LEARN", because four drives
+   select it by that name and a shared class made every one of them ambiguous
+   the moment the language act shipped. */
+.onboard-ticket,
+.onboard-language {
+  width: min(100%, 334px);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+  background: var(--surface);
+  border: 2px dashed rgba(18, 18, 18, 0.55);
+  border-radius: 12px;
+  padding: 14px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* The map sets the ticket's height (its text column is shorter), so this is
+   the one number that decides whether two tickets and the coming-soon row
+   fit between the heading and the hint. 132px where the phone has the room;
+   17vh on a short one, where 132 would leave the row nowhere to go. Measured
+   in all seven picker languages: at 360x640 the ticket is 140.8px and the
+   whole list clears the heading and the hint by 21.3px each side (19.8 with
+   a Verdana stand-in, where Swedish's "KOMMER SNART" wraps); at 375x667,
+   145.4px and 24.3; from 390x844 up, the full 164px. */
+.ticket-country-map {
+  width: 104px;
+  height: min(132px, 17vh);
+  flex: none;
+  display: block;
+}
+
+.ticket-country-map .map-route-ahead {
+  stroke-width: 5;
+}
+
+.ticket-country-map .home-dot {
+  stroke-width: 7;
+}
+
+/* Where the journey goes next: half a ticket each, side by side under the
+   real ones, and quieter than them — a paler perforation, no card fill,
+   dimmer ink — because they are news, not a choice. Nothing here is a
+   button (see OnboardingScreen). */
+.onboard-tickets-soon {
+  width: min(100%, 334px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.onboard-ticket-soon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  border: 2px dashed rgba(18, 18, 18, 0.28);
+  border-radius: 12px;
+  padding: 8px;
+  color: var(--text-dim);
+}
+
+.ticket-soon-map {
+  width: 36px;
+  height: 52px;
+  flex: none;
+  display: block;
+  opacity: 0.7;
+}
+
+/* Tighter than the real tickets' 0.14em so "COMING SOON" holds one line in
+   a half-width card; a longer translation still wraps rather than clips. */
+.onboard-ticket-soon .ticket-eyebrow {
+  letter-spacing: 0.08em;
+}
+
+.onboard-ticket-soon .ticket-dest {
+  font-size: 1.15rem;
+}
+
+.onboard-ticket-soon .ticket-lang {
+  font-size: 0.8rem;
+}
+
+.ticket-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ticket-map-fallback {
+  width: 104px;
+  flex: none;
+  font: 4rem/1 var(--serif);
+  text-align: center;
+}
+
+.onboard-ticket:active,
+.onboard-language:active {
+  background: var(--green-soft);
+}
+
+/* The language card holds ONE word — the language's own name for itself — so
+   it centres that word instead of leaving a row with a gap where the country
+   map would be. */
+.onboard-language {
+  justify-content: center;
+  text-align: center;
+  padding: 12px 14px;
+}
+
+.onboard-language .ticket-lang {
+  font-size: 1.15rem;
+}
+
+/* ELEVEN of these have to fit at 360x640 above the hint, and a column of
+   eleven does not: at the single-card height this list was built for it runs
+   past 640px and the first-run question starts with a scroll.
+
+   So the language act — and only the language act — lays its cards out as a
+   grid. `auto-fit` with a 140px floor gives two columns on a 360px phone and
+   three where there is room, without a media query naming a device. The floor
+   is set by the longest endonym, "Norsk bokmål"; a language whose own name is
+   longer than that needs this number raised, not the card allowed to clip. */
+.onboard-tickets-languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  width: min(100%, 334px);
+  margin: 0 auto;
+  align-content: center;
+}
+
+.onboard-tickets-languages .onboard-language {
+  width: 100%;
+  padding: 10px 8px;
+}
+
+.onboard-tickets-languages .ticket-lang {
+  font-size: 1rem;
+  /* An endonym is one word and must never be cut in half; if it cannot fit on
+     one line it wraps rather than disappearing behind an ellipsis. */
+  overflow-wrap: break-word;
+}
+
+.ticket-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+.ticket-dest {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+.ticket-lang {
+  font-size: 0.95rem;
+}
+
+.ticket-meta {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.onboard-hint {
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* The part that gives, so the controls sit at the bottom on every phone. */
+.onboard-spacer {
+  flex: 1;
+  min-height: 0;
+}
+
+.onboard-controls {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.onboard-controls .tag-primary {
+  flex: 1;
+}
+/* Skip alone on the ticket act still reads as a row, not a stranded pill. */
+.onboard-controls .onboard-skip:only-child {
+  margin-left: auto;
+}
+
+/* Home is not mocked for the introduction: the first session shows the real
+   Home with its doors routed (CW-13), under the spotlight's scrim. */
+.onboard-home-act {
+  position: relative;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.onboard-home-act > .home-screen {
+  flex: 1;
+}
+
+.onboard-home-skip {
+  position: absolute;
+  top: calc(8px + env(safe-area-inset-top));
+  right: 12px;
+  z-index: 2;
+  background: rgba(255, 253, 247, 0.92);
+}
+
+/* ---- Casey before the first walk (CW-13) ----
+   The staged Home is gone; Casey speaks on the onboarding paper instead, as
+   large as she stood there, with her bubble above her and one tag below. */
+.onboard-intro-casey {
+  flex: 1;
+  min-height: 0;
+  justify-content: center;
+}
+
+.onboard-intro-bubble {
+  flex-direction: column;
+  width: min(100%, 320px);
+  padding: 10px 13px;
+  font-size: 0.9rem;
+  line-height: 1.38;
+  cursor: default;
+}
+
+.onboard-intro-bubble p {
+  margin: 0;
+}
+
+.onboard-intro-bubble p + p {
+  margin-top: 8px;
+}
+
+.onboard-intro-mascot {
+  margin: 6px auto 0;
+}
+
+/* Casey as large as on Home, a little smaller so the two lines fit above him
+   at 360×640. */
+.onboard-intro-mascot .cluey-svg {
+  width: min(250px, 66vw, 30vh);
+}
+
+.onboard-intro .onboard-spacer {
+  flex: 0 0 0;
+}
+

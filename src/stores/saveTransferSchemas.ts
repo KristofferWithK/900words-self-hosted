@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CurriculumProgressSchema, HistoricalEligibilitySchema, SurvivalProgressSchema } from '../backup/learningSchema'
+import { CafeFindsSchema, CurriculumProgressSchema, HistoricalEligibilitySchema, PhotoLedgerSchema, SurvivalProgressSchema, TrainRunsSchema } from '../backup/learningSchema'
 import { LegacyEvidenceSchema, RecoveryArchiveSchema } from '../backup/recovery'
 import { receiptKey, requiredSetKey } from '../progression/identity'
 import { markersSchema, parseLedger, parseSessions, tallySchema, wordStatsSchema } from '../progression/storageSchema'
@@ -79,6 +79,13 @@ function validateJourney(value: unknown): void {
   const routes = record(route).refine(entries => Object.keys(entries).every(key => course.safeParse(key).success))
   const state = route.extend({
     banked: record(count).optional(), wrapped: record(count).optional(),
+    // Photo marks (journey/wordMarks.ts): optional, a save written before the
+    // café world has none. Checked against the same schema the backup file uses.
+    photos: PhotoLedgerSchema.optional(),
+    // Café finds (journey/cafes.ts): optional in the same way, same schema as the file.
+    cafes: CafeFindsSchema.optional(),
+    // Train tickets (journey/progress.ts TrainRunFact, CW-07): optional in the same way, same schema family as the file.
+    trainRuns: TrainRunsSchema.optional(),
     // v1/v2 values are inert and removed by journey's own migration. They are
     // nevertheless named here so old recovery journals remain supported.
     stamps: z.record(z.string(), count).optional(), trialsSpent: z.record(z.string(), count).optional(),
@@ -135,7 +142,7 @@ export function validateSaveDestination(key: SaveKey, value: unknown): void {
       // This store is read through a parser rather than Zustand, but it is
       // still a journal destination. Do not let a parser-stripped top-level
       // property become durable corruption.
-      z.object({ schemaVersion: z.literal(1), facts: z.unknown(), settlements: z.unknown() }).strict().parse(value)
+      z.object({ schemaVersion: z.literal(1), facts: z.unknown(), settlements: z.unknown(), archived: z.unknown().optional() }).strict().parse(value)
       const ledger = parseLedger(value)
       // The receipt parser validates captured effects/identity/reward consistency;
       // portable lesson schemas additionally validate each evidence record.

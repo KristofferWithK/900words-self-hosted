@@ -1,0 +1,356 @@
+/* ---------- wrap-up packing ---------- */
+
+/* A card still English-side up: paper-coloured, the face to turn over. The
+   gloss keeps the Danish word's slot and sizing so the board holds its shape
+   as cards flip. */
+.card-face-en {
+  background: var(--beige);
+  border-color: var(--beige-deep);
+}
+
+.card-word-en {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* W1's top-up: a card that was not collected when the board was dealt. It
+   plays and it counts, it just cannot be wrapped — so the mark is QUIET. A
+   single dotted underline drawn inside the card's own padding, no colour of
+   its own, no second border: the card is not wrong and the player is not being
+   refused anything, and anything louder would make a thin-pool board read as a
+   board full of mistakes. The accessible name says it in words
+   (BoardGrid.tsx), which is where the meaning actually lives; this is the
+   glance version. `inset` rather than a border so it cannot change the card's
+   box and move the board between phases. */
+.card-no-wrap::after {
+  content: '';
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 4px;
+  border-bottom: 1px dotted var(--text-dim);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.packing-dock {
+  border: 1px solid var(--text);
+  background: var(--bg);
+}
+
+/* `.packing-prompt` — "The Danish for <word>?" on a row of its own — was
+   declared here. The word being packed is in the dock's title now, so the row
+   is gone from the markup and the rule with it, rather than left standing for
+   the next reader to conclude the row is still there. */
+
+.packing-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ONE note line, always rendered, and this dock's give-way region. It carries
+   three different sentences — the miss, the instruction while a card is
+   selected, and the instruction while none is — and only the miss is red.
+   The explicit line-height (1.15, tuned from the inherited 1.3 with build 90's
+   pill in this row) keeps Chrome's "normal" line boxes from overshooting the
+   row's height arithmetic by a fractional pixel. */
+.packing-note {
+  font-size: 0.85rem;
+  line-height: 1.15;
+}
+
+.packing-miss {
+  color: var(--red);
+}
+
+/* Start early, as a primary pill in the field row beside Pack (build 90,
+   owner: the two links should "look like the pack button"). It was a
+   .btn-ghost carrying "Start with 4 unpacked — they stay English and cannot be
+   wrapped this round", which wrapped to two lines at 360px and cost the board
+   both of them; then a nowrap link on the title row. The sentence survives as
+   the button's title and its accessible name. Compact: the row has to fit
+   input + two pills at 360px, so the .btn's 22px inline padding is cut and
+   min-width:0 lets the labels shrink (they keep their .btn 48px height and
+   primary ring). */
+.packing-early,
+.packing-postcard {
+  min-width: 0;
+  padding: 12px;
+  white-space: nowrap;
+  flex: none;
+  line-height: 1;
+}
+
+/* Pack is the one full-padding pill: same ring, same 48px height, widest label
+   on the row (flex:1 takes the leftover after the two compact pills). The
+   inline padding stays the .btn default; the block padding drops to 12 so the
+   16px label's normal line box (19px) fits 44 + 4 + 1 = exactly 48, the same
+   number the two compact pills make with their one-line height. */
+.packing-pack {
+  min-width: 0;
+  padding-block: 12px;
+  flex: 1;
+}
+
+.packing-help {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* "Use postcard N" in the note row, a full primary pill. The row's give-way
+   contract is the note's ONE line (build 90, owner: all three pills "same
+   height and style", and the give-way note row's contract must hold): with a
+   48px pill beside it the note's measure is ~173px at 360px and every
+   packing-note sentence would wrap to two. So the note keeps its line by
+   cutting — the .dock-title contract (nowrap + ellipsis) — and the pill stands
+   48px next to it. Same ring and palette as Pack. */
+.packing-postcard {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.packing-help .packing-note {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.packing-postcard-balance {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: var(--beige-deep);
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Disabled keeps the grey-fill primary look; the underline suppression it
+   carried from the link days is gone with the link (build 90). */
+.packing-postcard:disabled {
+  color: #9b9b9b;
+  opacity: 1;
+}
+
+.word-card.card-translation-revealed {
+  border-style: dashed;
+  border-color: var(--beige-deep);
+}
+
+.word-card.card-border-motion.card-translation-revealed:not(.mykey-green) .card-border-frame {
+  stroke: var(--beige-deep);
+  stroke-dasharray: 6px 4px;
+}
+
+/* `.key-legend`, `.legend-swatch`, `.legend-target` and `.legend-sep` were
+   declared here — one 17.3px line between the board and the dock reading
+   "your target · look up". K2 deleted the paragraph (README: your own key IS
+   the card's border, and the info glyph explains itself when tapped), so these
+   are deleted rather than left standing. The board has the line's height and
+   the column's 12px gap with it. */
+
+
+/* Your own key, drawn as the card's border: solid green for a target. It is
+   thicker as well as coloured, so it does not depend on seeing the difference
+   between greens. (A dashed black border said "forbidden on your key"; there
+   is no such card any more.)
+
+   Since the owner's call of 2026-09-11 the class is simply NOT APPLIED while
+   Casey prepares a clue and while the player guesses under it
+   (`playerKeyHidden` in BoardGrid.tsx): the frames' absence is itself the
+   signal that this is the guessing half of the round, and nothing on the
+   board competes with her clue. They are back the moment the clue turn is
+   the player's, and they stay through the last chance, where your own
+   greens are among the words that win it. */
+/* Doubled selector on purpose: .card-guessable below also colours the border,
+   and on equal specificity the later rule won — so the frame vanished exactly
+   while a card was guessable, which in the last chance (the one guessing
+   phase that keeps the key, and the one sudden death and the tutorial's miss
+   beat point at) is the moment it is read. The aria label said "your target"
+   the whole time; only the paint went missing. */
+.word-card.mykey-green {
+  border-color: var(--green-tile);
+  border-width: 3px;
+}
+
+/* Non-color marker for revealed-neutral tiles — the mark itself is GONE
+   (owner, build 87): the ✕ was clutter and the miss now says itself with the
+   error blip. The directional beige tints are the shading and stay. The dead
+   rules were deleted rather than left standing for the next reader. */
+
+.card-guessable {
+  border-color: var(--beige-deep);
+}
+
+.card-guessable:active {
+  transform: scale(0.96);
+}
+
+.card-selected {
+  outline: 3px solid var(--text);
+  outline-offset: -1px;
+}
+
+/* A solved card — SUITCASE-AS-CARD (owner, 2026-09-16): the card border and
+   background drop away entirely and the suitcase drawing IS the card. The
+   body rect is the card's outline; strokes draw at weight 4, the mockup's
+   marker line, so the outline reads at card size. */
+.card-green {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* The glyph itself: Casey's suitcase without the face (SuitcaseGlyph.tsx),
+   filling the card — the body rect is the card outline, so the drawing takes
+   the card's whole box rather than standing centred inside it. */
+.card-suitcase-glyph {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: none;
+}
+
+/* The card is its own positioning context: the glyph inset:0 above, the lid
+   word and the packed check layered over it. */
+.word-card {
+  position: relative;
+}
+
+/* The lid word: the UI-language gloss IN THE CENTRE of the suitcase's body,
+   below the raised seam (the seam is at y=30 in an 84-high viewBox starting
+   at y=6, so the body area runs ~29%..100% of the card and its centre is
+   ~64% — the owner, build 87: the word sits in the centre of the case, not
+   at the bottom). The mockup's serif .84rem; ellipsis keeps a long word from
+   crossing the seam or clipping. */
+.card-lid-word {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 63%;
+  bottom: auto;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 0.84rem;
+  line-height: 1.05;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+/* Selected suitcase — REMOVED (owner, 2026-09-17): the wheel phase grades on
+   submit against every untranslated wheel word, so nothing selects on tap and
+   no tap-state paints. The packed suitcase carries the solved state alone:
+   green strokes + check + dimmed lid word, no frame, no scale-up. */
+
+/* The answerable suitcase's affordance (kept from the old tap flow, owner,
+   2026-09-17): a solved, UNTRANSLATED suitcase keeps the glyph's ink at full
+   text colour so it reads as one of the words the composer is asking for.
+   There is no selection any more — free-type grading classifies on submit —
+   so this is the only state a tap never changes. */
+.card-wheel-selectable .card-suitcase-line,
+.card-wheel-selectable .card-suitcase-body {
+  stroke: var(--text);
+}
+
+/* Packed: the small green check marker, top corner — the mockup's ✓ on the
+   solved suitcase card. */
+.card-packed-check {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  color: var(--green-deep);
+  font-size: 0.6rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+/* Packed = GREEN (owner, build 87: "once the word has been translated
+   correctly, the suitcase should turn green") — the solved state everywhere
+   else is green, so the packed suitcase reads green whole: strokes and body
+   in the deep green, the body washed soft green. The lid word keeps its
+   dimmed ink and the check stays. */
+.card-wheel-packed .card-suitcase-line {
+  stroke: var(--green-deep);
+}
+
+.card-wheel-packed .card-suitcase-body {
+  stroke: var(--green-deep);
+  fill: var(--green-soft);
+}
+
+.card-wheel-packed .card-suitcase-hatch line {
+  stroke: var(--green-deep);
+}
+
+.card-wheel-packed .card-lid-word {
+  color: var(--text-dim);
+}
+
+.card-suitcase-line {
+  stroke: var(--text-dim);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.card-suitcase-body {
+  fill: transparent;
+  stroke: var(--text-dim);
+  stroke-width: 4;
+}
+
+/* The three animated redraws replace this one stroke, not layer over it. */
+.card-suitcase-glyph .card-suitcase-body-motion {
+  stroke: transparent;
+}
+
+/* A challenge suitcase gets three held redraws in the body stroke's original
+   text-dim (or packed-green) ink; the body fill stays beneath them. */
+.card-suitcase-motion-frames .card-border-frame {
+  stroke: var(--text-dim);
+  stroke-width: 4px;
+  --border-frame-opacity: 1;
+}
+
+.card-wheel-packed .card-suitcase-motion-frames .card-border-frame {
+  stroke: var(--green-deep);
+}
+
+.card-suitcase-hatch line {
+  stroke: var(--text-dim);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-border-motion-frames .card-border-frame,
+  .card-suitcase-motion-frames .card-border-frame {
+    animation: none;
+    opacity: 0;
+  }
+
+  .card-border-motion-frames .card-border-frame-1,
+  .card-suitcase-motion-frames .card-border-frame-1 {
+    opacity: 1;
+  }
+}
+
+/* The latch rects are GONE from the glyph (owner, build 87: they read as
+   eyes on the seam line) — this rule died with them. */
+
+/* The directional bystander tints are GONE (owner, build 90): no beige
+   gradient paints a neutral in any phase. During the player's guessing turn
+   a bystander is a plain white card whose Danish is struck through —
+   .card-bystander-struck on the button, the text rule beside .card-da. */
+

@@ -135,7 +135,11 @@ export type Outcome =
  * from before the change so it re-resolves through the new path.
  */
 export interface WheelState {
-  /** Wheel order: the green (solved) word ids when the challenge opened. */
+  /**
+   * Wheel order: every key word on the board, in board order, found or not
+   * (owner, 2026-09-27). A save from before then holds only the words found
+   * when the challenge opened; `wheelMissedSegments` derives none for it.
+   */
   segments: string[]
   /** Word ids translated so far, in the order they were answered. */
   translated: string[]

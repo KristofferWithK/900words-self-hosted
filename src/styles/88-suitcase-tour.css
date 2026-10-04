@@ -1,0 +1,164 @@
+/* ---------- the suitcase tour (O3) ----------
+
+   A spotlight over the REAL SuitcaseScreen. Everything here is fixed to the
+   viewport, so the overlay can never lengthen the document. The blocking
+   surface keeps the live screen inert until Next, Skip, or Escape releases it.
+   Within the result dialog it is already inside the browser top layer. */
+
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: auto;
+  overscroll-behavior: contain;
+}
+
+/* The window. Transparent itself — the band under it keeps the exact pixels
+   the screen drew — and the scrim is its shadow: one huge spread instead of
+   four scrim rectangles, so the cutout and the dim can never disagree. */
+.tour-spot {
+  position: fixed;
+  border: 2px solid var(--text);
+  border-radius: 12px;
+  box-shadow: 0 0 0 200vmax rgba(18, 18, 18, 0.45);
+  pointer-events: none;
+  transition: top 180ms ease, left 180ms ease, width 180ms ease, height 180ms ease;
+}
+
+/* A tap-through beat's light is itself the control (tour.ts tapThrough):
+   transparent, over the spot, pressing the real control beneath. */
+.tour-spot-tap {
+  position: fixed;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-spot {
+    transition: none;
+  }
+}
+
+/* Casey and his line, in whichever half of the screen the band is not. */
+.tour-panel {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  max-width: 432px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--text);
+  border-radius: 14px;
+}
+
+.tour-panel-top {
+  top: calc(10px + env(safe-area-inset-top));
+}
+
+.tour-panel-bottom {
+  bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+/* The panel reuses .tutorial-say/.tutorial-bubble for Casey's row and
+   .onboard-controls for Next + Skip, so the tour speaks and is steered
+   exactly like the acts before it. Only the row's outer padding differs —
+   the panel brings its own. */
+.tour-panel .onboard-controls {
+  padding-bottom: 0;
+}
+
+/* The clue ledger in Settings (E4). A diagnostic table, deliberately plain —
+   it exists so the owner can read a hit rate and a refusal rate off real play,
+   not as anything a player is meant to look at twice. Sits inside
+   .screen-scroll like the rest of Settings, and scrolls sideways on its own if
+   a future arm name is long, so it can never lengthen the document. */
+.clue-ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.clue-ledger table {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  min-width: 100%;
+}
+
+.clue-ledger th,
+.clue-ledger td {
+  text-align: right;
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--line-soft);
+  white-space: nowrap;
+}
+
+.clue-ledger th:first-child,
+.clue-ledger td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.clue-ledger th {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.clue-ledger small,
+.ledger-empty {
+  color: var(--text-dim);
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+/* Round guidance lives in the browser's modal top layer; the board keeps its
+   normal geometry underneath. Long clues and text zoom can scroll the panel. */
+.round-guidance-dialog {
+  box-sizing: border-box;
+  width: min(calc(100vw - 32px), 380px);
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 28px 24px 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 16px 56px #0004;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+.round-guidance-dialog::backdrop { background: rgb(20 28 24 / 58%); }
+.round-guidance-dialog h2 { margin: 0 0 16px; font-size: 1.35rem; line-height: 1.25; }
+.round-guidance-dialog p { line-height: 1.5; }
+.round-guidance-dialog .round-guidance-clue {
+  margin: 12px 0 0;
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 750;
+  line-height: 1.15;
+}
+.round-guidance-dialog .round-guidance-number { margin: 10px 0 20px; font-size: 1.7rem; font-weight: 700; }
+.round-guidance-dialog > .tag { margin-top: 12px; }
+.round-guidance-preference { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; text-align: left; }
+.round-guidance-preference input { width: 20px; height: 20px; flex-shrink: 0; }
+/* Focus indication inside the dialog: the panel auto-focuses its action
+   button on open, and on iOS WebKit that programmatic focus MATCHES
+   :focus-visible — so the 3px black outline offset 4px painted a black ring
+   outside the button's green one, with the 4px offset reading as the white
+   gap between them (the owner's "black border around the green button",
+   reported on builds 87 and 88). The announcement is transient and the
+   button is THE action on the panel, so keyboard-style focus indication
+   carries no information here: the outline moves INSIDE the pill
+   (inset ring, like the review dialog's), where it reads as part of the
+   button on the rare keyboard-focus path and never as a second outer ring. */
+.round-guidance-dialog :focus-visible { outline: 2px solid var(--green-deep); outline-offset: -4px; }
+.round-guidance-dialog > .tag:focus-visible { outline: 2px solid var(--green-deep); outline-offset: -6px; }
+

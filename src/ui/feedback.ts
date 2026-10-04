@@ -28,6 +28,33 @@ const nativeHaptic = (run: () => Promise<void>, fallback: number | number[]) => 
   }
 }
 
+/**
+ * Wake the Taptic Engine as a finger lands, so the tick that follows on
+ * release is not a cold start.
+ *
+ * @capacitor/haptics builds a new UIImpactFeedbackGenerator for every impact
+ * and never calls prepare() on it (Haptics.swift). An engine that has idled
+ * for a few seconds, like the one on a board the player has been reading, then
+ * starts cold on the tap that needs it. selectionStart() is the plugin's one
+ * call that prepares: it makes a selection generator and calls prepare(),
+ * which puts the engine itself in its ready state for a few seconds, whichever
+ * generator fires next. Called from pointer-down (useTapHaptics), about
+ * 80-150ms before the click it is for. At most once a second: the ready state
+ * outlasts that, and a flurry of touches should not be a flurry of bridge calls.
+ */
+let preparedAt = -Infinity
+export function prepareHaptics(): void {
+  if (!Capacitor.isNativePlatform()) return
+  const now = performance.now()
+  if (now - preparedAt < 1000) return
+  preparedAt = now
+  try {
+    void Haptics.selectionStart().catch(() => undefined)
+  } catch {
+    // Warming is an enhancement; the tap it precedes must go on regardless.
+  }
+}
+
 /** A quiet tick for an ordinary enabled tap target. */
 export function tapHaptic(): void {
   nativeHaptic(() => Haptics.impact({ style: ImpactStyle.Light }), 10)

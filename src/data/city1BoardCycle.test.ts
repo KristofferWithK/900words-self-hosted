@@ -23,20 +23,28 @@ import {
 // board at a particular index: a hundred boards and a hundred and fifty
 // ordered easy-first have to pass the same file.
 describe('the authored City 1 board cycle', () => {
-  it('ships German as a separate 150-board cycle over its 100-word roster', () => {
+  it('ships German as the Danish cycle card for card, over its 100-word roster', () => {
+    // The universality approach (owner, 2026-09-27): the same boards, in the
+    // same order, with every Danish card read as one German card everywhere.
     const germanBoards = CITY1_BOARD_CYCLES.de
-    const germanWords = new Set(germanBoards.flatMap((board) => board.wordIds))
-    expect(germanBoards).toHaveLength(150)
-    expect(germanBoards[0]?.id).toBe('bank_001')
-    expect(germanBoards.at(-1)?.id).toBe('bank_150')
-    expect(new Set(germanBoards.map((board) => board.id)).size).toBe(150)
-    expect(germanWords.size).toBe(100)
-    expect([...germanWords].every((id) => id.startsWith('de:'))).toBe(true)
+    const danish = new Map(CITY1_BOARD_CYCLES.da.map((board) => [board.id, board]))
+    expect(germanBoards.map((board) => board.id)).toEqual(CITY1_BOARD_CYCLES.da.map((board) => board.id))
+    const card = new Map<string, string>()
     for (const board of germanBoards) {
+      const da = danish.get(board.id)!
+      expect([board.seedHex, board.firstGiver, board.greenOverlap]).toEqual([da.seedHex, da.firstGiver, da.greenOverlap])
+      da.wordIds.forEach((id, cell) => {
+        expect(card.get(id) ?? board.wordIds[cell], `${board.id} ${id}`).toBe(board.wordIds[cell])
+        card.set(id, board.wordIds[cell]!)
+      })
+      expect(board.playerGreenIds).toEqual(da.playerGreenIds.map((id) => card.get(id)))
+      expect(board.aiGreenIds).toEqual(da.aiGreenIds.map((id) => card.get(id)))
       expect(board.wordIds).toHaveLength(18)
-      expect(board.wordIds.every((id) => germanWords.has(id))).toBe(true)
       expect(board.playerGreenIds.filter((id) => board.aiGreenIds.includes(id))).toHaveLength(board.greenOverlap)
     }
+    expect(card.size).toBe(100)
+    expect(new Set(card.values()).size).toBe(100)
+    expect([...card.values()].every((id) => id.startsWith('de:'))).toBe(true)
   })
 
   it('is a generated bank of at least the 18 boards one sitting can use', () => {

@@ -51,18 +51,23 @@ export type ClueyMood = 'idle' | 'thinking' | 'happy' | 'oops'
 export function ClueyFace({
   mood = 'idle',
   className = '',
-  streak,
+  collected,
 }: {
   mood?: ClueyMood
   className?: string
   /**
-   * Completed consecutive local days, written in Casey's green patch. Home's
-   * to give; left out, the patch is a plain travel sticker. It used to default
+   * Words collected so far (clued green and guessed green), written in Casey's
+   * green patch — the suitcase's own count, shown on the suitcase. Home's to
+   * give; left out, the patch is a plain travel sticker. It used to default
    * to 0, which wrote a "0" on every small Casey — the finish screen's, the
    * AI panel's — that nobody had counted anything for (owner, 2026-09-11:
    * "Casey on the finish screen looks wrong").
+   *
+   * It was the daily streak until 2026-09-30. The owner swapped it: players
+   * come back because the game is fun and the case is filling up, not for
+   * fear of losing a streak (docs/DECISIONS.md, Q01).
    */
-  streak?: number
+  collected?: number
 }) {
   return (
     <svg
@@ -107,9 +112,14 @@ export function ClueyFace({
         <circle className="cluey-mouth-o" cx="60" cy="57" r="3.4" fill="none" />
         {/* travel sticker */}
         <circle className="cluey-sticker" cx="94" cy="70" r="9" />
-        {streak !== undefined && (
-          <text className="cluey-streak-number" x="94" y="73.3" textAnchor="middle">
-            {streak > 99 ? '99+' : streak}
+        {collected !== undefined && (
+          <text
+            className={`cluey-collected-number${collected >= 100 ? ' cluey-collected-long' : ''}`}
+            x="94"
+            y={collected >= 100 ? 72.8 : 73.3}
+            textAnchor="middle"
+          >
+            {collected}
           </text>
         )}
       </g>
@@ -145,13 +155,21 @@ const CONNECT_LINE = UI.casey.notAnsweredBubble
  */
 export function Cluey({
   needsConnection = false,
-  streak = 0,
+  collected = 0,
   momentumLine,
+  onOpenSuitcase,
 }: {
   needsConnection?: boolean
-  streak?: number
+  /** Words collected so far, for the sticker (see `ClueyFace`). */
+  collected?: number
   /** Home's evidence-based daily encouragement, before ordinary rotating tips. */
   momentumLine?: string
+  /**
+   * The first session's Home (CW-13): tapping Casey goes where onboarding
+   * goes next, and the bubble stays quiet, since the spotlight speaks for
+   * her there and the first sessions' tips are not spent on it.
+   */
+  onOpenSuitcase?: () => void
 } = {}) {
   const goTo = useUi((s) => s.goTo)
   const cityIndex = useJourney((s) => s.cityIndex)
@@ -187,8 +205,9 @@ export function Cluey({
   // the personal lines are weighted above the sixty-odd fun facts
   // (HOME_LINE_SHARE). `homeLineIndex` remembers the last opener to avoid an
   // immediate repeat when at least two lines are available.
+  const quiet = onOpenSuitcase !== undefined
   const [index, setIndex] = useState(() =>
-    homeLineIndex(homeLines.length, undefined, undefined, undefined, pool.kinds),
+    quiet ? 0 : homeLineIndex(homeLines.length, undefined, undefined, undefined, pool.kinds),
   )
   const [mood, setMood] = useState<ClueyMood>('idle')
   const svgRef = useRef<HTMLDivElement>(null)
@@ -247,7 +266,7 @@ export function Cluey({
 
   return (
     <div className="cluey-band">
-      {silent ? null : (
+      {silent || quiet ? null : (
         <button
           className={`cluey-bubble${needsConnection ? ' setup-nudge' : ''}`}
           aria-label={needsConnection ? UI.casey.notAnsweredAria : UI.casey.bubbleAria(line)}
@@ -259,11 +278,11 @@ export function Cluey({
       <button
         className="cluey-button"
         aria-label={UI.casey.suitcaseAria}
-        onClick={() => goTo('suitcase')}
+        onClick={() => (onOpenSuitcase ? onOpenSuitcase() : goTo('suitcase'))}
         onPointerDown={() => setMood('happy')}
       >
         <div ref={svgRef} className="cluey-live">
-          <ClueyFace mood={mood} streak={streak} />
+          <ClueyFace mood={mood} collected={collected} />
         </div>
       </button>
     </div>

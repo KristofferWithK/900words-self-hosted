@@ -1,0 +1,251 @@
+/* ---- the guess bar's three rows (K2) ----
+
+   Title, one action row, then the dictionary's field and its one answer.
+   The action row is the give-way region above, which is what absorbs the
+   difference between a 49px button and a one-line hint — the three states of
+   this row — so the dictionary under it does not move when a card is
+   selected. */
+.dock-actions {
+  display: flex;
+  align-items: center;
+  min-height: 49px;
+}
+
+.dock-actions > * {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* The field and its one answer, on ONE row — the dock's last one. */
+.dock-dictionary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dock-dictionary > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.dock-dictionary .translate-input {
+  padding: 12px;
+  margin-top: 0;
+}
+
+/* ---- the action row is never given away, and the row splits by need -------
+ *
+ * This row used to disappear. #145 hid it while the field had focus, on the
+ * grounds that the native keyboard covered it anyway, so the lookup could
+ * stack its answer under the field at full width; #148 then kept it hidden
+ * for as long as an answer was on screen, so the stack would not snap back
+ * when focus left. What that bought was a guess turn with no Guess button in
+ * it: tap the clue in the title — the tap the title exists to invite — and
+ * the button that spends the turn is gone until the field is cleared again.
+ * The Stop button and the first-turn hint went with it.
+ *
+ * Looking a word up is the whole reason this dock carries a dictionary, so
+ * the row that guesses stays and the lookup fits around it. Measured at
+ * 360x640 with a card selected: title 19.86 + actions 49 + dictionary 47,
+ * two 8px gaps and 11 of padding and rule = 142.86 of --dock-h's 150.
+ * Stacking the answer under the field is the dict-line's 26.41 on top of
+ * that — 19.27 more than there is — so the two share the row, and what gives
+ * way is width rather than a control.
+ *
+ * The share is not half each. The field holds one word being typed; the
+ * answer holds a whole entry. Measured: every one of the nine hundred answers
+ * drawn in this font, plus the inline speaker beside it, against the width the
+ * line actually gets at 360px —
+ *
+ *   160px  an even half each               813/900 answers whole
+ *   176px  4:6, the field being typed in   865/900
+ *   198px  4:6 with the field at 6rem      891/900
+ *   222px  the same with the field at 4.5  899/900
+ *   328px  the whole row, stacked          900/900
+ *
+ * — so the answer takes the larger half while typing, and the field's half as
+ * well once the typing is done and there is something to read; tapping the
+ * field gives it straight back. The last 8 of the 900 would cost the field
+ * another 1.5rem, which is a field too narrow to read a compound out of, and
+ * they are the longest compounds ("en vaskemaskine — washing machine" is the
+ * widest at 218px). What is cut is the tail of the ENGLISH: .dict-hit's own
+ * min-width floor and the head-first order keep the word being looked up
+ * whole, the title and aria-label carry the rest, and the answer is a button —
+ * the tap opens the sheet with every gloss, the example and the slow clip.
+ *
+ * The placeholder is not at risk in the narrow state: there is only an answer
+ * to shrink for while there is a word in the field, and "Dictionary" is only
+ * shown when there is not. */
+.dock-dictionary > .translate-input {
+  flex: 4 1 0;
+}
+
+.dock-dictionary > .dict-line {
+  flex: 6 1 0;
+}
+
+.dock-dictionary:not(:focus-within):has(.dict-answer) > .translate-input {
+  flex: 0 1 6rem;
+}
+
+/* The same line the composer's answer half is, and for the same measured
+   reason: the inline 🔊 is 26.41px, taller than the 0.8rem text beside it, so
+   the row is declared at that height whether or not an answer is up. */
+.dict-line {
+  font-size: 0.8rem;
+  line-height: 1.65rem;
+  min-height: 1.65rem;
+  overflow: hidden;
+}
+
+.dict-line > * {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Casey's turn: a face, a short justification, one result line (K2/U3) ----
+
+   The short justification can use four lines within the existing dock. Two
+   lines cut off ordinary sentences beside Casey's face on narrow phones.
+   Keep a bound for longer replies without taking any room from the board.
+
+   The two beats U3 paces the turn in — think, then reveal — are the SAME two
+   regions and therefore the same rectangle. That is not a hope: the bubble is
+   clamped rather than sized by its text, and the line under it is one line in
+   both beats, so neither can grow a row. layout-drive measures the panel in
+   each beat by name and compares them, which is where a third row would be
+   caught (it would hang over the board and lengthen the document rather than
+   lengthen the dock — see the give-way note above).
+
+   Tapping the panel hurries to the next beat, so it takes the pointer. No
+   :hover style: this is a phone, and the affordance is that the whole dock is
+   one target rather than a control inside it. */
+.dock.ai-panel {
+  justify-content: center;
+}
+
+.dock.ai-panel[data-hurry] {
+  cursor: pointer;
+}
+
+.ai-say {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ai-bubble {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+/* One line, whatever it says. */
+.ai-guess-line,
+.ai-line-blank {
+  min-height: 1.35em;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- guided first game --------------------------------------------------- */
+
+/* One compact Casey line keeps the conversation present without replacing the
+   real controls below it. A 3×3 practice board has room for this band while
+   retaining the normal fixed dock and no-scroll game column. */
+.tutorial-casey-band {
+  flex: none;
+  height: 7rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.tutorial-casey-band .cluey-mini {
+  width: 48px;
+}
+
+.tutorial-casey-bubble {
+  margin: 0;
+  min-width: 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* A clue quoted in Casey's line, in the dock's clue green (.clue-lookup). */
+.tutorial-clue {
+  color: var(--green-deep);
+  font-weight: 700;
+}
+
+.tutorial-tap {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.tutorial-finish {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+/* The finish is a short Casey conversation with an explicit action below it.
+   The bubble is the speaker; the mascot is no longer a disguised button. */
+.tutorial-finish-casey {
+  width: 100%;
+  flex: 1 1 0;
+}
+
+.tutorial-finish-bubble {
+  max-width: 320px;
+  font-size: 0.96rem;
+}
+
+.tutorial-finish-mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+}
+
+.tutorial-finish-mascot .cluey-svg {
+  width: min(210px, 56vw, 28vh);
+}
+
+.tutorial-full-round {
+  flex: none;
+  max-width: 320px;
+}
+
+/* The suitcase tour still uses this compact Casey-and-bubble row. */
+.tutorial-say {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.tutorial-bubble {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+

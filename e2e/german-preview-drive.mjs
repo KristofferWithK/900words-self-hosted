@@ -74,7 +74,7 @@ const homeFits = await page.evaluate(() => {
 check('Home still does not scroll at 360x640', homeFits)
 
 // ── the Travel Guide is German ─────────────────────────────────────────────
-await page.locator('.home-guide-button, .home-preview .btn-primary').first().click()
+await page.locator('.home-guide-button, .home-preview .home-preview-guide').first().click()
 await page.waitForSelector('.travel-guide-book')
 const cover = await page.evaluate(() => document.body.innerText)
 check('the cover says German, not Danish', /German/.test(cover) && !/Danish/.test(cover), cover.slice(0, 120).replace(/\n/g, ' · '))
@@ -105,7 +105,7 @@ check('the German lesson page does not scroll at 360x640', lessonFits)
 
 // ── the Survival section ───────────────────────────────────────────────────
 await open('de')
-await page.locator('.home-guide-button, .home-preview .btn-primary').first().click()
+await page.locator('.home-guide-button, .home-preview .home-preview-guide').first().click()
 await page.waitForSelector('.travel-guide-book')
 await page.locator('.guide-thumb-survival').click()
 await page.waitForSelector('.guide-city-list')
@@ -131,7 +131,7 @@ await page.screenshot({ path: 'evidence/german-preview-survival.png' })
 const registers = new Set()
 for (let cityIndex = 0; cityIndex < 9; cityIndex++) {
   await open('de')
-  await page.locator('.home-guide-button, .home-preview .btn-primary').first().click()
+  await page.locator('.home-guide-button, .home-preview .home-preview-guide').first().click()
   await page.waitForSelector('.travel-guide-book')
   await page.locator('.guide-thumb-survival').click()
   await page.waitForSelector('.guide-city-list')
@@ -145,7 +145,7 @@ for (let cityIndex = 0; cityIndex < 9; cityIndex++) {
     })
     if (measured > 1) overflowingSurvival.push(`city ${cityIndex + 1} exchange ${i + 1} +${measured}px`)
     if (i === 3) break
-    await page.locator('.survival-book-turns .btn').last().click()
+    await page.locator('.survival-book-turns .tag').last().click()
     await page.waitForTimeout(120)
   }
 }
@@ -161,7 +161,7 @@ check('no German Survival page is clipped', overflowingSurvival.length === 0, ov
 const overflowing = []
 for (let city = 0; city < 9; city++) {
   await open('de')
-  await page.locator('.home-guide-button, .home-preview .btn-primary').first().click()
+  await page.locator('.home-guide-button, .home-preview .home-preview-guide').first().click()
   await page.waitForSelector('.travel-guide-book')
   await page.locator('.guide-cover-hero').click()
   await page.waitForSelector('.guide-city-list')

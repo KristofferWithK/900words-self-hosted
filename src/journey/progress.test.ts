@@ -4,7 +4,7 @@ import { CITY1_BOARD_CYCLE } from '../data/city1BoardCycle'
 import replacementCorpus from '../data/city1-replacement-corpus.da.json'
 import type { WordEntry } from '../data/types'
 import { emptyProgressFacts } from '../progression/facts'
-import { boardKey } from '../progression/identity'
+import { boardKey, cityKey } from '../progression/identity'
 import type { BoardIdentity, ProgressFacts, Tier } from '../progression/types'
 import { CITY1_REQUIRED_SET } from '../session/courseRuntime'
 import { applyRoundResults, newStats } from '../srs/scheduler'
@@ -15,7 +15,10 @@ import {
   canTravel,
   cityMedal,
   cityPostcards,
+  cityStampCard,
+  cityTrainReadiness,
   cityTravelReadiness,
+  hasPassedTrainRun,
   cityBand,
   countCollection,
   countWrapped,
@@ -242,31 +245,75 @@ describe('wrapping and travel', () => {
   })
 })
 
-describe('C1-10 canonical postcard readiness and achievement', () => {
-  it('AC17 uses the real frozen manifest: 99 Platinum + grey is none, Bronze is Bronze, all Platinum is Platinum', () => {
+describe('C1-10 postcard readiness (kept) and the café-world medal (CW-03)', () => {
+  // Successor of AC17 (2026-10-04, docs/roadmap/cafe-world.md section 4): the
+  // city medal is the percentage of stamp points, no longer the lowest best.
+  // 99 Platinum cafés of 100 used to be no medal; they are 99% and Gold.
+  it('CW-03 uses the real frozen manifest: 99 Platinum is 99% Gold, a Bronze hundredth stays Gold, all Platinum is 100% Platinum', () => {
     const first99 = CITY1_REQUIRED_SET.boards.slice(0, 99).map((board) => ({
       board,
       best: 'platinum' as const,
       claims: [] as const,
     }))
+    expect(CITY1_REQUIRED_SET.boards).toHaveLength(100)
     const grey = factsWithBoards(first99)
-    expect(cityMedal(grey, CITY1_REQUIRED_SET)).toEqual({ tier: null, error: null })
+    expect(cityMedal(grey, CITY1_REQUIRED_SET)).toMatchObject({ tier: 'gold', stamped: 99, cafes: 100, points: 396, maximum: 400, percent: 99, error: null })
+    expect(cityStampCard(grey, CITY1_REQUIRED_SET).stamps[boardKey(CITY1_REQUIRED_SET.boards[99]!)]).toBeNull()
 
     const bronze = factsWithBoards([
       ...first99,
       { board: CITY1_REQUIRED_SET.boards[99]!, best: 'bronze', claims: [] },
     ])
-    expect(cityMedal(bronze, CITY1_REQUIRED_SET)).toEqual({ tier: 'bronze', error: null })
-    expect(cityTravelReadiness(bronze, CITY1, {
-      threshold: 1, historicalEligibility: false, destinationAvailable: true, accessAllowed: true,
-    }).ready).toBe(false)
+    expect(cityMedal(bronze, CITY1_REQUIRED_SET)).toMatchObject({ tier: 'gold', stamped: 100, points: 397, percent: 99.25, error: null })
 
     const platinum = factsWithBoards([
       ...first99,
       { board: CITY1_REQUIRED_SET.boards[99]!, best: 'platinum', claims: [] },
     ])
-    expect(cityMedal(platinum, CITY1_REQUIRED_SET)).toEqual({ tier: 'platinum', error: null })
-    expect(cityMedal(platinum, { ...CITY1_REQUIRED_SET, boards: [] })).toEqual({ tier: null, error: 'empty-manifest' })
+    expect(cityMedal(platinum, CITY1_REQUIRED_SET)).toMatchObject({ tier: 'platinum', points: 400, maximum: 400, percent: 100, error: null })
+    // The medal does not travel: a 100% Platinum city with no train run is not
+    // ready, because the run (not built) is the only way onto the train.
+    expect(cityTrainReadiness({}, CITY1, { destinationAvailable: true, accessAllowed: true })).toEqual({ trainRunPassed: false, ready: false, canBoard: false })
+    expect(cityMedal(platinum, { ...CITY1_REQUIRED_SET, boards: [] })).toMatchObject({ tier: null, maximum: 0, percent: 0, error: 'empty-manifest' })
+    expect(cityMedal(emptyProgressFacts(), CITY1_REQUIRED_SET)).toMatchObject({ tier: null, stamped: 0, points: 0, percent: 0, error: null })
+  })
+
+  it("CW-03 a train run is city-specific: only this city's passed run opens the train, and never destination or access", () => {
+    const open = { destinationAvailable: true, accessAllowed: true }
+    const run = { at: 1, words: 147, photos: 147, slips: 0, allowed: 1 }
+    const passedHere = { [cityKey(CITY1)]: { city: CITY1, passed: true, ...run } }
+    const failedHere = { [cityKey(CITY1)]: { city: CITY1, passed: false, ...run } }
+    const passedRibe = { [cityKey(RIBE)]: { city: RIBE, passed: true, ...run } }
+    // Keyed for Sønderborg but naming Ribe: a mismatched entry proves nothing.
+    const misfiled = { [cityKey(CITY1)]: { city: RIBE, passed: true, ...run } }
+    expect(hasPassedTrainRun(passedHere, CITY1)).toBe(true)
+    expect(hasPassedTrainRun(passedHere, RIBE)).toBe(false)
+    expect(hasPassedTrainRun(failedHere, CITY1)).toBe(false)
+    expect(hasPassedTrainRun(passedRibe, CITY1)).toBe(false)
+    expect(hasPassedTrainRun(misfiled, CITY1)).toBe(false)
+    expect(cityTrainReadiness(passedHere, CITY1, open)).toEqual({ trainRunPassed: true, ready: true, canBoard: true })
+    expect(cityTrainReadiness(passedRibe, CITY1, open).ready).toBe(false)
+    expect(cityTrainReadiness({ ...passedHere, ...passedRibe }, RIBE, open).ready).toBe(true)
+    expect(cityTrainReadiness(passedHere, CITY1, { destinationAvailable: false, accessAllowed: true }).canBoard).toBe(false)
+    expect(cityTrainReadiness(passedHere, CITY1, { destinationAvailable: true, accessAllowed: false }).canBoard).toBe(false)
+  })
+
+  it('CW-03 the first stamps: one Platinum café of 100 is 1%, 25 are Bronze, and a café only ever lost is Bronze (CW-03b)', () => {
+    const cafes = CITY1_REQUIRED_SET.boards
+    const one = factsWithBoards([{ board: cafes[0]!, best: 'platinum', claims: [] }])
+    expect(cityMedal(one, CITY1_REQUIRED_SET)).toMatchObject({ tier: null, stamped: 1, points: 4, percent: 1 })
+    const twentyFive = factsWithBoards(cafes.slice(0, 25).map((board) => ({ board, best: 'platinum' as const, claims: [] as const })))
+    expect(cityMedal(twentyFive, CITY1_REQUIRED_SET)).toMatchObject({ tier: 'bronze', stamped: 25, points: 100, percent: 25 })
+    // An old save's completed loss shows Bronze, as it is: nothing is migrated.
+    const lostOnly: ProgressFacts = { ...emptyProgressFacts(), completedLosses: { [boardKey(cafes[0]!)]: { board: cafes[0]!, firstPrimary: true } } }
+    expect(cityStampCard(lostOnly, CITY1_REQUIRED_SET)).toMatchObject({ stamped: 1, points: 1 })
+    expect(cityStampCard(lostOnly, CITY1_REQUIRED_SET).stamps[boardKey(cafes[0]!)]).toBe('bronze')
+    // 100 cafés only ever lost is 25%: the Bronze medal, as Home, the map and the card read it.
+    const allLost: ProgressFacts = { ...emptyProgressFacts(), completedLosses: Object.fromEntries(cafes.map((board) => [boardKey(board), { board, firstPrimary: true }])) }
+    expect(cityMedal(allLost, CITY1_REQUIRED_SET)).toMatchObject({ tier: 'bronze', stamped: 100, points: 100, percent: 25 })
+    // A loss on a Platinum café keeps Platinum.
+    const lostOnPlatinum: ProgressFacts = { ...one, completedLosses: { [boardKey(cafes[0]!)]: { board: cafes[0]!, firstPrimary: false } } }
+    expect(cityMedal(lostOnPlatinum, CITY1_REQUIRED_SET)).toMatchObject({ stamped: 1, points: 4 })
   })
 
   it('AC18 synthetic threshold-1 / exact / +1 fixtures are cumulative and never mutate earned facts', () => {

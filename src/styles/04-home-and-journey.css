@@ -1,0 +1,300 @@
+/* ---------- home ---------- */
+
+/* Home's own gap and block padding, tighter than the shared `.screen` values.
+   Five gaps and two paddings at 12px is ~30px of nothing between bands that
+   already have borders of their own to separate them; at 8px it is ~20px, and
+   the difference went to the map above. Scoped to Home because the screens
+   that scroll inside themselves want the shared breathing room. */
+.home-screen {
+  gap: 8px;
+  padding-block: 8px;
+}
+
+.home-hero {
+  text-align: center;
+  padding: 18px 0 4px;
+}
+
+.home-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.tagline {
+  color: var(--text-dim);
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.home-progress {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.home-progress::before {
+  content: '● ';
+  color: var(--green-deep);
+}
+
+/* `.setup-nudge` used to be a banner of its own at the top of Home, above the
+   map. It is a modifier on Casey's speech bubble now — see the block at
+   ".cluey-bubble" — because the prompt it carries is Casey saying he has not
+   answered, and there is no reason for that to be a second widget. The class
+   name stayed put: it names the affordance three drives walk (tap this, land
+   in Settings, test the connection), and it should not have to move house
+   every time the prompt does. */
+.cluey-bubble.setup-nudge {
+  background: var(--beige);
+  border-color: var(--text);
+  font-weight: 600;
+}
+
+.cluey-bubble.setup-nudge::after {
+  background: var(--beige);
+}
+
+.grid-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grid-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.grid-card:active {
+  background: var(--surface);
+}
+
+.grid-card-size {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.grid-card-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.grid-card-desc {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* The board Â«PlayÂ» deals. Marked by a second border rather than a
+   colour, so it reads the same to anyone who cannot tell the two apart. */
+.grid-card-current {
+  border-color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--text);
+}
+
+.grid-card-tag {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+/* ---------- journey ---------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.city-card {
+  border: 1px solid var(--text);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.city-eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-dim);
+}
+
+/* The stop's name with a stepper either side of it, on the row the name was
+   already paying for: .city-name is 2rem/1.1 = 35.2px and .icon-btn is 42, so
+   the row costs 6.8px of map rather than a row of its own. */
+.city-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Named apart from the header's own icon button on purpose: "the map's icon
+   button" was the Back arrow and nothing else, and two drives said so with a
+   bare `.map-screen .icon-btn`. */
+.stop-step {
+  flex: none;
+}
+
+.city-name {
+  font-size: 2rem;
+  line-height: 1.1;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+}
+
+.city-blurb {
+  font-family: var(--serif);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.city-blurb-en {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ---------- the train to the next city ----------
+
+   The engine and one wagon per 20 collected words, drawn in the ride train's
+   pencil so the thing that leaves at the end of the road is the thing counting
+   down to it. Since CW-07b the train is also the run's slips: the engine is
+   the first, and each full wagon one more (TrainProgress.tsx): a window lit
+   per five words and a green roof per slip, the owner's look B.
+
+   The strokes are non-scaling for the reason the map comments give: the width
+   is in viewBox units and this is drawn at 100px on Home, where a scaled 2.2
+   would land under half a CSS pixel and the train would render as a smudge. */
+
+.train-progress {
+  display: block;
+  width: 100%;
+  height: auto;
+  --train-ink: rgba(18, 18, 18, 0.68);
+  --train-ghost: rgba(18, 18, 18, 0.3);
+  --train-lamp: #f1c24f;
+}
+
+.train-progress .cluey-hatch rect,
+.train-progress .cluey-hatch circle,
+.train-progress .cluey-hatch path {
+  fill: none;
+  stroke: rgba(18, 18, 18, 0.45);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.train-progress .train-rail {
+  stroke-dasharray: 5 4;
+  opacity: 0.5;
+}
+
+.train-progress .train-loco rect,
+.train-progress .train-loco path,
+.train-progress .train-loco circle {
+  stroke: var(--train-ink);
+}
+
+/* A wagon still to fill is a ghost; one being filled is a shade firmer; one
+   that is full takes the same ink as the locomotive, so the train reads as
+   growing as well as filling. */
+.train-progress .train-wagon rect,
+.train-progress .train-wagon circle {
+  stroke: var(--train-ghost);
+}
+
+.train-progress .train-wagon.is-filling rect,
+.train-progress .train-wagon.is-filling circle {
+  stroke: rgba(18, 18, 18, 0.45);
+}
+
+.train-progress .train-wagon.is-full rect,
+.train-progress .train-wagon.is-full circle {
+  stroke: var(--train-ink);
+}
+
+/* Element-qualified and three classes deep on purpose: the hatch rule above
+   paints `fill: none` on every shape in here and the wagon rule strokes them,
+   and a window or a roof that loses either of those is an invisible one.
+
+   Four windows, lit per five words, and a green roof on a full wagon and on
+   the engine's cab. */
+.train-progress .train-wagon rect.train-pane {
+  fill: #fff;
+  stroke-width: 1;
+}
+
+.train-progress .train-wagon rect.train-pane.is-lit {
+  fill: var(--train-lamp);
+}
+
+.train-progress .cluey-hatch rect.train-roof {
+  fill: var(--green-tile);
+  stroke: var(--train-ink);
+}
+
+/* The train as a DOOR (T1).
+
+   It is a button only where the road is open, and by then every wagon is full,
+   so this adds no colour of its own beyond the faint green ground the loads
+   are already painted in — the drawing says "packed", the ground says "press
+   me". Padding rather than a min-height: the drawing is capped by the row it
+   sits in (25px on Home) and a min-height would either stretch it or leave the
+   tap target hollow, whereas padding grows the target around it and costs the
+   row its own 12px and nothing more. */
+.train-board {
+  display: block;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(122, 168, 116, 0.16);
+  cursor: pointer;
+  animation: train-ready 2.4s ease-in-out infinite;
+}
+
+.train-board:active {
+  background: rgba(122, 168, 116, 0.3);
+}
+
+/* A soft pulse, not a blink: the ground breathes and the train holds still, so
+   nothing about the drawing itself moves. */
+@keyframes train-ready {
+  0%,
+  100% {
+    background-color: rgba(122, 168, 116, 0.12);
+  }
+  50% {
+    background-color: rgba(122, 168, 116, 0.34);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .train-board {
+    animation: none;
+  }
+}
+

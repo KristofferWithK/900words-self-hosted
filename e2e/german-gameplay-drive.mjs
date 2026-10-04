@@ -8,6 +8,7 @@ import { startPreview } from './preview-server.mjs'
 import { startWorker } from './worker-runtime.mjs'
 import { startFakeOllama, clueReply, guessReply } from './fake-ollama.mjs'
 import { installRoundGuidanceHandler, dismissRoundGuidance } from './round-guidance.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const offset = Number(process.env.DRIVE_PORT_OFFSET ?? 0)
 const preview = await startPreview(4350)
@@ -36,6 +37,8 @@ try {
     return route.continue()
   })
   const page = await context.newPage()
+  // The café gate is on (CW-13): this drive's board needs its first café found.
+  await page.addInitScript(mergeFirstCafe, seedArgs('de'))
   page.on('pageerror', error => failures.push(error.message))
   page.on('response', response => {
     if (response.url().includes('/audio/de/') && response.status() !== 200) {
@@ -87,7 +90,7 @@ try {
       await page.locator('.word-card').nth(game.words.findIndex(word => word.wordId === id)).click()
       await page.locator('.guess-confirm .btn-primary').click()
     } else if (game.phase === 'translateChallenge' && game.wheel) {
-      const id = game.wheel.segments.find(wordId => !game.wheel.translated.includes(wordId))
+      const id = game.wheel.segments.find(wordId => game.reveals[wordId]?.kind === 'green' && !game.wheel.translated.includes(wordId))
       if (id) {
         const answer = game.words.find(word => word.wordId === id)?.da
         assert.ok(answer, `translation target ${id} is on the board`)

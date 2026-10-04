@@ -345,3 +345,90 @@ describe('priming from a gesture', () => {
     expect(() => tap(() => fx.primeRewardDing())).not.toThrow()
   })
 })
+
+/**
+ * The phone (2026-09-30). The shell plays without a gesture, so there is
+ * nothing to prime, and priming there only put seven media players inside the
+ * first tap after a launch or a return, ahead of that tap's own haptic. The
+ * players are built once the launch settles instead. The haptics warm-up
+ * lives beside them in feedback.ts and is exercised here for the same
+ * mocked shell.
+ */
+describe('in the native shell', () => {
+  const haptics = { impact: vi.fn(async () => {}), notification: vi.fn(async () => {}), selectionStart: vi.fn(async () => {}) }
+  const shell = async (native: boolean) => {
+    vi.doMock('@capacitor/core', async (importOriginal) => {
+      const real = await importOriginal<typeof import('@capacitor/core')>()
+      return {
+        ...real,
+        Capacitor: { isNativePlatform: () => native, getPlatform: () => (native ? 'ios' : 'web') },
+      }
+    })
+    vi.doMock('@capacitor/haptics', () => ({
+      Haptics: haptics,
+      ImpactStyle: { Light: 'LIGHT', Heavy: 'HEAVY' },
+      NotificationType: { Success: 'SUCCESS' },
+    }))
+    return load()
+  }
+
+  beforeEach(() => {
+    haptics.selectionStart.mockClear()
+    haptics.impact.mockClear()
+  })
+  afterEach(() => {
+    vi.doUnmock('@capacitor/core')
+    vi.doUnmock('@capacitor/haptics')
+  })
+
+  it('primes nothing inside a tap, and builds the players once the launch settles', async () => {
+    vi.useFakeTimers()
+    const fx = await shell(true)
+    tap(() => fx.primeRewardDing())
+    tap()
+    expect(FakeAudio.made).toHaveLength(0)
+    expect(fx.sfxNeedsPrime()).toBe(false)
+    vi.advanceTimersByTime(1500)
+    // tick 4 + blip 2 + fanfare 1, built but silent.
+    expect(FakeAudio.made).toHaveLength(7)
+    expect(FakeAudio.audible).toHaveLength(0)
+    fx.guessErrorBlip()
+    expect(audibleKinds()).toEqual(['blip'])
+    // The blip started one of the players built ahead, not a new one.
+    expect(FakeAudio.made).toHaveLength(7)
+  })
+
+  it('builds nothing ahead when sound is off', async () => {
+    vi.useFakeTimers()
+    const fx = await shell(true)
+    fx.useSettings.setState({ sound: false })
+    vi.advanceTimersByTime(1500)
+    expect(FakeAudio.made).toHaveLength(0)
+  })
+
+  it('warms the Taptic Engine on a touch, at most once a second', async () => {
+    const now = vi.spyOn(performance, 'now')
+    const fx = await shell(true)
+    now.mockReturnValue(10_000)
+    fx.prepareHaptics()
+    now.mockReturnValue(10_400)
+    fx.prepareHaptics()
+    expect(haptics.selectionStart).toHaveBeenCalledTimes(1)
+    now.mockReturnValue(11_100)
+    fx.prepareHaptics()
+    expect(haptics.selectionStart).toHaveBeenCalledTimes(2)
+    // Warming is not a tick.
+    expect(haptics.impact).not.toHaveBeenCalled()
+    now.mockRestore()
+  })
+
+  it('leaves the web as it was: the gesture still primes, and nothing is warmed', async () => {
+    FakeAudio.policy = 'needs-gesture'
+    const fx = await shell(false)
+    fx.prepareHaptics()
+    expect(haptics.selectionStart).not.toHaveBeenCalled()
+    tap()
+    expect(fx.sfxNeedsPrime()).toBe(false)
+    expect(FakeAudio.made).toHaveLength(7)
+  })
+})

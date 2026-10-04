@@ -3,7 +3,7 @@ import { TutorialCompanion } from '../ai/tutorialCompanion'
 import { buildAiClueView, buildAiGuessView } from '../ai/projections'
 import { WORDS, isHeadword, wordById } from '../data/words'
 import { TUTORIAL_CONFIG } from '../engine/config'
-import { applyEvent as applyEventIn, createGame, isGuessable } from '../engine/game'
+import { applyEvent as applyEventIn, createGame, isGuessable, wheelFoundIds } from '../engine/game'
 import { checkClueLegality } from '../engine/legality'
 import type { GameState } from '../engine/types'
 import { danish } from '../lang/da'
@@ -222,7 +222,7 @@ describe('the practice rules and commentary', () => {
   it('keeps the full first-turn instruction visible after the authored clue is submitted', async () => {
     const state = await applyNextAiClue(deal())
     expect(commentary(state, { type: 'state' }).text).toBe(
-      'Hey, what words on this board can you connect with «drikke»? You can tap the ⓘ on words to see their translations. When you’re ready, tap a word and confirm it.',
+      'Welcome to the café! This first table is a short practice. What words on this board can you connect with «drikke»? Tap the ⓘ on a word to see its translation, then tap a word and confirm it.',
     )
   })
 
@@ -358,7 +358,9 @@ describe('the complete practice round', () => {
     // C1-PC-1 replaces the old manual sudden-death fixture override with the
     // real practice wheel. Zero translated targets necessarily miss.
     expect(state.phase).toBe('translateChallenge')
-    expect(state.wheel!.segments).toEqual(['da:mad', 'da:æble', 'da:kaffe'])
+    // Every key word holds a slice (owner, 2026-09-27); these three were found.
+    expect(state.wheel!.segments).toHaveLength(7)
+    expect(wheelFoundIds(state)).toEqual(['da:mad', 'da:æble', 'da:kaffe'])
     state = applyEvent(state, { type: 'SPIN_WHEEL' })
     expect(state.outcome).toEqual({ result: 'lost', reason: 'wheel-miss' })
   })

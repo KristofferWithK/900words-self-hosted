@@ -9,6 +9,7 @@ import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { setTimeout as sleep } from 'node:timers/promises'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4197
 const preview = await startPreview(PORT)
@@ -18,6 +19,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 await page.addInitScript(() => {
   try {
@@ -59,7 +62,8 @@ try {
   // Continue board owns.
   await page.goto(`${preview.base}?mock=1&howto=0`)
   await page.waitForSelector('.city-card')
-  await page.getByRole('button', { name: 'Play' }).click()
+  // Home's primary is the Café puzzle tag since CW-10 (Play's successor).
+  await page.locator('.home-play').click()
   await page.waitForSelector('.board-grid')
   // Casey normally opens. Move this durable attempt to the player composer
   // through its session authority, then resume it the same way a real player
@@ -73,7 +77,7 @@ try {
   })
   await page.reload()
   await page.waitForSelector('.city-card')
-  await page.getByRole('button', { name: 'Continue board' }).click()
+  await page.locator('.home-play').click() // the Café puzzle tag continues the board (CW-10)
   await page.waitForSelector('.board-grid')
   const study = page.locator('.study-dock .btn-primary')
   if (await study.isVisible().catch(() => false)) await study.click()
@@ -157,7 +161,7 @@ try {
     sheetGlosses.length > 0 && titled.includes(sheetGlosses.split(',')[0].trim()),
     `title ${JSON.stringify(titled)} / sheet ${JSON.stringify(sheetGlosses)}`,
   )
-  await page.locator('.sheet .btn').last().click()
+  await page.locator('.sheet .sheet-close').last().click()
   await sleep(300)
 
   // Looking up an English word whose Danish is ON the board. This is the case
@@ -221,7 +225,7 @@ try {
     window.__translateWritePrimary(raw)
   })
   await page.reload()
-  await page.getByRole('button', { name: 'Continue board' }).click()
+  await page.locator('.home-play').click() // the Café puzzle tag continues the board (CW-10)
   await page.waitForSelector('.translate-challenge-bar', { timeout: 15000 })
   check(
     'the clue-composer dictionary is gone while a translation answer is due',

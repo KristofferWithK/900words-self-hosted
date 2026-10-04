@@ -5,8 +5,9 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
-const preview = await startPreview(4290)
+const preview = await startPreview(4324)
 // preview.base includes /ClueCabulary/; navigation keeps that app path,
 // while the allowlist and scripted Casey endpoint use the server origin.
 const previewOrigin = new URL(preview.base).origin
@@ -32,6 +33,8 @@ async function newProfile(viewport) {
   await context?.close()
   context = await browser.newContext({ viewport, serviceWorkers: 'block' })
   page = await context.newPage()
+  // The café gate is on (CW-13): this drive's board needs its first café found.
+  await page.addInitScript(mergeFirstCafe, seedArgs('da'))
   calls = []
   page.on('pageerror', (error) => errors.push(error.message))
   await context.route('**/*', async (route) => {
@@ -135,6 +138,24 @@ async function geometry(name) {
   check(`${name}: centered and dimmed`, Math.abs(measured.centerX - measured.width / 2) < 2 && Math.abs(measured.centerY - measured.height / 2) < 2 && measured.backdrop !== 'rgba(0, 0, 0, 0)')
   await page.screenshot({ path: resolve(output, `${name}.png`) })
 }
+// Force a valid wheel from the current board, as a round reaching
+// translation would leave it; the next document loads it as the primary.
+async function toTranslationFixture() {
+  await page.evaluate(() => {
+    const value = JSON.parse(localStorage.getItem('cluecab-game-v1'))
+    const game = value.state.game
+    const greens = game.words.filter((word) =>
+      game.playerKey[word.wordId] === 'green' || game.aiKey[word.wordId] === 'green')
+    for (const word of greens) game.reveals[word.wordId] = { kind: 'green' }
+    game.phase = 'translateChallenge'
+    game.turnsLeft = 0
+    game.wheel = {
+      segments: greens.map((word) => word.wordId), translated: [], filled: [],
+      attempts: 0, landed: null, result: null, spent: null,
+    }
+    window.__writeRoundGuidancePrimaryFixture(value)
+  })
+}
 async function dismissCasey() {
   await panel().getByRole('button', { name: 'Start guessing', exact: true }).click()
   await panel().waitFor({ state: 'detached' })
@@ -236,38 +257,61 @@ try {
     // Translation time replaces the retired last-chance introduction. Force a
     // valid wheel from the current board: the panel must teach both translating
     // and the coming spin, persist at announcement, and stay quiet on reload.
-    await page.evaluate(() => {
-      const value = JSON.parse(localStorage.getItem('cluecab-game-v1'))
-      const game = value.state.game
-      const greens = game.words.filter((word) =>
-        game.playerKey[word.wordId] === 'green' || game.aiKey[word.wordId] === 'green')
-      for (const word of greens) game.reveals[word.wordId] = { kind: 'green' }
-      game.phase = 'translateChallenge'
-      game.turnsLeft = 0
-      game.wheel = {
-        segments: greens.map((word) => word.wordId), translated: [], filled: [],
-        attempts: 0, landed: null, result: null, spent: null,
-      }
-      window.__writeRoundGuidancePrimaryFixture(value)
-    })
+    await toTranslationFixture()
     await page.reload()
     await page.locator('.home-play').click()
     await panel().waitFor()
     const translationIntro = await panel().innerText()
     check(`${size}: entering translation is announced`, translationIntro.includes('Translation time') && /wheel|spin/i.test(translationIntro))
     check(`${size}: translation panel replaces last-chance copy`, !translationIntro.includes('Last Chance') && !translationIntro.includes('one wrong guess and you lose'))
-    check(`${size}: translation panel has no opt-out and no clue`, await panel().locator('input').count() === 0 && await panel().locator('.round-guidance-clue').count() === 0)
+    // The same "Don't remind me again" box as the Your turn panel, unticked.
+    check(`${size}: translation panel has the opt-out box and no clue`,
+      await panel().getByRole('checkbox', { name: 'Don’t remind me again' }).count() === 1 &&
+      !(await panel().getByRole('checkbox').isChecked()) && await panel().locator('.round-guidance-clue').count() === 0)
     assert.equal((await saved()).roundGuidance.translation, 'announced')
     await geometry(`translation-${size}`)
     const translationBefore = JSON.stringify((await saved()).game)
     await panel().getByRole('button', { name: 'Start translating', exact: true }).click()
     await panel().waitFor({ state: 'detached' })
+    // Like Your turn, the closed panel hands over to the bottom card.
+    await page.waitForSelector('.turn-takeover-line')
+    check(`${size}: Translation time card plays at the bottom after the panel`,
+      (await page.locator('.turn-takeover-line').innerText()) === 'Translation time')
     await page.waitForSelector('.translate-challenge-bar')
     check(`${size}: Start translating leaves the wheel as it was`, JSON.stringify((await saved()).game) === translationBefore && (await saved()).roundGuidance.translation === 'dismissed')
     await page.reload()
     await page.locator('.home-play').click()
     await page.waitForSelector('.translate-challenge-bar')
     check(`${size}: reload does not repeat the translation panel`, await panel().count() === 0)
+    check(`${size}: closing without the box keeps the translation preference off`,
+      await page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-settings-v1')).state.hideTranslationReminder) === false)
+    // Tick the box on the next round's translation panel: later rounds then
+    // reach Translation time with no panel, and the bottom card still plays.
+    await fresh('player')
+    await panel().waitFor()
+    await panel().getByRole('button', { name: 'Write a clue' }).click()
+    await toTranslationFixture()
+    await page.reload()
+    await page.locator('.home-play').click()
+    await panel().waitFor()
+    check(`${size}: a new round announces translation again`, (await panel().innerText()).includes('Translation time'))
+    await panel().getByRole('checkbox').check()
+    await panel().getByRole('button', { name: 'Start translating', exact: true }).click()
+    await panel().waitFor({ state: 'detached' })
+    check(`${size}: ticking the box persists the translation opt-out`,
+      await page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-settings-v1')).state.hideTranslationReminder) === true)
+    await fresh('player')
+    await panel().waitFor()
+    check(`${size}: the translation opt-out leaves the Your turn panel alone`, (await panel().innerText()).includes('Your turn!'))
+    await panel().getByRole('button', { name: 'Write a clue' }).click()
+    await toTranslationFixture()
+    await page.reload()
+    await page.locator('.home-play').click()
+    await page.waitForSelector('.turn-takeover-line')
+    check(`${size}: opted out, the Translation time card plays without a panel`,
+      (await page.locator('.turn-takeover-line').innerText()) === 'Translation time' && await panel().count() === 0)
+    await page.waitForSelector('.translate-challenge-bar')
+    check(`${size}: opted out, no translation panel follows the card`, await panel().count() === 0)
     await fresh('player')
     await panel().waitFor()
     check(`${size}: player-first gets only the player lesson`, (await panel().innerText()).includes('Your turn!') && await panel().locator('.round-guidance-clue').count() === 0)

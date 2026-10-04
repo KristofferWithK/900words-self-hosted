@@ -56,6 +56,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple 没能恢复购买。再试一次。',
   passRedeemOpened: 'Apple 已打开兑换码页面。',
   passRedeemUnavailable: '兑换码只在 iOS 应用里提供。',
+  passPendingPlay: 'Google Play 还在确认这笔购买。保持应用打开，然后试试“恢复购买”。',
+  passErrorPlay: 'Google Play 没能检查这笔购买。再试一次。',
+  passNotEntitledPlay: '这个 Google 账号下没有找到无限畅玩的购买记录。',
+  passRestoreErrorPlay: 'Google Play 没能恢复购买。再试一次。',
 
   // ── 存储没有照办 ─────────────────────────────────────────────────────────
   backupFileUnreadable: '这个文件读不出来。',

@@ -46,6 +46,7 @@ export const game: Catalogue['game'] = {
 
   cardYourTarget: ', ta cible',
   cardFound: ', trouvée',
+  cardMissedKey: ', un des mots de Casey, non trouvé',
   cardNeutralBoth: ', neutre pour les deux camps',
   cardNeutralPlayer: ', neutre sous tes indices',
   cardNeutralCasey: ', neutre sous les indices de Casey',
@@ -102,7 +103,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Faire tourner la roue',
   wheelSpinning: 'Elle tourne…',
   wheelWonLine: 'Vert ! La manche est gagnée.',
-  wheelMissLine: 'La roue s’est arrêtée sur une valise non rangée.',
+  wheelMissLine: 'Pas de vert. La manche est perdue.',
+  wheelLedeMissed: (found, total, language) =>
+    `Tu en as trouvé ${found} sur ${total}. Pour les mots restés sur le plateau, la roue reste grise. Écris le reste en ${language}, puis fais-la tourner.`,
+  wheelAnswersLine: 'Les mots en gris sont les réponses que tu n’as pas écrites.',
+  wheelSeeResults: 'Voir les résultats',
   phaseTranslateChallenge: 'Place à la traduction',
   settlementFailed: 'Ton résultat n’a pas encore pu être enregistré. Garde cette manche et réessaie.',
   settlementSaving: 'Enregistrement de ton résultat…',
@@ -119,6 +124,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Casey hors ligne réfléchit. C’est plus long.',
   offlineRoundPrompt: 'Pas d’internet. Jouer la fin de cette manche avec Casey hors ligne ? Elle est plus lente.',
   playOfflineButton: 'Jouer hors ligne',
+  onlineAgainTitle: 'Internet est revenu',
+  onlineAgainBody:
+    'Jouer la fin de cette manche avec Casey normale ? Elle est plus rapide et joue mieux. Si ta connexion coupe souvent, rester hors ligne peut être plus stable.',
+  playOnlineButton: 'Jouer en ligne',
+  stayOfflineButton: 'Rester hors ligne',
   hurryCaseyTitle: 'Toucher pour presser Casey',
   hurryCaseyHint: 'Touche ici pour presser Casey.',
   caseyGuessedWord: (word) => `Casey a proposé «${word}».`,
@@ -286,7 +296,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Voir la traduction',
   reviewHideTranslation: 'Masquer la traduction',
   reviewAboutWord: 'À propos de ce mot',
-  reviewHighFrequencyWord: 'Mot très fréquent :',
   reviewNoNotes: 'Pas de notes pour ce mot.',
   reviewNextSentence: 'Phrase suivante',
   reviewNothingThisRound:

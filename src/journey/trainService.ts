@@ -9,9 +9,10 @@ import {
 import { canBoardForJourney } from '../purchase/accessPolicy'
 import type { PassStatus } from '../purchase/pass'
 import type { CityIdentity, ProgressFacts } from '../progression/types'
+import { useJourney } from '../stores/journeyStore'
 import { devSwitchesAllowed } from '../stores/uiStore'
 import { CITIES } from './cities'
-import { cityTravelReadiness } from './progress'
+import { cityTrainReadiness, cityTravelReadiness, type TrainRunFacts } from './progress'
 
 /**
  * Which part of the route the train serves at launch.
@@ -52,9 +53,16 @@ export function trainRunsFrom(
 }
 
 export interface JourneyTravelGateInput {
+  /** Settled progress facts: only the postcard count Home and the map still print. */
   readonly facts: ProgressFacts
-  /** The city whose postcards/readiness are being checked, not the board being viewed. */
+  /** The city whose readiness is being checked, not the board being viewed. */
   readonly city: CityIdentity
+  /**
+   * The train tickets (journey store `trainRuns`, card CW-07). When left out
+   * the gate reads the live journey store: Home and the map call it without
+   * them until their own cards pass them in.
+   */
+  readonly trainRuns?: TrainRunFacts
   readonly cityIndex: number
   readonly threshold?: number
   readonly historicalEligibility: boolean
@@ -69,12 +77,21 @@ export interface JourneyTravelGateInput {
 /**
  * Complete travel projection with three independent gates:
  *
- * 1. city-specific earned/historical readiness;
+ * 1. city-specific readiness: this city's caught train (card CW-07, contract
+ *    section 4: "The run is the only way onto the train");
  * 2. current course/destination availability;
  * 3. the existing pass/audience access policy.
  *
- * A pass, old developer position or historical eligibility cannot open an
- * unreleased route. This selector is pure and cannot spend postcards.
+ * A ticket, a pass, an old developer position or historical eligibility
+ * cannot open an unreleased route: a caught train with the line closed is
+ * `ready` and still not `canBoard` (owner O3: "Nothing opens an unreleased
+ * city"). The feedback and developer builds bypass gate 2 as before, so there
+ * they board once the train is caught, and only then.
+ *
+ * The postcard numbers (`earned`, `remaining`, `thresholdReady`,
+ * `historicalEligibility`) are still returned for the screens that print
+ * them, but they no longer make a player ready: postcards, stamps and medals
+ * do not travel. This selector cannot spend anything.
  */
 export function journeyTravelGate(input: JourneyTravelGateInput) {
   const feedbackTravel = audienceEnablesFeedbackTravel(input.audience)
@@ -86,16 +103,31 @@ export function journeyTravelGate(input: JourneyTravelGateInput) {
     bypass: feedbackTravel || developerTravel,
   })
   const accessAllowed = canBoardForJourney(input.cityIndex, input.passStatus, feedbackTravel)
+  const postcards = cityTravelReadiness(input.facts, input.city, {
+    threshold: input.threshold,
+    historicalEligibility: input.historicalEligibility,
+    destinationAvailable,
+    accessAllowed,
+  })
+  const train = cityTrainReadiness(input.trainRuns ?? liveTrainRuns(), input.city, { destinationAvailable, accessAllowed })
   return {
-    ...cityTravelReadiness(input.facts, input.city, {
-      threshold: input.threshold,
-      historicalEligibility: input.historicalEligibility,
-      destinationAvailable,
-      accessAllowed,
-    }),
+    earned: postcards.earned,
+    remaining: postcards.remaining,
+    thresholdReady: postcards.thresholdReady,
+    historicalEligibility: postcards.historicalEligibility,
+    ...train,
     identityMatchesPosition,
     destinationAvailable,
     accessAllowed,
+  }
+}
+
+/** The journey store's tickets, or none when the store cannot be read. */
+function liveTrainRuns(): TrainRunFacts {
+  try {
+    return useJourney.getState().trainRuns ?? {}
+  } catch {
+    return {}
   }
 }
 

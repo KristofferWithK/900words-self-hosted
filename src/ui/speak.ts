@@ -546,13 +546,18 @@ export interface WordAudioPorts {
 
 /**
  * How many clips to hold in memory, counted across both bakes — a word tapped
- * and then heard slowly holds two. They are ~10 KB each, so this is about a
- * third of a megabyte at worst — enough that re-tapping a word in a round is
- * instant (and, more importantly, plays *inside* the tap: see `prime`), and far
- * short of holding all 900. The service worker's cache is the real store; this
- * is only the near end of it.
+ * and then heard slowly holds two. Word clips are a few KB each, so this is
+ * well under a megabyte — enough that re-tapping a word in a round is instant
+ * (and, more importantly, plays *inside* the tap: see `prime`), and far short
+ * of holding all 900. The service worker's cache is the real store; this is
+ * only the near end of it.
+ *
+ * At least the element pool (POOL_MAX). At 40, one dealt board (articles,
+ * phrases and words) plus a few dictionary sheets pushed the board's own
+ * article clips out, so a noun tapped later in the round fetched again before
+ * it played (Android closed-test report, 2026-10-03).
  */
-const MEMO_MAX = 40
+export const MEMO_MAX = 128
 /** How many clips `preload` fetches at once. See the note on it. */
 export const PRELOAD_LANES = 4
 
@@ -625,6 +630,12 @@ export function createWordPlayer(ports: WordAudioPorts) {
     }
 
     let clip = memo.get(key)
+    if (clip) {
+      // Move a played clip to the newest end, so eviction drops what has
+      // gone unheard longest rather than whatever was dealt first.
+      memo.delete(key)
+      memo.set(key, clip)
+    }
     if (!clip && !absent.has(key)) {
       const got = await ports.load(url).catch((): ClipLoad => ({ kind: 'unreachable' }))
       if (!current()) return 'silent'
@@ -905,11 +916,22 @@ function audioElement(): HTMLAudioElement {
  * Give-clue button has no word in hand at all, only the gesture.
  */
 export function primeWordAudio(): void {
-  // Every tap, not just the first: the context a phone call or a lock screen
-  // suspended is resumed by the next gesture, which is the only place it can be.
-  resumeAudioContext()
+  // Only the Web Audio path plays through a context, and it is off (WEB_AUDIO,
+  // below). Resuming one anyway CREATED it, inside the first tap of every
+  // session: an AudioContext built, and the audio hardware started, before
+  // the word the finger asked for could begin (owner, 2026-09-30: "the first
+  // tap on a board is always slow to react"). When WEB_AUDIO is on, every tap
+  // resumes it, not just the first: a phone call or a lock screen suspends it,
+  // and the next gesture is the only place it can be resumed.
+  if (WEB_AUDIO) resumeAudioContext()
   if (primed || typeof Audio === 'undefined') return
   primed = true
+  // The shell needs no unlock: Capacitor sets
+  // mediaTypesRequiringUserActionForPlayback to none on iOS and
+  // setMediaPlaybackRequiresUserGesture(false) on Android (selftest.ts).
+  // Starting the silent clip anyway put a second media player in the same
+  // tap as the word.
+  if (Capacitor.isNativePlatform()) return
   const el = audioElement()
   el.src = UNLOCK_WAV
   // No matching pause: the clip is 20 ms long and ends by itself. Pausing it

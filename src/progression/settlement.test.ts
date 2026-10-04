@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { createPrimaryContinuation, earnedPostcards, emptyProgressFacts } from './facts'
 import { attemptFixture, EMPTY_LEARNING, FIXTURE_BOARD, FIXTURE_CONTENT, FIXTURE_SET, MATRIX_FIXTURES, settlementFixture, UNFINISHED_PRIMARY_BENEATH_REPLAY, validatedReceiptFixture } from './fixtures'
 import { boardKey, effectKey, firstCompletionKey, milestoneKey } from './identity'
+import { cityMedalFromStamps, cityStamps, savedStamps } from './rules'
 import { acceptsEvent, acknowledgeEffect, emptySettlementLedger, pendingEffects, pendingSettlement, prepareSettlement, recoverSettlement, settledReceiptFacts } from './settlement'
 import { parseLedger, parseSessions } from './storageSchema'
 import type { PrepareResult } from './settlement'
@@ -127,6 +128,100 @@ describe('receipt preparation and recovery contract', () => {
     expect(replay.ledger.facts.firstPrimaryCompletions).toEqual(first.ledger.facts.firstPrimaryCompletions)
   })
 
+  it('CW-03 replaying a café can raise its stamp and never lowers it', () => {
+    const key = boardKey(FIXTURE_BOARD)
+    const bestsOf = (ledger: SettlementLedger) => savedStamps(ledger.facts)
+    const stampOf = (ledger: SettlementLedger) => cityStamps(FIXTURE_SET, bestsOf(ledger)).stamps[key]
+    // Nothing yet: the card is blank.
+    expect(cityStamps(FIXTURE_SET, bestsOf(emptySettlementLedger()))).toMatchObject({ stamped: 0, points: 0, maximum: 4, percent: 0 })
+    // First visit: Gold.
+    const gold = prepared(prepareSettlement(emptySettlementLedger(), settlementFixture(MATRIX_FIXTURES[4].game)))
+    expect(stampOf(gold.ledger)).toBe('gold')
+    expect(cityMedalFromStamps(FIXTURE_SET, bestsOf(gold.ledger))).toMatchObject({ tier: 'gold', points: 3, percent: 75 })
+    // A worse replay (Bronze) leaves Gold on the card.
+    const bronze = prepared(prepareSettlement(acknowledgeAll(gold.ledger), settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[0].game, { origin: 'replay', attemptId: 'replay-bronze' }),
+    })))
+    expect(bronze.receipt).toMatchObject({ attemptTier: 'bronze', previousBest: 'gold', newBest: 'gold' })
+    expect(stampOf(bronze.ledger)).toBe('gold')
+    // A lost replay (solved, spin missed) leaves Gold on the card too.
+    const lost = prepared(prepareSettlement(acknowledgeAll(bronze.ledger), settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[3].game, { origin: 'replay', attemptId: 'replay-lost' }),
+    })))
+    expect(lost.receipt).toMatchObject({ completedLoss: true, previousBest: 'gold', newBest: 'gold' })
+    expect(stampOf(lost.ledger)).toBe('gold')
+    // A better replay raises the stamp to Platinum, and the medal with it.
+    const platinum = prepared(prepareSettlement(acknowledgeAll(lost.ledger), settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[5].game, { origin: 'replay', attemptId: 'replay-platinum' }),
+    })))
+    expect(platinum.receipt).toMatchObject({ attemptTier: 'platinum', previousBest: 'gold', newBest: 'platinum' })
+    expect(stampOf(platinum.ledger)).toBe('platinum')
+    expect(cityMedalFromStamps(FIXTURE_SET, bestsOf(platinum.ledger))).toMatchObject({ tier: 'platinum', points: 4, maximum: 4, percent: 100 })
+    // And once Platinum, a Silver replay cannot take it back.
+    const silver = prepared(prepareSettlement(acknowledgeAll(platinum.ledger), settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[2].game, { origin: 'replay', attemptId: 'replay-silver' }),
+    })))
+    expect(stampOf(silver.ledger)).toBe('platinum')
+    // The stored city achievement keeps its own (lowest-best) rule, unchanged.
+    expect(Object.values(silver.ledger.facts.cityAchievements).map((fact) => fact.tier)).toEqual(['platinum'])
+  })
+
+  it('CW-03b a completed loss earns a Bronze stamp read from completedLosses; it claims nothing and changes no queue', () => {
+    const key = boardKey(FIXTURE_BOARD)
+    const stampOf = (ledger: SettlementLedger) => cityStamps(FIXTURE_SET, savedStamps(ledger.facts)).stamps[key]
+    // Real captured learning, so every durable ledger below also passes `parseLedger`.
+    const replay = (index: number, attemptId: string) => settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[index]!.game, { origin: 'replay', attemptId }),
+      learning: prepareLearning(MATRIX_FIXTURES[index]!.game, [], {}, {}, 100),
+    })
+    // A solved board whose spin missed: the attempt reached Gold, the café earns Bronze.
+    const input = settlementFixture(MATRIX_FIXTURES[3].game, { learning: prepareLearning(MATRIX_FIXTURES[3].game, [], {}, {}, 100) })
+    const lost = prepared(prepareSettlement(emptySettlementLedger(), input))
+    expect(lost.receipt).toMatchObject({
+      completedLoss: true, attemptTier: 'gold', previousBest: null, newBest: null, newMilestoneIds: [],
+      rewards: { eligible: [], alreadyHeld: [], newlyClaimed: [], postcards: 0 },
+      primary: { completedBoardKey: key, firstCompletionId: null, nextBoardKey: null },
+    })
+    // Nothing new is stored: no best, no claim, no first completion, no city achievement.
+    expect(lost.ledger.facts.boards).toEqual({})
+    expect(lost.ledger.facts.firstPrimaryCompletions).toEqual({})
+    expect(lost.ledger.facts.cityAchievements).toEqual({})
+    expect(lost.ledger.facts.completedLosses[key]).toEqual({ board: FIXTURE_BOARD, firstPrimary: true })
+    expect(earnedPostcards(lost.ledger.facts, FIXTURE_BOARD)).toBe(0)
+    // ...and the café's card shows Bronze, which is the whole one-café city's 25%.
+    expect(stampOf(lost.ledger)).toBe('bronze')
+    expect(cityMedalFromStamps(FIXTURE_SET, savedStamps(lost.ledger.facts))).toMatchObject({ tier: 'bronze', stamped: 1, points: 1, maximum: 4, percent: 25 })
+    // The queue is as before: the lost board is done, not dealt again.
+    expect(createPrimaryContinuation(FIXTURE_SET, lost.ledger.facts).remainingBoardKeys).toEqual([])
+    // A retried Finish reads the accepted receipt; the durable ledger round-trips.
+    expect(prepareSettlement(lost.ledger, input)).toMatchObject({ status: 'existing', receipt: lost.receipt })
+    const settled = acknowledgeAll(lost.ledger)
+    expect(parseLedger(settled).facts).toEqual(settled.facts)
+
+    // A lost replay of a Bronze café: idempotent. Same facts, same Bronze, no claims.
+    const again = prepared(prepareSettlement(settled, replay(0, 'replay-lost-again')))
+    expect(again.receipt).toMatchObject({ completedLoss: true, previousBest: null, newBest: null, primary: null, rewards: { postcards: 0 } })
+    expect(again.ledger.facts).toEqual(settled.facts)
+    expect(stampOf(again.ledger)).toBe('bronze')
+    expect(parseLedger(acknowledgeAll(again.ledger)).facts).toEqual(settled.facts)
+
+    // A win raises Bronze to Silver and claims its reward once.
+    const silver = prepared(prepareSettlement(acknowledgeAll(again.ledger), replay(2, 'replay-silver')))
+    expect(silver.receipt).toMatchObject({ previousBest: null, newBest: 'silver', rewards: { newlyClaimed: ['spinWin'], postcards: 1 } })
+    expect(stampOf(silver.ledger)).toBe('silver')
+    // The replay of a lost primary still makes no first completion.
+    expect(silver.ledger.facts.firstPrimaryCompletions).toEqual({})
+
+    // A loss after Silver keeps Silver, and pays nothing.
+    const kept = prepared(prepareSettlement(acknowledgeAll(silver.ledger), replay(3, 'replay-lost-after-silver')))
+    expect(kept.receipt).toMatchObject({ completedLoss: true, previousBest: 'silver', newBest: 'silver', rewards: { postcards: 0, newlyClaimed: [] } })
+    expect(stampOf(kept.ledger)).toBe('silver')
+    expect(earnedPostcards(kept.ledger.facts, FIXTURE_BOARD)).toBe(1)
+    // The stored city achievement keeps the lowest-best rule: written from won bests only.
+    expect(Object.values(kept.ledger.facts.cityAchievements).map((fact) => fact.tier)).toEqual(['silver'])
+    expect(parseLedger(acknowledgeAll(kept.ledger)).facts).toEqual(kept.ledger.facts)
+  })
+
   it('AC08 actual receipts cannot assemble Platinum across solve and translation attempts', () => {
     const solve = prepared(prepareSettlement(emptySettlementLedger(), settlementFixture(MATRIX_FIXTURES[3].game)))
     const translated = prepared(prepareSettlement(acknowledgeAll(solve.ledger), settlementFixture(undefined, {
@@ -206,6 +301,29 @@ describe('receipt preparation and recovery contract', () => {
     expect(finish.receipt.effects).toContain('lessons')
     expect(finish.receipt.primary!.nextBoardKey).toBeNull()
     expect(prepareSettlement(finish.ledger, input)).toMatchObject({ status: 'existing' })
+  })
+
+  it('a count milestone is reached once per city: a superseding set re-crossing it celebrates nothing', () => {
+    // v1 held twelve boards and its tenth completion was celebrated. v2 keeps
+    // nine of those and adds a tenth, so its count first reaches 10 here.
+    const boards = Array.from({ length: 12 }, (_, i) => ({ ...FIXTURE_BOARD, authoredBoardId: `fixture-${i}` }))
+    const older = { ...FIXTURE_SET, setVersion: 'fixture-set-v1', boards: boards.slice(0, 10) }
+    const newer = { ...FIXTURE_SET, setVersion: 'fixture-set-v2', boards: [...boards.slice(0, 9), boards[11]!] }
+    const olderSet = { courseId: older.courseId, cityId: older.cityId, setVersion: older.setVersion }
+    const facts = { ...emptyProgressFacts(),
+      firstPrimaryCompletions: Object.fromEntries(boards.slice(0, 10).map((board) => [firstCompletionKey(board), { board, requiredSet: olderSet }])),
+      milestones: { [milestoneKey(older, 10)]: { requiredSet: olderSet, completedCount: 10, notificationHandled: true } },
+    }
+    // Rebased: nine of v2's boards are done; the tenth (fixture-11) is next.
+    const input = settlementFixture(undefined, {
+      attempt: attemptFixture(MATRIX_FIXTURES[5].game, { board: boards[11] }), required: newer,
+      continuation: createPrimaryContinuation(newer, facts, undefined, true), authoredContent: { ...FIXTURE_CONTENT, board: boards[11]! },
+    })
+    const finish = prepared(prepareSettlement({ ...emptySettlementLedger(), facts }, input))
+    expect(finish.receipt.primary!.firstCompletionId).toBe(firstCompletionKey(boards[11]!))
+    expect(finish.receipt.newMilestoneIds).toEqual([])
+    expect(finish.receipt.effects).not.toContain('lessons')
+    expect(finish.ledger.facts.milestones[milestoneKey(newer, 10)]).toBeUndefined()
   })
 
   it('tier calculation does not invent word effects; supplied learning diffs survive unchanged', () => {

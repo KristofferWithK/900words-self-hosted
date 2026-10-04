@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import type { RestoreMode } from '../../backup/apply'
 import type { Backup, summarize } from '../../backup/backup'
 import { UI, UI_LANGUAGE, UI_LANGUAGE_INFO } from '../../i18n'
+import { Tag } from './Tag'
 import { cityAt } from '../../journey/cities'
 
 type Status =
@@ -72,8 +73,10 @@ export function BackupPanel() {
       <p className="settings-note">{UI.settings.backupIntro}</p>
 
       <div className="backup-actions">
-        <button
-          className="btn"
+        <Tag
+          size="wide"
+          className="backup-save"
+          label={UI.settings.backupSaveButton}
           onClick={async () => {
             try {
               const { downloadBackup } = await import('../../backup/apply')
@@ -86,13 +89,9 @@ export function BackupPanel() {
               setStatus({ kind: 'error', message: UI.system.backupWriteFailed })
             }
           }}
-        >
-          {UI.settings.backupSaveButton}
-        </button>
+        />
 
-        <button className="btn" onClick={() => fileRef.current?.click()}>
-          {UI.settings.backupRestoreButton}
-        </button>
+        <Tag size="wide" className="backup-restore" label={UI.settings.backupRestoreButton} onClick={() => fileRef.current?.click()} />
         <input
           ref={fileRef}
           className="visually-hidden"
@@ -118,8 +117,9 @@ export function BackupPanel() {
 
       {pasting && (
         <div className="backup-paste">
-          <button
-            className="btn btn-small"
+          <Tag
+            className="backup-copy"
+            label={UI.settings.backupCopyButton}
             onClick={async () => {
               try {
                 const { prepareBackupText } = await import('../../backup/apply')
@@ -132,9 +132,7 @@ export function BackupPanel() {
                 setStatus({ kind: 'error', message: UI.system.saveChangeFailed })
               }
             }}
-          >
-            {UI.settings.backupCopyButton}
-          </button>
+          />
           <label className="field">
             <span>{UI.settings.backupPasteLabel}</span>
             <textarea
@@ -145,9 +143,7 @@ export function BackupPanel() {
               placeholder={'{"app":"cluecabulary",…}'}
             />
           </label>
-          <button className="btn btn-small" disabled={!pasted.trim() || busy} onClick={() => void offer(pasted).catch(() => setStatus({ kind: 'error', message: UI.system.saveChangeFailed }))}>
-            {UI.settings.backupReadButton}
-          </button>
+          <Tag className="backup-read" label={UI.settings.backupReadButton} disabled={!pasted.trim() || busy} onClick={() => void offer(pasted).catch(() => setStatus({ kind: 'error', message: UI.system.saveChangeFailed }))} />
         </div>
       )}
 
@@ -171,12 +167,8 @@ export function BackupPanel() {
             </li>
           </ul>
           <div className="backup-choice">
-            <button className="btn btn-primary" disabled={busy} onClick={() => void apply('merge')}>
-              {UI.settings.backupMergeButton}
-            </button>
-            <button className="btn" disabled={busy} onClick={() => void apply('replace')}>
-              {UI.settings.backupReplaceButton}
-            </button>
+            <Tag size="wide" tone="primary" className="backup-merge" label={UI.settings.backupMergeButton} disabled={busy} onClick={() => void apply('merge')} />
+            <Tag size="wide" className="backup-replace" label={UI.settings.backupReplaceButton} disabled={busy} onClick={() => void apply('replace')} />
             <button
               className="backup-fallback"
               onClick={() => {

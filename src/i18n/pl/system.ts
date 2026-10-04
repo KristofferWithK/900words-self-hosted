@@ -67,6 +67,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple nie mogło przywrócić zakupów. Spróbuj ponownie.',
   passRedeemOpened: 'Apple otworzyło okno wykorzystania kodu.',
   passRedeemUnavailable: 'Wykorzystanie kodu jest dostępne w aplikacji na iOS.',
+  passPendingPlay: 'Google Play wciąż potwierdza ten zakup. Zostaw aplikację otwartą, potem spróbuj „Przywróć zakupy”.',
+  passErrorPlay: 'Google Play nie mogło sprawdzić tego zakupu. Spróbuj ponownie.',
+  passNotEntitledPlay: 'Nie znaleziono zakupu nielimitowanej gry dla tego konta Google.',
+  passRestoreErrorPlay: 'Google Play nie mogło przywrócić zakupów. Spróbuj ponownie.',
 
   // ── pamięć nie zrobiła, o co ją proszono ─────────────────────────────────
   backupFileUnreadable: 'Nie udało się odczytać tego pliku.',

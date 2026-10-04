@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { DEFAULT_BASE_URL } from '../ai/client'
@@ -12,6 +13,8 @@ export type CaseyMode = 'worker' | 'gemma4-e4b' | 'own-key'
 interface SettingsState {
   /** A new preference: older saves merge to false; existing choices stay intact. */
   hidePlayerClueReminder: boolean
+  /** The Translation time panel's own opt-out, the same pattern: older saves merge to false. */
+  hideTranslationReminder: boolean
   baseUrl: string
   /**
    * Which model-backed Casey boundary normal play uses. Worker stays the safe
@@ -245,15 +248,21 @@ export function migrateSettings(persisted: unknown, from: number): unknown {
   return s
 }
 
+/** Casey's source on a fresh install: the Worker, or in a self-build Gemma (iPhone only) or the player's own key. */
+export function freshCaseyMode(audience: string, onDeviceCasey: boolean, platform: string): CaseyMode {
+  if (audience !== 'open-source') return 'worker'
+  return onDeviceCasey && platform === 'ios' ? 'gemma4-e4b' : 'own-key'
+}
+
 export const useSettings = create<SettingsState>()(
   persist(
     (set) => ({
       baseUrl: DEFAULT_BASE_URL,
       // A self-built 900words has no Worker: out of the box it plays with
-      // Gemma on an iPhone and asks for an AI key on the web (owner,
-      // 2026-09-27). Only a fresh self-build install reads this default.
-      caseyMode:
-        __BUILD_AUDIENCE__ === 'open-source' ? (__ON_DEVICE_CASEY__ ? 'gemma4-e4b' : 'own-key') : 'worker',
+      // Gemma on an iPhone and asks for an AI key on the web and on Android,
+      // where Gemma does not run (owner, 2026-09-27 and 2026-10-04). Only a
+      // fresh self-build install reads this default.
+      caseyMode: freshCaseyMode(__BUILD_AUDIENCE__, __ON_DEVICE_CASEY__, Capacitor.getPlatform()),
       offlineMode: false,
       useMock: false,
       // On. Every sound in the app follows a tap, so the only thing this
@@ -268,6 +277,7 @@ export const useSettings = create<SettingsState>()(
       usageStats: true,
       reminderPromptShownAt: null,
       hidePlayerClueReminder: false,
+      hideTranslationReminder: false,
       klausVerifiedAt: null,
       set: (patch) =>
         set((s) => {
@@ -301,6 +311,7 @@ export const useSettings = create<SettingsState>()(
         usageStats,
         reminderPromptShownAt,
         hidePlayerClueReminder,
+        hideTranslationReminder,
         klausVerifiedAt,
       }) => ({
         baseUrl,
@@ -315,6 +326,7 @@ export const useSettings = create<SettingsState>()(
         usageStats,
         reminderPromptShownAt,
         hidePlayerClueReminder,
+        hideTranslationReminder,
         klausVerifiedAt,
       }),
     },

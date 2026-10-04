@@ -34,11 +34,21 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const CYCLE = 'src/data/city1-board-cycle.da.json'
+const APPENDIX = 'src/data/city1-board-cycle-appendix.da.json'
 const OUT = 'proxy/data/authored-player-keys.da.1.json'
 
-export function derivePlayerKeys(cycle = JSON.parse(readFileSync(resolve(CYCLE), 'utf8'))) {
+/** The archive and the boards appended after it, as one cycle (see city1BoardCycle.ts). */
+export function readFullCycle() {
+  const cycle = JSON.parse(readFileSync(resolve(CYCLE), 'utf8'))
+  let appendix = { boards: [] }
+  try { appendix = JSON.parse(readFileSync(resolve(APPENDIX), 'utf8')) } catch (error) { if (error?.code !== 'ENOENT') throw error }
+  return { ...cycle, boards: [...cycle.boards, ...appendix.boards] }
+}
+
+export function derivePlayerKeys(cycle = readFullCycle()) {
   const boards = cycle.boards.map((board) => {
     const onBoard = new Set(board.wordIds)
     if (onBoard.size !== board.wordIds.length) throw new Error(`${board.id} repeats a word`)
@@ -57,7 +67,9 @@ export function derivePlayerKeys(cycle = JSON.parse(readFileSync(resolve(CYCLE),
 
 export const renderPlayerKeys = (document) => `${JSON.stringify(document, null, 2)}\n`
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === new URL(import.meta.url).pathname
+// fileURLToPath, not URL.pathname: on Windows the pathname is /C:/..., which never
+// equals a resolved argv path, and the script used to do nothing there.
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)
 if (isMain) {
   const text = renderPlayerKeys(derivePlayerKeys())
   if (process.argv.includes('--check')) {

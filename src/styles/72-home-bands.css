@@ -1,0 +1,544 @@
+/* ---------- home in three bands ---------- */
+
+.home-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.home-title {
+  display: flex;
+  align-items: flex-end;
+  white-space: nowrap;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.home-title span:first-child {
+  font-size: 1.25em;
+  line-height: 0.82;
+}
+
+.home-title span:last-child {
+  font-size: 0.9em;
+  line-height: 1;
+  transform: translateY(0.12em);
+}
+
+/* The progress band: one line, and it cannot become two.
+ *
+ * Every child is nowrap, so there is no wrap opportunity anywhere in the row.
+ * The train is the only thing that flexes and the only thing allowed to
+ * shrink, so as the numbers grow (100 wrapped · 100 collected is the widest
+ * they ever get) it is the train that gives way. Nothing can push the row
+ * wider than the card, which is C1's rule for the board applied to Home: the
+ * layout must not move because a number got longer.
+ *
+ * The city name used to sit at the head of this row and lost its place to the
+ * train — see the comment over the band in HomeScreen for the measurement. */
+.home-progress-band {
+  display: grid;
+  grid-template-columns: minmax(34px, 1fr) auto;
+  grid-template-areas:
+    'train count'
+    'status status';
+  align-items: center;
+  gap: 4px 10px;
+  padding: 5px 12px;
+}
+
+/* The train takes the bar's slot: the only child that flexes, and the first
+   thing to give when the numbers beside it get long. The old 17px cap left a
+   small drawing inside a 50px card: 10px between rows and 12px of vertical
+   padding. A 25px cap, 4px row gap and 10px total vertical padding give those
+   pixels back to the train without making the card taller.
+
+   Two selectors because the flexing child changes identity when the road opens
+   (T1): the svg while the train is a readout, the button wrapping it once it
+   is a control. The cap stays on the drawing in both cases; the button's own
+   padding sits outside it. */
+.home-progress-band .train-progress,
+.home-progress-band .train-board {
+  grid-area: train;
+  flex: 1 1 auto;
+  min-width: 34px;
+}
+
+.home-progress-band .train-progress {
+  max-height: 25px;
+}
+
+.home-progress-band .collect-count {
+  grid-area: count;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-progress-band .home-progress-status {
+  grid-area: status;
+  margin: -4px 0 0;
+  color: var(--text-dim);
+  font-size: .72rem;
+  line-height: 1.15;
+}
+
+.home-progress-band .collect-count strong {
+  font-size: 0.9rem;
+}
+
+/* A ticket gate belongs to the train strip, but it is an action rather than a
+   third item in its one-line readout. Letting the inherited flex row squeeze
+   a full-width button between the train and count made it collapse into a
+   four-line circle on the smallest phone and pushed Home into document scroll.
+   In the gated state the strip becomes a two-row ticket: the familiar readout
+   first, then one calm, full-width action underneath. */
+.home-progress-band:has(.home-pass-button) {
+  display: grid;
+  grid-template-columns: minmax(34px, 1fr) auto;
+  grid-template-areas:
+    'train count'
+    'ticket ticket';
+  gap: 4px 10px;
+}
+
+.home-progress-band:has(.home-pass-button) .train-progress {
+  grid-area: train;
+}
+
+.home-progress-band:has(.home-pass-button) .collect-count {
+  grid-area: count;
+}
+
+.home-progress-band:has(.home-pass-button) .home-pass-button {
+  grid-area: ticket;
+  width: 100%;
+  min-height: 34px;
+  margin-top: 0;
+  padding-block: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Casey's band: the bubble speaks above him, he sits centred below, and the
+   band takes every pixel the strips above it did not. */
+.cluey-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 0;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* The bubble is a fixed three lines tall whatever it happens to be saying.
+   The tips run from 32 to 78 characters, so letting it size to its content
+   moves Casey up and down by half his own height as the rotation leafs — the
+   same C1 rule again: nothing moves because a string got longer. */
+.cluey-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+  min-height: calc(3 * 1.4em + 20px);
+  background: var(--surface);
+  border: 1px solid var(--text);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.cluey-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: var(--surface);
+  border-right: 1px solid var(--text);
+  border-bottom: 1px solid var(--text);
+}
+
+/* ---- what happens when the travel button appears ----
+
+   Home grows a "Travel on → ⟨city⟩" button the moment a city is fully wrapped,
+   and it costs about 61px that nothing above it had budgeted for. The band is
+   the only flexible thing on the screen, so it is what gives — and measured at
+   360×640 it shrank 303.6 → 242.6px around 195.1px of items that would not
+   shrink, so it overflowed instead. What that looked like was the word "Casey"
+   sliced across the green button and the speech bubble riding up over the
+   progress card.
+
+   The no-scroll rule cannot see this. Overflow of a flex column paints OVER
+   what is below rather than lengthening the document, so `scrollHeight <=
+   innerHeight` stayed true at exactly 640 the whole time. Measured before the
+   fix: name over button by 6.8px at 360×640, and 375×667 clear by only 0.2px —
+   one longer city name from the same bug.
+
+   So each child says what it may give up. The mascot is the one thing here that
+   can be smaller without becoming unreadable, which is why it is the only one
+   allowed to shrink. */
+.cluey-band > .cluey-bubble {
+  flex: 0 0 auto;
+}
+
+.cluey-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 4px 18px 0;
+  border-radius: var(--radius);
+  /* The only child that may shrink — and it needs min-height:0 to be allowed
+     to, since a flex item's floor is its content by default. */
+  min-height: 0;
+  flex: 0 1 auto;
+}
+
+.cluey-button:active .cluey-svg {
+  transform: translateY(1px);
+}
+
+/* Casey is the hero of this screen, so he takes the room the four-line count
+   above him used to. Three caps, each binding on a different phone, and all
+   three are needed. 34vh is what holds on a short one (360×640, 375×667): he
+   is 0.8 as tall as he is wide, the band is the only flexible thing on Home,
+   and an oversized Casey is precisely what makes the document scroll — the
+   slack there is about 20px, so do not raise it without re-measuring. 74vw
+   holds on a tall phone, and 290px stops him ballooning on a desktop window
+   where vh is large and .screen is not.
+
+   Measured: 218px wide at 360×640 and 287px at 390×844, against the 150px he
+   was at both. */
+.cluey-svg {
+  width: min(290px, 74vw, 34vh);
+  height: auto;
+  display: block;
+}
+
+/* Casey used to give up the room the travel button needed, and there is no
+   travel button any more (T1).
+
+   Kept as a note because it is the measurement that made it worth removing.
+   The button cost 61px under him, the flex column OVERFLOWED rather than
+   lengthening — flex overflow paints over what is below, so no-scroll stayed
+   true while the word "Casey" was drawn sliced across the green — and the fix
+   was to shrink the DRAWING (34vh to 27vh) rather than the button, because a
+   shorter button just means the same drawing painting outside it: measured, a
+   6.8px overlap became 25.6px that way.
+
+   The train is the control now and it grows the progress band by 12px of
+   button padding instead, in the same one state — measured at 360x640 with
+   e2e/home-space-probe.mjs: the band goes 31px to 43px, Casey holds 217.6px in
+   both states, and nothing scrolls at any of the five sizes it walks. So he
+   keeps his full size at every stop and the state that used to be short of
+   room is 49px better off than it was; layout-drive holds the line, at 32.6px
+   of clearance over the play row here ("Casey's band clears the train it
+   boards"). */
+
+.cluey-body {
+  fill: var(--beige);
+  stroke: var(--text);
+  stroke-width: 3;
+}
+
+.cluey-line {
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.cluey-latch {
+  fill: var(--text);
+}
+
+.cluey-eye {
+  fill: #fff;
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.cluey-pupil {
+  fill: var(--text);
+}
+
+.cluey-sticker {
+  fill: var(--green-soft);
+  stroke: var(--green-tile);
+  stroke-width: 2;
+}
+
+/* Casey's green patch is a pencil number, not a badge image: the number is
+   the words collected, the same count the suitcase's "All" view shows. Three
+   digits fit in the patch at this size; the course holds 900 words. */
+.cluey-collected-number {
+  fill: var(--text);
+  font-family: var(--mono);
+  font-size: 7px;
+  font-weight: 700;
+}
+
+/* A hundred words and up: a step smaller, so three digits clear the ring on
+   iOS's wider monospace too. */
+.cluey-collected-long {
+  font-size: 5.6px;
+}
+
+.cluey-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+
+/* ---------- café world Home (CW-10) ----------
+ *
+ * docs/design/cafe-world/design-home-settled.jpg: the ticket at the left end
+ * of the train strip, the city's stamp under the Guide, and two tags in place
+ * of Play. The tag itself is styles/99-tag.css; only Home's arrangement is
+ * here. The strip has no "City medal" line any more, so it is one row unless
+ * the travel gate is ready. */
+
+.home-progress-band {
+  grid-template-columns: auto minmax(34px, 1fr);
+  grid-template-areas:
+    'ticket train'
+    'status status';
+}
+
+/* The ticket opens the train sheet. Its target is 48 x 44, but negative
+   block margins keep it from making the strip taller than the train: the
+   extra target reaches into the strip's own padding. */
+.home-progress-band .train-progress,
+.home-progress-band .train-board {
+  /* The train starts at the ticket, as in the design, rather than centring. */
+  justify-self: start;
+}
+
+/* Sized by its height, so the drawing (not a centred box around it) is what
+   sits next to the ticket. 25px is the cap the strip has always had. */
+.home-progress-band .train-progress {
+  width: auto;
+  height: 25px;
+  max-width: 100%;
+}
+
+.home-ticket {
+  grid-area: ticket;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 44px;
+  margin: -9px 0 -9px -8px;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.home-ticket:active {
+  background: rgba(18, 18, 18, 0.06);
+}
+
+.home-ticket:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: -2px;
+}
+
+.ticket-glyph {
+  display: block;
+  width: 38px;
+  height: 23px;
+  overflow: visible;
+}
+
+.ticket-glyph-body {
+  fill: #f2eee3;
+  stroke: var(--text);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.ticket-glyph-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.ticket-glyph-perf {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 2;
+}
+
+/* The city's stamp, where the postcard count was: the stamp in the medal's
+   ink (the empty dashed place below Bronze) and the percentage under it. */
+.home-city-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin: 2px 0 0;
+}
+
+.home-city-stamp-glyph {
+  width: 42px;
+  height: 42px;
+}
+
+.home-city-stamp-percent {
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Two tags in place of Play, sharing the row evenly; a "Return to your
+   board" pill, when a replay is waiting, stacks above them. */
+.home-actions.home-tag-actions {
+  /* Two classes: the pencil pass's .home-actions (styles/80) comes later in
+     the cascade and centres its children. */
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.home-tags {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.home-tags .tag {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 56px;
+}
+
+.home-tag-actions .home-play-second {
+  width: 100%;
+}
+
+/* ---------- Home's sheets: the Sightseeing chooser and the train sheet ---------- */
+
+.home-sheet {
+  gap: 14px;
+  padding: 10px 20px calc(18px + env(safe-area-inset-bottom));
+  background: #fbfaf6;
+}
+
+.home-sheet-head {
+  text-align: center;
+}
+
+/* Why the sheet opened, when Home has a reason to say: a calm line, not a
+   warning. */
+.home-sheet-lead {
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--green-soft);
+  color: var(--green-deep);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.home-sheet-title {
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+
+.home-sheet-sub {
+  margin: 4px 0 0;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.home-sheet-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-sheet-close {
+  align-self: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 20px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.home-sheet-close:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.train-sheet-panel {
+  padding: 12px 14px 14px;
+  border: 2px solid var(--text);
+  border-radius: 10px;
+  background: #f2eee3;
+}
+
+.train-sheet-collected {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* The train sheet's train (CW-07b): the strip's drawing at the panel's width,
+   collected and slips read off it underneath, one on each side. */
+.train-sheet-train.train-progress {
+  width: 100%;
+  max-height: 64px;
+}
+
+.train-sheet-train .cluey-hatch rect,
+.train-sheet-train .cluey-hatch circle,
+.train-sheet-train .cluey-hatch path {
+  stroke-width: 2;
+}
+
+.train-sheet-counts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+  margin-top: 8px;
+}
+
+.train-sheet-counts .train-sheet-collected {
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.train-sheet-slip-count {
+  white-space: nowrap;
+}
+
+.train-sheet-rule {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}

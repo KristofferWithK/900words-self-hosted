@@ -34,7 +34,7 @@
  *   node scripts/bake-opening-clues.mjs --check   exit 1 if it would change
  */
 import { build } from 'esbuild'
-import { readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -64,7 +64,11 @@ async function workerModule(entry) {
   return import('data:text/javascript;base64,' + Buffer.from(source, 'utf8').toString('base64'))
 }
 
-const cycle = JSON.parse(readFileSync(CYCLE, 'utf8'))
+const archive = JSON.parse(readFileSync(CYCLE, 'utf8'))
+// The archive, then the boards appended after it (city1-board-cycle-appendix.da.json).
+const APPENDIX = join(ROOT, 'src/data/city1-board-cycle-appendix.da.json')
+const appendix = existsSync(APPENDIX) ? JSON.parse(readFileSync(APPENDIX, 'utf8')).boards : []
+const cycle = { ...archive, boards: [...archive.boards, ...appendix] }
 if (cycle?.schemaVersion !== 1 || !Array.isArray(cycle.boards) || cycle.boards.length === 0) {
   throw new Error('city1-board-cycle.da.json has an unsupported schema')
 }

@@ -5,6 +5,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { THINK_MS, REVEAL_MS } from '../src/ui/aiBeats.ts'
 import { holdNextClue } from './casey-justification-fixture.mjs'
@@ -87,6 +88,8 @@ try {
       const label = `${viewport.width}x${viewport.height}-${scenario}`
       const context = await browser.newContext({ viewport, serviceWorkers: 'block' })
       const page = await context.newPage()
+      // The café gate is on (CW-13): this drive's board needs its first café found.
+      await page.addInitScript(mergeFirstCafe, seedArgs('da'))
       await page.clock.install()
       const errors = []
       page.on('pageerror', (error) => errors.push(error.message))

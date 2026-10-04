@@ -45,6 +45,7 @@ export const game: Catalogue['game'] = {
 
   cardYourTarget: ', dein Ziel',
   cardFound: ', gefunden',
+  cardMissedKey: ', eines von Caseys Wörtern, nicht gefunden',
   cardNeutralBoth: ', neutral für beide Seiten',
   cardNeutralPlayer: ', neutral unter deinen Hinweisen',
   cardNeutralCasey: ', neutral unter Caseys Hinweisen',
@@ -104,7 +105,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Das Rad drehen',
   wheelSpinning: 'Dreht …',
   wheelWonLine: 'Grün! Die Runde ist gewonnen.',
-  wheelMissLine: 'Das Rad landete auf einem ungepackten Koffer.',
+  wheelMissLine: 'Kein Grün. Die Runde ist verloren.',
+  wheelLedeMissed: (found, total, language) =>
+    `Du hast ${found} von ${total} gefunden. Für die Wörter, die noch auf dem Spielfeld liegen, bleibt das Rad grau. Schreib den Rest auf ${language} und dreh dann.`,
+  wheelAnswersLine: 'Die grauen Wörter sind die Antworten, die du nicht geschrieben hast.',
+  wheelSeeResults: 'Ergebnis ansehen',
   phaseTranslateChallenge: 'Zeit zum Übersetzen',
   settlementFailed: 'Dein Ergebnis konnte noch nicht gespeichert werden. Behalte diese Runde und versuche es erneut.',
   settlementSaving: 'Dein Ergebnis wird gespeichert…',
@@ -121,6 +126,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Offline-Casey denkt nach. Das dauert länger.',
   offlineRoundPrompt: 'Kein Internet. Den Rest dieser Runde mit Offline-Casey spielen? Sie ist langsamer.',
   playOfflineButton: 'Offline spielen',
+  onlineAgainTitle: 'Das Internet ist wieder da',
+  onlineAgainBody:
+    'Den Rest dieser Runde mit der normalen Casey spielen? Sie ist schneller und spielt besser. Wenn deine Verbindung immer wieder abbricht, kann es stabiler sein, offline zu bleiben.',
+  playOnlineButton: 'Online spielen',
+  stayOfflineButton: 'Offline bleiben',
   hurryCaseyTitle: 'Antippen, damit Casey sich beeilt',
   hurryCaseyHint: 'Tippe hier, damit Casey sich beeilt.',
   caseyGuessedWord: (word) => `Casey hat «${word}» geraten.`,
@@ -286,7 +296,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Übersetzung zeigen',
   reviewHideTranslation: 'Übersetzung verbergen',
   reviewAboutWord: 'Zu diesem Wort',
-  reviewHighFrequencyWord: 'Häufiges Wort:',
   reviewNoNotes: 'Keine Notizen zu diesem Wort.',
   reviewNextSentence: 'Nächster Satz',
   reviewNothingThisRound:

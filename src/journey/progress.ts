@@ -4,15 +4,17 @@ import { ACTIVE } from '../lang/active'
 import { earnedPostcards } from '../progression/facts'
 import { cityKey } from '../progression/identity'
 import {
-  cityTier,
+  cityMedalFromStamps,
+  cityStamps,
   PROVISIONAL_TRAVEL_THRESHOLD,
+  savedStamps,
+  trainTravelStatus,
   travelStatus,
 } from '../progression/rules'
 import type {
   CityIdentity,
   ProgressFacts,
   RequiredBoardSet,
-  Tier,
 } from '../progression/types'
 import type { SrsMap, WordStats } from '../srs/types'
 import { CITIES, WORDS_PER_CITY } from './cities'
@@ -60,12 +62,20 @@ export function hasHistoricalTravelEligibility(
   return history[cityKey(city)] === true
 }
 
-/** Canonical cumulative credits: unique component claims plus approved legacy high-water credit. */
+/**
+ * Canonical cumulative credits: unique component claims plus approved legacy
+ * high-water credit. Postcards are no longer a counter on the café-world line
+ * (owner, 2026-10-04): the facts stay stored and this reader stays honest, but
+ * the stamp card below is what a city's progress now means.
+ */
 export function cityPostcards(facts: ProgressFacts, city: CityIdentity): number {
   return earnedPostcards(facts, city)
 }
 
-/** Configurable readiness countdown. It does not read word or lesson state. */
+/**
+ * Postcard readiness countdown, kept for the screens that still print it. It
+ * is not the way onto the train any more; `cityTrainReadiness` is.
+ */
 export function postcardsToTravel(
   facts: ProgressFacts,
   city: CityIdentity,
@@ -74,15 +84,92 @@ export function postcardsToTravel(
   return travelStatus(cityPostcards(facts, city), threshold, false, false, false).remaining
 }
 
-/** Lowest personal-best tier over the exact frozen required membership. */
-export function cityMedal(
-  facts: ProgressFacts,
-  required: RequiredBoardSet | null,
-): { tier: Tier | null; error: ReturnType<typeof cityTier>['error'] } {
-  const bests: Record<string, Tier> = Object.fromEntries(
-    Object.entries(facts.boards).map(([key, progress]) => [key, progress.best]),
-  )
-  return cityTier(required, bests)
+/**
+ * The city's stamp card: one stamp per required café (board), read from the
+ * saved facts (`savedStamps`): a won round's best, or Bronze for a café only
+ * ever lost (owner, 4 October 2026).
+ */
+export function cityStampCard(facts: ProgressFacts, required: RequiredBoardSet | null) {
+  return cityStamps(required, savedStamps(facts))
+}
+
+/**
+ * The city medal as a percentage of possible stamp points: 25% Bronze, 50%
+ * Silver, 75% Gold, 100% Platinum (docs/roadmap/cafe-world.md, section 4).
+ * Until 2026-10-04 this was the lowest best over the whole set, which is still
+ * what the stored `cityAchievements` fact records (`cityTier`).
+ */
+export function cityMedal(facts: ProgressFacts, required: RequiredBoardSet | null) {
+  return cityMedalFromStamps(required, savedStamps(facts))
+}
+
+/**
+ * The fact the train run produces (card CW-07): a run through every word of
+ * ONE city. The app stores one only when the train is caught (`passed`), and
+ * it is the player's ticket: the city, when, and the run's numbers. It is
+ * honoured when the next city is released (owner O3); it opens nothing on its
+ * own. Postcards, stamps and medals do not stand in for it.
+ */
+export interface TrainRunFact {
+  readonly city: CityIdentity
+  readonly passed: boolean
+  /** Epoch ms the run ended: when the train was caught. */
+  readonly at: number
+  /** Words the run asked: every word of the city (147 in Sønderborg). */
+  readonly words: number
+  /** Right answers on the way. */
+  readonly photos: number
+  /** Wrong answers forgiven on the way. */
+  readonly slips: number
+  /** Slips the run allowed (journey/trainSlips.ts). */
+  readonly allowed: number
+}
+
+/**
+ * Train runs keyed by `cityKey`, like `HistoricalTravelEligibility`: a run is
+ * city-specific and never follows the viewed board.
+ */
+export type TrainRunFacts = Readonly<Record<string, TrainRunFact>>
+
+/**
+ * Two records of train runs folded together, for backup merge: a city's
+ * passed run beats one that did not pass, and between two passed runs the
+ * earlier ticket is kept (first catch wins, like `wrapped`). Never loses a
+ * ticket either side holds.
+ */
+export function mergeTrainRuns(a: TrainRunFacts, b: TrainRunFacts): TrainRunFacts {
+  const out: Record<string, TrainRunFact> = {}
+  for (const key of [...new Set([...Object.keys(a), ...Object.keys(b)])].sort()) {
+    const left = a[key], right = b[key]
+    if (!left || !right) {
+      out[key] = (left ?? right)!
+      continue
+    }
+    if (left.passed !== right.passed) out[key] = left.passed ? left : right
+    else out[key] = right.at < left.at ? right : left
+  }
+  return out
+}
+
+/** The ticket held for this city: its own passed run, or null. */
+export function trainTicketFor(runs: TrainRunFacts, city: CityIdentity): TrainRunFact | null {
+  return hasPassedTrainRun(runs, city) ? runs[cityKey(city)]! : null
+}
+
+/** Did this city's own run pass? A run for another city opens nothing here. */
+export function hasPassedTrainRun(runs: TrainRunFacts, city: CityIdentity): boolean {
+  const run = runs[cityKey(city)]
+  return run !== undefined && run.passed === true && cityKey(run.city) === cityKey(city)
+}
+
+export interface CityTrainReadinessOptions {
+  readonly destinationAvailable: boolean
+  readonly accessAllowed: boolean
+}
+
+/** The café world's way onto the train: this city's run, and only that. */
+export function cityTrainReadiness(runs: TrainRunFacts, city: CityIdentity, options: CityTrainReadinessOptions) {
+  return trainTravelStatus(hasPassedTrainRun(runs, city), options.destinationAvailable, options.accessAllowed)
 }
 
 export interface CityTravelReadinessOptions {
@@ -93,9 +180,13 @@ export interface CityTravelReadinessOptions {
 }
 
 /**
- * The journey projection used by Home/map consumers in C1-13. Readiness,
- * destination availability and access stay independent; none of them mutates
- * the facts used to derive the earned total.
+ * The postcard journey projection Home and the map still read through
+ * `journeyTravelGate` (C1-13). Readiness, destination availability and access
+ * stay independent; none of them mutates the facts used to derive the earned
+ * total. On the café-world line it is legacy: the train run decides
+ * (`cityTrainReadiness`), and since CW-07 `journeyTravelGate` takes its
+ * `ready` and `canBoard` from there. The gate still returns this projection's
+ * postcard numbers for the screens that print them; they open nothing.
  */
 export function cityTravelReadiness(
   facts: ProgressFacts,

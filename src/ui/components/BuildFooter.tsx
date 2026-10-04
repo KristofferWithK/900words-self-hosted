@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 
 /**
  * Which build this is, and a way to go and get a newer one.
@@ -130,6 +131,7 @@ export function BuildFooter() {
     }
   }
 
+  const checking = state === 'checking'
   return (
     <p className="build-footer">
       <span onClick={tap}>
@@ -138,20 +140,22 @@ export function BuildFooter() {
       </span>
       {debug && <span className="build-note">{UI.settings.keyboardReadoutNote}</span>}
       {debug && (
-        <button className="btn btn-small" onClick={toggleStill}>
-          {UI.settings.composerRideButton(
+        <Tag
+          onClick={toggleStill}
+          label={UI.settings.composerRideButton(
             still ? UI.settings.composerRideWaiting : UI.settings.stateOn,
           )}
-        </button>
+        />
       )}
       {debug && (
-        <button className="btn btn-small" onClick={toggleRide}>
-          {UI.settings.trainStoryButton(ride ? UI.settings.stateOn : UI.settings.stateOff)}
-        </button>
+        <Tag onClick={toggleRide} label={UI.settings.trainStoryButton(ride ? UI.settings.stateOn : UI.settings.stateOff)} />
       )}
-      <button className="btn btn-small" disabled={state === 'checking'} onClick={check}>
-        {state === 'checking' ? UI.settings.updateChecking : UI.settings.checkUpdatesButton}
-      </button>
+      <Tag
+        className="check-updates"
+        disabled={checking}
+        onClick={check}
+        label={checking ? UI.settings.updateChecking : UI.settings.checkUpdatesButton}
+      />
       {state === 'current' && <span className="build-note">{UI.settings.updateCurrent}</span>}
       {state === 'found' && <span className="build-note">{UI.settings.updateFound}</span>}
       {state === 'error' && <span className="build-note">{UI.settings.updateCheckFailed}</span>}

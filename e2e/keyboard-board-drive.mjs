@@ -2,6 +2,7 @@
 // boots directly into one round so unrelated screens cannot gate this check.
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { dismissRoundGuidance, installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const PORT = Number(process.env.DRIVE_PORT ?? 4305)
@@ -16,6 +17,8 @@ const context = await browser.newContext({
   deviceScaleFactor: 1,
 })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const failures = []
 const errors = []

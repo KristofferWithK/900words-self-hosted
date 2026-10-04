@@ -1,0 +1,419 @@
+/* ---------- map ---------- */
+
+.denmark-map {
+  width: 100%;
+  /* The map is what is left once the card below has taken what it needs:
+     basis 0 and grow 1, so it fills the leftover and nothing else. That is
+     the same height the old `height: auto` + shrink arrived at in every state
+     that fits (measured identical at 360x640, 375x667 and 390x844), and it
+     differs in the one that does not: a card taller than the phone used to
+     shrink this to 0px and then lengthen the DOCUMENT — the map gone and the
+     no-scroll rule broken, at 360x640 with the container's wider fonts, and
+     on a phone's own fonts at a second city, packed, before the ticket. Now
+     the floor below holds and the CARD gives way instead (.city-blurbs).
+     The floor is the smallest drawing still worth the name — Denmark at
+     56px is about 46px wide, the current stop's dot 6px — and it is chosen
+     so that on the smallest phone served (375x667) the worst ordinary state
+     still shows a full line of each blurb; see e2e/map-budget-probe.mjs,
+     which prints the budget and reproduces the wider fonts with PROBE_FONT. */
+  flex: 1 1 0;
+  min-height: 56px;
+  /* 40, not 32, since the crop: the map screen letterboxes by height, and with
+     Bornholm gone the drawing at 32vh used 210px of a 358px slot. 40vh is
+     where it stops being height-bound and starts being width-bound at 390 —
+     the land goes 210x252 to 263x314 and a taller cap buys nothing at all.
+     On a 640px phone (and on any phone once the travel button appears) this
+     map is already smaller than its cap and the number never binds. */
+  max-height: 40vh;
+  display: block;
+}
+
+/* Denmark, drawn rather than plotted — see scripts/make-map.mjs. Three
+   passes: the land and its coastline, a second pencil line that goes round the
+   same edge again, and 45° shading on the coasts that line runs into. The
+   graphite matches `.cluey-hatch`, because it is the same hand.
+
+   vector-effect is load-bearing, not polish. stroke-width is in viewBox units,
+   and both maps are letterboxed by height — Denmark is 158 CSS px wide on Home
+   at 360×640 — so a 2.6-unit coastline arrives as 0.4 px and the whole map
+   renders as a grey smudge no matter what the path data says. */
+.map-land,
+.map-sketch,
+.map-hatch {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.map-land {
+  fill: var(--surface);
+  stroke: rgba(18, 18, 18, 0.55);
+  stroke-width: 1.6px;
+}
+
+.map-sketch {
+  fill: none;
+  stroke: rgba(18, 18, 18, 0.3);
+  stroke-width: 1.2px;
+}
+
+.map-hatch {
+  fill: none;
+  stroke: rgba(18, 18, 18, 0.26);
+  stroke-width: 1.1px;
+}
+
+.map-route-ahead {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 5;
+  stroke-dasharray: 12 10;
+  stroke-linecap: round;
+}
+
+/* Non-scaling like the coastline, and for the same reason turned round: the
+   road already travelled is the thing the map is for, and once the coast was
+   drawn at a real 1.6px this line — 0.95px on Home, where the map is a 158px
+   thumbnail — was the fainter of the two. 2px matches what it already measured
+   on the map screen, so only Home moves. The dashed ahead-route is left
+   scaling on purpose: it should fade with the map, and a non-scaling width
+   under a scaling dash pattern closes the gaps up into a solid line. */
+.map-route-done {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.map-dot {
+  fill: var(--bg);
+  stroke: var(--text);
+  stroke-width: 5;
+}
+
+.map-city-visited .map-dot {
+  fill: var(--text);
+}
+
+.map-city-current .map-dot {
+  fill: var(--green-tile);
+  stroke: var(--green-deep);
+  stroke-width: 7;
+}
+
+.map-city-ahead .map-dot {
+  stroke: var(--line);
+  stroke-width: 4;
+}
+
+.map-label {
+  font-family: var(--serif);
+  font-size: 30px;
+  fill: var(--text);
+}
+
+.map-city-ahead .map-label {
+  fill: var(--text-dim);
+}
+
+.map-city-selected .map-label {
+  font-weight: 700;
+}
+
+/* Keyboard and screen-reader only. The pointer belongs to .map-surface, which
+   is drawn over all nine of these — see nearestStop in src/journey/map.ts for
+   the measurements that moved it there. */
+.map-hit {
+  fill: transparent;
+  pointer-events: none;
+}
+
+.map-hit:focus-visible {
+  outline: 3px solid var(--text);
+}
+
+/* One target for the whole drawing: every tap lands on the nearest stop, so
+   there are no gaps between the stops and no overlaps to arbitrate. */
+.map-surface {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.map-credit {
+  text-align: center;
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* The map screen's own column gap and the card's own padding and gap are
+   tighter than the shell's (12 / 16 / 6): every pixel of them is a pixel of
+   Denmark, and the owner's review of 2026-09-05 found the map "way too small
+   while other things have too much spacing". Measured at 360x640 on the same
+   states before and after this pass (gaps, padding, the sentence under a
+   ready train, the arrival date moved up, and the reached stops' buttons
+   gone): Ribe packed with an arrival date 56px → 191, Sønderborg packed
+   79 → 214, Sønderborg at 63 of 100 134 → 234, a visited stop 142 → 243.
+   The document is 640 of 640 in all of them. */
+.map-screen {
+  gap: 8px;
+}
+
+/* The train's tag under the card (Travel back / on → city) keeps to one line
+   at 360px: the map above is the flexible child and pays for a second line. */
+.map-screen > .tag-wide .tag-label {
+  font-size: 1.08rem;
+}
+
+.map-detail {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Shrinkable, so that once the map above is at its floor the overflow lands
+     here rather than on the document. Only .city-blurbs may give way; the
+     rule below pins everything else. */
+  min-height: 0;
+}
+
+/* Pinned by rule, not by trusting `min-height: auto`: a flex item keeps its
+   content height only while its min-height IS auto, and every .btn sets one
+   (48px, 36 for .btn-small). Measured before this rule, in the squeezed Ribe
+   state under the container's fonts, "Ticket needed for the next train" kept
+   its 36px and its second line painted outside the pill; the train readout,
+   a replaced element, went 46px to 26 the same way. */
+.map-detail > :not(.city-blurbs) {
+  flex-shrink: 0;
+}
+
+/* The card's give-way region: the two blurbs, scrolling inside their own box
+   when the phone is too short for the card and the map's floor together. It
+   costs nothing while everything fits — a box that does not overflow is not a
+   scroller — and it is the flavour rather than a control that is cut when
+   something must be, so Play and the train stay where the thumb expects them.
+   Measured at 360x640 with the container's wider fonts, the second city packed
+   and unticketed: the card asked 461px of a 640px phone and the document
+   scrolled 26px; now the map keeps its floor and the document is exactly 640
+   — at the cost of the blurbs entirely under those fonts once an arrival date
+   is on the collected line (0px of their 93; the ticket pill and the actions
+   keep their height, which is the trade). With a phone's own fonts the same
+   state shows 21px of the blurbs at 360x640 and 46 — the Danish line and the
+   first English one — at 375x667. */
+.city-blurbs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.map-locked,
+.map-collected {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.map-collected strong {
+  color: var(--text);
+}
+
+/* ---------- travel exam ---------- */
+
+.gate-intro {
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.gate-list,
+.gate-results {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gate-item label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gate-da {
+  flex: 0 0 40%;
+  font-weight: 700;
+  text-align: right;
+}
+
+.gate-progress {
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.gate-results li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  line-height: 1.4;
+}
+
+.gate-results .result-mark {
+  width: 16px;
+  font-weight: 700;
+}
+
+.gate-results .accepted .result-mark {
+  color: var(--green-deep);
+}
+
+.gate-results .rejected .result-mark {
+  color: var(--red);
+}
+
+.gate-results .gate-da {
+  flex: 0 0 34%;
+}
+
+.gate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.travel-callout {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+/* ---------- arrival ---------- */
+
+.arrival-screen {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.arrival-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.arrival-city {
+  font-size: 2.6rem;
+  line-height: 1.1;
+}
+
+.arrival-blurb {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  max-width: 22rem;
+}
+
+.arrival-blurb-en {
+  color: var(--text-dim);
+  line-height: 1.4;
+  max-width: 22rem;
+}
+
+.arrival-unlock {
+  margin: 14px 0 6px;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+.arrival-screen .tag {
+  width: 100%;
+  max-width: 20rem;
+}
+
+.daily-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.daily-card:active {
+  background: var(--surface);
+}
+
+.daily-card-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.daily-card-desc {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.daily-card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.home-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.home-nav .btn {
+  flex: 1;
+}
+
+.wotd {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.wotd:active {
+  background: var(--line-soft);
+}
+
+.wotd-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.wotd-da {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.wotd-en {
+  color: var(--text-dim);
+}
+

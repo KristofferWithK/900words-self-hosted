@@ -1,19 +1,33 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { AiError } from '../client'
 import type { AiClueView, AiGuessView } from '../projections'
 import { CITY1_BOARD_CYCLE } from '../../data/city1BoardCycle'
 import playtestBank from '../../data/city1-playtest-clues.da.json'
 import { wordById } from '../../data/words'
 
-const { generate, status, worker, cancel } = vi.hoisted(() => ({ generate: vi.fn(), status: vi.fn(), worker: vi.fn(), cancel: vi.fn() }))
-vi.mock('./native', () => ({ generateWithGemma: generate, gemmaStatus: status, cancelGemmaGeneration: cancel }))
+const { generate, status, worker, cancel, unload } = vi.hoisted(() => ({
+  generate: vi.fn(), status: vi.fn(), worker: vi.fn(), cancel: vi.fn(), unload: vi.fn(),
+}))
+vi.mock('./native', async (importOriginal) => ({
+  // wasPutAway is the real one: it is the JavaScript half of the PUT_AWAY code.
+  ...(await importOriginal<typeof import('./native')>()),
+  generateWithGemma: generate,
+  gemmaStatus: status,
+  cancelGemmaGeneration: cancel,
+  unloadGemma: unload,
+}))
 vi.mock('../client', async (importOriginal) => ({
   ...(await importOriginal<typeof import('../client')>()),
   requestDecision: worker,
 }))
 
 import { CONTEXT_TOKENS, fitsContext, requestGemmaDecision, testGemmaConnection } from './decision'
+import { setOfflineCaseyWanted } from './residency'
+import { wasPutAway } from './native'
 import pluginSource from '../../../ios-plugins/cluecab-gemma/ios/Sources/GemmaPlugin/GemmaPlugin.swift?raw'
+import androidModel from '../../../ios-plugins/cluecab-gemma/android/src/main/java/com/kristofferwithk/cluecabgemma/GemmaModel.kt?raw'
+import androidRuntime from '../../../ios-plugins/cluecab-gemma/android/src/main/java/com/kristofferwithk/cluecabgemma/GemmaRuntime.kt?raw'
+import androidPlugin from '../../../ios-plugins/cluecab-gemma/android/src/main/java/com/kristofferwithk/cluecabgemma/GemmaPlugin.kt?raw'
 
 /**
  * On-device Casey runs the Worker's orchestrator with Gemma as its model.
@@ -107,6 +121,11 @@ describe('on-device Casey runs the Worker orchestrator with Gemma as its model',
     status.mockResolvedValue({ installed: true })
     cancel.mockReset()
     cancel.mockResolvedValue(undefined)
+    unload.mockReset()
+    unload.mockResolvedValue(undefined)
+    // A round she plays is open, as GameScreen reports it in play.
+    setOfflineCaseyWanted(true)
+    unload.mockClear()
   })
 
   it('opens an authored City 1 board with the bank clue and never wakes the model', async () => {
@@ -125,6 +144,25 @@ describe('on-device Casey runs the Worker orchestrator with Gemma as its model',
     expect(result.report.arm.startsWith('gemma4-e4b-mobile')).toBe(true)
     expect(generate).toHaveBeenCalledTimes(1)
     expect(generate.mock.calls[0]![0].system).toContain('You are Casey')
+  })
+
+  it('writes which processor answered into the device-gate log (Android reports it)', async () => {
+    const stored = new Map<string, string>()
+    vi.stubGlobal('localStorage', {
+      getItem: (key: string) => stored.get(key) ?? null,
+      setItem: (key: string, value: string) => void stored.set(key, value),
+    })
+    try {
+      generate.mockResolvedValue({
+        ...reply(JSON.stringify({ clue: 'opvask', number: 2, targetWordIds: ['da:kop', 'da:glas'], rationale: 'Both go in the sink.' })),
+        backend: 'cpu',
+      })
+      await requestGemmaDecision(settings, { protocol: 1, operation: 'clue', view: smallClueView })
+      const ring = JSON.parse(stored.get('cluecab-gemma-device-gate-v1') ?? '[]') as { kind: string; backend?: string }[]
+      expect(ring.find((entry) => entry.kind === 'generation')).toMatchObject({ backend: 'cpu', loadMs: 1 })
+    } finally {
+      vi.unstubAllGlobals()
+    }
   })
 
   it('corrects a malformed reply in order, with the rejected reply labelled as hers', async () => {
@@ -161,8 +199,10 @@ describe('on-device Casey runs the Worker orchestrator with Gemma as its model',
     expect(generate).not.toHaveBeenCalled()
   })
 
-  it('keeps its context budget equal to the native engine’s', () => {
+  it('keeps its context budget equal to the native engine’s, on both phones', () => {
     expect(pluginSource).toContain(`maxNumTokens: ${CONTEXT_TOKENS},`)
+    expect(androidModel).toContain(`const val CONTEXT_TOKENS = ${CONTEXT_TOKENS}`)
+    expect(androidRuntime).toContain('maxNumTokens = GemmaModel.CONTEXT_TOKENS,')
   })
 
   it('never sends a prompt that cannot fit, reply included', () => {
@@ -211,6 +251,99 @@ describe('on-device Casey runs the Worker orchestrator with Gemma as its model',
     generate.mockImplementation(notInstalled)
     await expect(testGemmaConnection()).rejects.toMatchObject({ kind: 'server' })
     expect(worker).not.toHaveBeenCalled()
+  })
+
+  describe('when the phone puts her away', () => {
+    const putAway = () => Object.assign(new Error('Offline Casey was put away before she answered.'), { code: 'PUT_AWAY' })
+    const clueReply = () =>
+      reply(JSON.stringify({ clue: 'opvask', number: 2, targetWordIds: ['da:kop', 'da:glas'], rationale: 'Both go in the sink.' }))
+
+    beforeEach(() => {
+      vi.useFakeTimers()
+    })
+    afterEach(() => {
+      vi.useRealTimers()
+      vi.unstubAllGlobals()
+    })
+
+    it('frees her natively when the app leaves the screen, with the code the retry waits on', () => {
+      expect(pluginSource).toContain('UIApplication.didEnterBackgroundNotification')
+      expect(pluginSource).toContain('CAPPluginMethod(name: "unloadModel"')
+      expect(pluginSource).toContain('"PUT_AWAY"')
+      // The Android half: leaving the screen (onStop) puts her away the same way.
+      expect(androidPlugin).toContain('override fun handleOnStop()')
+      expect(androidPlugin).toContain('fun unloadModel(call: PluginCall)')
+      expect(androidPlugin).toContain('"PUT_AWAY"')
+      expect(wasPutAway(putAway())).toBe(true)
+      expect(wasPutAway(new Error('Gemma could not finish this Casey turn.'))).toBe(false)
+    })
+
+    it('asks Gemma again once the player is back, rather than playing a fallback move', async () => {
+      generate.mockRejectedValueOnce(putAway()).mockResolvedValueOnce(clueReply())
+      const pending = requestGemmaDecision(settings, { protocol: 1, operation: 'clue', view: smallClueView })
+      await vi.advanceTimersByTimeAsync(1_000)
+      const result = await pending
+      expect(generate).toHaveBeenCalledTimes(2)
+      expect(result.decision).toMatchObject({ clue: 'opvask', number: 2 })
+      expect(result.report.arm.startsWith('gemma4-e4b-mobile')).toBe(true)
+      expect(result.report.arm).not.toContain('fallback')
+      // Her round is still open: she stays loaded between its moves.
+      expect(unload).not.toHaveBeenCalled()
+    })
+
+    it('does not load her again for a round the player has left, and puts her away', async () => {
+      generate.mockRejectedValue(putAway())
+      // No bank or index knows these words, so with no model the turn fails.
+      const pending = requestGemmaDecision(settings, { protocol: 1, operation: 'clue', view: smallClueView }).catch(
+        (error: unknown) => error,
+      )
+      await vi.advanceTimersByTimeAsync(0)
+      const asked = generate.mock.calls.length
+      setOfflineCaseyWanted(false)
+      unload.mockClear()
+      await vi.advanceTimersByTimeAsync(60_000)
+      expect(await pending).toBeInstanceOf(AiError)
+      // Every ask the orchestrator made was put away once and never repeated.
+      expect(generate.mock.calls.length).toBe(asked)
+      expect(unload).toHaveBeenCalled()
+    })
+
+    it('stops asking after the waits run out, and Casey still plays', async () => {
+      generate.mockRejectedValue(putAway())
+      const pending = requestGemmaDecision(settings, { protocol: 1, operation: 'guess', view: indexedGuessView })
+      await vi.advanceTimersByTimeAsync(10 * 60_000)
+      const result = await pending
+      expect(result.report.arm).toBe('gemma4-e4b-mobile+fallback-index')
+    })
+
+    it('reads a timeout that fired while the player was away as their absence, not Gemma', async () => {
+      const page = Object.assign(new EventTarget(), { visibilityState: 'visible' as 'visible' | 'hidden' })
+      vi.stubGlobal('document', page)
+      vi.resetModules()
+      const fresh = await import('./decision')
+      ;(await import('./residency')).setOfflineCaseyWanted(true)
+      generate.mockImplementationOnce(() => new Promise(() => {})).mockResolvedValueOnce(clueReply())
+      const pending = fresh.requestGemmaDecision(settings, { protocol: 1, operation: 'clue', view: smallClueView })
+      await vi.advanceTimersByTimeAsync(0)
+      page.visibilityState = 'hidden'
+      page.dispatchEvent(new Event('visibilitychange'))
+      // Suspended past the generation timeout; the timer fires on the way back.
+      await vi.advanceTimersByTimeAsync(60_000)
+      page.visibilityState = 'visible'
+      await vi.advanceTimersByTimeAsync(1_000)
+      const result = await pending
+      expect(generate).toHaveBeenCalledTimes(2)
+      expect(result.report.arm).not.toContain('fallback')
+      vi.resetModules()
+    })
+  })
+
+  it('puts her away after a move nobody is waiting for, such as the Settings test', async () => {
+    setOfflineCaseyWanted(false)
+    unload.mockClear()
+    generate.mockResolvedValue(reply('{"ok": true}'))
+    await testGemmaConnection()
+    expect(unload).toHaveBeenCalledTimes(1)
   })
 
   it('checks the model itself on the connection test: no fallback answers a ping', async () => {

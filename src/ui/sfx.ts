@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core'
 import { useSettings } from '../stores/settingsStore'
 import type { SfxKind } from './sfxSynthesis'
 
@@ -57,6 +58,17 @@ let installed = false
 
 const soundOn = () => useSettings.getState().sound
 
+/**
+ * The shell plays without a gesture (see "Unlocking" above), so on a phone
+ * there is nothing to prime. Priming there was pure cost, and it landed on
+ * the worst possible tap: the first one after a launch or a return from the
+ * background. That tap built seven media players and started and stopped each
+ * one before its own click, and so before its haptic, could run (owner,
+ * 2026-09-30: "the first tap on a board is always slow to react with the
+ * vibration and the sound").
+ */
+const nativeShell = () => Capacitor.isNativePlatform()
+
 /** Where an effect's file is served from — the app's base, then SFX_FILES. */
 export function sfxUrl(kind: SfxKind): string {
   return `${import.meta.env.BASE_URL}${SFX_FILES[kind]}`
@@ -95,6 +107,7 @@ const idle = (el: HTMLAudioElement) => el.paused || el.ended
  * would cut a tick or a fanfare short. Never throws; safe to call on every tap.
  */
 export function primeSfx(): void {
+  if (nativeShell()) return
   if (!soundOn()) return
   if (typeof Audio === 'undefined') return
   needsPrime = false
@@ -129,6 +142,18 @@ export function primeSfx(): void {
 export function installSfxUnlock(): void {
   if (installed || typeof document === 'undefined') return
   installed = true
+  if (nativeShell()) {
+    // No unlock to wait for. Build the players once the launch has settled,
+    // so the first effect only has to start one. Loading does not start the
+    // audio session, so music from another app keeps playing until a sound
+    // actually plays, as before.
+    needsPrime = false
+    setTimeout(() => {
+      if (!soundOn()) return
+      for (const kind of Object.keys(SFX_FILES) as SfxKind[]) pool(kind)
+    }, 1500)
+    return
+  }
   const onGesture = (event: Event) => {
     // A script-dispatched event carries no user activation, so it cannot
     // unlock anything; priming on it would only spend the flag.

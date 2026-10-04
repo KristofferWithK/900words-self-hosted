@@ -2,7 +2,13 @@
 // graph. The canonical manifest remains intact for offline validators.
 import { schemaVersion, kind, status, boardSetVersion, learnerCourse, stableCityId,
   requiredBoardCount, requiredBoards, displayOrder } from './city1-required-board-manifest.da.json'
-import germanManifest from './city1-required-board-manifest.de.json'
+import { schemaVersion as v1SchemaVersion, kind as v1Kind, status as v1Status, boardSetVersion as v1BoardSetVersion,
+  learnerCourse as v1LearnerCourse, stableCityId as v1StableCityId, requiredBoardCount as v1RequiredBoardCount,
+  requiredBoards as v1RequiredBoards, displayOrder as v1DisplayOrder } from './city1-required-board-manifest.da.v1.json'
+import { schemaVersion as deSchemaVersion, kind as deKind, status as deStatus, boardSetVersion as deBoardSetVersion,
+  learnerCourse as deLearnerCourse, stableCityId as deStableCityId, requiredBoardCount as deRequiredBoardCount,
+  requiredBoards as deRequiredBoards, displayOrder as deDisplayOrder } from './city1-required-board-manifest.de.json'
+import germanManifestV1 from './city1-required-board-manifest.de.v1.json'
 import { CITY1_BOARD_CYCLES, type City1AuthoredBoard } from './city1BoardCycle'
 import { ACTIVE } from '../lang/active'
 
@@ -184,13 +190,51 @@ export const CITY1_REQUIRED_BOARD_MANIFEST: City1RequiredBoardManifest = {
   schemaVersion, kind, status, boardSetVersion, learnerCourse, stableCityId,
   requiredBoardCount, requiredBoards, displayOrder,
 }
-export const GERMAN_CITY1_REQUIRED_BOARD_MANIFEST = germanManifest as City1RequiredBoardManifest
+/**
+ * German City 1 plays the Danish course board for board: the v2 ids in the v2
+ * order, over the German cards of the same boards (owner, 2026-09-27, the
+ * universality approach; written by scripts/german-city1-course.mjs).
+ */
+export const GERMAN_CITY1_REQUIRED_BOARD_MANIFEST: City1RequiredBoardManifest = {
+  schemaVersion: deSchemaVersion, kind: deKind, status: deStatus, boardSetVersion: deBoardSetVersion,
+  learnerCourse: deLearnerCourse, stableCityId: deStableCityId, requiredBoardCount: deRequiredBoardCount,
+  requiredBoards: deRequiredBoards, displayOrder: deDisplayOrder,
+}
+/**
+ * The 150-board German playtest set it supersedes. Kept byte for byte for the
+ * same reason as the Danish v1: a German save names it.
+ */
+export const GERMAN_CITY1_REQUIRED_BOARD_MANIFEST_V1 = germanManifestV1 as City1RequiredBoardManifest
 export const DANISH_CITY1_REQUIRED_BOARDS = createCity1RequiredBoardRegistry(
   CITY1_REQUIRED_BOARD_MANIFEST,
   CITY1_BOARD_CYCLES.da,
 )
+
+/**
+ * The first frozen Danish set, `city1-required-boards-v1`, superseded on
+ * 2026-09-27 by the balanced v2 above (owner decision, DECISIONS.md). It is
+ * not a course any more: nothing deals from it and no new claim names it. It is
+ * kept, byte-for-byte, because saved facts do name it: first completions,
+ * milestones and a city medal written while it was current still carry its
+ * set version, and a backup holding them must keep validating. Its boards stay
+ * known provenance for the same reason (`knownRequiredSetsForCourse`).
+ */
+export const DANISH_CITY1_REQUIRED_BOARD_MANIFEST_V1: City1RequiredBoardManifest = {
+  schemaVersion: v1SchemaVersion, kind: v1Kind, status: v1Status, boardSetVersion: v1BoardSetVersion,
+  learnerCourse: v1LearnerCourse, stableCityId: v1StableCityId, requiredBoardCount: v1RequiredBoardCount,
+  requiredBoards: v1RequiredBoards, displayOrder: v1DisplayOrder,
+}
+export const DANISH_CITY1_REQUIRED_BOARDS_V1 = createCity1RequiredBoardRegistry(
+  DANISH_CITY1_REQUIRED_BOARD_MANIFEST_V1,
+  CITY1_BOARD_CYCLES.da,
+)
 export const GERMAN_CITY1_REQUIRED_BOARDS = createCity1RequiredBoardRegistry(
   GERMAN_CITY1_REQUIRED_BOARD_MANIFEST,
+  CITY1_BOARD_CYCLES.de,
+  { allowedStatuses: ['owner-authorized-playtest'] },
+)
+export const GERMAN_CITY1_REQUIRED_BOARDS_V1 = createCity1RequiredBoardRegistry(
+  GERMAN_CITY1_REQUIRED_BOARD_MANIFEST_V1,
   CITY1_BOARD_CYCLES.de,
   { expectedCount: 150, allowedStatuses: ['owner-authorized-playtest'] },
 )

@@ -3,6 +3,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { boardKey, firstCompletionKey } from '../progression/identity'
 import { emptyProgressFacts, earnedPostcards } from '../progression/facts'
 import { targetUnion } from '../progression/rules'
+import { applyEvent, wheelMissedSegments } from '../engine/game'
+import { danish } from '../lang/da'
 import type { GameState } from '../engine/types'
 import type { TranslationResponse } from '../ai/schemas'
 import type { CourseSessions } from '../progression/types'
@@ -44,6 +46,8 @@ const { createSettlementStore } = await import('./settlementStore')
 const { SESSION_KEY, SETTLEMENT_KEY } = await import('./settlementStorage')
 const { CITY1_REQUIRED_SET } = await import('../session/courseRuntime')
 const { OllamaCompanion } = await import('../ai/companion')
+// Required boards are cafés a walk must find first (CW-04); this runtime is about the board game.
+const { findEveryCafe } = await import('../journey/cafeTestSupport')
 const adapter = () => createSettlementStore({ storage })
 const sessions = () => adapter().readSessions().byCourse.da
 
@@ -61,6 +65,7 @@ beforeEach(async () => {
   useSettings.setState({ ...useSettings.getInitialState(), useMock: true })
   configureRuntimeLessons(undefined)
   useStatsPorts(null)
+  findEveryCafe()
   vi.stubGlobal('fetch', vi.fn(() => { throw new Error('Unexpected network') }))
 })
 afterEach(async () => {
@@ -88,6 +93,17 @@ function solvedChallenge() {
   useGame.setState({ game: before })
   useGame.getState().playerGuess(last)
   expect(useGame.getState().game?.phase).toBe('translateChallenge')
+}
+
+/** The clues ran out with only the first `found` key words found. */
+function partialChallenge(found = 3) {
+  const game = useGame.getState().game!
+  const targets = targetUnion(game.words.map((word) => word.wordId), game.playerKey, game.aiKey)!
+  const opened = applyEvent({ ...game, phase: 'translateChallenge', turnsLeft: 0, wheel: undefined,
+    reveals: { ...game.reveals, ...Object.fromEntries(targets.slice(0, found).map((id) => [id, { kind: 'green' }])) } },
+  { type: 'START_TRANSLATE_CHALLENGE' }, danish)
+  useGame.setState({ game: opened })
+  return { found: targets.slice(0, found), missed: targets.slice(found) }
 }
 
 async function completeWin() {
@@ -616,6 +632,40 @@ describe('C1-08 receipt-driven primary/replay runtime', () => {
     expect(useGame.getState().wheelSpinHold).toBe(true)
     await vi.advanceTimersByTimeAsync(1)
     expect(useGame.getState().wheelSpinHold).toBe(false)
+  })
+
+  it('the full-board wheel: a missed key word cannot be typed, and its slice never fills', () => {
+    useGame.getState().newGame({ cityIndex: 0 })
+    const { found, missed } = partialChallenge(3)
+    const word = (id: string) => useGame.getState().game!.words.find((entry) => entry.wordId === id)!
+    // Its Danish is on the board, but it was never put into a suitcase.
+    expect(useGame.getState().submitWheelTranslation(word(missed[0]!).da)).toBe(false)
+    expect(useGame.getState().game!.wheel!.translated).toEqual([])
+    for (const id of found) expect(useGame.getState().submitWheelTranslation(word(id).da)).toBe(true)
+    const game = useGame.getState().game!
+    expect(game.phase).toBe('translateWheel')
+    expect(game.wheel!.segments).toHaveLength(found.length + missed.length)
+    expect(game.wheel!.filled.some((i) => wheelMissedSegments(game).includes(i))).toBe(false)
+  })
+
+  it('after the spin the board stays until See results, which never cuts the spin short', async () => {
+    vi.useFakeTimers()
+    useGame.getState().newGame({ cityIndex: 0 })
+    solvedChallenge()
+    for (const id of useGame.getState().game!.wheel!.segments) {
+      expect(useGame.getState().submitWheelTranslation(useGame.getState().game!.words.find((word) => word.wordId === id)!.da)).toBe(true)
+    }
+    expect(useGame.getState().wheelReview).toBe(false)
+    useGame.getState().spinWheel()
+    expect(useGame.getState().wheelSpinHold).toBe(true)
+    expect(useGame.getState().wheelReview).toBe(true)
+    useGame.getState().closeWheelReview()
+    expect(useGame.getState().wheelReview).toBe(true)
+    await vi.advanceTimersByTimeAsync(4000)
+    expect(useGame.getState().wheelSpinHold).toBe(false)
+    expect(useGame.getState().wheelReview).toBe(true)
+    useGame.getState().closeWheelReview()
+    expect(useGame.getState().wheelReview).toBe(false)
   })
 
   it('AC11 cancelled same-layout attempt ignores old Casey and UI timer ownership', async () => {

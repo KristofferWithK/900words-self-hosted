@@ -118,7 +118,7 @@ try {
     const answer = await page.evaluate(() => {
       const raw = JSON.parse(localStorage.getItem('cluecab-game-v1'))
       const g = raw.state.game
-      const targetId = g.wheel.segments.find((id) => !g.wheel.translated.includes(id))
+      const targetId = g.wheel.segments.find((id) => g.reveals[id]?.kind === 'green' && !g.wheel.translated.includes(id))
       const w = g.words.find((x) => x.wordId === targetId)
       return { da: w.da }
     })
@@ -131,7 +131,7 @@ try {
     // Mid-spin: tap, then shoot inside the 2.4s CSS window.
     await page.locator('.wheel-disc').click()
     await page
-      .waitForSelector('.wheel-svg.wheel-spinning, .wheel-chooser, .city1-review-dialog[open]', {
+      .waitForSelector('.wheel-svg.wheel-spinning, .wheel-results:not([disabled])', {
         timeout: 15_000,
       })
       .then(async (el) => {
@@ -140,8 +140,14 @@ try {
           // Genuinely spinning: shoot now, then wait for the landing.
           await page.screenshot({ path: `${OUT}/translate-wheel-mid-spin-${vp.tag}.png` })
         }
-        await page.waitForSelector('.wheel-chooser, .city1-review-dialog[open]', { timeout: 15_000 })
+        await page.waitForSelector('.wheel-results:not([disabled])', { timeout: 15_000 })
       })
+    // The disc rests on the board, every suitcase showing its Danish, until
+    // See results (owner, 2026-09-27).
+    await page.waitForSelector('.wheel-results:not([disabled])', { timeout: 15_000 })
+    await page.screenshot({ path: `${OUT}/translate-wheel-review-${vp.tag}.png` })
+    await page.locator('.wheel-results').click()
+    await page.waitForSelector('.city1-review-dialog[open]', { timeout: 15_000 })
     const after = await page.evaluate(() => {
       const g = JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game
       return { result: g.wheel?.result ?? null, phase: g.phase }

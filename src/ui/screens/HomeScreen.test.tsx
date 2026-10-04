@@ -14,15 +14,21 @@
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it, vi } from 'vitest'
 import { UI } from '../../i18n'
+import { RECEIPT_UI } from '../../i18n/receipt'
+import { cafeNameForBoard } from '../../cafe/cafeName'
 import { emptyProgressFacts } from '../../progression/facts'
 import { firstCompletionKey } from '../../progression/identity'
 import { FIXTURE_BOARD, MATRIX_FIXTURES } from '../../progression/fixtures'
 import { CITY1_REQUIRED_SET, initialCourseSessions } from '../../session/courseRuntime'
 import type { CourseSessions } from '../../progression/types'
 import { useGame } from '../../stores/gameStore'
+import { useJourney } from '../../stores/journeyStore'
 import {
   actionableCourseSlot,
+  cafePuzzleAction,
+  cafePuzzleNote,
   HomeScreen,
+  homeWalks,
   JourneyMap,
   nextHomeBoard,
   readCourseProgress,
@@ -167,7 +173,7 @@ describe('Home navigation', () => {
     expect(actionableCourseSlot(null, malformed)).toBeNull()
   })
 
-  it('hides View result when only a completion receipt remains and labels the postcard count accessibly', () => {
+  it('hides View result when only a completion receipt remains, and shows the city stamp where the postcard count was', () => {
     const priorGameState = useGame.getState()
     useGame.setState({
       completionReceipt: {} as NonNullable<typeof priorGameState.completionReceipt>,
@@ -178,18 +184,92 @@ describe('Home navigation', () => {
       const html = renderToStaticMarkup(<HomeScreen />)
       expect(html).not.toContain(UI.home.viewResult)
 
-      const postcard = html.match(/<p class="home-postcard-total" aria-label="([^"]+)">([\s\S]*?)<\/p>/)
-      expect(postcard).not.toBeNull()
-      const [, ariaLabel, visibleContent] = postcard!
-      const count = visibleContent!.match(/<strong>(\d+)<\/strong>/)?.[1]
-      expect(count).toBeDefined()
-      expect(ariaLabel).toBe(`${count} ${UI.home.postcardsEarned}`)
-      expect(visibleContent).toContain('<svg')
-      expect(visibleContent).not.toContain(UI.home.postcardsEarned)
-      expect(visibleContent!.replace(/<svg\b[\s\S]*?<\/svg>/, '').replace(/<\/?strong>/g, '').trim()).toBe(count)
+      // Café world (CW-10): the stamp and the city percentage replace the
+      // postcard counter, and the "City medal" line is gone from the strip.
+      expect(html).not.toContain('home-postcard-total')
+      const stamp = html.match(/<p class="home-city-stamp" data-medal="none">([\s\S]*?)<\/p>/)
+      expect(stamp).not.toBeNull()
+      expect(stamp![1]).toContain('cafe-stamp-empty')
+      expect(stamp![1]).toContain(`<strong class="home-city-stamp-percent" aria-hidden="true">${RECEIPT_UI.cityPercent(0)}</strong>`)
+      // The medal is still said, to a screen reader, inside the stamp.
+      expect(stamp![1]).toContain(UI.home.cityMedal(UI.home.cityMedalInProgress))
+      expect(html).not.toContain('home-progress-status')
     } finally {
       useGame.setState(priorGameState)
     }
+  })
+
+  it('draws two tags in place of Play, and a ticket that opens the train sheet', () => {
+    const priorGameState = useGame.getState()
+    const priorJourney = useJourney.getState()
+    useGame.setState({ activeSlot: null, sessions: initialCourseSessions(emptyProgressFacts()) })
+    // The café gate is on (CW-13): the first café has been found by a walk.
+    const first = CITY1_REQUIRED_SET.boards[0]!
+    useJourney.setState({ cafes: { [JSON.stringify(['da', 'sonderborg'])]: { found: { [first.authoredBoardId]: 1759600000000 }, toward: 0 } } })
+    try {
+      const html = renderToStaticMarkup(<HomeScreen />)
+      expect(html).not.toContain(`>${UI.home.play}<`)
+      const tags = [...html.matchAll(/<button([^>]*)>([\s\S]*?)<\/button>/g)]
+        .map((tag) => [tag[1]!.match(/class="([^"]*)"/)?.[1], tag[2], tag[1]] as const)
+        .filter(([classes]) => classes?.startsWith('tag '))
+      expect(tags.map((tag) => tag[0])).toEqual(['tag tag-row home-play home-tag-cafe', 'tag tag-row home-tag-sightseeing'])
+      expect(tags[0]![2]).toContain('data-cafe-action="next"')
+      // Danish has Words and Articles, so Sightseeing opens the chooser sheet.
+      expect(tags[1]![2]).toContain('aria-haspopup="dialog"')
+      expect(tags[0]![1]).toContain(`<span class="tag-label">${UI.home.cafePuzzle}</span>`)
+      expect(tags[0]![1]).toContain(`<span class="tag-note">${cafeNameForBoard(CITY1_REQUIRED_SET.boards[0])}</span>`)
+      expect(tags[1]![1]).toContain(`<span class="tag-label">${UI.sightseeing.title}</span>`)
+      expect(tags[1]![1]).toContain(`<span class="tag-note">${UI.home.sightseeingNote}</span>`)
+      expect(html).toContain(`class="home-ticket" aria-label="${UI.home.trainSheetTitle('Ribe')}" aria-haspopup="dialog"`)
+    } finally {
+      useGame.setState(priorGameState)
+      useJourney.setState(priorJourney)
+    }
+  })
+
+  it('before any walk the Café puzzle tag points the way to Sightseeing (gate on)', () => {
+    const priorGameState = useGame.getState()
+    useGame.setState({ activeSlot: null, sessions: initialCourseSessions(emptyProgressFacts()) })
+    try {
+      const html = renderToStaticMarkup(<HomeScreen />)
+      expect(html).toContain('data-cafe-action="find-first"')
+      expect(html).toContain(`<span class="tag-note">${UI.home.cafeNotFoundNote}</span>`)
+    } finally {
+      useGame.setState(priorGameState)
+    }
+  })
+
+  it('in the first session it is the real Home with the doors out of the flow held (CW-13)', () => {
+    const html = renderToStaticMarkup(<HomeScreen intro={{ onCafePuzzle: () => {}, onSightseeing: () => {}, onCasey: () => {} }} />)
+    expect(html).toContain('home-first-session')
+    expect(html).toContain('home-play home-tag-cafe')
+    expect(html).toContain('home-tag-sightseeing')
+    expect(html).toContain('home-city-stamp')
+    // No Settings gear and no map button: neither can leave the onboarding shell.
+    expect(html).not.toContain(`aria-label="${UI.home.settingsAria}"`)
+    expect(html).not.toContain(`aria-label="${UI.home.openMapAria}"`)
+    // Casey's bubble stays quiet: the spotlight speaks for her.
+    expect(html).not.toContain('cluey-bubble')
+    expect(html).not.toContain('home-postcard-total')
+  })
+
+  it('a paused round still offers to continue: the Café puzzle tag continues it', () => {
+    // Pure, because a server render reads the stores' initial state: the slot
+    // Home finds and the action the tag takes for it. The drives press it.
+    const sessions = {
+      ...initialCourseSessions(emptyProgressFacts()),
+      activeSlot: 'primary',
+      primary: retainedSlot('paused-primary', 'primary', 'playerGuessing'),
+    } as unknown as CourseSessions
+    const slot = actionableCourseSlot(null, sessions)
+    const action = cafePuzzleAction(slot, nextHomeBoard(emptyProgressFacts(), null))
+    expect(action).toEqual({ kind: 'continue', slot: 'primary' })
+    expect(cafePuzzleNote(action)).toBe(UI.home.continuePrimary)
+
+    const replaying = { ...sessions, activeSlot: 'replay', replay: retainedSlot('paused-replay', 'replay', 'aiClueInput') } as unknown as CourseSessions
+    const replayAction = cafePuzzleAction(actionableCourseSlot('replay', replaying), null)
+    expect(replayAction).toEqual({ kind: 'continue', slot: 'replay' })
+    expect(cafePuzzleNote(replayAction)).toBe(UI.home.continueReplay)
   })
 
   it('does not offer Return to primary when replay is active and primary has finished', () => {
@@ -202,6 +282,26 @@ describe('Home navigation', () => {
 
     expect(actionableCourseSlot('replay', sessions)).toBe('replay')
     expect(shouldShowReturnToPrimary('replay', sessions)).toBe(false)
+  })
+
+  it('decides the Café puzzle tag in one place (the seam CW-08 extends)', () => {
+    const board = CITY1_REQUIRED_SET.boards[0]!
+    expect(cafePuzzleAction('primary', board)).toEqual({ kind: 'continue', slot: 'primary' })
+    expect(cafePuzzleAction('replay', null)).toEqual({ kind: 'continue', slot: 'replay' })
+    expect(cafePuzzleAction(null, board)).toEqual({ kind: 'next', board })
+    expect(cafePuzzleAction(null, null)).toEqual({ kind: 'improve' })
+    // CW-04: a café that is not found yet cannot be dealt, so the tag points at Sightseeing.
+    expect(cafePuzzleAction(null, board, () => false)).toEqual({ kind: 'find-first', board })
+    expect(cafePuzzleAction('primary', board, () => false)).toEqual({ kind: 'continue', slot: 'primary' })
+    expect(cafePuzzleNote({ kind: 'find-first', board })).toBe(UI.home.cafeNotFoundNote)
+    expect(cafePuzzleNote({ kind: 'continue', slot: 'replay' })).toBe(UI.home.continueReplay)
+    expect(cafePuzzleNote({ kind: 'improve' })).toBe(UI.home.improveBoards)
+    expect(cafePuzzleNote({ kind: 'next', board })).toBe(cafeNameForBoard(board))
+  })
+
+  it('offers the Articles walk only where the course has articles to choose between', () => {
+    // The Danish course: en and et, so Sightseeing asks Words or Articles.
+    expect(homeWalks()).toEqual({ walks: ['words', 'articles'], lanes: ['en', 'et'] })
   })
 
   it('does not navigate to a result when Play leaves the current game finished', () => {

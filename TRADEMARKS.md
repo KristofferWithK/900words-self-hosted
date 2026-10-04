@@ -7,7 +7,8 @@ These belong to Kristoffer With K and are not licensed by the
 the [curriculum licence](CURRICULUM-LICENSE.md):
 
 - the name **900words**;
-- its logo and app icon (`public/icons/`, `ios/App/App/Assets.xcassets/`);
+- its logo and app icon (`public/icons/`, `ios/App/App/Assets.xcassets/`,
+  `android/app/src/main/res/`);
 - **Casey**, the suitcase with eyes: her name as 900words' companion, her look
   and her character;
 - the look of 900words as a whole: its visual identity and store listings.

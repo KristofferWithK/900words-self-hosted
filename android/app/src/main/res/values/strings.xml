@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">900words</string>
+    <string name="title_activity_main">900words</string>
+    <string name="package_name">com.kristofferwithk.cluecabulary</string>
+    <string name="custom_url_scheme">com.kristofferwithk.cluecabulary</string>
+</resources>

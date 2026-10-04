@@ -212,6 +212,10 @@
     "gloss": "解剖"
   },
   {
+    "da": "anden",
+    "gloss": "其他的，第二"
+  },
+  {
     "da": "anderledes",
     "gloss": "不同"
   },
@@ -408,6 +412,10 @@
     "gloss": "儿童安全座椅"
   },
   {
+    "da": "autoværn",
+    "gloss": "护栏"
+  },
+  {
     "da": "baby",
     "gloss": "婴儿"
   },
@@ -586,6 +594,10 @@
   {
     "da": "bedstemor",
     "gloss": "祖母"
+  },
+  {
+    "da": "bedømmelse",
+    "gloss": "评估，评分"
   },
   {
     "da": "befinde",
@@ -1274,14 +1286,6 @@
   {
     "da": "børn",
     "gloss": "孩子"
-  },
-  {
-    "da": "børneopdragelse",
-    "gloss": "育儿"
-  },
-  {
-    "da": "børnesang",
-    "gloss": "儿歌"
   },
   {
     "da": "børste",
@@ -2456,10 +2460,6 @@
     "gloss": "障碍"
   },
   {
-    "da": "forhistorisk",
-    "gloss": "史前的"
-  },
-  {
     "da": "forhold",
     "gloss": "关系"
   },
@@ -2497,7 +2497,7 @@
   },
   {
     "da": "forløb",
-    "gloss": "路线"
+    "gloss": "过程"
   },
   {
     "da": "form",
@@ -3860,10 +3860,6 @@
     "gloss": "购物"
   },
   {
-    "da": "indkørsel",
-    "gloss": "车道"
-  },
-  {
     "da": "indlede",
     "gloss": "介绍"
   },
@@ -4978,6 +4974,10 @@
   {
     "da": "køretøj",
     "gloss": "车辆"
+  },
+  {
+    "da": "kørsel",
+    "gloss": "驾驶"
   },
   {
     "da": "lag",
@@ -6276,10 +6276,6 @@
     "gloss": "开明的；被照亮的"
   },
   {
-    "da": "oplæsning",
-    "gloss": "朗读"
-  },
-  {
     "da": "opløse",
     "gloss": "溶解"
   },
@@ -7224,6 +7220,10 @@
     "gloss": "旅客"
   },
   {
+    "da": "rejsetid",
+    "gloss": "旅行时间"
+  },
+  {
     "da": "reklame",
     "gloss": "广告"
   },
@@ -7600,10 +7600,6 @@
     "gloss": "合作"
   },
   {
-    "da": "samkørsel",
-    "gloss": "拼车"
-  },
-  {
     "da": "samles",
     "gloss": "聚集"
   },
@@ -7650,6 +7646,10 @@
   {
     "da": "sandslot",
     "gloss": "沙堡"
+  },
+  {
+    "da": "sandsynlig",
+    "gloss": "可能的"
   },
   {
     "da": "sandt",
@@ -8510,10 +8510,6 @@
   {
     "da": "stamtræ",
     "gloss": "家谱"
-  },
-  {
-    "da": "standse",
-    "gloss": "停下"
   },
   {
     "da": "stang",
@@ -10150,6 +10146,10 @@
   {
     "da": "vugge",
     "gloss": "摇篮"
+  },
+  {
+    "da": "vurdering",
+    "gloss": "评估，判断"
   },
   {
     "da": "våben",

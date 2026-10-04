@@ -4,7 +4,8 @@ import upgradeAudio from '../data/city1-sentence-audio.da.upgrade.runtime.json'
 import upgrade from '../data/city1-review-upgrade.da.json'
 import extensionBoard from '../../prototypes/finish-review/implementation/roster-extension/board-sentences.json'
 import extensionReview from '../../prototypes/finish-review/implementation/roster-extension/review-sentences.json'
-import cycle from '../data/city1-board-cycle.da.json'
+import archive from '../data/city1-board-cycle.da.json'
+import appendix from '../data/city1-board-cycle-appendix.da.json'
 import roster from '../data/city1-replacement-corpus.da.json'
 import { examplePresentation } from './examplePresentation'
 import type { WordEntry } from '../data/types'
@@ -18,6 +19,8 @@ import type { Clue } from '../engine/types'
 import { MAX_CLUE_NUMBER } from '../engine/config'
 import { currentReviewSentence, nextReviewSentenceAvailable, nextSentence, recordingUrl, restoreQueue, selectQueue, type QueueState } from './city1'
 import { testRow } from './city1.fixtures'
+
+const cycle = { ...archive, boards: [...archive.boards, ...appendix.boards] }
 const rows = [testRow(), testRow('da:kat', 'ledger:i')]
 const clue = (ids = ['da:hund'], by: Clue['by'] = 'player'): Clue => ({ by, text: 'Animals', number: 2,
   guesses: ids.map(wordId => ({ wordId, result: 'green' })) })
@@ -148,21 +151,24 @@ it('covers every authored and rank-100 ID and selects every actual player-green 
   const ranked = words.filter(w => w.curriculumRank <= 100)
   expect(ranked).toHaveLength(100)
   for (const id of [...roster.wordIds, ...ranked.map(w => w.id)]) expect(ids.has(id), id).toBe(true)
-  expect(cycle.boards).toHaveLength(150)
+  // The 150 archival boards, then the verified appendix (bank_151 onward): every
+  // player green on every board selects its review sentence. The prior-catalog
+  // count is the frozen measurement over the 150 only.
+  expect(cycle.boards.length).toBeGreaterThanOrEqual(150)
   let selected = 0, omitted = 0, priorSelected = 0
-  for (const b of cycle.boards) {
+  for (const [index, b] of cycle.boards.entries()) {
     expect(b.playerGreenIds).toHaveLength(8)
     for (const id of b.wordIds) expect(ids.has(id), `${b.id}/${id}`).toBe(true)
     for (const id of b.playerGreenIds) {
       const history = [clue([id])]
       const queue = selectQueue(history, CITY1_CATALOG.review)
       selected += queue.length; omitted += Number(queue.length === 0)
-      priorSelected += selectQueue(history, CITY1_CATALOG.review.slice(0, 100)).length
+      if (index < 150) priorSelected += selectQueue(history, CITY1_CATALOG.review.slice(0, 100)).length
       expect(queue[0]?.wordId, `${b.id}/${id}`).toBe(id)
       expect(restoreQueue({ version: 1, roundId: b.id, queue, cursor: 0, dismissed: false }, b.id, CITY1_CATALOG.review, history).queue).toEqual(queue)
     }
   }
-  expect({ selected, omitted, priorSelected, priorOmitted: 1200-priorSelected }).toEqual({ selected: 1200, omitted: 0, priorSelected: 333, priorOmitted: 867 })
+  expect({ selected, omitted, priorSelected, priorOmitted: 1200-priorSelected }).toEqual({ selected: 8 * cycle.boards.length, omitted: 0, priorSelected: 333, priorOmitted: 867 })
   expect(CITY1_CATALOG.review.find(r => r.wordId === 'da:finde')).toMatchObject({ version: 3, text: { da: 'Jeg kan ikke finde banegården.', en: "I can't find the station." } })
 })
 

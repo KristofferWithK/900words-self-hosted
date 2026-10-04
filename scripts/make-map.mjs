@@ -5,6 +5,8 @@
  *
  *   node scripts/make-map.mjs        (Danish, the default)
  *   node scripts/make-map.mjs de     (German)
+ *   node scripts/make-map.mjs fr     (France, a coming-soon ticket)
+ *   node scripts/make-map.mjs gb     (the UK, a coming-soon ticket)
  *
  * Everything below the country table is shared: one projection, one simplifier
  * and one pencil pass, so the two maps are drawn by the same hand. A country
@@ -44,6 +46,9 @@ import { writeFileSync } from 'node:fs'
 // German frame on the same 812-unit height, so a pencil pass calibrated in
 // projected units draws the same weight of line on both maps and the MapScreen
 // letterboxes them identically.
+const NATURAL_EARTH =
+  'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson'
+
 const COUNTRIES = {
   da: {
     name: 'Denmark',
@@ -91,6 +96,48 @@ const COUNTRIES = {
     // different days rather than sharing a wander.
     seed: 20260913,
   },
+  // The two courses the ticket shows as coming soon (src/lang/upcoming.ts).
+  // Not packs yet: a map and nothing else, so they live beside the packs
+  // rather than in one. Natural Earth is a world file, so each takes its one
+  // country by `ADM0_A3` and keeps only the rings inside `keep` — France
+  // without its overseas departments. Each scale lands its frame on the same
+  // 812-unit height as Denmark and Germany, for the reason Germany's does.
+  fr: {
+    name: 'France',
+    exportPrefix: 'FRANCE',
+    out: '../src/lang/upcoming/france-map.ts',
+    source: NATURAL_EARTH,
+    feature: (properties) => properties.ADM0_A3 === 'FRA',
+    // Mainland France and Corsica; Guiana, the Antilles, Réunion and Mayotte
+    // are the eleven rings outside it.
+    keep: { lon: [-6, 10], lat: [41, 52] },
+    scale: 78.58,
+    padding: 24,
+    cropEastLon: null,
+    minArea: 40,
+    tolerance: 1.6,
+    lat0: 46.5,
+    bounds: { lon: [-6, 10], lat: [41, 52] },
+    seed: 20260927,
+  },
+  gb: {
+    name: 'the United Kingdom',
+    exportPrefix: 'UK',
+    out: '../src/lang/upcoming/uk-map.ts',
+    source: NATURAL_EARTH,
+    feature: (properties) => properties.ADM0_A3 === 'GBR',
+    // Great Britain, Northern Ireland, the Scillies to Shetland; Rockall is
+    // the one ring outside it.
+    keep: { lon: [-9, 2.5], lat: [49, 61.5] },
+    scale: 69.85,
+    padding: 24,
+    cropEastLon: null,
+    minArea: 40,
+    tolerance: 1.6,
+    lat0: 55,
+    bounds: { lon: [-9, 2.5], lat: [49, 61.5] },
+    seed: 20260928,
+  },
 }
 
 const CODE = process.argv[2] ?? 'da'
@@ -102,13 +149,30 @@ const res = await fetch(SOURCE)
 if (!res.ok) throw new Error(`fetch failed: ${res.status}`)
 const geo = await res.json()
 
-/** Collect every outer ring of every polygon in the file. */
+/**
+ * Collect every outer ring of every polygon in the file — or, from a world
+ * file, of the one country's feature, and only the rings wholly inside `keep`.
+ */
+const inKeep = (ring) =>
+  ring.every(([lon, lat]) =>
+    lon >= COUNTRY.keep.lon[0] && lon <= COUNTRY.keep.lon[1] &&
+    lat >= COUNTRY.keep.lat[0] && lat <= COUNTRY.keep.lat[1])
 const all = []
+const leftOut = []
 for (const feature of geo.features ?? []) {
   const g = feature.geometry
   if (!g) continue
+  if (COUNTRY.feature && !COUNTRY.feature(feature.properties ?? {})) continue
   const polys = g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : []
-  for (const poly of polys) if (poly[0]?.length > 3) all.push(poly[0])
+  for (const poly of polys) {
+    if (!(poly[0]?.length > 3)) continue
+    if (COUNTRY.keep && !inKeep(poly[0])) leftOut.push(poly[0])
+    else all.push(poly[0])
+  }
+}
+for (const ring of leftOut) {
+  const [lon, lat] = ring[0]
+  console.log(`left out a ring at lon ${lon.toFixed(2)}, lat ${lat.toFixed(2)}`)
 }
 if (all.length === 0) throw new Error('no rings found — source format changed?')
 
@@ -466,6 +530,24 @@ const NOTES = {
 // is chosen to land this frame on the same height as the Danish one, so the
 // pencil pass — calibrated in projected units — draws the same weight of line
 // on both maps and MapScreen letterboxes them identically.`,
+  fr: `// Map data: Natural Earth 1:10m Admin 0 – Countries, public domain
+// (naturalearthdata.com). France's feature only, and only its rings inside
+// lon ${COUNTRY.keep?.lon.join('…')}°, lat ${COUNTRY.keep?.lat.join('…')}° — mainland France and Corsica, ${leftOut.length} overseas
+// rings left out. Reprojected equirectangular at lat ${LAT0}° and simplified with
+// Douglas–Peucker (tolerance ${TOLERANCE}); the upstream data is unmodified.
+//
+// Drawn for the coming-soon ticket (src/lang/upcoming.ts). The scale
+// (${SCALE} units per projected degree) lands the frame on the same height as
+// Denmark's and Germany's, so the pencil pass draws the same weight of line.`,
+  gb: `// Map data: Natural Earth 1:10m Admin 0 – Countries, public domain
+// (naturalearthdata.com). The United Kingdom's feature only, and only its
+// rings inside lon ${COUNTRY.keep?.lon.join('…')}°, lat ${COUNTRY.keep?.lat.join('…')}° (${leftOut.length} left out). Reprojected
+// equirectangular at lat ${LAT0}° and simplified with Douglas–Peucker
+// (tolerance ${TOLERANCE}); the upstream data is unmodified.
+//
+// Drawn for the coming-soon ticket (src/lang/upcoming.ts). The scale
+// (${SCALE} units per projected degree) lands the frame on the same height as
+// Denmark's and Germany's, so the pencil pass draws the same weight of line.`,
 }
 
 const out = `// GENERATED by scripts/make-map.mjs — do not edit by hand.

@@ -18,7 +18,7 @@ export async function measureReviewGeometry(panel, scenario) {
     // The surface's CONTROLS: pills, disclosure rows, the transcript link, a
     // sentence card. The collected words in the header are inline speak
     // buttons in a running line of text, sized as text on purpose.
-    const buttons = [...el.querySelectorAll('.btn, .city1-review-toggle, .log-toggle, .sentence-hear')]
+    const buttons = [...el.querySelectorAll('.btn, .tag, .city1-review-toggle, .log-toggle, .sentence-hear')]
       .filter(b => b.getClientRects().length && !b.hidden)
     const region = selector => {
       const node = el.querySelector(selector)

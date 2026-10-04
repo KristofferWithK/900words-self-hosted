@@ -4,10 +4,11 @@ import { newStats } from '../srs/scheduler'
 import { applyEvent } from '../engine/game'
 import type { GameState } from '../engine/types'
 import { emptyProgressFacts, earnedPostcards } from '../progression/facts'
-import { boardKey, cityKey, firstCompletionKey, milestoneKey } from '../progression/identity'
+import { boardKey, cityKey, firstCompletionKey, milestoneKey, requiredSetKey } from '../progression/identity'
+import { cityMedal } from '../journey/progress'
 import { initialCurriculumProgress } from '../journey/curriculumScheduler'
 import { initialSurvivalProgress } from '../journey/survival'
-import { CITY1_REQUIRED_SET, requiredSetForCourse } from '../session/courseRuntime'
+import { CITY1_REQUIRED_SET, knownRequiredSetsForCourse, requiredSetForCourse } from '../session/courseRuntime'
 import { CITY1_BOARD_CYCLE } from '../data/city1BoardCycle'
 import { packFor } from '../lang'
 import { SAVE_MIGRATION_KEY, SAVE_TRANSFER_KEY, commitSaveTransfer, recoverSaveTransfer, readSaveMigration, hasSaveTransfer } from '../stores/saveTransfer'
@@ -40,6 +41,8 @@ const { createSettlementStore } = await import('../stores/settlementStore')
 const { SESSION_KEY, assertSettlementIdle } = await import('../stores/settlementStorage')
 const { planLegacySessions, migrateLegacyProfile, provenLegacyEligibility } = await import('../stores/saveMigration')
 const { restore, resetCollection, backupText, prepareBackupText, readSnapshot } = await import('./apply')
+// Required boards are cafés a walk must find first (CW-04); these checks are about migration and restore.
+const { everyCafeFound } = await import('../journey/cafeTestSupport')
 
 const NOW = 1_790_000_000_000
 const seed = (key: string, version: number, state: unknown) => values.set(key, JSON.stringify({ version, state }))
@@ -70,7 +73,7 @@ beforeEach(async () => {
   failKey = null; afterWrite = false; faultOnlyDuringTransfer = false
   await useGame.getState().recoverSession().catch(() => undefined)
   values.clear()
-  useSrs.setState(useSrs.getInitialState()); useJourney.setState(useJourney.getInitialState())
+  useSrs.setState(useSrs.getInitialState()); useJourney.setState({ ...useJourney.getInitialState(), cafes: everyCafeFound() })
   useCurriculum.setState(useCurriculum.getInitialState()); useSurvival.setState(useSurvival.getInitialState())
   useStreak.setState(useStreak.getInitialState()); useAssociations.setState(useAssociations.getInitialState())
   useGame.setState(useGame.getInitialState())
@@ -134,6 +137,57 @@ describe('C1-06 AC22/23 legacy evidence and finite continuation', () => {
     expect(Object.keys(mixed.firstPrimaryCompletions)).toHaveLength(20)
     expect(mixed.milestones[milestoneKey(CITY1_REQUIRED_SET, 10)]?.completedCount).toBe(10)
     expect(mixed.milestones[milestoneKey(germanSet, 10)]?.completedCount).toBe(10)
+  })
+
+  it('keeps progress earned under the superseded Danish set importable, dropped boards included', () => {
+    const v1 = knownRequiredSetsForCourse('da')[0]!
+    const v1Set = { courseId: v1.courseId, cityId: v1.cityId, setVersion: v1.setVersion }
+    const played = v1.boards.slice(0, 28)
+    const inV2 = new Set(CITY1_REQUIRED_SET.boards.map(boardKey))
+    expect(played.some((board) => !inV2.has(boardKey(board)))).toBe(true)
+    const facts = validateProgressFacts({ ...emptyProgressFacts(),
+      boards: Object.fromEntries(played.map((board) => [boardKey(board), { board, best: 'bronze', claims: [] }])),
+      firstPrimaryCompletions: Object.fromEntries(played.map((board) => [firstCompletionKey(board), { board, requiredSet: v1Set }])),
+      milestones: Object.fromEntries([10, 20].map((n) => [milestoneKey(v1, n), { requiredSet: v1Set, completedCount: n, notificationHandled: true }])) })
+    expect(Object.keys(facts.boards)).toHaveLength(28)
+    expect(facts.milestones[milestoneKey(v1, 20)]?.completedCount).toBe(20)
+    // The current set counts only the overlap, and backfills its own count.
+    const overlap = played.filter((board) => inV2.has(boardKey(board))).length
+    expect(facts.milestones[milestoneKey(CITY1_REQUIRED_SET, 10)] !== undefined).toBe(overlap >= 10)
+    // A completion claiming a set its board was never in is still refused.
+    const outsider = played.find((board) => !inV2.has(boardKey(board)))!
+    expect(() => validateProgressFacts({ ...emptyProgressFacts(),
+      boards: { [boardKey(outsider)]: { board: outsider, best: 'bronze', claims: [] } },
+      firstPrimaryCompletions: { [firstCompletionKey(outsider)]: { board: outsider, requiredSet: CITY1_REQUIRED_SET } } })).toThrow('Unproven primary completion')
+  })
+
+  it('CW-03b a save with completed losses still proves its stored city achievement, and its losses show Bronze', () => {
+    const required = CITY1_REQUIRED_SET
+    const set = { courseId: required.courseId, cityId: required.cityId, setVersion: required.setVersion }
+    const won = (boards: typeof required.boards) => ({
+      boards: Object.fromEntries(boards.map((board) => [boardKey(board), { board, best: 'silver', claims: ['spinWin'] }])),
+      firstPrimaryCompletions: Object.fromEntries(boards.map((board) => [firstCompletionKey(board), { board, requiredSet: set }])),
+    })
+    const lost = (boards: typeof required.boards, firstPrimary: boolean) =>
+      Object.fromEntries(boards.map((board) => [boardKey(board), { board, firstPrimary }]))
+    // Every café won at Silver (the stored Silver achievement), three of them also lost on a replay.
+    const everyCafe = validateProgressFacts({ ...emptyProgressFacts(), ...won(required.boards),
+      completedLosses: lost(required.boards.slice(0, 3), false),
+      cityAchievements: { [requiredSetKey(set)]: { requiredSet: set, tier: 'silver' } } })
+    expect(Object.values(everyCafe.cityAchievements).map((fact) => fact.tier)).toEqual(['silver'])
+    // A loss never lowers a better stamp: 100 Silver stamps, 50%.
+    expect(cityMedal(everyCafe, required)).toMatchObject({ tier: 'silver', stamped: 100, points: 200, percent: 50 })
+
+    // 97 won, 3 only ever lost (the owner's kind of save): no stored achievement is claimed,
+    // and the losses are Bronze on the card: 97 x 2 + 3 = 197 of 400.
+    const someLost = validateProgressFacts({ ...emptyProgressFacts(), ...won(required.boards.slice(3)),
+      completedLosses: lost(required.boards.slice(0, 3), true) })
+    expect(someLost.boards[boardKey(required.boards[0]!)]).toBeUndefined()
+    expect(cityMedal(someLost, required)).toMatchObject({ tier: 'bronze', stamped: 100, points: 197 })
+    // The read-time Bronze is not a stored best, so it cannot prove a stored city achievement
+    // (settlement never writes one there either): the backup proof is unchanged.
+    expect(() => validateProgressFacts({ ...someLost, cityAchievements: { [requiredSetKey(set)]: { requiredSet: set, tier: 'bronze' } } }))
+      .toThrow('Unproven city achievement')
   })
 
   it('keeps legacy sessions bound to Danish while the active learner course is German', () => {
@@ -299,7 +353,9 @@ describe('C1-06 AC24/25/26 actual restore and reset', () => {
 
   it('keeps exact primary/replay slots when imported facts already complete the primary', async () => {
     await restore(buildBackup(snapshot({ progress: factsWith(1) }), NOW), 'replace')
-    useGame.getState().newGame()
+    // The file found no cafés; the next board must be found to be dealt (CW-04).
+    useJourney.setState({ cafes: everyCafeFound() })
+    expect(useGame.getState().newGame()).toBe(true)
     const before = adapter().readSessions().byCourse.da
     expect(useGame.getState().startReplay(CITY1_REQUIRED_SET.boards[0].authoredBoardId)).toBe(true)
     const both = adapter().readSessions().byCourse.da
@@ -519,6 +575,41 @@ describe('C1-06 AC24/25/26 actual restore and reset', () => {
     expect(ab.progress).toEqual(mergeSnapshot(snapshot({ progress: b.progress }), buildBackup(a, NOW)).progress)
     expect(mergeSnapshot(ab, b).progress).toEqual(ab.progress)
     expect(mergeSnapshot(ab, c).progress).toEqual(mergeSnapshot(a, buildBackup(mergeSnapshot(snapshot({ progress: b.progress }), c), NOW)).progress)
+  })
+})
+
+describe('CW-04 café finds through an actual export, reset and restore', () => {
+  it('replace brings the finds back into the whole rewritten journey key; an old file merged in keeps them', async () => {
+    const cafes = { [JSON.stringify(['da', 'sonderborg'])]: { found: { [CITY1_REQUIRED_SET.boards[0]!.authoredBoardId]: NOW }, toward: 3 } }
+    useJourney.setState({ cafes })
+    const file = parsed(JSON.parse(backupText(NOW)))
+    expect(file.journey.cafes).toEqual(cafes)
+    await resetCollection()
+    expect(useJourney.getState().cafes).toEqual({})
+    await restore(file, 'replace')
+    expect(useJourney.getState().cafes).toEqual(cafes)
+    const stored = read('cluecab-journey-v2').state
+    expect(stored.cafes).toEqual(cafes)
+    for (const route of [...Object.values(stored.parked), ...Object.values(stored.historicalRoutes)]) expect(route).not.toHaveProperty('cafes')
+    await restore(oldFile(0), 'merge')
+    expect(useJourney.getState().cafes).toEqual(cafes)
+  })
+
+  it('CW-07 the train ticket survives export, reset and replace, stays out of route history, and an old file merged in keeps it', async () => {
+    const city = { courseId: 'da' as const, cityId: 'sonderborg' }
+    const trainRuns = { [cityKey(city)]: { city, passed: true, at: NOW, words: 147, photos: 140, slips: 7, allowed: 8 } }
+    useJourney.setState({ trainRuns })
+    const file = parsed(JSON.parse(backupText(NOW)))
+    expect(file.journey.trainRuns).toEqual(trainRuns)
+    await resetCollection()
+    expect(useJourney.getState().trainRuns).toEqual({})
+    await restore(file, 'replace')
+    expect(useJourney.getState().trainRuns).toEqual(trainRuns)
+    const stored = read('cluecab-journey-v2').state
+    expect(stored.trainRuns).toEqual(trainRuns)
+    for (const route of [...Object.values(stored.parked), ...Object.values(stored.historicalRoutes)]) expect(route).not.toHaveProperty('trainRuns')
+    await restore(oldFile(0), 'merge')
+    expect(useJourney.getState().trainRuns).toEqual(trainRuns)
   })
 })
 

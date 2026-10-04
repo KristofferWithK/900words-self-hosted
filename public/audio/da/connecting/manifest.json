@@ -1,0 +1,526 @@
+{
+  "about": "Sønderborg's 47 connecting words (src/data/city1-connecting-words.da.json). Recorded by KristoffersRoom/prototypes/bake-connecting-words.mjs on 2026-10-04 (paid call approved by the owner that day), copied from KristoffersRoom/prototypes/audio-connecting/ (original), then trimmed in place by scripts/trim-audio-silence.mjs --only connecting/ (whole MP3 frames dropped, no re-encode, voice verified identical in Chromium). Onsets are in src/data/audio-lead.da.json. The last three (skål, om, hen) were added by the owner on 2026-10-04 and recorded in a second small paid batch that day, approved for exactly those three; bare \"om\" came back near-silent, so it was said as \"Om.\", and each of the three was trimmed by its own key (--only connecting/<slug>.mp3) so the first 44 were not cut twice. Nobody has listened to them yet.",
+  "entries": {
+    "hej": {
+      "id": "connecting:da:hej",
+      "text": "hej",
+      "bytes": 1728,
+      "sha256": "21d3d9a828e37fdce24bfb0ae4b36eba021ffd8a750d2601f8c712a9052c0a27",
+      "at": "2026-10-03T23:21:25.790Z",
+      "original": {
+        "bytes": 3264,
+        "sha256": "d88c432c60b027605650897367dd99c7d1234bb4fd41557d91da758658b6d7fc"
+      }
+    },
+    "goddag": {
+      "id": "connecting:da:goddag",
+      "text": "goddag",
+      "bytes": 1920,
+      "sha256": "bff60c79833e0f6284b6d6d9a1d564ee2e3f8cdd066d34e7b579ddd635686e7f",
+      "at": "2026-10-03T23:21:26.114Z",
+      "original": {
+        "bytes": 4896,
+        "sha256": "9cc60e1cf5edfb1f72efcdab749009531191cbaf25b304c5911966511a72a598"
+      }
+    },
+    "godmorgen": {
+      "id": "connecting:da:godmorgen",
+      "text": "godmorgen",
+      "bytes": 2112,
+      "sha256": "07b5faf426ba8c8936ae95678b587b7bfaa905de6ac6586684f31edc8d3e1a22",
+      "at": "2026-10-03T23:21:26.366Z",
+      "original": {
+        "bytes": 2784,
+        "sha256": "709f50c05893239bc9c3e0b0a5eb4f0cf4dc6189ad5f85d6b61430cc618efe57"
+      }
+    },
+    "godnat": {
+      "id": "connecting:da:godnat",
+      "text": "godnat",
+      "bytes": 2208,
+      "sha256": "88aa0bf7283e0bbc919b05e81182325d04660d5fba98def23e3d4c4afa51fe3b",
+      "at": "2026-10-03T23:21:26.633Z",
+      "original": {
+        "bytes": 3072,
+        "sha256": "5c58ea5bf21b19a21d535f81abbb75de3d1c585bf5a13a8ea64aeb5cd5c0877d"
+      }
+    },
+    "hallo": {
+      "id": "connecting:da:hallo",
+      "text": "hallo",
+      "bytes": 2112,
+      "sha256": "d330183474bb144b2d704c4593e2fe6b37f7e430d3cabb8dd558389de0f3177d",
+      "at": "2026-10-03T23:21:26.886Z",
+      "original": {
+        "bytes": 2592,
+        "sha256": "1be0b1dfb347714d4c8889cbad489e42d67b4608858e2af7494d0b3b774ac25a"
+      }
+    },
+    "velkommen": {
+      "id": "connecting:da:velkommen",
+      "text": "velkommen",
+      "bytes": 2592,
+      "sha256": "b77099ab07e5d33ad11376b154813c2523f46228c1c1fb2aa487cedb3c0cd6cb",
+      "at": "2026-10-03T23:21:27.169Z",
+      "original": {
+        "bytes": 5664,
+        "sha256": "91ddd8533345b6c8f82d48e5f8db10e539a0f87ba7b03e8fdc6882a101e9ac20"
+      }
+    },
+    "farvel": {
+      "id": "connecting:da:farvel",
+      "text": "farvel",
+      "bytes": 3456,
+      "sha256": "adf575b6a3c32f7e07642423b709aa137ec2a2e7ced03fae0249ea158a46b6d2",
+      "at": "2026-10-03T23:21:27.448Z",
+      "original": {
+        "bytes": 4032,
+        "sha256": "27e22dcd4568541a5229f9d94efc5cfecafc06effc746a051aaa93d70ac7e932"
+      }
+    },
+    "tak": {
+      "id": "connecting:da:tak",
+      "text": "tak",
+      "bytes": 1728,
+      "sha256": "d082636c48da27a928e7fb6483828fb42a132805515a917050be95a3ede8acd3",
+      "at": "2026-10-03T23:21:27.720Z",
+      "original": {
+        "bytes": 3552,
+        "sha256": "b107ffeb4b942cdf009abb9bcec3b98f0184356b748ae826636979000e61d9f5"
+      }
+    },
+    "undskyld": {
+      "id": "connecting:da:undskyld",
+      "text": "undskyld",
+      "bytes": 2688,
+      "sha256": "5eec783247611fbe91d8885f058d1704b250632f4b4d695634a4e3d6328a07d9",
+      "at": "2026-10-03T23:21:28.040Z",
+      "original": {
+        "bytes": 5856,
+        "sha256": "2f5ddf0498a5471589530701e383e7a6de64f5a43c4577e94ce76b83ae036040"
+      }
+    },
+    "ja": {
+      "id": "connecting:da:ja",
+      "text": "Ja!",
+      "bytes": 1920,
+      "sha256": "ff035ae37b1e7baa2c8d3e1cd3bb86931254b626509c889cbf2033b5a6b1ac10",
+      "at": "2026-10-03T23:22:39.731Z",
+      "original": {
+        "bytes": 4704,
+        "sha256": "6f51e0156b9a64fff804a944138af8adad7134ba347f886696612981f5e94146"
+      }
+    },
+    "nej": {
+      "id": "connecting:da:nej",
+      "text": "nej",
+      "bytes": 1920,
+      "sha256": "5c420680e937b9d7806f874db65994f34989bb05e6e7e62357b5271708133a34",
+      "at": "2026-10-03T23:21:28.553Z",
+      "original": {
+        "bytes": 4704,
+        "sha256": "ea0ab60b6b1fe438ebabb95676f51858bd4e9477a2d17031d76a76ac276c96fd"
+      }
+    },
+    "hvor": {
+      "id": "connecting:da:hvor",
+      "text": "hvor",
+      "bytes": 2016,
+      "sha256": "470e5af8f7a5b3784aec2f03947875cfbcdcb887882bbfe0650280af062736b8",
+      "at": "2026-10-03T23:21:28.837Z",
+      "original": {
+        "bytes": 4704,
+        "sha256": "7b5b8bfbce81057e1d8b4eb3c637068d35eb151b7bdb9f083a35593d2c024556"
+      }
+    },
+    "hvad": {
+      "id": "connecting:da:hvad",
+      "text": "hvad",
+      "bytes": 2496,
+      "sha256": "366a25c2b0a6c24811c5a3b7712973b641dbcea9625fda5a4be6a130afa2055e",
+      "at": "2026-10-03T23:21:29.136Z",
+      "original": {
+        "bytes": 5856,
+        "sha256": "f2161ae15efb9b2340cab495bb3ce9ed2f76175760425fda9b1f3a6ae956c54e"
+      }
+    },
+    "hvem": {
+      "id": "connecting:da:hvem",
+      "text": "hvem",
+      "bytes": 2208,
+      "sha256": "70bb9b79c412ac00280c6b6a3fcaef872572a9ac44f04dbc3b537fe93ccb241d",
+      "at": "2026-10-03T23:21:29.412Z",
+      "original": {
+        "bytes": 5376,
+        "sha256": "325a024dbcdcefa392c8fa2acf71fabc0b2a3fce6c65c18c118139c69d98f82d"
+      }
+    },
+    "hvorfor": {
+      "id": "connecting:da:hvorfor",
+      "text": "hvorfor",
+      "bytes": 2592,
+      "sha256": "0b7a580b164827306e91540cf71bd3b562f6b1199dc48ba143d44fb1c8ec41f6",
+      "at": "2026-10-03T23:21:29.680Z",
+      "original": {
+        "bytes": 4032,
+        "sha256": "e59a6d7acc1fd860dd5f845fa4b356334fac7ae1ff04aeb5242dd956376f4317"
+      }
+    },
+    "hvornaar": {
+      "id": "connecting:da:hvornår",
+      "text": "hvornår",
+      "bytes": 3168,
+      "sha256": "e098dab08b36bf1e6c3345108630892121f84484db51f50f6506920f1a0d9f5c",
+      "at": "2026-10-03T23:21:30.017Z",
+      "original": {
+        "bytes": 5184,
+        "sha256": "3a53ebfd0c2a41f88f545dd47d79991ae13167c4e160815884aced4c034bfcab"
+      }
+    },
+    "hvilket": {
+      "id": "connecting:da:hvilket",
+      "text": "hvilket",
+      "bytes": 2496,
+      "sha256": "d0a790d7d71b953ea2934a8dfa6ac9dd7eae0dc63956dda449ad49d2cc3b4dec",
+      "at": "2026-10-03T23:21:30.326Z",
+      "original": {
+        "bytes": 6144,
+        "sha256": "ab6adb7fb2686bebc4ff2b1007b3265f30fa814a09ec4e9b7e0e5d03c99e18c6"
+      }
+    },
+    "igen": {
+      "id": "connecting:da:igen",
+      "text": "igen",
+      "bytes": 2304,
+      "sha256": "b4710d67ef4f2c0c4b75c6c46a118e9b683317f71ce54bdaeed3fe367af3e930",
+      "at": "2026-10-03T23:21:30.606Z",
+      "original": {
+        "bytes": 4896,
+        "sha256": "90bcc53863d831e033286d76e727ee2def77c10b92baab18c7dfeb9eb76420e7"
+      }
+    },
+    "lidt": {
+      "id": "connecting:da:lidt",
+      "text": "lidt",
+      "bytes": 2208,
+      "sha256": "2becbbd47cacf656525658e92f98ef325d54a0e54989ee19473b876e1041a973",
+      "at": "2026-10-03T23:21:30.889Z",
+      "original": {
+        "bytes": 4032,
+        "sha256": "8f558ba7243842d2780638f7d4d9b07e43c494702b99bf12e5c685d17b90feaf"
+      }
+    },
+    "her": {
+      "id": "connecting:da:her",
+      "text": "her",
+      "bytes": 1440,
+      "sha256": "2b14ff84deed45e5aec9c7b9195e4b3499a381660c2a7e5db131a178d7162d2e",
+      "at": "2026-10-03T23:21:31.141Z",
+      "original": {
+        "bytes": 3072,
+        "sha256": "b7707735217788c885ef832f6adbc21e79d048e27151d8f8905984aa62c4382a"
+      }
+    },
+    "der": {
+      "id": "connecting:da:der",
+      "text": "der",
+      "bytes": 1920,
+      "sha256": "1e9fd88ac0877ba98ba9bef3fe8cfe45067646d67d9d10453b8898676859519b",
+      "at": "2026-10-03T23:21:31.398Z",
+      "original": {
+        "bytes": 3552,
+        "sha256": "39314c4d4e15a6846ae22b548fea159b25b97428126003ebb4afcee30b1c8f87"
+      }
+    },
+    "ogsaa": {
+      "id": "connecting:da:også",
+      "text": "også",
+      "bytes": 2304,
+      "sha256": "387e729977e7c5ec2dea9b4f220698be82a91a53e45e08c0816113d3bb4ba745",
+      "at": "2026-10-03T23:21:32.413Z",
+      "original": {
+        "bytes": 4704,
+        "sha256": "0ca9ef67e0041fb101d66bb2b11b595766368942706405f5b9ef451998fced82"
+      }
+    },
+    "altid": {
+      "id": "connecting:da:altid",
+      "text": "altid",
+      "bytes": 2400,
+      "sha256": "d99c69e046c059c459bc993e3159ee614e67b6e6f05755aa8bf967ac6b6e2aab",
+      "at": "2026-10-03T23:21:33.010Z",
+      "original": {
+        "bytes": 2976,
+        "sha256": "c4eab3a585996b2f26eefa5edfb297c1de7bdd3102522b1b19e3421ef56ee94f"
+      }
+    },
+    "gerne": {
+      "id": "connecting:da:gerne",
+      "text": "gerne",
+      "bytes": 2400,
+      "sha256": "739326dfdfa54a2637c026b8baefc1acf11c3e507e8c28e145b6868799413d63",
+      "at": "2026-10-03T23:21:33.522Z",
+      "original": {
+        "bytes": 4512,
+        "sha256": "09e32993e3c99bc0eaca367fb0ed3ea0db7fed917ac0c9c9caf9d16ef042730e"
+      }
+    },
+    "kun": {
+      "id": "connecting:da:kun",
+      "text": "kun",
+      "bytes": 1920,
+      "sha256": "05a673be4b72bc177c385d460a6e7955fe04d6637ee9874fedd898a0f06e232e",
+      "at": "2026-10-03T23:21:34.238Z",
+      "original": {
+        "bytes": 4032,
+        "sha256": "2dea107742bd58186f5a3e1fea6f772df34f4adc31f6ba54d99df8de90262ae2"
+      }
+    },
+    "meget": {
+      "id": "connecting:da:meget",
+      "text": "meget",
+      "bytes": 2688,
+      "sha256": "5ff4257cc39ae91226aa2499bb6e0aca4993aafa4ecc338a2f86e54ba13ff923",
+      "at": "2026-10-03T23:21:34.845Z",
+      "original": {
+        "bytes": 6144,
+        "sha256": "ba6a7c6e0541bd09bc577f917a230f5bf1aa88a3d445799a79851e554448fac4"
+      }
+    },
+    "ikke": {
+      "id": "connecting:da:ikke",
+      "text": "ikke",
+      "bytes": 2112,
+      "sha256": "3488d48e48e15ec9b0618f76cf5ea880ed1a08cb00c12813a0fd1b15fd900969",
+      "at": "2026-10-03T23:21:35.550Z",
+      "original": {
+        "bytes": 3744,
+        "sha256": "8a435f7e70ac0780d2a0ec58536cf3541e7e3a8c7eff0e61a9f5287c17cd1012"
+      }
+    },
+    "virkelig": {
+      "id": "connecting:da:virkelig",
+      "text": "virkelig",
+      "bytes": 3072,
+      "sha256": "9bf42509163f01099cb7e4021c4a7db59b9cab0fef6910124c4dc1a58ea4878f",
+      "at": "2026-10-03T23:21:36.294Z",
+      "original": {
+        "bytes": 4896,
+        "sha256": "9415722e9e0a12b01f3f874edba4973daf13c650fd441baca1f5c3b436d1f60e"
+      }
+    },
+    "samme": {
+      "id": "connecting:da:samme",
+      "text": "samme",
+      "bytes": 2688,
+      "sha256": "2baa45066cfded878184fefae25729d2d7ae32e9af50aed4b92da88a904e14b0",
+      "at": "2026-10-03T23:21:36.915Z",
+      "original": {
+        "bytes": 4416,
+        "sha256": "3f0f59873e6f2e74e05e994d10894646bc43653d7349c1ba9822a118f8e02f09"
+      }
+    },
+    "tilbage": {
+      "id": "connecting:da:tilbage",
+      "text": "tilbage",
+      "bytes": 3072,
+      "sha256": "eb2c71acfb64d51ae9ad21491549a63ef9995ca62f751e5fa1bbce0edbb772bb",
+      "at": "2026-10-03T23:21:37.967Z",
+      "original": {
+        "bytes": 4032,
+        "sha256": "fe86be69c70327af24c79367ea820a7b38fdc389dc60ac361c2e366439a9e43c"
+      }
+    },
+    "helt": {
+      "id": "connecting:da:helt",
+      "text": "helt",
+      "bytes": 2400,
+      "sha256": "c7b3038601726cda1b1a6cac99f96711f7ce4dfbead625b45465384cddea01b3",
+      "at": "2026-10-03T23:21:38.879Z",
+      "original": {
+        "bytes": 6432,
+        "sha256": "1565fa22d2821f23127215347d896af4866ba430d732cea13803a3d023a4880f"
+      }
+    },
+    "mange": {
+      "id": "connecting:da:mange",
+      "text": "mange",
+      "bytes": 2592,
+      "sha256": "80a4db68d509300c09a6a1abd21d13f34c0bc8d4cd6cb29e2d5f97ca58f1b40d",
+      "at": "2026-10-03T23:21:39.745Z",
+      "original": {
+        "bytes": 3936,
+        "sha256": "2d774a2d29d09d9e6d3f506446db4257206194c1262876565f8cde3c64879ab5"
+      }
+    },
+    "nu": {
+      "id": "connecting:da:nu",
+      "text": "nu",
+      "bytes": 1824,
+      "sha256": "0af78449986f08e735fef480f69ecec2d7f01b50bfcee8c329f91a4aad81496f",
+      "at": "2026-10-03T23:21:40.184Z",
+      "original": {
+        "bytes": 4896,
+        "sha256": "56c7419033e028428a0275b7a16eb32076a78ca6a22e9608b83e2820f6f31a73"
+      }
+    },
+    "uden": {
+      "id": "connecting:da:uden",
+      "text": "uden",
+      "bytes": 3072,
+      "sha256": "35b55dfbe136165aaa3fe3b73aae83d44f57ecf27f74cae8eb7bebb3cbb7c9a4",
+      "at": "2026-10-03T23:21:40.862Z",
+      "original": {
+        "bytes": 6336,
+        "sha256": "4969596b8a043fad5a80ba479d64b10487c4387170c74ce35ffffd7fe3516d1d"
+      }
+    },
+    "i-morgen": {
+      "id": "connecting:da:i morgen",
+      "text": "i morgen",
+      "bytes": 2688,
+      "sha256": "a8b452d58cb176dd805f24b530a0b3c69e358f20bcd7099bc1cc95ba8f73ddd2",
+      "at": "2026-10-03T23:21:41.343Z",
+      "original": {
+        "bytes": 6336,
+        "sha256": "67ad456886eecc5cec1b6acb86fa64dca591bf09ee39dd15ce1d322acf8a9d86"
+      }
+    },
+    "i-dag": {
+      "id": "connecting:da:i dag",
+      "text": "I dag.",
+      "bytes": 1824,
+      "sha256": "314f178152b5a67febf2517ee91e504e8ead8a27bb758ec49dcd25b5fafe3d7a",
+      "at": "2026-10-03T23:22:28.289Z",
+      "original": {
+        "bytes": 4416,
+        "sha256": "e19a6c34fbb1dd87dc15890b4f09912890b7274075e49e8adc5bb33c8d41b45e"
+      }
+    },
+    "var": {
+      "id": "connecting:da:var",
+      "text": "var",
+      "bytes": 2208,
+      "sha256": "433f57134e9c26ebedce6ed934c56dc7b7f8e58dfa159421b82f4813b86bd75a",
+      "at": "2026-10-03T23:21:42.024Z",
+      "original": {
+        "bytes": 4992,
+        "sha256": "7caf59947764bffab929dfe233cd87b14b29e6fb04731555978eb746309f6dd6"
+      }
+    },
+    "maa": {
+      "id": "connecting:da:må",
+      "text": "må",
+      "bytes": 2016,
+      "sha256": "0bd0d13ba250ed8944203a991c948e536b126c79c5e22fed30fe26fbd7051057",
+      "at": "2026-10-03T23:21:42.367Z",
+      "original": {
+        "bytes": 2592,
+        "sha256": "b2ecbea3414e857dbb4f77931a7c58d6e6e2b935b90af3d71fe7f042fa26a209"
+      }
+    },
+    "kan": {
+      "id": "connecting:da:kan",
+      "text": "kan",
+      "bytes": 2400,
+      "sha256": "b0393e94b9e49fbf3a96e6e841590684f201943e590aa3f9340074d4ae8929fd",
+      "at": "2026-10-03T23:21:42.835Z",
+      "original": {
+        "bytes": 4416,
+        "sha256": "257981ec8dc977c63662db890b2bd989a9c8e66bca353ad81f8b4b081e4a8f58"
+      }
+    },
+    "en": {
+      "id": "connecting:da:en",
+      "text": "En.",
+      "bytes": 2112,
+      "sha256": "52ebaa07ca38393f1ceb1d16d9d7a7363ef0e8744b34df8f4c053d005cbc46ac",
+      "at": "2026-10-03T23:22:28.529Z",
+      "original": {
+        "bytes": 3552,
+        "sha256": "44a8ff66b93fb998f0fbca0203f8fd06a68cc7c8ccab0ead11cf41f67354ae11"
+      }
+    },
+    "et": {
+      "id": "connecting:da:et",
+      "text": "Et.",
+      "bytes": 1728,
+      "sha256": "d423d3758d62b324cd26c1ff43c9f41884c5c3fbe33ce80902131ee378155c24",
+      "at": "2026-10-03T23:22:28.773Z",
+      "original": {
+        "bytes": 2496,
+        "sha256": "b853d7f2e6c194157b9736c7b17c8a217f10694a91598cf2bd6dee8209d83570"
+      }
+    },
+    "den": {
+      "id": "connecting:da:den",
+      "text": "den",
+      "bytes": 1920,
+      "sha256": "b56615f8f2576c05acd6dbcebddbc840d8849189e4e106cb8cdf3a6a8ca11da2",
+      "at": "2026-10-03T23:21:43.707Z",
+      "original": {
+        "bytes": 5184,
+        "sha256": "afdd0cb1a7a9323a4015aa988a1594c400ecce0d7b2c8c27d4eb57ba95515d7f"
+      }
+    },
+    "det": {
+      "id": "connecting:da:det",
+      "text": "det",
+      "bytes": 2112,
+      "sha256": "7627b6e4ce08e3bdf8763af7c29c32c4c6dd1d2e3da26da1766c70bf90620ca7",
+      "at": "2026-10-03T23:21:44.048Z",
+      "original": {
+        "bytes": 4896,
+        "sha256": "c8e0c8a8be5cbc6559de164da42c5521d9ecf6f6e259703d3805b1559881edfc"
+      }
+    },
+    "i": {
+      "id": "connecting:da:i",
+      "text": "i",
+      "bytes": 1728,
+      "sha256": "014d33dfacaebdcac814dfe325924fda02e0fe8b3fedebd361435de79246246d",
+      "at": "2026-10-03T23:21:44.313Z",
+      "original": {
+        "bytes": 3456,
+        "sha256": "404c5b11c6a719e722c1dbdeb7b5aee51465c7982aa63f4967ad06f2b23ac745"
+      }
+    },
+    "skaal": {
+      "id": "connecting:da:skål",
+      "text": "skål",
+      "bytes": 2304,
+      "sha256": "ebc4bb23b64db71bab69f172100fffd26a4a1f33b6ad5d9c0807ea409d94b4f7",
+      "at": "2026-10-04T01:42:43.459Z",
+      "original": {
+        "bytes": 3072,
+        "sha256": "90477d0db3b9b5f0f242c4a9e39f449293a9e0c7ceb9ae07a52def20b47a87b0"
+      }
+    },
+    "om": {
+      "id": "connecting:da:om",
+      "text": "Om.",
+      "bytes": 1536,
+      "sha256": "771428a519fd2e239d35668b0ca7f2263cad2f8eae89724895c35a035f4a9a39",
+      "at": "2026-10-04T01:42:58.667Z",
+      "original": {
+        "bytes": 2016,
+        "sha256": "34df4d0833fae95277c89ae06699644649badaa67dd3bd94c7cdeab4ad691d16"
+      }
+    },
+    "hen": {
+      "id": "connecting:da:hen",
+      "text": "hen",
+      "bytes": 1344,
+      "sha256": "2a1ef7306976b2317b947fb3c11ffd2fd9313305a68bf5be2913f4988f56970c",
+      "at": "2026-10-04T01:42:43.967Z",
+      "original": {
+        "bytes": 2016,
+        "sha256": "96bbc072518a4f1a4c3cbb4387500bec8ce2d533024d4cd9a9d7c8b1b7319352"
+      }
+    }
+  },
+  "provider": "google",
+  "voice": "da-DK-Chirp3-HD-Aoede",
+  "rate": 1,
+  "lang": "da"
+}

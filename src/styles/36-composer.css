@@ -1,0 +1,529 @@
+/* ---- the composer: three rows, one height (K1) ----
+
+   "I don't want the size of the composer to change ever. Below clue and
+   dictionary should be enough space for one small line of text where the
+   translation, or the clue warning can be."
+
+   Three rows and nothing else may be added: the field row, ONE shared line,
+   the action row. The height that follows is measured and declared as
+   --dock-h above; everything here is sized so that measurement holds in every
+   state the composer can be in.
+
+   ---- is the composer painted? No, and that is a decision ----
+
+   PR #90 took the paint off the dock's RESERVE after "it's still way too much
+   grey", leaving the slot invisible and the panel content-sized inside it. K1
+   took it off the PANEL — the composer sits on the page ground with a single
+   hairline rule above it, and the two fields carry their own borders as they
+   already did — and K2 extended that to the guess bar and the AI panel, which
+   share this rectangle turn by turn. Both declarations, and the argument for
+   them, are in the dock block above; the rule is written down there rather
+   than left to `--surface` by inheritance, per the card.
+
+   The height is declared there too, on every dock at once. Not a min/max pair:
+   the whole claim is that this box is one rectangle, and layout-drive samples
+   it per frame to say so. */
+
+/* A clue is one short word, so the field does not need a row of its own — and
+   the word you are hunting for goes in the field beside it. */
+.composer-fields {
+  display: flex;
+  gap: 8px;
+  /* stretch, not start: the two fields are the same control twice and a row
+     whose halves are different heights reads as a mistake. It also pins the
+     row's height to the taller of them, which is what the measurement above
+     is taken against. */
+  align-items: stretch;
+}
+
+.composer-fields > * {
+  /* Equal halves that may both shrink: min-width auto would let a long
+     dictionary answer widen its column and squeeze the clue field. */
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ---- THE line ----
+
+   One row, always present, holding at most two things: the verdict (or the
+   first-clue hint) on the left and the dictionary's one answer on the right.
+   Present even when empty — a line that appears when it has something to say
+   is a line that moves everything under it, which is the bug this card exists
+   to kill.
+
+   min-height rather than height so a phone with its text turned up gets a
+   taller line rather than a clipped one; the box around it is what is fixed,
+   and it has the padding to absorb a point or two.
+
+   Both halves shrink and both ellipsize, so either one ALONE takes the full
+   width. When both are up the answer is the half that gives way — shrink 8
+   against 1 — because the verdict is carrying the tappable word and a verdict
+   cut to its first syllable says nothing at all. */
+.composer-line {
+  display: flex;
+  /* center, not baseline: baseline-aligning a 26.41px button against 0.8rem
+     text pushes the row to 27.41 and the composer with it, so the box would
+     have had two heights again — one with an answer up and one without, which
+     is precisely the bug. */
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  /* 1.65rem, and it is measured: the inline 🔊 in a dictionary answer is
+     0.9rem of glyph on .speak-btn's 6px padding and line-height 1, which is
+     26.41px — taller than the 0.8rem text beside it and therefore the thing
+     that sets the row. Declared as the line-height too, so the row is that
+     height whether or not an answer is up and the composer has ONE natural
+     height rather than two. Shrinking the speaker to fit the text instead was
+     the other way out; it would have taken 6px off a tap target that is the
+     same 🔊 the round summary and the sheet use. */
+  min-height: 1.65rem;
+  font-size: 0.8rem;
+  line-height: 1.65rem;
+  overflow: hidden;
+}
+
+.composer-line > * {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 0 1 auto;
+}
+
+/* The answer gives way first — but not to nothing. Shrink 4 against the
+   verdict's 1, with a floor on the text below (.dict-hit's min-width) so what
+   survives is always the target word and the start of its gloss. Measured with
+   the longest verdict and the longest answer up together at 360px: without the
+   floor the answer was squeezed to 13px, which is a word cut to its first
+   letter and no better than not being there. */
+.composer-line > .dict-answer {
+  flex-shrink: 4;
+}
+
+/* A small inline action on a label line — re-dealing the board, or sending the
+   word you just typed to the dictionary. Small enough to ride the line, still
+   a real tap target via padding. Named for the shape rather than either job,
+   because it does both. (Build 90 removed its last user — the packing dock's
+   two links became primary pills — and the class stays for the composer's
+   own inline actions.) */
+.composer-link {
+  font-size: 0.68rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--green-deep);
+  text-decoration: underline;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.composer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.composer-actions .btn-primary {
+  flex: 1;
+}
+
+.composer-actions .stepper {
+  flex: none;
+}
+
+/* The dictionary's field, in the composer, is the composer's other field:
+   the same padding as the clue beside it, and no box of its own. The
+   `.translate-box` wrapper (border, padding, a column) is not rendered here at
+   all any more — ClueInput places the field and the answer separately, which
+   is what lets the answer share a line with the verdict instead of hanging
+   under its own field. */
+.composer-fields .translate-input {
+  padding: 12px;
+  margin-top: 0;
+}
+
+/* ---- the keyboard, in the native shell ----
+
+   Nothing here runs on the web: kb-up is only ever set by the native listener
+   in src/ui/nativeKeyboard.ts (or by cluecab-kbsim standing the same state up
+   deliberately), and --board-h with it.
+
+   With Keyboard.resize 'body' the WEBVIEW is never resized, panned or
+   scrolled — the document inside it is, down to the keyboard's top edge — so
+   the composer, last in the layout, lands on the keyboard with no height to
+   learn and no gap to tune. The board is what must not react to that, and
+   --board-h is how: frozen at what it measured, then clipped. */
+/* Only present while a keyboard is, between the board and the lifted composer.
+   It stays pointerless so vertical gestures can reach the board's scrollport;
+   GameScreen resolves outside taps without letting them activate what is under
+   the transparent shield. */
+.kb-scrim {
+  display: none;
+}
+
+.kb-up .kb-scrim {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* The grid is held at the height it had before the keyboard arrived. The
+   shrinking screen gives .board-area a shorter viewport, which scrolls instead
+   of resizing the cards. The layout does not need to know the keyboard height. */
+/* The screen's bottom padding, and the home-indicator inset it sits on, are
+   there to keep content off the bottom edge of a phone. While the keyboard is
+   up there is no bottom edge — the keyboard is — so they only push the
+   composer away from it. The board is a fixed height and clipped by now, so
+   giving these back costs it nothing. */
+.kb-up .screen {
+  padding-bottom: 4px;
+}
+
+/* Just the descendant form: kb-up lives on <html>, an ANCESTOR of body, so a
+   body:has(.kb-up) twin that used to sit here could never match anything. */
+.kb-up body {
+  padding-bottom: 0;
+}
+
+.kb-up .board-area {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  align-items: start;
+}
+
+/* On a short phone, the optional practice note would consume the entire
+   keyboard-time board viewport. Hide only that note while the keyboard is up;
+   the normal layout and the composer retain their established geometry. */
+@media (max-height: 667px) {
+  .kb-up .practice-note {
+    display: none;
+  }
+}
+
+.kb-up .board-grid {
+  height: var(--board-h);
+  flex: none;
+}
+
+.kb-up .dock.kb-lifted {
+  /* The rider is deliberately a transparent dock in ordinary play: its top
+     rule is all the chrome a clue/guess turn needs. During the native ride,
+     however, moving only that transparent box lifts its inputs while the
+     white page and home-indicator gutter remain behind for the plugin's
+     delayed body resize. Give the rider its own stacking context so the
+     surface below belongs to the same transform as the fields. */
+  position: relative;
+  z-index: 5;
+}
+
+/* This belongs to the current keyboard ride, not to the page. It starts at
+   the dock's top and runs below the physical screen, painting the bottom
+   gutter behind the travelling fields until the delayed resize clips it behind
+   the keyboard. It is a fixed sibling rather than an oversized dock child:
+   WebKit includes transformed descendants in the document scroll range, while
+   this fixed layer does not. `100vw` reaches through the screen's ordinary
+   side padding; the safe-area term keeps the home-indicator fill in the same
+   surface. */
+.kb-surface {
+  display: none;
+}
+
+.kb-up .kb-surface.kb-riding {
+  display: block;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh + env(safe-area-inset-bottom));
+  z-index: 5;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+.kb-up .dock.kb-lifted.kb-riding {
+  z-index: 6;
+}
+
+/* The way back down (putAway in src/ui/nativeKeyboard.ts). By then kb-up is
+   already gone and the full-height page is laid out underneath, so these
+   stand without it: the same white surface and the same stacking as the ride
+   up, carried from where the dock was to where it now rests, uncovering the
+   board as they go. */
+.kb-surface.kb-sinking {
+  display: block;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh + env(safe-area-inset-bottom));
+  z-index: 5;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+.dock.kb-sinking {
+  position: relative;
+  z-index: 6;
+}
+
+/* Nothing about the composer changes size while it is lifted, and that is a
+   rule rather than an oversight.
+
+   Hiding its labels and tightening its padding while the keyboard is up was
+   tried, and it made the composer smaller by 29 pixels — which the flex column
+   immediately handed to the board, growing the grid and resizing every card
+   behind the keyboard. The board must not move, so the only thing that may
+   change here is position. A transform does that and touches no layout; a
+   padding does not.
+
+   The size problem is solved by the composer being two lines instead of five,
+   not by shrinking it at the moment it is being used. */
+/* The lookup answer's own scroll used to be declared here, for the keyboard
+   case alone. It is now the ordinary behaviour of .translate-hits — the board
+   needed it just as much as the send button did — so there is nothing left to
+   say here. */
+
+/* Belt to the braces only. The dock has no transition of its own to suppress;
+   the one it can be given — the ride, on by default now — is an inline style,
+   which this could not override anyway, so that path checks the same query
+   itself before it starts (and layout-drive pins it: under reduced motion the
+   dock is never transformed). See startRide() in src/ui/nativeKeyboard.ts. */
+@media (prefers-reduced-motion: reduce) {
+  .dock.kb-lifted {
+    transition: none;
+  }
+}
+
+/* One line, always. "Casey's clue: «hyggelig» (2) — up to 2 more guesses" is
+   the longest of them and it wrapped on any clue of eight letters or more at
+   360px, which is most Danish words: 18px off the board, arriving at the
+   moment the clue is read. Cut rather than clamped — the clue itself is at the
+   start, and what gets cut is a guess count the turn pips also carry. */
+.dock-title {
+  line-height: 1.35;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Casey's clue, inside the title, as the thing you tap to look it up. It has
+   to read as tappable without becoming a control that costs the line more
+   than the reserve can spare — the title is one line and the whole reserve is
+   sized off rows like this one — so it is the word in its own ink with an
+   underline under it, and nothing else. Inline, so the nowrap/ellipsis above
+   still governs the line. */
+.clue-lookup {
+  font-weight: 700;
+  color: var(--green-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* In the guess bar it is the biggest text in the dock, and since build 83 the
+   ONLY dressed-up thing about it is size and ink: the owner asked for the
+   guillemets and the underline gone and the green kept, bigger still — "so
+   it's clearly the important one". The clue is the whole of what the turn is
+   about, and at the title's 0.92rem it read as a label. 1.55rem on a tight
+   line-height, so the title's line box grows from 19.9px to about 26 rather
+   than to 30 — the guess bar's give-way row (the actions row, with 7px of
+   slack at 360x640 before this) absorbs the difference and the dictionary row
+   under it does not move. The look-up target grows with it. */
+.guess-bar .clue-lookup {
+  font-size: 1.55rem;
+  line-height: 1.05;
+  text-decoration: none;
+}
+
+.dock-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dock-head .dock-title {
+  flex: 1;
+}
+
+.clue-row {
+  display: flex;
+  gap: 10px;
+}
+
+.clue-row input {
+  flex: 1;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.stepper button {
+  width: 40px;
+  height: 44px;
+  font-size: 1.3rem;
+  color: var(--text-dim);
+}
+
+.stepper-value {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.clue-error {
+  color: var(--red);
+  font-size: 0.85rem;
+}
+
+.guess-confirm {
+  display: flex;
+  gap: 10px;
+}
+
+/* The row gives the word room. A .btn is sized for a label that is the whole
+   point of the button; the label here is six letters of "Cancel" beside a
+   button carrying a board word that must not wrap — see .btn-primary below.
+   Both buttons step down together so the pair still reads as a pair. */
+.guess-confirm .btn {
+  font-size: 0.85rem;
+  padding-inline: 12px;
+}
+
+/* One line, whatever the word is. This button carries a board word inside it,
+   and at the .btn defaults the long ones wrapped: 100 of the 1800 labels the
+   900 words can produce, measured at 360px in this button with both verbs in
+   front of them ("Guess «x»" here, "Name «x»" in sudden death). A wrapped
+   label is 24px taller, and this row sits inside the reserve — so those 24px
+   would come off the BOARD in every phase of the round, for a button that is
+   on screen for one tap. That is what the step-down above buys: at 0.85rem
+   with 12px of side padding the button is 213px wide and the widest label of
+   the 1800, "Guess «vaskemaskine»", needs 200.6 of them. None overflows.
+   The ellipsis is the backstop for a future dataset with a longer word still
+   — it cuts the tail rather than the row. */
+.guess-confirm .btn-primary {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thinking {
+  color: var(--text-dim);
+}
+
+/* A small outlined tag beside a Settings heading: offline mode ships at
+   launch marked "Experimental" (owner, 2026-09-27). Inline and small, so the
+   heading keeps one line at 360px in every language. */
+.experimental-tag {
+  display: inline-block;
+  margin-left: 0.15rem;
+  padding: 0.05rem 0.45rem;
+  border: 1px solid var(--text-dim);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Offline Casey is thinking (on the phone, and slower): the bubble says so in
+   words; the italics only let it read as different at a glance. No size or
+   line changes, so the dock keeps its height. */
+.thinking.offline {
+  font-style: italic;
+}
+
+/* Three U+25CF BLACK CIRCLE, named rather than left to speak for themselves:
+   these and the one on .home-progress are the two glyphs in this file that an
+   editor guessing CP1252 will eat. Both were sitting as a-circumflex, em-dash
+   and a U+008F control -- which is what the bytes E2 97 8F become when UTF-8
+   is read as CP1252 and written back -- and on the phone that trio rendered
+   three times over beside "Casey is thinking". */
+.dots::after {
+  content: '●●●';
+  letter-spacing: 3px;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* One line too, and this one changes twice per guess as Casey works down her
+   queue (U3): "«soveværelse» — got one!" on the reveal beat against "Casey is
+   choosing a word…" on the think beat before it, arriving and leaving three
+   times a turn. The confidence phrase that used to open it is gone — the
+   bubble above says why she picked the word, before she picks it. */
+.ai-guess-line {
+  font-size: 1.02rem;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result-green strong {
+  color: var(--green-deep);
+}
+
+.result-bystander strong {
+  color: #8a8471;
+}
+
+
+.error-banner {
+  background: var(--red-soft);
+  border: 1px solid var(--red);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  /* Column, not row: the messages run to two or three lines on a phone, and a
+     second action beside them left no room for either. */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.error-banner p {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.practice-note {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  text-align: center;
+}
+

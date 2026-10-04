@@ -1,0 +1,477 @@
+/* ---------- home map ---------- */
+
+/* The button hugs the drawing rather than framing the gap beside it.
+   Denmark's viewBox is 680x812 and the map is capped by HEIGHT, so at
+   `width: 100%` the button was 326px holding a 129px drawing: 98px of
+   emptiness down each side, measured at 360x640, and the single biggest piece
+   of white space on the screen. `fit-content` puts the tap target on the map.
+
+   No frame around it: the card it used to be was a 1px line and `var(--bg)`
+   on `var(--bg)`, so the border WAS the card. Denmark drawn straight onto the
+   page is the same drawing with one less rectangle in the way, and the land's
+   own `--surface` fill still separates it from the white behind it. */
+.map-button {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Two sibling controls in the existing map band. The map stays centred while
+   the Guide's little cover sits at the band's upper-left as its own familiar
+   object, without repeating the old text label. */
+.home-map-controls {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.home-map-controls .map-button {
+  margin-inline: auto;
+}
+
+.home-map-controls > .home-guide-button {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  min-height: 44px;
+  width: auto;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Home keeps the Guide's 44px target in the map corner while its postcard
+   total lives immediately below it. The total is a durable city projection,
+   not the legacy translation balance used by a round. */
+.home-map-controls > .home-guide-stack {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.home-guide-stack > .home-guide-button {
+  min-height: 44px;
+  width: auto;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The Guide is pencil art, not a quiet-button variant: its 44px target is
+   intentionally invisible until keyboard focus supplies the familiar ring. */
+.travel-guide-button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.travel-guide-button:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 2px;
+  border-radius: 6px 4px 7px 5px / 5px 7px 4px 6px;
+}
+
+/* HOME variant only: the bare hand-drawn book, no circle/pill around it.
+   The Map screen variant below keeps its own chrome. */
+.home-map-controls > .home-guide-button .travel-guide-icon,
+.home-map-controls > .home-guide-stack > .home-guide-button .travel-guide-icon {
+  width: 52px;
+  height: 58px; /* proportional to the 34x38 viewBox */
+}
+
+.map-lessons.travel-guide-button {
+  width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.map-lessons .travel-guide-icon {
+  width: 28px;
+  height: 32px;
+}
+
+.travel-guide-icon {
+  width: 30px;
+  height: 34px;
+  flex: none;
+  fill: none;
+  stroke: var(--text);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+}
+
+.travel-guide-icon-cover { fill: #f2eee3; }
+.travel-guide-icon-pencil { stroke-width: 1.5; stroke-dasharray: 17 1.3 9 .8; }
+.travel-guide-icon-grammar { fill: #dda887; }
+.travel-guide-icon-survival { fill: #afc39a; }
+.travel-guide-icon-route { stroke: #66836c; stroke-dasharray: 1.5 2; }
+.travel-guide-icon-origin { fill: #66836c; stroke: none; }
+.travel-guide-icon-casey { fill: #fffdf7; }
+.travel-guide-icon-eye { fill: var(--text); stroke: none; }
+
+.home-map {
+  width: auto;
+  max-width: 100%;
+  /* Height is what sizes this map — `width: auto` above then follows from the
+     0.84:1 viewBox, which is what lets the button hug it.
+
+     Uncapped, Denmark's shape pushed the primary action below the fold on
+     640-667px phones, which is why there is a cap at all. The number is
+     measured, not chosen: `e2e/home-space-probe.mjs` prints the drawn map
+     against `.cluey-band`'s dead space, and at 390x844 the band was carrying
+     137px of empty air around a Casey already at his own 34vh cap. This
+     spends it. Phones at or under 720px get their own value below — they have
+     23-37px of that air, not 137.
+
+     28vh became 30 when the Baltic came off the east edge: cropping Bornholm
+     turns the viewBox portrait, so the drawing gave back a third of its WIDTH
+     and none of its height, and height is the only axis that makes it bigger.
+     30 rather than more is the tightest viewport this rule covers, not this
+     one — at 360x721, one pixel above the query below, the layout drive's
+     clearance reads 15.4px at 30vh, 8.2px at 32vh and MINUS 6px at 34vh, where
+     Casey's name paints over the travel button. (390x844 has 45.2px at 30vh
+     and would take 36.) */
+  height: 30vh;
+  display: block;
+}
+
+.home-dot {
+  stroke: var(--text);
+  stroke-width: 5;
+  fill: var(--bg);
+}
+
+.dot-done {
+  fill: var(--text);
+}
+
+.dot-here {
+  fill: var(--green-tile);
+  stroke: var(--green-deep);
+  stroke-width: 8;
+}
+
+.dot-ahead {
+  stroke: var(--line);
+  stroke-width: 4;
+}
+
+.home-map-here {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  fill: var(--text);
+}
+
+/* ---------- rejsepas ---------- */
+
+.passport-label {
+  margin-top: 14px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-dim);
+}
+
+/* The stamp row is otherwise the one thing on Home that never says what it is for. */
+.passport-gloss {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.stamp-row {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.stamp {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.stamp-earned {
+  border-style: solid;
+  border-color: var(--green-tile);
+  background: var(--green-tile);
+  color: #fff;
+}
+
+.stamp-award {
+  text-align: center;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+/* ---------- the collection ---------- */
+
+.collection-summary {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.collection-headline {
+  font-size: 1.05rem;
+}
+
+.collection-headline strong {
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.collection-sub {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.collection-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.swatch-learned {
+  background: var(--green-tile);
+}
+
+/* Keys the grey tiles and the grey bar segment, so it has to be the same grey â€”
+   and never the board's beige, which the tutorial teaches as a spent turn. */
+.swatch-discovered {
+  background: var(--grey-soft);
+  border: 1px solid var(--grey-tile);
+}
+
+.swatch-unknown {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+}
+
+.collection-city {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.collection-city-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 2px;
+  gap: 10px;
+}
+
+.collection-city-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.collection-city-count {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.collection-locked {
+  color: var(--text-dim);
+}
+
+.word-dex {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 6px;
+  padding-bottom: 14px;
+}
+
+.dex-slot {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+}
+
+.dex-learned,
+.dex-wrapped {
+  background: var(--green-tile);
+  border: 1px solid var(--green-tile);
+  color: #fff;
+}
+
+/* Collected but not yet packed: green like the goal, hollow like the gap. */
+.dex-collected {
+  background: var(--green-soft);
+  border: 1px solid var(--green-tile);
+  color: var(--text);
+}
+
+.dex-discovered {
+  background: var(--grey-soft);
+  border: 1px solid var(--grey-tile);
+  color: var(--text);
+}
+
+.dex-unknown {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  color: var(--text-dim);
+}
+
+.collection-foot {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.collection-city-note {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.collect-count {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.collect-count strong {
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.gate-pips {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.gate-pip {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.gate-pip.gate-passed {
+  background: var(--green-tile);
+  border-color: var(--green-tile);
+  color: #fff;
+}
+
+.gate-pip.gate-ready {
+  border-color: var(--text);
+  color: var(--text);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.btn-gate {
+  border-color: var(--text);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  line-height: 1.3;
+}
+
+.gate-paper {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.gate-hint {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.section-divider {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-top: 4px;
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 32%;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.section-divider::before {
+  left: 0;
+}
+
+.section-divider::after {
+  right: 0;
+}
+

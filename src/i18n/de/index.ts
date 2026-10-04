@@ -5,7 +5,8 @@ import { guide } from './guide'
 import { home } from './home'
 import { onboarding } from './onboarding'
 import { settings } from './settings'
+import { sightseeing } from './sightseeing'
 import { system } from './system'
 
 /** Deutsch. Du, nie Sie; Casey ist „sie“ (UL12, §6.2). */
-export const de: Catalogue = { settings, system, home, onboarding, game, casey, guide }
+export const de: Catalogue = { settings, system, home, onboarding, game, casey, guide, sightseeing }

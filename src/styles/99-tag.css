@@ -1,0 +1,174 @@
+/* ---------- the tag: a luggage tag in place of a button (café world) ----------
+ *
+ * src/ui/components/Tag.tsx. Contract section 6: one unbroken outline,
+ * clipped corners at the string end (the left) and a punched hole. Drawn
+ * after T1 in docs/design/cafe-world/design-suitcase-tags-options.jpg and the
+ * Sightseeing panel's tags (.run-tag-btn in 98-sightseeing-run.css).
+ *
+ * The button itself is NOT clipped. Two pseudo-elements draw the tag: ::before
+ * is the ink, clipped to the tag's shape; ::after is the fill, inset by the
+ * line width and clipped to the same shape, so the ink shows only as an
+ * outline of even weight, diagonals included. A focus ring on the unclipped
+ * button is therefore never cut off.
+ *
+ * THE LOOK IN ONE PLACE: the custom properties on .tag are every colour and
+ * measure a tag has. Swap them here to try another ink, fill or cut. */
+
+.tag {
+  --tag-ink: var(--text);
+  --tag-fill: #fff;
+  --tag-label: var(--text);
+  --tag-note: var(--text-dim);
+  --tag-line: 2px;
+  --tag-cut: 14px;
+  /* The inner cut, so the diagonal line is as thick as the straight ones:
+     cut - line x (2 - sqrt 2). */
+  --tag-cut-in: calc(var(--tag-cut) - var(--tag-line) * 0.586);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px 8px 34px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--tag-label);
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tag::before,
+.tag::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tag::before {
+  inset: 0;
+  background: var(--tag-ink);
+  clip-path: polygon(var(--tag-cut) 0, 100% 0, 100% 100%, var(--tag-cut) 100%, 0 calc(100% - var(--tag-cut)), 0 var(--tag-cut));
+}
+
+.tag::after {
+  inset: var(--tag-line);
+  background: var(--tag-fill);
+  clip-path: polygon(
+    var(--tag-cut-in) 0,
+    100% 0,
+    100% 100%,
+    var(--tag-cut-in) 100%,
+    0 calc(100% - var(--tag-cut-in)),
+    0 var(--tag-cut-in)
+  );
+}
+
+/* The punched hole at the string end. */
+.tag-hole {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border: var(--tag-line) solid var(--tag-ink);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.tag-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.tag-label {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.08rem;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+}
+
+.tag-note {
+  color: var(--tag-note);
+  font-size: 0.74rem;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+
+/* Two to a row: on the narrowest phones (320px) the label steps down so a
+   one-word name such as "Sightseeing" stays whole. */
+.tag-row {
+  padding-inline: 30px 10px;
+}
+
+.tag-row .tag-label {
+  font-size: clamp(0.94rem, 4.7vw, 1.08rem);
+}
+
+.tag-row .tag-hole {
+  left: 11px;
+}
+
+.tag-wide {
+  width: 100%;
+  padding: 10px 16px 10px 38px;
+}
+
+.tag-wide .tag-label {
+  font-size: 1.28rem;
+}
+
+.tag-wide .tag-note {
+  font-size: 0.8rem;
+}
+
+.tag-primary {
+  --tag-label: var(--green-deep);
+}
+
+/* Destructive actions (reset progress, cancel a round): the tag in the app's
+   red, line and label, as the danger pill was drawn (owner, 2026-09-11). An
+   open look question in CW-12's before/after list. */
+.tag-danger {
+  --tag-ink: var(--red);
+  --tag-label: var(--red);
+}
+
+/* Pressed: the tag goes faintly manila under the thumb. No movement, so a
+   tag never shifts the layout around it. */
+.tag:active:not(:disabled) {
+  --tag-fill: #efeadc;
+}
+
+.tag:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 3px;
+}
+
+/* Disabled: a pencil tag, still in its place, that does nothing. */
+.tag:disabled {
+  --tag-ink: var(--beige-deep);
+  --tag-label: #9b9b9b;
+  --tag-note: #b0b0b0;
+  cursor: default;
+}
+
+@media (forced-colors: active) {
+  .tag {
+    border: 2px solid ButtonText;
+  }
+
+  .tag::before,
+  .tag::after,
+  .tag-hole {
+    display: none;
+  }
+}

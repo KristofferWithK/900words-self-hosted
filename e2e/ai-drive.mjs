@@ -7,6 +7,7 @@
 import { chromium } from 'playwright'
 import { createServer } from 'vite'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startFakeOllama, clueReply, guessReply } from './fake-ollama.mjs'
 import { startWorker } from './worker-runtime.mjs'
@@ -50,6 +51,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 page.on('pageerror', (e) => console.log('PAGE CRASH:', e.message))
 
@@ -80,7 +83,16 @@ await page.addInitScript(
         sessionStorage.removeItem('__ai-drive-primary-fixture-v1')
       }
     } catch { /* opaque origins do not carry this test-only fixture */ }
-    window.__feedback = { oscillatorStarts: [] }
+    window.__feedback = { oscillatorStarts: [], vibrations: [] }
+    // The web build's haptics are navigator.vibrate (src/ui/feedback.ts);
+    // recorded here so the found-tile and full-clue responses can be counted.
+    Object.defineProperty(navigator, 'vibrate', {
+      configurable: true,
+      value: (pattern) => {
+        window.__feedback.vibrations.push(pattern)
+        return true
+      },
+    })
     class FakeAudioParam {
       setValueAtTime() {}
       exponentialRampToValueAtTime() {}
@@ -429,7 +441,7 @@ try {
   })
   round = await freshRound()
   const spoken = round.playerGreens.slice(0, 2)
-  await page.evaluate(() => { window.__feedback.oscillatorStarts = [] })
+  await page.evaluate(() => { window.__feedback.oscillatorStarts = []; window.__feedback.vibrations = [] })
   fake.reset()
   fake.queue(
     ...guessBeats(spoken, (wordId) => `I am naming ${round.da[wordId]} here, and nothing else on the board.`),
@@ -502,23 +514,35 @@ try {
     transcript.clips.length === flips.length,
     `${transcript.clips.length} clips for ${flips.length} guesses: ${transcript.clips.join(', ')}`,
   )
+  // The tile-found cue and the reward ding were Web Audio tones until
+  // 2026-09-24, when a suitcase clack replaced them; #291 retired the clack
+  // too (owner, 2026-09-26: the green haptic is that moment's response) and
+  // moved every remaining effect onto media elements. So a found tile is the
+  // light green haptic, completing the clue is the success haptic, and no
+  // effect is synthesized on the shared AudioContext any more.
   const feedback = await page.evaluate(() => window.__feedback)
+  const vibrated = (pattern) =>
+    feedback.vibrations.filter((v) => JSON.stringify(v) === JSON.stringify(pattern)).length
   check(
-    'and the first found tile earns exactly one immediate tile-found cue',
-    feedback.oscillatorStarts.filter((at) => Math.abs(at) <= 0.02).length === 1,
+    'and each found tile earns exactly one light green haptic',
+    vibrated(15) === spoken.length,
     JSON.stringify(feedback),
   )
   check(
-    'and reaching the clue’s full number earns exactly one delayed reward ding',
-    feedback.oscillatorStarts.filter((at) => Math.abs(at - 0.38) <= 0.02).length === 1 &&
-      feedback.oscillatorStarts.length === 2,
+    'and reaching the clue’s full number earns exactly one success haptic',
+    vibrated([25, 45, 20]) === 1,
+    JSON.stringify(feedback),
+  )
+  check(
+    'and no effect is synthesized on the shared AudioContext',
+    feedback.oscillatorStarts.length === 0,
     JSON.stringify(feedback),
   )
 
   // ---- and the same beats for someone who asked for stillness ---------------
   // The beats are a clock, not an animation, so reduced motion must not skip
   // any of them — while Casey's face, which IS animated, holds still. The
-  // allowlist that stops it is in index.css under "reduced motion"; this is the
+  // allowlist that stops it is in src/styles/48-confetti-and-reduced-motion.css under "reduced motion"; this is the
   // check that it covers the face this panel renders.
   //
   // Not vacuous, and this is what says so: her face on the ORDINARY path,

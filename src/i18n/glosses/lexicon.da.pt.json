@@ -212,6 +212,10 @@
     "gloss": "anatomia"
   },
   {
+    "da": "anden",
+    "gloss": "outro, segundo"
+  },
+  {
     "da": "anderledes",
     "gloss": "diferente"
   },
@@ -408,6 +412,10 @@
     "gloss": "cadeira auto"
   },
   {
+    "da": "autoværn",
+    "gloss": "barreira de proteção"
+  },
+  {
     "da": "baby",
     "gloss": "bebé"
   },
@@ -586,6 +594,10 @@
   {
     "da": "bedstemor",
     "gloss": "avó"
+  },
+  {
+    "da": "bedømmelse",
+    "gloss": "avaliação"
   },
   {
     "da": "befinde",
@@ -1274,14 +1286,6 @@
   {
     "da": "børn",
     "gloss": "crianças"
-  },
-  {
-    "da": "børneopdragelse",
-    "gloss": "educação dos filhos"
-  },
-  {
-    "da": "børnesang",
-    "gloss": "canção infantil"
   },
   {
     "da": "børste",
@@ -2456,10 +2460,6 @@
     "gloss": "obstáculo"
   },
   {
-    "da": "forhistorisk",
-    "gloss": "pré-histórico"
-  },
-  {
     "da": "forhold",
     "gloss": "relacionamento"
   },
@@ -2497,7 +2497,7 @@
   },
   {
     "da": "forløb",
-    "gloss": "percurso"
+    "gloss": "decurso"
   },
   {
     "da": "form",
@@ -3860,10 +3860,6 @@
     "gloss": "compras"
   },
   {
-    "da": "indkørsel",
-    "gloss": "entrada (para carros)"
-  },
-  {
     "da": "indlede",
     "gloss": "iniciar"
   },
@@ -4978,6 +4974,10 @@
   {
     "da": "køretøj",
     "gloss": "veículo"
+  },
+  {
+    "da": "kørsel",
+    "gloss": "condução"
   },
   {
     "da": "lag",
@@ -6276,10 +6276,6 @@
     "gloss": "esclarecido, iluminado"
   },
   {
-    "da": "oplæsning",
-    "gloss": "leitura em voz alta"
-  },
-  {
     "da": "opløse",
     "gloss": "dissolver"
   },
@@ -7224,6 +7220,10 @@
     "gloss": "passageiro"
   },
   {
+    "da": "rejsetid",
+    "gloss": "tempo de viagem"
+  },
+  {
     "da": "reklame",
     "gloss": "anúncio"
   },
@@ -7600,10 +7600,6 @@
     "gloss": "cooperação"
   },
   {
-    "da": "samkørsel",
-    "gloss": "boleia partilhada"
-  },
-  {
     "da": "samles",
     "gloss": "reunir"
   },
@@ -7650,6 +7646,10 @@
   {
     "da": "sandslot",
     "gloss": "castelo de areia"
+  },
+  {
+    "da": "sandsynlig",
+    "gloss": "provável"
   },
   {
     "da": "sandt",
@@ -8510,10 +8510,6 @@
   {
     "da": "stamtræ",
     "gloss": "árvore genealógica"
-  },
-  {
-    "da": "standse",
-    "gloss": "parar"
   },
   {
     "da": "stang",
@@ -10150,6 +10146,10 @@
   {
     "da": "vugge",
     "gloss": "berço"
+  },
+  {
+    "da": "vurdering",
+    "gloss": "avaliação, juízo"
   },
   {
     "da": "våben",

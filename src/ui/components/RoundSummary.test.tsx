@@ -8,7 +8,12 @@ import { UI } from '../../i18n'
 import { RECEIPT_UI } from '../../i18n/receipt'
 import { EMPTY_LEARNING, MATRIX_FIXTURES, attemptFixture, settlementFixture } from '../../progression/fixtures'
 import { emptySettlementLedger, prepareSettlement } from '../../progression/settlement'
-import { entryForLessonOffer, ReceiptGuideOverlay, RoundSummary } from './RoundSummary'
+import { boardNumber, entryForLessonOffer, finishPlace, ReceiptGuideOverlay, RoundSummary } from './RoundSummary'
+import { cafeNameForBoard } from '../../cafe/cafeName'
+import { requiredSetForCourse } from '../../session/courseRuntime'
+import type { CompletionReceipt } from '../../progression/types'
+import { CITY1_BOARD_CYCLE } from '../../data/city1BoardCycle'
+import { CITY1_REQUIRED_BOARD_IDS } from '../../data/city1RequiredBoardManifest'
 
 vi.mock('../../stores/gameStore', async importOriginal => {
   const actual = await importOriginal<typeof import('../../stores/gameStore')>()
@@ -155,7 +160,7 @@ describe('RoundSummary receipt result successors', () => {
     } })
     const guided = renderToStaticMarkup(<RoundSummary game={finished} showResultLesson />)
     expect(guided).toContain('data-tour-kind="result"')
-    expect(guided).toContain('data-tour-anchor=".receipt-postcard-total"')
+    expect(guided).toContain('data-tour-anchor=".receipt-reward-list"')
     expect(guided).not.toContain('receipt-lesson-offer')
     expect(guided).not.toContain('reminder-prompt-probe')
 
@@ -164,7 +169,7 @@ describe('RoundSummary receipt result successors', () => {
       queue: [{ ...queue[0]!, sentenceId: 'missing-from-review-catalog' }, queue[1]!],
     } })
     const unavailable = renderToStaticMarkup(<RoundSummary game={finished} showResultLesson />)
-    expect(unavailable).toContain('data-tour-anchor=".receipt-postcard-total"')
+    expect(unavailable).toContain('data-tour-anchor=".receipt-reward-list"')
 
     const ordinary = renderToStaticMarkup(<RoundSummary game={finished} />)
     expect(ordinary).not.toContain('data-tour-kind="result"')
@@ -239,7 +244,8 @@ describe('RoundSummary receipt result successors', () => {
     useGame.setState({ boardCityIndex: 1, sentenceReview: null })
     const html = renderToStaticMarkup(<RoundSummary game={wonWithGreen} />)
     const surface = dialogOf(html)
-    expect(surface).toContain(`>${UI.game.playAgain}</button>`)
+    // The replay is a tag (CW-12); Home stays a text route.
+    expect(surface).toContain(`<span class="tag-label">${UI.game.playAgain}</span>`)
     expect(surface).toContain(`>${UI.game.home}</button>`)
     expect(surface).not.toContain('summary-wrap-actions')
     expect(surface).not.toContain(UI.game.playNextGame)
@@ -261,4 +267,31 @@ describe('RoundSummary receipt result successors', () => {
     expect(html).toContain(`>${UI.game.home}</button>`)
   })
 
+})
+
+describe('the finish header board number', () => {
+  it("is the board's place in the course, not its bank number", () => {
+    expect(boardNumber('bank_001')).toBe('01')
+    const second = CITY1_REQUIRED_BOARD_IDS[1]!
+    expect(second).not.toBe('bank_002')
+    expect(boardNumber(second)).toBe('02')
+    expect(boardNumber(CITY1_REQUIRED_BOARD_IDS[99]!)).toBe('100')
+    const outside = CITY1_BOARD_CYCLE.find((board) => !CITY1_REQUIRED_BOARD_IDS.includes(board.id))!.id
+    expect(boardNumber(outside)).toBe(String(Number(outside.slice(5))).padStart(2, '0'))
+    expect(boardNumber(null)).toBeNull()
+  })
+})
+
+describe('the finish header place line', () => {
+  it('names the city and the café (the frozen CW-08 names), else the board number (German course)', () => {
+    const danish = requiredSetForCourse('da')
+    const first = danish.boards.find((board) => board.authoredBoardId === CITY1_REQUIRED_BOARD_IDS[0])!
+    const onCafe = { ...receiptForHeader(5), evidence: { ...receiptForHeader(5).evidence, board: first } } as CompletionReceipt
+    expect(finishPlace('Sønderborg', onCafe)).toBe(`Sønderborg · ${cafeNameForBoard(first)}`)
+    expect(finishPlace('Sønderborg', onCafe)).toBe('Sønderborg · Café Solen')
+    // A board with no café name keeps its number; no receipt, just the city.
+    const outside = { ...onCafe, evidence: { ...onCafe.evidence, board: { ...first, courseId: 'de' } } } as CompletionReceipt
+    expect(finishPlace('Sønderborg', outside)).toBe(`Sønderborg · ${RECEIPT_UI.boardLabel('01')}`)
+    expect(finishPlace('Sønderborg', null)).toBe('Sønderborg')
+  })
 })

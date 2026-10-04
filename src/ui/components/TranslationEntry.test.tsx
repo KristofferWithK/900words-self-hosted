@@ -16,6 +16,9 @@ it.each(Object.keys(CATALOGUES) as UiLanguage[])('renders the translation takeov
   expect(dialog).toContain(escaped(catalogue.game.phaseTranslateChallenge))
   expect(dialog).toContain(escaped(catalogue.game.guidanceTranslationBody(catalogue.onboarding.courseText('da').languageName)))
   expect(dialog).toContain(escaped(catalogue.game.guidanceStartTranslation))
+  // The same opt-out box and copy as the Your turn panel, in every catalogue.
+  expect(dialog).toContain('type="checkbox"')
+  expect(dialog).toContain(escaped(catalogue.game.guidanceHideReminder))
   expect(takeover).toContain(escaped(catalogue.game.phaseTranslateChallenge))
   for (const html of [dialog, takeover]) {
     expect(html).not.toContain(escaped(catalogue.game.guidanceLastChanceTitle))

@@ -18,7 +18,7 @@ describe('L1 authored clue lexicon', () => {
   it('is byte-stable and is exactly the checked-in generated output', () => {
     const checkedIn = readFileSync('src/data/clue-lexicon.da.json', 'utf8').replace(/\r\n/g, '\n')
     expect(renderedLexicon()).toBe(checkedIn)
-    expect(measureLexicon()).toEqual({ rawBytes: 80950, gzipBytes: 20379 })
+    expect(measureLexicon()).toEqual({ rawBytes: 80961, gzipBytes: 20411 })
   })
 
   it('covers every unique authored clue term together with the existing taught lookup', () => {

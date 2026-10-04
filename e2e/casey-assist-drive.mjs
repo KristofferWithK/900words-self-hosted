@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startFakeOllama } from './fake-ollama.mjs'
 import { startWorker } from './worker-runtime.mjs'
@@ -48,6 +49,8 @@ await context.route('**/*', async (route) => {
 })
 await context.tracing.start({ screenshots: true, snapshots: true, sources: true })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const pageErrors = []
 page.on('pageerror', (error) => pageErrors.push(error.message))

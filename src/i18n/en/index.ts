@@ -4,6 +4,7 @@ import { guide } from './guide'
 import { home } from './home'
 import { onboarding } from './onboarding'
 import { settings } from './settings'
+import { sightseeing } from './sightseeing'
 import { system } from './system'
 
 /**
@@ -20,6 +21,6 @@ import { system } from './system'
  * Deliberately no `as const`: every string property types as `string` so the
  * translations are not each forced to repeat the English literal as a type.
  */
-export const en = { settings, system, home, onboarding, game, casey, guide }
+export const en = { settings, system, home, onboarding, game, casey, guide, sightseeing }
 
 export type Catalogue = typeof en

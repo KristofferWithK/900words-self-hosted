@@ -14,6 +14,7 @@ import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { city1ReaderState, measureReviewGeometry } from './city1-review-geometry.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4195
 const preview = await startPreview(PORT)
@@ -44,6 +45,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const crashes = []
 page.on('pageerror', (e) => crashes.push(String(e)))
@@ -232,6 +235,17 @@ async function forceWheel() {
   // The filled wheel is the spinner: the challenge's dock shows nothing left
   // to type, and the disc is the tap target.
   await page.waitForSelector('.wheel-disc', { timeout: 15_000 })
+}
+
+/**
+ * After the spin the board stays, every suitcase showing its Danish, until
+ * "See results" (owner, 2026-09-27). Waits for the disc to rest (the button
+ * is hidden and disabled until then) and taps through to the finish screen.
+ */
+async function seeResults() {
+  const button = page.locator('.wheel-results:not([disabled])')
+  await button.waitFor({ timeout: 15_000 })
+  await button.click()
 }
 
 /** Tap a board card by its Danish word and confirm. */
@@ -523,6 +537,19 @@ try {
   // link and the exits. There is nothing underneath it; everything below is
   // read inside it.
   const finish = page.locator('.city1-review-dialog[open]')
+  // The disc rests on the board, not on the finish screen: every lid shows
+  // its Danish until the player taps See results (owner, 2026-09-27).
+  await page.locator('.wheel-results:not([disabled])').waitFor({ timeout: 15_000 })
+  const review = await page.evaluate(() => ({
+    answers: document.querySelectorAll('.card-lid-answer').length,
+    suitcases: document.querySelectorAll('.card-suitcase-glyph').length,
+    finishOpen: Boolean(document.querySelector('.city1-review-dialog[open]')),
+    verdict: document.querySelector('.wheel-verdict')?.textContent ?? '',
+  }))
+  check('after the spin the board stays with every suitcase showing its Danish',
+    review.answers > 0 && review.answers === review.suitcases && !review.finishOpen && review.verdict.includes('Green'),
+    JSON.stringify(review))
+  await seeResults()
   await finish.waitFor()
   const fanfare = await page.evaluate(() => window.__feedback.sfx.filter((event) => event.kind === 'fanfare'))
   check('the green wheel landing plays one brass fanfare', fanfare.length === 1, JSON.stringify(fanfare))
@@ -536,7 +563,7 @@ try {
       Math.abs(handoffTiming.cueAt - handoffTiming.settledAt) < 100,
     JSON.stringify(handoffTiming),
   )
-  await page.locator('.receipt-postcard-total').waitFor()
+  await page.locator('.receipt-stamp').waitFor()
   await page.screenshot({ path: `${process.env.SHOT_DIR ?? '.'}/normal-win-joker.png` })
   check('and the finish screen says so', (await page.locator('.round-summary').count()) === 1 && (await finish.count()) === 1)
 
@@ -555,12 +582,25 @@ try {
   check('the win headline reflects this attempt tier',
     winHeadline?.trim() === winHeadlineByTier[receiptAfterWin?.attemptTier],
     `${winHeadline?.trim()} / ${receiptAfterWin?.attemptTier}`)
-  check('a win visibly projects its receipt-owned reward',
-    (await page.locator('.receipt-postcards').count()) === 1 && (await page.locator('.receipt-reward-new').count()) > 0,
+  // The café world (CW-09): the result lines are ticks and the café's stamp
+  // stands where the postcard total was. The receipt still records its
+  // claims; the screen no longer prints postcard numbers.
+  const stampLine = await finish.evaluate((el) => ({
+    ticks: el.querySelectorAll('.receipt-tick').length,
+    state: el.querySelector('.receipt-stamp')?.getAttribute('data-stamp-state') ?? '',
+    tier: el.querySelector('.receipt-stamp')?.getAttribute('data-stamp-tier') ?? '',
+    title: el.querySelector('.receipt-stamp-title')?.textContent?.trim() ?? '',
+    percent: el.querySelector('.receipt-city-percent-n')?.textContent?.trim() ?? '',
+    postcards: /postcard/i.test(el.querySelector('.city1-review-context')?.textContent ?? ''),
+  }))
+  check('a win visibly projects its receipt-owned result as ticks and a new stamp in the attempt tier',
+    stampLine.ticks === receiptAfterWin?.rewards?.eligible?.length && stampLine.ticks > 0 &&
+      stampLine.state === 'new' && stampLine.tier === receiptAfterWin?.newBest &&
+      new RegExp(`^${receiptAfterWin?.newBest}`, 'i').test(stampLine.title),
+    JSON.stringify(stampLine),
   )
-  const earnedText = await page.locator('.receipt-postcards').innerText()
-  check('and names the actual incremental postcards', /postcard/i.test(earnedText), earnedText)
-  check('the receipt, rather than the mutable game cache, records the incremental postcards',
+  check('with the city percentage beside it and no postcard numbers', /^\d+%$/.test(stampLine.percent) && !stampLine.postcards, JSON.stringify(stampLine))
+  check('the receipt, rather than the mutable game cache, records the incremental claims',
     Number.isInteger(receiptAfterWin?.rewards?.postcards) && receiptAfterWin.rewards.postcards > 0,
     JSON.stringify(receiptAfterWin?.rewards),
   )
@@ -685,9 +725,10 @@ try {
       await page.screenshot({ path: `${process.env.SHOT_DIR ?? 'evidence'}/translate-wheel-filled-390.png` })
     }
     await page.locator('.wheel-disc').click()
-    // The store applies SPIN_WHEEL: the spin decides the round, and the
-    // finish screen (either verdict) appears inside the spin's animation
-    // window — the wheelSpinHold keeps the wheel mounted until it rests.
+    // The store applies SPIN_WHEEL: the spin decides the round. The board
+    // stays through the spin and the review after it (wheelSpinHold, then
+    // wheelReview); See results opens the finish screen on either verdict.
+    await seeResults()
     const result = await page
       .waitForSelector('.city1-review-dialog[open]', { timeout: 15_000 })
       .then((el) => el.evaluate((node) => node.className), () => null)
@@ -723,6 +764,69 @@ try {
     wheelSawMiss !== null || true,
     JSON.stringify(wheelSawMiss),
   )
+
+  // ---- the full-board wheel (owner, 2026-09-27) ------------------------------
+  // The clues ran out with four key words found. The wheel holds EVERY key
+  // word; Casey's missed ones are dashed on the board, their slices are the
+  // shaded ones nothing can fill, and a missed word's Danish cannot be typed.
+  await start(5, 'player')
+  const fullBoard = await page.evaluate(() => {
+    const raw = JSON.parse(localStorage.getItem('cluecab-game-v1'))
+    const g = raw.state.game
+    const keys = g.words.map((w) => w.wordId).filter((id) => g.playerKey[id] === 'green' || g.aiKey[id] === 'green')
+    const found = keys.slice(0, 4)
+    for (const id of found) g.reveals[id] = { kind: 'green' }
+    g.turnsLeft = 0
+    g.phase = 'translateChallenge'
+    g.wheel = { segments: keys, translated: [], filled: [], attempts: 0, landed: null, result: null, spent: null }
+    window.__writePrimaryFixture(raw)
+    const da = (id) => g.words.find((w) => w.wordId === id).da
+    const caseyMissed = keys.filter((id) => !found.includes(id) && g.aiKey[id] === 'green' && g.playerKey[id] !== 'green')
+    return { total: keys.length, found: found.map(da), caseyMissed: caseyMissed.map(da) }
+  })
+  await page.reload()
+  await page.getByRole('button', { name: 'Continue board' }).click()
+  await page.waitForSelector('.wheel-disc', { timeout: 15_000 })
+  const fullLook = await page.evaluate(() => ({
+    dashed: document.querySelectorAll('.card-wheel-missed .card-missed-frame').length,
+    shaded: document.querySelectorAll('.wheel-slice-missed').length,
+    slices: document.querySelectorAll('.wheel-svg path').length,
+    lede: document.querySelector('.wheel-lede')?.textContent ?? '',
+  }))
+  check('the full-board wheel has one slice per key word',
+    fullLook.slices === fullBoard.total, JSON.stringify({ fullLook, total: fullBoard.total }))
+  check('the key words the round missed keep shaded slices',
+    fullLook.shaded === fullBoard.total - fullBoard.found.length, JSON.stringify(fullLook))
+  check('Casey’s missed words are dashed on the board',
+    fullLook.dashed === fullBoard.caseyMissed.length && fullLook.dashed > 0, JSON.stringify({ fullLook, fullBoard }))
+  check('the lede counts what was found', fullLook.lede.includes(`${fullBoard.found.length} of ${fullBoard.total}`), fullLook.lede)
+  await page.screenshot({ path: `${process.env.SHOT_DIR ?? '.'}/full-board-wheel-challenge-390.png` })
+  // A missed word's Danish is on the board but not in a suitcase: a miss.
+  await page.fill('.wheel-input', fullBoard.caseyMissed[0])
+  await page.locator('.wheel-confirm').click()
+  check('a missed word cannot be typed into the wheel',
+    (await game()).wheel.translated.length === 0 && (await page.locator('.packing-miss').count()) === 1)
+  await page.fill('.wheel-input', fullBoard.found[0])
+  await page.locator('.wheel-confirm').click()
+  await page.waitForFunction(() => document.querySelectorAll('.card-wheel-packed').length === 1)
+  check('a found word packs and fills one slice, never a shaded one',
+    (await page.locator('.wheel-slice-missed').count()) === fullBoard.total - fullBoard.found.length &&
+      (await game()).wheel.filled.length === 1)
+  await page.locator('.wheel-disc').click()
+  await page.locator('.wheel-results:not([disabled])').waitFor({ timeout: 15_000 })
+  const fullReview = await page.evaluate(() => ({
+    answers: document.querySelectorAll('.card-lid-answer').length,
+    yours: document.querySelectorAll('.card-lid-yours').length,
+    unpacked: document.querySelectorAll('.card-wheel-unpacked').length,
+  }))
+  check('after the spin the untyped suitcases show the answer, the typed one in green',
+    fullReview.answers === fullBoard.found.length && fullReview.yours === 1 && fullReview.unpacked === fullBoard.found.length - 1,
+    JSON.stringify(fullReview))
+  await page.screenshot({ path: `${process.env.SHOT_DIR ?? '.'}/full-board-wheel-review-390.png` })
+  await seeResults()
+  await page.locator('.city1-review-dialog[open]').waitFor({ timeout: 15_000 })
+  check('See results opens the finish screen', (await page.locator('.round-summary').count()) === 1)
+  await page.goto('about:blank')
 
   // ---- the City 2 sentence band is beyond the release scope ------------------
   // The band moved off City 1 with PR #216: RoundSummary renders
@@ -797,22 +901,43 @@ try {
     (await page.locator('.outcome-banner .cluey-svg.mood-oops').count()) === 1,
   )
 
-  // The last-chance ending uses Bronze as a participation-only presentation,
-  // with zero new rewards. The finish screen is fixed — its reader is the only scroller
+  // The last-chance ending is a completed loss: it earns a Bronze stamp (owner,
+  // 2026-10-04, CW-03b). A first visit lands "Bronze stamp"; a café that
+  // already has a stamp keeps it under "No new stamp". No result line is
+  // ticked. The finish screen is fixed — its reader is the only scroller
   // and the document never is — so it is measured at both phone sizes here,
   // the way layout-drive measures the ordinary win and wrapup-drive the
   // wrap-up; the geometry helper asserts the tiling and throws.
-  await finish.locator('.receipt-postcard-total').waitFor()
-  check('the loss presents Bronze as participation only, with no earned rewards',
+  await finish.locator('.receipt-stamp').waitFor()
+  // Whether this lost board is a first visit is read off its own receipt: a
+  // primary round with no earlier best must land exactly a new Bronze.
+  const lossReceipt = await page.evaluate(() => {
+    const session = JSON.parse(localStorage.getItem('cluecab-progression-sessions-v1') ?? '{}').state?.byCourse?.da
+    const attemptId = session?.[session?.activeSlot ?? 'primary']?.attemptId ?? session?.primary?.attemptId
+    const ledger = JSON.parse(localStorage.getItem('cluecab-settlement-v1') ?? '{}')
+    const r = attemptId ? ledger?.settlements?.[JSON.stringify(['receipt-v1', attemptId])]?.receipt ?? null : null
+    return r && { origin: r.evidence?.origin, completedLoss: r.completedLoss, previousBest: r.previousBest }
+  })
+  const firstVisit = lossReceipt?.origin === 'primary' && lossReceipt.previousBest === null
+  const lossStamp = {
+    firstVisit,
+    state: await finish.locator('.receipt-stamp').getAttribute('data-stamp-state'),
+    tier: await finish.locator('.receipt-stamp').getAttribute('data-stamp-tier'),
+    title: (await finish.locator('.receipt-stamp-title').textContent())?.trim(),
+  }
+  check('the loss shows a Bronze stamp (a first visit lands exactly a new Bronze; a replay keeps its stamp) and ticks nothing, with no postcard numbers',
     (await finish.locator('.city1-review-outcome').textContent())?.trim() === 'Participation trophy' &&
-      (await finish.locator('.receipt-tier-bronze').count()) === 1 &&
-      (await finish.locator('.receipt-tier-qualifier').textContent())?.trim() === 'participation only' &&
-      (await finish.locator('.receipt-postcards').textContent())?.trim() === '+0 new postcards' &&
-      (await finish.locator('.receipt-reward-new').count()) === 0 &&
+      lossReceipt?.completedLoss === true &&
+      (firstVisit
+        ? lossStamp.state === 'new' && lossStamp.tier === 'bronze' && lossStamp.title === 'Bronze stamp' &&
+          (await finish.locator('.receipt-stamp-glyph.cafe-stamp-bronze').count()) === 1
+        : lossStamp.state === 'kept' && ['bronze', 'silver', 'gold', 'platinum'].includes(lossStamp.tier) && lossStamp.title === 'No new stamp') &&
+      (await finish.locator('.receipt-tick').count()) === 0 &&
+      !/postcard/i.test((await finish.locator('.city1-review-context').textContent()) ?? '') &&
       // Sudden death has no explanatory sub and never names a culprit card.
       (await finish.locator('.outcome-sub').count()) === 0 &&
       (await finish.locator('.confetti').count()) === 0,
-    (await finish.locator('.city1-review-outcome').textContent()) ?? '')
+    `${(await finish.locator('.city1-review-outcome').textContent()) ?? ''} ${JSON.stringify(lossStamp)}`)
   for (const [w, h] of [
     [360, 640],
     [390, 844],

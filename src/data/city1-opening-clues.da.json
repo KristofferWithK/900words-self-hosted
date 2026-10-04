@@ -45,12 +45,12 @@
     },
     {
       "id": "bank_005",
-      "clue": "danmark",
-      "clueEnglish": "Denmark",
+      "clue": "strækning",
+      "clueEnglish": "stretch (of road)",
       "targetWordIds": [
-        "da:land",
-        "da:dansk",
-        "da:krone"
+        "da:lang",
+        "da:gå",
+        "da:køre"
       ]
     },
     {
@@ -175,12 +175,12 @@
     },
     {
       "id": "bank_018",
-      "clue": "standse",
-      "clueEnglish": "to stop",
+      "clue": "bevæge",
+      "clueEnglish": "to move",
       "targetWordIds": [
-        "da:stå",
         "da:køre",
-        "da:gå"
+        "da:komme",
+        "da:stå"
       ]
     },
     {
@@ -245,12 +245,12 @@
     },
     {
       "id": "bank_025",
-      "clue": "forhistorisk",
-      "clueEnglish": "prehistoric",
+      "clue": "tænke",
+      "clueEnglish": "to think",
       "targetWordIds": [
-        "da:gammel",
-        "da:historie",
-        "da:dyr"
+        "da:synes",
+        "da:tro",
+        "da:mening"
       ]
     },
     {
@@ -395,11 +395,11 @@
     },
     {
       "id": "bank_040",
-      "clue": "indkørsel",
-      "clueEnglish": "driveway",
+      "clue": "transport",
+      "clueEnglish": "transport",
       "targetWordIds": [
-        "da:køre",
         "da:bil",
+        "da:køre",
         "da:vej"
       ]
     },
@@ -635,12 +635,12 @@
     },
     {
       "id": "bank_064",
-      "clue": "benævne",
-      "clueEnglish": "to name, to term",
+      "clue": "webkamera",
+      "clueEnglish": "webcam",
       "targetWordIds": [
-        "da:navn",
-        "da:hedde",
-        "da:sige"
+        "da:billede",
+        "da:møde",
+        "da:se"
       ]
     },
     {
@@ -835,12 +835,12 @@
     },
     {
       "id": "bank_084",
-      "clue": "bevidst",
-      "clueEnglish": "conscious, deliberate",
+      "clue": "punktlig",
+      "clueEnglish": "punctual",
       "targetWordIds": [
-        "da:tanke",
-        "da:klar",
-        "da:vide"
+        "da:klokke",
+        "da:time",
+        "da:komme"
       ]
     },
     {
@@ -1305,12 +1305,12 @@
     },
     {
       "id": "bank_131",
-      "clue": "benævne",
-      "clueEnglish": "to name, to term",
+      "clue": "kalde",
+      "clueEnglish": "to call",
       "targetWordIds": [
-        "da:navn",
         "da:hedde",
-        "da:sige"
+        "da:sige",
+        "da:navn"
       ]
     },
     {
@@ -1325,12 +1325,12 @@
     },
     {
       "id": "bank_133",
-      "clue": "kærlig",
-      "clueEnglish": "loving",
+      "clue": "kram",
+      "clueEnglish": "hug",
       "targetWordIds": [
-        "da:kæreste",
         "da:mor",
-        "da:ven"
+        "da:ven",
+        "da:kæreste"
       ]
     },
     {
@@ -1425,12 +1425,11 @@
     },
     {
       "id": "bank_143",
-      "clue": "synspunkt",
-      "clueEnglish": "point of view",
+      "clue": "husdyr",
+      "clueEnglish": "pet, domestic animal",
       "targetWordIds": [
-        "da:mening",
-        "da:synes",
-        "da:tanke"
+        "da:hund",
+        "da:kat"
       ]
     },
     {
@@ -1501,6 +1500,46 @@
         "da:person",
         "da:menneske",
         "da:barn"
+      ]
+    },
+    {
+      "id": "bank_151",
+      "clue": "autoværn",
+      "clueEnglish": "crash barrier",
+      "targetWordIds": [
+        "da:vej",
+        "da:bil",
+        "da:sikker"
+      ]
+    },
+    {
+      "id": "bank_152",
+      "clue": "rejsetid",
+      "clueEnglish": "travel time",
+      "targetWordIds": [
+        "da:time",
+        "da:bus",
+        "da:lang"
+      ]
+    },
+    {
+      "id": "bank_153",
+      "clue": "indbygger",
+      "clueEnglish": "inhabitant",
+      "targetWordIds": [
+        "da:menneske",
+        "da:bo",
+        "da:land"
+      ]
+    },
+    {
+      "id": "bank_154",
+      "clue": "overveje",
+      "clueEnglish": "to consider",
+      "targetWordIds": [
+        "da:tænke",
+        "da:tvivl",
+        "da:synes"
       ]
     }
   ]

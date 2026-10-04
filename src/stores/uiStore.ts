@@ -16,7 +16,7 @@ import {
 } from '../onboarding/flow'
 import { buildAudience, type BuildAudience } from '../build/audience'
 
-export type Screen = 'home' | 'game' | 'settings' | 'suitcase' | 'map' | 'guide' | 'pass'
+export type Screen = 'home' | 'game' | 'settings' | 'suitcase' | 'map' | 'guide' | 'pass' | 'sightseeing'
 
 /** A one-use handoff into the fixed Travel Guide, never saved as progress. */
 export type GuideEntryIntent =

@@ -1,0 +1,344 @@
+/* ---------- the round's words, used in a sentence ----------
+
+   The band the small words are taught in: two to four of the round's greens
+   in their sentences, ALL VISIBLE AT ONCE (owner, 2026-09-05, second pass —
+   the first pass built a one-at-a-time card with a pager, and the owner's
+   reaction was that a finishing screen wants a glance, not an activity). The
+   green word is a green tile in miniature, the city's small words are
+   underlined, and one shared line under the rows names them.
+
+   How many rows is decided by `chooseSentenceRows` in RoundSentences.tsx
+   against SENTENCE_BUDGET_PX, from the text's length; the clamps below are
+   the safety net under that estimate, not the plan. Measured at 360x640, the
+   column is 549px; layout-drive, endgame-drive and wrapup-drive all measure
+   this screen, and endgame-drive checks the estimator's characters-per-line
+   against a real render of the dataset's longest example. */
+
+/* A hairline above the band, since the header has no box of its own. */
+.sentence-review {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+}
+
+.sentence-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Each sentence in its own light card — direction B's one contribution to
+   direction C — in the tile idiom (pencil edge from the pass at the bottom of
+   the file). The card is the speaker: no 🔊 beside it, no height spent on a
+   control; the legend under the rows says so once. */
+.sentence-hear {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px 8px 11px 9px / 9px 11px 8px 12px;
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+}
+
+.sentence-hear:active {
+  background: var(--green-soft);
+}
+
+/* The Danish is the point of the band, so it is the largest text in it. */
+.sentence-da {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.38;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+/* A long example (LONG_DA / LONG_EN in RoundSentences.tsx) a size down. */
+.sentence-da[data-long] {
+  font-size: 0.94rem;
+  line-height: 1.37;
+}
+
+.sentence-en {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: var(--text-dim);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.sentence-en[data-long] {
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.sentence-note {
+  font-style: italic;
+}
+
+/* The two marks. The green word is a green tile in miniature — the same
+   soft fill the board's found cards wear, so the eye reads "this is the
+   card you found" without a legend. The city's small words are a pencil
+   underline in the drawn line colour: present, not shouting, and the line
+   under the rows names them again. */
+mark.sentence-green,
+mark.sentence-flow-word {
+  color: inherit;
+  background: transparent;
+  border-radius: 4px;
+}
+
+mark.sentence-green {
+  color: var(--green-deep);
+}
+
+mark.sentence-flow-word {
+  text-decoration: underline;
+  text-decoration-color: var(--beige-deep);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* One legend for the band, in the marks' own ink, two lines at most. */
+.sentence-legend {
+  margin-top: 10px;
+  padding: 0 2px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-dim);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.sentence-legend mark.sentence-green {
+  font-weight: 600;
+}
+
+/* ---------- the round, as a story (H5) ---------- */
+
+/* One quiet line while Casey writes. The section arrives BELOW the sentences,
+   inside .summary-scroll, so its growth never moves what is being read. */
+.story-waiting {
+  font-size: 0.83rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* The small words the story exists to deliver. Same visual weight as the
+   English glosses around it — a footnote, not a badge row: the words are the
+   payload and decoration would outshout three short particles. */
+.story-targets {
+  margin-top: 8px;
+  font-size: 0.83rem;
+  color: var(--text-dim);
+}
+
+.story-target {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---------- journey: end of the road, and a resumable exam ---------- */
+
+.journey-done {
+  border: 2px solid var(--green-tile);
+  background: var(--green-soft);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.exam-resume {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-quiet {
+  border-color: var(--line-soft);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  padding: 10px;
+}
+
+/* ---------- map: the passport, so the map answers "how far to go?" ---------- */
+
+.stamp-row-map {
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Full width in the detail card — this screen has the room Home's one line
+   does not, so the train is drawn large and the sentence sits under it.
+
+   `.map-train` names the SVG while the train is a readout and the BUTTON once
+   the road opens, so the cap is written for both: on the drawing itself either
+   way, never on a button whose padding would then have to fit inside it. */
+.map-train {
+  margin-top: 2px;
+}
+
+/* The button form on the map: the drawing is already 46px tall here, so the
+   target needs no padding above and below it (Home's 6px is for a 17px row). */
+.train-board.map-train {
+  padding: 2px 0;
+}
+
+.map-train.train-progress,
+.map-train .train-progress {
+  max-height: 46px;
+}
+
+.map-case-note {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+/* Two controls and one line — structurally, not by luck. Only a stop AHEAD
+   has this row now ("Look ahead", and on a developer build "Travel ahead" or
+   the switch that reveals it); the reached stops lost their buttons on
+   2026-09-05. This row used to wrap, and a wrap costs a whole row of card
+   (56px) that comes straight out of the map above. So it cannot wrap, the
+   pills are narrower (10px sides rather than 22), and when a label still does
+   not fit it is the PRIMARY that wraps its own text — one line taller, never
+   a row — while the quiet one and the small switch keep their width. That
+   happens only under fonts wider than a phone's. The developer drive measures
+   this row on exactly this rule. */
+.map-city-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.map-city-actions > .btn,
+.map-city-actions > .tag {
+  min-width: 0;
+}
+
+.map-city-actions > .btn {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.map-city-actions > .map-look-ahead,
+.map-city-actions > .btn-small {
+  flex-shrink: 0;
+}
+
+.map-city-action { margin-top: 4px; }
+
+/* The playtest switch, in the row it switches a button into and quieter than
+   the two beside it — dashed, dim and small, because it is scaffolding for a
+   developer build rather than a move in the game. It takes the place Travel
+   ahead will take, so the row is two controls wide either way. */
+.map-playtest {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-style: dashed;
+}
+
+.map-pass-button,
+.home-pass-button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ---------- 900 Pass (H4) ---------- */
+
+.pass-screen { gap: 16px; }
+
+.pass-body {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  padding: 1px 2px 8px;
+}
+
+.pass-kicker {
+  color: var(--green-deep);
+  font-weight: 700;
+}
+
+.pass-body > p { line-height: 1.45; }
+
+.pass-options {
+  display: grid;
+  gap: 10px;
+}
+
+.pass-option {
+  width: 100%;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  border: 1px dashed var(--text);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  background: var(--surface);
+}
+
+.pass-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pass-option small { color: var(--text-dim); line-height: 1.25; }
+.pass-option b { white-space: nowrap; }
+.pass-option:active:not(:disabled) { background: var(--green-soft); }
+
+.pass-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pass-note { color: var(--text-dim); font-size: 0.9rem; }
+
+.pass-kindness {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  background: var(--surface);
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.pass-kindness h3 { color: var(--text); font-size: 1rem; margin-bottom: 4px; }
+.pass-kindness a { color: var(--green-deep); font-weight: 700; }
+
+/* ---------- Travel Guide: one scroll region, never a Home band ---------- */
+
+.travel-guide-screen,
+.travel-guide-reader { gap: 12px; }
+

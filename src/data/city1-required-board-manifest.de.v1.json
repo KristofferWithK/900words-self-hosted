@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "kind": "city1-required-board-manifest",
+  "status": "owner-authorized-playtest",
+  "boardSetVersion": "city1-german-city1-playtest-v1",
+  "learnerCourse": "de",
+  "stableCityId": "flensburg",
+  "requiredBoardCount": 150,
+  "contentRevisionRule": "Revision 1 identifies the owner-authorized internal playtest set; it is not native-speaker approval.",
+  "sourceSha256": "00fbbe7ba545c0632c70464036ca6ad49dcd9c82b468aeed98e6cabc04beefef",
+  "requiredBoards": [
+    {
+      "authoredBoardId": "bank_001",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_002",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_003",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_004",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_005",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_006",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_007",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_008",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_009",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_010",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_011",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_012",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_013",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_014",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_015",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_016",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_017",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_018",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_019",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_020",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_021",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_022",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_023",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_024",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_025",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_026",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_027",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_028",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_029",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_030",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_031",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_032",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_033",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_034",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_035",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_036",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_037",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_038",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_039",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_040",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_041",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_042",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_043",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_044",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_045",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_046",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_047",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_048",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_049",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_050",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_051",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_052",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_053",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_054",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_055",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_056",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_057",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_058",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_059",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_060",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_061",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_062",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_063",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_064",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_065",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_066",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_067",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_068",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_069",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_070",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_071",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_072",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_073",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_074",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_075",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_076",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_077",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_078",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_079",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_080",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_081",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_082",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_083",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_084",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_085",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_086",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_087",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_088",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_089",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_090",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_091",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_092",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_093",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_094",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_095",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_096",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_097",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_098",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_099",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_100",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_101",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_102",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_103",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_104",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_105",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_106",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_107",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_108",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_109",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_110",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_111",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_112",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_113",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_114",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_115",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_116",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_117",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_118",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_119",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_120",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_121",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_122",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_123",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_124",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_125",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_126",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_127",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_128",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_129",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_130",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_131",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_132",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_133",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_134",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_135",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_136",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_137",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_138",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_139",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_140",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_141",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_142",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_143",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_144",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_145",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_146",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_147",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_148",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_149",
+      "contentRevision": "1"
+    },
+    {
+      "authoredBoardId": "bank_150",
+      "contentRevision": "1"
+    }
+  ],
+  "displayOrder": [
+    "bank_001",
+    "bank_002",
+    "bank_003",
+    "bank_004",
+    "bank_005",
+    "bank_006",
+    "bank_007",
+    "bank_008",
+    "bank_009",
+    "bank_010",
+    "bank_011",
+    "bank_012",
+    "bank_013",
+    "bank_014",
+    "bank_015",
+    "bank_016",
+    "bank_017",
+    "bank_018",
+    "bank_019",
+    "bank_020",
+    "bank_021",
+    "bank_022",
+    "bank_023",
+    "bank_024",
+    "bank_025",
+    "bank_026",
+    "bank_027",
+    "bank_028",
+    "bank_029",
+    "bank_030",
+    "bank_031",
+    "bank_032",
+    "bank_033",
+    "bank_034",
+    "bank_035",
+    "bank_036",
+    "bank_037",
+    "bank_038",
+    "bank_039",
+    "bank_040",
+    "bank_041",
+    "bank_042",
+    "bank_043",
+    "bank_044",
+    "bank_045",
+    "bank_046",
+    "bank_047",
+    "bank_048",
+    "bank_049",
+    "bank_050",
+    "bank_051",
+    "bank_052",
+    "bank_053",
+    "bank_054",
+    "bank_055",
+    "bank_056",
+    "bank_057",
+    "bank_058",
+    "bank_059",
+    "bank_060",
+    "bank_061",
+    "bank_062",
+    "bank_063",
+    "bank_064",
+    "bank_065",
+    "bank_066",
+    "bank_067",
+    "bank_068",
+    "bank_069",
+    "bank_070",
+    "bank_071",
+    "bank_072",
+    "bank_073",
+    "bank_074",
+    "bank_075",
+    "bank_076",
+    "bank_077",
+    "bank_078",
+    "bank_079",
+    "bank_080",
+    "bank_081",
+    "bank_082",
+    "bank_083",
+    "bank_084",
+    "bank_085",
+    "bank_086",
+    "bank_087",
+    "bank_088",
+    "bank_089",
+    "bank_090",
+    "bank_091",
+    "bank_092",
+    "bank_093",
+    "bank_094",
+    "bank_095",
+    "bank_096",
+    "bank_097",
+    "bank_098",
+    "bank_099",
+    "bank_100",
+    "bank_101",
+    "bank_102",
+    "bank_103",
+    "bank_104",
+    "bank_105",
+    "bank_106",
+    "bank_107",
+    "bank_108",
+    "bank_109",
+    "bank_110",
+    "bank_111",
+    "bank_112",
+    "bank_113",
+    "bank_114",
+    "bank_115",
+    "bank_116",
+    "bank_117",
+    "bank_118",
+    "bank_119",
+    "bank_120",
+    "bank_121",
+    "bank_122",
+    "bank_123",
+    "bank_124",
+    "bank_125",
+    "bank_126",
+    "bank_127",
+    "bank_128",
+    "bank_129",
+    "bank_130",
+    "bank_131",
+    "bank_132",
+    "bank_133",
+    "bank_134",
+    "bank_135",
+    "bank_136",
+    "bank_137",
+    "bank_138",
+    "bank_139",
+    "bank_140",
+    "bank_141",
+    "bank_142",
+    "bank_143",
+    "bank_144",
+    "bank_145",
+    "bank_146",
+    "bank_147",
+    "bank_148",
+    "bank_149",
+    "bank_150"
+  ]
+}

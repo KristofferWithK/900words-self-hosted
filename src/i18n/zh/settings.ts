@@ -40,7 +40,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: '这个基础网址用不了。',
 
   // ── 设备上的模型 ─────────────────────────────────────────────────────────
-  gemmaUnavailableNote: '离线模式在 900words 的 iPhone app 中可用。',
+  gemmaUnavailableNote: '离线模式在 900words 的 iPhone 和 Android app 中可用。',
   gemmaReady: (size) => `离线 Casey 已就绪（这台 iPhone 上 ${size}）。`,
   gemmaRemoveConfirm: '要从这台 iPhone 删除离线 Casey 吗？以后可以重新下载。',
   gemmaRemoveButton: '删除离线 Casey',
@@ -73,6 +73,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: '你的 AI 服务已回应。',
   gemmaOption: '这台 iPhone 上的 Gemma',
   gemmaOptionHelp: 'Casey 在这台 iPhone 上玩，不需要网络，也不需要密钥。她会慢一些。',
+  ossCaseyHelpAndroid: '这是自行构建的 900words。Casey 需要 AI 才能玩：你自己的 AI 密钥，或这台 Android 手机上运行的 Gemma。',
+  gemmaOptionAndroid: '这台 Android 手机上的 Gemma',
+  gemmaOptionHelpAndroid: 'Casey 在这台 Android 手机上玩，不需要网络或密钥。她会慢一些。',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `这个自行构建的 900words 可以让 Casey 在这台 Android 手机上运行：无需账号或密钥。Gemma 只需下载一次（${size}）。请使用 Wi-Fi，并保持 900words 打开，直到下载完成。\n\n她在内存至少为 12 GB 的较新 Android 手机上运行效果更好，例如 ${phones}。${lowMemory ? '\n\n这台手机的内存少于推荐机型，运行效果可能不佳。' : ''}\n\n你也可以在设置中添加自己的 AI 密钥。\n\n现在下载 Casey 吗？`,
   serverOption: '你自己的 Casey 服务器',
   serverOptionHelp: '你自己部署的 Casey Worker（见 README）。',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -94,6 +99,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: '这时 Casey 会提出用 Gemma 把这一轮玩完。第一次开启时会下载她。',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `这个 900words 在你的 iPhone 上和 Casey 一起玩：不需要账号，也不需要密钥。她只需下载一次（${size}）。使用 Wi-Fi，并保持 900words 打开，直到下载完成。\n\n她需要较新的 iPhone：${iphones}。${lowMemory ? '\n\n这台 iPhone 的内存比这些机型少，她可能无法在上面运行。' : ''}\n\n你也可以在设置里添加你自己的 AI 密钥。\n\n现在下载 Casey 吗？`,
+  // ── Android 上的离线 Casey ───────────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    '离线 Casey 需要较新的 Android 手机：Android 12 或更高版本，内存至少 8 GB。这台手机不满足这些条件。',
+  gemmaReadyAndroid: (size) => `离线 Casey 已就绪（这台手机上 ${size}）。`,
+  gemmaRemoveConfirmAndroid:
+    '要从这台手机删除离线 Casey 吗？以后可以重新下载。',
+  offlineModeHelpAndroid:
+    '普通 Casey 通过 900words 的服务器来玩。开启离线模式后，断网时你可以在这台手机上和离线 Casey 玩完本轮。她会慢一些。',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `离线模式是实验性功能，仍在改进中。\n\n离线模式会把离线 Casey（${size}）下载到这台手机。使用 Wi-Fi，并保持 900words 打开，直到下载完成。\n\n离线 Casey 比普通 Casey 玩得慢。\n\n她需要内存 12 GB 或以上的较新 Android 手机，例如 ${phones}。${lowMemory ? '\n\n这台手机的内存比这少，她可能无法在上面运行。' : ''}\n\n现在下载吗？`,
+  gemmaAnsweredAndroid: 'Gemma 在这台手机上回应了。',
 
   // ── 连接检查 ─────────────────────────────────────────────────────────────
   testRunning: '测试中…',
@@ -214,4 +230,37 @@ export const settings: Catalogue['settings'] = {
   reminderOneLeftBody: '再来一局，今天的三局就都进箱了。',
   reminderSeatTitle: 'Casey 给你留了个座位',
   reminderSeatBody: (games) => `今天玩 ${games} 小局，连续天数就开始了。`,
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Google Play 审核访问',
+  reviewAccessHelp: '仅供 Google Play 应用审核使用。输入审核说明中的审核码，即可在此设备上解锁无限畅玩。',
+  reviewAccessLabel: '审核码',
+  reviewAccessUnlock: '解锁',
+  reviewAccessChecking: '正在检查…',
+  reviewAccessOn: (date: string) =>
+    `审核访问已开启。此设备上的无限畅玩已解锁，有效期至 ${date}。`,
+  reviewAccessInvalid: '这个审核码未被接受。',
+  reviewAccessRateLimited: '尝试次数过多。请明天再试。',
+  reviewAccessError: '无法检查此代码。请检查网络连接后再试。',
+
+  // ── 你的方案（仅商店版本）。iOS 上是 Apple，Android 上是 Google Play。
+  planHeading: '你的方案',
+  planFreeShort: '免费',
+  planUnlimitedShort: '无限畅玩',
+  planChipAria: (plan: string) => `你的方案：${plan}`,
+  planChecking: '正在通过 Apple 核对你的方案。',
+  planCheckingPlay: '正在通过 Google Play 核对你的方案。',
+  planFree: '免费方案。每天两次散步和两个咖啡馆谜题。',
+  planMonthly: '无限畅玩。按月订阅。每月自动续订，直到你取消。',
+  planLifetime: '无限畅玩。一次性购买。不会续订。',
+  planBoth: '你已拥有一次性购买。你的按月订阅仍然有效，但你已经不再需要它。请取消订阅，以免再次扣费。',
+  planError: 'Apple 暂时无法核对你的方案。请稍后再试。',
+  planErrorPlay: 'Google Play 暂时无法核对你的方案。请稍后再试。',
+  planGetUnlimited: '解锁无限畅玩',
+  planManage: '管理或取消订阅',
+  planSwitch: '改为一次性购买',
+  planSwitchNote: '一次性购买让你永久无限畅玩。它不会结束你的按月订阅。购买后，请在 Apple 账户中取消按月订阅，否则两者都会扣费。',
+  planSwitchNotePlay: '一次性购买让你永久无限畅玩。它不会结束你的按月订阅。购买后，请在 Google Play 中取消按月订阅，否则两者都会扣费。',
+  planBuyFor: (price: string) => `以 ${price} 购买`,
+  planNotNow: '暂不',
 }

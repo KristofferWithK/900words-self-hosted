@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { useDialog } from '../useDialog'
+import { Tag } from './Tag'
 
 interface Props {
   title: string
@@ -33,9 +34,7 @@ export function TrainNoticeDialog({ title, body, action, onAction, onClose }: Pr
         <h2 id="train-notice-title">{title}</h2>
         <p>{body}</p>
         <div className="leave-game-actions">
-          <button className="btn btn-primary" type="button" onClick={onAction}>
-            {action}
-          </button>
+          <Tag size="wide" tone="primary" label={action} onClick={onAction} />
         </div>
       </section>
     </div>

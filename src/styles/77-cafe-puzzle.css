@@ -1,0 +1,292 @@
+/* ---------- the café puzzle (café world, CW-08) ----------
+ *
+ * docs/roadmap/cafe-world.md section 5: "Inside a café puzzle: the turn dots
+ * are coffee cups, the café's name sits on a small luggage tag where the
+ * status line was, faint pencil items lie on the table behind the cards, and
+ * Casey is large while she thinks." Section 6: things the player acts on are
+ * bold ink; everything else is faint pencil.
+ *
+ * Only `.cafe-puzzle` rounds (a required Sønderborg board) get any of this.
+ * NOTHING here may move a card: the cups are the dots' height, the tag is the
+ * caption's height, and the table items are absolutely positioned layers that
+ * take no space and no pointer. The CW-08 probe measures every card rect
+ * against the base build (max delta 0) and asserts no item box touches a
+ * card's text, a button or the header text.
+ *
+ * THE LOOK IN ONE PLACE: every colour, size and spot below is a custom
+ * property on .game-screen.cafe-puzzle. Swap them here. */
+
+.game-screen.cafe-puzzle {
+  /* The table's pencil: the same graphite as Casey's hatching. */
+  --cafe-pencil: rgba(18, 18, 18, 0.24);
+  --cafe-pencil-line: 1.5px;
+  /* Must equal .screen's side padding (00-base.css): the edge layer reaches
+     exactly that far past the board, so the page never widens. */
+  --cafe-gutter: 16px;
+  /* Edge items: a 48px drawing of which only the outer part shows. On the
+     left it may reach 4px behind the outer card (a card's text starts 6px in,
+     past its 2px border and 4px padding); on the right it stays in the
+     gutter, clear of the ⓘ in the card's top right corner. */
+  --cafe-edge-size: 48px;
+  --cafe-edge-peek-left: 20px;
+  --cafe-edge-peek-right: 15px;
+  --cafe-edge-high: 14%;
+  --cafe-edge-mid: 50%;
+  --cafe-edge-low: 86%;
+  /* Bottom items, while Casey thinks: the signature large in the dock's
+     lower right corner, an ordinary thing to its left. */
+  --cafe-bottom-large: 68px;
+  --cafe-bottom-small: 34px;
+  --cafe-bottom-small-right: 84px;
+  /* Casey while she thinks. The dock's 44px face otherwise. */
+  --casey-thinking-w: 96px;
+  /* The coffee cups. */
+  --cafe-cup-w: 12px;
+  --cafe-cup-gap: 5px;
+  /* The name tag. */
+  --cafe-tag-ink: var(--text);
+  --cafe-tag-fill: #fff;
+  --cafe-tag-line: 1.5px;
+  --cafe-tag-cut: 6px;
+  --cafe-tag-cut-in: calc(var(--cafe-tag-cut) - var(--cafe-tag-line) * 0.586);
+}
+
+/* ---- the turn dots are coffee cups ----
+   A full cup is a clue still to give; an empty one, drawn in outline, a clue
+   given. 9px tall like the dots, so the header keeps its height. */
+.token.token-cup {
+  width: var(--cafe-cup-w);
+  height: 9px;
+  border-radius: 0;
+  background: none;
+  display: block;
+}
+
+.game-header .token-row.token-row-cups {
+  gap: var(--cafe-cup-gap);
+}
+
+.token-cup-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.token-cup-svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.token-cup.token-full {
+  color: var(--text);
+}
+
+.token-cup.token-full .token-cup-body {
+  fill: currentColor;
+}
+
+.token-cup.token-spent {
+  color: #b5b5b5;
+}
+
+/* ---- the café's name on a small luggage tag, where the caption was ----
+   The caption's own box: 18px tall, one line, ellipsized rather than wrapped
+   (the header is the ceiling the board hangs from). Drawn like the house tag
+   (99-tag.css): ::before is the ink clipped to the tag's shape, ::after the
+   fill inset by the line, so the outline is one even line with clipped
+   corners at the string end and a punched hole. Thinner and smaller than a
+   Tag button, because it is a label and not a control. */
+.cafe-name-tag {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 18px;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0 7px 0 15px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1;
+  color: var(--cafe-tag-ink);
+  transform: rotate(-1.2deg);
+}
+
+.cafe-name-tag::before,
+.cafe-name-tag::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cafe-name-tag::before {
+  inset: 0;
+  background: var(--cafe-tag-ink);
+  clip-path: polygon(var(--cafe-tag-cut) 0, 100% 0, 100% 100%, var(--cafe-tag-cut) 100%, 0 calc(100% - var(--cafe-tag-cut)), 0 var(--cafe-tag-cut));
+}
+
+.cafe-name-tag::after {
+  inset: var(--cafe-tag-line);
+  background: var(--cafe-tag-fill);
+  clip-path: polygon(
+    var(--cafe-tag-cut-in) 0,
+    100% 0,
+    100% 100%,
+    var(--cafe-tag-cut-in) 100%,
+    0 calc(100% - var(--cafe-tag-cut-in)),
+    0 var(--cafe-tag-cut-in)
+  );
+}
+
+.cafe-name-tag-hole {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border: var(--cafe-tag-line) solid var(--cafe-tag-ink);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.cafe-name-tag-text {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* The serif's caps sit high in a line-height of 1. */
+  padding-top: 1px;
+}
+
+/* ---- the table: faint pencil items behind the cards ---- */
+.cafe-table {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--cafe-pencil);
+}
+
+.cafe-item {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.cafe-item[hidden] {
+  display: none;
+}
+
+.cafe-drawing {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cafe-drawing * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--cafe-pencil-line);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* The edges: a layer as tall as the board area that reaches over the
+   screen's side padding and clips there. Positioned, so the cards (whose
+   surfaces are positioned and come later) paint over it. */
+.cafe-puzzle .board-area {
+  position: relative;
+}
+
+.cafe-table-edges {
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--cafe-gutter));
+  right: calc(-1 * var(--cafe-gutter));
+}
+
+.cafe-table-edges .cafe-item {
+  width: var(--cafe-edge-size);
+  height: var(--cafe-edge-size);
+  margin-top: calc(var(--cafe-edge-size) / -2);
+}
+
+.cafe-item[data-spot^='left-'] {
+  left: calc(var(--cafe-edge-peek-left) - var(--cafe-edge-size));
+}
+
+.cafe-item[data-spot^='right-'] {
+  right: calc(var(--cafe-edge-peek-right) - var(--cafe-edge-size));
+}
+
+.cafe-item[data-spot$='-high'] {
+  top: var(--cafe-edge-high);
+}
+
+.cafe-item[data-spot$='-mid'] {
+  top: var(--cafe-edge-mid);
+}
+
+.cafe-item[data-spot$='-low'] {
+  top: var(--cafe-edge-low);
+}
+
+/* The keyboard is the bottom area in use, and it turns the board into a
+   scroller; the table goes until it is down. */
+.kb-up .cafe-table-edges {
+  display: none;
+}
+
+/* The bottom: only Casey's thinking dock renders it (AiTurnPanel). */
+.dock.ai-panel.ai-panel-cafe {
+  position: relative;
+}
+
+.cafe-table-bottom {
+  inset: 0;
+}
+
+.cafe-item[data-spot='bottom-large'] {
+  width: var(--cafe-bottom-large);
+  height: var(--cafe-bottom-large);
+  right: 2px;
+  bottom: 0;
+}
+
+.cafe-item[data-spot='bottom-small'] {
+  width: var(--cafe-bottom-small);
+  height: var(--cafe-bottom-small);
+  right: var(--cafe-bottom-small-right);
+  bottom: 4px;
+}
+
+/* ---- Casey is large while she thinks ---- */
+.cluey-mini.cluey-thinking-large {
+  width: var(--casey-thinking-w);
+}
+
+@media (forced-colors: active) {
+  .cafe-table {
+    display: none;
+  }
+
+  .cafe-name-tag {
+    border: 1px solid CanvasText;
+  }
+
+  .cafe-name-tag::before,
+  .cafe-name-tag::after,
+  .cafe-name-tag-hole {
+    display: none;
+  }
+}

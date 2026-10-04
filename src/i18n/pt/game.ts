@@ -51,6 +51,7 @@ export const game: Catalogue['game'] = {
   // ── o nome acessível de uma carta, montado por esta ordem ────────────────
   cardYourTarget: ', o teu alvo',
   cardFound: ', encontrada',
+  cardMissedKey: ', uma das palavras da Casey, não encontrada',
   cardNeutralBoth: ', neutra para os dois lados',
   cardNeutralPlayer: ', neutra com as tuas pistas',
   cardNeutralCasey: ', neutra com as pistas da Casey',
@@ -109,7 +110,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Girar a roda',
   wheelSpinning: 'A girar …',
   wheelWonLine: 'Verde! A ronda está ganha.',
-  wheelMissLine: 'A roda parou numa mala por arrumar.',
+  wheelMissLine: 'Não é verde. A ronda está perdida.',
+  wheelLedeMissed: (found, total, language) =>
+    `Encontraste ${found} de ${total}. Para as palavras que ficaram no tabuleiro, a roda fica a cinzento. Escreve o resto em ${language}, e depois gira.`,
+  wheelAnswersLine: 'As palavras a cinzento são as respostas que não escreveste.',
+  wheelSeeResults: 'Ver resultados',
   phaseTranslateChallenge: 'Hora de traduzir',
   settlementFailed: 'Ainda não foi possível guardar o resultado. Mantém esta ronda e tenta novamente.',
   settlementSaving: 'A guardar o resultado…',
@@ -127,6 +132,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'A Casey sem ligação está a pensar. Demora mais.',
   offlineRoundPrompt: 'Sem internet. Jogar o resto desta ronda com a Casey sem ligação? Ela é mais lenta.',
   playOfflineButton: 'Jogar sem ligação',
+  onlineAgainTitle: 'A internet voltou',
+  onlineAgainBody:
+    'Jogar o resto desta ronda com a Casey normal? Ela é mais rápida e joga melhor. Se a tua ligação cai muitas vezes, continuar sem ligação pode ser mais estável.',
+  playOnlineButton: 'Jogar online',
+  stayOfflineButton: 'Continuar sem ligação',
   hurryCaseyTitle: 'Toca para apressar a Casey',
   hurryCaseyHint: 'Toca aqui para apressar a Casey.',
   caseyGuessedWord: (word) => `A Casey tentou «${word}».`,
@@ -304,7 +314,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Mostrar tradução',
   reviewHideTranslation: 'Ocultar tradução',
   reviewAboutWord: 'Sobre esta palavra',
-  reviewHighFrequencyWord: 'Palavra frequente:',
   reviewNoNotes: 'Sem notas para esta palavra.',
   reviewNextSentence: 'Frase seguinte',
   // «acertou» aqui é mesmo acerto: a frase só existe quando a Casey acertou.

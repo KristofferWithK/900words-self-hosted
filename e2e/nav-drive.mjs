@@ -2,6 +2,7 @@ import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { setTimeout as sleep } from 'node:timers/promises'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4181
 const preview = await startPreview(PORT)
@@ -16,6 +17,8 @@ const APP = ROOT + '?mock=1&howto=0&city=0&learned=34&first=player'
 const browser = await chromium.launch({ executablePath: EXE })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const errors = []
 page.on('pageerror', (e) => errors.push(String(e)))
@@ -170,13 +173,15 @@ check('pause resumes the exact board', JSON.stringify(await page.locator('.card-
 await page.locator('.game-header .icon-btn[aria-label="Home"]').click()
 await page.getByRole('button', { name: 'Cancel round' }).click()
 await page.waitForTimeout(250)
+// Play is the Café puzzle tag since CW-10; data-cafe-action="next" is the
+// state Play stood for (no round waiting, the tag deals the next board).
 check(
   'cancel leaves no resumable round',
-  (await page.getByRole('button', { name: 'Play', exact: true }).count()) === 1 &&
+  (await page.locator('.home-play[data-cafe-action="next"]').count()) === 1 &&
     (await page.getByRole('button', { name: 'Continue board' }).count()) === 0,
 )
 
-await page.getByRole('button', { name: 'Play', exact: true }).click()
+await page.locator('.home-play[data-cafe-action="next"]').click()
 await page.waitForTimeout(200)
 await back()
 check('system back asks how to leave the game', (await page.getByRole('dialog', { name: 'Leave this round?' }).count()) === 1)

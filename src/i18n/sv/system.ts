@@ -65,6 +65,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple kunde inte återställa köpen. Försök igen.',
   passRedeemOpened: 'Apple öppnade sitt fönster för att lösa in koder.',
   passRedeemUnavailable: 'Koder kan bara lösas in i iOS-appen.',
+  passPendingPlay: 'Google Play bekräftar fortfarande det här köpet. Håll appen öppen och prova sedan ”Återställ köp”.',
+  passErrorPlay: 'Google Play kunde inte kontrollera det här köpet. Försök igen.',
+  passNotEntitledPlay: 'Inget köp av obegränsat spelande hittades för det här Google-kontot.',
+  passRestoreErrorPlay: 'Google Play kunde inte återställa köpen. Försök igen.',
 
   // ── lagringen gjorde inte som den blev tillsagd ──────────────────────────
   backupFileUnreadable: 'Filen kunde inte läsas.',

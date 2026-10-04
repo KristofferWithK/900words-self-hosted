@@ -1,0 +1,235 @@
+:root {
+  --bg: #ffffff;
+  /* Collection greys: 'discovered' is grey everywhere, never the board's beige. */
+  --grey-tile: #9a9da1;
+  --grey-soft: #ececee;
+  --surface: #f7f7f5;
+  --line: #d3d6da;
+  --line-soft: #e6e6e6;
+  --text: #121212;
+  --text-dim: #6e6e6e;
+  --green: #6aaa64; /* decorative only â€” fails 4.5:1 with white text */
+  --green-tile: #4e8449; /* dark enough for white tile text (~4.6:1) */
+  --green-deep: #3a7a34; /* green text on white surfaces */
+  --green-soft: #eaf3e9;
+  --beige: #e3dfd3;
+  --beige-deep: #c9c3b2;
+  --black-tile: #121212;
+  --red: #a51c30;
+  --red-soft: #fbeef0;
+  --blue: #567b95;
+  --radius: 10px;
+  --serif: Georgia, 'Times New Roman', 'Songti SC', serif;
+  font-family: -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme: light;
+  /* "When I tap the text field it flashes grey for a split second."
+     iOS paints a translucent grey rectangle over whatever a finger lands on,
+     before anything else happens. This was suppressed on `button` and nowhere
+     else — and every tappable thing in the app IS a button (the word cards
+     included, see BoardGrid) except the text fields, so the flash was left to
+     exactly the two inputs the composer is made of. The property inherits, so
+     it belongs here rather than on a list of element types that will be
+     incomplete again the next time something tappable is added.
+     Nothing is lost with it gone: a field answers a tap by taking focus and
+     drawing the 2px ring below, which is feedback the grey box only ever
+     preceded. NOT a substitute for a control saying it was pressed — those
+     say so themselves (.card-guessable:active and friends). */
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  /* Keep content clear of notches and home indicators on phones. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  letter-spacing: -0.01em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* The tap highlight used to be suppressed here, which is why only the text
+     fields still flashed. It is on :root now, where it inherits to both. */
+  /* Suppress iOS double-tap zoom on rapid gameplay taps (stepper, cards). */
+  touch-action: manipulation;
+}
+
+input,
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #9b9b9b;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--text);
+  border-color: transparent;
+}
+
+.app-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  /* 100% of the body's content box â€” the body's safe-area padding is already
+     subtracted; 100dvh here would double-count the notch insets and force a
+     permanent overflow scroll in standalone mode. `height`, not `min-height`:
+     screens are built to FIT the phone now, and a shell that grows with its
+     content would let an overflowing screen scroll instead of failing the
+     drive that measures it. Deliberately no overflow:hidden anywhere on the
+     shell â€” clipping would make document.scrollingElement.scrollHeight lie,
+     and the honest wiring is exact-fit columns whose overflow becomes the
+     scroll the layout drive catches. */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* The containing block for every absolutely-positioned descendant that
+     names no other â€” the visually-hidden file input in Settings used to
+     resolve against <html> itself, parking a 1px box 2400px down and handing
+     the document a scrollbar no visible element asked for. */
+  position: relative;
+}
+
+.screen {
+  flex: 1;
+  /* Shrinkable, so a screen's flexible band (the board, Casey) gives way
+     instead of pushing the actions off the phone. */
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  gap: 12px;
+}
+
+.dim {
+  color: var(--text-dim);
+}
+
+/* ---------- buttons (NYT-style pills) ---------- */
+
+.btn {
+  background: var(--bg);
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 600;
+  min-height: 48px;
+}
+
+.btn:disabled {
+  border-color: var(--line);
+  color: #9b9b9b;
+  cursor: default;
+}
+
+/* The primary is drawn, not filled (owner, 2026-09-11: "I don't like the
+   black buttons. Anywhere in the app"; picked "Direction B — green outline"
+   from the four mockups): the same white pill, in the deep green the app
+   already uses for green type on white, with a heavier pencil line — the
+   line is drawn by the pencil pass (`.btn-primary::before` there), which is
+   why nothing here sets a width. Bold, so the label carries weight the fill
+   used to. Every secondary steps back to the grey line chips and icon
+   buttons already have, so the one green pill on a screen is the one to
+   press. Disabled keeps its grey fill: a primary that is off has always
+   been a grey shape, and "Tap Casey" on Home is measured that way. */
+.btn.btn-primary {
+  /* SINGLE RING (owner, 2026-09-16): the pencil ::before pass is retired for
+     primaries; the element's own border IS the ring. `.btn` — which sets
+     border-color transparent — comes later in this file, so the border colour
+     needs the doubled specificity to win the cascade. */
+  border-color: var(--green-deep);
+  border-width: 2px;
+  color: var(--green-deep);
+  font-weight: 700;
+}
+
+.btn-primary:disabled {
+  background: var(--line-soft);
+  border-color: var(--line-soft);
+  color: #9b9b9b;
+}
+
+/* The danger pill is drawn the way the primary is, in the app's red: a
+   white pill, a 2px red line, a bold red label (owner, 2026-09-11, on the
+   fills left after Direction B: "do these"). The line is the pencil pass's
+   `.btn-danger::before`. */
+.btn.btn-danger {
+  /* SINGLE RING (owner, 2026-09-16): same as the primary — the element's own
+     border is the ring; the later `.btn` transparent would win otherwise. */
+  border-color: var(--red);
+  border-width: 2px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--text-dim);
+}
+
+.btn-small {
+  min-height: 36px;
+  padding: 6px 16px;
+}
+
+.btn-big {
+  font-size: 1.05rem;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* A toggle that is on (Aa, the board being read aloud) is the primary's
+   treatment on a circle: green glyph, green line. Not a fill, for the same
+   owner's reason as the pill above. */
+.icon-btn-active {
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+}
+
+.icon-btn:disabled {
+  color: var(--line);
+}
+

@@ -33,6 +33,7 @@ import {
   createGame,
   currentClue,
   targetableGreenIds,
+  wheelFoundIds,
 } from '../engine/game'
 import { matchesAnswer } from '../engine/packing'
 import { mulberry32 } from '../engine/rng'
@@ -46,10 +47,11 @@ import { sameValue } from '../progression/storageSchema'
 import type { AttemptOrigin, AttemptSlot, BoardIdentity, CompletionReceipt, CourseSessions, SettlementLedger } from '../progression/types'
 import { initialCourseSessions, nextRequiredBoard, requiredContent, requiredSetForCourse, sameEventOwner, validateCourseSessions, type RuntimeEventOwner } from '../session/courseRuntime'
 import { createSettlementStore, readDailyOutcome, type SettlementOptions } from './settlementStore'
+import { historyArchive } from './historyArchive'
 import { profileKey, tutorialAwardIdentity } from '../progression/tutorialAward'
 import { assertSettlementIdle, transferAwareStorage, type AtomicStorage } from './settlementStorage'
 import { planRuntimeLessons } from '../journey/lessonMilestones'
-import { legacyRoundEvidence, migrateLegacyProfile, retireUnstampedSessions } from './saveMigration'
+import { legacyRoundEvidence, migrateLegacyProfile, rebaseSavedQueues, retireUnstampedSessions } from './saveMigration'
 import { recoverSaveTransfer, readSaveMigration, saveTransferRevision, SAVE_MIGRATION_KEY } from './saveTransfer'
 import {
   TUTORIAL_CLUE_NUMBERS,
@@ -62,6 +64,7 @@ import { DEFAULT_LANGUAGE } from '../lang/index'
 import type { LanguageCode } from '../lang/types'
 import { isCollected, journeyRank, wordsForCity } from '../journey/progress'
 import type { RoundMode } from '../journey/wrapup'
+import { cafeLaunchRefused } from '../journey/cafeAccess'
 import { flagsFor, useFeedback } from './feedbackStore'
 import { useLedger } from './ledgerStore'
 import { useJourney } from './journeyStore'
@@ -196,6 +199,8 @@ function gameCacheStorage() {
 
 /** Which guidance panel is up. Transient: an announced panel never reopens on reload or resume. */
 export type ActiveRoundGuidance = 'casey' | 'player' | 'translation' | 'last-chance' | 'packing' | null
+/** Why a deal was refused; see `GameStore.lastDealRefusal`. */
+export type DealRefusal = 'cafeNotFound' | 'dailyLimit'
 
 interface GameStore {
   /** One-time legacy snapshot; moved to the recovery archive before play. */
@@ -219,6 +224,17 @@ interface GameStore {
   settlementFailure: string | null
   eventGeneration: number
   courseExhausted: boolean
+  /**
+   * Why the last `newGame` or `startReplay` call dealt nothing, for the screen
+   * to say so (CW-10, CW-15); null when it dealt, resumed, or has not been
+   * asked. `'cafeNotFound'`: the next required board is a café no walk has
+   * found yet (journey/cafeAccess.ts, only while `CAFE_GATE_ENABLED`).
+   * `'dailyLimit'`: today's free puzzles are used up (the upgrade dialog is
+   * also opened, as before). Other refusals (a settlement in progress, the
+   * course finished, which `courseExhausted` says) leave it null. Transient:
+   * not in `partialize`, so never saved. The boolean results are unchanged.
+   */
+  lastDealRefusal: DealRefusal | null
   startReplay: (authoredBoardId: string, developerContinue?: boolean) => boolean
   resumePrimary: () => void
   resumeReplay: () => void
@@ -242,7 +258,8 @@ interface GameStore {
   /** Transient: an announced panel never reopens on reload or resume. */
   activeRoundGuidance: ActiveRoundGuidance
   announceRoundGuidance: () => void
-  dismissRoundGuidance: (hidePlayerReminder?: boolean) => void
+  /** `hideReminder`: the panel's "Don't remind me again" box (Your turn and Translation time). */
+  dismissRoundGuidance: (hideReminder?: boolean) => void
   /**
    * The onboarding translation lesson taught this round's translation step on
    * the live controls, so the ordinary translation panel is not announced
@@ -260,6 +277,15 @@ interface GameStore {
    */
   wheelSpinHold: boolean
   clearWheelSpinHold: (owner?: RuntimeEventOwner) => void
+  /**
+   * The board stays up after the spin, with every suitcase showing its Danish,
+   * until the player taps "See results" (owner, 2026-09-27): the answers they
+   * did not type are the last thing the round teaches, and the finish screen
+   * used to replace the board the moment the disc stopped. Set with the hold,
+   * outlasts it, and is transient in the same way: a reload shows the summary.
+   */
+  wheelReview: boolean
+  closeWheelReview: () => void
   game: GameState | null
   /**
    * The language the persisted round is in. Checked on rehydrate; a round in
@@ -421,6 +447,11 @@ interface GameStore {
    * round, and a relaunch asks again. Transient, like the error it answers.
    */
   offlineRoundFor: string | null
+  /**
+   * The offline round whose player, told the internet was back, chose to
+   * stay offline: they are not asked again in that round. Transient.
+   */
+  stayOfflineFor: string | null
   selectedWordId: string | null
   newGame: (opts?: NewGameOptions) => boolean
   /**
@@ -514,6 +545,14 @@ interface GameStore {
   clearError: () => void
   /** "Play offline": the rest of this round is played by offline Casey. */
   playRoundOffline: () => void
+  /**
+   * "Play online", once the internet is back: the rest of this round is
+   * normal Casey's again, and offline Casey is put away (GameScreen stops
+   * wanting her). A later drop offers "Play offline" again.
+   */
+  playRoundOnline: () => void
+  /** "Stay offline": keep offline Casey for this round and stop asking. */
+  keepRoundOffline: () => void
 }
 
 /** Whether the player chose offline Casey for the round now in play. */
@@ -855,9 +894,11 @@ const freshRound = () => ({
   error: null,
   errorNoInternet: false,
   offlineRoundFor: null as string | null,
+  stayOfflineFor: null as string | null,
   settlementFailure: null as string | null,
   selectedWordId: null,
   wheelSpinHold: false as boolean,
+  wheelReview: false as boolean,
   aiBusy: false,
   // Not an authored board unless the two authored-cycle deals say so AFTER
   // spreading this — they are the only deals that know a board id.
@@ -1008,6 +1049,7 @@ const restingTurn = () => ({
   error: null,
   errorNoInternet: false,
   offlineRoundFor: null as string | null,
+  stayOfflineFor: null as string | null,
   selectedWordId: null,
 })
 
@@ -1057,7 +1099,9 @@ const runtimeStorage = () => typeof localStorage === 'undefined' ? volatileStora
 let lessonPlanner: SettlementOptions['planLessons'] = planRuntimeLessons
 /** C1-09's pure map is the runtime default; tests/integrators may replace it deliberately. */
 export function configureRuntimeLessons(planner?: SettlementOptions['planLessons']): void { lessonPlanner = planner ?? planRuntimeLessons }
-const settlement = () => createSettlementStore({ storage: runtimeStorage(), planLessons: lessonPlanner })
+// Old rounds' full receipts go to the device's history archive (historyArchive.ts).
+const settlement = () => createSettlementStore({ storage: runtimeStorage(), planLessons: lessonPlanner,
+  archive: runtimeStorage() === volatileStorage ? null : historyArchive() })
 let finishing: Promise<void> | null = null
 let recovering: Promise<void> | null = null
 let publishedTransferRevision = saveTransferRevision
@@ -1082,7 +1126,7 @@ function runtimeSlot(s: GameStore, board: BoardIdentity, origin: 'primary' | 're
 function projectSlot(slot: AttemptSlot): Partial<GameStore> {
   const round = (slot as RuntimeSlot).round
   return {
-    ...freshRound(), ...round, ...restingTurn(), wheelSpinHold: false,
+    ...freshRound(), ...round, ...restingTurn(), wheelSpinHold: false, wheelReview: false,
     attemptId: slot.attemptId, attemptOrigin: slot.origin, activeSlot: slot.origin,
     game: slot.game, lookedUp: [...slot.lookedUp], gameLanguage: slot.board.courseId,
     gameUiLanguage: slot.promptLanguage, authoredBoardId: slot.board.authoredBoardId,
@@ -1407,7 +1451,7 @@ export const useGame = create<GameStore>()(
         const slot = sessions.activeSlot ? sessions[sessions.activeSlot] : null
         const receipt = slot && settlement().readLedger().settlements[receiptKey(slot.attemptId)]?.receipt
         rawSet({
-          ...(slot ? projectSlot(slot) : { ...noRound, ...restingTurn(), wheelSpinHold: false }),
+          ...(slot ? projectSlot(slot) : { ...noRound, ...restingTurn(), wheelSpinHold: false, wheelReview: false }),
           ...(receipt ? resultProjection(receipt) : {}),
           sessions, eventGeneration: get().eventGeneration + 1,
           courseExhausted: nextRequiredBoard(sessions, settlement().readLedger().facts) === null,
@@ -1429,6 +1473,7 @@ export const useGame = create<GameStore>()(
       settlementFailure: null,
       eventGeneration: 0,
       courseExhausted: false,
+      lastDealRefusal: null,
       eventOwner: () => ({ attemptId: get().attemptId, slot: get().activeSlot, generation: get().eventGeneration }),
       ownsEvent: (owner) => sameEventOwner(get().eventOwner(), owner),
       dailyOutcome: (key) => readDailyOutcome(runtimeStorage(), key),
@@ -1445,7 +1490,7 @@ export const useGame = create<GameStore>()(
       },
       pauseGame: () => {
         // Navigation/background is a pause; persist has already saved every event.
-        set({ ...restingTurn(), wheelSpinHold: false, eventGeneration: get().eventGeneration + 1 })
+        set({ ...restingTurn(), wheelSpinHold: false, wheelReview: false, eventGeneration: get().eventGeneration + 1 })
       },
       resumePrimary: () => {
         if (get().settlementBusy) return
@@ -1517,6 +1562,7 @@ export const useGame = create<GameStore>()(
         }
       },
       startReplay: (id, developerContinue = false) => {
+        if (get().lastDealRefusal !== null) rawSet({ lastDealRefusal: null })
         if (get().settlementBusy) return false
         const sessions = loadSessions()
         const board = requiredSetForCourse(ACTIVE.code).boards.find((item) => item.authoredBoardId === id)
@@ -1531,6 +1577,7 @@ export const useGame = create<GameStore>()(
         }
         if (get().game?.phase === 'finished' && !get().roundRecorded) return false
         if (!(developerContinue && canDeveloperContinue()) && !canStartDailyGame()) {
+          rawSet({ lastDealRefusal: 'dailyLimit' })
           useUi.getState().openDailyLimit(() => get().startReplay(id, true))
           return false
         }
@@ -1545,12 +1592,15 @@ export const useGame = create<GameStore>()(
       recoverSession: () => {
         if (recovering) return recovering
         if (finishing) return finishing
-        rawSet({ settlementBusy: true, ...restingTurn(), wheelSpinHold: false, eventGeneration: get().eventGeneration + 1 })
+        rawSet({ settlementBusy: true, ...restingTurn(), wheelSpinHold: false, wheelReview: false, eventGeneration: get().eventGeneration + 1 })
         recovering = (async () => {
           const adapter = settlement()
           try {
             recoverSaveTransfer(runtimeStorage())
             retireUnstampedSessions(runtimeStorage(), Date.now())
+            // A queue on a superseded City 1 set moves to the current one here,
+            // or, if a settlement is still pending, right after recovery below.
+            const rebased = rebaseSavedQueues(runtimeStorage(), Date.now())
             if (typeof localStorage !== 'undefined') {
               migrateLegacyProfile(runtimeStorage(), get() as unknown as Record<string, unknown>, ACTIVE.code, Date.now(),
                 slot => runtimeSlot({ ...get(), ...projectSlot(slot) }, slot.board, 'primary'))
@@ -1566,6 +1616,11 @@ export const useGame = create<GameStore>()(
               rawSet({ migrationNotice: migration.retired === true && migration.noticeDismissed !== true })
             }
             await adapter.recover()
+            if (!rebased && !rebaseSavedQueues(runtimeStorage(), Date.now())) throw new Error('Queue rebase blocked by a pending settlement')
+            if (!rebased && typeof localStorage !== 'undefined') {
+              const migration = readSaveMigration(runtimeStorage())
+              rawSet({ migrationNotice: migration.retired === true && migration.noticeDismissed !== true })
+            }
             // A crash can land after the terminal slot but before its receipt.
             // Settle that accepted verdict before any course-switch retirement.
             for (const sessions of Object.values(adapter.readSessions().byCourse)) {
@@ -1671,8 +1726,10 @@ export const useGame = create<GameStore>()(
       error: null,
       errorNoInternet: false,
       offlineRoundFor: null,
+      stayOfflineFor: null,
       selectedWordId: null,
       wheelSpinHold: false,
+      wheelReview: false,
 
       announceRoundGuidance: () => {
         const { game, mode, packingDone, roundGuidance, activeRoundGuidance } = get()
@@ -1689,8 +1746,12 @@ export const useGame = create<GameStore>()(
           }
           return
         }
+        // The player's "Don't remind me again" silences this panel the way it
+        // does the Your turn one; the Translation time card still plays at the
+        // bottom (TurnTakeover), as Your turn's does.
         if ((game.phase === 'translateChallenge' || game.phase === 'translateWheel') &&
-          (roundGuidance.translation ?? 'pending') === 'pending') {
+          (roundGuidance.translation ?? 'pending') === 'pending' &&
+          !useSettings.getState().hideTranslationReminder) {
           set({ activeRoundGuidance: 'translation', roundGuidance: { ...roundGuidance, translation: 'announced' } })
           return
         }
@@ -1726,10 +1787,13 @@ export const useGame = create<GameStore>()(
         }
       },
 
-      dismissRoundGuidance: (hidePlayerReminder = false) => {
+      dismissRoundGuidance: (hideReminder = false) => {
         const { activeRoundGuidance, roundGuidance } = get()
-        if (activeRoundGuidance === 'player' && hidePlayerReminder) {
+        if (activeRoundGuidance === 'player' && hideReminder) {
           useSettings.getState().set({ hidePlayerClueReminder: true })
+        }
+        if (activeRoundGuidance === 'translation' && hideReminder) {
+          useSettings.getState().set({ hideTranslationReminder: true })
         }
         set({
           activeRoundGuidance: null,
@@ -1755,6 +1819,7 @@ export const useGame = create<GameStore>()(
       },
 
       newGame: (opts) => {
+        if (get().lastDealRefusal !== null) rawSet({ lastDealRefusal: null })
         if (get().settlementBusy) return false
         assertSettlementIdle(runtimeStorage())
         const mayContinueAsDeveloper = opts?.developerContinue === true && canDeveloperContinue()
@@ -1781,7 +1846,18 @@ export const useGame = create<GameStore>()(
             showSessions({ ...sessions, primary: null, activeSlot: null }, { courseExhausted: true })
             return false
           }
+          // Café world (CW-04): each required board is a café, and its puzzle
+          // cannot start before a Sightseeing walk has found it (a played
+          // board, or the head of an anchored queue, counts as found). The one
+          // place a new required board is dealt, so no screen can get round
+          // it. A round already on the table (above) resumes as before. Only
+          // while CAFE_GATE_ENABLED (journey/cafeAccess.ts).
+          if (cafeLaunchRefused(board, facts, sessions.continuation)) {
+            rawSet({ lastDealRefusal: 'cafeNotFound' })
+            return false
+          }
           if (!mayContinueAsDeveloper && !canStartDailyGame()) {
+            rawSet({ lastDealRefusal: 'dailyLimit' })
             useUi.getState().openDailyLimit(() => get().newGame({ ...(opts ?? {}), developerContinue: true }))
             return false
           }
@@ -1799,6 +1875,7 @@ export const useGame = create<GameStore>()(
         }
         if (get().game && get().game!.phase !== 'finished' && get().dailyKey && get().dailyKey === opts?.dailyKey) return true
         if (!mayContinueAsDeveloper && !canStartDailyGame()) {
+          rawSet({ lastDealRefusal: 'dailyLimit' })
           useUi.getState().openDailyLimit(() => get().newGame({ ...(opts ?? {}), developerContinue: true }))
           return false
         }
@@ -2084,7 +2161,10 @@ export const useGame = create<GameStore>()(
         // for packing, so the answer resolves to a wordId here and the
         // existing SUBMIT_TRANSLATION event carries it; the engine stays the
         // single source of truth for what counts as a match.
-        const untranslated = wheel.segments.filter((id) => !wheel.translated.includes(id))
+        // Only what was FOUND can be translated: a key word the round missed
+        // holds a grey slice and shows its Danish on the board, but typing it
+        // is a miss like any other (owner, 2026-09-27).
+        const untranslated = wheelFoundIds(game).filter((id) => !wheel.translated.includes(id))
         const matches = untranslated.filter((id) => {
           const w = game.words.find((x) => x.wordId === id)
           return !!w && matchesAnswer(answer, w.da, ACTIVE, isHeadword)
@@ -2143,7 +2223,7 @@ export const useGame = create<GameStore>()(
         // the same spinner mounted through this hold; its own timer may clear
         // it first. Neither an unmount nor an obsolete callback can leave a
         // hidden finish screen. SPIN_MS agrees with WheelSpinner's CSS ease-out.
-        set({ game: next, ...(next.wheel?.result ? { wheelSpinHold: true } : {}) })
+        set({ game: next, ...(next.wheel?.result ? { wheelSpinHold: true, wheelReview: true } : {}) })
         if (next.wheel?.result) {
           setTimeout(() => {
             get().clearWheelSpinHold(owner)
@@ -2160,6 +2240,13 @@ export const useGame = create<GameStore>()(
         // owner to end a winning spin is the only one that sounds it.
         if (get().game?.wheel?.result === 'win') wheelWinFanfare()
         set({ wheelSpinHold: false })
+      },
+
+      closeWheelReview: () => {
+        // Never while the disc still turns: the button only appears once it
+        // rests, and a stray call must not skip the landing.
+        if (get().wheelSpinHold || !get().wheelReview) return
+        set({ wheelReview: false })
       },
 
       recordLookup: (wordId) => {
@@ -2539,6 +2626,8 @@ export const useGame = create<GameStore>()(
       clearError: () => set({ error: null, errorNoInternet: false }),
       playRoundOffline: () =>
         set((s) => ({ offlineRoundFor: s.attemptId, error: null, errorNoInternet: false })),
+      playRoundOnline: () => set({ offlineRoundFor: null, stayOfflineFor: null }),
+      keepRoundOffline: () => set((s) => ({ stayOfflineFor: s.attemptId })),
 
     })},
     {

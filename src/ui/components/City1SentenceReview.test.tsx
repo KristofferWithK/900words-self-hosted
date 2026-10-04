@@ -17,6 +17,9 @@ const render = (overrides: Overrides = {}) => renderToStaticMarkup(
   <City1SentenceReview state={state} catalog={testCatalog} outcome={won} onNext={noop} onDismiss={noop} onHome={noop} onReplay={noop} {...overrides} />,
 )
 const between = (html: string, from: string, to: string) => html.slice(html.indexOf(from), html.indexOf(to))
+/** The replay as the footer's primary: a wide primary tag (CW-12) with the label. */
+const primaryReplay = (label: string) =>
+  new RegExp(`class="tag tag-wide tag-primary city1-review-replay"><span class="tag-hole" aria-hidden="true"></span><span class="tag-text"><span class="tag-label">${label}</span>`)
 describe('the finish screen', () => {
   it('renders Danish first, one Listen, independent collapsed disclosures and direct exits with normal/slow audio', () => {
     const html = render()
@@ -93,7 +96,7 @@ describe('the finish screen', () => {
       expect(html).not.toContain('city1-review-progress')
       expect(html).not.toContain(UI.game.reviewNextSentence)
       // Replay is the primary when there is no sentence to go on to.
-      expect(html).toContain(`class="btn btn-primary">${UI.game.playNextGame}`)
+      expect(html).toMatch(primaryReplay(UI.game.playNextGame))
       expect(html).toContain(`>${UI.game.home}</button>`)
     }
     // With a sentence to read, the fallback stays out and the footnote still closes the reader.
@@ -103,12 +106,12 @@ describe('the finish screen', () => {
   })
   it('makes replay primary on the last sentence, labels it as asked, and honours replay suppression', () => {
     const html = render({ state: { ...state, cursor: 1 } })
-    expect(html).toContain(`class="btn btn-primary">${UI.game.playNextGame}`)
+    expect(html).toMatch(primaryReplay(UI.game.playNextGame))
     expect(html).not.toContain(UI.game.reviewNextSentence)
     // No exit row on the last page: the primary owns its own line and Home
     // sits under it.
     expect(html).not.toContain('city1-review-exit-row')
-    expect(render({ state: { ...state, cursor: 1 }, replayLabel: 'Play again' })).toContain('class="btn btn-primary">Play again')
+    expect(render({ state: { ...state, cursor: 1 }, replayLabel: 'Play again' })).toMatch(primaryReplay('Play again'))
     const onboarding = render({ onReplay: undefined })
     expect(onboarding).not.toContain(UI.game.playNextGame)
     expect(onboarding).toContain(`>${UI.game.home}</button>`)
@@ -120,7 +123,7 @@ describe('the finish screen', () => {
     const row = footer.slice(footer.indexOf('city1-review-exit-row'))
     expect(row.indexOf(UI.game.playNextGame)).toBeLessThan(row.indexOf(`>${UI.game.home}</button>`))
     // Next sentence is the only primary while one is offered.
-    expect(footer.match(/btn-primary/g)).toHaveLength(1)
+    expect(footer.match(/tag-primary/g)).toHaveLength(1)
   })
   it('underlines the high-frequency word inside the About note it is illustrated by', () => {
     const html = render()

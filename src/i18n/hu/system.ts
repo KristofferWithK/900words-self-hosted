@@ -65,6 +65,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Az Apple nem tudta visszaállítani a vásárlásokat. Kérlek, próbáld újra.',
   passRedeemOpened: 'Az Apple megnyitotta a kódbeváltó lapját.',
   passRedeemUnavailable: 'A kódbeváltás az iOS-appban érhető el.',
+  passPendingPlay: 'A Google Play még visszaigazolja ezt a vásárlást. Hagyd nyitva az appot, majd próbáld a Vásárlások visszaállítását.',
+  passErrorPlay: 'A Google Play nem tudta ellenőrizni ezt a vásárlást. Kérlek, próbáld újra.',
+  passNotEntitledPlay: 'Ehhez a Google-fiókhoz nem találtunk korlátlan játékra szóló vásárlást.',
+  passRestoreErrorPlay: 'A Google Play nem tudta visszaállítani a vásárlásokat. Kérlek, próbáld újra.',
 
   // ── a tároló nem tette, amit kértünk ─────────────────────────────────────
   backupFileUnreadable: 'Ezt a fájlt nem sikerült beolvasni.',

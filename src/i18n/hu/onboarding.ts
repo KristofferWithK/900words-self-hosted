@@ -1,5 +1,5 @@
 import type { Catalogue } from '../en'
-import { az, Az, hova } from './toldalek'
+import { az, Az, hol, hova } from './toldalek'
 
 /**
  * Magyar. Tegezés. Casey itt szólal meg először — röviden, melegen, egyenesen.
@@ -14,13 +14,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'német' : 'dán',
       countryName: german ? 'Németország' : 'Dánia',
-      welcome: 'Tudtad, hogy a legtöbb nyelvben 900 szó a mindennapi beszéd több mint 80%-át lefedheti? (Koppints a folytatáshoz.)',
-      map: (destination) => german
-        ? `Ez a térképünk. Bejárjuk Németországot, és minden városban száz szót gyűjtünk. ${destination} az út végállomása.`
-        : `Ez a térképünk. Bejárjuk Dániát, és minden városban száz szót gyűjtünk. ${destination} az út végállomása.`,
-      guide: german
-        ? 'Nyisd meg az Útikalauzt, ha nyelvtant vagy gyakorlati németet szeretnél tanulni. Bármikor előreolvashatsz.'
-        : 'Nyisd meg az Útikalauzt, ha nyelvtant vagy gyakorlati dánt szeretnél tanulni. Bármikor előreolvashatsz.',
+      welcome: 'Tudtad, hogy a legtöbb nyelvben 900 szó a mindennapi beszéd több mint 80%-át lefedheti?',
       clueField: german
         ? 'Amikor te következel, írj ide egy német szót, amely összeköt két vagy három zöld szavadat.'
         : 'Amikor te következel, írj ide egy dán szót, amely összeköt két vagy három zöld szavadat.',
@@ -54,32 +48,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} szó · ${cities} város`,
   ticketHintMany: 'Koppints egy jegyre a választáshoz.',
   ticketHintOne: 'Koppints a jegyedre, és indulunk.',
+  ticketComingSoon: 'Hamarosan',
 
-  // ── Casey lépésenkénti bemutatkozása a Főoldalon ────────────────────────
-  introWelcome:
-    'Tudtad, hogy a legtöbb nyelvben 900 szó a mindennapi beszéd több mint 80%-át lefedheti? (Koppints a folytatáshoz.)',
-  introMap:
-    'Ez a térképünk. Végigutazunk Dánián, és minden városban száz szót gyűjtünk. Koppenhága a végállomásunk.',
-  introGuide:
-    'Ha nyelvtanra vagy gyakorlati dánra van szükséged, nyisd meg az Útikönyvet. Előre is lapozhatsz benne, amikor csak akarsz.',
-  introPlay: 'Egyelőre ennyit kell tudnod. Koppints a Játékra, és gyűjtsük be az első szavainkat.',
-  introBubbleAria: (line) => `${line} Folytatás.`,
-  introCaseyOpen: 'Casey megnyitása: nézd meg a begyűjtött szavakat',
-  introCaseyContinue: 'Tovább Caseyvel',
-  introPlayFirst: 'Játszd le az első játékodat',
-  introTapCasey: 'Koppints Casey-re',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'A szókártyák unalmasak, ezért két játékot játszunk: egy városnéző sétát, amin szavakat gyűjtünk, és egy szórejtvényt egy kávézóban.',
+  introExplore: (city) => `Nézzünk körül ${hol(city)}! Hátha találunk egy kávézót.`,
+  introGo: 'Indulás',
+  walkEndFound: 'Sétálj még egyet, vagy menj a Főoldalra, és játssz a kávézóban, amit találtunk.',
+  walkEndNotFound: 'Sétálj még egyet, hogy kávézót keress, vagy menj a Főoldalra.',
 
   // ── A súgóbuborékok az élő képernyőkön ───────────────────────────────────
   tourNext: 'Tovább',
   tourDone: 'Mehetünk',
-  tourLoose:
-    'Itt marad a szókészleted. Koppints egy szóra, ha újra látni vagy hallani szeretnéd.',
-  tourLid:
-    'Ez Casey táblagyűjteménye. A táblaszám és a kiírt szint mutatja a tábla legjobb próbáját.',
-  tourTray:
-    'Nyiss meg egy befejezett táblát az újrajátszáshoz. Az ismétlés javíthatja a legjobb szintjét anélkül, hogy visszaállítaná a következő kötelező táblát.',
-  tourWrapUp:
-    'Itt van a következő kötelező táblád. Teljesíts táblákat a szintekért. A fordítások és a kerék egy megoldott táblát egészen Platina szintig emelhetnek.',
+  tourLoose: 'A szavak, amikkel találkoztunk, itt fent várnak. Minden gyűrű egy harmaddal telik jelenként: egy fotó sétán, egy tipp a nyomomra, és egy saját nyomod.',
+  tourLid: 'Három jellel a szó össze van gyűjtve. Az összegyűjtött szavak a bőröndbe kerülnek, és ez a sor számolja őket.',
+  tourTray: 'Ez a város pecsétkártyája. Minden kávézó, ahol játszol, itt kapja meg a pecsétjét. A szaggatott kör egy megtalált, de még nem játszott kávézó, a ? pedig egy még megtalálandó.',
   mapTourHere: (city, words) =>
     `Ez ${city}, itt vagyunk most. Minden városban ${words} szót viszünk haza.`,
   mapTourNext: (next, _words, city) =>
@@ -109,25 +92,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Minden jó válasz egy zöld mezőt ad a kerékhez. Bármikor pörgethetsz, de ha üres mezőn áll meg, elveszíted a kört. Ha tele a kerék, minden pörgetés nyer.',
   wheelReadyTour:
     'A kerék most már teljesen zöld, így ez a pörgetés nyer. Koppints a kerékre a pörgetéshez.',
-  resultTourPostcards: (amount: string) =>
-    `Ez a tábla ennyivel gyarapította a városodat: ${amount}. Minden eredmény itt mutatja meg, mit szerzett.`,
   resultTourRewardNew: (rewards: string) => `Most először: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Korábban már megszerezted, ezért nem számít újra: ${rewards}.`,
-  resultTourNoRewards: 'Ez a tábla most nem hozott képeslapot. Ez előfordul, és semmit sem veszítesz.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Ez az eredmény ${tier}. A tábla eddigi legjobb eredménye: ${best}.`,
+    `Ez a rejtvény ${tier} szintet ért el. A kávézó eddigi legjobb pecsétje: ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Ezt a kört elvesztettük. A bronz itt csak azt jelzi, hogy játszottál, és nem számít legjobb eredménynek. A tábla eddigi legjobb eredménye: ${best}.`,
+    `Ez a rejtvény elveszett. Egy elvesztett rejtvény is bronz pecsétet ér. A megnyert rejtvény ezüstöt, aranyat vagy platinát ér. A kávézó eddigi legjobbja: ${best}.`,
+  resultTourCityPercent: (city) =>
+    `${city}: minden kávézópecsét a város érméjébe számít. Bronz 25%-tól, ezüst 50%-tól, arany 75%-tól, platina 100%-nál.`,
   resultTourNoBestYet: 'még nincs',
   resultTourSentence:
     'Ez egy választható ismétlés. Egy szót mutat ebből a táblából egy mondatban. Ez nem újabb teszt.',
   resultTourNoReview:
     'Most nincs átismételhető mondat. Semmi baj. Az ismétlés mindig választható.',
-  homeTourPostcards:
-    'Ez a képeslapjaid összesített száma ebben a városban. Minden képeslap, amelyet egy tábla megszerez, ide adódik hozzá.',
-  homeTourCollection:
-    'Koppints rám, és kinyitom a bőröndöt. Megmutatom a begyűjtött szavainkat és a tábláidat.',
+  homeTourSightseeing: 'A Városnézés az a séta, amit most tettünk. Minden séta szavakat gyűjt, és minél többet sétálsz, annál több kávézót találsz.',
+  homeTourCafe: (name) =>
+    name ? `Az első kávézónk: ${name}. Koppints a Kávézós rejtvényre, ülj le, és játssz.` : 'Az első kávézónk vár. Koppints a Kávézós rejtvényre, ülj le, és játssz.',
+  homeTourStamp: 'Minden kávézó, ahol játszol, kap egy pecsétet. Együtt adják ki a város érméjét, és itt látod, hol tartasz.',
+  homeTourCollection: 'Koppints rám, és kinyitom a bőröndöt. Megmutatom a szavakat, amiket összegyűjtöttünk, és a kávézó pecsétjét.',
 
   // ── A gyakorlókör: Casey megírt indoklásai ──────────────────────────────
   practiceRationaleDrink: 'A víz, a kávé és a tej mind olyasmi, amit iszunk.',
@@ -150,7 +133,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `${Az(word)} «${word}» nem zöld a kulcsomon, így a nyomom véget ért. A te zöldjeid akkor jelennek meg, amikor te jössz. Ez a nyom az én kulcsomat használta.`,
   firstClue: (clue) =>
-    `Hé, mely szavakat tudod ezen a táblán ${az(clue)} «${clue}» szóhoz kapcsolni? Koppints a szavak melletti ⓘ-re a fordításukhoz. Ha készen állsz, koppints egy szóra, és erősítsd meg.`,
+    `Üdv a kávézóban! Ez az első asztal egy rövid gyakorlás. Mely szavakat tudod ezen a táblán ${az(clue)} «${clue}» szóhoz kapcsolni? Koppints egy szó ⓘ jelére a fordításért, aztán koppints egy szóra, és erősítsd meg.`,
   clueFor: (clue, number) =>
     `A nyomom: «${clue}», ${number} szóra. Koppints bármelyik szóra, ami eszedbe jut róla.`,
   lastGreenLeft:
@@ -161,7 +144,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `A nyomod: «${clue}», ${number} szóra. A fenti ${tokens} pont a közös körzsetonunk. Minden nyom, a tiéd vagy az enyém, elhasznál egyet. Lent hangosan gondolkodom.`,
   yourClue: (clue, number) =>
     `A nyomod: «${clue}», ${number} szóra. A tippjeim most a te kulcsodat használják. Lent hangosan gondolkodom.`,
-  practiceWon: 'Minden zöldet megtaláltunk. Nyertünk! A teljes táblák nem lesznek ilyen könnyűek, de minden szó számít, amivel találkozunk.',
+  practiceWon: 'Minden zöld megvan. Nyertünk! A kávézós rejtvények nem lesznek ilyen könnyűek, de minden szó számít, amivel találkozunk.',
   practiceLost: 'Ez a kör elszaladt előlünk, de minden szó számít, amivel találkoztunk.',
   findingAClue: 'Én jövök. Nyomot keresek.',
   practiceTranslation:
@@ -169,7 +152,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'A kerék tele van. Pörgesd meg, hogy zöldön álljon meg. Normál táblán így lehet az eredményed Platina.',
   practiceFinish:
-    'A gyakorlás kész. Ez a kör nem ad képeslapot vagy városi szintet. Normál táblán a megoldás, a fordítás és a pörgetés ad szintet. Játssz újra egy kész táblát, hogy javíts a legjobb eredményén.',
+    'A gyakorlás kész. Ez az asztal nem ad pecsétet. Egy kávézós rejtvényben a megfejtés, a fordítás és a pörgetés adja a kávézó pecsétjét. Egy kávézót újra is játszhatsz, hogy javíts a pecsétjén.',
   demoEndTitle: "Ez volt az első teljes táblád.",
   demoEndLine: "Az appban tovább játszom veled, tábláról táblára, és megőrzök minden szót, amit gyűjtesz.",
   demoAppStore: "900words letöltése az App Store-ból",
@@ -178,6 +161,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey pihen",
   demoRestingBody: "Ma sokan játszottak velem, ezért pihennem kell. Gyere vissza holnap, vagy játssz velem az appban.",
   demoCheckFailed: "Nem tudtuk ellenőrizni, hogy ember vagy. Töltsd újra az oldalt, és próbáld újra.",
-  playFullRound: 'Játssz az első teljes táblán',
+  playFullRound: 'Játssz a kávézós rejtvénnyel',
   returnToParkedGame: 'Térj vissza a játékodhoz',
 }

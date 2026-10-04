@@ -22,6 +22,7 @@ import { useNativeKeyboard } from './ui/nativeKeyboard'
 import { useTapHaptics } from './ui/useTapHaptics'
 import { DictionarySheet } from './ui/components/DictionarySheet'
 import { UpdateBanner } from './ui/components/UpdateBanner'
+import { Tag } from './ui/components/Tag'
 import { AudioNotice } from './ui/components/AudioNotice'
 import { audioSelfTestRequested, runAudioSelfTest } from './audio/selftest'
 import { GameScreen } from './ui/screens/GameScreen'
@@ -32,7 +33,10 @@ import { TravelGuideBook } from './ui/screens/TravelGuideBook'
 import { OnboardingScreen } from './ui/screens/OnboardingScreen'
 import { SuitcaseScreen } from './ui/screens/SuitcaseScreen'
 import { SettingsScreen } from './ui/screens/SettingsScreen'
-import { PassScreen, PassThanks } from './ui/screens/PassScreen'
+import { SightseeingScreen } from './ui/screens/SightseeingScreen'
+import { chooseWalk } from './run/walks'
+import { runCity } from './journey/trainTicket'
+import { dailyLimitDialogShown, PassScreen, PassThanks } from './ui/screens/PassScreen'
 import { dailyLimitReached, showLimitOnHomeReturn } from './purchase/dailyGames'
 
 /**
@@ -46,7 +50,7 @@ import { dailyLimitReached, showLimitOnHomeReturn } from './purchase/dailyGames'
  * The wobbles are used on chrome only (docks, panels, buttons, Casey), never on
  * the board: twenty cards each running a displacement map is the kind of cost
  * no test here would catch, and the cards get their hand-drawn edge from plain
- * geometry instead. See index.css, "the pencil pass".
+ * geometry instead. See src/styles/80-pencil-pass.css, "the pencil pass".
  */
 function PencilDefs() {
   return (
@@ -79,6 +83,18 @@ function PencilDefs() {
       </svg>
     </>
   )
+}
+
+/**
+ * Dev fixture (local hosts only, called from the dev-switch effect): the
+ * current city's train is caught, with the numbers of a clean run. Written
+ * through the journey store like a real ticket, so everything that reads one
+ * (the travel gate, the train sheet, the backup) sees the same fact.
+ */
+function devCatchTrain(cityIndex: number): void {
+  useJourney.getState().recordTrainRun({
+    city: runCity(cityIndex), passed: true, at: Date.now(), words: 147, photos: 147, slips: 0, allowed: 1,
+  })
 }
 
 export default function App() {
@@ -222,17 +238,24 @@ export default function App() {
     const cityIndex = useJourney.getState().cityIndex
 
     // ?collected=K marks the first K words of the city as collected — a green
-    // earned each way. ?learned= is the same switch under its old name.
+    // earned each way and a photo. ?learned= is the same switch under its old name.
     //
     // "The first K" is `boardablePrefix` (srs/sampler.ts): K collected words
     // that can all be on one board, which is what every drive that uses this
     // switch means by it. ?wrapped= does not skip: the suitcase count is the
     // point there, and a wrapped word is on no board.
     const learned = params.get('learned') ?? params.get('collected')
+    //
+    // Since the café world (CW-11) a word is collected at three marks, so the
+    // switch also gives each of those words a photo (journey/wordMarks.ts):
+    // "collected" keeps meaning collected, in the suitcase lid and everywhere
+    // the marks are read. The photo is evidence only; it finds no café.
     if (learned && /^\d{1,3}$/.test(learned)) {
       const now = Date.now()
       const stats = { ...useSrs.getState().stats }
-      for (const w of boardablePrefix(wordsForCity(WORDS, cityIndex), Number(learned))) {
+      const prefix = boardablePrefix(wordsForCity(WORDS, cityIndex), Number(learned))
+      useJourney.getState().recordPhotos(prefix.map((w) => w.id), now)
+      for (const w of prefix) {
         stats[w.id] = {
           box: 3,
           lastSeenAt: now,
@@ -317,6 +340,9 @@ export default function App() {
       if (earned > 0) {
         const cityId = cityAt(cityIndex).id
         const seed = devTravelFacts(cityId, cityIndex, earned)
+        // A packed city is a ready one, and since CW-07 only a caught train
+        // makes a city ready: the full fixture holds this city's ticket too.
+        if (earned >= 100) devCatchTrain(cityIndex)
         void createSettlementStore({ storage: localStorage }).mergeFacts(seed).then(() => {
           setDevProgressRevision((revision) => revision + 1)
         }).catch(() => {
@@ -324,15 +350,29 @@ export default function App() {
         })
       }
     }
+
+    // ?sightseeing=words opens the running game's Words walk (café world,
+    // CW-05), ?sightseeing=articles its Articles walk (CW-06; a course without
+    // articles opens Words). Home has no door to it yet (that is CW-10), so
+    // this is how a developer, a probe or a drive reaches the screen. It
+    // writes nothing.
+    // ?ticket=1 holds this city's caught-train ticket (CW-07) without running
+    // 147 gates: the train sheet's ticket and the closed-line notice can be
+    // looked at. ?sightseeing=train opens the train run itself (add
+    // &trainwords=N to ask only N of its words, SightseeingScreen.tsx).
+    if (params.get('ticket') === '1') devCatchTrain(cityIndex)
+    const walk = params.get('sightseeing')
+    if (walk === 'words' || walk === 'articles' || walk === 'train') {
+      chooseWalk(walk)
+      useUi.getState().goTo('sightseeing')
+    }
   }, [])
 
   // Android back gesture / browser back: close the top-most layer, then fall
   // back to home — never straight out of the installed PWA.
   useEffect(() => {
-    const onPop = () => {
-      // An in-app close already updated the state and asked for this pop;
-      // handling it again would close a second layer.
-      if (consumeSelfPop()) return
+    /** One step of Back. False when there was nothing to close: Home, or the intro. */
+    const back = (): boolean => {
       const ui = useUi.getState()
       const round = useGame.getState()
       if (ui.dailyLimitOpen) {
@@ -359,10 +399,29 @@ export default function App() {
         ui.requestGameExit(true)
       } else if (ui.screen !== 'home') {
         useUi.setState({ screen: 'home', sheetWordId: null })
+      } else {
+        return false
       }
+      return true
     }
+    const onPop = () => {
+      // An in-app close already updated the state and asked for this pop;
+      // handling it again would close a second layer.
+      if (consumeSelfPop()) return
+      back()
+    }
+    // The Android shell (MainActivity.java) walks the WebView's history first.
+    // When there is none left to honour (a cold start straight into a round
+    // pushes its entry without a user gesture, and Chromium skips such entries
+    // on Back), it asks here instead, and lets Android's own Back run (the app
+    // goes to the background) only when this answers false.
+    const shell = window as Window & { __cluecabBack?: () => boolean }
+    shell.__cluecabBack = back
     window.addEventListener('popstate', onPop)
-    return () => window.removeEventListener('popstate', onPop)
+    return () => {
+      window.removeEventListener('popstate', onPop)
+      delete shell.__cluecabBack
+    }
   }, [])
 
   return (
@@ -373,8 +432,8 @@ export default function App() {
           board. Rendered app-wide it was eating the first tap on Settings and
           the backup panel, whose inputs sit in no dock — kb-up engaged with
           nothing at z-index 5 to punch through the scrim at 4. */}
-      {/* The intro REPLACES the ordinary screens, but its second act renders
-          the real Home itself and progressively reveals its controls. */}
+      {/* The intro REPLACES the ordinary screens, but its acts render the
+          real Sightseeing walk and the real Home themselves (CW-13). */}
       {onboarding ? (
         // Casey's error banner sends a player who has not set her up yet to
         // Settings, even in the middle of the intro (a self-build's practice
@@ -395,18 +454,19 @@ export default function App() {
           {screen === 'map' && <MapScreen />}
           {screen === 'guide' && <TravelGuideBook />}
           {screen === 'pass' && <PassScreen />}
+          {screen === 'sightseeing' && <SightseeingScreen />}
         </>
       )}
-      {!onboarding && dailyLimitOpen && screen !== 'pass' && <PassScreen />}
+      {/* Over a replayed intro too (CW-15): its walk is a real run, and the
+          dialog says why it cannot start. Never over a first session. */}
+      {dailyLimitDialogShown(onboarding, dailyLimitOpen, screen) && <PassScreen />}
       {/* A ticket that arrived with no pass screen up still earns the thank-you. */}
       {!onboarding && passThanked && !dailyLimitOpen && screen !== 'pass' && <PassThanks />}
       {rescued && (
         <div className="update-banner" role="status">
           <span>{UI.system.rescuedProgress(cityAt(rescued.cityIndex).name, rescued.banked)}</span>
           <div className="update-actions">
-            <button className="btn btn-small btn-primary" onClick={() => setRescued(null)}>
-              {UI.system.rescuedAck}
-            </button>
+            <Tag tone="primary" label={UI.system.rescuedAck} onClick={() => setRescued(null)} />
           </div>
         </div>
       )}

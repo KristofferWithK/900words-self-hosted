@@ -1,7 +1,7 @@
 import type { CompletionReceipt, RewardComponent, Tier } from '../../progression/types'
 import { RECEIPT_UI } from '../../i18n/receipt'
-import { REWARD_WEIGHTS } from '../../progression/rules'
-import { PostcardGlyph } from './PostcardGlyph'
+import { CafeStamp } from './CafeStamp'
+import type { FinishStamp } from './finishStamp'
 
 const tierLabel = (tier: Tier) => ({
   bronze: RECEIPT_UI.bronze,
@@ -16,70 +16,75 @@ const componentLabel = (component: RewardComponent) => ({
   solvedAndTranslated: RECEIPT_UI.rewardTranslated,
 })[component]
 
+function Tick() {
+  return <svg viewBox="0 0 16 16" className="receipt-tick-mark" aria-hidden="true" focusable="false">
+    <path d="M2.6 8.6l3.6 3.6 7.2-8.4" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+}
+
 /**
- * The postcard line with its number drawn large (owner's mockup, 2026-09-26).
- * The catalogue says the whole phrase in each language, so the number is
- * found inside it rather than the phrase being split into new strings; the
- * text a screen reader or a drive reads is unchanged.
+ * The stamp line: the café's stamp in its ink, and what this round did to it.
+ * A new or raised stamp lands (the press animation is one CSS block in
+ * styles/92-finish-screen.css, `data-stamp-state="new"`); a kept stamp is
+ * simply there. A lost first visit lands Bronze, because a completed loss
+ * earns a Bronze stamp (owner, 4 October 2026).
  */
-function PostcardCount({ text, count }: { readonly text: string; readonly count: number }) {
-  const at = text.indexOf(String(count))
-  if (at < 0) return <>{text}</>
-  const end = at + String(count).length
-  // Keep a leading "+" with the number it belongs to.
-  const start = at > 0 && text[at - 1] === '+' ? at - 1 : at
-  return <>
-    {text.slice(0, start)}
-    <span className="receipt-postcards-n">{text.slice(start, end)}</span>
-    <span className="receipt-postcards-label">{text.slice(end)}</span>
-  </>
+function StampLine({ stamp, fallbackTier }: { readonly stamp: FinishStamp | null; readonly fallbackTier: Tier | null }) {
+  if (!stamp) {
+    // Not a café of the city's stamp card (a later city, a board outside the
+    // required set): no stamp to give, so the attempt's tier is said plainly.
+    return <div className="receipt-stamp" data-stamp-state="none">
+      <CafeStamp tier={null} className="receipt-stamp-glyph" />
+      <p className="receipt-stamp-text">
+        <strong className="receipt-stamp-title">{RECEIPT_UI.noNewStamp}</strong>
+        {fallbackTier && <span className="receipt-stamp-card">{RECEIPT_UI.tier} · {tierLabel(fallbackTier)}</span>}
+      </p>
+    </div>
+  }
+  const title = stamp.state === 'new' ? RECEIPT_UI.stamp(stamp.tier) : RECEIPT_UI.noNewStamp
+  const line = stamp.state === 'new' ? RECEIPT_UI.stampOnCard(stamp.cafeName) : RECEIPT_UI.stampKept(stamp.cafeName, stamp.tier)
+  return <div className="receipt-stamp" data-stamp-state={stamp.state} data-stamp-tier={stamp.tier}>
+    <CafeStamp tier={stamp.tier} ring={RECEIPT_UI.stampRing[stamp.tier]} className="receipt-stamp-glyph" />
+    <p className="receipt-stamp-text">
+      <strong className="receipt-stamp-title">{title}</strong>
+      <span className="receipt-stamp-card">{line}</span>
+    </p>
+  </div>
 }
 
 /**
  * Presentation-only projection of the settlement receipt. It deliberately
  * has no store writes or callbacks: settlement is complete before this screen
  * is mounted, and revisiting it can therefore never mint a reward.
+ *
+ * The café world's finish screen (docs/roadmap/cafe-world.md section 6): the
+ * round's result lines as ticks, then the café's stamp where the postcard
+ * total was, with the city's percentage beside it. `stamp` is worked out by
+ * `finishStamp` from the CW-03 rules; this component decides nothing.
  */
-export function ReceiptResult({ receipt }: { readonly receipt: CompletionReceipt }) {
-  const rewards = receipt.rewards
+export function ReceiptResult({ receipt, stamp = null, cityName = null }: {
+  readonly receipt: CompletionReceipt
+  readonly stamp?: FinishStamp | null
+  readonly cityName?: string | null
+}) {
   const loss = receipt.completedLoss === true || receipt.evidence.game.outcome?.result === 'lost'
   const hasOutcome = loss || receipt.evidence.game.outcome?.result === 'won'
-  const displayTier: Tier = loss ? 'bronze' : receipt.attemptTier
-  const personalBest = receipt.previousBest
-    ? receipt.newBest && receipt.newBest !== receipt.previousBest
-      ? RECEIPT_UI.bestChange(tierLabel(receipt.previousBest), tierLabel(receipt.newBest))
-      : tierLabel(receipt.previousBest)
-    : receipt.newBest ? RECEIPT_UI.firstBest(tierLabel(receipt.newBest)) : null
+  // What this round did, ticked: the receipt's eligible components, whether or
+  // not an earlier round already earned them. A completed loss has none.
+  const ticks = loss ? [] : receipt.rewards.eligible
   return <section className="receipt-result" aria-label={RECEIPT_UI.title} data-tier-lesson={receipt.evidence.origin === 'primary' || receipt.evidence.origin === 'replay' ? 'normal' : undefined}>
-    <ul className="receipt-reward-list" aria-label={RECEIPT_UI.rewards}>
-      {rewards.newlyClaimed.map(component => <li className="receipt-reward-new" key={`new-${component}`}>
-        <span className="receipt-reward-amount">+{REWARD_WEIGHTS[component]}</span>
+    {ticks.length > 0 && <ul className="receipt-reward-list receipt-ticks" aria-label={RECEIPT_UI.roundTicks}>
+      {ticks.map(component => <li className="receipt-tick" data-reward={component} key={component}>
+        <Tick />
         <span className="receipt-reward-name">{componentLabel(component)}</span>
       </li>)}
-      {rewards.alreadyHeld.length > 0 && <li className="receipt-reward-held" key="already-earned">
-        <span className="receipt-reward-held-label">{RECEIPT_UI.alreadyEarnedLabel}:</span>
-        {rewards.alreadyHeld.map((component, index) => <span className="receipt-reward-held-item" key={`held-${component}`}>
-          {index > 0 && <span aria-hidden="true"> · </span>}
-          <span className="receipt-reward-amount">{REWARD_WEIGHTS[component]} ×</span>
-          {' '}{componentLabel(component)}
-        </span>)}
-      </li>}
-      {rewards.newlyClaimed.length === 0 && rewards.alreadyHeld.length === 0 && <li className="receipt-no-rewards">{RECEIPT_UI.noRewards}</li>}
-    </ul>
+    </ul>}
     <div className="receipt-result-summary">
-      <div className="receipt-postcard-total">
-        <PostcardGlyph className="receipt-postcard-glyph" />
-        <p className="receipt-postcards"><PostcardCount text={RECEIPT_UI.newPostcards(rewards.postcards)} count={rewards.postcards} /></p>
-      </div>
-      {hasOutcome && <div className="receipt-tier-summary">
-        <span className="receipt-tier-line">
-          <span className={`receipt-tier-medal receipt-tier-medal-${displayTier}`} aria-hidden="true" />
-          <strong className={`receipt-tier receipt-tier-${displayTier}`}>{tierLabel(displayTier)}</strong>
-        </span>
-        <span className="receipt-tier-label">{RECEIPT_UI.tier}</span>
-        {loss && <span className="receipt-tier-qualifier">{RECEIPT_UI.participationOnly}</span>}
-      </div>}
+      <StampLine stamp={stamp} fallbackTier={hasOutcome && !loss ? receipt.attemptTier : null} />
+      {stamp && <p className="receipt-city-percent" data-city-medal={stamp.cityMedal ?? 'none'}>
+        <strong className="receipt-city-percent-n">{RECEIPT_UI.cityPercent(stamp.cityPercent)}</strong>
+        {cityName && <span className="receipt-city-percent-label">{RECEIPT_UI.ofCity(cityName)}</span>}
+      </p>}
     </div>
-    {personalBest && <p className="receipt-best"><span>{RECEIPT_UI.personalBest}:</span> {personalBest}</p>}
   </section>
 }

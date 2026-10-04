@@ -212,6 +212,10 @@
 "gloss": "anatomie"
 },
 {
+"da": "anden",
+"gloss": "autre, deuxième"
+},
+{
 "da": "anderledes",
 "gloss": "différent"
 },
@@ -408,6 +412,10 @@
 "gloss": "siège auto"
 },
 {
+"da": "autoværn",
+"gloss": "glissière de sécurité"
+},
+{
 "da": "baby",
 "gloss": "bébé"
 },
@@ -586,6 +594,10 @@
 {
 "da": "bedstemor",
 "gloss": "grand-mère"
+},
+{
+"da": "bedømmelse",
+"gloss": "évaluation, notation"
 },
 {
 "da": "befinde",
@@ -1274,14 +1286,6 @@
 {
 "da": "børn",
 "gloss": "enfants"
-},
-{
-"da": "børneopdragelse",
-"gloss": "éducation des enfants"
-},
-{
-"da": "børnesang",
-"gloss": "chanson pour enfants"
 },
 {
 "da": "børste",
@@ -2456,10 +2460,6 @@
 "gloss": "obstacle"
 },
 {
-"da": "forhistorisk",
-"gloss": "préhistorique"
-},
-{
 "da": "forhold",
 "gloss": "relation"
 },
@@ -2497,7 +2497,7 @@
 },
 {
 "da": "forløb",
-"gloss": "parcours"
+"gloss": "déroulement"
 },
 {
 "da": "form",
@@ -3860,10 +3860,6 @@
 "gloss": "courses"
 },
 {
-"da": "indkørsel",
-"gloss": "allée (de garage)"
-},
-{
 "da": "indlede",
 "gloss": "introduire"
 },
@@ -4978,6 +4974,10 @@
 {
 "da": "køretøj",
 "gloss": "véhicule"
+},
+{
+"da": "kørsel",
+"gloss": "conduite"
 },
 {
 "da": "lag",
@@ -6276,10 +6276,6 @@
 "gloss": "éclairé"
 },
 {
-"da": "oplæsning",
-"gloss": "lecture à voix haute"
-},
-{
 "da": "opløse",
 "gloss": "dissoudre"
 },
@@ -7224,6 +7220,10 @@
 "gloss": "voyageur"
 },
 {
+"da": "rejsetid",
+"gloss": "temps de trajet"
+},
+{
 "da": "reklame",
 "gloss": "publicité"
 },
@@ -7600,10 +7600,6 @@
 "gloss": "coopération"
 },
 {
-"da": "samkørsel",
-"gloss": "covoiturage"
-},
-{
 "da": "samles",
 "gloss": "se rassembler"
 },
@@ -7650,6 +7646,10 @@
 {
 "da": "sandslot",
 "gloss": "château de sable"
+},
+{
+"da": "sandsynlig",
+"gloss": "probable"
 },
 {
 "da": "sandt",
@@ -8510,10 +8510,6 @@
 {
 "da": "stamtræ",
 "gloss": "arbre généalogique"
-},
-{
-"da": "standse",
-"gloss": "arrêter"
 },
 {
 "da": "stang",
@@ -10150,6 +10146,10 @@
 {
 "da": "vugge",
 "gloss": "berceau"
+},
+{
+"da": "vurdering",
+"gloss": "évaluation, jugement"
 },
 {
 "da": "våben",

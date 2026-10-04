@@ -54,7 +54,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Deze basis-URL is niet te gebruiken.',
 
   // ── het model op het apparaat ────────────────────────────────────────────
-  gemmaUnavailableNote: 'De offlinemodus werkt in de iPhone-app van 900words.',
+  gemmaUnavailableNote: 'De offlinemodus werkt in de 900words-apps voor iPhone en Android.',
   gemmaReady: (size) => `Offline Casey is klaar (${size} op deze iPhone).`,
   gemmaRemoveConfirm: 'Offline Casey van deze iPhone verwijderen? Je kunt haar later opnieuw downloaden.',
   gemmaRemoveButton: 'Offline Casey verwijderen',
@@ -87,6 +87,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Je AI-dienst heeft geantwoord.',
   gemmaOption: 'Gemma op deze iPhone',
   gemmaOptionHelp: 'Casey speelt op deze iPhone, zonder internet en zonder sleutel. Ze is trager.',
+  ossCaseyHelpAndroid: 'Deze 900words heb je zelf gebouwd. Casey heeft een AI nodig om te spelen: je eigen AI-sleutel of Gemma op deze Android-telefoon.',
+  gemmaOptionAndroid: 'Gemma op deze Android-telefoon',
+  gemmaOptionHelpAndroid: 'Casey speelt op deze Android-telefoon, zonder internet en zonder sleutel. Ze is trager.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Deze zelfgebouwde 900words speelt met Casey op deze Android-telefoon: geen account of sleutel nodig. Gemma hoeft maar één keer te worden gedownload (${size}). Gebruik wifi en houd 900words open tot de download klaar is.\n\nZe werkt het best op een recente Android-telefoon met minstens 12 GB geheugen, bijvoorbeeld ${phones}.${lowMemory ? '\n\nDeze telefoon heeft minder geheugen dan de aanbevolen modellen; misschien werkt ze niet goed.' : ''}\n\nJe kunt ook je eigen AI-sleutel toevoegen in Instellingen.\n\nCasey nu downloaden?`,
   serverOption: 'Je eigen Casey-server',
   serverOptionHelp: 'Een Casey-Worker die je zelf hebt uitgerold (zie de README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -108,6 +113,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey biedt dan aan de ronde met Gemma af te maken. De eerste keer wordt ze daarvoor gedownload.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Deze 900words speelt met Casey op je iPhone: zonder account en zonder sleutel. Ze is een eenmalige download (${size}). Gebruik wifi en houd 900words open tot de download klaar is.\n\nZe heeft een nieuwere iPhone nodig: ${iphones}.${lowMemory ? '\n\nDeze iPhone heeft minder geheugen dan die modellen. Misschien werkt ze er niet op.' : ''}\n\nJe kunt bij Instellingen ook je eigen AI-sleutel toevoegen.\n\nCasey nu downloaden?`,
+  // ── offline Casey op Android ─────────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Offline Casey heeft een nieuwere Android-telefoon nodig: Android 12 of nieuwer en minstens 8 GB geheugen. Deze telefoon heeft dat niet.',
+  gemmaReadyAndroid: (size) => `Offline Casey is klaar (${size} op deze telefoon).`,
+  gemmaRemoveConfirmAndroid:
+    'Offline Casey van deze telefoon verwijderen? Je kunt haar later opnieuw downloaden.',
+  offlineModeHelpAndroid:
+    'Normale Casey speelt via de server van 900words. Met de offlinemodus kun je een ronde afmaken met offline Casey op deze telefoon als het internet weg is. Ze is trager.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `De offlinemodus is experimenteel en wordt nog verbeterd.\n\nDe offlinemodus downloadt offline Casey (${size}) naar deze telefoon. Gebruik wifi en houd 900words open tot de download klaar is.\n\nOffline Casey speelt trager dan normale Casey.\n\nZe heeft een nieuwere Android-telefoon nodig met 12 GB geheugen of meer, bijvoorbeeld ${phones}.${lowMemory ? '\n\nDeze telefoon heeft minder geheugen. Misschien werkt ze er niet op.' : ''}\n\nNu downloaden?`,
+  gemmaAnsweredAndroid: 'Gemma heeft geantwoord op deze telefoon.',
 
   // ── de verbindingstest ───────────────────────────────────────────────────
   testRunning: 'Testen…',
@@ -259,4 +275,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "voorproefje",
   learnerLanguagePreviewHelp: "Duits is een voorproefje: de kaart en de Reisgids zijn er al, het woordspel nog niet. De lessen zijn nog niet nagekeken door iemand met Duits als moedertaal.",
   playtestTravelHelp: "Vooruitspringen doe je op de kaart: kies een latere halte en reis vooruit. Er worden geen woorden ingepakt en je leerresultaten veranderen niet. Zet dit uit om de normale reisvoorwaarden weer te testen.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Toegang voor de Google Play-beoordeling',
+  reviewAccessHelp: 'Alleen voor de app-beoordeling door Google Play. Voer de beoordelingscode uit de instructies in om onbeperkt spelen op dit apparaat te ontgrendelen.',
+  reviewAccessLabel: 'Beoordelingscode',
+  reviewAccessUnlock: 'Ontgrendelen',
+  reviewAccessChecking: 'Controleren…',
+  reviewAccessOn: (date: string) =>
+    `Beoordelingstoegang staat aan. Onbeperkt spelen is op dit apparaat ontgrendeld tot ${date}.`,
+  reviewAccessInvalid: 'Die beoordelingscode is niet geaccepteerd.',
+  reviewAccessRateLimited: 'Te veel pogingen. Probeer het morgen nog eens.',
+  reviewAccessError: 'De code kon niet worden gecontroleerd. Controleer de internetverbinding en probeer het nog eens.',
+
+  // ── Jouw plan (alleen in de store-builds). Apple op iOS, Google Play op Android.
+  planHeading: 'Jouw plan',
+  planFreeShort: 'Gratis',
+  planUnlimitedShort: 'Onbeperkt',
+  planChipAria: (plan: string) => `Jouw plan: ${plan}`,
+  planChecking: 'Je plan wordt gecontroleerd bij Apple.',
+  planCheckingPlay: 'Je plan wordt gecontroleerd bij Google Play.',
+  planFree: 'Gratis plan. Twee wandelingen en twee cafépuzzels per dag.',
+  planMonthly: 'Onbeperkt spelen. Maandabonnement. Het wordt elke maand verlengd totdat je opzegt.',
+  planLifetime: 'Onbeperkt spelen. Eenmalige aankoop. Er wordt niets verlengd.',
+  planBoth: 'Je hebt de eenmalige aankoop. Je maandabonnement loopt nog, en je hebt het niet meer nodig. Zeg het op, zodat je niet opnieuw betaalt.',
+  planError: 'Apple kon je plan nu niet controleren. Probeer het later opnieuw.',
+  planErrorPlay: 'Google Play kon je plan nu niet controleren. Probeer het later opnieuw.',
+  planGetUnlimited: 'Onbeperkt spelen',
+  planManage: 'Abonnement beheren of opzeggen',
+  planSwitch: 'Overstappen op eenmalige aankoop',
+  planSwitchNote: 'Met de eenmalige aankoop speel je voor altijd onbeperkt. Je maandabonnement stopt daardoor niet. Zeg na de aankoop het maandabonnement op via je Apple Account, anders betaal je voor allebei.',
+  planSwitchNotePlay: 'Met de eenmalige aankoop speel je voor altijd onbeperkt. Je maandabonnement stopt daardoor niet. Zeg na de aankoop het maandabonnement op in Google Play, anders betaal je voor allebei.',
+  planBuyFor: (price: string) => `Kopen voor ${price}`,
+  planNotNow: 'Niet nu',
 }

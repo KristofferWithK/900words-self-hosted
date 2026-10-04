@@ -6,11 +6,11 @@ import { cityKey } from '../progression/identity'
 import { gameSchema, parseLedger, parseSessions } from '../progression/storageSchema'
 import { matchesAuthoredContent } from '../progression/rules'
 import type { AttemptSlot, CourseSessions, ProgressFacts } from '../progression/types'
-import { initialCourseSessions, requiredContent, requiredSetForCourse, validateCourseSessions } from '../session/courseRuntime'
+import { initialCourseSessions, isSupersededQueue, rebaseCourseSessions, requiredContent, requiredSetForCourse, validateCourseSessions } from '../session/courseRuntime'
 import { migrateSrs } from './srsStore'
 import { commitSaveTransfer, readSaveMigration, SAVE_MIGRATION_KEY, type SaveStorage } from './saveTransfer'
 import { SESSION_KEY, SETTLEMENT_KEY } from './settlementStorage'
-import { emptySettlementLedger } from '../progression/settlement'
+import { emptySettlementLedger, pendingSettlement } from '../progression/settlement'
 
 const amount = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER)
 const stamp = z.enum(['en', 'de', 'es', 'zh', 'fr', 'pt', 'pl', 'hu', 'sv', 'nb', 'nl'])
@@ -116,7 +116,11 @@ export function migrateLegacyProfile(storage: SaveStorage, gameCache: Record<str
   if (planned?.sessions.primary) planned.sessions = { ...planned.sessions, primary: decorateSlot(planned.sessions.primary) }
   // Existing Danish C1 slots win: importing/migrating old metadata cannot create a third.
   if (!byCourse.da && planned) byCourse.da = planned.sessions
-  if (byCourse.da) validateCourseSessions(parseSessions(byCourse.da), facts, requiredSetForCourse('da'))
+  // A queue on a superseded set is valid against that set; `rebaseSavedQueues`
+  // moves it (after recovery, if a settlement was pending) rather than this.
+  if (byCourse.da && !isSupersededQueue(parseSessions(byCourse.da), 'da')) {
+    validateCourseSessions(parseSessions(byCourse.da), facts, requiredSetForCourse('da'))
+  }
   const journey = readEnvelope(storage, 'cluecab-journey-v2')
   const wrapped = object(journey?.state.wrapped) as Record<string, number>
   const historical = { ...object(journey?.state.historicalTravelEligibility), ...provenLegacyEligibility(wrapped) }
@@ -161,4 +165,41 @@ export function retireUnstampedSessions(storage: SaveStorage, now: number): void
     { key: SAVE_MIGRATION_KEY, value: JSON.stringify({ ...migration, version: 1, migratedAt: migration.migratedAt ?? now,
       retired: true, noticeDismissed: false, archives: [...(migration.archives ?? []), ...retired] }) },
   ])
+}
+
+/**
+ * Move every saved queue that still names a superseded frozen set of its city
+ * onto the current set (`rebaseCourseSessions`), once, in one journaled write.
+ * A round the rebase could not carry — unfinished, or finished but unsettled,
+ * on a board the new set dropped — is archived with the same evidence and
+ * notice as any other retired round.
+ *
+ * Returns false, writing nothing, while a settlement is pending: that receipt's
+ * queue effect was prepared against the old queue and must be applied to it
+ * first. The caller runs this again once recovery has applied it.
+ */
+export function rebaseSavedQueues(storage: SaveStorage, now: number): boolean {
+  const saved = readEnvelope(storage, SESSION_KEY)
+  if (!saved) return true
+  const rawLedger = storage.getItem(SETTLEMENT_KEY)
+  const ledger = rawLedger ? parseLedger(JSON.parse(rawLedger)) : emptySettlementLedger()
+  const byCourse = { ...object(saved.state.byCourse) }
+  const stale = Object.entries(byCourse).filter(([course, value]) =>
+    (course === 'da' || course === 'de') && isSupersededQueue(parseSessions(value), course))
+  if (!stale.length) return true
+  if (pendingSettlement(ledger)) return false
+  const retired: { id: string; at: number; evidence: Record<string, unknown> }[] = []
+  for (const [course, value] of stale) {
+    const plan = rebaseCourseSessions(parseSessions(value), ledger.facts, requiredSetForCourse(course as LanguageCode))
+    byCourse[course] = plan.sessions
+    for (const slot of plan.retired) retired.push({ id: `rebased-${slot.attemptId}`, at: now, evidence: legacyRoundEvidence({ ...slot,
+      gameLanguage: slot.board.courseId, authoredBoardId: slot.board.authoredBoardId, mode: 'normal' }) })
+  }
+  const migration = readSaveMigration(storage)
+  commitSaveTransfer(storage, [
+    { key: SESSION_KEY, value: JSON.stringify({ ...saved, state: { ...saved.state, byCourse } }) },
+    ...(retired.length ? [{ key: SAVE_MIGRATION_KEY as typeof SAVE_MIGRATION_KEY, value: JSON.stringify({ ...migration, version: 1, migratedAt: migration.migratedAt ?? now,
+      retired: true, noticeDismissed: false, archives: [...(migration.archives ?? []), ...retired] }) }] : []),
+  ])
+  return true
 }

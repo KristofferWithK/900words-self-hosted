@@ -20,12 +20,15 @@ describe('P15 fixed tutorial-to-first-board contract', () => {
     expect(next).not.toBeNull()
     expect(next?.authoredBoardId).toBe('bank_001')
     expect(next?.contentRevision).toBe('1')
+    // The second board is whatever the balanced v2 order put there; only the
+    // first is part of this contract.
+    const second = CITY1_REQUIRED_BOARDS.at(1).identity.authoredBoardId
     expect(freshSessions.continuation.remainingBoardKeys.slice(0, 2)).toEqual([
-      '["da","sonderborg","bank_001","1"]', '["da","sonderborg","bank_002","1"]',
+      '["da","sonderborg","bank_001","1"]', `["da","sonderborg","${second}","1"]`,
     ])
     const entry = CITY1_REQUIRED_BOARDS.at(0)
     expect(entry.identity).toEqual({ courseId: 'da', cityId: 'sonderborg', authoredBoardId: 'bank_001', contentRevision: '1' })
-    expect(CITY1_REQUIRED_BOARDS.setVersion).toBe('city1-required-boards-v1')
+    expect(CITY1_REQUIRED_BOARDS.setVersion).toBe('city1-required-boards-v2')
     expect(entry.board).toMatchObject({
       id: 'bank_001', seedHex: '00007551', firstGiver: 'player', greenOverlap: 1,
       wordIds: ['da:by', 'da:land', 'da:klokke', 'da:måned', 'da:menneske', 'da:lille', 'da:halv', 'da:svær', 'da:synes', 'da:komme', 'da:bo', 'da:sidste', 'da:hus', 'da:mulig', 'da:liv', 'da:hel', 'da:sikker', 'da:uge'],
@@ -34,7 +37,6 @@ describe('P15 fixed tutorial-to-first-board contract', () => {
     })
     expect(CITY1_BOARD_CYCLE[0]).toEqual(entry.board)
     expect(BOARD).toMatchObject({ rows: 6, cols: 3, totalWords: 18, greenOverlap: 3 })
-    expect(CITY1_REQUIRED_BOARDS.at(1).identity.authoredBoardId).toBe('bank_002')
 
     // A settled first primary advances only the primary queue. The replay
     // route is deliberately a separate presentation path and cannot change
@@ -47,7 +49,7 @@ describe('P15 fixed tutorial-to-first-board contract', () => {
         },
       },
     }
-    expect(nextRequiredBoard(initialCourseSessions(completedFacts), completedFacts)?.authoredBoardId).toBe('bank_002')
+    expect(nextRequiredBoard(initialCourseSessions(completedFacts), completedFacts)?.authoredBoardId).toBe(second)
   })
 
   it('hands a German first-run course into its own first City 1 board', () => {

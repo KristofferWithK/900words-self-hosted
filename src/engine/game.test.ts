@@ -10,6 +10,8 @@ import {
   isPerfectRound,
   remainingGreenIds,
   targetableGreenIds,
+  wheelFoundIds,
+  wheelMissedSegments,
 } from './game'
 import type { BoardWord, CardRole, GameState, Side } from './types'
 import { danish } from '../lang/da'
@@ -630,8 +632,15 @@ describe('translation wheel', () => {
     expect(s.outcome).toBeUndefined()
     expect(s.turnsLeft).toBe(0)
     expect(s.wheel).toBeDefined()
-    expect(s.wheel!.segments.length).toBeGreaterThan(0)
-    expect(s.wheel!.segments.every((id) => s.reveals[id]!.kind === 'green')).toBe(true)
+    // The wheel holds EVERY key word on the board (owner, 2026-09-27), in
+    // board order; only the found ones can be typed.
+    const keyWords = s.words
+      .map((w) => w.wordId)
+      .filter((id) => s.playerKey[id] === 'green' || s.aiKey[id] === 'green')
+    expect(s.wheel!.segments).toEqual(keyWords)
+    expect(wheelFoundIds(s)).toEqual(keyWords.filter((id) => s.reveals[id]!.kind === 'green'))
+    expect(wheelFoundIds(s).length).toBeGreaterThan(0)
+    expect(wheelFoundIds(s).length).toBeLessThan(s.wheel!.segments.length)
   })
 
   it('keeps sudden death for a board solved to nothing', () => {
@@ -641,28 +650,27 @@ describe('translation wheel', () => {
     expect(s.wheel).toBeUndefined()
   })
 
-  it('asks for every green word, once each, and grades case-insensitively', () => {
+  it('asks for every FOUND word, once each, and grades case-insensitively', () => {
     const s0 = reachChallenge()
     const wheel = s0.wheel!
-    // The wheel's segments are the greens already FOUND — not every green on
-    // the keys, only the ones the round actually solved (reveals, not roles).
-    expect(wheel.segments.length).toBe(
-      s0.words.filter((w) => s0.reveals[w.wordId]!.kind === 'green').length,
-    )
-    expect(wheel.segments.length).toBeLessThan(remainingGreenIds(s0).length + wheel.segments.length)
+    // The challenge asks for the greens already FOUND (reveals, not roles);
+    // the rest of the wheel is the key words the round missed.
+    const found = wheelFoundIds(s0)
+    expect(found.length).toBe(s0.words.filter((w) => s0.reveals[w.wordId]!.kind === 'green').length)
+    expect(wheel.segments.length).toBe(found.length + remainingGreenIds(s0).length)
     let s = s0
-    for (const id of wheel.segments) {
+    for (const id of found) {
       const da = danishFor(s, id)
       s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: `  ${da.toUpperCase()}  ` })
     }
     // Every case-varied answer packed its word, so the wheel completed.
     expect(s.phase).toBe('translateWheel')
-    expect(s.wheel!.translated.length).toBe(wheel.segments.length)
+    expect(s.wheel!.translated.length).toBe(found.length)
   })
 
   it('wrong answers are free and count only attempts', () => {
     const s0 = reachChallenge()
-    const id = s0.wheel!.segments[0]!
+    const id = wheelFoundIds(s0)[0]!
     const before = structuredClone(s0)
     // A wrong answer: attempts tick, nothing else moves — not the wheel's
     // fills, not the tokens, not the phase.
@@ -682,14 +690,16 @@ describe('translation wheel', () => {
 
   it('fills the wheel segment by segment and completes by itself', () => {
     let s = reachChallenge()
-    const wheel = s.wheel!
-    for (const [i, id] of wheel.segments.entries()) {
+    const found = wheelFoundIds(s)
+    for (const [i, id] of found.entries()) {
       s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
       expect(s.wheel!.translated.length).toBe(i + 1)
     }
+    // The last FOUND word completes it: the missed slices never fill.
     expect(s.phase).toBe('translateWheel')
+    expect(s.wheel!.filled.length).toBeLessThan(s.wheel!.segments.length)
     // A repeat answer after completion is refused — the challenge is closed.
-    const id = wheel.segments[0]!
+    const id = found[0]!
     expect(() => applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })).toThrow(IllegalEventError)
     // COMPLETE_CHALLENGE is a no-op once the last answer already moved the phase.
     expect(applyEvent(s, { type: 'COMPLETE_CHALLENGE' }).phase).toBe('translateWheel')
@@ -704,8 +714,8 @@ describe('translation wheel', () => {
     let sawMismatch = false
     for (let seed = 1; seed <= 40; seed++) {
       const s = reachChallenge(seed, 5)
-      if (s.phase !== 'translateChallenge' || s.wheel!.segments.length < 2) continue
-      const [first, second] = [s.wheel!.segments[0]!, s.wheel!.segments[1]!]
+      if (s.phase !== 'translateChallenge' || wheelFoundIds(s).length < 2) continue
+      const [first, second] = [wheelFoundIds(s)[0]!, wheelFoundIds(s)[1]!]
       const one = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: first, answer: danishFor(s, first) })
       firstFills.add(one.wheel!.filled[0]!)
       // And a second answer fills a DIFFERENT segment, never the same one.
@@ -719,8 +729,8 @@ describe('translation wheel', () => {
     let verdicts = 0
     for (let seed = 1; seed <= 40 && verdicts < 2; seed++) {
       let s = reachChallenge(seed, 5)
-      if (s.phase !== 'translateChallenge' || s.wheel!.segments.length < 3) continue
-      for (const id of s.wheel!.segments) {
+      if (s.phase !== 'translateChallenge' || wheelFoundIds(s).length < 3) continue
+      for (const id of wheelFoundIds(s)) {
         s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
       }
       const spun = applyEvent(s, { type: 'SPIN_WHEEL' })
@@ -737,8 +747,8 @@ describe('translation wheel', () => {
 
   it('COMPLETE_CHALLENGE refuses an incomplete wheel', () => {
     const s = reachChallenge()
-    if (s.wheel!.segments.length < 2) return
-    const id = s.wheel!.segments[0]!
+    if (wheelFoundIds(s).length < 2) return
+    const id = wheelFoundIds(s)[0]!
     const one = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
     expect(() => applyEvent(one, { type: 'COMPLETE_CHALLENGE' })).toThrow(IllegalEventError)
   })
@@ -751,8 +761,8 @@ describe('translation wheel', () => {
     for (let seed = 1; seed <= 60 && (!sawWin || !sawMiss); seed++) {
       const s = reachChallenge(seed, 5)
       if (s.phase !== 'translateChallenge') continue
-      // Five segments, one filled: both verdicts are live on every spin.
-      const first = s.wheel!.segments[0]!
+      // One of fifteen slices filled: both verdicts are live on every spin.
+      const first = wheelFoundIds(s)[0]!
       const filled = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: first, answer: danishFor(s, first) })
       const spun = applyEvent(filled, { type: 'SPIN_WHEEL' })
       if (spun.wheel!.result === 'win') sawWin = sawWin ?? spun
@@ -772,7 +782,7 @@ describe('translation wheel', () => {
     // Deterministic: the same input, the same landing — twice.
     const base = reachChallenge(3)
     if (base.phase === 'translateChallenge') {
-      const first = base.wheel!.segments[0]!
+      const first = wheelFoundIds(base)[0]!
       const filled = applyEvent(base, { type: 'SUBMIT_TRANSLATION', wordId: first, answer: danishFor(base, first) })
       const one = applyEvent(filled, { type: 'SPIN_WHEEL' })
       const two = applyEvent(filled, { type: 'SPIN_WHEEL' })
@@ -790,7 +800,7 @@ describe('translation wheel', () => {
     for (let seed = 1; seed <= 60 && !winner; seed++) {
       const s = reachChallenge(seed, 5)
       if (s.phase !== 'translateChallenge') continue
-      const first = s.wheel!.segments[0]!
+      const first = wheelFoundIds(s)[0]!
       const filled = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: first, answer: danishFor(s, first) })
       const spun = applyEvent(filled, { type: 'SPIN_WHEEL' })
       if (spun.wheel?.result === 'win') {
@@ -805,27 +815,87 @@ describe('translation wheel', () => {
     expect(winner!.phase).toBe('finished')
   })
 
-  it('a fully translated wheel always wins through the actual spin', () => {
-    // C1-PC-1: every segment is filled, so every possible landing is green.
+  it('a fully translated wheel on an unsolved board loses exactly on a missed slice', () => {
+    // Every found word typed fills every slice that CAN fill; the missed key
+    // words' slices stay grey (owner, 2026-09-27). So the spin wins exactly
+    // when it lands off them — no longer always, as when the wheel held only
+    // the found words. (A solved board has no missed slices and always wins
+    // here: progressionFlow.test.ts, F06.)
     let wins = 0
     let misses = 0
     for (let seed = 1; seed <= 40; seed++) {
       let s = reachChallenge(seed, 5)
-      if (s.phase !== 'translateChallenge' || s.wheel!.segments.length < 3) continue
-      for (const id of s.wheel!.segments) {
+      if (s.phase !== 'translateChallenge' || wheelFoundIds(s).length < 3) continue
+      for (const id of wheelFoundIds(s)) {
         s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
       }
+      const missed = wheelMissedSegments(s)
+      expect([...s.wheel!.filled, ...missed].sort((a, b) => a - b)).toEqual(s.wheel!.segments.map((_, i) => i))
       const spun = applyEvent(s, { type: 'SPIN_WHEEL' })
       if (spun.wheel!.result === 'win') {
         wins++
+        expect(missed).not.toContain(spun.wheel!.landed)
         expect(spun.outcome).toEqual({ result: 'won', reason: 'wheel-win' })
       } else {
         misses++
+        expect(missed).toContain(spun.wheel!.landed)
         expect(spun.outcome).toEqual({ result: 'lost', reason: 'wheel-miss' })
       }
     }
-    expect(wins).toBe(40)
-    expect(misses).toBe(0)
+    expect(wins).toBeGreaterThan(0)
+    expect(misses).toBeGreaterThan(0)
+  })
+
+  it('the missed slices: one per key word not found, fixed by the seed, never filled', () => {
+    const positions = new Set<number>()
+    let checked = 0
+    for (let seed = 1; seed <= 30; seed++) {
+      let s = reachChallenge(seed, 5)
+      if (s.phase !== 'translateChallenge') continue
+      checked++
+      const missed = wheelMissedSegments(s)
+      expect(missed.length).toBe(s.wheel!.segments.length - wheelFoundIds(s).length)
+      expect(new Set(missed).size).toBe(missed.length)
+      // Derived from the round's own seed: asking again gives the same slices.
+      expect(wheelMissedSegments(structuredClone(s))).toEqual(missed)
+      missed.forEach((i) => positions.add(i))
+      for (const id of wheelFoundIds(s)) {
+        s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
+        expect(s.wheel!.filled.some((i) => missed.includes(i))).toBe(false)
+      }
+      // And the missed set does not move as the found words are typed.
+      expect(wheelMissedSegments(s)).toEqual(missed)
+    }
+    expect(checked).toBeGreaterThan(5)
+    // Placed at random, like the fills: across seeds they reach every part of
+    // the wheel, not a fixed block.
+    expect(positions.size).toBeGreaterThan(10)
+  })
+
+  it('a key word the round missed holds a slice but cannot be translated', () => {
+    const s = reachChallenge(7, 3)
+    const missedWord = s.wheel!.segments.find((id) => s.reveals[id]!.kind !== 'green')!
+    expect(missedWord).toBeDefined()
+    expect(() =>
+      applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: missedWord, answer: danishFor(s, missedWord) }),
+    ).toThrow(IllegalEventError)
+  })
+
+  it('a wheel saved before the full-board change keeps its old shape and rules', () => {
+    // An in-progress save from before 2026-09-27 holds only the found words.
+    // Nothing is migrated: it derives no missed slices, completes on its own
+    // segments, and a full wheel still always wins.
+    let s = reachChallenge(11, 4)
+    expect(s.phase).toBe('translateChallenge')
+    const found = wheelFoundIds(s)
+    s = { ...s, wheel: { ...s.wheel!, segments: found } }
+    expect(wheelMissedSegments(s)).toEqual([])
+    for (const id of found) {
+      s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
+    }
+    expect(s.phase).toBe('translateWheel')
+    expect(s.wheel!.filled.length).toBe(found.length)
+    expect(applyEvent(s, { type: 'SPIN_WHEEL' }).wheel!.result).toBe('win')
   })
 
   it('once per round still holds: the wheel never re-opens after the spin', () => {
@@ -876,7 +946,7 @@ describe('translation wheel', () => {
       const base = reachClean(seed)
       if (!base || base.phase !== 'translateChallenge') continue
       let s = base
-      for (const id of s.wheel!.segments) {
+      for (const id of wheelFoundIds(s)) {
         s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: danishFor(s, id) })
       }
       const spun = applyEvent(s, { type: 'SPIN_WHEEL' })
@@ -895,7 +965,7 @@ describe('translation wheel', () => {
       // One bystander tap spoils it, whatever the wheel did.
       const s1 = applyEvent(base, {
         type: 'SUBMIT_TRANSLATION',
-        wordId: base.wheel!.segments[0]!,
+        wordId: wheelFoundIds(base)[0]!,
         answer: 'nope',
       })
       expect(isPerfectRound(s1)).toBe(false)

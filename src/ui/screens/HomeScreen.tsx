@@ -3,38 +3,56 @@ import { playsOnDevice } from '../../ai/gemma/gate'
 import { TrainNoticeDialog } from '../components/TrainNoticeDialog'
 import { CITIES, FINAL_CITY_INDEX, cityAt } from '../../journey/cities'
 import { MAP, routePath } from '../../journey/map'
-import { cityMedal, cityPostcards, hasHistoricalTravelEligibility } from '../../journey/progress'
+import { cityMedal, hasHistoricalTravelEligibility } from '../../journey/progress'
+import { cityWords as cityWordList } from '../../journey/cityWords'
+import { countMarks, type PhotoLedger } from '../../journey/wordMarks'
+import type { SrsMap } from '../../srs/types'
+import { articleLanes, chooseWalk, walksForCourse } from '../../run/walks'
+import { cafeNameForBoard } from '../../cafe/cafeName'
+import { cafeLaunchRefused } from '../../journey/cafeAccess'
+import { dealOrFallBack } from '../cafeDeal'
+import { beginRunOrOffer } from '../runGate'
+import { CafeStamp } from '../components/CafeStamp'
+import { displayCityPercent } from '../components/finishStamp'
+import { SightseeingChooser, TrainSheet, type HomeWalk } from '../components/HomeSheets'
+import { Tag } from '../components/Tag'
 import { journeyTravelGate } from '../../journey/trainService'
 import { onPracticeCompanion, useGame } from '../../stores/gameStore'
 import { reachedIndex, useJourney } from '../../stores/journeyStore'
 import { useSettings } from '../../stores/settingsStore'
 import { useUi } from '../../stores/uiStore'
-import { Cluey, ClueyFace } from '../components/Cluey'
+import { Cluey } from '../components/Cluey'
 import { ACTIVE } from '../../lang/active'
-import { TrainProgress } from '../components/TrainProgress'
+import { TicketGlyph, TrainProgress } from '../components/TrainProgress'
+import { useCityTrain } from '../components/TrainRunPanel'
 import { usePass } from '../../purchase/passStore'
 import { buildAudience } from '../../build/audience'
-import { currentStreak, useStreak } from '../../streak/streak'
+import { useSrs } from '../../stores/srsStore'
+import { WORDS } from '../../data/words'
 import { TravelGuideButton } from '../components/TravelGuideButton'
 import { UI } from '../../i18n'
 import { RECEIPT_UI } from '../../i18n/receipt'
 import { CITY1_REQUIRED_SET, initialCourseSessions, nextRequiredBoard } from '../../session/courseRuntime'
 import { createSettlementStore } from '../../stores/settlementStore'
 import { emptyProgressFacts } from '../../progression/facts'
-import type { CourseSessions, ProgressFacts, Tier } from '../../progression/types'
-import { PROVISIONAL_TRAVEL_THRESHOLD } from '../../progression/rules'
+import type { BoardIdentity, CourseSessions, ProgressFacts, Tier } from '../../progression/types'
 import { TravelGuideBook } from './TravelGuideBook'
-import { useState } from 'react'
-import { PostcardGlyph } from '../components/PostcardGlyph'
+import { useCallback, useMemo, useState } from 'react'
 
 /**
  * Home in three bands, per the notebook sketch: the journey (map and
- * progress) on top, Casey in the middle with something to say, and Play at
- * the bottom. Nothing scrolls; anything deeper lives one tap away — the map,
+ * progress) on top, Casey in the middle with something to say, and the games
+ * at the bottom. Nothing scrolls; anything deeper lives one tap away — the map,
  * the case, Settings behind the gear. The daily star and the rules button
  * that used to flank Play are gone (owner, 2026-09-15): the daily board and
- * the rules overlay remain reachable through their own screens, and Play now
- * fills the row it once shared.
+ * the rules overlay remain reachable through their own screens.
+ *
+ * Café world (card CW-10, docs/design/cafe-world/design-home-settled.jpg and
+ * contract section 6): two white tags, "Café puzzle" and "Sightseeing", in
+ * place of Play; a ticket at the left end of the train strip that opens the
+ * train sheet; the city's stamp and percentage under the Guide where the
+ * postcard count was; no "City medal" line. The first session shows this
+ * same Home with its doors routed by onboarding (CW-13, `intro` below).
  *
  * Casey is the biggest thing on the screen and that is the point: she is the
  * app's face and its store screenshot. Everything above him is a strip. The
@@ -143,104 +161,26 @@ export function JourneyMap({ cityIndex, reachedTo = cityIndex }: { cityIndex: nu
   )
 }
 
-export type HomeIntroStage = 'welcome' | 'map' | 'guide' | 'play' | 'return'
-
+/**
+ * Home inside the first session (CW-13). It is the REAL Home: the same tags,
+ * stamp and train strip a player meets every day, never a staged copy (the
+ * staged intro Home and its postcard total are gone). The first session only
+ * routes its doors: while onboarding owns the screen, the Café puzzle tag,
+ * Sightseeing and Casey go where the flow goes next, and the doors that would
+ * leave the flow (the map, Settings) stand still. The Travel Guide opens in
+ * place, as the staged Home's did.
+ */
 export interface HomeIntroPresentation {
-  stage: HomeIntroStage
-  line: string
-  onAdvance: () => void
-  onPlay: () => void
+  /** The Café puzzle tag's action in this act. */
+  onCafePuzzle: () => void
+  /** The Sightseeing tag's action in this act. */
+  onSightseeing: () => void
+  /** Tapping Casey (the suitcase door) in this act. */
   onCasey: () => void
 }
 
-/**
- * The first-run version of Home. The real map, guide and Play affordances
- * occupy their final positions, but begin invisible so the first frame truly
- * contains only Casey and her bubble. Each acknowledgement reveals one more
- * piece; CSS moves Casey down as the map arrives instead of cutting to a
- * separate explanatory screen.
- */
-function IntroHome({ intro }: { intro: HomeIntroPresentation }) {
-  const [guideOpen, setGuideOpen] = useState(false)
-  const mapVisible = intro.stage !== 'welcome'
-  const guideVisible = intro.stage === 'guide' || intro.stage === 'play' || intro.stage === 'return'
-  const playVisible = intro.stage === 'play' || intro.stage === 'return'
-  const returning = intro.stage === 'return'
-
-  if (guideOpen) return <TravelGuideBook onExit={() => setGuideOpen(false)} />
-  return (
-    <div className={`screen home-screen home-intro home-intro-${intro.stage}`} data-intro-stage={intro.stage}>
-      <div className={`home-map-controls home-intro-map-controls${mapVisible ? ' is-visible' : ''}`}>
-        <div className="map-button home-intro-map" aria-hidden={!mapVisible}>
-          <JourneyMap cityIndex={0} />
-        </div>
-        {returning ? (
-          // Back from the first full board: the same Guide corner as ordinary
-          // Home, with the city's real postcard total beneath it.
-          <div className="home-guide-stack home-intro-guide is-visible">
-            <TravelGuideButton onClick={() => setGuideOpen(true)} />
-            <HomePostcardTotal cityIndex={0} />
-          </div>
-        ) : (
-          <TravelGuideButton className={`home-intro-guide${guideVisible ? ' is-visible' : ''}`} onClick={() => setGuideOpen(true)} disabled={!guideVisible} />
-        )}
-      </div>
-
-      <div className="cluey-band home-intro-casey">
-        {!returning && (
-          <button
-            type="button"
-            className="cluey-bubble home-intro-bubble"
-            aria-label={UI.onboarding.introBubbleAria(intro.line)}
-            onClick={intro.onAdvance}
-          >
-            {intro.line}
-          </button>
-        )}
-        <button
-          type="button"
-          className="cluey-button"
-          aria-label={
-            returning ? UI.onboarding.introCaseyOpen : UI.onboarding.introCaseyContinue
-          }
-          onClick={returning ? intro.onCasey : intro.onAdvance}
-        >
-          <div className="cluey-live"><ClueyFace mood={returning ? 'happy' : 'idle'} /></div>
-        </button>
-      </div>
-
-      <div className={`home-actions home-intro-actions${playVisible ? ' is-visible' : ''}`}>
-        <button
-          type="button"
-          className="btn btn-primary btn-big home-play"
-          onClick={intro.onPlay}
-          disabled={!playVisible || returning}
-          tabIndex={playVisible && !returning ? 0 : -1}
-          aria-hidden={!playVisible}
-        >
-          {returning ? UI.onboarding.introTapCasey : UI.onboarding.introPlayFirst}
-        </button>
-      </div>
-    </div>
-  )
-}
-
-/**
- * The city's postcard total, read from the durable ledger on every render.
- * Ordinary Home and the returning intro Home share it, so the number the
- * onboarding points at is the number Home will keep showing.
- */
-function HomePostcardTotal({ cityIndex, facts }: { cityIndex: number; facts?: ProgressFacts }) {
-  const postcardsEarned = cityPostcards(facts ?? readCourseProgress().facts, { courseId: ACTIVE.code, cityId: cityAt(cityIndex).id })
-  return (
-    <p className="home-postcard-total" aria-label={`${postcardsEarned} ${UI.home.postcardsEarned}`}>
-      <PostcardGlyph /> <strong>{postcardsEarned}</strong>
-    </p>
-  )
-}
-
 export function HomeScreen({ intro }: { intro?: HomeIntroPresentation } = {}) {
-  return intro ? <IntroHome intro={intro} /> : <StandardHomeScreen />
+  return <StandardHomeScreen intro={intro} />
 }
 
 /**
@@ -305,7 +245,102 @@ function tierLabel(tier: Tier | null) {
   return RECEIPT_UI[tier]
 }
 
-function StandardHomeScreen() {
+/**
+ * What the Café puzzle tag does. THE SEAM FOR CW-08: one function decides
+ * the tag's action, and Home only draws and runs what it returns. Card CW-08
+ * (cafés on the board, which café is next) extends this with kinds of its
+ * own without touching the tag.
+ *
+ * - `continue`: a paused round is waiting; the tag continues it.
+ * - `next`: no round waiting; the tag starts the next café's board, as Play did.
+ * - `find-first`: the next café has not been found in Sightseeing yet (CW-04's
+ *   rule; `mayLaunch` asks it), so the board game would refuse to deal it. The
+ *   tag opens Sightseeing with a line saying so.
+ * - `improve`: every board of the city has been played; the tag opens the
+ *   suitcase to improve them, as Play did.
+ */
+export type CafePuzzleAction =
+  | { readonly kind: 'continue'; readonly slot: 'primary' | 'replay' }
+  | { readonly kind: 'next'; readonly board: BoardIdentity }
+  | { readonly kind: 'find-first'; readonly board: BoardIdentity }
+  | { readonly kind: 'improve' }
+
+export function cafePuzzleAction(
+  courseSlot: 'primary' | 'replay' | null,
+  nextBoard: BoardIdentity | null,
+  mayLaunch: (board: BoardIdentity) => boolean = () => true,
+): CafePuzzleAction {
+  if (courseSlot) return { kind: 'continue', slot: courseSlot }
+  if (!nextBoard) return { kind: 'improve' }
+  if (!mayLaunch(nextBoard)) return { kind: 'find-first', board: nextBoard }
+  return { kind: 'next', board: nextBoard }
+}
+
+/** The small line under "Café puzzle": the café it opens, or what it continues. */
+export function cafePuzzleNote(action: CafePuzzleAction): string | null {
+  switch (action.kind) {
+    case 'continue':
+      return action.slot === 'primary' ? UI.home.continuePrimary : UI.home.continueReplay
+    case 'improve':
+      return UI.home.improveBoards
+    case 'find-first':
+      return UI.home.cafeNotFoundNote
+    case 'next':
+      return cafeNameForBoard(action.board)
+  }
+}
+
+/**
+ * Sightseeing's walks for the active course: Words always, Articles where the
+ * course's nouns have articles to choose between (src/run/walks.ts).
+ */
+export function homeWalks() {
+  const lanes = articleLanes(ACTIVE)
+  return { walks: walksForCourse(ACTIVE), lanes }
+}
+
+/**
+ * The city's stamp under the Guide, where the postcard count was: the stamp in
+ * the city medal's ink (an empty dashed place below Bronze) and the city's
+ * percentage under it. Not a control. The screen-reader line says the same in
+ * words, and keeps the medal the removed "City medal" line used to name.
+ */
+function HomeCityStamp({ cityName, medal, percent }: { cityName: string; medal: Tier | null; percent: number }) {
+  return (
+    <p className="home-city-stamp" data-medal={medal ?? 'none'}>
+      <CafeStamp tier={medal} ring={medal ? RECEIPT_UI.stampRing[medal] : undefined} className="home-city-stamp-glyph" />
+      <strong className="home-city-stamp-percent" aria-hidden="true">{RECEIPT_UI.cityPercent(percent)}</strong>
+      <span className="visually-hidden">
+        {UI.home.cityStampAria(cityName, RECEIPT_UI.cityPercent(percent))} {UI.home.cityMedal(tierLabel(medal))}
+      </span>
+    </p>
+  )
+}
+
+/** The train sheet for the city the player stands in; see HomeSheets.tsx. */
+function HomeTrainSheet({ cityIndex, nextCity, srs, photos, onClose }: {
+  cityIndex: number
+  nextCity: string | null
+  srs: SrsMap
+  photos: PhotoLedger
+  onClose: () => void
+}) {
+  const words = useMemo(() => cityWordList(WORDS, cityIndex), [cityIndex])
+  const marks = useMemo(() => countMarks(words, srs, photos), [words, srs, photos])
+  const connecting = words.filter((w) => w.kind === 'connecting').length
+  const here = cityAt(cityIndex).name
+  return (
+    <TrainSheet
+      title={nextCity ? UI.home.trainSheetTitle(nextCity) : UI.home.trainJourneyOver}
+      cityWords={UI.home.trainSheetWords(here, words.length, words.length - connecting, connecting)}
+      collected={marks.collected}
+      total={marks.total}
+      onClose={onClose}
+    />
+  )
+}
+
+function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
   const goTo = useUi((s) => s.goTo)
   const pendingSeed = useUi((s) => s.pendingSeed)
   const newGame = useGame((s) => s.newGame)
@@ -318,13 +353,22 @@ function StandardHomeScreen() {
   const settings = useSettings()
   const journey = useJourney()
   const passStatus = usePass((s) => s.status)
-  const completedDays = useStreak((s) => s.completedDays)
+  const srsStats = useSrs((s) => s.stats)
   const durable = readCourseProgress()
   const sessions = runtimeSessions ?? durable.sessions
   const courseSlot = actionableCourseSlot(activeSlot, sessions)
   const nextBoard = nextHomeBoard(durable.facts, sessions)
-  const now = Date.now()
-  const streak = currentStreak(completedDays, now)
+  // Casey's sticker: the words in the case, counted the way the suitcase's
+  // "All" view counts its lid — words with all three marks (CW-02's model,
+  // board and connecting words alike), over every city reached — so the
+  // number on the outside is the number inside. It replaced the daily streak
+  // (owner, 2026-09-30); it counts marks since CW-11.
+  const reachedTo = reachedIndex(journey)
+  const photos = journey.photos
+  const collected = useMemo(() => {
+    const words = Array.from({ length: reachedTo + 1 }, (_, i) => cityWordList(WORDS, i)).flat()
+    return countMarks(words, srsStats, photos ?? {}).collected
+  }, [reachedTo, srsStats, photos])
   // A preview pack has no nine hundred words to promise, so it makes no
   // promise: the momentum line is a claim about a word list that is empty.
   const momentumLine = ACTIVE.readiness === 'preview' ? undefined : UI.home.momentumLine
@@ -340,7 +384,20 @@ function StandardHomeScreen() {
     audience: buildAudience,
     developerTravel: settings.playtestTravel,
   })
-  const medal = cityMedal(durable.facts, CITY1_REQUIRED_SET).tier
+  // The strip loads with the city's collected words (CW-07): the train run is
+  // the way on, and its slips come from them. Not postcards any more.
+  const cityTrain = useCityTrain(journey.cityIndex)
+  // The city's stamp (CW-03's percentage medal), floored for display the way
+  // the finish screen floors it, so 100% shows only at Platinum.
+  const stampCard = cityMedal(durable.facts, CITY1_REQUIRED_SET)
+  const medal = stampCard.tier
+  const cityPercent = stampCard.error ? 0 : displayCityPercent(stampCard.points, stampCard.maximum)
+  const [sheet, setSheet] = useState<'none' | 'sightseeing' | 'find-cafe' | 'train'>('none')
+  // The first session's Home opens the Guide in place: `goTo` cannot leave
+  // the onboarding shell (CW-13).
+  const [introGuide, setIntroGuide] = useState(false)
+  const closeSheet = useCallback(() => setSheet('none'), [])
+  const walks = useMemo(homeWalks, [])
   const board = () => {
     if (!travel.canBoard) return
     const destination = journey.cityIndex + 1
@@ -372,8 +429,10 @@ function StandardHomeScreen() {
   const unverifiedCluey =
     !onPracticeCompanion() && ownConnection && settings.klausVerifiedAt === null
 
+  // A deal the gate refuses (the café is not found yet: the tag's own check
+  // can be a frame stale) opens Sightseeing with the line that says why.
   const play = () => startHomePlay(
-    () => newGame({ seed: pendingSeed ?? undefined, cityIndex: journey.cityIndex }),
+    () => dealOrFallBack(() => newGame({ seed: pendingSeed ?? undefined, cityIndex: journey.cityIndex }), () => setSheet('find-cafe')),
     () => useGame.getState().game,
     () => goTo('game'),
   )
@@ -391,40 +450,89 @@ function StandardHomeScreen() {
     goTo('game')
   }
 
+  // Asks the launch gate itself (CW-04), so with the gate off it never refuses.
+  const cafe = cafePuzzleAction(courseSlot, nextBoard, (board) => !cafeLaunchRefused(board, durable.facts, sessions?.continuation))
+  const runCafePuzzle = () => {
+    if (intro) return intro.onCafePuzzle()
+    if (cafe.kind === 'continue') continueSlot(cafe.slot)
+    else if (cafe.kind === 'improve') goTo('suitcase')
+    else if (cafe.kind === 'find-first') setSheet('find-cafe')
+    else play()
+  }
+
+  // Sightseeing asks "Words or Articles?" only where the course has both;
+  // otherwise it goes straight to the Words walk. Both doors ask the daily
+  // limit first (CW-15): with today's two runs used, the upgrade dialog opens
+  // instead of the chooser or the walk.
+  const walk = (choice: HomeWalk) => {
+    setSheet('none')
+    beginRunOrOffer(() => {
+      chooseWalk(choice)
+      useUi.getState().goTo('sightseeing')
+    })
+  }
+  const sightseeing = () => {
+    if (intro) return intro.onSightseeing()
+    if (walks.walks.length > 1) beginRunOrOffer(() => setSheet('sightseeing'))
+    else walk('words')
+  }
+
+  if (introGuide) return <TravelGuideBook onExit={() => setIntroGuide(false)} />
   return (
-    <div className="screen home-screen">
+    <div className={`screen home-screen${intro ? ' home-first-session' : ''}`}>
       <header className="home-top">
         <h1 className="home-title" aria-label={UI.home.brandName}><span aria-hidden="true">{UI.home.brandName.slice(0, 3)}</span><span aria-hidden="true">{UI.home.brandName.slice(3)}</span></h1>
-        <button className="icon-btn" aria-label={UI.home.settingsAria} onClick={() => goTo('settings')}>
-          ⚙
-        </button>
+        {/* Settings is a door out of the first session: it waits until after. */}
+        {intro ? <span className="game-header-placeholder" aria-hidden="true" /> : (
+          <button className="icon-btn" aria-label={UI.home.settingsAria} onClick={() => goTo('settings')}>
+            ⚙
+          </button>
+        )}
       </header>
 
       <div className="home-map-controls">
-        <button className="map-button" onClick={() => goTo('map')} aria-label={UI.home.openMapAria}>
-          <JourneyMap cityIndex={journey.cityIndex} reachedTo={reachedIndex(journey)} />
-        </button>
+        {intro ? (
+          <div className="map-button" aria-hidden="true">
+            <JourneyMap cityIndex={journey.cityIndex} reachedTo={reachedTo} />
+          </div>
+        ) : (
+          <button className="map-button" onClick={() => goTo('map')} aria-label={UI.home.openMapAria}>
+            <JourneyMap cityIndex={journey.cityIndex} reachedTo={reachedTo} />
+          </button>
+        )}
         <div className="home-guide-stack">
-          <TravelGuideButton onClick={() => goTo('guide')} />
-          <HomePostcardTotal cityIndex={journey.cityIndex} facts={durable.facts} />
+          <TravelGuideButton onClick={() => (intro ? setIntroGuide(true) : goTo('guide'))} />
+          <HomeCityStamp cityName={cityAt(journey.cityIndex).name} medal={medal} percent={cityPercent} />
         </div>
       </div>
 
       <section className="city-card home-progress-band">
+        <button
+          type="button"
+          className="home-ticket"
+          aria-label={nextCity ? UI.home.trainSheetTitle(nextCity.name) : UI.home.trainJourneyOver}
+          aria-haspopup="dialog"
+          onClick={() => setSheet('train')}
+        >
+          <TicketGlyph />
+        </button>
         <TrainProgress
-          earned={travel.earned}
-          goal={PROVISIONAL_TRAVEL_THRESHOLD}
-          label={travel.canBoard && nextCity ? UI.home.boardTrain(nextCity.name) : UI.home.postcardReadiness(travel.earned, travel.remaining)}
+          earned={cityTrain.collected}
+          goal={cityTrain.total}
+          label={travel.canBoard && nextCity ? UI.home.boardTrain(nextCity.name) : UI.sightseeing.trainStripLabel(cityTrain.collected, cityTrain.total, cityTrain.slips)}
           onBoard={travel.canBoard ? board : undefined}
         />
-        <p className="home-progress-status" role="status">
-          {travel.ready
-            ? travel.destinationAvailable ? UI.home.readyToTravel : UI.home.nextStopNotReleased(nextCity?.name ?? '')
-            : UI.home.cityMedal(tierLabel(medal))}
-        </p>
+        {/* The "City medal" line is gone (the stamp above says it). The travel
+            gate's own line stays until CW-07 moves the gate to the train run:
+            it shows only once the gate is ready, so the strip is one line. */}
+        {travel.ready && (
+          <p className="home-progress-status" role="status">
+            {travel.destinationAvailable ? UI.home.readyToTravel : UI.home.nextStopNotReleased(nextCity?.name ?? '')}
+          </p>
+        )}
       </section>
 
-      <Cluey needsConnection={unverifiedCluey} streak={streak} momentumLine={momentumLine} />
+      <Cluey needsConnection={unverifiedCluey} collected={collected} momentumLine={momentumLine} onOpenSuitcase={intro?.onCasey} />
 
       {/* A preview pack has a route, a map and a Travel Guide, and no boards.
           Every way into a round is replaced by one panel that says so and
@@ -434,29 +542,46 @@ function StandardHomeScreen() {
         <div className="home-actions home-preview" role="status">
           <h2 className="home-preview-heading">{UI.home.previewHeading}</h2>
           <p className="home-preview-note">{UI.home.previewNote}</p>
-          <button className="btn btn-primary btn-big" onClick={() => goTo('guide')}>
-            {UI.home.previewGuideCta}
-          </button>
+          <Tag size="wide" tone="primary" className="home-preview-guide" label={UI.home.previewGuideCta} onClick={() => goTo('guide')} />
         </div>
       ) : (
-      <div className="home-actions">
-        <div className="home-play-stack">
-          {courseSlot === 'replay' ? (
-            <button className="btn btn-primary btn-big home-play" onClick={() => continueSlot('replay')}>{UI.home.continueReplay}</button>
-          ) : courseSlot === 'primary' ? (
-            <button className="btn btn-primary btn-big home-play" onClick={() => continueSlot('primary')}>{UI.home.continuePrimary}</button>
-          ) : !nextBoard ? (
-            <button className="btn btn-primary btn-big home-play" onClick={() => goTo('suitcase')}>{UI.home.improveBoards}</button>
-          ) : (
-            <button className="btn btn-primary btn-big home-play" onClick={play}>
-              {UI.home.play}
-            </button>
-          )}
-          {shouldShowReturnToPrimary(courseSlot, sessions) && (
-            <button className="btn home-play-second" onClick={() => continueSlot('primary')}>{UI.home.returnToPrimary}</button>
-          )}
+      <div className="home-actions home-tag-actions">
+        {shouldShowReturnToPrimary(courseSlot, sessions) && (
+          <Tag size="wide" className="home-play-second" label={UI.home.returnToPrimary} onClick={() => continueSlot('primary')} />
+        )}
+        <div className="home-tags">
+          {/* `home-play` stays on the Café puzzle tag: it is the board game's
+              door, as Play was, and the drives find it by that name. */}
+          <Tag
+            className="home-play home-tag-cafe"
+            label={UI.home.cafePuzzle}
+            note={cafePuzzleNote(cafe)}
+            data-cafe-action={cafe.kind}
+            aria-haspopup={cafe.kind === 'find-first' ? 'dialog' : undefined}
+            onClick={runCafePuzzle}
+          />
+          <Tag
+            className="home-tag-sightseeing"
+            label={UI.sightseeing.title}
+            note={UI.home.sightseeingNote}
+            aria-haspopup={walks.walks.length > 1 ? 'dialog' : undefined}
+            onClick={sightseeing}
+          />
         </div>
       </div>
+      )}
+      {(sheet === 'sightseeing' || sheet === 'find-cafe') && (
+        <SightseeingChooser
+          walks={walks.walks}
+          lead={sheet === 'find-cafe' ? UI.home.cafeNotFoundLine : undefined}
+          articleAsk={UI.sightseeing.articleAsk(walks.lanes.slice(0, -1).join(', '), walks.lanes[walks.lanes.length - 1] ?? '')}
+          lanes={walks.lanes.length}
+          onChoose={walk}
+          onClose={closeSheet}
+        />
+      )}
+      {sheet === 'train' && (
+        <HomeTrainSheet cityIndex={journey.cityIndex} nextCity={nextCity?.name ?? null} srs={srsStats} photos={journey.photos} onClose={closeSheet} />
       )}
       {migrationNotice && <TrainNoticeDialog title={UI.game.legacyRetiredTitle} body={UI.game.legacyRetiredBody}
         action={UI.game.close} onAction={dismissMigrationNotice} onClose={dismissMigrationNotice} />}

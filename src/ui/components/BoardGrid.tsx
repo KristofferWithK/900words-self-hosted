@@ -45,6 +45,12 @@ interface Props {
   /** The wheel challenge: which solved words are already translated. */
   wheelSolved?: (wordId: string) => boolean
   /**
+   * The wheel has spun (owner, 2026-09-27): every suitcase lid turns from the
+   * meaning to the Danish, the translated ones in green and the rest as the
+   * answer the player did not give.
+   */
+  wheelAnswers?: boolean
+  /**
    * The whole player key put away — border and accessible name both. During
    * packing (recall, not a key-reading exercise) and during the guessing half
    * of the round; `playerKeyHidden` below is the rule.
@@ -79,6 +85,17 @@ export function playerKeyHidden({
 }): boolean {
   if (packing) return true
   return phase === 'aiClueInput' || phase === 'playerGuessing'
+}
+
+/**
+ * When the board wears the wheel's treatments — the lid words, the dimming,
+ * the missed key words' marks: from the challenge through the filled wheel to
+ * the end of the post-spin review (owner, 2026-09-27). `showing` is the
+ * store's spin hold or review, the only time a finished round keeps its board.
+ */
+export function wheelBoardActive(game: GameState, showing: boolean): boolean {
+  return !!game.wheel && (game.phase === 'translateChallenge' || game.phase === 'translateWheel' ||
+    (game.phase === 'finished' && showing))
 }
 
 const revealKind = (game: GameState, wordId: string): string => {
@@ -131,6 +148,7 @@ export function BoardGrid({
   packingSelectable,
   wheelActive = false,
   wheelSolved,
+  wheelAnswers = false,
   hidePlayerKey = false,
 }: Props) {
   // Every word on the board is readied the moment it is dealt, so the first
@@ -180,7 +198,10 @@ export function BoardGrid({
           motionHash = Math.imul(motionHash ^ w.wordId.charCodeAt(i), 16777619)
         }
         const motionSeed = motionHash >>> 0
+        // Off on the whole wheel board, the post-spin review included: that
+        // board's cards are dimmed and marked, not boiling (owner, 2026-09-27).
         const borderMotion =
+          !wheelActive &&
           game.phase !== 'translateChallenge' &&
           game.phase !== 'translateWheel' &&
           reveal.kind !== 'green'
@@ -194,6 +215,14 @@ export function BoardGrid({
         // "this is one you can answer" affordance; the packed state is the
         // green drawing + check, nothing else.
         const wheelSelectable = false
+        const wheelPacked = wheelActive && (wheelSolved?.(w.wordId) ?? false)
+        // One of CASEY's key words the round never found (owner, 2026-09-27):
+        // it holds a slice on the wheel that can never turn green, so the board
+        // shows where that slice came from with a dashed green border. Your
+        // own missed words need nothing new: they keep your key's solid border.
+        const caseyMissed =
+          wheelActive && reveal.kind !== 'green' && game.aiKey[w.wordId] === 'green' && myRole !== 'green'
+        const answer = `${articleLabel(w) ? `${articleLabel(w)} ` : ''}${w.da}`
         // Outside a guessing turn (and outside packing) a tap's only job left
         // is to say the word — looking it up is ⓘ's alone now (U1). Kept as
         // its own flag rather than folded into `disabled` because it also
@@ -202,8 +231,8 @@ export function BoardGrid({
         const accessibleName = faceDown
           ? `${w.en[0]}${packable ? UI.game.cardNotYetPacked(ACTIVE.name) : UI.game.cardUnpacked}${stateText(reveal)}`
           : wheelActive && reveal.kind === 'green'
-            ? `${w.en[0]}${UI.game.wheelCardStatus(wheelSolved?.(w.wordId) ?? false)}`
-            : `${genderLabel(w) ? `${genderLabel(w)} ` : ''}${w.da}${postcardRevealed ? UI.game.cardTranslationRevealed : ''}${showKey ? keyText[myRole] : ''}${stateText(reveal)}${
+            ? `${w.en[0]}${UI.game.wheelCardStatus(wheelPacked)}${wheelAnswers ? `, ${answer}` : ''}`
+            : `${genderLabel(w) ? `${genderLabel(w)} ` : ''}${w.da}${postcardRevealed ? UI.game.cardTranslationRevealed : ''}${showKey ? keyText[myRole] : ''}${caseyMissed ? UI.game.cardMissedKey : ''}${stateText(reveal)}${
                 noWrap ? UI.game.cardNotYoursToWrap : ''
               }${tapPlaysWord ? UI.game.cardTapToHear : ''}`
 
@@ -257,7 +286,9 @@ export function BoardGrid({
                   // stopped being wheel-selectable, and the `!wheelSelectable`
                   // guard let the 3px outline paint around the packed card).
                   selectedWordId === w.wordId && !wheelSelectable ? 'card-selected' : '',
-                  wheelActive && wheelSolved?.(w.wordId) ? 'card-wheel-packed' : '',
+                  wheelPacked ? 'card-wheel-packed' : '',
+                  wheelAnswers && reveal.kind === 'green' && !wheelPacked ? 'card-wheel-unpacked' : '',
+                  caseyMissed ? 'card-wheel-missed' : '',
                   // The last chance's dimming (owner, 2026-09-17): the
                   // non-suitcase cards step back so the intention goes to the
                   // suitcase words. Visual only — the cards stay tappable for
@@ -336,6 +367,13 @@ export function BoardGrid({
                 }}
               >
               {borderMotion && <WordBorderFrames />}
+              {/* Long dashes a CSS dashed border cannot draw: its dash length
+                  is the browser's. The rect sits on the card's own border. */}
+              {caseyMissed && (
+                <svg className="card-missed-frame" aria-hidden="true">
+                  <rect x="0" y="0" width="100%" height="100%" rx="6.5" ry="6.5" />
+                </svg>
+              )}
               {/* No dot: the card's own border carries your key — solid green
                   for a target — and two marks saying one thing was one too
                   many. The border differs by style as well as colour, so it
@@ -368,15 +406,25 @@ export function BoardGrid({
               {reveal.kind === 'green' ? (
                 <>
                   <SuitcaseGlyph borderMotion={game.phase === 'translateChallenge'} />
-                  {wheelActive && (
+                  {wheelActive && !wheelAnswers && (
                     <span className="card-lid-word" lang={ACTIVE.code} aria-hidden="true">
                       {w.en[0]}
+                    </span>
+                  )}
+                  {wheelActive && wheelAnswers && (
+                    <span
+                      className={`card-lid-word card-lid-answer${wheelPacked ? ' card-lid-yours' : ''}`}
+                      lang={ACTIVE.code}
+                      aria-hidden="true"
+                    >
+                      {articleLabel(w) && <span className="card-lid-article">{articleLabel(w)}</span>}
+                      {w.da}
                     </span>
                   )}
                   {/* The check marks a TRANSLATED suitcase — only the word the
                       player has already answered wears it (the old render
                       showed it on every suitcase during the wheel phase). */}
-                  {wheelActive && wheelSolved?.(w.wordId) && (
+                  {wheelPacked && (
                     <span className="card-packed-check" aria-hidden="true">
                       ✓
                     </span>

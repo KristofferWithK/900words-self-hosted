@@ -86,12 +86,28 @@ try {
   assert.match(germanTicket, /German \(Deutsch\)/)
   assert.match(germanTicket, /Germany/)
 
-  // Reuse onboarding-drive's ticket → staged Home → Play sequence. German is
-  // selected only by tapping its ordinary visible course ticket.
+  // Reuse onboarding-drive's ticket → Casey → walk → Home's café → practice
+  // sequence (CW-13). German is selected only by tapping its ordinary
+  // visible course ticket.
   await onboardingFlow.ticketToHome('Germany')
   assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-language')), 'de')
-  assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-onboard-v5')), 'home-intro')
-  await onboardingFlow.homeToTutorial()
+  assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-onboard-v5')), 'intro')
+  await page.locator('.onboard-intro-next').click()
+  assert.match(await page.locator('.onboard-intro-bubble').innerText(), /Let’s explore Flensburg and see if we can find a café\./)
+  await page.locator('.onboard-intro-go').click()
+  await page.waitForSelector('.run-screen .run-pause')
+  assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-onboard-v5')), 'walk')
+  await onboardingFlow.walkToHome()
+  // The German course has no café names (Flensburg): its first café is found
+  // by index, and Home's line falls back to a café without a name.
+  const flensburgFinds = await page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-journey-v2') ?? '{}').state?.cafes?.['["de","flensburg"]']?.found ?? {})
+  assert.deepEqual(Object.keys(flensburgFinds), ['bank_001'], 'the walk finds Flensburg’s first café by index')
+  assert.equal(await page.locator('.home-first-session .home-play').getAttribute('data-cafe-action'), 'next')
+  await page.locator('.tour-panel .onboard-next').click()
+  assert.equal(await page.locator('.tour-panel .tutorial-bubble').innerText(), 'Our first café is waiting. Tap Café puzzle to sit down and play it.')
+  await page.locator('.tour-spot-tap').click()
+  await page.waitForSelector('.tutorial-game .board-grid')
+  assert.equal(await page.locator('.tutorial-game .cafe-name-tag').count(), 0, 'a café without a name wears no name tag')
 
   const storedState = () => page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state ?? {})
   await page.waitForFunction(() => {
@@ -228,7 +244,7 @@ try {
         assert.equal(await released(page, '.wheel-input'), true, 'the German answer field is free after the lesson')
         await page.screenshot({ path: `${SHOT_DIR}/de-translation-lesson-done-390x844.png` })
       }
-      const next = game.wheel.segments.find((id) => !game.wheel.translated.includes(id))
+      const next = game.wheel.segments.find((id) => game.reveals[id]?.kind === 'green' && !game.wheel.translated.includes(id))
       assert.ok(next, 'practice translation wheel has an untranslated German word')
       const answer = game.words.find((word) => word.wordId === next)?.da
       assert.ok(answer, `missing German translation answer for ${next}`)
@@ -263,6 +279,8 @@ try {
       }
       await page.locator('.wheel-disc').click()
       await page.waitForTimeout(3200)
+      // The board stays after the spin until See results (owner, 2026-09-27).
+      await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
     } else {
       assert.equal(game.phase, 'aiClueInput', `unexpected German practice phase ${game.phase}`)
     }
@@ -272,7 +290,7 @@ try {
   assert.equal(introTourDismissed, true, 'the German practice visits and dismisses its visible first-clue coach mark')
   assert.equal(translationLessonWalked, true, 'the German practice teaches its translation controls')
   assert.equal(wheelLessonWalked, true, 'the German practice teaches the full wheel before its spin')
-  assert.match(await page.locator('.tutorial-full-round').innerText(), /Play your first full board/)
+  assert.match(await page.locator('.tutorial-full-round').innerText(), /Play the café puzzle/)
   practiceState = await storedState()
   const scriptedClues = practiceState.game.clueHistory.filter((clue) => clue.by === 'ai').map((clue) => clue.text)
   assert.ok(scriptedClues.includes('Zeit'), `missing German Casey clue Zeit: ${scriptedClues.join(', ')}`)

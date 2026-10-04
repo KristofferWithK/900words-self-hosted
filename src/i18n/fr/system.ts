@@ -66,6 +66,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple n’a pas pu restaurer les achats. Réessaie.',
   passRedeemOpened: 'Apple a ouvert sa fenêtre d’utilisation de code.',
   passRedeemUnavailable: 'L’utilisation d’un code est disponible dans l’appli iOS.',
+  passPendingPlay: 'Google Play confirme encore cet achat. Laisse l’appli ouverte, puis essaie « Restaurer les achats ».',
+  passErrorPlay: 'Google Play n’a pas pu vérifier cet achat. Réessaie.',
+  passNotEntitledPlay: 'Aucun achat de jeu illimité trouvé pour ce compte Google.',
+  passRestoreErrorPlay: 'Google Play n’a pas pu restaurer les achats. Réessaie.',
 
   // ── le stockage n’a pas voulu ────────────────────────────────────────────
   backupFileUnreadable: 'Ce fichier n’a pas pu être lu.',

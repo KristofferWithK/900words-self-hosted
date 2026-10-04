@@ -107,18 +107,10 @@ export const home = {
   pagerNextAria: (band: string) => `${band}, next page`,
   looseLabel: (words: number) => `Still out there: ${words}`,
   looseEmpty: 'Nothing loose. Every word here is in the case.',
-  lidLabel: (words: number) => `Collected: ${words}`,
-  lidEmpty: 'Clue a word and guess it, one green each way, to collect it into the lid.',
+  lidEmpty: 'Three marks collect a word: a photo, a guess and a clue.',
   trayLabel: (words: number, goal: number) => `Wrapped: ${words} of ${goal}`,
   trayEmpty: 'Nothing packed in the tray yet. Wrap-up rounds put words here for good.',
   undiscoveredAria: 'Undiscovered word',
-  /** A tile's accessible name: the Danish word, then the state it is in. */
-  wordAria: {
-    undiscovered: (word: string) => `${word}, undiscovered`,
-    discovered: (word: string) => `${word}, discovered`,
-    collected: (word: string) => `${word}, collected`,
-    wrapped: (word: string) => `${word}, wrapped`,
-  },
   wrapUpWords: 'Wrap up words',
   wrapUpBankedAria: (banked: number) => `Wrap up words: ${banked} banked`,
   postcardBalance: (banked: number) => `Postcards · ${banked}`,
@@ -176,9 +168,6 @@ export const home = {
   passMonthlyHelp: 'Keep travelling while your travel pass is active.',
   passLifetime: 'Lifetime travel pass',
   passLifetimeHelp: 'One travel pass for every journey we ship.',
-  /** Shown only until the store answers with its own formatted price. */
-  passPriceMonthly: '1.99 / month',
-  passPriceLifetime: '19.99 once',
   passReady: 'Your travel pass is ready. The next train is open.',
   passRestore: 'Restore purchases',
   passRedeem: 'Redeem an App Store code',
@@ -194,9 +183,17 @@ export const home = {
     'to get a 6-month travel pass code. Your review can be good or bad, depending on how you like the app.',
 
   // ── Daily games upgrade ──────────────────────────────────────────────────
-  dailyLimitKicker: 'Your two free games are done for today.',
+  /** When today's counts cannot be read: no claim about today, only what free play is. */
+  dailyLimitKicker: 'Free play is two walks and two café puzzles a day.',
+  /** Which of today's free limits was reached (CW-15): two walks, two café puzzles, or both. */
+  dailyLimitRunsKicker: 'You’ve walked twice today.',
+  dailyLimitPuzzlesKicker: 'You’ve played two café puzzles today.',
+  dailyLimitBothKicker: 'You’ve walked twice and played two café puzzles today.',
+  /** After one limit only: how many of the other kind are still free today. */
+  dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'You can still play 1 café puzzle today.' : `You can still play ${n} café puzzles today.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'You can still take 1 walk today.' : `You can still take ${n} walks today.`),
   dailyLimitHeading: 'Keep playing with Casey',
-  dailyLimitBody: 'Come back tomorrow for two more free games, or unlock unlimited play.',
+  dailyLimitBody: 'Come back tomorrow for more, or unlock unlimited walks and café puzzles.',
   dailyLimitOptionsAria: 'Unlimited play options',
   dailyLimitMonthly: 'Monthly',
   dailyLimitMonthlyHelp: 'Auto-renews each month until cancelled.',
@@ -207,6 +204,10 @@ export const home = {
   dailyLimitRestore: 'Restore purchases',
   dailyLimitDismiss: 'Maybe tomorrow',
   dailyLimitDisclosure: 'Prices and purchase confirmation come from Apple. Manage or cancel a subscription in your Apple Account.',
+  dailyLimitDisclosurePlay: 'Prices and purchase confirmation come from Google Play. Manage or cancel a subscription in the Play Store app.',
+  /** Link labels under every purchase offer; App Review guideline 3.1.2 wants both. */
+  purchaseTerms: 'Terms of Use',
+  purchasePrivacy: 'Privacy Policy',
   passThanksHeading: 'Thank you for supporting the 900words development',
   passThanksBody: 'Unlimited play is unlocked.',
   passThanksContinue: 'Keep playing',
@@ -242,4 +243,74 @@ export const home = {
   trainReopenedTitle: (city: string) => `The train to ${city} is running again`,
   trainReopenedBody:
     'The line is open. Your suitcase is packed and Casey is on the platform. Board whenever you like.',
+  // ── café world Home (CW-10): two tags, the ticket, the stamp ─────────────
+  /** The tag that starts the board game, in place of Play. */
+  cafePuzzle: 'Café puzzle',
+  /** Under "Sightseeing" on Home's second tag. Lower case, as a note. */
+  sightseeingNote: 'find new cafés',
+  /** Under "Sightseeing" in the chooser sheet: Words or Articles? */
+  sightseeingAsk: 'What do you want to look out for?',
+  /** Under "Words" in the chooser sheet. */
+  wordsWalkNote: 'What does it mean? Photograph the right word and find new cafés.',
+  /**
+   * Under "Articles" in the chooser sheet. `ask` is the walk's own question
+   * ("en or et?"); `lanes` how many articles the course has.
+   */
+  articlesWalkNote: (ask: string, lanes: number) =>
+    lanes === 2 ? `${ask} Take the left or the right way.` : `${ask} Each article has its own lane.`,
+  /** The train sheet's title, and the name of the ticket that opens it. */
+  trainSheetTitle: (city: string) => `The train to ${city}`,
+  /** Under the title: the city's words, the length of the train run. */
+  trainSheetWords: (city: string, total: number, board: number, connecting: number) =>
+    connecting > 0 ? `${city}: ${total} words (${board} on the boards, ${connecting} connecting)` : `${city}: ${total} words`,
+  trainSheetCollected: (collected: number, total: number) => `Collected: ${collected} of ${total}`,
+  trainSheetRule: 'The run is the only way onto the train.',
+  /** Read out for the stamp on Home, before the city medal line. `percent` is already formatted. */
+  cityStampAria: (city: string, percent: string) => `${city}: ${percent} of the café stamps.`,
+  /** The Café puzzle tag's note while no café is found yet (CW-04's rule). Lower case, as a note. */
+  cafeNotFoundNote: 'find a café first',
+  /** At the top of the Sightseeing sheet, when the Café puzzle tag sent the player there. */
+  cafeNotFoundLine: 'Find a café in Sightseeing first.',
+  // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
+  // The lid's own label is `trainSheetCollected`: "Collected: n of N".
+  /** Under the lid's label (S2): what fills a word's ring. */
+  lidLegend: 'A third each for a photo, a guess and a clue',
+  /** The three marks, named in a word tile's accessible name. Lower case. */
+  markPhoto: 'photo',
+  markGuess: 'guess',
+  markClue: 'clue',
+  /** A connecting word's marks: photos on different days (1 to 3). */
+  markPhotoDays: (days: number) => (days === 1 ? 'a photo on 1 day' : `photos on ${days} days`),
+  /**
+   * A word tile's accessible name: "hus, 2 of 3: photo, guess". `marks` is
+   * the marks already listed in the language's own list style, empty with none.
+   */
+  markAria: (word: string, earned: number, total: number, marks: string) =>
+    marks ? `${word}, ${earned} of ${total}: ${marks}` : `${word}, ${earned} of ${total}`,
+  /** The small heading over a connecting word opened from the suitcase. */
+  connectingWord: 'Connecting word',
+  connectingWordRule: 'It has no card. Photos on three different days collect it.',
+  /** The board collection, now the city's stamp card. */
+  stampCardTitle: (city: string) => `${city} stamp card`,
+  /**
+   * Under the title: "24% · Bronze at 25% · 7 of 100 cafés". `percent` is
+   * already formatted; `goal` is `stampCardGoal`, or empty at Platinum.
+   */
+  stampCardLine: (percent: string, goal: string, stamped: number, cafes: number) =>
+    [percent, goal, `${stamped} of ${cafes} cafés`].filter(Boolean).join(' · '),
+  /** The next medal and where it starts: "Bronze at 25%". */
+  stampCardGoal: (tier: string, percent: string) => `${tier} at ${percent}`,
+  /** A café's cell labels, under its stamp. */
+  stampFound: 'Found',
+  stampNotFound: 'Not found',
+  /** A café with no name yet, for the screen reader. */
+  stampCafeNumber: (place: number) => `Café ${place}`,
+  /** A cell's accessible name. `stamp` is the stamp in words, "Gold stamp". */
+  stampCellStamped: (cafe: string, stamp: string) => `${cafe}: ${stamp}`,
+  stampCellFound: (cafe: string) => `${cafe}: found, not played yet`,
+  stampCellNotFound: (place: number) => `Café ${place}: not found yet`,
+  /** The line under the card's summary: the café the Café puzzle deals next. */
+  stampNextCafe: (cafe: string) => `Next café: ${cafe}`,
+  stampNextCafeUnfound: 'Find the next café in Sightseeing.',
+  stampAllPlayed: 'Every café is played. Tap one to play it again.',
 }

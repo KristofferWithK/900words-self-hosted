@@ -54,9 +54,219 @@ the self-build's offline switch (`ossOfflineLabel`, `ossOfflineHelp`) to all
 eleven catalogues, on `open-source/1.0`. Non-English wording is
 machine-authored and unread; the owner reads German.
 
+The 2026-09-27 "internet is back" dialog (title, body and its two buttons,
+offered during an offline round) was added to all eleven catalogues.
+Non-English wording is machine-authored and has not received native-speaker
+review.
+
+The 2026-09-27 full-board wheel added `wheelLedeMissed`, `wheelAnswersLine`,
+`wheelSeeResults` and `cardMissedKey`, and reworded `wheelMissLine`, in all
+eleven catalogues. Non-English wording is machine-authored and has not
+received a separate native-speaker review.
+
 The 2026-09-27 welcome line (Casey's 900-words coverage line) replaced the old
 one in all eleven catalogues. Non-English wording is machine-authored and has
 not received native-speaker review.
+
+The 2026-10-01 Google Play copy was added to all eleven catalogues:
+`home.dailyLimitDisclosurePlay`, the four `system.pass*Play` purchase messages
+and the nine `settings.reviewAccess*` lines of the Settings section Google's
+reviewers use. Non-English wording is machine-authored (Claude Opus) and has not
+received native-speaker review; the owner reads German. The Apple wording iOS
+shows is unchanged.
+
+The 2026-10-04 offline Casey on Android copy was added to all eleven
+catalogues: the six `settings.*Android` lines (the unsupported-phone note, the
+ready line, the remove question, the offline-mode help, the first-time
+explanation with its 12 GB example phones, and the test answer), which say
+"this phone" where the iPhone lines say "this iPhone". `gemmaUnavailableNote`
+now names the iPhone AND Android apps. Non-English wording is machine-authored
+(Claude Opus) and has not received native-speaker review; the owner reads
+German. The iPhone wording is unchanged.
+
+The 2026-10-04 self-build Android Gemma panel added four Android-specific
+Settings lines to all eleven catalogues: `ossCaseyHelpAndroid`,
+`gemmaOptionAndroid`, `gemmaOptionHelpAndroid`, and `ossGemmaFirstRunAndroid`.
+The existing Android ready, remove, unsupported-device, and test-answer lines
+are reused. Non-English wording is machine-authored and has not received
+native-speaker review; the owner reads German. The iPhone and desktop wording
+is unchanged.
+
+The 2026-10-04 café-world finish screen (card CW-09) added the stamp line to
+all eleven catalogues in `receipt.ts` (`stampCopies`): the stamp title per
+tier, the tier word inside the drawn stamp, "on your ... card", "Your ... card
+keeps its ... stamp", "No new stamp", "A lost round earns no stamp", the city
+percentage, "of <city>" and the ticks' screen-reader name. Non-English wording
+is machine-authored (Claude Opus) and has not received native-speaker review;
+the Hungarian, Polish and Dutch grammar around a café's name is the likeliest
+to need a reader.
+
+The 2026-10-04 café-world Home (card CW-10) added twelve `home` keys to all
+eleven catalogues: the two tags ("Café puzzle", the "find new cafés" note), the
+"find a café first" note and "Find a café in Sightseeing first." line for
+CW-04's café gate, the Sightseeing chooser ("What do you want to look out
+for?", the Words and Articles notes), the train sheet (its title, the city's word count, "Collected:
+n of N", "The run is the only way onto the train.") and the stamp's
+screen-reader line. Non-English wording is machine-authored (Claude Opus) and
+has not received native-speaker review. The likeliest to need a reader: the
+name of the board game in each language (`cafePuzzle`, which has no settled
+term yet), the word for the city's "connecting" words in `trainSheetWords`
+(German "Verbindungswörter", Norwegian and Swedish "bindeord", and so on; the
+course has no glossary term for them), and the Hungarian title
+`trainSheetTitle`, written as "A vonat úti célja: <city>" to avoid a case
+ending on the city's name.
+
+The 2026-10-04 café-world train run (card CW-07) added 23 `sightseeing` keys
+to all eleven catalogues: the train run's first panel ("Catch the train", the
+route, the words and slips, the rule line, "Run for the train"), the bar's
+"Words" and "To go", "Missed the train" and "52 of 147 words", "You caught
+the train!" with the ticket ("Ticket", "Caught on <date>") and its summary,
+"Ribe opens soon" and its line, the train sheet's slips, "Catch the train"
+note and ticket lines, and the train strip's screen-reader name. German was
+written by Claude Opus with the owner's register in mind; every other
+language is machine-authored (Claude Opus) and has not received
+native-speaker review. The likeliest to need a reader: the word for a slip
+(German "freier Fehler", Spanish "fallo libre", and so on, matching the
+Sightseeing bar's existing "slips left" line), the route line `trainRoute`
+(Polish and Hungarian avoid a case ending on the city's name: "Sønderborg,
+potem Ribe", "Sønderborg, aztán Ribe") and the ticket hint
+the same way ("Zachowany: <city>"), and the Chinese ticket date "<date> 赶上".
+
+The 2026-10-04 café-world Sightseeing find (card CW-08b) added three
+`sightseeing` keys to all eleven catalogues: the panel that holds the run when
+a photo finds a café ("You found a café." and "You can play it later from
+home.", around the café's Danish name, which is never translated) and
+`cafeSign`, the word written on the roadside shopfront of a café without a
+name of its own. Non-English wording is machine-authored (Claude Opus) and has
+not received native-speaker review. The likeliest to need a reader: the
+Polish title, written impersonally ("Udało się znaleźć kawiarnię.") to avoid
+a gendered past tense, and how each language points at Home in
+`cafeFoundLater` (German "auf dem Startbildschirm", Dutch "vanaf het
+beginscherm", the others by the Home button's own label).
+
+The 2026-10-04 café-world suitcase (card CW-11) added 22 `home` keys to all
+eleven catalogues and reworded `lidEmpty`: the lid's legend ("A third each for
+a photo, a guess and a clue"), the three marks' names and a connecting word's
+"photos on n days", a word tile's screen-reader name ("hus, 2 of 3: photo,
+guess"), the connecting-word note ("Connecting word" and its rule line), and
+the stamp card (its title, "24% · Bronze at 25% · 7 of 100 cafés", the cell
+labels "Found", "Not found" and "No stamp", each cell's screen-reader name, and
+the next-café line). It removed `lidLabel` (the lid now uses
+`trainSheetCollected`, "Collected: n of N") and `wordAria`, and trimmed
+`collection.ts` to the three lines still used. Non-English wording is
+machine-authored (Claude Opus) and has not received native-speaker review. The
+likeliest to need a reader: the word for a MARK (German avoids "Marke", the
+clue token, and says "Mit Foto, Rateversuch und Hinweis ist ein Wort
+gesammelt"; Polish "znaki", Dutch "tekens", Hungarian "jel"), the medal goal
+`stampCardGoal` (Hungarian "Bronz: 25%" avoids a suffix on the number; Chinese
+"25% 得铜"), the Hungarian card title "<city> pecsétkártyája", and Norwegian
+and Swedish "Bindeord" for a connecting word, which is also their grammar word
+for a conjunction.
+
+The 2026-10-04 café-world first session (card CW-13, walk first) changed the
+`onboarding` catalogue in all eleven languages. Added: Casey's lines before the
+walk (`introTwoGames`, `introExplore`, `introGo`), the first walk's end line
+(`walkEndFound`, `walkEndNotFound`), Home's café lesson (`homeTourSightseeing`,
+`homeTourCafe`, `homeTourStamp`) and the city percentage beat of the result
+lesson (`resultTourCityPercent`). Reworded for stamps and the café:
+`courseText.welcome` (the "(Tap to continue.)" hint dropped), `tourLoose`,
+`tourLid`, `tourTray` (now the three marks, the case and the stamp card),
+`resultTourWinTier`, `resultTourLossTier`, `homeTourCollection`, `firstClue`,
+`practiceWon`, `practiceFinish` and `playFullRound`. Removed with the staged
+Home and the postcards it taught: `introWelcome`, `introMap`, `introGuide`,
+`introPlay`, `introBubbleAria`, `introCaseyOpen`, `introCaseyContinue`,
+`introPlayFirst`, `introTapCasey`, `courseText.map`, `courseText.guide`,
+`tourWrapUp`, `resultTourPostcards`, `resultTourNoRewards` and
+`homeTourPostcards`. Non-English wording is machine-authored (Claude Opus) and
+has not received native-speaker review; the owner reads German. The likeliest
+to need a reader: "flashcards" (German "Karteikarten", Swedish "Glosor",
+Norwegian "Gloseøving", Chinese "背单词卡"), the Hungarian city lines
+(`introExplore` uses "${hol(city)}"; `resultTourCityPercent` leads with the
+city and a colon to avoid a possessive suffix on a Danish name), Polish
+`resultTourLossTier` ("gra się odbyła", chosen to avoid a gendered verb), and
+"Let's go" (`introGo`) as a tag label in each language.
+
+The 2026-10-04 café-world café on the road (card CW-08c) added one
+`sightseeing` key to all eleven catalogues: `cafesFound`, the run-end line of
+a walk that found cafés without stopping ("Café found: Café Solen" with the
+café's Danish name, which is never translated, or "Cafés found: 2" when it
+found more than one or one without a name). Only the first session's walk
+still stops on "You found a café". Non-English wording is machine-authored
+(Claude Opus) and has not received native-speaker review. The likeliest to
+need a reader: the singular and plural forms on either side of the colon
+(Norwegian "Kafeer funnet", Swedish "Kaféer hittade", Polish "Znalezione
+kawiarnie" for a count of any size, since the number follows a colon), the
+French space before the colon, and Chinese "找到咖啡馆：" against
+"找到的咖啡馆：".
+
+The 2026-10-04 lost-round rule (card CW-03b: a completed but lost round earns
+a Bronze stamp) reworded `resultTourLossTier` in all eleven `onboarding`
+catalogues: a lost puzzle still earns a Bronze stamp, a won one Silver, Gold
+or Platinum, and the café's best so far is now its stamp after the round
+(Bronze on a lost first visit, the kept stamp on a lost replay). Removed, because no
+screen shows them any more: `lossNoStamp` (`receipt.ts`) and `stampNone` and
+`stampCellNoStamp` (every `home` catalogue). The finish screen's lost-round
+line reuses `stamp`, `stampOnCard` and `stampKept`. Non-English wording is
+machine-authored (Claude Opus) and has not received native-speaker review; the
+owner reads German.
+
+The 2026-10-04 café-world connecting words (card CW-14c) gave Sønderborg's 47
+connecting words (`src/data/city1-connecting-words.da.json`) a meaning in
+French, Polish, European Portuguese, Swedish and Chinese, the languages whose
+board tags are already in the player's own language. Until then those players
+never met the 47 words. 104 of the 235 meanings are the clue lexicon's gloss
+(`source: "lexicon.da.<lang>.json"`); the rest were written for the list by
+Claude Opus (`source: "cw-14c"`), with the lexicon's other gloss kept in
+`lexicon` and the reason for a hard choice in `note`. Every one is marked
+`needsOwnerReview` and none has received native-speaker review. Spanish,
+Hungarian, Norwegian and Dutch have none: their board tags are still English,
+so their connecting tags are English too. The likeliest to need a reader:
+- the greetings that share a word: `godmorgen` shows "bonjour (le matin)",
+  "dzień dobry (rano)" and "bom dia (de manhã)" to tell it from `goddag`;
+- Portuguese "alô" for `hallo` (Brazilian-leaning; Portugal answers "Estou?");
+- `må` against `kan` where one verb is both (French "avoir le droit" /
+  "pouvoir", Polish "wolno" / "móc", Portuguese "ter permissão" / "poder");
+- the function words: `en`/`et` ("un", "jeden", "um", "一个"), `den`/`det`
+  ("il / elle" / "ça", "on / ona" / "to", "ele / ela" / "isso", "它"),
+  `var` (Chinese "是（过去式）"), `hen` ("vers", "w stronę", "até", "fram
+  till", "过去"), `uden` (Chinese "没有") and `i` (Chinese "在…里");
+- Polish "tak" for `ja`, spelled like Danish `tak` (thanks), which a gate
+  asking `ja` can offer as a wrong answer.
+
+The 2026-10-04 café-world train of slips (card CW-07b) changed the
+`sightseeing` catalogue in all eleven languages. Reworded: `trainStripLabel`
+(the strip's screen-reader name now says the slips too: "60 of 147 words
+collected, 4 slips. The train run takes you on.") and `sheetSlipsHint` (now
+read off the train, with the wagon size as a number: "The engine is your
+first slip. Each wagon holds 20 words, and a full one gives one more."). Added:
+`sheetNextSlip` ("Next slip in 13 words.") and `sheetSlipsAll` ("Every wagon
+is full. The last 7 words add no slip."). Non-English wording is
+machine-authored (Claude Opus) and has not received native-speaker review; the
+owner reads German. The likeliest to need a reader: the word for the engine
+(German "Lok", Dutch "locomotief", Chinese "火车头"), the word for a wagon
+(Portuguese "carruagem", Hungarian "kocsi"), and the Polish lines, which use
+the colon form ("Wolne błędy: 4", "Słowa do następnego wolnego błędu: 13") and
+put the count in brackets in `sheetSlipsAll` to avoid plural endings.
+
+The 2026-10-04 café-world free limits (card CW-15) changed the daily-limit
+dialog and the free plan line in all eleven catalogues. Three lines say which
+limit was reached (`dailyLimitRunsKicker`, `dailyLimitPuzzlesKicker`,
+`dailyLimitBothKicker`); `home.dailyLimitKicker` now only says what free play
+is, for when today's counts cannot be read;
+two counted lines say how many of the other kind are still free today
+(`dailyLimitPuzzlesLeft`, `dailyLimitRunsLeft`); `dailyLimitBody` and
+`settings.planFree` were reworded for walks and café puzzles. English was
+written by Claude Opus; every other language is machine-authored and has not
+received native-speaker review. The likeliest to need a reader:
+- the word for a walk, which differs from the Sightseeing title in most
+  languages: German "Stadtbummel" (from the title), Spanish "salir a caminar"
+  / "paseos", French "balade", Hungarian "séta", Norwegian "tur", Dutch
+  "wandelen", Polish "spacer", Portuguese "passeio", Swedish "promenera" /
+  "promenader", Chinese "散步";
+- Polish kickers built on "masz już za sobą" to avoid a gendered past tense,
+  and its three plural forms in the counted lines;
+- German "Du warst heute schon zweimal auf Stadtbummel", which the owner may
+  prefer shorter.
 
 **Casey's own voice is tracked separately**, because it lives in the Worker
 rather than the catalogue (`proxy/casey/player-language.js`): the fifteen

@@ -1,22 +1,23 @@
-// The short first-run journey: choose a country/language ticket, meet Casey on
-// a Home that reveals itself in place, play a guided standard game, then tap
-// Casey on Home to inspect the words collected in the suitcase.
+// The first session, walk first (CW-13, docs/roadmap/cafe-world.md section 7):
+// choose a country/language ticket, hear Casey's two lines, walk at once, find
+// the first café, meet it on the real Home, play its practice table and its
+// own puzzle, then tap Casey on Home to read the suitcase's three marks.
 //
 // What this drives, on the smallest phone we serve (360×640):
 //   - the gate: fresh runs, veterans (rules seen / words in the SRS map) go
 //     straight Home and are marked done silently, ?howto=0 suppresses without
 //     writing, a mid-flow marker resumes at its act
-//   - Skip on the ticket and live practice/suitcase acts; Casey-led Home is
-//     intentionally a focused introduction without a floating Skip button
+//   - Skip on the ticket, Casey's lines, the walk's panels, Home's café
+//     spotlight and the live practice/suitcase acts
 //   - the ticket is a card, never a one-entry <select>, in the
 //     `name (endonym)` format Settings' picker uses
-//   - a complete 3×3 neutral practice round, then a normal 3×6 round and the
-//     disabled Tap Casey hand-off into the live suitcase tour
+//   - the walk two taps after the ticket; Home from it finds and introduces
+//     the first café (the café gate is on)
+//   - a complete 3×3 practice round at that café, then a normal 3×6 round and
+//     the Casey hand-off into the live suitcase tour
 //   - a reload mid-round resumes the round with its reveals intact
 //   - a manually authored player clue reaches the real companion through
 //     fixed fake replies; the tutorial has no hidden suggestion route
-//   - Home starts with Casey and her bubble; map, Travel Guide and Play reveal
-//     in sequence without document scroll
 //   - after the round, Casey is the one door to the real suitcase
 //   - Settings' "Replay the intro" reruns the flow without touching the flag
 //   - no document scroll in any act
@@ -36,6 +37,7 @@ import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startWorker } from './worker-runtime.mjs'
 import { createOnboardingFlow } from './_onboarding-flow.mjs'
 import { lessonMarkers, progressBytes, released, walkTour } from './_tutorial-lessons.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4183
 const preview = await startPreview(PORT)
@@ -55,7 +57,9 @@ const EXE = process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium'
 const BASE = preview.base
 const SHOT_DIR = process.env.SHOT_DIR ?? 'test-results'
 // The tight case. The whole flow is measured where it would give first.
-const VP = { width: 360, height: 640 }
+// ONBOARDING_VP=390x844 runs the same journey at the common phone size.
+const VP = process.env.ONBOARDING_VP === '390x844' ? { width: 390, height: 844 } : { width: 360, height: 640 }
+const VPN = `${VP.width}x${VP.height}`
 
 const browser = await chromium.launch({ executablePath: EXE })
 const ctx = await browser.newContext({ viewport: VP })
@@ -63,6 +67,8 @@ const page = await ctx.newPage()
 const onboardingFlow = createOnboardingFlow(page)
 const ticketToHome = () => onboardingFlow.ticketToHome('Denmark')
 const homeToTutorial = () => onboardingFlow.homeToTutorial()
+/** The café gate is on (CW-13): a board-about leg starts with the first café found. */
+const seedFirstCafe = () => page.evaluate(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const errors = []
 page.on('pageerror', (e) => errors.push(String(e)))
@@ -237,7 +243,7 @@ async function checkTranslationLesson(where, expect) {
   const before = await storedGame()
   const beats = await walkTour(page, 'translation', check, {
     label: `${where} translation lesson`,
-    shots: `${SHOT_DIR}/da-${slug(where)}-translation-lesson-360x640`,
+    shots: `${SHOT_DIR}/da-${slug(where)}-translation-lesson-${VPN}`,
     finish: expect === 'done' ? 'done' : expect,
     atStep: 1,
   })
@@ -251,7 +257,7 @@ async function checkTranslationLesson(where, expect) {
     check(`the ${where} lesson says no suitcase needs tapping first`, /do not need to tap a suitcase/i.test(beats[0]?.text ?? ''), beats[0]?.text ?? '')
     check(`the ${where} lesson names the Danish answer and the tick`, /Danish/.test(beats[1]?.text ?? '') && /tick/.test(beats[1]?.text ?? ''), beats[1]?.text ?? '')
     check(`the ${where} lesson explains the green wheel`, /green/i.test(beats[2]?.text ?? ''), beats[2]?.text ?? '')
-    await page.screenshot({ path: `${SHOT_DIR}/da-${slug(where)}-translation-lesson-360x640.png` })
+    await page.screenshot({ path: `${SHOT_DIR}/da-${slug(where)}-translation-lesson-${VPN}.png` })
   }
   const after = await storedGame()
   check(`the ${where} lesson changed nothing in the game`, JSON.stringify(before) === JSON.stringify(after))
@@ -281,7 +287,7 @@ async function checkWheelLesson(where, expect) {
   const beats = await walkTour(page, 'wheel', check, {
     label: `${where} full-wheel lesson`,
     finish: expect,
-    shots: `${SHOT_DIR}/da-${slug(where)}-wheel-lesson-360x640`,
+    shots: `${SHOT_DIR}/da-${slug(where)}-wheel-lesson-${VPN}`,
   })
   check(`the ${where} full-wheel lesson points at the live wheel`, beats[0]?.anchor === '.wheel-disc', beats[0]?.anchor ?? 'none')
   check(`the ${where} full-wheel lesson says this spin wins`, /this spin wins/.test(beats[0]?.text ?? ''), beats[0]?.text ?? '')
@@ -336,7 +342,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
           'hear the board stays out of ordinary gameplay (owner, 2026-09-26)',
           (await hearBoard.count()) === 0,
         )
-        await page.screenshot({ path: `${SHOT_DIR}/da-ordinary-answer-audio-360x640.png`, fullPage: true })
+        await page.screenshot({ path: `${SHOT_DIR}/da-ordinary-answer-audio-${VPN}.png`, fullPage: true })
       }
       const clue = game.clueHistory.at(-1)
       const route = normal
@@ -425,7 +431,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
         }))
         check('Casey guesses in the practice round with her face and a speech bubble, like a normal round', dock.face && dock.bubble.length > 0 && !dock.statusOnly, JSON.stringify(dock))
         await noScroll('practice Casey guessing dock at 360×640')
-        await page.screenshot({ path: `${SHOT_DIR}/da-practice-casey-guessing-360x640.png` })
+        await page.screenshot({ path: `${SHOT_DIR}/da-practice-casey-guessing-${VPN}.png` })
       }
       if ((await panel.getAttribute('data-hurry')) === '1') {
         stalledAiGuesses = 0
@@ -445,7 +451,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
         if (!recallScreenshots.has('challenge')) {
           recallScreenshots.add('challenge')
           await noScroll('Danish translation challenge at 360×640')
-          await page.screenshot({ path: `${SHOT_DIR}/da-translation-challenge-360x640.png`, fullPage: true })
+          await page.screenshot({ path: `${SHOT_DIR}/da-translation-challenge-${VPN}.png`, fullPage: true })
         }
       }
       if (!normal) {
@@ -460,7 +466,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
         translationLessonChecked = true
         await checkTranslationLesson(normal ? 'full board' : 'practice', translationLesson)
       }
-      const next = game.wheel.segments.find((id) => !game.wheel.translated.includes(id))
+      const next = game.wheel.segments.find((id) => game.reveals[id]?.kind === 'green' && !game.wheel.translated.includes(id))
       if (!next) return `missing-translation-target:${JSON.stringify(game.wheel)}`
       const answer = game.words.find((word) => word.wordId === next).da
       await page.locator('.wheel-input').fill(answer)
@@ -474,7 +480,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
         if (!recallScreenshots.has('wheel')) {
           recallScreenshots.add('wheel')
           await noScroll('Danish translation wheel at 360×640')
-          await page.screenshot({ path: `${SHOT_DIR}/da-translation-wheel-360x640.png`, fullPage: true })
+          await page.screenshot({ path: `${SHOT_DIR}/da-translation-wheel-${VPN}.png`, fullPage: true })
         }
       }
       if (!normal) check('the completed practice translations visibly fill the wheel', (await page.locator('.wheel-disc').count()) === 1)
@@ -485,6 +491,8 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
       }
       if (!spun) await page.locator('.wheel-disc').click()
       await page.waitForTimeout(3200)
+      // The board stays after the spin until See results (owner, 2026-09-27).
+      await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
     } else if (game.phase === 'aiClueInput') {
       // Casey's next clue in practice: like a normal round, she is seen
       // thinking (face and dots) once her turn card has left.
@@ -492,7 +500,7 @@ async function playPractice({ stopBeforePlayerClue = false, stopAfterPlayerClue 
         practiceThinkingChecked = true
         check('after her turn card leaves, Casey is seen thinking in the practice round, with her face and the dots', (await page.locator('.ai-panel .ai-say .cluey-svg').count()) === 1 && (await page.locator('.ai-panel .dots').count()) === 1)
         await noScroll('practice Casey thinking dock at 360×640')
-        await page.screenshot({ path: `${SHOT_DIR}/da-practice-casey-thinking-360x640.png` })
+        await page.screenshot({ path: `${SHOT_DIR}/da-practice-casey-thinking-${VPN}.png` })
       }
     } else {
       return `unexpected-phase:${game.phase}`
@@ -532,55 +540,56 @@ check(
   !!ticketHeadingGeometry.heading && ticketHeadingGeometry.heading.top >= 0 && ticketHeadingGeometry.heading.bottom <= ticketHeadingGeometry.viewport && ticketHeadingGeometry.banner === null,
   JSON.stringify(ticketHeadingGeometry),
 )
-await page.screenshot({ path: `${SHOT_DIR}/onboarding-en-360x640-ticket.png`, fullPage: true })
+await page.screenshot({ path: `${SHOT_DIR}/onboarding-en-${VPN}-ticket.png`, fullPage: true })
 
-// ---- Home reveals itself in place: Casey, map, guide, then Play -------------
+// ---- Casey's two lines, the first walk, Home's café (CW-13) -----------------
 await ticketToHome()
-check('the ticket lands on Home with Casey', (await page.locator('.home-intro-casey .cluey-svg').count()) === 1)
-check('and writes the staged-Home marker', (await marker()) === 'home-intro')
-const initialHome = await page.evaluate(() => ({
-  stage: document.querySelector('.home-intro')?.getAttribute('data-intro-stage'),
-  mapOpacity: getComputedStyle(document.querySelector('.home-intro-map')).opacity,
-  guideOpacity: getComputedStyle(document.querySelector('.home-intro-guide')).opacity,
-  playOpacity: getComputedStyle(document.querySelector('.home-intro-actions')).opacity,
-  caseyTop: document.querySelector('.home-intro-casey')?.getBoundingClientRect().top,
-}))
-check('the first Home frame shows none of its controls yet', initialHome.stage === 'welcome' && initialHome.mapOpacity === '0' && initialHome.guideOpacity === '0' && initialHome.playOpacity === '0', JSON.stringify(initialHome))
-const welcome = (await page.locator('.home-intro-bubble').innerText()).trim()
+check('the ticket lands on Casey’s lines before the walk', (await act()) === 'intro')
+check('and writes the intro marker', (await marker()) === 'intro')
+const introGames = (await page.locator('.onboard-intro-bubble').innerText()).replace(/\s+/g, ' ').trim()
 check(
   'Casey opens with the 900-words coverage line',
-  /^Did you know that 900 words can cover over 80% of daily speech in most languages\? \(Tap to continue\.\)$/.test(welcome),
-  welcome,
+  /^Did you know that 900 words can cover over 80% of daily speech in most languages\?/.test(introGames),
+  introGames,
 )
-check('the welcome bubble carries its own tap instruction', /\(Tap to continue\.\)$/.test(welcome), welcome)
-check('the Casey-led Home introduction has no floating Skip', (await page.locator('.onboard-home-skip').count()) === 0)
-await noScroll('Home welcome')
-
-await page.locator('.home-intro-bubble').click()
-await page.waitForSelector('.home-intro-map')
-await page.waitForTimeout(550)
-const mapStage = await page.evaluate(() => ({
-  stage: document.querySelector('.home-intro')?.getAttribute('data-intro-stage'),
-  opacity: getComputedStyle(document.querySelector('.home-intro-map')).opacity,
-  caseyTop: document.querySelector('.home-intro-casey')?.getBoundingClientRect().top,
-}))
-check('the map appears first', mapStage.stage === 'map' && mapStage.opacity === '1', JSON.stringify(mapStage))
-check('Casey animates down as the map arrives', mapStage.caseyTop > initialHome.caseyTop + 20, `${initialHome.caseyTop} → ${mapStage.caseyTop}`)
-check('the map names Copenhagen as the final destination', /Copenhagen/.test((await page.locator('.home-intro-bubble').innerText())), await page.locator('.home-intro-bubble').innerText())
-await noScroll('Home map reveal')
-
-await page.locator('.home-intro-bubble').click()
-await page.waitForTimeout(450)
-check('the Travel Guide appears second', await page.evaluate(() => document.querySelector('.home-intro')?.getAttribute('data-intro-stage') === 'guide' && getComputedStyle(document.querySelector('.home-intro-guide')).opacity === '1'))
-const guideLine = (await page.locator('.home-intro-bubble').innerText()).trim()
-check('Casey explains the Guide is where grammar lives', /grammar/.test(guideLine) && /Travel Guide/.test(guideLine), guideLine)
-await noScroll('Home guide reveal')
-
-await page.locator('.home-intro-bubble').click()
-await page.waitForTimeout(450)
-check('Play appears last', await page.locator('.home-intro-actions .home-play').isEnabled())
-await noScroll('Home Play reveal')
-await page.locator('.home-intro-actions .home-play').click()
+check(
+  'then says flashcards are boring, so there are two games',
+  /Flashcards are boring/.test(introGames) && /sightseeing walk/.test(introGames) && /word puzzle in a café/.test(introGames),
+  introGames,
+)
+check('the 900-words line no longer asks for a tap on the bubble', !/Tap to continue/.test(introGames))
+await skipOnScreen('Casey’s lines')
+await noScroll('Casey before the walk')
+await page.locator('.onboard-intro-next').click()
+const introExplore = (await page.locator('.onboard-intro-bubble').innerText()).trim()
+check('"Let’s explore Sønderborg and see if we can find a café."', introExplore === 'Let’s explore Sønderborg and see if we can find a café.', introExplore)
+await noScroll('Let’s explore')
+await page.locator('.onboard-intro-go').click()
+await page.waitForSelector('.run-screen .run-pause')
+check('"Let’s go" starts the first walk at once, two taps after the ticket', (await marker()) === 'walk' && (await page.locator('.run-scrim').count()) === 0)
+check('the train is not introduced on the first walk', (await page.locator('.run-screen').getAttribute('aria-label')) === 'Sightseeing')
+// Paused before its first answer, the walk costs no daily run (O6). The café
+// on the walk itself is the CW-13 probe's (it steers with ?auto).
+await page.locator('.run-pause').click()
+await page.waitForSelector('.run-panel .run-home')
+check('the paused first walk offers Skip', (await page.locator('.run-panel .onboard-skip').count()) === 1)
+await page.locator('.run-panel .run-home').click()
+await page.waitForSelector('.tour-overlay[data-tour-kind="home"]')
+check('Home from the first walk is onboarding’s café act', (await marker()) === 'home-cafe')
+check(
+  'a walk that found nothing still lands on a playable first café',
+  (await page.locator('.home-first-session .home-play').getAttribute('data-cafe-action')) === 'next',
+)
+check('the first-session Home keeps Settings and the map out of the flow',
+  (await page.locator('.home-first-session .icon-btn[aria-label="Settings"]').count()) === 0 &&
+    (await page.locator('.home-first-session button.map-button').count()) === 0)
+const homeCafeBeats = await walkTour(page, 'home', check, { label: 'Home café lesson', finish: 'tap', shots: `${SHOT_DIR}/da-home-cafe-lesson-${VPN}` })
+check(
+  'Home introduces Sightseeing, then the café found',
+  homeCafeBeats.map((beat) => beat.anchor).join(' | ') === '.home-tag-sightseeing | .home-play',
+  homeCafeBeats.map((beat) => beat.anchor).join(' | '),
+)
+check('the café beat names the café', /^Our first café is Café /.test(homeCafeBeats[1]?.text ?? ''), homeCafeBeats[1]?.text ?? '')
 
 // ---- the complete small neutral practice round -----------------------------
 await page.waitForSelector('.tutorial-game .board-grid')
@@ -600,8 +609,10 @@ const infoControlsOnCards = await page.locator('.tutorial-game .word-card-surfac
   }),
 )
 check('each information control sits on its visible card', infoControlsOnCards)
-// "You can tap the ⓘ on words" since #123; the old line said "Tap ⓘ".
-check('the opening Casey line points out the ⓘ lookup', /tap the ⓘ|Tap ⓘ/.test(await page.locator('.tutorial-casey-bubble').innerText()), (await page.locator('.tutorial-casey-bubble').innerText()).slice(0, 120))
+// "Tap the ⓘ on a word" since CW-13; "You can tap the ⓘ on words" before.
+check('the opening Casey line points out the ⓘ lookup', /[Tt]ap the ⓘ/.test(await page.locator('.tutorial-casey-bubble').innerText()), (await page.locator('.tutorial-casey-bubble').innerText()).slice(0, 120))
+check('and welcomes the player to the café', /Welcome to the café/.test(await page.locator('.tutorial-casey-bubble').innerText()))
+check('the practice table wears the café found: its name tag and cups', (await page.locator('.tutorial-game .cafe-name-tag').count()) === 1 && (await page.locator('.tutorial-game .token-cup').count()) > 0)
 await page.waitForSelector('.tutorial-game .guess-bar')
 await noScroll('practice board before the first guess')
 
@@ -742,8 +753,8 @@ check(
 )
 await page.waitForSelector('.tutorial-finish')
 check('Casey’s practice finish reports the real practice outcome', /Every green found|got away from us/.test(await page.locator('.tutorial-finish-bubble').innerText()))
-check('the durable practice award result is visible', /\+1 new postcard|Already earned/i.test(await page.locator('.tutorial-award-result').innerText()))
-check('the practice finish offers a full-round button', /Play your first full board/i.test(await page.locator('.tutorial-full-round').innerText()))
+check('the practice finish teaches no postcards', !/postcard/i.test(await page.locator('.tutorial-finish').innerText()) && (await page.locator('.tutorial-award-result').count()) === 0)
+check('the practice finish offers the café puzzle', /Play the café puzzle/i.test(await page.locator('.tutorial-full-round').innerText()))
 await noScroll('practice finish speech and full-round button')
 // The practice round uses the real docks, but its own reaction band and chips
 // teach those moments. The once-ever hints stay for the first ordinary round —
@@ -781,29 +792,32 @@ check('the real round reaches its summary', (await page.locator('.round-summary'
 // ---- the first full board's result lesson, read from its saved receipt -----
 // It opens only over the settled receipt (the summary is not mounted before
 // settlement or while the wheel is still landing), inside the result dialog.
-await page.waitForSelector('.receipt-postcard-total')
+// The café world (CW-09) took the postcard total off this screen: the result
+// lines are ticks and the café's stamp stands where the total was, with the
+// city's percentage beside it. The lesson (CW-13) walks the ticks (when there
+// are any), the stamp, the percentage, then the review.
+await page.waitForSelector('.receipt-stamp')
 const resultBytesBefore = await progressBytes(page)
 const receiptShown = await page.evaluate(() => ({
-  postcards: document.querySelector('.receipt-postcards')?.textContent?.trim() ?? '',
-  hasTier: !!document.querySelector('.receipt-tier-summary'),
-  loss: !!document.querySelector('.receipt-tier-qualifier'),
+  ticks: document.querySelectorAll('.receipt-tick').length,
+  hasStamp: !!document.querySelector('.receipt-stamp'),
+  hasPercent: !!document.querySelector('.receipt-city-percent'),
+  loss: !!document.querySelector('.outcome-lost'),
   hasReview: !!document.querySelector('.city1-review-sentence'),
   translationOpen: document.querySelector('#review-translation-toggle')?.getAttribute('aria-expanded') ?? null,
 }))
-const resultBeats = await walkTour(page, 'result', check, { label: 'first full board result lesson', shots: `${SHOT_DIR}/da-first-board-result-lesson-360x640` })
+const resultBeats = await walkTour(page, 'result', check, { label: 'first full board result lesson', shots: `${SHOT_DIR}/da-first-board-result-lesson-${VPN}` })
 const resultAnchors = resultBeats.map((beat) => beat.anchor)
-check('the result lesson starts on the postcards this board added', resultAnchors[0] === '.receipt-postcard-total', resultAnchors.join(' | '))
-check(
-  'the result lesson tells the receipt’s own postcard line',
-  /new postcard/.test(receiptShown.postcards) && !/^0 /.test(receiptShown.postcards)
-    ? resultBeats[0].text.includes(receiptShown.postcards.replace(/^\+\s*/, ''))
-    : /no postcards this time/.test(resultBeats[0].text),
-  `${receiptShown.postcards} → ${resultBeats[0]?.text}`,
-)
-check('the result lesson explains the tier only when the receipt shows one', resultAnchors.includes('.receipt-tier-summary') === receiptShown.hasTier)
+check('the result lesson starts on the ticked result lines, or on the stamp when nothing is ticked',
+  resultAnchors[0] === (receiptShown.ticks > 0 ? '.receipt-reward-list' : '.receipt-stamp'), resultAnchors.join(' | '))
+check('the result lesson never speaks of postcards on this screen', !/postcard/i.test(resultBeats.map((beat) => beat.text).join(' ')),
+  resultBeats.map((beat) => beat.text).join(' | '))
+check('the result lesson explains the tier at the stamp line', resultAnchors.includes('.receipt-stamp') === receiptShown.hasStamp)
+check('and the city’s percentage beside it', resultAnchors.includes('.receipt-city-percent') === receiptShown.hasPercent, resultAnchors.join(' | '))
+check('the stamp beat speaks of the café’s stamp', /stamp/.test(resultBeats.find((beat) => beat.anchor === '.receipt-stamp')?.text ?? ''))
 check(
   'a won board is not described as a loss, nor a loss as a win',
-  receiptShown.loss ? /lost/.test(resultBeats.find((beat) => beat.anchor === '.receipt-tier-summary')?.text ?? '')
+  receiptShown.loss ? /lost/.test(resultBeats.find((beat) => beat.anchor === '.receipt-stamp')?.text ?? '')
     : !/lost/.test(resultBeats.map((beat) => beat.text).join(' ')),
 )
 check(
@@ -820,7 +834,7 @@ check('the result lesson never opens the translation for the player', await page
 check('the result lesson awards nothing and changes no progress', JSON.stringify(await progressBytes(page)) === JSON.stringify(resultBytesBefore))
 check('the result lesson is recorded as done', (await lessonMarkers(page)).result === 'done')
 check('Home in the result dialog is usable again after the lesson', await released(page, '.city1-review-home'))
-await page.screenshot({ path: `${SHOT_DIR}/da-first-board-result-after-lesson-360x640.png` })
+await page.screenshot({ path: `${SHOT_DIR}/da-first-board-result-after-lesson-${VPN}.png` })
 // The lesson points at Listen; after it, Listen must still play the SHIPPED
 // sentence recording. Observed through the player's own start event, then the
 // same bytes are fetched and decoded in the page. Decoding and starting prove
@@ -851,29 +865,30 @@ if (receiptShown.hasReview) {
   )
 }
 await page.locator('.city1-review-home').click()
-await page.waitForSelector('.home-intro-return')
-check('the summary hands back to Home behind Casey', await atHome())
-// ---- Home: the real postcard total, then Casey's collection -----------------
-const homeTotal = await page.evaluate(() => document.querySelector('.home-intro-return .home-postcard-total strong')?.textContent?.trim() ?? null)
-check('the returning Home shows the city’s real postcard total', homeTotal !== null && /^\d+$/.test(homeTotal), String(homeTotal))
-const homeBeats = await walkTour(page, 'home', check, { label: 'Home postcard lesson', shots: `${SHOT_DIR}/da-home-postcard-lesson-360x640` })
+await page.waitForSelector('.onboard-home-act .home-first-session')
+check('the summary hands back to Home behind Casey', await atHome() && (await marker()) === 'home-return')
+// ---- Home: the city's stamp, then Casey's collection (CW-13) ----------------
+check('the returning Home shows the city’s stamp, not a postcard total',
+  (await page.locator('.home-first-session .home-city-stamp').count()) === 1 && (await page.locator('.home-postcard-total').count()) === 0)
+const homeBeats = await walkTour(page, 'home', check, { label: 'Home stamp lesson', shots: `${SHOT_DIR}/da-home-stamp-lesson-${VPN}` })
 check(
-  'Home highlights the postcard total before Casey',
-  homeBeats.map((beat) => beat.anchor).join(' | ') === '.home-postcard-total | .cluey-button',
+  'Home highlights the city’s stamp before Casey',
+  homeBeats.map((beat) => beat.anchor).join(' | ') === '.home-city-stamp | .cluey-button',
   homeBeats.map((beat) => beat.anchor).join(' | '),
 )
+check('the Home lesson never speaks of postcards', !/postcard/i.test(homeBeats.map((beat) => beat.text).join(' ')))
 check('the Home lesson is recorded as done and leaves the suitcase tour to come', (await lessonMarkers(page)).home === 'done' && (await marker()) === 'home-return')
-check('the primary button is disabled and says Tap Casey', await page.locator('.home-intro-return .home-play').isDisabled() && (await page.locator('.home-intro-return .home-play').innerText()) === 'Tap Casey')
-check('Casey is tappable once the Home lesson closes', await released(page, '.home-intro-return .cluey-button'))
+check('Casey is tappable once the Home lesson closes', await released(page, '.home-first-session .cluey-button'))
 await noScroll('the real-round Home hand-off at 360x640')
-await page.screenshot({ path: `${SHOT_DIR}/da-home-return-after-lesson-360x640.png` })
-await page.locator('.home-intro-return .cluey-button').click()
+await page.screenshot({ path: `${SHOT_DIR}/da-home-return-after-lesson-${VPN}.png` })
+await page.locator('.home-first-session .cluey-button').click()
 await page.waitForSelector('.suitcase-screen')
 check('tapping Casey opens the real suitcase tour', (await page.locator('.suitcase-screen').count()) === 1 && (await page.locator('.tour-overlay[data-tour-kind="suitcase"]').count()) === 1)
-const suitcaseBeats = await walkTour(page, 'suitcase', check, { label: 'Casey collection tour after the first board' })
-check('the collection tour teaches words, boards, replay and the next board', suitcaseBeats.map((beat) => beat.anchor).join(' | ') === '.case-panel-lid | .collection-summary | .collection-board-grid | .collection-primary', suitcaseBeats.map((beat) => beat.anchor).join(' | '))
+const suitcaseBeats = await walkTour(page, 'suitcase', check, { label: 'Casey collection tour after the first board', shots: `${SHOT_DIR}/da-suitcase-marks-lesson-${VPN}` })
+check('the collection tour teaches the three marks, the case and the stamp card', suitcaseBeats.map((beat) => beat.anchor).join(' | ') === '.case-loose | .case-panel-lid | .stamp-card', suitcaseBeats.map((beat) => beat.anchor).join(' | '))
+check('and names the three marks', /photo/.test(suitcaseBeats[0]?.text ?? '') && /guess/.test(suitcaseBeats[0]?.text ?? '') && /clue of your own/.test(suitcaseBeats[0]?.text ?? ''), suitcaseBeats[0]?.text ?? '')
 await page.locator('.suitcase-screen .icon-btn[aria-label="Back"]').click()
-await page.waitForSelector('.home-screen:not(.home-intro)')
+await page.waitForSelector('.home-screen:not(.home-first-session)')
 check('finishing the suitcase tour restores ordinary Home', await atHome() && (await marker()) === 'done')
 check('finishing onboarding clears the lesson markers', await page.evaluate(() => localStorage.getItem('cluecab-onboard-lessons-v1') === null))
 const discovered = await page.evaluate(() => {
@@ -984,7 +999,7 @@ check('…and marks done', (await marker()) === 'done')
 await page.evaluate(() => localStorage.clear())
 await open()
 await ticketToHome()
-check('the staged Home has no floating Skip', (await page.locator('.home-intro-welcome .onboard-skip').count()) === 0)
+check('Casey’s lines before the walk keep Skip', (await page.locator('[data-act="intro"] .onboard-skip').count()) === 1)
 await homeToTutorial()
 await page.locator('.tutorial-game .onboard-skip').click()
 await page.waitForSelector('.board-grid')
@@ -1006,14 +1021,36 @@ await page.evaluate(() => {
 await open()
 check(
   'the Home return gate has no bubble or floating Skip',
-  (await page.locator('.home-intro-return .home-intro-bubble').count()) === 0 &&
-    (await page.locator('.home-intro-return .onboard-skip').count()) === 0,
+  (await page.locator('.home-first-session .cluey-bubble').count()) === 0 &&
+    (await page.locator('.home-first-session .onboard-skip').count()) === 0,
 )
-check(
-  'its disabled Tap Casey button is the complete instruction',
-  await page.locator('.home-intro-return .home-play').isDisabled() &&
-    (await page.locator('.home-intro-return .home-play').innerText()) === 'Tap Casey',
-)
+check('it is the real Home, its stamp where the postcard total was', (await page.locator('.home-first-session .home-city-stamp').count()) === 1)
+
+// ---- Skip at the new acts lands Home with the first café playable (CW-13) --
+for (const where of ['intro', 'explore', 'walk', 'home-cafe']) {
+  await page.evaluate(() => localStorage.clear())
+  await open()
+  await ticketToHome()
+  if (where === 'intro') await page.locator('[data-act="intro"] .onboard-skip').click()
+  else if (where === 'explore') {
+    await page.locator('.onboard-intro-next').click()
+    await page.locator('[data-act="intro"] .onboard-skip').click()
+  } else {
+    await onboardingFlow.introToWalk()
+    await page.locator('.run-pause').click()
+    if (where === 'walk') await page.locator('.run-panel .onboard-skip').click()
+    else {
+      await page.locator('.run-panel .run-home').click()
+      await page.waitForSelector('.tour-overlay[data-tour-kind="home"]')
+      await page.locator('.tour-panel .onboard-skip').click()
+    }
+  }
+  await page.waitForSelector('.home-screen:not(.home-first-session) .home-play')
+  check(
+    `skip at ${where} lands Home, done, its first café playable`,
+    (await marker()) === 'done' && (await page.locator('.home-play').getAttribute('data-cafe-action')) === 'next',
+  )
+}
 
 // ---- resume: a reload mid-flow picks up at the recorded act ----------------
 await page.evaluate(() => {
@@ -1028,7 +1065,23 @@ await page.evaluate(() => {
   localStorage.setItem('cluecab-onboard-v5', 'home-intro')
 })
 await open()
-check('a mid-flow reload resumes on staged Home', (await page.locator('.home-intro-welcome').count()) === 1)
+check('the retired staged-Home marker resumes at Casey’s lines', (await act()) === 'intro')
+
+await page.evaluate(() => {
+  localStorage.clear()
+  localStorage.setItem('cluecab-onboard-v5', 'walk')
+})
+await open()
+check('a walk marker resumes on the walk’s ready panel, spending no run by itself',
+  (await page.locator('.run-screen .run-panel .run-tag-btn-primary').count()) === 1 && (await page.locator('.run-pause').count()) === 0)
+
+await page.evaluate(() => {
+  localStorage.clear()
+  localStorage.setItem('cluecab-onboard-v5', 'home-cafe')
+})
+await open()
+await page.waitForSelector('.tour-overlay[data-tour-kind="home"]')
+check('a home-cafe marker resumes on Home with the first café found', (await page.locator('.home-first-session .home-play').getAttribute('data-cafe-action')) === 'next')
 
 // A tutorial marker with no round in the store deals the round afresh.
 await page.evaluate(() => {
@@ -1076,7 +1129,7 @@ await page.evaluate(() => {
 await open()
 check(
   'a Home-return marker resumes at the Casey gate',
-  (await page.locator('.home-intro-return').count()) === 1 && await atHome(),
+  (await page.locator('.home-first-session').count()) === 1 && await atHome(),
 )
 // The Home lesson was never taken on this profile, so it is still owed after
 // the reload. Escape dismisses only the lesson; a second reload respects that.
@@ -1085,8 +1138,8 @@ check('Escape records the Home lesson as dismissed, not done', (await lessonMark
 await open()
 await page.waitForTimeout(400)
 check('a dismissed Home lesson does not come back after a reload', (await page.locator('.tour-overlay[data-tour-kind="home"]').count()) === 0)
-check('and the Casey gate is intact under it', await released(page, '.home-intro-return .cluey-button'))
-await page.locator('.home-intro-return .cluey-button').click()
+check('and the Casey gate is intact under it', await released(page, '.home-first-session .cluey-button'))
+await page.locator('.home-first-session .cluey-button').click()
 await page.waitForSelector('.suitcase-screen')
 check('tapping Casey resumes the required suitcase tutorial', (await marker()) === 'suitcase')
 
@@ -1099,7 +1152,7 @@ await open()
 check(
   'an old arrival marker resumes at the Home return prompt',
   (await oldestMarker()) === 'arrival' &&
-    (await page.locator('.home-intro-return').count()) === 1 && await atHome(),
+    (await page.locator('.home-first-session').count()) === 1 && await atHome(),
 )
 
 await page.evaluate(() => {
@@ -1107,7 +1160,7 @@ await page.evaluate(() => {
   localStorage.setItem('cluecab-onboard-v3', 'map')
 })
 await open()
-check('a v3 map marker also migrates to the Home return prompt', (await v3Marker()) === 'map' && (await page.locator('.home-intro-return').count()) === 1)
+check('a v3 map marker also migrates to the Home return prompt', (await v3Marker()) === 'map' && (await page.locator('.home-first-session').count()) === 1)
 
 // ---- veterans are never ambushed --------------------------------------------
 // The rules overlay seen once is proof enough of an existing device.
@@ -1140,6 +1193,7 @@ await page.evaluate(() => {
   localStorage.clear()
   localStorage.setItem('cluecab-onboard-v5', 'done')
 })
+await seedFirstCafe()
 await open('?mock=1&howto=0')
 // Settings' replay-intro path must never trade an unfinished real board for
 // the practice board. Start a real primary, reload to Home as an ordinary
@@ -1196,6 +1250,7 @@ await page.evaluate(() => {
   localStorage.clear()
   localStorage.setItem('cluecab-onboard-v5', 'done')
 })
+await seedFirstCafe()
 await open('?mock=1&howto=0')
 await page.locator('.home-play').click()
 await page.waitForSelector('.game-screen .board-grid')
@@ -1210,6 +1265,7 @@ check('the round header offers no ?', (await page.locator('.game-header .icon-bt
 // GUESS turn, under his clue, and the clue turn comes after it — the two lines
 // now arrive in that order.
 await page.evaluate(() => localStorage.clear())
+await seedFirstCafe()
 await open('?mock=1&howto=0&seed=5&city=0')
 await page.locator('.home-play').click()
 await page.waitForSelector('.guess-bar', { timeout: 20000 })
@@ -1337,10 +1393,15 @@ await dePage.screenshot({ path: `${SHOT_DIR}/onboarding-de-390x844-ticket.png`, 
 await deTicket.focus()
 check('German ticket receives keyboard focus', await deTicket.evaluate((element) => document.activeElement === element))
 await deTicket.press('Enter')
-await dePage.waitForSelector('.home-intro-welcome')
-await dePage.locator('.home-intro-bubble').click()
-await dePage.locator('.home-intro-bubble').click()
-const deGuide = dePage.locator('button.home-intro-guide')
+await dePage.waitForSelector('[data-act="intro"]')
+const deFlow = createOnboardingFlow(dePage)
+await deFlow.introToWalk()
+await deFlow.walkToHome()
+// "On we go" closes Home's café spotlight; the real Home is the player's.
+await dePage.locator('.tour-panel .onboard-next').click()
+await dePage.locator('.tour-panel .onboard-next').click()
+await dePage.waitForSelector('.tour-overlay', { state: 'detached' })
+const deGuide = dePage.locator('.home-first-session button.travel-guide-button')
 await deGuide.waitFor({ state: 'visible' })
 const deGuideBox = await deGuide.boundingBox()
 check('first-run German Travel Guide remains a 44px target', !!deGuideBox && deGuideBox.height >= 44 && deGuideBox.width >= 44, JSON.stringify(deGuideBox))
@@ -1351,8 +1412,8 @@ await dePage.waitForSelector('.guide-cover-screen')
 check('keyboard opens the first-run Guide in German', (await dePage.locator('.guide-cover-screen').count()) === 1)
 await dePage.screenshot({ path: `${SHOT_DIR}/onboarding-de-390x844-guide.png`, fullPage: true })
 await dePage.locator('.guide-cover-screen .book-back').press('Enter')
-await dePage.waitForSelector('.home-intro')
-check('Guide return restores the staged first-run Home', (await dePage.locator('.home-intro').count()) === 1)
+await dePage.waitForSelector('.home-first-session')
+check('Guide return restores the first-session Home', (await dePage.locator('.home-first-session').count()) === 1)
 check('German geometry leg makes zero external requests', deExternalRequests.length === 0, deExternalRequests.join(', '))
 await deCtx.close()
 

@@ -48,7 +48,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Den Basis-URL-en kan ikke brukes.',
 
   // ── modellen på enheten ──────────────────────────────────────────────────
-  gemmaUnavailableNote: 'Frakoblet modus fungerer i iPhone-appen til 900words.',
+  gemmaUnavailableNote: 'Frakoblet modus fungerer i 900words-appene for iPhone og Android.',
   gemmaReady: (size) => `Casey uten nett er klar (${size} på denne iPhonen).`,
   gemmaRemoveConfirm: 'Fjerne Casey uten nett fra denne iPhonen? Du kan laste henne ned igjen senere.',
   gemmaRemoveButton: 'Fjern Casey uten nett',
@@ -82,6 +82,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'KI-tjenesten din svarte.',
   gemmaOption: 'Gemma på denne iPhonen',
   gemmaOptionHelp: 'Casey spiller på denne iPhonen, uten internett og uten nøkkel. Hun er tregere.',
+  ossCaseyHelpAndroid: 'Dette er en selvbygd 900words. Casey trenger en KI å spille med: din egen KI-nøkkel eller Gemma på denne Android-telefonen.',
+  gemmaOptionAndroid: 'Gemma på denne Android-telefonen',
+  gemmaOptionHelpAndroid: 'Casey spiller på denne Android-telefonen, uten internett og uten nøkkel. Hun er tregere.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Denne selvbygde 900words spiller med Casey på denne Android-telefonen: ingen konto eller nøkkel trengs. Gemma lastes bare ned én gang (${size}). Bruk wifi og la 900words være åpen til nedlastingen er ferdig.\n\nHun fungerer best på en nyere Android-telefon med minst 12 GB minne, for eksempel ${phones}.${lowMemory ? '\n\nDenne telefonen har mindre minne enn de anbefalte modellene, så det er ikke sikkert hun fungerer godt.' : ''}\n\nDu kan også legge til din egen KI-nøkkel i Innstillinger.\n\nLaste ned Casey nå?`,
   serverOption: 'Din egen Casey-server',
   serverOptionHelp: 'En Casey-Worker du har satt opp selv (se README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -103,6 +108,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey tilbyr da å spille ferdig runden med Gemma. Første gang lastes hun ned.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Denne 900words spiller med Casey på iPhonen din: ingen konto og ingen nøkkel. Hun lastes ned én gang (${size}). Bruk wifi og hold 900words åpen til nedlastingen er ferdig.\n\nHun trenger en nyere iPhone: ${iphones}.${lowMemory ? '\n\nDenne iPhonen har mindre minne enn disse modellene. Det er ikke sikkert hun fungerer på den.' : ''}\n\nDu kan også legge til din egen KI-nøkkel i Innstillinger.\n\nLaste ned Casey nå?`,
+  // ── Casey uten nett på Android ───────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Casey uten nett trenger en nyere Android-telefon: Android 12 eller nyere og minst 8 GB minne. Denne telefonen har ikke det.',
+  gemmaReadyAndroid: (size) => `Casey uten nett er klar (${size} på denne telefonen).`,
+  gemmaRemoveConfirmAndroid:
+    'Fjerne Casey uten nett fra denne telefonen? Du kan laste henne ned igjen senere.',
+  offlineModeHelpAndroid:
+    'Vanlig Casey spiller via serveren til 900words. Med frakoblet modus kan du spille ferdig en runde med Casey uten nett på denne telefonen når internett er borte. Hun er tregere.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `Frakoblet modus er eksperimentell og blir fortsatt forbedret.\n\nFrakoblet modus laster ned Casey uten nett (${size}) til denne telefonen. Bruk wifi og hold 900words åpen til nedlastingen er ferdig.\n\nCasey uten nett spiller tregere enn vanlig Casey.\n\nHun trenger en nyere Android-telefon med 12 GB minne eller mer, for eksempel ${phones}.${lowMemory ? '\n\nDenne telefonen har mindre minne enn det. Det er ikke sikkert hun fungerer på den.' : ''}\n\nLaste ned nå?`,
+  gemmaAnsweredAndroid: 'Gemma svarte på denne telefonen.',
 
   // ── tilkoblingstesten ────────────────────────────────────────────────────
   testRunning: 'Tester…',
@@ -252,4 +268,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "forhåndsversjon",
   learnerLanguagePreviewHelp: "Tysk er en forhåndsversjon: kartet og Reiseguiden er her, men ikke ordspillet. Leksjonene er ennå ikke gjennomgått av noen med tysk som morsmål.",
   playtestTravelHelp: "Hopp frem på kartet: velg et senere stopp og reis videre. Ingen ord pakkes, og ingen læringsfremgang legges til. Slå dette av for å teste de vanlige reisevilkårene igjen.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Tilgang for Google Play-gjennomgang',
+  reviewAccessHelp: 'Bare for appgjennomgangen i Google Play. Skriv inn gjennomgangskoden fra instruksjonene for å låse opp ubegrenset spilling på denne enheten.',
+  reviewAccessLabel: 'Gjennomgangskode',
+  reviewAccessUnlock: 'Lås opp',
+  reviewAccessChecking: 'Sjekker…',
+  reviewAccessOn: (date: string) =>
+    `Gjennomgangstilgangen er på. Ubegrenset spilling er låst opp på denne enheten til ${date}.`,
+  reviewAccessInvalid: 'Den gjennomgangskoden ble ikke godtatt.',
+  reviewAccessRateLimited: 'For mange forsøk. Prøv igjen i morgen.',
+  reviewAccessError: 'Koden kunne ikke sjekkes. Sjekk internettforbindelsen og prøv igjen.',
+
+  // ── Din plan (bare i butikkversjonene). Apple på iOS, Google Play på Android.
+  planHeading: 'Din plan',
+  planFreeShort: 'Gratis',
+  planUnlimitedShort: 'Ubegrenset',
+  planChipAria: (plan: string) => `Din plan: ${plan}`,
+  planChecking: 'Sjekker planen din hos Apple.',
+  planCheckingPlay: 'Sjekker planen din hos Google Play.',
+  planFree: 'Gratisplan. To turer og to kafégåter om dagen.',
+  planMonthly: 'Ubegrenset spilling. Månedsabonnement. Det fornyes hver måned til du sier det opp.',
+  planLifetime: 'Ubegrenset spilling. Engangskjøp. Ingenting fornyes.',
+  planBoth: 'Du eier engangskjøpet. Månedsabonnementet ditt er fortsatt aktivt, og du trenger det ikke lenger. Si det opp så du ikke blir belastet igjen.',
+  planError: 'Apple kunne ikke sjekke planen din akkurat nå. Prøv igjen senere.',
+  planErrorPlay: 'Google Play kunne ikke sjekke planen din akkurat nå. Prøv igjen senere.',
+  planGetUnlimited: 'Spill ubegrenset',
+  planManage: 'Administrer eller si opp abonnementet',
+  planSwitch: 'Bytt til engangskjøp',
+  planSwitchNote: 'Engangskjøpet gir deg ubegrenset spilling for alltid. Det avslutter ikke månedsabonnementet ditt. Når du har kjøpt det, si opp månedsabonnementet på Apple-kontoen din, ellers betaler du for begge.',
+  planSwitchNotePlay: 'Engangskjøpet gir deg ubegrenset spilling for alltid. Det avslutter ikke månedsabonnementet ditt. Når du har kjøpt det, si opp månedsabonnementet i Google Play, ellers betaler du for begge.',
+  planBuyFor: (price: string) => `Kjøp for ${price}`,
+  planNotNow: 'Ikke nå',
 }

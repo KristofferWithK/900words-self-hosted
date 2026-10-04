@@ -1,0 +1,166 @@
+/* ---------- confetti, in pencil ----------
+
+   Small hand-torn scraps rather than the coloured rectangles this used to be.
+   Those were the last thing in the app the pencil pass had not reached: five
+   colours belonging to nothing else on screen, falling over a board drawn in
+   graphite. Each scrap is now one <path> through #pencil-edge, outlined in the
+   .cluey-hatch weight and filled from the card palette (--green, --line, the
+   beige) — the same hand as everything under it.
+
+   The FALL is untouched: same twenty-eight pieces, same deterministic
+   left/delay/duration, same one-shot keyframes, same reduced-motion rule. */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -14px;
+  width: 13px;
+  height: 13px;
+  /* #pencil-edge displaces outward by design, so the scrap must not be clipped
+     by its own viewport box. */
+  overflow: visible;
+  opacity: 0.9;
+  filter: url(#pencil-edge);
+  animation: confetti-fall linear forwards;
+}
+
+/* Tinted per piece through `color`, so one rule draws all twenty-eight. The
+   outline is the hatch's graphite at the hatch's weight. */
+.confetti-scrap {
+  fill: currentColor;
+  stroke: rgba(18, 18, 18, 0.34);
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(105vh) rotate(660deg);
+    opacity: 0.4;
+  }
+}
+
+.stats-total {
+  text-align: center;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.stats-total strong {
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+}
+
+.box-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.box-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.box-bar-label {
+  flex: 0 0 76px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.box-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.box-bar-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 5px;
+}
+
+.box-bar-count {
+  flex: 0 0 32px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.struggle-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.struggle-word {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+}
+
+/* Any lang attribute means 'a word in the language being learned' here: the
+   document itself is lang="en" and nothing inside these four containers
+   carries a lang of its own except the target word. Was [lang='da'] until the
+   language seam, which would have stopped bolding the moment a second
+   language shipped. */
+.struggle-word [lang] {
+  font-weight: 700;
+}
+
+.struggle-misses {
+  margin-left: auto;
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti {
+    display: none;
+  }
+
+  .dots::after,
+  .sheet,
+  .word-card,
+  .confetti-piece,
+  /* Casey's life, all of it. This list is an allowlist rather than a wildcard,
+     so anything animated and not named here keeps moving for someone who asked
+     for stillness â€” which is the easy mistake to make when adding a face. */
+  .cluey-figure,
+  .cluey-eye-g,
+  .cluey-pupil {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Blinking is the one that matters most: frozen mid-blink is a squint, so
+     the eye is put back rather than merely stopped. */
+  .cluey-eye-g {
+    transform: none !important;
+  }
+}
+
+/* The block that lived here — .collected-section and its list — went with P1.
+   The words a round collected are named inside the tile that counts them now
+   (.stat-words), which is the same information without a section of its own
+   below the fold. */
+

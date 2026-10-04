@@ -52,6 +52,8 @@ export const game = {
   // ── a card's accessible name, built from these pieces in this order ───────
   cardYourTarget: ', your target',
   cardFound: ', found',
+  /** One of Casey's key words the round never found, shown on the wheel's board. */
+  cardMissedKey: ", one of Casey's words, not found",
   cardNeutralBoth: ', neutral for both sides',
   cardNeutralPlayer: ', neutral under your clues',
   cardNeutralCasey: ", neutral under Casey's clues",
@@ -121,7 +123,18 @@ export const game = {
   /** Won: the spin landed green — the ROUND is won (owner, 2026-09-18). */
   wheelWonLine: 'Green! The round is won.',
   /** Miss: the round ends here. */
-  wheelMissLine: 'The wheel landed on an unpacked suitcase.',
+  wheelMissLine: 'Not green. The round is lost.',
+  /**
+   * The dock's line when the clues ran out before every key word was found
+   * (owner, 2026-09-27): the wheel holds a slice for EVERY key word, and the
+   * missed ones stay grey, so the line says how many were found.
+   */
+  wheelLedeMissed: (found: number, total: number, language: string) =>
+    `You found ${found} of ${total}. The words still on the board keep their slices grey. Type the rest in ${language}, then spin.`,
+  /** After the spin: the lids show every answer; the untyped ones are grey. */
+  wheelAnswersLine: 'The grey words are the answers you did not type.',
+  /** After the spin: leave the board for the finish screen. */
+  wheelSeeResults: 'See results',
   /** Board caption for the wheel's challenge and its spin. */
   phaseTranslateChallenge: 'Translation time',
   settlementFailed: 'Your result could not be saved yet. Keep this round and try again.',
@@ -144,6 +157,12 @@ export const game = {
   offlineCaseyIsThinking: 'Offline Casey is thinking. This takes longer.',
   offlineRoundPrompt: 'No internet. Play the rest of this round with offline Casey? She is slower.',
   playOfflineButton: 'Play offline',
+  /** The internet is back during an offline round: normal Casey is offered back. */
+  onlineAgainTitle: 'The internet is back',
+  onlineAgainBody:
+    'Play the rest of this round with normal Casey? She is faster and plays better. If your connection keeps dropping, staying offline can be steadier.',
+  playOnlineButton: 'Play online',
+  stayOfflineButton: 'Stay offline',
   hurryCaseyTitle: 'Tap to hurry Casey along',
   hurryCaseyHint: 'Tap here to hurry Casey along.',
   caseyGuessedWord: (word: string) => `Casey guessed «${word}».`,
@@ -346,7 +365,6 @@ export const game = {
   reviewShowTranslation: 'Show translation',
   reviewHideTranslation: 'Hide translation',
   reviewAboutWord: 'About this word',
-  reviewHighFrequencyWord: 'High-frequency word:',
   reviewNoNotes: 'Word notes unavailable.',
   reviewNextSentence: 'Next sentence',
   /** The reader's place at City 1 when a round left the queue empty. */

@@ -6,17 +6,20 @@ import { resolve } from 'node:path'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4215
 const preview = await startPreview(PORT)
-const boards = JSON.parse(
-  readFileSync(resolve('src/data/city1-board-cycle.da.json'), 'utf8'),
-).boards
+// The archive, then the boards appended after it (bank_151 onward).
+const boards = ['src/data/city1-board-cycle.da.json', 'src/data/city1-board-cycle-appendix.da.json']
+  .flatMap((path) => JSON.parse(readFileSync(resolve(path), 'utf8')).boards)
 
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
 })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const crashes = []
 page.on('pageerror', (error) => crashes.push(String(error)))
@@ -75,7 +78,8 @@ try {
   await page.getByRole('button', { name: 'Pause game', exact: true }).click()
   await page.waitForSelector('.home-screen')
   check('Home labels the paused slot Continue board',
-    await page.locator('.home-play').innerText() === 'Continue board',
+    // The Café puzzle tag (CW-10) says what it does on its note line.
+    await page.locator('.home-play .tag-note').innerText() === 'Continue board',
   )
   await page.locator('.home-play').click()
   await page.waitForSelector('.board-grid')

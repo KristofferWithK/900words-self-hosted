@@ -1,4 +1,5 @@
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 import { readLedger, useLedger } from '../../stores/ledgerStore'
 
 /**
@@ -59,9 +60,7 @@ export function ClueLedgerPanel() {
         </tbody>
       </table>
       <small>{UI.game.ledgerExplainer}</small>
-      <button className="btn" onClick={clear}>
-        {UI.game.ledgerClear}
-      </button>
+      <Tag size="wide" label={UI.game.ledgerClear} onClick={clear} />
     </div>
   )
 }

@@ -15,11 +15,11 @@ fallthrough = true
 # origins support private local development and preview. GitHub Pages is
 # retired and must never be re-added as a convenience origin.
 #
-# capacitor://localhost is the iOS shell's origin only. An Android shell
-# (Capacitor's default androidScheme) calls from https://localhost, which this
-# list does not carry — add it when an Android build exists, or Casey answers
-# every request from it with a CORS refusal and a blank screen.
-ALLOWED_ORIGIN = "http://localhost:5173, http://localhost:4173, capacitor://localhost"
+# capacitor://localhost is the iOS shell's origin; https://localhost is the
+# Android shell's (Capacitor's default androidScheme). Added 2026-09-27 on the
+# owner's call, once the Android build of TestFlight 110 existed and Casey
+# answered it with a CORS refusal on her first guess.
+ALLOWED_ORIGIN = "http://localhost:5173, http://localhost:4173, capacitor://localhost, https://localhost"
 
 # The server-owned alias. Current clients never send or select a model.
 # Change Casey's model here without an app release.
@@ -71,6 +71,12 @@ MODEL_ALIASES = '''{"cluey":{"model":"gpt-oss:120b"},
 # [[kv_namespaces]]
 # binding = "QUOTA"
 # id = "paste-the-id-here"
+
+# Google Play review access (review-access.js) counts its attempts in QUOTA
+# too, under its own `ra:` keys, and FAILS CLOSED without the binding. Its code
+# is the Worker secret PLAY_REVIEW_ACCESS_CODE, set once from this directory:
+#   npx wrangler secret put PLAY_REVIEW_ACCESS_CODE
+# It is never a [vars] entry, never in the repo, and survives later deploys.
 
 # H10 optional events use a separate namespace so data retention/deletion can
 # never touch rate-limit counters. Unlike QUOTA, the receiver fails closed when

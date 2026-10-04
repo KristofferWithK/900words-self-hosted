@@ -256,7 +256,7 @@ try {
   if (state.cityIndex !== 1 || !state.arrivedAt?.['1'])
     throw new Error(`skipping did not arrive in Ribe: ${JSON.stringify(state)}`)
 
-  await page.click('.arrival-screen .btn:not(.btn-primary)')
+  await page.click('.arrival-screen .arrival-see-map')
   await page.waitForSelector('.denmark-map')
   const lessons = page.locator('.map-lessons')
   await lessons.click()

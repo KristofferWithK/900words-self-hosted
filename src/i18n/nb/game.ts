@@ -48,6 +48,7 @@ export const game: Catalogue['game'] = {
   // ── et korts tilgjengelige navn, satt sammen av disse delene i denne rekkefølgen
   cardYourTarget: ', ditt mål',
   cardFound: ', funnet',
+  cardMissedKey: ', et av Caseys ord, ikke funnet',
   cardNeutralBoth: ', nøytralt for begge sider',
   cardNeutralPlayer: ', nøytralt under dine hint',
   cardNeutralCasey: ', nøytralt under Caseys hint',
@@ -106,7 +107,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Sprett hjulet',
   wheelSpinning: 'Snurrer …',
   wheelWonLine: 'Grønt! Runden er vunnet.',
-  wheelMissLine: 'Hjulet landet på en upakket koffert.',
+  wheelMissLine: 'Ikke grønt. Runden er tapt.',
+  wheelLedeMissed: (found, total, language) =>
+    `Du fant ${found} av ${total}. For ordene som ligger igjen på brettet, forblir hjulet grått. Skriv resten på ${language}, og spinn så.`,
+  wheelAnswersLine: 'De grå ordene er svarene du ikke skrev.',
+  wheelSeeResults: 'Se resultatet',
   phaseTranslateChallenge: 'Tid for å oversette',
   settlementFailed: 'Resultatet kunne ikke lagres ennå. Behold runden og prøv igjen.',
   settlementSaving: 'Lagrer resultatet…',
@@ -124,6 +129,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Casey uten nett tenker. Det tar lengre tid.',
   offlineRoundPrompt: 'Ingen internettforbindelse. Spille resten av runden med Casey uten nett? Hun er tregere.',
   playOfflineButton: 'Spill uten nett',
+  onlineAgainTitle: 'Nettet er tilbake',
+  onlineAgainBody:
+    'Spille resten av runden med vanlig Casey? Hun er raskere og spiller bedre. Hvis forbindelsen stadig faller ut, kan det være mer stabilt å fortsette uten nett.',
+  playOnlineButton: 'Spill på nett',
+  stayOfflineButton: 'Fortsett uten nett',
   hurryCaseyTitle: 'Trykk for å skynde på Casey',
   hurryCaseyHint: 'Trykk her for å skynde på Casey.',
   caseyGuessedWord: (word) => `Casey gjettet «${word}».`,
@@ -296,7 +306,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Vis oversettelse',
   reviewHideTranslation: 'Skjul oversettelse',
   reviewAboutWord: 'Om dette ordet',
-  reviewHighFrequencyWord: 'Høyfrekvent ord:',
   reviewNoNotes: 'Ingen notater om ordet.',
   reviewNextSentence: 'Neste setning',
   reviewNothingThisRound:

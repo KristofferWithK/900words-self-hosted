@@ -5,10 +5,13 @@
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const preview = await startPreview(4261)
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH })
 const page = await browser.newPage({ viewport: { width: 360, height: 640 } })
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const failures = []
 const external = []
@@ -44,7 +47,8 @@ try {
   await page.getByRole('button', { name: 'Pause game', exact: true }).click()
   await page.waitForSelector('.home-screen')
   check('the successor primary pauses as a resumable ordinary attempt',
-    await page.locator('.home-play').innerText() === 'Continue board',
+    // The Café puzzle tag (CW-10) says what it does on its note line.
+    await page.locator('.home-play .tag-note').innerText() === 'Continue board',
   )
 
   await page.locator('.cluey-button').click()

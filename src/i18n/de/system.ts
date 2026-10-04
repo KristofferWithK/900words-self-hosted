@@ -65,6 +65,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple konnte die Käufe nicht wiederherstellen. Bitte versuch es noch einmal.',
   passRedeemOpened: 'Apple hat das Fenster zum Einlösen von Codes geöffnet.',
   passRedeemUnavailable: 'Codes einlösen geht nur in der iOS-App.',
+  passPendingPlay: 'Google Play bestätigt diesen Kauf noch. Lass die App offen und tippe dann auf „Käufe wiederherstellen“.',
+  passErrorPlay: 'Google Play konnte diesen Kauf nicht prüfen. Bitte versuch es noch einmal.',
+  passNotEntitledPlay: 'Für dieses Google-Konto wurde kein Kauf von unbegrenztem Spielen gefunden.',
+  passRestoreErrorPlay: 'Google Play konnte die Käufe nicht wiederherstellen. Bitte versuch es noch einmal.',
 
   // ── der Speicher wollte nicht ────────────────────────────────────────────
   backupFileUnreadable: 'Diese Datei konnte nicht gelesen werden.',

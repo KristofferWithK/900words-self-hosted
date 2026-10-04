@@ -126,7 +126,7 @@ try {
   })
   const target = await page.evaluate(() => {
     const g = JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game
-    const id = g.wheel.segments.find((x) => !g.wheel.translated.includes(x))
+    const id = g.wheel.segments.find((x) => g.reveals[x]?.kind === 'green' && !g.wheel.translated.includes(x))
     return g.words.find((w) => w.wordId === id).da
   })
   await page.locator('.wheel-input').fill(target)

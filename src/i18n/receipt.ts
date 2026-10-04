@@ -1,5 +1,6 @@
 import { UI_LANGUAGE } from './active'
 import type { UiLanguage } from './types'
+import type { Tier } from '../progression/types'
 
 type ReceiptCopy = {
   title: string; solved: string; tier: string; personalBest: string
@@ -35,6 +36,143 @@ const finishHeaderCopies: Record<UiLanguage, FinishHeaderCopy> = {
   zh: { goodGame: '玩得好！', greatGame: '精彩表现！', perfectGame: '完美一局！', participationTrophy: '参与奖杯', rewardSpin: '转盘获胜', rewardSolved: '找到所有单词', rewardTranslated: '找到并翻译所有单词', noRewards: '没有明信片奖励', alreadyEarnedLabel: '已获得', participationOnly: '仅表示参与', boardLabel: n => `棋盘 ${n}`, resultLabel: '结果' },
 }
 
+/**
+ * The café world's stamp line (docs/roadmap/cafe-world.md section 6): the
+ * stamp a café got, the card it is on, and the city's share beside it. A
+ * café without a name yet (`cafeNameForBoard` returns null) is spoken of
+ * without one. Say "stamp" and "café"; never postcards.
+ */
+type StampCopy = {
+  /** The reward line's title, e.g. "Platinum stamp". */
+  stamp: (tier: Tier) => string
+  /** The tier word printed inside the drawn stamp. */
+  stampRing: Record<Tier, string>
+  /** Under a new stamp, e.g. "on your Café Solen card". */
+  stampOnCard: (cafe: string | null) => string
+  /** A round that did not raise the stamp, e.g. "Your Café Solen card keeps its Gold stamp". */
+  stampKept: (cafe: string | null, tier: Tier) => string
+  /** Over a stamp the round did not raise, and over a round that is not a café's. */
+  noNewStamp: string
+  /** The screen-reader name of the ticked result lines. */
+  roundTicks: string
+  /** The city percentage, already a whole number. */
+  cityPercent: (percent: number) => string
+  /** Under the percentage, e.g. "of Sønderborg". */
+  ofCity: (city: string) => string
+}
+
+const tierWords = (bronze: string, silver: string, gold: string, platinum: string): Record<Tier, string> => ({ bronze, silver, gold, platinum })
+
+const EN_TIER = tierWords('Bronze', 'Silver', 'Gold', 'Platinum')
+const DE_TIER = tierWords('Bronze', 'Silber', 'Gold', 'Platin')
+const ES_TIER = tierWords('bronce', 'plata', 'oro', 'platino')
+const FR_TIER = tierWords('bronze', 'argent', 'or', 'platine')
+const HU_TIER = tierWords('Bronz', 'Ezüst', 'Arany', 'Platina')
+const HU_THE = tierWords('a bronz', 'az ezüst', 'az arany', 'a platina')
+const NB_TIER = tierWords('bronse', 'sølv', 'gull', 'platina')
+const NB_TITLE = tierWords('Bronsestempel', 'Sølvstempel', 'Gullstempel', 'Platinastempel')
+const NL_TIER = tierWords('bronzen', 'zilveren', 'gouden', 'platina')
+const NL_TITLE = tierWords('Bronzen stempel', 'Zilveren stempel', 'Gouden stempel', 'Platina stempel')
+const PL_TITLE = tierWords('Brązowa pieczątka', 'Srebrna pieczątka', 'Złota pieczątka', 'Platynowa pieczątka')
+const PL_TIER_ACC = tierWords('brązową', 'srebrną', 'złotą', 'platynową')
+const PT_TIER = tierWords('bronze', 'prata', 'ouro', 'platina')
+const SV_TIER = tierWords('brons', 'silver', 'guld', 'platina')
+const SV_TITLE = tierWords('Bronsstämpel', 'Silverstämpel', 'Guldstämpel', 'Platinastämpel')
+const ZH_TIER = tierWords('铜', '银', '金', '白金')
+/** Keeps a number and its percent sign on one line where a space goes between them. */
+const NBSP = ' '
+
+const stampCopies: Record<UiLanguage, StampCopy> = {
+  en: {
+    stamp: t => `${EN_TIER[t]} stamp`, stampRing: EN_TIER,
+    stampOnCard: c => c ? `on your ${c} card` : 'on your stamp card',
+    stampKept: (c, t) => c ? `Your ${c} card keeps its ${EN_TIER[t]} stamp` : `This café keeps its ${EN_TIER[t]} stamp`,
+    noNewStamp: 'No new stamp',
+    roundTicks: 'This round',
+    cityPercent: n => `${n}%`, ofCity: city => `of ${city}`,
+  },
+  de: {
+    stamp: t => `${DE_TIER[t]}-Stempel`, stampRing: DE_TIER,
+    stampOnCard: c => c ? `auf deiner Karte für ${c}` : 'auf deiner Stempelkarte',
+    stampKept: (c, t) => c ? `Deine Karte für ${c} behält ihren ${DE_TIER[t]}-Stempel` : `Dieses Café behält seinen ${DE_TIER[t]}-Stempel`,
+    noNewStamp: 'Kein neuer Stempel',
+    roundTicks: 'Diese Runde',
+    cityPercent: n => `${n}${NBSP}%`, ofCity: city => `von ${city}`,
+  },
+  es: {
+    stamp: t => `Sello de ${ES_TIER[t]}`, stampRing: tierWords('Bronce', 'Plata', 'Oro', 'Platino'),
+    stampOnCard: c => c ? `en tu tarjeta de ${c}` : 'en tu tarjeta de sellos',
+    stampKept: (c, t) => c ? `Tu tarjeta de ${c} conserva su sello de ${ES_TIER[t]}` : `Este café conserva su sello de ${ES_TIER[t]}`,
+    noNewStamp: 'Ningún sello nuevo',
+    roundTicks: 'Esta ronda',
+    cityPercent: n => `${n}${NBSP}%`, ofCity: city => `de ${city}`,
+  },
+  fr: {
+    stamp: t => `Tampon ${FR_TIER[t]}`, stampRing: tierWords('Bronze', 'Argent', 'Or', 'Platine'),
+    stampOnCard: c => c ? `sur ta carte de ${c}` : 'sur ta carte de tampons',
+    stampKept: (c, t) => c ? `Ta carte de ${c} garde son tampon ${FR_TIER[t]}` : `Ce café garde son tampon ${FR_TIER[t]}`,
+    noNewStamp: 'Pas de nouveau tampon',
+    roundTicks: 'Cette partie',
+    cityPercent: n => `${n}${NBSP}%`, ofCity: city => `de ${city}`,
+  },
+  hu: {
+    stamp: t => `${HU_TIER[t]} pecsét`, stampRing: HU_TIER,
+    stampOnCard: c => c ? `a kártyádon: ${c}` : 'a pecsétkártyádon',
+    stampKept: (c, t) => c ? `${c}: megmarad ${HU_THE[t]} pecsét` : `Ennél a kávézónál megmarad ${HU_THE[t]} pecsét`,
+    noNewStamp: 'Nincs új pecsét',
+    roundTicks: 'Ez a kör',
+    cityPercent: n => `${n}%`, ofCity: city => `${city} pecsétjeiből`,
+  },
+  nb: {
+    stamp: t => NB_TITLE[t], stampRing: tierWords('Bronse', 'Sølv', 'Gull', 'Platina'),
+    stampOnCard: c => c ? `på kortet ditt for ${c}` : 'på stempelkortet ditt',
+    stampKept: (c, t) => c ? `Kortet ditt for ${c} beholder ${NB_TIER[t]}stempelet` : `Denne kafeen beholder ${NB_TIER[t]}stempelet`,
+    noNewStamp: 'Ikke noe nytt stempel',
+    roundTicks: 'Denne runden',
+    cityPercent: n => `${n}${NBSP}%`, ofCity: city => `av ${city}`,
+  },
+  nl: {
+    stamp: t => NL_TITLE[t], stampRing: tierWords('Brons', 'Zilver', 'Goud', 'Platina'),
+    stampOnCard: c => c ? `op je kaart van ${c}` : 'op je stempelkaart',
+    stampKept: (c, t) => c ? `Je kaart van ${c} houdt de ${NL_TIER[t]} stempel` : `Dit café houdt de ${NL_TIER[t]} stempel`,
+    noNewStamp: 'Geen nieuwe stempel',
+    roundTicks: 'Deze ronde',
+    cityPercent: n => `${n}%`, ofCity: city => `van ${city}`,
+  },
+  pl: {
+    stamp: t => PL_TITLE[t], stampRing: tierWords('Brąz', 'Srebro', 'Złoto', 'Platyna'),
+    stampOnCard: c => c ? `na twojej karcie ${c}` : 'na twojej karcie pieczątek',
+    stampKept: (c, t) => c ? `Twoja karta ${c} zachowuje ${PL_TIER_ACC[t]} pieczątkę` : `Ta kawiarnia zachowuje ${PL_TIER_ACC[t]} pieczątkę`,
+    noNewStamp: 'Brak nowej pieczątki',
+    roundTicks: 'Ta runda',
+    cityPercent: n => `${n}%`, ofCity: city => `miasta ${city}`,
+  },
+  pt: {
+    stamp: t => `Selo de ${PT_TIER[t]}`, stampRing: tierWords('Bronze', 'Prata', 'Ouro', 'Platina'),
+    stampOnCard: c => c ? `no teu cartão de ${c}` : 'no teu cartão de selos',
+    stampKept: (c, t) => c ? `O teu cartão de ${c} mantém o selo de ${PT_TIER[t]}` : `Este café mantém o selo de ${PT_TIER[t]}`,
+    noNewStamp: 'Nenhum selo novo',
+    roundTicks: 'Esta partida',
+    cityPercent: n => `${n}%`, ofCity: city => `de ${city}`,
+  },
+  sv: {
+    stamp: t => SV_TITLE[t], stampRing: tierWords('Brons', 'Silver', 'Guld', 'Platina'),
+    stampOnCard: c => c ? `på ditt kort för ${c}` : 'på ditt stämpelkort',
+    stampKept: (c, t) => c ? `Ditt kort för ${c} behåller ${SV_TIER[t]}stämpeln` : `Det här kaféet behåller ${SV_TIER[t]}stämpeln`,
+    noNewStamp: 'Ingen ny stämpel',
+    roundTicks: 'Den här rundan',
+    cityPercent: n => `${n}${NBSP}%`, ofCity: city => `av ${city}`,
+  },
+  zh: {
+    stamp: t => `${ZH_TIER[t]}印章`, stampRing: ZH_TIER,
+    stampOnCard: c => c ? `盖在你的${c}卡上` : '盖在你的印章卡上',
+    stampKept: (c, t) => c ? `你的${c}卡保留${ZH_TIER[t]}印章` : `这家咖啡馆保留${ZH_TIER[t]}印章`,
+    noNewStamp: '没有新印章',
+    roundTicks: '本局',
+    cityPercent: n => `${n}%`, ofCity: city => `${city}完成度`,
+  },
+}
+
 const copies: Record<string, ReceiptCopy> = {
   en: { title: 'This attempt', solved: 'Solved the board', tier: 'Attempt tier', personalBest: 'Personal best', bestChange: (before, after) => `${before} → ${after}`, firstBest: tier => `First result: ${tier}`, rewards: 'Postcard rewards', eligible: items => `This attempt qualifies for: ${items}`, alreadyEarned: items => `Already earned: ${items}`, newPostcards: count => count === 1 ? '+1 new postcard' : `+${count} new postcards`, none: 'none', spinWin: 'wheel win', solvedReward: 'solved board', solvedAndTranslated: 'solved and translated', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum', learning: 'Word learning', learningNone: 'No word-learning records changed in this attempt.', learningNew: 'new record', learningState: (box, seen, correct, misses, lookups, clues, guesses) => `box ${box}; seen ${seen}; correct ${correct}; misses ${misses}; lookups ${lookups}; clue greens ${clues}; guess greens ${guesses}`, learningChange: (word, before, after) => `${word}: ${before} → ${after}` },
   de: { title: 'Dieser Versuch', solved: 'Das Brett gelöst', tier: 'Versuchsstufe', personalBest: 'Persönliche Bestleistung', bestChange: (before, after) => `${before} → ${after}`, firstBest: tier => `Erstes Ergebnis: ${tier}`, rewards: 'Postkarten-Belohnungen', eligible: items => `Dieser Versuch berechtigt zu: ${items}`, alreadyEarned: items => `Schon verdient: ${items}`, newPostcards: count => count === 1 ? '+1 neue Postkarte' : `+${count} neue Postkarten`, none: 'keine', spinWin: 'Glücksrad gewonnen', solvedReward: 'Brett gelöst', solvedAndTranslated: 'gelöst und übersetzt', bronze: 'Bronze-Stufe', silver: 'Silber-Stufe', gold: 'Gold-Stufe', platinum: 'Platin-Stufe', learning: 'Wortlernen', learningNone: 'In diesem Versuch wurden keine Wortlernwerte geändert.', learningNew: 'neuer Eintrag', learningState: (box, seen, correct, misses, lookups, clues, guesses) => `Fach ${box}; gesehen ${seen}; richtig ${correct}; Fehler ${misses}; Nachschlagen ${lookups}; Hinweis-Grün ${clues}; Rate-Grün ${guesses}`, learningChange: (word, before, after) => `${word}: ${before} → ${after}` },
@@ -54,4 +192,5 @@ const copies: Record<string, ReceiptCopy> = {
 export const RECEIPT_UI = {
   ...(copies[UI_LANGUAGE] ?? copies.en),
   ...(finishHeaderCopies[UI_LANGUAGE] ?? finishHeaderCopies.en),
+  ...(stampCopies[UI_LANGUAGE] ?? stampCopies.en),
 }

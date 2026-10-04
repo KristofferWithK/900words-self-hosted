@@ -50,7 +50,7 @@ beforeEach(async () => {
   saved.clear()
   useGame.setState(useGame.getInitialState())
   useUi.setState({ pendingFirstGiver: 'ai', onboarding: null })
-  useSettings.setState({ useMock: false, hidePlayerClueReminder: false })
+  useSettings.setState({ useMock: false, hidePlayerClueReminder: false, hideTranslationReminder: false })
   useGame.setState({ recentBoards: [], city1BoardCursor: 0 })
   // Any accidental transport call fails locally, never reaching a paid service.
   vi.stubGlobal('fetch', vi.fn(() => { throw new Error('Unexpected network request') }))
@@ -159,6 +159,57 @@ describe('round guidance lifecycle', () => {
     await useGame.getState().runAiClue()
     announce()
     expect(useGame.getState().activeRoundGuidance).toBe('casey')
+  })
+
+  it('shows Translation time by default, hides it after the box is ticked, and keeps that across reload', async () => {
+    const toTranslation = () => {
+      useGame.setState({ game: { ...useGame.getState().game!, phase: 'translateChallenge' } })
+      announce()
+    }
+    useUi.setState({ pendingFirstGiver: 'player' })
+    useGame.getState().newGame({ cityIndex: 0, seed: 710 })
+    announce()
+    dismiss()
+    // Shown by default; dismissing without the box keeps the next round's.
+    expect(useSettings.getState().hideTranslationReminder).toBe(false)
+    toTranslation()
+    expect(useGame.getState().activeRoundGuidance).toBe('translation')
+    dismiss()
+    expect(useSettings.getState().hideTranslationReminder).toBe(false)
+    useGame.getState().newGame({ cityIndex: 0, seed: 710 })
+    announce()
+    dismiss()
+    toTranslation()
+    expect(useGame.getState().activeRoundGuidance).toBe('translation')
+    // Ticking the box saves the preference in the settings store.
+    dismiss(true)
+    expect(useGame.getState().roundGuidance?.translation).toBe('dismissed')
+    expect(JSON.parse(saved.get('cluecab-settings-v1')!).state.hideTranslationReminder).toBe(true)
+    // It survives a reload and silences every later round's panel: forget
+    // the in-memory value, put the stored save back, and read it again.
+    const stored = saved.get('cluecab-settings-v1')!
+    useSettings.setState({ hideTranslationReminder: false })
+    saved.set('cluecab-settings-v1', stored)
+    await useSettings.persist.rehydrate()
+    expect(useSettings.getState().hideTranslationReminder).toBe(true)
+    useGame.getState().newGame({ cityIndex: 0, seed: 710 })
+    toTranslation()
+    expect(useGame.getState().activeRoundGuidance).toBeNull()
+    useGame.setState({ game: { ...useGame.getState().game!, phase: 'translateWheel' } })
+    announce()
+    expect(useGame.getState().activeRoundGuidance).toBeNull()
+    // The Your turn box and this one are separate preferences.
+    expect(useSettings.getState().hidePlayerClueReminder).toBe(false)
+    // Ticking the Your turn box does not silence Translation time either.
+    useSettings.setState({ hideTranslationReminder: false })
+    useGame.getState().newGame({ cityIndex: 0, seed: 710 })
+    announce()
+    expect(useGame.getState().activeRoundGuidance).toBe('player')
+    dismiss(true)
+    expect(useSettings.getState().hidePlayerClueReminder).toBe(true)
+    expect(useSettings.getState().hideTranslationReminder).toBe(false)
+    toTranslation()
+    expect(useGame.getState().activeRoundGuidance).toBe('translation')
   })
 
   it('keeps special modes clear', () => {

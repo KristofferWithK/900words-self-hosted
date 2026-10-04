@@ -3,6 +3,7 @@ import type { GameState } from '../engine/types'
 import type { AttemptEvidence, AuthoredBoardContent, BoardIdentity, LearningEffect, RequiredBoardSet, RewardComponent, Tier } from './types'
 import type { SettlementInput } from './settlement'
 import { createPrimaryContinuation, emptyProgressFacts } from './facts'
+import { boardKey } from './identity'
 import { emptySettlementLedger, prepareSettlement } from './settlement'
 import { prepareLearning } from '../srs/settlement'
 import type { CompletionReceipt, CourseSessions, SettlementLedger } from './types'
@@ -38,6 +39,29 @@ export const MATRIX_FIXTURES: readonly { id: string; acceptance: string; game: G
   { id: 'F05/R5', acceptance: 'AC04', game: terminalFixture(FIXTURE_TARGETS, ['a', 'b'], true), tier: 'gold', components: ['spinWin', 'solved'], postcards: 2 },
   { id: 'F06/R6', acceptance: 'AC05', game: terminalFixture(FIXTURE_TARGETS, FIXTURE_TARGETS, true), tier: 'platinum', components: ['spinWin', 'solved', 'solvedAndTranslated'], postcards: 4 },
 ]
+
+/** A city of `count` cafés (required boards) for the stamp and medal rules. */
+export function cafeSetFixture(count: number): RequiredBoardSet {
+  return { ...FIXTURE_SET, boards: Array.from({ length: count }, (_, i) => ({ ...FIXTURE_BOARD, authoredBoardId: `cafe-${i}` })) }
+}
+
+/**
+ * Saved bests worth exactly `points` on `required`'s stamp card: Platinum
+ * stamps first, then one stamp for the remainder, the rest unstamped.
+ */
+export function bestsWorth(required: RequiredBoardSet, points: number): Record<string, Tier> {
+  if (!Number.isInteger(points) || points < 0 || points > 4 * required.boards.length) throw new Error('Points outside the stamp card')
+  const tiers: Tier[] = ['bronze', 'silver', 'gold', 'platinum']
+  const bests: Record<string, Tier> = {}
+  let left = points
+  for (const board of required.boards) {
+    if (left <= 0) break
+    const worth = Math.min(4, left)
+    bests[boardKey(board)] = tiers[worth - 1]!
+    left -= worth
+  }
+  return bests
+}
 
 export function attemptFixture(game: GameState, changes: Partial<AttemptEvidence> = {}): AttemptEvidence {
   return { attemptId: 'fixture-attempt-1', board: FIXTURE_BOARD, origin: 'primary', game: structuredClone(game), ...changes }

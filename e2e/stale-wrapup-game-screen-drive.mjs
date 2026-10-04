@@ -10,6 +10,7 @@ import { setTimeout as sleep } from 'node:timers/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const OFFSET = Number(process.env.DRIVE_PORT_OFFSET ?? 0)
@@ -51,6 +52,8 @@ console.log(`source server ready on ${port}`)
 
 const browser = await chromium.launch({ executablePath: browserPath })
 const page = await browser.newPage({ viewport: { width: 360, height: 640 } })
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 page.on('pageerror', error => failures.push(`page error: ${error.message}`))
 page.on('console', message => {
   if (message.type() === 'error') console.log(`browser error: ${message.text()}`)

@@ -1,0 +1,670 @@
+/* ---------- physical-book reader ----------
+   Concepts stay page-sized. On compact phones only the paper may scroll as a
+   last resort; the app shell and book controls remain fixed. */
+.book-reader {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: #e9e2d3;
+}
+
+.book-reader-top { min-height: 48px; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 8px; }
+.book-reader-top p { font-family: var(--serif); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.book-reader-top span, .book-page-context, .book-eyebrow { color: var(--text-dim); font-size: .75rem; letter-spacing: .07em; text-transform: uppercase; }
+.book-back { width: 44px; min-height: 44px; border: 1px solid var(--text); border-radius: 4px; background: #f9f5eb; font-size: 1.1rem; }
+.book-page, .book-cover-paper { position: relative; flex: 1; min-height: 0; padding: clamp(18px, 5vw, 28px); border: 1px solid #9d8868; box-shadow: inset 12px 0 16px -16px rgba(0,0,0,.65), 2px 3px 0 rgba(86,63,38,.13); }
+.book-page { overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; background-color: #e2cfaa; background-image: linear-gradient(96deg, rgba(255,255,255,.09), transparent 28%, rgba(92,67,39,.035) 72%, transparent), repeating-linear-gradient(4deg, rgba(84,62,35,.022) 0 1px, transparent 1px 5px); }
+.book-cover-paper { overflow: hidden; }
+.book-page::before, .book-cover-paper::before { content: ''; position: absolute; inset: 7px; border: 1px solid rgba(112,89,57,.18); pointer-events: none; }
+.book-page h1, .book-cover-paper h1 { position: relative; font-size: clamp(1.55rem, 6vw, 2.1rem); line-height: 1.05; }
+.book-page-body { position: relative; display: grid; gap: 11px; margin-top: 16px; font-family: var(--serif); line-height: 1.42; }
+.book-page-body h3 { margin-top: 3px; padding-bottom: 3px; border-bottom: 1px solid rgba(85,69,47,.28); font-size: .94rem; line-height: 1.2; letter-spacing: .01em; }
+.book-page-body blockquote { border-left: 3px solid var(--green-deep); padding-left: 12px; font-style: italic; }
+.book-page-body ul { padding-left: 20px; }
+.book-page-body table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: .86rem; }
+.book-page-body th, .book-page-body td { padding: 5px; border-bottom: 1px solid var(--line); text-align: left; }
+.book-page-body th, .book-page-body td { overflow-wrap: anywhere; word-break: break-word; }
+.book-turns, .book-cover-actions { flex: none; min-height: 56px; display: flex; gap: 8px; align-items: center; }
+.book-turns .tag { flex: 1; }
+.book-cover { background: #304a45; color: #f9f5eb; }
+.book-cover-paper { display: flex; flex-direction: column; justify-content: center; gap: 12px; background: #34554d; color: #f9f5eb; border-color: #192e2a; }
+.book-cover-paper::before { border-color: rgba(249,245,235,.4); }
+.book-cover-paper .book-eyebrow { color: #d7d8b9; }
+.book-cover-mark { position: relative; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: 1.5rem; }
+.book-cover-actions .tag { max-width: 260px; margin: 0 auto; }
+
+/* Casey's warm-paper pocket guide sits on the game's white canvas throughout.
+   Graphite edges keep it in the 900words drawing language without turning the
+   phone back into a dark leather-and-parchment prop. */
+.travel-guide-book {
+  --guide-paper: #f2eee3;
+  --guide-paper-light: #fffdf7;
+  --guide-orange-ink: #b76e49;
+  overflow: hidden;
+  gap: 8px;
+  padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* The old section cards and tiny tabs were the same choice twice. These are
+   the choice now: two generous hand-cut indexes, carrying the useful labels
+   from the retired cards, attached directly to Casey's guide. */
+.guide-thumb-indexes {
+  position: relative;
+  z-index: 5;
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0 3px -10px;
+}
+
+.guide-thumb-index {
+  position: relative;
+  min-width: 0;
+  min-height: 62px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 8px 11px;
+  border: 1px solid transparent;
+  border-radius: 12px 7px 10px 8px / 8px 11px 7px 12px;
+  color: var(--text);
+  text-align: left;
+  transform: rotate(.3deg);
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.guide-thumb-grammar { background: #dda887; }
+.guide-thumb-survival { background: #afc39a; transform: rotate(-.3deg); }
+.guide-thumb-index::before { content: ''; position: absolute; inset: 1px; border: 1.7px solid var(--text); border-radius: inherit; filter: url(#pencil-edge); pointer-events: none; }
+.guide-thumb-index small { color: #284f2c; font-size: .65rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.guide-thumb-index strong { font-family: var(--serif); font-size: .94rem; line-height: 1.05; }
+.guide-thumb-index.is-active { z-index: 1; transform: translateY(3px) rotate(0); box-shadow: inset 0 -4px rgba(255,255,255,.3); }
+.guide-thumb-index.is-active::before { border-width: 2.3px; }
+.guide-thumb-index:active { transform: translateY(2px) scale(.985); }
+.guide-thumb-index:focus-visible { outline: none; box-shadow: inset 0 0 0 3px rgba(255,255,255,.72); }
+
+.travel-guide-book .guide-header {
+  min-height: 40px;
+  grid-template-columns: 42px 1fr auto;
+  gap: 10px;
+}
+
+.travel-guide-book .guide-header > p {
+  color: var(--text);
+  font-size: 1.28rem;
+}
+
+.travel-guide-book .book-back {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--guide-paper);
+  color: var(--text);
+}
+
+.guide-header-mark,
+.guide-page-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 28px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-dim) !important;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: .68rem !important;
+  font-weight: 700;
+  letter-spacing: .04em !important;
+}
+
+.guide-cover-hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 24px 20px;
+  border: 1px solid transparent;
+  border-radius: 18px 11px 16px 13px / 13px 17px 11px 18px;
+  background: var(--guide-paper);
+  box-shadow: 2px 3px 0 rgba(18,18,18,.08);
+  text-align: left;
+  /* A button centres its content vertically, which parked the copy on the
+     dotted route. The copy belongs at the top, above the route's rise. */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  container-type: size;
+}
+
+.guide-cover-hero:active { transform: scale(.996); }
+
+.guide-cover-tabs-row {
+  position: relative;
+  z-index: auto;
+  flex: none;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  /* Tuck the tabs behind the cover: their lower edge belongs inside the book,
+     while the useful label remains fully above its pencil-drawn top edge. */
+  margin: 0 12px -18px 0;
+}
+
+/* Reader pages lift only the active tab to the book rule. The inactive tab
+   keeps the cover's tucked-behind depth. Extra row padding gives the lifted
+   tab room without clipping its hand-drawn top edge. */
+.travel-guide-book:not(.guide-cover-screen) .guide-cover-tabs-row {
+  padding-top: 8px;
+}
+
+.guide-cover-tabs-row > .guide-thumb-indexes {
+  z-index: auto;
+  margin: 0;
+}
+
+.guide-cover-tabs-row .book-back {
+  position: relative;
+  z-index: 4;
+  margin-top: 2px;
+}
+
+.guide-cover-tabs-row .guide-thumb-index {
+  z-index: 1;
+  min-height: 70px;
+  padding: 8px 12px 13px;
+  border-radius: 14px 14px 5px 5px / 11px 13px 4px 4px;
+  box-shadow: 0 3px 0 rgba(18,18,18,.11);
+  align-content: start;
+}
+.guide-cover-tabs-row .guide-thumb-index small { font-size: .6rem; }
+.guide-cover-tabs-row .guide-thumb-index strong { font-size: .92rem; line-height: 1; }
+.guide-cover-tabs-row .guide-thumb-grammar { transform: rotate(-.45deg); }
+.guide-cover-tabs-row .guide-thumb-survival { transform: rotate(.4deg); }
+.guide-cover-tabs-row .guide-thumb-index.is-active {
+  z-index: 3;
+  border-radius: 14px 14px 2px 2px / 11px 13px 2px 2px;
+  box-shadow: none;
+  transform: translateY(-5px) rotate(0);
+}
+.guide-cover-tabs-row .guide-thumb-index:focus-visible { box-shadow: inset 0 0 0 3px rgba(255,255,255,.72); }
+.guide-cover-tabs-row .guide-thumb-index.is-active::before {
+  /* The tab overlaps the top rule just enough to erase the line beneath it.
+     Its side strokes stop at the rule; the connector below supplies the bend. */
+  bottom: 3px;
+  border-bottom-color: transparent;
+}
+.guide-thumb-connectors { display: none; }
+.guide-cover-tabs-row .guide-thumb-index.is-active .guide-thumb-connectors {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  left: 0;
+  display: block;
+  height: 0;
+  pointer-events: none;
+}
+.guide-cover-tabs-row .guide-thumb-index.is-active .guide-thumb-connectors::before,
+.guide-cover-tabs-row .guide-thumb-index.is-active .guide-thumb-connectors::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-bottom: 1.7px solid var(--text);
+}
+.guide-cover-tabs-row .guide-thumb-index.is-active .guide-thumb-connectors::before {
+  left: -8px;
+  border-right: 1.7px solid var(--text);
+  border-bottom-right-radius: 8px;
+}
+.guide-cover-tabs-row .guide-thumb-index.is-active .guide-thumb-connectors::after {
+  right: -8px;
+  border-left: 1.7px solid var(--text);
+  border-bottom-left-radius: 8px;
+}
+.guide-cover-tabs-row .guide-thumb-index:active { transform: translateY(2px) scale(.985); }
+.guide-cover-tabs-row .guide-thumb-index.is-active:active { transform: translateY(-3px) scale(.985); }
+
+.guide-cover-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 300px;
+  /* Down from the top by a share of the cover's height (the hero is a size
+     container), so it sits nearer the middle yet above the route's rise. */
+  margin-top: 13cqh;
+}
+
+.guide-cover-route {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.guide-cover-route path:first-child {
+  fill: none;
+  stroke: #71816b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 4 10;
+  vector-effect: non-scaling-stroke;
+  filter: url(#pencil-edge-fine);
+}
+
+.guide-cover-route circle {
+  fill: var(--guide-paper);
+  stroke: var(--green-deep);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide-cover-route .guide-cover-route-arrow {
+  fill: none;
+  stroke: var(--guide-orange-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide-cover-copy .book-eyebrow {
+  margin-bottom: 8px;
+  color: var(--green-deep);
+  font-family: -apple-system, system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* Two balanced lines, never three: an `8ch` cap here wrapped the title as
+   "Danish / for the / road." in Georgia on the iPhone. */
+.guide-cover-copy h1 {
+  text-wrap: balance;
+  font-size: clamp(2.1rem, 10vw, 2.8rem);
+  line-height: .96;
+}
+
+.guide-cover-copy > p:last-child {
+  max-width: 24ch;
+  margin-top: 12px;
+  font-size: .92rem;
+  line-height: 1.4;
+}
+
+.guide-cover-casey {
+  position: absolute;
+  right: -4px;
+  bottom: 4px;
+  z-index: 1;
+  width: 155px;
+  height: auto;
+  transform: rotate(-4deg);
+}
+
+.guide-cover-sticker {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--guide-orange-ink);
+  border-radius: 50%;
+  color: var(--guide-orange-ink);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  transform: rotate(8deg);
+}
+
+.travel-guide-book .book-page {
+  z-index: 2;
+  padding: 24px 12px 12px;
+  border: 0;
+  box-shadow: none;
+  background: var(--guide-paper);
+  /* The active peach/sage strip is this element's background. Give the paper
+     the same rounded silhouette as its pencil outline so that colour fills
+     the book but is clipped away at both sharp top corners. */
+  border-radius: 12px 8px 11px 9px / 9px 11px 8px 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: auto;
+}
+
+.travel-guide-book .book-page::before { display: block; inset: 2px; border: 1.5px solid var(--text); border-radius: 12px 8px 11px 9px / 9px 11px 8px 12px; filter: url(#pencil-edge); }
+.travel-guide-book.guide-grammar .book-page {
+  background-color: var(--guide-paper);
+  background-image: linear-gradient(var(--text), var(--text)), linear-gradient(#dda887, #dda887);
+  background-position: 0 15px, 0 0;
+  background-size: 100% 1.7px, 100% 16px;
+  background-repeat: no-repeat;
+}
+.travel-guide-book.guide-survival .book-page {
+  background-color: var(--guide-paper);
+  background-image: linear-gradient(var(--text), var(--text)), linear-gradient(#afc39a, #afc39a);
+  background-position: 0 15px, 0 0;
+  background-size: 100% 1.7px, 100% 16px;
+  background-repeat: no-repeat;
+}
+.guide-index-page, .survival-exchange-page { display: flex; flex-direction: column; gap: 10px; }
+.guide-index-page h1, .survival-exchange-page h1 { font-size: clamp(1.55rem, 7vw, 2rem); line-height: 1.03; }
+.guide-page-intro { position: relative; display: grid; gap: 2px; padding: 0 2px 3px; }
+.guide-page-meta { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.guide-page-meta .book-page-context { min-width: 0; }
+.guide-page-count-inline { flex: none; }
+.guide-page-intro h1 { font-size: clamp(1.55rem, 7vw, 2rem); }
+.book-page-context { color: var(--green-deep); font-weight: 800; }
+.guide-page-lede { color: var(--text-dim); font-size: .84rem; line-height: 1.35; }
+.guide-city-list, .survival-dialogue { position: relative; display: grid; gap: 5px; }
+
+.guide-city-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto 10px;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 4px 7px;
+  border: 1px solid transparent;
+  border-radius: 13px 8px 12px 9px / 9px 12px 8px 13px;
+  background: var(--surface);
+  text-align: left;
+}
+
+.guide-city-row:nth-child(2n) { transform: rotate(.18deg); }
+.guide-city-row:nth-child(3n) { transform: rotate(-.16deg); }
+.guide-city-row:active { background: var(--green-soft); }
+.guide-city-row > span:nth-child(2) { display: grid; gap: 4px; min-width: 0; }
+.guide-city-row strong { overflow: hidden; font-family: var(--serif); font-size: .87rem; line-height: 1.05; text-overflow: ellipsis; white-space: nowrap; }
+.guide-city-tag { align-self: flex-start; width: fit-content; max-width: 100%; padding: 1px 6px; border-radius: 999px; background: var(--beige); color: var(--text); font-family: -apple-system, system-ui, sans-serif; font-size: .57rem; font-weight: 800; letter-spacing: .03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.guide-city-row .guide-city-tag { justify-self: start; }
+.guide-city-row em { padding: 2px 5px; border-radius: 999px; background: var(--bg); color: var(--text-dim); font-size: .57rem; font-style: normal; text-align: right; white-space: nowrap; }
+.guide-city-row b { font-size: 1.2rem; font-weight: 400; }
+.guide-city-number { display: grid; place-items: center; width: 27px; height: 27px; border: 1.5px solid var(--line); border-radius: 50%; font-size: .68rem; font-weight: 700; }
+.guide-city-number.is-reached,
+.guide-city-number.is-available { border-color: var(--green-deep); color: var(--green-deep); background: var(--green-soft); }
+
+.survival-exchange-page > .guide-city-tag { margin-bottom: -5px; }
+
+.survival-phrases { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.survival-phrases p { position: relative; display: grid; gap: 2px; padding: 7px 9px; border: 1px solid transparent; border-radius: 10px 7px 9px 8px; background: var(--green-soft); font-size: .78rem; }
+.survival-phrases span { color: var(--text-dim); }
+.survival-line { position: relative; display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: start; gap: 2px 8px; padding: 7px 9px; border: 1px solid transparent; border-radius: 11px 7px 10px 8px; background: var(--surface); text-align: left; }
+.survival-line:nth-child(2n) { margin-left: 18px; background: var(--beige); }
+.survival-line > span { color: var(--green-deep); font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.survival-line-tabs { grid-column: 3; grid-row: 1 / span 2; display: grid; gap: 3px; width: 62px; }
+.survival-line-tab { min-height: 24px; padding: 2px 5px; border: 1px solid rgba(18,18,18,.4); border-radius: 8px 5px 7px 6px; background: var(--guide-paper-light); color: var(--text); font-size: .58rem; font-weight: 750; line-height: 1; }
+.survival-line-tab:active,
+.survival-line-tab.is-active { background: var(--green-soft); border-color: var(--green-deep); }
+.survival-line-tab > span { margin-right: 2px; color: var(--green-deep); font-size: .55rem; }
+/* Greyed out, not hidden: a language whose bake has not been paid for still
+   shows where the recording will be, so the page does not silently change
+   shape when the audio lands. */
+.survival-line-tab:disabled { opacity: .38; }
+.survival-line-tab:disabled > span { color: var(--text-dim); }
+/* Which address form the exchange is in — du or Sie — in the language's own
+   word. It rides on the theme tag's line rather than taking one of its own:
+   the survival page is already measured to the pixel, and a band here pushed
+   two of the German pages past the paper. */
+.survival-tag-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.survival-register {
+  flex: 0 0 auto;
+  color: var(--green-deep);
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .02em;
+}
+.survival-translation { grid-column: 2 / -1; color: var(--text-dim); font-size: .76rem; font-style: normal; }
+/* A line whose recording did not play says so in the same slot the English
+   uses; there is no other voice to say it in (speak.ts). */
+.survival-audio-note { grid-column: 2 / -1; color: var(--text-dim); font-size: .76rem; font-style: italic; }
+.travel-guide-book .book-page:has(.guide-inline-book-turns) { display: flex; flex-direction: column; }
+.travel-guide-book .guide-inline-book-turns {
+  min-height: 0;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: auto;
+  /* 3px above the tags, not 9: the tags are 12px taller than the pills
+     were, and the page they sit on must not scroll (CW-12). */
+  padding: 3px 4px 1px;
+  border-top: 1px solid rgba(18,18,18,.28);
+}
+.travel-guide-book .guide-inline-book-turns .tag {
+  flex: 0 0 auto;
+  padding-block: 6px;
+}
+/* The page turns are tags (owner O2, CW-12), set small so the page they sit
+   on still fits the phone without scrolling. Next keeps each book's own ink
+   for its label (owner, 2026-09-11): the grammar book's orange, the survival
+   book's deep green. */
+.travel-guide-book .guide-inline-book-turns .tag-label { font-size: .86rem; }
+.travel-guide-book.guide-grammar .guide-inline-book-turns .tag-primary { --tag-label: var(--guide-orange-ink); }
+.travel-guide-book.guide-survival .guide-inline-book-turns .tag-primary { --tag-label: var(--green-deep); }
+.survival-book-turns { display: grid; grid-template-columns: 1fr 1fr; }
+.travel-guide-book .survival-book-turns .tag { min-width: 0; }
+.guide-grammar-reader .book-page-context { color: #49655a; }
+.guide-grammar-reader .book-reader-top > p { color: var(--text); font-size: 1.18rem; }
+.guide-grammar-reader .book-reader-top > span { padding: 4px 9px; border-radius: 999px; background: var(--surface); color: var(--text-dim); font-size: .68rem; font-weight: 700; letter-spacing: .04em; }
+
+.guide-cover-hero,
+.guide-city-row,
+.survival-line,
+.survival-phrases p {
+  border-color: transparent;
+}
+
+.guide-cover-hero::before,
+.guide-city-row::before,
+.survival-line::before,
+.survival-phrases p::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border: 1.6px solid var(--line);
+  border-radius: inherit;
+  filter: url(#pencil-edge);
+  pointer-events: none;
+}
+
+.guide-city-row::before { border-width: 1px; border-color: rgba(18,18,18,.24); }
+.guide-city-row.is-current-city::before { border-width: 2px; border-color: var(--text); }
+
+.guide-cover-hero::before { border-color: var(--text); }
+
+/* At the 360×640 floor, tighten vertical whitespace before page-local scrolling
+   is needed. The content is never shrunk into an unreadable miniature. */
+@media (max-height: 680px) {
+  .book-page, .book-cover-paper { padding-block: 12px; }
+  .book-page h1 { font-size: clamp(1.35rem, 5.3vw, 1.9rem); }
+  .book-page-body { gap: 6px; margin-top: 8px; font-size: .95rem; line-height: 1.34; }
+  .book-page-body h3 { margin-top: 1px; font-size: .86rem; }
+  .book-page-body th, .book-page-body td { padding-block: 4px; }
+  .guide-index-page, .survival-exchange-page { gap: 6px; }
+  .survival-phrases { gap: 3px; }
+  .survival-phrases p { padding: 4px 6px; }
+  .survival-line { padding: 4px 6px; }
+  .guide-thumb-index { min-height: 58px; padding-block: 6px; }
+  .guide-cover-tabs-row .guide-thumb-index { min-height: 64px; }
+
+  /* The train keeps only a pencil-window cue on the shortest phone. */
+  .ride-screen { gap: 2px; }
+  .ride-window { height: 30px; overflow: hidden; align-items: center; }
+  .ride-train { width: min(100%, 140px); }
+}
+
+/* The train ride reads the Guide's own pages (BookReader / the Survival page,
+   same classes, same paper) under the pencil train, so it gives up a little
+   height to the window above it. The type is kept at the compact rhythm the
+   old train reader was measured to need at 390×844 — Ribe's full rule page
+   proved it — and the paper stays the one permitted scroller, as it is in the
+   Guide. `.ride-reader` is added beside the Guide classes, never instead. */
+.ride-reader { gap: 4px; padding: 4px 12px calc(4px + env(safe-area-inset-bottom)); }
+.travel-guide-book.ride-reader .book-page { padding-top: 16px; }
+.ride-reader .book-page h1 { font-size: 1.35rem; }
+.ride-reader .book-page-body { gap: 4px; margin-top: 4px; font-size: .9rem; line-height: 1.22; }
+.ride-reader .book-page-body table { font-size: .76rem; }
+.ride-reader .book-page-body th,
+.ride-reader .book-page-body td { padding: 2px 3px; }
+/* On the ride the page turns stay in view while a long page scrolls under
+   them: sticky to the bottom of the paper, on the paper's own colour so the
+   text slides beneath rather than through. Measured at 360×640: three of the
+   thirty-six Survival exchanges overflow there, and without this their Next
+   sat 8px below the phone's edge. The Guide keeps its turns in the flow. */
+.ride-reader .book-page > .guide-inline-book-turns { position: sticky; bottom: 0; background: var(--guide-paper); }
+/* The ride's top row, in the slot the Guide's thumb indexes occupy: the city
+   and which half is open, and the one button that leaves the ride. */
+.ride-bar { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+.ride-bar-label { flex: 1; min-width: 0; font-size: .8rem; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ride-bar-label em { font-style: italic; }
+.ride-bar .ride-skip { flex: none; }
+/* Skip is a 44px tag (CW-12), taller than the pill it replaced, and this row
+   tucks under the book's top edge: lifted by the difference, and drawn over
+   the edge it still reaches (the page is z-index 2), so the whole tag
+   receives its own taps. */
+.ride-bar .ride-skip { top: -8px; z-index: 3; }
+
+.travel-guide-cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 74px;
+  padding: 9px 12px;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 4px 7px 5px 6px;
+}
+
+.travel-guide-cover::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  pointer-events: none;
+  border: 1px solid var(--line-soft);
+  border-radius: 7px 4px 6px 5px;
+  opacity: 0.75;
+}
+
+.guide-cover-stamp {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 52px;
+  color: var(--green-deep);
+  border: 2px solid currentColor;
+  border-radius: 5px 3px 6px 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transform: rotate(-3deg);
+}
+
+.guide-cover-stamp i,
+.guide-cover-stamp b {
+  position: absolute;
+  width: 31px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+  transform: rotate(-22deg);
+}
+.guide-cover-stamp i { top: 13px; }
+.guide-cover-stamp b { bottom: 13px; transform: rotate(26deg); }
+
+.guide-cover-kicker {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 2px;
+  color: var(--text-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.guide-cover-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 22ch;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.travel-guide-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  flex: 0 0 auto;
+}
+
+.travel-guide-tabs .chip { min-height: 44px; }
+
+.travel-guide-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  padding-bottom: 8px;
+}
+
+.guide-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 4px 6px 5px 7px;
+  background: var(--surface);
+  text-align: left;
+}
+
+.guide-row:not(:disabled):active { background: var(--green-soft); transform: rotate(-0.15deg); }
+
+.guide-row > span:nth-child(2) { display: grid; gap: 2px; }
+.guide-row small { color: var(--text-dim); line-height: 1.25; }
+.guide-row:disabled { opacity: 0.62; }
+
+.guide-state {
+  min-width: 50px;
+  padding: 3px 5px;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px 5px 4px 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.guide-state-new,
+.guide-state-reached { border-color: var(--green-deep); color: var(--green-deep); }
+.guide-state-later { border-style: dashed; }
+.guide-state-done { background: var(--green-soft); }
+.guide-state-locked { color: var(--text-dim); }
+.guide-intro,
+.guide-note { color: var(--text-dim); font-size: 0.88rem; line-height: 1.4; }
+.guide-target { font-weight: 600; line-height: 1.5; }
+

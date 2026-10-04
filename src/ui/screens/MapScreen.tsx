@@ -4,7 +4,9 @@ import { MAP, nearestStop, routePath } from '../../journey/map'
 import { cityMedal, hasHistoricalTravelEligibility } from '../../journey/progress'
 
 import { Arrival } from '../components/Arrival'
+import { Tag } from '../components/Tag'
 import { TrainProgress } from '../components/TrainProgress'
+import { useCityTrain } from '../components/TrainRunPanel'
 import { TrainRide } from '../components/TrainRide'
 import { TravelGuideButton } from '../components/TravelGuideButton'
 import { TravelGuideBook } from './TravelGuideBook'
@@ -12,6 +14,7 @@ import { reachedIndex, useJourney } from '../../stores/journeyStore'
 import { useUi } from '../../stores/uiStore'
 import { ACTIVE } from '../../lang/active'
 import { useGame } from '../../stores/gameStore'
+import { dealOrFallBack } from '../cafeDeal'
 import { usePass } from '../../purchase/passStore'
 import { useSettings } from '../../stores/settingsStore'
 import { playtestTravelAllowed } from '../../stores/uiStore'
@@ -21,7 +24,6 @@ import { UI, UI_LANGUAGE, UI_LANGUAGE_INFO } from '../../i18n'
 import { RECEIPT_UI } from '../../i18n/receipt'
 import { CITY1_REQUIRED_SET } from '../../session/courseRuntime'
 import { readCourseProgress } from './HomeScreen'
-import { PROVISIONAL_TRAVEL_THRESHOLD } from '../../progression/rules'
 
 type Placement = { anchor: 'start' | 'end'; dx: number; dy: number }
 
@@ -119,6 +121,8 @@ export function MapScreen() {
     audience: buildAudience,
     developerTravel: playtestTravel,
   })
+  // The train strip loads with the city's collected words (CW-07), as on Home.
+  const cityTrain = useCityTrain(journey.cityIndex)
   const medal = cityMedal(durable.facts, CITY1_REQUIRED_SET).tier
   // The stop AFTER the one being looked at — the map lets you tap ahead, and
   // "the train to Ribe" has to mean the train out of the city on screen, not
@@ -353,7 +357,7 @@ export function MapScreen() {
             or a number; these two are the flavour, so when a phone is short
             enough that the map would otherwise vanish they are what yields —
             they scroll inside their own box, and the document never does.
-            See .denmark-map and .city-blurbs in index.css for the budget. */}
+            See .denmark-map and .city-blurbs in src/styles/12-map-exam-arrival.css for the budget. */}
         <div className="city-blurbs">
           <p className="city-blurb" lang={ACTIVE.code}>
             {city.blurbTarget}
@@ -365,19 +369,21 @@ export function MapScreen() {
           <>
             <p className="map-locked">{UI.home.wordsWaiting(WORDS_PER_CITY, city.name)}</p>
             <div className="map-city-actions">
-              <button className="btn btn-quiet" onClick={() => setPreviewIndex(selected)}>
-                {UI.home.lookAhead}
-              </button>
+              <Tag className="map-look-ahead" label={UI.home.lookAhead} onClick={() => setPreviewIndex(selected)} />
               {playtestTravel && (
-                <button
-                  className="btn btn-primary"
+                <Tag
+                  tone="primary"
+                  className="map-travel-ahead"
+                  label={UI.home.travelAhead}
                   onClick={() => {
                     journey.playtestTravelTo(selected, Date.now())
-                    if (newGame({ cityIndex: selected })) goTo('game')
+                    // A café the walks have not found cannot be opened (CW-04's
+                    // gate, inside newGame). A refusal goes Home, whose Café
+                    // puzzle tag says to find it first, rather than leaving
+                    // this button doing nothing (CW-08).
+                    if (dealOrFallBack(() => newGame({ cityIndex: selected }), () => goTo('home'))) goTo('game')
                   }}
-                >
-                  {UI.home.travelAhead}
-                </button>
+                />
               )}
               {/* The switch, standing exactly where the button it reveals
                   will stand. It lives in Settings too and always did — and
@@ -417,9 +423,9 @@ export function MapScreen() {
               <>
                 <TrainProgress
                   className="map-train"
-                  earned={travel.earned}
-                  goal={PROVISIONAL_TRAVEL_THRESHOLD}
-                  label={boardable && onward ? UI.home.boardTrain(onward.name) : UI.home.postcardReadiness(travel.earned, travel.remaining)}
+                  earned={cityTrain.collected}
+                  goal={cityTrain.total}
+                  label={boardable && onward ? UI.home.boardTrain(onward.name) : UI.sightseeing.trainStripLabel(cityTrain.collected, cityTrain.total, cityTrain.slips)}
                   {...(boardable ? { onBoard: board } : {})}
                 />
                 <p className="map-case-note">
@@ -434,15 +440,17 @@ export function MapScreen() {
       </section>
 
       {state === 'visited' ? (
-        <button className="btn btn-primary btn-big map-return" onClick={returnTo}>
-          {selected < journey.cityIndex
+        <Tag
+          size="wide"
+          tone="primary"
+          className="map-return"
+          onClick={returnTo}
+          label={selected < journey.cityIndex
             ? UI.home.travelBackTo(city.name)
             : UI.home.travelOnTo(city.name)}
-        </button>
+        />
       ) : boardable && nextCity ? (
-        <button className="btn btn-primary btn-big" onClick={board}>
-          {UI.home.travelOnTo(nextCity.name)}
-        </button>
+        <Tag size="wide" tone="primary" className="map-board" label={UI.home.travelOnTo(nextCity.name)} onClick={board} />
       ) : null}
 
       <p className="map-credit">{UI.home.mapCredit}</p>

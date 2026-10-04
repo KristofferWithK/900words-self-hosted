@@ -1,0 +1,194 @@
+/* ---------- the release suitcase board tray ----------
+   Since CW-11 the tray holds the city's stamp card: the cells' faces (café
+   name, stamp, label) and the stamp card's look live in
+   69-suitcase-marks-and-stamps.css.
+   The collected-word lid and board tray share the original hand-drawn case.
+   A fractional flex difference keeps the lower compartment shallower at both
+   supported phone heights, without hard-coding viewport measurements. */
+.suitcase-screen { gap: 8px; }
+.case-word-collection { flex: none; }
+.case-loose .case-tiles {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 34px);
+  flex: none;
+}
+.case-open { gap: 0; }
+.case-panel-lid { flex: 1 1 0; }
+.case-panel-tray {
+  flex: .9 1 0;
+  /* The bottom clasps are drawn across the tray's last ~20px: keep the
+     stamp card's last row of labels clear of them. */
+  padding: 8px 16px 21px;
+}
+.case-panel-tray > .case-hatch { left: 10px; bottom: 6px; }
+/* The tray's 16px padding puts the collection's text across the drawn inner
+   wall, which struck through the first letter of every line. The board tray
+   is drawn without it; the outer edge still frames the compartment. */
+.case-art-tray .case-wall { display: none; }
+
+.casey-board-collection {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.collection-summary {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-height: 36px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
+}
+.collection-summary-copy { width: calc(100% - 131px); min-width: 0; }
+.collection-summary h2 {
+  margin: 0;
+  font-size: .76rem;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.collection-summary p,
+.collection-primary,
+.collection-suspended {
+  margin: 2px 0 0;
+  color: var(--text-dim);
+  font-size: .61rem;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.collection-primary { max-width: none; text-align: left; }
+.collection-suspended { border-left: 2px solid var(--beige-deep); padding-left: 4px; }
+
+.collection-pager {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex: none;
+}
+.collection-pager .icon-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+.collection-pager > span {
+  min-width: 34px;
+  color: var(--text-dim);
+  text-align: center;
+  font-size: .68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.collection-board-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(44px, 1fr));
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+.collection-board-slot { min-width: 0; min-height: 0; }
+.collection-board-card {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 7px 5px 8px 6px;
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  overflow: hidden;
+  background: #fff;
+  color: var(--text);
+  text-align: center;
+  font-family: inherit;
+  cursor: pointer;
+}
+.collection-board-card b {
+  flex: none;
+  font-size: .6rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.collection-board-card small {
+  max-width: 100%;
+  flex: none;
+  font-size: .56rem;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.collection-board-unplayed {
+  color: var(--text-dim);
+  background: var(--grey-soft);
+  border-style: dashed;
+  cursor: default;
+}
+.collection-board-card:focus-visible,
+.collection-pager .icon-btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: -3px;
+}
+
+.collection-detail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  background: rgba(255,255,255,.96);
+  border: 0;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+}
+.collection-detail::backdrop { background: rgba(42, 35, 25, .32); }
+.collection-detail-card { width: min(100%, 300px); display: flex; flex-direction: column; gap: 12px; }
+.collection-detail-card .icon-btn { align-self: flex-start; }
+.collection-detail-card .btn { width: 100%; }
+
+@media (max-height: 650px) {
+  .suitcase-screen { gap: 1px; }
+  .suitcase-screen .screen-header { padding-top: 4px; padding-bottom: 4px; }
+  /* The handle sits 19px above the case; preserve a real gap below the loose
+     word slots instead of letting the decorative SVG paint across them. */
+  .case-open { margin-top: 19px; }
+  .case-loose .case-tiles { grid-template-rows: repeat(2, 26px); }
+  .case-hinge-art { height: 14px; }
+  .case-panel-tray { padding: 5px 14px 16px; }
+  .case-panel-tray { flex: .97 1 0; }
+  .casey-board-collection { gap: 4px; }
+  .collection-summary h2 { font-size: .7rem; }
+  .collection-summary p,
+  .collection-primary,
+  .collection-suspended { font-size: .56rem; }
+  .collection-board-grid { gap: 5px; }
+  .collection-board-card { gap: 1px; padding: 1px 3px; }
+  .collection-board-card b { font-size: .5rem; }
+  .collection-board-card small { font-size: .45rem; }
+}
+

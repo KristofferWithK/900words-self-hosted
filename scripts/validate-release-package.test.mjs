@@ -68,8 +68,8 @@ function publicPackage(overrides = {}, files = {}) {
   }
 }
 
-function storedIpa(files) {
-  // A small standards-compliant stored ZIP: enough to exercise the IPA reader
+function storedArchive(files, filename = 'App.ipa') {
+  // A small standards-compliant stored ZIP: enough to exercise archive readers
   // without relying on a host zip binary.
   const parts = []
   const central = []
@@ -102,10 +102,14 @@ function storedIpa(files) {
   end.writeUInt16LE(Object.keys(files).length, 10)
   end.writeUInt32LE(centralBytes.length, 12)
   end.writeUInt32LE(offset, 16)
-  const path = join(mkdtempSync(join(tmpdir(), 'cluecab-sec4-')), 'App.ipa')
+  const path = join(mkdtempSync(join(tmpdir(), 'cluecab-sec4-')), filename)
   made.push(resolve(path, '..'))
   writeFileSync(path, Buffer.concat([...parts, centralBytes, end]))
   return path
+}
+
+function storedIpa(files) {
+  return storedArchive(files)
 }
 
 describe('the SEC4 release-package gate', () => {
@@ -202,6 +206,71 @@ describe('the SEC4 release-package gate', () => {
       'Payload/App.app/public/assets/matrix.da.1.json': '{}',
     })
     expect(inspectReleasePackage(ipa, data).violations).toEqual(expect.arrayContaining([expect.stringContaining('authored book or matrix')]))
+  })
+
+  it('inspects APK entries for private content, source maps, and secret-shaped files', () => {
+    const rationale = corpusSentinels(data).find((item) => item.source.startsWith('book.') && item.value.length > 36)
+    const apk = storedArchive({
+      'assets/public/assets/lexicon.js': JSON.stringify(derivedLexicon(data).entries),
+      'assets/public/assets/private-copy.js': rationale.value,
+      'assets/public/assets/app.js.map': '{}',
+      'assets/secret-token.txt': 'placeholder',
+    }, 'app-debug.apk')
+    const violations = inspectReleasePackage(apk, data).violations.join('\n')
+    expect(violations).toContain(`from ${rationale.source}`)
+    expect(violations).toContain('source map')
+    expect(violations).toContain('secret-shaped file')
+  })
+
+  it('allows Kotlin builtins metadata only at the package root, including inside an APK', () => {
+    const accepted = storedArchive({
+      'assets/public/assets/lexicon.js': JSON.stringify(derivedLexicon(data).entries),
+      'kotlin/internal/internal.kotlin_builtins': Buffer.from([0x00, 0x01, 0x02, 0xff]),
+    }, 'app-debug.apk')
+    expect(inspectReleasePackage(accepted, data).violations).toEqual([])
+
+    for (const path of [
+      'assets/public/kotlin/internal/internal.kotlin_builtins',
+      'kotlin/internal/other.kotlin_builtins',
+      'docs/internal/kotlin/internal/internal.kotlin_builtins',
+    ]) {
+      const apk = storedArchive({
+        'assets/public/assets/lexicon.js': JSON.stringify(derivedLexicon(data).entries),
+        [path]: 'private plan',
+      }, 'app-debug.apk')
+      expect(inspectReleasePackage(apk, data).violations.join('\n'), path).toContain('internal plan')
+    }
+  })
+
+  it('checks archive-root and nested paths and rejects APK path traversal', () => {
+    const lexicon = JSON.stringify(derivedLexicon(data).entries)
+    const rootApk = storedArchive({
+      'assets/public/assets/lexicon.js': lexicon,
+      'plan.md': 'private plan',
+      '.env': 'SAFE_PLACEHOLDER=not-secret',
+      'book.da.1.json': '{}',
+    }, 'root-private.apk')
+    const rootViolations = inspectReleasePackage(rootApk, data).violations.join('\n')
+    expect(rootViolations).toContain('internal plan')
+    expect(rootViolations).toContain('secret-shaped file')
+    expect(rootViolations).toContain('authored book or matrix')
+
+    const nestedApk = storedArchive({
+      'assets/public/assets/lexicon.js': lexicon,
+      'assets/public/plan.md': 'private plan',
+      'assets/public/.env': 'SAFE_PLACEHOLDER=not-secret',
+      'assets/public/book.da.1.json': '{}',
+    }, 'nested-private.apk')
+    const nestedViolations = inspectReleasePackage(nestedApk, data).violations.join('\n')
+    expect(nestedViolations).toContain('internal plan')
+    expect(nestedViolations).toContain('secret-shaped file')
+    expect(nestedViolations).toContain('authored book or matrix')
+
+    const traversalApk = storedArchive({
+      'assets/public/assets/lexicon.js': lexicon,
+      '../plan.md': 'private plan',
+    }, 'traversal.apk')
+    expect(() => inspectReleasePackage(traversalApk, data)).toThrow('unsafe archive path')
   })
 
   it('accepts a stamped normal public package at the approved source', () => {

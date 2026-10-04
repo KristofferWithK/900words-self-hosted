@@ -20,6 +20,7 @@ import {
 } from './index'
 import { LANGUAGE_KEY, readStoredLanguage } from './active'
 import type { LanguagePack } from './types'
+import { UPCOMING_COURSES } from './upcoming'
 
 /**
  * The seam's own suite.
@@ -159,6 +160,21 @@ describe('the language registry', () => {
     expect(danish.readiness).toBe('playable')
     expect(playableLanguages('normal')).toEqual([danish, german])
     expect(german.readiness).toBe('playable')
+  })
+
+  it('announces France and the UK as coming soon without making either a course', () => {
+    expect(UPCOMING_COURSES.map((course) => course.country)).toEqual(['France', 'UK'])
+    for (const course of UPCOMING_COURSES) {
+      // A ticket that only announces: no pack behind it, so nothing can
+      // select it, deal from it or store progress under its code.
+      expect(Object.keys(LANGUAGES)).not.toContain(course.code)
+      expect(isLanguageCode(course.code)).toBe(false)
+      expect(availableLanguages('developer').map((pack) => pack.code)).not.toContain(course.code)
+      // Drawn on the same 812-unit height as Denmark and Germany, which is
+      // what keeps the pencil line the same weight on every ticket.
+      expect(course.map.height).toBe(danish.route.map.height)
+      expect(course.map.path.length).toBeGreaterThan(1000)
+    }
   })
 
   it('gives German its City 1 roster, route, map and Travel Guide', () => {

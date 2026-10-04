@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 import { track } from '../../analytics/stats'
 import {
   REMINDER_HOUR,
@@ -75,12 +76,14 @@ export function ReminderPrompt({ eligible }: { eligible: boolean }) {
         </div>
         <p>{UI.settings.reminderPromptBody(hour)}</p>
         <div className="leave-game-actions">
-          <button className="btn btn-primary" type="button" disabled={busy} onClick={() => void accept()}>
-            {busy ? UI.settings.reminderPromptAsking : UI.settings.reminderPromptAccept}
-          </button>
-          <button className="btn btn-ghost" type="button" disabled={busy} onClick={decline}>
-            {UI.settings.reminderPromptDecline}
-          </button>
+          <Tag
+            size="wide"
+            tone="primary"
+            disabled={busy}
+            onClick={() => void accept()}
+            label={busy ? UI.settings.reminderPromptAsking : UI.settings.reminderPromptAccept}
+          />
+          <Tag size="wide" disabled={busy} onClick={decline} label={UI.settings.reminderPromptDecline} />
         </div>
       </section>
     </div>

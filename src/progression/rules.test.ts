@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { boardKey, claimKey, validateRequiredSet } from './identity'
-import { attemptFixture, FIXTURE_BOARD, FIXTURE_CONTENT, FIXTURE_SET, FIXTURE_TARGETS, MATRIX_FIXTURES, terminalFixture } from './fixtures'
-import { cityTier, claimDelta, evaluateAttempt, gameDelta, matchesAuthoredContent, maxTier, rewardEligibility, targetUnion, travelStatus } from './rules'
-import type { AttemptOrigin, RewardComponent, Tier } from './types'
+import { attemptFixture, bestsWorth, cafeSetFixture, FIXTURE_BOARD, FIXTURE_CONTENT, FIXTURE_SET, FIXTURE_TARGETS, MATRIX_FIXTURES, terminalFixture } from './fixtures'
+import { cafeStamp, cityMedalFromStamps, cityStamps, cityTier, claimDelta, evaluateAttempt, gameDelta, matchesAuthoredContent, maxTier, medalForPoints, rewardEligibility, savedStamps, STAMP_POINTS, stampPoints, targetUnion, trainTravelStatus, travelStatus } from './rules'
+import { emptyProgressFacts } from './facts'
+import type { AttemptOrigin, BoardIdentity, ProgressFacts, RewardComponent, Tier } from './types'
 
 describe('C1-PC-1 outcome matrix AC01-AC06', () => {
   it.each(MATRIX_FIXTURES)('$acceptance $id records $tier and +$postcards', ({ game, tier, components, postcards }) => {
@@ -146,5 +147,116 @@ describe('city and travel AC17-AC20', () => {
   it('rejects malformed amounts instead of manufacturing readiness', () => {
     expect(() => travelStatus(-1, 100, false, true, true)).toThrow()
     expect(() => travelStatus(100, 0, false, true, true)).toThrow()
+  })
+})
+
+describe('café world CW-03: stamps and the medal percentage', () => {
+  it('a stamp is worth 1, 2, 3, 4; no stamp is worth nothing', () => {
+    expect(STAMP_POINTS).toEqual({ bronze: 1, silver: 2, gold: 3, platinum: 4 })
+    expect(['bronze', 'silver', 'gold', 'platinum'].map((tier) => stampPoints(tier as Tier))).toEqual([1, 2, 3, 4])
+    expect(stampPoints(null)).toBe(0)
+  })
+
+  it('the stamp card holds one stamp per required café, read from saved bests, out of 4 points each', () => {
+    const cafes = cafeSetFixture(3)
+    const [first, second, third] = cafes.boards
+    const bests: Record<string, Tier> = { [boardKey(first!)]: 'gold', [boardKey(third!)]: 'bronze', [boardKey({ ...first!, authoredBoardId: 'not-a-cafe' })]: 'platinum' }
+    const card = cityStamps(cafes, bests)
+    expect(card).toMatchObject({ cafes: 3, stamped: 2, points: 4, maximum: 12, error: null })
+    expect(card.stamps).toEqual({ [boardKey(first!)]: 'gold', [boardKey(second!)]: null, [boardKey(third!)]: 'bronze' })
+    expect(card.percent).toBeCloseTo(100 / 3, 10)
+    // Display order and optional inventory do not change the card.
+    const reordered = { ...cafes, boards: [...cafes.boards].reverse(), optionalBoards: [{ ...first!, authoredBoardId: 'optional' }] }
+    expect(cityStamps(reordered, bests)).toMatchObject({ points: 4, maximum: 12, stamped: 2 })
+  })
+
+  it.each<{ points: number; maximum: number; percent: number; tier: Tier | null }>([
+    { points: 0, maximum: 1000, percent: 0, tier: null },
+    { points: 249, maximum: 1000, percent: 24.9, tier: null },
+    { points: 250, maximum: 1000, percent: 25, tier: 'bronze' },
+    { points: 499, maximum: 1000, percent: 49.9, tier: 'bronze' },
+    { points: 500, maximum: 1000, percent: 50, tier: 'silver' },
+    { points: 749, maximum: 1000, percent: 74.9, tier: 'silver' },
+    { points: 750, maximum: 1000, percent: 75, tier: 'gold' },
+    { points: 999, maximum: 1000, percent: 99.9, tier: 'gold' },
+    { points: 1000, maximum: 1000, percent: 100, tier: 'platinum' },
+    { points: 1, maximum: 4, percent: 25, tier: 'bronze' },
+    { points: 3, maximum: 4, percent: 75, tier: 'gold' },
+    { points: 396, maximum: 400, percent: 99, tier: 'gold' },
+  ])('$points of $maximum points ($percent%) is $tier', ({ points, maximum, percent, tier }) => {
+    expect(medalForPoints(points, maximum)).toBe(tier)
+    // The same edge through a real stamp card: a city of maximum/4 cafés.
+    const cafes = cafeSetFixture(maximum / 4)
+    const medal = cityMedalFromStamps(cafes, bestsWorth(cafes, points))
+    expect(medal).toMatchObject({ tier, points, maximum, error: null })
+    expect(medal.percent).toBeCloseTo(percent, 10)
+  })
+
+  it('zero stamps is 0% and no medal; a city without required cafés has no card', () => {
+    const cafes = cafeSetFixture(100)
+    expect(cityMedalFromStamps(cafes, {})).toMatchObject({ tier: null, stamped: 0, points: 0, maximum: 400, percent: 0, error: null })
+    expect(cityMedalFromStamps({ ...cafes, boards: [] }, {})).toMatchObject({ tier: null, cafes: 0, points: 0, maximum: 0, percent: 0, error: 'empty-manifest' })
+    expect(cityMedalFromStamps(null, {})).toMatchObject({ tier: null, maximum: 0, percent: 0, error: 'missing-manifest' })
+    expect(() => medalForPoints(0, 0)).toThrow()
+    expect(() => medalForPoints(5, 4)).toThrow()
+    expect(() => medalForPoints(-1, 4)).toThrow()
+    expect(() => medalForPoints(1.5, 4)).toThrow()
+  })
+
+  it('the medal is the percentage, not the lowest stamp: 99 Platinum cafés of 100 is Gold', () => {
+    const cafes = cafeSetFixture(100)
+    const bests = bestsWorth(cafes, 99 * 4)
+    expect(cityTier(cafes, bests).tier).toBeNull()
+    expect(cityMedalFromStamps(cafes, bests)).toMatchObject({ tier: 'gold', stamped: 99, percent: 99 })
+    bests[boardKey(cafes.boards[99]!)] = 'bronze'
+    expect(cityTier(cafes, bests).tier).toBe('bronze')
+    expect(cityMedalFromStamps(cafes, bests)).toMatchObject({ tier: 'gold', stamped: 100, points: 397 })
+  })
+
+  it('CW-03b a completed loss earns Bronze; a loss never lowers a better stamp; a win raises Bronze', () => {
+    // A lost round, whatever tier the attempt reached, is a Bronze stamp.
+    expect(cafeStamp(null, true)).toBe('bronze')
+    expect(cafeStamp(undefined, true)).toBe('bronze')
+    expect(cafeStamp(null, false)).toBeNull()
+    // A loss after Silver (or better) keeps the better stamp.
+    for (const won of ['silver', 'gold', 'platinum'] as const) {
+      expect(cafeStamp(won, true)).toBe(won)
+      expect(cafeStamp(won, false)).toBe(won)
+    }
+    // A win after Bronze raises it: a won best is always Silver or above.
+    expect(cafeStamp('silver', true)).toBe('silver')
+    // Old (C1-PC-1) saves may hold a Bronze best; it stays Bronze.
+    expect(cafeStamp('bronze', false)).toBe('bronze')
+    // Evaluation still says a solved-but-lost round reached Gold; that tier
+    // never becomes the stamp (settlement writes no best for a loss).
+    expect(evaluateAttempt(attemptFixture(MATRIX_FIXTURES[3].game))).toMatchObject({ status: 'completed', tier: 'gold', completedLoss: true, outcome: 'lost' })
+  })
+
+  it('CW-03b old facts with only completed losses show Bronze, and the percentage counts them (1 point each)', () => {
+    const cafes = cafeSetFixture(4)
+    const [a, b, c, d] = [0, 1, 2, 3].map((i) => cafes.boards[i]!) as [BoardIdentity, BoardIdentity, BoardIdentity, BoardIdentity]
+    const loss = (board: BoardIdentity, firstPrimary = true) => ({ [boardKey(board)]: { board, firstPrimary } })
+    // A save written before the rule: no bests at all, two cafés only ever lost.
+    const old: ProgressFacts = { ...emptyProgressFacts(), completedLosses: { ...loss(a), ...loss(b, false) } }
+    expect(savedStamps(old)).toEqual({ [boardKey(a)]: 'bronze', [boardKey(b)]: 'bronze' })
+    expect(cityMedalFromStamps(cafes, savedStamps(old))).toMatchObject({ tier: null, stamped: 2, points: 2, maximum: 16, percent: 12.5 })
+    // Add a Silver café that was also lost later (keeps Silver) and a fourth only lost.
+    const mixed: ProgressFacts = { ...old,
+      boards: { [boardKey(c)]: { board: c, best: 'silver', claims: ['spinWin'] } },
+      completedLosses: { ...old.completedLosses, ...loss(c, false), ...loss(d) } }
+    expect(savedStamps(mixed)).toEqual({ [boardKey(a)]: 'bronze', [boardKey(b)]: 'bronze', [boardKey(c)]: 'silver', [boardKey(d)]: 'bronze' })
+    // 1 + 1 + 2 + 1 = 5 of 16 points is 31.25%: Bronze. Without the lost cafés it would be 12.5%, no medal.
+    expect(cityMedalFromStamps(cafes, savedStamps(mixed))).toMatchObject({ tier: 'bronze', stamped: 4, points: 5, maximum: 16, percent: 31.25 })
+    expect(cityMedalFromStamps(cafes, { [boardKey(c)]: 'silver' })).toMatchObject({ tier: null, points: 2 })
+    // The stored city achievement's rule (lowest saved best) does not read losses.
+    const bests = Object.fromEntries(Object.entries(mixed.boards).map(([key, progress]) => [key, progress.best]))
+    expect(cityTier(cafes, bests).tier).toBeNull()
+  })
+
+  it('the train run is the only way onto the train; it grants neither destination nor access', () => {
+    expect(trainTravelStatus(false, true, true)).toEqual({ trainRunPassed: false, ready: false, canBoard: false })
+    expect(trainTravelStatus(true, true, true)).toEqual({ trainRunPassed: true, ready: true, canBoard: true })
+    expect(trainTravelStatus(true, false, true).canBoard).toBe(false)
+    expect(trainTravelStatus(true, true, false).canBoard).toBe(false)
   })
 })

@@ -8,6 +8,7 @@ import {
   isGuessable,
   remainingGreenIds,
   targetableGreenIds,
+  wheelFoundIds,
 } from '../../engine/game'
 import { checkClueLegality } from '../../engine/legality'
 import { mulberry32 } from '../../engine/rng'
@@ -549,7 +550,7 @@ async function playGame(seed: number, row: Row): Promise<Played> {
         // accepted translation moves the phase to translateWheel INSIDE the
         // engine (see SUBMIT_TRANSLATION), so the spin lives in the
         // translateWheel arm below.
-        for (const id of s.wheel!.segments) {
+        for (const id of wheelFoundIds(s)) {
           if (s.wheel!.translated.includes(id)) continue
           s = applyEvent(s, {
             type: 'SUBMIT_TRANSLATION',

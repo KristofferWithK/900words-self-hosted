@@ -6,6 +6,8 @@ import { beatPlan, REVEAL_MS, type AiBeat } from '../aiBeats'
 import { playWord } from '../speak'
 import { ClueyFace, type ClueyMood } from './Cluey'
 import { caseyBubble, landedCaseyGuess, type LandedCaseyGuess as Landed } from '../caseyJustification'
+import type { CafeArrangement } from '../../cafe/cafeTable'
+import { CafeTableBottom } from './CafeTable'
 
 /**
  * Shows the AI side of a turn and paces its guesses one by one.
@@ -58,8 +60,17 @@ import { caseyBubble, landedCaseyGuess, type LandedCaseyGuess as Landed } from '
 /**
  * `offlineCasey`: offline Casey is playing this round (GameScreen decides).
  * Her thinking says so, because she is slower.
+ *
+ * `cafe`: the café's table, inside a café puzzle (CW-08). While Casey thinks
+ * she is drawn large and the bottom area shows the café's table items: it is
+ * the one state in which nothing in that area is in use. Every other state is
+ * unchanged.
  */
-export function AiTurnPanel({ game, offlineCasey = false }: { game: GameState; offlineCasey?: boolean }) {
+export function AiTurnPanel({ game, offlineCasey = false, cafe = null }: {
+  game: GameState
+  offlineCasey?: boolean
+  cafe?: CafeArrangement | null
+}) {
   const { aiBusy, aiGuessQueue, planForClueIndex, lastAiGuess, authoredBoardId, attemptId, activeSlot, eventGeneration } = useGame()
   const planReady = planForClueIndex === game.clueHistory.length
   const guessing = game.phase === 'aiGuessing' && planReady
@@ -196,9 +207,10 @@ export function AiTurnPanel({ game, offlineCasey = false }: { game: GameState; o
 
   if ((game.phase === 'aiClueInput' || aiBusy) && !landed) {
     return (
-      <div className="dock ai-panel">
+      <div className={`dock ai-panel${cafe ? ' ai-panel-cafe' : ''}`}>
+        {cafe && <CafeTableBottom table={cafe} />}
         <div className="ai-say">
-          <ClueyFace mood="thinking" className="cluey-mini" />
+          <ClueyFace mood="thinking" className={`cluey-mini${cafe ? ' cluey-thinking-large' : ''}`} />
           <p className={`ai-bubble thinking${offlineCasey ? ' offline' : ''}`}>
             <span className="dots" /> {offlineCasey ? UI.game.offlineCaseyIsThinking : UI.game.caseyIsThinking}
           </p>

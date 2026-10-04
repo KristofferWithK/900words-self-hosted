@@ -3,7 +3,7 @@ import { completedPrimaryCount, emptyProgressFacts, factsForImport, mergeProgres
 import { boardKey, milestoneKey, requiredSetKey } from '../progression/identity'
 import { cityTier, TIERS } from '../progression/rules'
 import type { ProgressFacts } from '../progression/types'
-import { requiredSetForCourse } from '../session/courseRuntime'
+import { knownRequiredSetsForCourse, requiredSetForCourse } from '../session/courseRuntime'
 import type { ScheduledProgress } from '../journey/curriculumScheduler'
 import type { SurvivalProgress } from '../journey/survival'
 export { LearningSchema, HistoricalEligibilitySchema } from './learningSchema'
@@ -27,14 +27,25 @@ const rawFacts = z.object({
   tutorialAwards: record(tutorialAward).default({}),
 })
 
-/** Format 3 is intentionally specific to the one frozen released manifest.
- * New content identities need a reviewed successor reader, never fresh claims. */
+/** Format 3 is intentionally specific to the frozen released manifests: the
+ * current set of each course and every set it superseded (Danish City 1 v1,
+ * replaced by v2 on 2026-09-27 without changing any board's identity). A fact
+ * is proven against the set it names. New content identities need a reviewed
+ * successor reader, never fresh claims. */
 export function validateProgressFacts(value: unknown): ProgressFacts {
   const facts = factsForImport(rawFacts.parse(value))
   const requiredSets = (['da', 'de'] as const).map(requiredSetForCourse)
-  const setsByKey = new Map(requiredSets.map((required) => [requiredSetKey(required), required]))
-  const setByBoardKey = new Map(requiredSets.flatMap((required) => required.boards.map((board) => [boardKey(board), requiredSetKey(required)] as const)))
-  const keys = new Set(setByBoardKey.keys())
+  const knownSets = (['da', 'de'] as const).flatMap(knownRequiredSetsForCourse)
+  const setsByKey = new Map(knownSets.map((required) => [requiredSetKey(required), required]))
+  const setsByBoardKey = new Map<string, Set<string>>()
+  for (const required of knownSets) {
+    for (const board of required.boards) {
+      const sets = setsByBoardKey.get(boardKey(board)) ?? new Set<string>()
+      sets.add(requiredSetKey(required))
+      setsByBoardKey.set(boardKey(board), sets)
+    }
+  }
+  const keys = new Set(setsByBoardKey.keys())
   for (const [key, progress] of Object.entries(facts.boards)) {
     if (!keys.has(key) || boardKey(progress.board) !== key) throw new Error('Unknown board provenance')
     const claims = progress.claims
@@ -49,7 +60,7 @@ export function validateProgressFacts(value: unknown): ProgressFacts {
   for (const completion of Object.values(facts.firstPrimaryCompletions)) {
     const key = boardKey(completion.board)
     const setKey = requiredSetKey(completion.requiredSet)
-    if (!facts.boards[key] || setByBoardKey.get(key) !== setKey || !setsByKey.has(setKey)) throw new Error('Unproven primary completion')
+    if (!facts.boards[key] || !setsByBoardKey.get(key)?.has(setKey) || !setsByKey.has(setKey)) throw new Error('Unproven primary completion')
   }
   for (const milestone of Object.values(facts.milestones)) {
     const required = setsByKey.get(requiredSetKey(milestone.requiredSet))

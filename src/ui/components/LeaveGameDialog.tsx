@@ -1,4 +1,5 @@
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 
 interface Props {
   onKeepPlaying: () => void
@@ -20,15 +21,9 @@ export function LeaveGameDialog({ onKeepPlaying, onPause, onCancelRound }: Props
         <h2 id="leave-game-title">{UI.game.leaveTitle}</h2>
         <p>{UI.game.leaveBody}</p>
         <div className="leave-game-actions">
-          <button className="btn btn-ghost" type="button" onClick={onKeepPlaying}>
-            {UI.game.leaveKeepPlaying}
-          </button>
-          <button className="btn btn-primary" type="button" onClick={onPause}>
-            {UI.game.leavePause}
-          </button>
-          <button className="btn btn-danger" type="button" onClick={onCancelRound}>
-            {UI.game.leaveCancelRound}
-          </button>
+          <Tag size="wide" className="leave-keep-playing" label={UI.game.leaveKeepPlaying} onClick={onKeepPlaying} />
+          <Tag size="wide" tone="primary" className="leave-pause" label={UI.game.leavePause} onClick={onPause} />
+          <Tag size="wide" className="tag-danger leave-cancel-round" label={UI.game.leaveCancelRound} onClick={onCancelRound} />
         </div>
       </section>
     </div>

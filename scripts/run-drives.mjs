@@ -87,6 +87,8 @@ const OPT_IN = new Set([
   'web-demo',
   // Builds and serves its own open-source bundle (dist-open-source) against a fake AI service.
   'open-source',
+  // Timing is machine-dependent: compare base and branch on one machine.
+  'latency-probe',
 ])
 
 const allDrives = readdirSync(resolve(ROOT, 'e2e'))

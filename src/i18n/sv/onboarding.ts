@@ -12,13 +12,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'tyska' : 'danska',
       countryName: german ? 'Tyskland' : 'Danmark',
-      welcome: 'Visste du att 900 ord kan täcka över 80 % av vardagligt tal i de flesta språk? (Tryck för att fortsätta.)',
-      map: (destination) => german
-        ? `Det här är vår karta. Vi reser genom Tyskland och samlar hundra ord i varje stad. ${destination} är vårt slutmål.`
-        : `Det här är vår karta. Vi reser genom Danmark och samlar hundra ord i varje stad. ${destination} är vårt slutmål.`,
-      guide: german
-        ? 'Öppna resehandboken för grammatik och praktiska tips på tyska. Du kan läsa vidare när du vill.'
-        : 'Öppna resehandboken för grammatik och praktisk danska. Du kan också läsa vidare när du vill.',
+      welcome: 'Visste du att 900 ord kan täcka över 80 % av vardagligt tal i de flesta språk?',
       clueField: german
         ? 'När det är din tur skriver du ett tyskt ord här som kopplar ihop två eller tre av dina gröna ord.'
         : 'När det är din tur skriver du ett danskt ord här som kopplar ihop två eller tre av dina gröna ord.',
@@ -53,32 +47,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} ord · ${cities} städer`,
   ticketHintMany: 'Tryck på en biljett för att välja.',
   ticketHintOne: 'Tryck på din biljett så åker vi.',
+  ticketComingSoon: 'Kommer snart',
 
-  // ── Caseys presentation av Hem, steg för steg ────────────────────────────
-  introWelcome:
-    'Visste du att 900 ord kan täcka över 80 % av vardagligt tal i de flesta språk? (Tryck för att fortsätta.)',
-  introMap:
-    'Det här är vår karta. Vi reser genom Danmark och samlar hundra ord i varje stad. Köpenhamn är vår slutstation.',
-  introGuide:
-    'Vill du någon gång ha grammatik eller praktisk danska, öppna Reseguiden. Du kan också läsa i förväg när du vill.',
-  introPlay: 'Det är allt du behöver för nu. Tryck på Spela så samlar vi våra första ord.',
-  introBubbleAria: (line) => `${line} Fortsätt.`,
-  introCaseyOpen: 'Öppna Casey och se orden vi har samlat',
-  introCaseyContinue: 'Fortsätt med Casey',
-  introPlayFirst: 'Spela ditt första spel',
-  introTapCasey: 'Tryck på Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Glosor är tråkiga, så vi spelar två spel i stället: en stadsvandring där vi samlar ord, och en ordgåta på ett kafé.',
+  introExplore: (city) => `Vi utforskar ${city} och ser om vi hittar ett kafé.`,
+  introGo: 'Nu kör vi',
+  walkEndFound: 'Gå igen, eller gå hem och spela kaféet vi hittade.',
+  walkEndNotFound: 'Gå igen för att leta efter ett kafé, eller gå hem.',
 
   // ── Rundturens rutor på de riktiga skärmarna ─────────────────────────────
   tourNext: 'Nästa',
   tourDone: 'Nu åker vi',
-  tourLoose:
-    'Din ordsamling finns här. Tryck på ett ord när du vill se eller höra det igen.',
-  tourLid:
-    'Det här är Caseys brädsamling. Ett brädnummer och en utskriven nivå visar brädets bästa försök.',
-  tourTray:
-    'Öppna en avslutad bräda för att spela den igen. En repris kan förbättra dess bästa nivå utan att återställa nästa obligatoriska bräda.',
-  tourWrapUp:
-    'Här är ditt nästa obligatoriska bräde. Avsluta bräden för att få nivåer. Översättningar och hjulet kan lyfta ett löst bräde till Platina.',
+  tourLoose: 'Ord vi har mött väntar här uppe. Varje ring fylls en tredjedel för varje märke: ett foto på en promenad, en gissning på min ledtråd och en egen ledtråd.',
+  tourLid: 'Med tre märken är ordet samlat. Samlade ord hamnar i väskan, och den här raden räknar dem.',
+  tourTray: 'Det här är stadens stämpelkort. Varje kafé du spelar får sin stämpel här. En streckad cirkel är ett kafé som hittats men inte spelats än, och ? är ett kafé som återstår att hitta.',
   mapTourHere: (city, words) =>
     `Det här är ${city}, där vi är nu. Varje stad ger ${words} ord att ta med hem.`,
   mapTourNext: (next, _words, city) =>
@@ -108,25 +91,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Varje rätt svar ger hjulet ett grönt fält. Du kan snurra när som helst, men landar det på ett tomt fält förlorar du rundan. Är hjulet fullt vinner varje snurr.',
   wheelReadyTour:
     'Hjulet är helt grönt nu, så den här snurren vinner. Tryck på hjulet för att snurra.',
-  resultTourPostcards: (amount: string) =>
-    `Det här brädet gav din stad ${amount}. Varje resultat visar precis här vad det tjänade.`,
   resultTourRewardNew: (rewards: string) => `Nytt den här gången: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Redan intjänat tidigare, så det räknas inte igen: ${rewards}.`,
-  resultTourNoRewards: 'Det här brädet gav inga vykort den här gången. Det kan hända, och du förlorar ingenting.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Det här resultatet är ${tier}. Brädets bästa hittills är ${best}.`,
+    `Den här gåtan gav ${tier}. Kaféets bästa stämpel hittills är ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Den här rundan förlorades. Brons visar här bara att du spelade och är inget bästa resultat. Brädets bästa hittills är ${best}.`,
+    `Den här gåtan förlorades. En förlorad gåta ger ändå en bronsstämpel. En vunnen gåta ger silver, guld eller platina. Det bästa för det här kaféet hittills är ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Varje kaféstämpel räknas till medaljen för ${city}: brons från 25 %, silver från 50 %, guld från 75 % och platina vid 100 %.`,
   resultTourNoBestYet: 'inte fastställt ännu',
   resultTourSentence:
     'Det här är en frivillig genomgång. Den visar ett ord från det här brädet i en mening. Det är inget nytt test.',
   resultTourNoReview:
     'Det finns ingen mening att gå igenom den här gången. Det gör inget. Genomgången är alltid frivillig.',
-  homeTourPostcards:
-    'Det här är din vykortssumma för den här staden. Varje vykort som ett bräde tjänar läggs till här.',
-  homeTourCollection:
-    'Tryck på mig för att öppna resväskan. Jag visar dig orden vi har samlat och dina bräden.',
+  homeTourSightseeing: 'Stadsvandring är promenaden vi just tog. Varje promenad samlar ord, och ju mer du går, desto fler kaféer hittar du.',
+  homeTourCafe: (name) =>
+    name ? `Vårt första kafé är ${name}. Tryck på Kafégåta för att slå dig ner och spela.` : 'Vårt första kafé väntar. Tryck på Kafégåta för att slå dig ner och spela.',
+  homeTourStamp: 'Varje kafé du spelar får en stämpel. Tillsammans blir de stadens medalj, och här ser du hur långt du har kommit.',
+  homeTourCollection: 'Tryck på mig för att öppna resväskan. Jag visar orden vi har samlat och kaféets stämpel.',
 
   // ── Övningsrundan: Caseys skrivna motiveringar ───────────────────────────
   practiceRationaleDrink: 'Vatten, kaffe och mjölk är alla saker man dricker.',
@@ -148,7 +131,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» är inte grönt på min nyckel, så där tar min ledtråd slut. Dina gröna dyker upp när det är din tur. Den här ledtråden använde min nyckel.`,
   firstClue: (clue) =>
-    `Hej, vilka ord på spelplanen kan du koppla till «${clue}»? Du kan trycka på ⓘ vid orden för att se deras översättningar. När du är redo trycker du på ett ord och bekräftar det.`,
+    `Välkommen till kaféet! Det här första bordet är en kort övning. Vilka ord på brädet kan du koppla till «${clue}»? Tryck på ⓘ på ett ord för att se översättningen, tryck sedan på ett ord och bekräfta det.`,
   clueFor: (clue, number) =>
     `Min ledtråd är «${clue}» för ${number}. Tryck på ett ord som den får dig att tänka på.`,
   lastGreenLeft:
@@ -159,7 +142,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `Din ledtråd är «${clue}» för ${number}. De ${tokens} prickarna högst upp är våra gemensamma polletter för rundan. Varje ledtråd, din eller min, kostar en. Jag tänker högt här nedanför.`,
   yourClue: (clue, number) =>
     `Din ledtråd är «${clue}» för ${number}. Mina gissningar använder din nyckel nu. Jag tänker högt här nedanför.`,
-  practiceWon: 'Alla gröna hittade. Vi vann! Fulla brädor blir inte lika lätta, men varje ord vi möter räknas ändå.',
+  practiceWon: 'Alla gröna hittade. Vi vann! Kafégåtorna blir inte lika lätta, men varje ord vi möter räknas.',
   practiceLost: 'Den rundan gled oss ur händerna, men varje ord vi mötte räknas ändå.',
   findingAClue: 'Min tur. Jag letar efter en ledtråd.',
   practiceTranslation:
@@ -167,7 +150,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'Hjulet är fullt. Snurra för att landa på grönt. På vanliga bräden är det så resultatet kan nå Platina.',
   practiceFinish:
-    'Övningen är klar. Den här rundan ger inga vykort eller stadsnivåer. På vanliga bräden ger lösning, översättning och snurr en nivå. Spela ett avslutat bräde igen för att förbättra det bästa.',
+    'Övningen är klar. Det här bordet ger ingen stämpel. I en kafégåta ger lösningen, översättningen och hjulet kaféet dess stämpel. Du kan spela ett kafé igen för att förbättra stämpeln.',
   demoEndTitle: "Det var ditt första hela bräde.",
   demoEndLine: "I appen fortsätter jag att spela med dig, bräde efter bräde, och jag sparar varje ord du samlar.",
   demoAppStore: "Hämta 900words i App Store",
@@ -176,6 +159,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey vilar",
   demoRestingBody: "Många har spelat med mig i dag, så jag behöver vila. Kom tillbaka i morgon, eller spela med mig i appen.",
   demoCheckFailed: "Vi kunde inte kontrollera att du är en människa. Ladda om sidan och försök igen.",
-  playFullRound: 'Spela ditt första hela bräde',
+  playFullRound: 'Spela kafégåtan',
   returnToParkedGame: 'Gå tillbaka till ditt spel',
 }

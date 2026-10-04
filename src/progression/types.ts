@@ -68,7 +68,8 @@ export interface PrimaryContinuation {
   readonly requiredSet: RequiredSetIdentity
   /** Persisted stable keys, current first; never a modulo cursor. */
   readonly remainingBoardKeys: readonly string[]
-  readonly source: 'canonical' | 'legacy-anchor'
+  /** `rebased`: rewritten once when the city's frozen set was superseded. */
+  readonly source: 'canonical' | 'legacy-anchor' | 'rebased'
 }
 
 /** Only serializable round state; no requests, callbacks, timers or promises. */
@@ -203,11 +204,31 @@ export interface LocalSettlement {
   readonly acknowledgedEffects: readonly SettlementEffect[]
 }
 
+/**
+ * An old round, shortened once its full receipt is safe in the history archive
+ * (stores/historyArchive.ts): enough to count it, date it and never settle its
+ * attempt twice. The full receipt stays in the archive for research and rides
+ * along in backups.
+ */
+export interface ArchivedReceipt {
+  readonly attemptId: string
+  readonly acceptedAt: number
+  readonly localDate: string
+  readonly origin: AttemptOrigin
+  readonly board: BoardIdentity | null
+  readonly attemptTier: Tier
+  readonly completedLoss?: boolean
+  readonly games: GameDelta
+  readonly postcards: number
+}
+
 /** Sole local progression authority, atomically persisted as one value. */
 export interface SettlementLedger {
   readonly schemaVersion: 1
   readonly facts: ProgressFacts
   readonly settlements: Readonly<Record<string, LocalSettlement>>
+  /** Old rounds whose full receipts moved to the history archive, by receipt key. */
+  readonly archived?: Readonly<Record<string, ArchivedReceipt>>
 }
 
 /** Backup evidence has no effect list or scheduler input to execute. */

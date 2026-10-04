@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { deleteSharedData } from '../../dataSharing/client'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 import { useSettings, type DataSharingChoice as Choice } from '../../stores/settingsStore'
 
 const choices: Array<{ value: Choice; title: string; detail: string }> = [
@@ -93,9 +94,13 @@ export function DataSharingSettings() {
     <>
       <ChoiceButtons onChoose={choose} />
       <p className="settings-note">{UI.settings.dataSharingSettingsNote}</p>
-      <button className="btn btn-quiet" type="button" disabled={deleting} onClick={() => void deleteSharedData(baseUrl)}>
-        {deleting ? UI.settings.dataSharingDeleting : UI.settings.dataSharingDeleteButton}
-      </button>
+      <Tag
+        size="wide"
+        className="data-sharing-delete"
+        disabled={deleting}
+        onClick={() => void deleteSharedData(baseUrl)}
+        label={deleting ? UI.settings.dataSharingDeleting : UI.settings.dataSharingDeleteButton}
+      />
     </>
   )
 }

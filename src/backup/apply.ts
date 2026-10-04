@@ -7,6 +7,8 @@ import { useSurvival } from '../stores/survivalStore'
 import { useAssociations } from '../stores/associationStore'
 import { useStreak } from '../streak/streak'
 import { createSettlementStore } from '../stores/settlementStore'
+import { historyArchive } from '../stores/historyArchive'
+import type { LocalSettlement } from '../progression/types'
 import { assertSettlementIdle, SESSION_KEY, SETTLEMENT_KEY, withSettlementWriter } from '../stores/settlementStorage'
 import { commitSaveTransfer, recoverSaveTransfer, readSaveMigration, isDailySaveKey, SAVE_MIGRATION_KEY, type SaveKey } from '../stores/saveTransfer'
 import { provenLegacyEligibility } from '../stores/saveMigration'
@@ -14,7 +16,7 @@ import { earnedPostcards, LEGACY_CITY } from '../progression/facts'
 import { emptySettlementLedger } from '../progression/settlement'
 import { initialCourseSessions, CITY1_REQUIRED_SET } from '../session/courseRuntime'
 import { reconcileLessonMilestones } from '../journey/lessonMilestones'
-import { requiredSetKey } from '../progression/identity'
+import { cityKey } from '../progression/identity'
 import { emptyLearning, legacyProgress, mergeLearning } from './progress'
 import { DEVELOPED_CITY_COUNT } from '../journey/cities'
 import { mergeRecovery, RecoveryArchiveSchema } from './recovery'
@@ -25,6 +27,7 @@ import {
   replaceSnapshot,
   parseBackup,
   mergeRouteHistory,
+  withoutPhotos,
   type Backup,
   type Snapshot,
 } from './backup'
@@ -52,6 +55,9 @@ export function readSnapshot(): Snapshot {
       wrapped: j.wrapped,
       arrivedAt: j.arrivedAt,
       furthest: j.furthest,
+      photos: j.photos,
+      cafes: j.cafes,
+      trainRuns: j.trainRuns,
       historicalTravelEligibility: { ...j.historicalTravelEligibility },
       parked: j.parked,
       historicalRoutes: j.historicalRoutes,
@@ -64,7 +70,7 @@ export function readSnapshot(): Snapshot {
 async function publishStores(): Promise<void> {
   for (const store of [useSrs, useJourney, useCurriculum, useSurvival, useAssociations, useStreak]) await store.persist.rehydrate()
   useGame.setState({ completionReceipt: null, sessions: null, settlementBusy: false, settlementFailure: null,
-    error: null, aiBusy: false, aiGuessQueue: [], aiGuessRequestId: null, aiClueRequestId: null, wheelSpinHold: false })
+    error: null, aiBusy: false, aiGuessQueue: [], aiGuessRequestId: null, aiClueRequestId: null, wheelSpinHold: false, wheelReview: false })
   await useGame.persist.rehydrate()
   await useGame.getState().recoverSession()
 }
@@ -75,7 +81,9 @@ function snapshotWrites(next: Snapshot, mode: RestoreMode, now: number): { key: 
   const existing = adapter.readLedger()
   const grammar = useCurriculum.getState(), survival = useSurvival.getState()
   let learning = mergeLearning(emptyLearning(), next.learning ?? emptyLearning())
-  const milestones = Object.entries(facts.milestones).filter(([, fact]) => requiredSetKey(fact.requiredSet) === requiredSetKey(CITY1_REQUIRED_SET)).map(([id]) => id)
+  // Every frozen set of this city, not only the current one: a milestone
+  // counted against a superseded set still unlocked its lessons.
+  const milestones = Object.entries(facts.milestones).filter(([, fact]) => cityKey(fact.requiredSet) === cityKey(CITY1_REQUIRED_SET)).map(([id]) => id)
   const course = ACTIVE.code
   // Both destinations must have consumed it. One successful old write must
   // never suppress reconciliation of the other store after an interruption.
@@ -92,10 +100,11 @@ function snapshotWrites(next: Snapshot, mode: RestoreMode, now: number): { key: 
   const limit = DEVELOPED_CITY_COUNT - 1
   const journey = { cityIndex: Math.min(position.cityIndex, limit), furthest: Math.min(position.furthest ?? 0, limit),
     arrivedAt: Object.fromEntries(Object.entries(position.arrivedAt).filter(([key]) => Number(key) <= limit)),
-    wrapped: next.journey.wrapped, routeLanguage: ACTIVE.code, waitingForTrain: false,
+    wrapped: next.journey.wrapped, photos: next.journey.photos ?? {},
+    cafes: next.journey.cafes ?? {}, trainRuns: next.journey.trainRuns ?? {}, routeLanguage: ACTIVE.code, waitingForTrain: false,
     historicalTravelEligibility: { ...next.journey.historicalTravelEligibility },
-    parked: { ...next.journey.parked, ...(!sameLanguage ? { [next.language]: next.journey } : {}) },
-    historicalRoutes: mergeRouteHistory(next.journey.historicalRoutes ?? {}, { [next.language]: next.journey }),
+    parked: { ...next.journey.parked, ...(!sameLanguage ? { [next.language]: withoutPhotos(next.journey) } : {}) },
+    historicalRoutes: mergeRouteHistory(next.journey.historicalRoutes ?? {}, { [next.language]: withoutPhotos(next.journey) }),
   }
   const sessions = mode === 'merge' ? adapter.readSessions() : { byCourse: {}, results: {}, settlementEffects: {} }
   const byCourse = { ...sessions.byCourse }
@@ -109,7 +118,8 @@ function snapshotWrites(next: Snapshot, mode: RestoreMode, now: number): { key: 
       settlementMilestones: { ...(mode === 'merge' ? grammar.settlementMilestones : {}), ...markers } }),
     encoded('cluecab-survival-v1', 2, { byLanguage: learning.survival, settlementEffects: mode === 'merge' ? survival.settlementEffects : {},
       settlementMilestones: { ...(mode === 'merge' ? survival.settlementMilestones : {}), ...markers } }),
-    { key: SETTLEMENT_KEY, value: JSON.stringify({ schemaVersion: 1, facts, settlements: mode === 'merge' ? existing.settlements : {} }) },
+    { key: SETTLEMENT_KEY, value: JSON.stringify({ schemaVersion: 1, facts, settlements: mode === 'merge' ? existing.settlements : {},
+      ...(mode === 'merge' && existing.archived ? { archived: existing.archived } : {}) }) },
     encoded(SESSION_KEY, 1, { ...sessions, byCourse }),
     { key: SAVE_MIGRATION_KEY, value: JSON.stringify({ ...priorMigration,
       version: 1, migratedAt: priorMigration.migratedAt ?? now, legacyCreditSource: facts.legacyCredit.amount,
@@ -151,6 +161,10 @@ export async function restore(backup: Backup, mode: RestoreMode): Promise<{ same
   useGame.getState().pauseGame()
   await withSettlementWriter(localStorage, async () => commitSaveTransfer(localStorage, writes))
   await publishStores()
+  // The file's rounds join this device's history archive (research only).
+  // Nothing is removed from it, and the collection is restored either way.
+  // Validated by the backup schema; the cast only narrows zod's outcome union.
+  try { await historyArchive()?.put((backup.history ?? []) as unknown as readonly LocalSettlement[]) } catch { /* archive unavailable */ }
   return { sameLanguage: backup.language === ACTIVE.code }
 }
 
@@ -172,10 +186,31 @@ export function backupText(now: number): string {
   return JSON.stringify(buildBackup(readSnapshot(), now), null, 2)
 }
 
-/** UI exports wait for startup/local migration and any accepted receipt. */
-export async function prepareBackupText(now: number): Promise<string> {
+/**
+ * Every settled round in full, oldest first: the device's history archive plus
+ * the rounds the ledger still holds in full. An unreadable archive still leaves
+ * the ledger's rounds.
+ */
+async function readHistory(): Promise<LocalSettlement[]> {
+  const byId = new Map<string, LocalSettlement>()
+  try {
+    for (const entry of await historyArchive()?.all() ?? []) byId.set(entry.receipt.receiptId, entry)
+  } catch { /* archive unavailable */ }
+  for (const entry of Object.values(createSettlementStore({ storage: localStorage }).readLedger().settlements)) {
+    byId.set(entry.receipt.receiptId, entry)
+  }
+  return [...byId.values()].sort((a, b) => a.receipt.acceptedAt - b.receipt.acceptedAt)
+}
+
+/**
+ * UI exports wait for startup/local migration and any accepted receipt. With
+ * `history`, the file also carries every settled round in full (for research),
+ * written compactly: it runs to megabytes, so the copy-as-text path leaves it out.
+ */
+export async function prepareBackupText(now: number, options: { history?: boolean } = {}): Promise<string> {
   await useGame.getState().recoverSession()
-  return backupText(now)
+  if (!options.history) return backupText(now)
+  return JSON.stringify(buildBackup({ ...readSnapshot(), history: await readHistory() }, now))
 }
 
 /**
@@ -184,7 +219,7 @@ export async function prepareBackupText(now: number): Promise<string> {
  * keep the anchor download as the desktop and Android path.
  */
 export async function downloadBackup(now: number): Promise<'shared' | 'downloaded'> {
-  const text = await prepareBackupText(now)
+  const text = await prepareBackupText(now, { history: true })
   const file = new File([text], BACKUP_FILENAME, { type: 'application/json' })
 
   const nav = navigator as Navigator & {

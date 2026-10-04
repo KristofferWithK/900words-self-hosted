@@ -2,6 +2,7 @@ import Capacitor
 import CryptoKit
 import Foundation
 import LiteRTLM
+import UIKit
 
 private let modelName = "gemma-4-E4B-it-gpu.litertlm"
 private let modelBytes: Int64 = 2_969_059_328
@@ -10,14 +11,52 @@ private let modelURL = URL(
     string: "https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm/resolve/2eee7ac325f20eb8c9ac1d0e972f7c84663062da/gemma-4-E4B-it-gpu.litertlm?download=true"
 )!
 
+/// A generation needed the model after it was put away: the app left the
+/// screen, or the app said Casey no longer needs her. The JavaScript side asks
+/// again once the player is back (src/ai/gemma/decision.ts).
+private struct GemmaPutAway: Error {}
+
+/// Whether the app is in the background. Written on the main thread by the
+/// lifecycle notifications and read by the runtime from its own executor, so
+/// it cannot wait for an actor hop that might arrive out of order.
+private final class AppPresence: @unchecked Sendable {
+    private let lock = NSLock()
+    private var background = false
+
+    var inBackground: Bool {
+        get {
+            lock.lock()
+            defer { lock.unlock() }
+            return background
+        }
+        set {
+            lock.lock()
+            background = newValue
+            lock.unlock()
+        }
+    }
+}
+
 private actor GemmaRuntime {
     private var engine: Engine?
     /// The conversation generating right now, so a caller that has given up
     /// on it can stop it. The actor runs one generation at a time: without a
     /// cancel, one that never finishes blocks every Casey turn after it.
     private var current: Conversation?
+    /// Counts every put-away. A generation that was suspended across one has
+    /// lost its engine, and must not hand back the half reply a cancelled
+    /// stream ends with.
+    private var putAways = 0
+    /// Set by the plugin's lifecycle observers, without an actor hop.
+    nonisolated let presence = AppPresence()
 
+    /// Frees the model: about 3.4 GB of memory while it is loaded. A
+    /// generation in flight is stopped first; the engine itself is deleted
+    /// when the last reference goes, which for that generation is when it
+    /// unwinds. The next generation loads it again.
     func unload() {
+        putAways += 1
+        try? current?.cancel()
         engine = nil
     }
 
@@ -33,6 +72,10 @@ private actor GemmaRuntime {
         temperature: Float,
         maxOutputTokens: Int
     ) async throws -> [String: Any] {
+        // iOS runs no GPU work in the background: nothing loads or generates
+        // until the player is back.
+        if presence.inBackground { throw GemmaPutAway() }
+        let generation = putAways
         let started = Date()
         var loadMs = 0
 
@@ -49,6 +92,9 @@ private actor GemmaRuntime {
             )
             let made = Engine(engineConfig: config)
             try await made.initialize()
+            // Put away while it loaded: the new engine goes with this frame
+            // instead of staying in memory.
+            guard stillWanted(generation) else { throw GemmaPutAway() }
             engine = made
             loadMs = milliseconds(from: loadStarted)
         }
@@ -66,19 +112,27 @@ private actor GemmaRuntime {
             thinkingConfig: ThinkingConfig(enableThinking: false)
         )
         let conversation = try await engine.createConversation(with: conversationConfig)
+        guard stillWanted(generation) else { throw GemmaPutAway() }
         current = conversation
         defer { current = nil }
         let generationStarted = Date()
         var firstTokenMs = 0
         var text = ""
-        for try await chunk in conversation.sendMessageStream(
-            Message(prompt),
-            maxOutputTokens: maxOutputTokens,
-            thinkingConfig: ThinkingConfig(enableThinking: false)
-        ) {
-            if firstTokenMs == 0 { firstTokenMs = milliseconds(from: generationStarted) }
-            text += chunk.toString
+        do {
+            for try await chunk in conversation.sendMessageStream(
+                Message(prompt),
+                maxOutputTokens: maxOutputTokens,
+                thinkingConfig: ThinkingConfig(enableThinking: false)
+            ) {
+                if firstTokenMs == 0 { firstTokenMs = milliseconds(from: generationStarted) }
+                text += chunk.toString
+            }
+        } catch {
+            if !stillWanted(generation) { throw GemmaPutAway() }
+            throw error
         }
+        // A put-away cancel may end the stream quietly, with half a reply.
+        guard stillWanted(generation) else { throw GemmaPutAway() }
 
         return [
             "text": text,
@@ -87,6 +141,12 @@ private actor GemmaRuntime {
             "generationMs": milliseconds(from: generationStarted),
             "totalMs": milliseconds(from: started),
         ]
+    }
+
+    /// Whether the generation that began at put-away count `generation` may
+    /// still use the model: nothing put it away since, and the app is on screen.
+    private func stillWanted(_ generation: Int) -> Bool {
+        putAways == generation && !presence.inBackground
     }
 
     private func milliseconds(from instant: Date) -> Int {
@@ -105,6 +165,7 @@ public final class GemmaPlugin: CAPPlugin, CAPBridgedPlugin, URLSessionDownloadD
         CAPPluginMethod(name: "remove", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "generate", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "cancelGeneration", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "unloadModel", returnType: CAPPluginReturnPromise),
     ]
 
     private let runtime = GemmaRuntime()
@@ -119,8 +180,47 @@ public final class GemmaPlugin: CAPPlugin, CAPBridgedPlugin, URLSessionDownloadD
         return URLSession(configuration: config, delegate: self, delegateQueue: nil)
     }()
 
+    public override func load() {
+        let center = NotificationCenter.default
+        center.addObserver(
+            self,
+            selector: #selector(appDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
+        center.addObserver(
+            self,
+            selector: #selector(appWillEnterForeground),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+    }
+
+    /// Leaving the app (another app, the Home Screen, a locked phone) puts
+    /// offline Casey away: she holds gigabytes of memory, and iOS runs no GPU
+    /// work in the background. A turn she was thinking about is asked again
+    /// when the player comes back. Pulling down Control Center only resigns
+    /// active and does not reach here, so it costs no reload.
+    @objc private func appDidEnterBackground() {
+        runtime.presence.inBackground = true
+        Task { await runtime.unload() }
+    }
+
+    @objc private func appWillEnterForeground() {
+        runtime.presence.inBackground = false
+    }
+
     @objc func status(_ call: CAPPluginCall) {
         call.resolve(statusPayload())
+    }
+
+    /// The app no longer needs offline Casey (her round ended, or the player
+    /// went back to normal Casey): free her memory now.
+    @objc func unloadModel(_ call: CAPPluginCall) {
+        Task {
+            await runtime.unload()
+            call.resolve()
+        }
     }
 
     @objc func download(_ call: CAPPluginCall) {
@@ -209,6 +309,9 @@ public final class GemmaPlugin: CAPPlugin, CAPBridgedPlugin, URLSessionDownloadD
                     maxOutputTokens: maxOutputTokens
                 )
                 call.resolve(result)
+            } catch is GemmaPutAway {
+                // The code is what src/ai/gemma/decision.ts waits on.
+                call.reject("Offline Casey was put away before she answered.", "PUT_AWAY")
             } catch {
                 call.reject("Gemma could not finish this Casey turn.", nil, error)
             }

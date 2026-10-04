@@ -5,7 +5,7 @@
 // Drawn at the two sizes the app actually draws it — Home's strip and the map
 // screen — and once large for detail, because the pencil pass is a judgement
 // about how it looks on a phone and a 500px render flatters it. Colours are
-// the app's own (index.css), so this sheet is what ships rather than a
+// the app's own (src/styles/12-map-exam-arrival.css), so this sheet is what ships rather than a
 // stand-in.
 import { chromium } from 'playwright'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -52,7 +52,7 @@ const line = pts.reduce((d, b, i) => {
   return `${d}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${b.x.toFixed(1)} ${b.y.toFixed(1)}`
 }, '')
 
-// Keep in step with .map-land / .map-sketch / .map-hatch in index.css —
+// Keep in step with .map-land / .map-sketch / .map-hatch in src/styles/12-map-exam-arrival.css —
 // widths included. They are `vector-effect: non-scaling-stroke` there and here:
 // stroke-width in viewBox units means a 2.6-wide coastline lands at 0.4 CSS px
 // on Home, which is why the map used to render as a pale smudge whatever the

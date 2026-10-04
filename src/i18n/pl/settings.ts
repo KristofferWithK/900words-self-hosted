@@ -51,7 +51,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Tego adresu bazowego nie da się użyć.',
 
   // ── model na urządzeniu ──────────────────────────────────────────────────
-  gemmaUnavailableNote: 'Tryb offline działa w aplikacji 900words na iPhone’a.',
+  gemmaUnavailableNote: 'Tryb offline działa w aplikacjach 900words na iPhone’a i Androida.',
   gemmaReady: (size) => `Casey offline jest gotowa (${size} na tym iPhonie).`,
   gemmaRemoveConfirm: 'Usunąć Casey offline z tego iPhone’a? Możesz ją później pobrać ponownie.',
   gemmaRemoveButton: 'Usuń Casey offline',
@@ -84,6 +84,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Twoja usługa SI odpowiedziała.',
   gemmaOption: 'Gemma na tym iPhonie',
   gemmaOptionHelp: 'Casey gra na tym iPhonie, bez internetu i bez klucza. Jest wolniejsza.',
+  ossCaseyHelpAndroid: 'To wersja 900words zbudowana samodzielnie. Casey potrzebuje SI do gry: twojego własnego klucza SI albo Gemmy na tym telefonie z Androidem.',
+  gemmaOptionAndroid: 'Gemma na tym telefonie z Androidem',
+  gemmaOptionHelpAndroid: 'Casey gra na tym telefonie z Androidem, bez internetu i bez klucza. Jest wolniejsza.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Ta samodzielnie zbudowana wersja 900words gra z Casey na tym telefonie z Androidem: bez konta i klucza. Gemmę pobiera się tylko raz (${size}). Użyj Wi-Fi i nie zamykaj 900words, aż pobieranie się skończy.\n\nNajlepiej działa na nowszych telefonach z Androidem i co najmniej 12 GB pamięci, na przykład ${phones}.${lowMemory ? '\n\nTen telefon ma mniej pamięci niż zalecane modele, więc aplikacja może działać nieprawidłowo.' : ''}\n\nW Ustawieniach możesz też dodać własny klucz SI.\n\nPobrać Casey teraz?`,
   serverOption: 'Twój własny serwer Casey',
   serverOptionHelp: 'Worker Casey wdrożony przez ciebie (zobacz README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -105,6 +110,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey zaproponuje wtedy dokończenie rundy z Gemmą. Za pierwszym razem zostanie ona pobrana.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ta wersja 900words gra z Casey na twoim iPhonie: bez konta i bez klucza. Casey pobierasz raz (${size}). Użyj Wi-Fi i nie zamykaj 900words, dopóki pobieranie się nie skończy.\n\nPotrzebuje nowszego iPhone’a: ${iphones}.${lowMemory ? '\n\nTen iPhone ma mniej pamięci niż te modele. Może na nim nie działać.' : ''}\n\nW Ustawieniach możesz też dodać własny klucz SI.\n\nPobrać Casey teraz?`,
+  // ── Casey offline na Androidzie ──────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Casey offline potrzebuje nowszego telefonu z Androidem: Androida 12 lub nowszego i co najmniej 8 GB pamięci. Ten telefon tego nie ma.',
+  gemmaReadyAndroid: (size) => `Casey offline jest gotowa (${size} na tym telefonie).`,
+  gemmaRemoveConfirmAndroid:
+    'Usunąć Casey offline z tego telefonu? Możesz ją później pobrać ponownie.',
+  offlineModeHelpAndroid:
+    'Zwykła Casey gra przez serwer 900words. W trybie offline możesz dokończyć rundę z Casey offline na tym telefonie, gdy nie ma internetu. Jest wolniejsza.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `Tryb offline jest eksperymentalny i wciąż jest ulepszany.\n\nTryb offline pobiera Casey offline (${size}) na ten telefon. Użyj Wi-Fi i nie zamykaj 900words, dopóki pobieranie się nie skończy.\n\nCasey offline gra wolniej niż zwykła Casey.\n\nPotrzebuje nowszego telefonu z Androidem i co najmniej 12 GB pamięci, na przykład ${phones}.${lowMemory ? '\n\nTen telefon ma mniej pamięci. Może na nim nie działać.' : ''}\n\nPobrać teraz?`,
+  gemmaAnsweredAndroid: 'Gemma odpowiedziała na tym telefonie.',
 
   // ── sprawdzenie połączenia ───────────────────────────────────────────────
   testRunning: 'Testowanie…',
@@ -259,4 +275,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "wersja poglądowa",
   learnerLanguagePreviewHelp: "Niemiecki jest wersją poglądową: mapa i Przewodnik są dostępne, ale gry słownej jeszcze nie ma. Lekcji nie sprawdziła jeszcze osoba, dla której niemiecki jest językiem ojczystym.",
   playtestTravelHelp: "Przeskocz dalej na mapie: wybierz późniejszy przystanek i podróż naprzód. Żadne słowo nie zostanie zapakowane i nie zyskasz postępów w nauce. Wyłącz tę opcję, aby ponownie sprawdzić zwykłe warunki podróży.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Dostęp do weryfikacji Google Play',
+  reviewAccessHelp: 'Tylko na potrzeby weryfikacji aplikacji w Google Play. Wpisz kod weryfikacyjny z instrukcji, aby odblokować nielimitowaną grę na tym urządzeniu.',
+  reviewAccessLabel: 'Kod weryfikacyjny',
+  reviewAccessUnlock: 'Odblokuj',
+  reviewAccessChecking: 'Sprawdzanie…',
+  reviewAccessOn: (date: string) =>
+    `Dostęp do weryfikacji jest włączony. Nielimitowana gra jest odblokowana na tym urządzeniu do ${date}.`,
+  reviewAccessInvalid: 'Ten kod weryfikacyjny nie został przyjęty.',
+  reviewAccessRateLimited: 'Zbyt wiele prób. Spróbuj ponownie jutro.',
+  reviewAccessError: 'Nie udało się sprawdzić kodu. Sprawdź połączenie z internetem i spróbuj ponownie.',
+
+  // ── Twój plan (tylko w wersjach ze sklepów). Apple na iOS, Google Play na Androidzie.
+  planHeading: 'Twój plan',
+  planFreeShort: 'Darmowy',
+  planUnlimitedShort: 'Bez limitu',
+  planChipAria: (plan: string) => `Twój plan: ${plan}`,
+  planChecking: 'Sprawdzamy twój plan w Apple.',
+  planCheckingPlay: 'Sprawdzamy twój plan w Google Play.',
+  planFree: 'Plan darmowy. Dwa spacery i dwie kawiarniane łamigłówki dziennie.',
+  planMonthly: 'Nielimitowana gra. Subskrypcja miesięczna. Odnawia się co miesiąc, dopóki jej nie anulujesz.',
+  planLifetime: 'Nielimitowana gra. Jednorazowy zakup. Nic się nie odnawia.',
+  planBoth: 'Masz jednorazowy zakup. Twoja subskrypcja miesięczna jest nadal aktywna i nie jest ci już potrzebna. Anuluj ją, aby nie płacić ponownie.',
+  planError: 'Apple nie może teraz sprawdzić twojego planu. Spróbuj ponownie później.',
+  planErrorPlay: 'Google Play nie może teraz sprawdzić twojego planu. Spróbuj ponownie później.',
+  planGetUnlimited: 'Graj bez limitu',
+  planManage: 'Zarządzaj subskrypcją lub ją anuluj',
+  planSwitch: 'Przejdź na jednorazowy zakup',
+  planSwitchNote: 'Jednorazowy zakup daje nielimitowaną grę na zawsze. Nie kończy subskrypcji miesięcznej. Po zakupie anuluj subskrypcję miesięczną na swoim koncie Apple, inaczej zapłacisz za obie.',
+  planSwitchNotePlay: 'Jednorazowy zakup daje nielimitowaną grę na zawsze. Nie kończy subskrypcji miesięcznej. Po zakupie anuluj subskrypcję miesięczną w Google Play, inaczej zapłacisz za obie.',
+  planBuyFor: (price: string) => `Kup za ${price}`,
+  planNotNow: 'Nie teraz',
 }

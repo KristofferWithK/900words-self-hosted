@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- The download runs only on Wi-Fi (or Ethernet): the plugin binds it to that network. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!-- LiteRT-LM's GPU backend opens the phone's OpenCL driver. From Android 12 an app may
+             load a vendor library only when it names it here; required="false" keeps the app
+             installable on phones without one, where offline Casey falls back to the CPU. -->
+        <uses-native-library android:name="libvndksupport.so" android:required="false" />
+        <uses-native-library android:name="libOpenCL.so" android:required="false" />
+    </application>
+</manifest>

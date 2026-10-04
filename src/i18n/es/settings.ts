@@ -42,7 +42,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Esa URL base no se puede usar.',
 
   // ── el modelo en el dispositivo ──────────────────────────────────────────
-  gemmaUnavailableNote: 'El modo sin conexión funciona en la app de 900words para iPhone.',
+  gemmaUnavailableNote: 'El modo sin conexión funciona en las apps de 900words para iPhone y Android.',
   gemmaReady: (size) => `Casey sin conexión está lista (${size} en este iPhone).`,
   gemmaRemoveConfirm: '¿Quitar Casey sin conexión de este iPhone? Puedes volver a descargarla más tarde.',
   gemmaRemoveButton: 'Quitar Casey sin conexión',
@@ -75,6 +75,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Tu servicio de IA ha respondido.',
   gemmaOption: 'Gemma en este iPhone',
   gemmaOptionHelp: 'Casey juega en este iPhone, sin internet y sin clave. Es más lenta.',
+  ossCaseyHelpAndroid: 'Este 900words lo has compilado tú. Casey necesita una IA para jugar: tu propia clave de IA o Gemma en este móvil Android.',
+  gemmaOptionAndroid: 'Gemma en este móvil Android',
+  gemmaOptionHelpAndroid: 'Casey juega en este móvil Android, sin internet y sin clave. Es más lenta.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Este 900words que has compilado juega con Casey en este móvil Android: sin cuenta ni clave. Gemma se descarga una sola vez (${size}). Usa wifi y deja 900words abierto hasta que termine.\n\nFunciona mejor en un móvil Android reciente con 12 GB de memoria o más, por ejemplo ${phones}.${lowMemory ? '\n\nEste móvil tiene menos memoria que los modelos recomendados; puede que no funcione bien.' : ''}\n\nTambién puedes añadir tu propia clave de IA en Ajustes.\n\n¿Descargar Casey ahora?`,
   serverOption: 'Tu propio servidor de Casey',
   serverOptionHelp: 'Un Worker de Casey que has desplegado tú (consulta el README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -96,6 +101,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey te ofrecerá terminar la ronda con Gemma. La primera vez, esto la descarga.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Este 900words juega con Casey en tu iPhone: sin cuenta y sin clave. Es una descarga única (${size}). Usa wifi y deja 900words abierta hasta que termine.\n\nNecesita un iPhone más reciente: ${iphones}.${lowMemory ? '\n\nEste iPhone tiene menos memoria que esos modelos. Puede que no funcione en él.' : ''}\n\nTambién puedes añadir tu propia clave de IA en Ajustes.\n\n¿Descargar a Casey ahora?`,
+  // ── Casey sin conexión en Android ────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Casey sin conexión necesita un móvil Android más reciente: Android 12 o posterior y al menos 8 GB de memoria. Este móvil no los tiene.',
+  gemmaReadyAndroid: (size) => `Casey sin conexión está lista (${size} en este móvil).`,
+  gemmaRemoveConfirmAndroid:
+    '¿Quitar Casey sin conexión de este móvil? Puedes volver a descargarla más tarde.',
+  offlineModeHelpAndroid:
+    'Casey normal juega desde el servidor de 900words. Con el modo sin conexión puedes terminar una ronda con Casey sin conexión en este móvil cuando no hay internet. Es más lenta.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `El modo sin conexión es experimental y todavía se está mejorando.\n\nEl modo sin conexión descarga Casey sin conexión (${size}) en este móvil. Usa wifi y deja 900words abierta hasta que termine la descarga.\n\nCasey sin conexión juega más despacio que Casey normal.\n\nNecesita un móvil Android más reciente con 12 GB de memoria o más, por ejemplo ${phones}.${lowMemory ? '\n\nEste móvil tiene menos memoria. Puede que no funcione en él.' : ''}\n\n¿Descargar ahora?`,
+  gemmaAnsweredAndroid: 'Gemma ha respondido en este móvil.',
 
   // ── la comprobación de la conexión ───────────────────────────────────────
   testRunning: 'Probando…',
@@ -233,4 +249,37 @@ export const settings: Catalogue['settings'] = {
   reminderSeatTitle: 'Casey te ha guardado un asiento',
   reminderSeatBody: (games) =>
     `Con ${games} ${games === 1 ? 'partidita' : 'partiditas'} hoy ya empiezas una racha.`,
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Acceso para la revisión de Google Play',
+  reviewAccessHelp: 'Solo para la revisión de la app en Google Play. Introduce el código de revisión de las instrucciones para desbloquear el juego ilimitado en este dispositivo.',
+  reviewAccessLabel: 'Código de revisión',
+  reviewAccessUnlock: 'Desbloquear',
+  reviewAccessChecking: 'Comprobando…',
+  reviewAccessOn: (date: string) =>
+    `El acceso de revisión está activo. El juego ilimitado está desbloqueado en este dispositivo hasta el ${date}.`,
+  reviewAccessInvalid: 'Ese código de revisión no se ha aceptado.',
+  reviewAccessRateLimited: 'Demasiados intentos. Inténtalo de nuevo mañana.',
+  reviewAccessError: 'No se ha podido comprobar el código. Revisa la conexión a internet e inténtalo de nuevo.',
+
+  // ── Tu plan (solo en las versiones de tienda). Apple en iOS, Google Play en Android.
+  planHeading: 'Tu plan',
+  planFreeShort: 'Gratis',
+  planUnlimitedShort: 'Ilimitado',
+  planChipAria: (plan: string) => `Tu plan: ${plan}`,
+  planChecking: 'Comprobando tu plan con Apple.',
+  planCheckingPlay: 'Comprobando tu plan con Google Play.',
+  planFree: 'Plan gratuito. Dos paseos y dos puzles del café al día.',
+  planMonthly: 'Partidas ilimitadas. Suscripción mensual. Se renueva cada mes hasta que la canceles.',
+  planLifetime: 'Partidas ilimitadas. Pago único. No se renueva nada.',
+  planBoth: 'Ya tienes el pago único. Tu suscripción mensual sigue activa y ya no la necesitas. Cancélala para que no te vuelvan a cobrar.',
+  planError: 'Apple no ha podido comprobar tu plan ahora mismo. Inténtalo de nuevo más tarde.',
+  planErrorPlay: 'Google Play no ha podido comprobar tu plan ahora mismo. Inténtalo de nuevo más tarde.',
+  planGetUnlimited: 'Jugar sin límite',
+  planManage: 'Gestionar o cancelar la suscripción',
+  planSwitch: 'Cambiar al pago único',
+  planSwitchNote: 'Con el pago único juegas sin límite para siempre. No cancela tu suscripción mensual. Después de comprarlo, cancela la suscripción mensual en tu cuenta de Apple o seguirás pagando las dos.',
+  planSwitchNotePlay: 'Con el pago único juegas sin límite para siempre. No cancela tu suscripción mensual. Después de comprarlo, cancela la suscripción mensual en Google Play o seguirás pagando las dos.',
+  planBuyFor: (price: string) => `Comprar por ${price}`,
+  planNotNow: 'Ahora no',
 }

@@ -4,6 +4,7 @@ import { grammarLessonAudioFromCourse, type GrammarLessonAudioSource } from '../
 import type { GrammarChapter } from '../../lang/curriculum-grammar'
 import { activeGrammarBooks, activeSurvivalGuide, grammarBookForActiveCity, grammarBooksForActiveCityIndex } from '../../lang/bookshelf'
 import { Blocks, BookReader } from './BookReader'
+import { Tag } from './Tag'
 import { SurvivalExchangeReader } from '../screens/TravelGuideBook'
 import { UI } from '../../i18n'
 import { ACTIVE } from '../../lang/active'
@@ -159,9 +160,7 @@ function RideBar({ cityName, part, onLeave }: { cityName: string; part: RidePart
       <span className="ride-bar-label">
         {cityName} · {part === 'grammar' ? UI.guide.sectionGrammar : UI.guide.sectionSurvival}
       </span>
-      <button type="button" className="btn btn-small ride-skip" onClick={onLeave}>
-        {UI.guide.skipShort}
-      </button>
+      <Tag className="ride-skip" label={UI.guide.skipShort} onClick={onLeave} />
     </div>
   )
 }

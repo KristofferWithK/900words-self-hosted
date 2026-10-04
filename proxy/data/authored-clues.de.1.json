@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
  "sourceSha256": "d79876670fd3b664a42a68d3a517bf0ce5e8239ba309ae09fb257c0826985139",
- "note": "Casey's judged clue groups for the City 1 board bank, rendered into German by the runbook at docs/roadmap/german-city1-boards.md (emit-shipped.mjs): Casey's Danish groups translated word-for-word (frozen/clues.de.json), board-aware repairs applied per board (frozen/repairs.json), a group dropped where no German word exists or the German clue is illegal on its board, and the board's top-up groups appended (frozen/topup.de.json), from the Danish shipped Worker bank (source sha256 d79876670fd3b664a42a68d3a517bf0ce5e8239ba309ae09fb257c0826985139). The German words are model output; no native speaker has checked them. This file is a convenience artifact for later language-pack work: it is not wired into the app, and writing it is not a deploy.",
+ "note": "Casey's judged clue groups for the German City 1 course (Flensburg). Boards bank_001 to bank_150 were rendered into German by the runbook at docs/roadmap/german-city1-boards.md (emit-shipped.mjs): Casey's Danish groups translated word-for-word (frozen/clues.de.json), board-aware repairs applied per board (frozen/repairs.json), a group dropped where no German word exists or the German clue is illegal on its board, and the board's top-up groups appended (frozen/topup.de.json), from the Danish shipped Worker bank (source sha256 d79876670fd3b664a42a68d3a517bf0ce5e8239ba309ae09fb257c0826985139). Since 2026-09-27 scripts/german-city1-course.mjs keeps this file: it leaves out every group built on its target's own German word (SAME_ROOT) and every group whose only link to a German card is a Danish sense that card lacks (LOST_SENSE), and it appends bank_151 onward, translated from the Danish appendix bank by APPENDIX_CLUES. The German words are model output, read by the owner.",
  "boards": [
   {
    "id": "bank_001",
@@ -118,13 +118,6 @@
      ]
     },
     {
-     "clue": "Mittwoch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Woche"
-     ]
-    },
-    {
      "clue": "neueste",
      "clueEnglish": "",
      "targetWordIds": [
@@ -188,15 +181,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Schule",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Klasse",
-      "de:probieren",
-      "de:Stunde"
-     ]
-    },
-    {
      "clue": "predigen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -211,15 +195,6 @@
      "targetWordIds": [
       "de:denken",
       "de:erinnern"
-     ]
-    },
-    {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren",
-      "de:sagen"
      ]
     },
     {
@@ -245,14 +220,6 @@
      "targetWordIds": [
       "de:sagen",
       "de:reden"
-     ]
-    },
-    {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren"
      ]
     },
     {
@@ -439,13 +406,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:liegen"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
      ]
     },
     {
@@ -702,15 +662,6 @@
      ]
     },
     {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Land",
-      "de:dänisch",
-      "de:Krone"
-     ]
-    },
-    {
      "clue": "Buch",
      "clueEnglish": "",
      "targetWordIds": [
@@ -725,14 +676,6 @@
       "de:lesen",
       "de:dänisch",
       "de:gehen"
-     ]
-    },
-    {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Land",
-      "de:dänisch"
      ]
     },
     {
@@ -765,13 +708,6 @@
      "targetWordIds": [
       "de:Krone",
       "de:Land"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -1050,14 +986,6 @@
      "targetWordIds": [
       "de:Schule",
       "de:Stunde"
-     ]
-    },
-    {
-     "clue": "Fernseher",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Bild"
      ]
     },
     {
@@ -1366,15 +1294,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Budget",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Geld",
-      "de:benutzen",
-      "de:Krone"
-     ]
-    },
-    {
      "clue": "Straße",
      "clueEnglish": "",
      "targetWordIds": [
@@ -1550,14 +1469,6 @@
      ]
     },
     {
-     "clue": "verwirrt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:bereit",
-      "de:Zweifel"
-     ]
-    },
-    {
      "clue": "Restaurant",
      "clueEnglish": "",
      "targetWordIds": [
@@ -1571,14 +1482,6 @@
      "targetWordIds": [
       "de:richtig",
       "de:Freund"
-     ]
-    },
-    {
-     "clue": "Gericht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:richtig",
-      "de:Essen"
      ]
     },
     {
@@ -1887,14 +1790,6 @@
      ]
     },
     {
-     "clue": "Kirche",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr",
-      "de:glauben"
-     ]
-    },
-    {
      "clue": "Brainstorming",
      "clueEnglish": "",
      "targetWordIds": [
@@ -1976,20 +1871,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Treffen"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -2222,15 +2103,6 @@
      ]
     },
     {
-     "clue": "Casting",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Film",
-      "de:Musik"
-     ]
-    },
-    {
      "clue": "Entertainment",
      "clueEnglish": "",
      "targetWordIds": [
@@ -2440,13 +2312,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Tier"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -2700,24 +2565,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Geräusch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:hören",
-      "de:Musik",
-      "de:Uhr"
-     ]
-    },
-    {
-     "clue": "Fehler",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:richtig",
-      "de:machen",
-      "de:nehmen"
-     ]
-    },
-    {
      "clue": "kochen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -2785,13 +2632,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Musik"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -2956,13 +2796,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:kommen"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
      ]
     },
     {
@@ -3273,15 +3106,6 @@
      ]
     },
     {
-     "clue": "Märchen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Kind",
-      "de:spannend",
-      "de:Reise"
-     ]
-    },
-    {
      "clue": "Standort",
      "clueEnglish": "",
      "targetWordIds": [
@@ -3458,13 +3282,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Katze"
-     ]
-    },
-    {
-     "clue": "kostbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tier"
      ]
     },
     {
@@ -3712,15 +3529,6 @@
     "de:Gesetz"
    ],
    "caseyClueGroups": [
-    {
-     "clue": "Mikroskop",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:klein",
-      "de:probieren"
-     ]
-    },
     {
      "clue": "reflektieren",
      "clueEnglish": "",
@@ -4224,14 +4032,6 @@
      ]
     },
     {
-     "clue": "sparen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:benutzen",
-      "de:Geld"
-     ]
-    },
-    {
      "clue": "Lehrer",
      "clueEnglish": "",
      "targetWordIds": [
@@ -4536,15 +4336,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Schritt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Mal",
-      "de:nehmen"
-     ]
-    },
-    {
      "clue": "Kalenderjahr",
      "clueEnglish": "",
      "targetWordIds": [
@@ -4620,13 +4411,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:gehen"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -4771,13 +4555,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Film"
-     ]
-    },
-    {
-     "clue": "Wichtigkeit",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung"
      ]
     },
     {
@@ -4945,24 +4722,10 @@
      ]
     },
     {
-     "clue": "kostbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tier"
-     ]
-    },
-    {
      "clue": "Pfote",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Katze"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -5106,13 +4869,6 @@
      ]
     },
     {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:dänisch"
-     ]
-    },
-    {
      "clue": "Synonym",
      "clueEnglish": "",
      "targetWordIds": [
@@ -5223,14 +4979,6 @@
      ]
     },
     {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:schlecht",
-      "de:Uhr"
-     ]
-    },
-    {
      "clue": "böse",
      "clueEnglish": "",
      "targetWordIds": [
@@ -5244,14 +4992,6 @@
      "targetWordIds": [
       "de:denken",
       "de:Gedanke"
-     ]
-    },
-    {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen"
      ]
     },
     {
@@ -5302,13 +5042,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Treffen"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:schlecht"
      ]
     },
     {
@@ -5370,47 +5103,11 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Schüler",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:probieren",
-      "de:lesen"
-     ]
-    },
-    {
      "clue": "Globus",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Welt",
       "de:Reise"
-     ]
-    },
-    {
-     "clue": "Lehrplan",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:probieren",
-      "de:lesen"
-     ]
-    },
-    {
-     "clue": "Lehrer",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:lesen",
-      "de:probieren"
-     ]
-    },
-    {
-     "clue": "Unterricht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:probieren",
-      "de:lesen"
      ]
     },
     {
@@ -5420,15 +5117,6 @@
       "de:probieren",
       "de:Schule",
       "de:Musik"
-     ]
-    },
-    {
-     "clue": "lernen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:lesen",
-      "de:probieren"
      ]
     },
     {
@@ -5583,15 +5271,6 @@
      ]
     },
     {
-     "clue": "Fußgänger",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Person",
-      "de:Mensch",
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "Frau",
      "clueEnglish": "",
      "targetWordIds": [
@@ -5661,13 +5340,6 @@
      ]
     },
     {
-     "clue": "Gang",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "letzte",
      "clueEnglish": "",
      "targetWordIds": [
@@ -5725,14 +5397,6 @@
       "de:fahren",
       "de:Reise",
       "de:Weg"
-     ]
-    },
-    {
-     "clue": "Gewissheit",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sicher",
-      "de:wissen"
      ]
     },
     {
@@ -5886,14 +5550,6 @@
      ]
     },
     {
-     "clue": "Unkosten",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Geld",
-      "de:benutzen"
-     ]
-    },
-    {
      "clue": "Schrift",
      "clueEnglish": "",
      "targetWordIds": [
@@ -5954,20 +5610,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Wort"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -6041,15 +5683,6 @@
       "de:Gedanke",
       "de:Bild",
       "de:glauben"
-     ]
-    },
-    {
-     "clue": "sichtbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:meinen",
-      "de:bereit"
      ]
     },
     {
@@ -6145,22 +5778,6 @@
      ]
     },
     {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:dänisch"
-     ]
-    },
-    {
-     "clue": "denken",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:glauben",
-      "de:meinen"
-     ]
-    },
-    {
      "clue": "Auge",
      "clueEnglish": "",
      "targetWordIds": [
@@ -6245,14 +5862,6 @@
       "de:Musik",
       "de:sehen",
       "de:Film"
-     ]
-    },
-    {
-     "clue": "verstehen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:wissen",
-      "de:Meinung"
      ]
     },
     {
@@ -6543,15 +6152,6 @@
      ]
     },
     {
-     "clue": "Einfahrt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:fahren",
-      "de:Auto",
-      "de:Weg"
-     ]
-    },
-    {
      "clue": "Krabbe",
      "clueEnglish": "",
      "targetWordIds": [
@@ -6575,24 +6175,6 @@
       "de:Auto",
       "de:fahren",
       "de:Weg"
-     ]
-    },
-    {
-     "clue": "Fahrspur",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Weg",
-      "de:Auto",
-      "de:fahren"
-     ]
-    },
-    {
-     "clue": "Fahrrad",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:fahren",
-      "de:Weg",
-      "de:Auto"
      ]
     },
     {
@@ -6721,14 +6303,6 @@
       "de:glauben",
       "de:Meinung",
       "de:sicher"
-     ]
-    },
-    {
-     "clue": "Lesung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:hören",
-      "de:lesen"
      ]
     },
     {
@@ -6946,13 +6520,6 @@
      ]
     },
     {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "spazieren",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7095,15 +6662,6 @@
      ]
     },
     {
-     "clue": "Horn",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Auto",
-      "de:hören",
-      "de:Musik"
-     ]
-    },
-    {
      "clue": "Zeitraum",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7211,15 +6769,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Lektion",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Klasse",
-      "de:Geschichte",
-      "de:probieren"
-     ]
-    },
-    {
      "clue": "Sorgerecht",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7237,15 +6786,6 @@
      ]
     },
     {
-     "clue": "Schule",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Klasse",
-      "de:probieren",
-      "de:Kind"
-     ]
-    },
-    {
      "clue": "Geburt",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7258,22 +6798,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Klasse",
-      "de:probieren"
-     ]
-    },
-    {
-     "clue": "Schule",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Klasse",
-      "de:Kind"
-     ]
-    },
-    {
-     "clue": "Schule",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
       "de:Kind"
      ]
     },
@@ -7311,13 +6835,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Kind"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
      ]
     },
     {
@@ -7637,13 +7154,6 @@
      ]
     },
     {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "Test",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7873,15 +7383,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Stufe",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:letzte",
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "Miete",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7924,22 +7425,6 @@
      ]
     },
     {
-     "clue": "Bewegung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal",
-      "de:gehen"
-     ]
-    },
-    {
-     "clue": "Fußgänger",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal",
-      "de:gehen"
-     ]
-    },
-    {
      "clue": "Kapitel",
      "clueEnglish": "",
      "targetWordIds": [
@@ -7959,13 +7444,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:letzte"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -8206,15 +7684,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Gericht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:richtig",
-      "de:Gesetz",
-      "de:Essen"
-     ]
-    },
-    {
      "clue": "Fundament",
      "clueEnglish": "",
      "targetWordIds": [
@@ -8266,13 +7735,6 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
      "clue": "Hunger",
      "clueEnglish": "",
      "targetWordIds": [
@@ -8291,13 +7753,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Stunde"
-     ]
-    },
-    {
-     "clue": "läuten",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -8541,24 +7996,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Bild",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Film",
-      "de:nehmen"
-     ]
-    },
-    {
-     "clue": "Kirche",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr",
-      "de:glauben",
-      "de:Haus"
-     ]
-    },
-    {
      "clue": "Tier",
      "clueEnglish": "",
      "targetWordIds": [
@@ -8600,14 +8037,6 @@
      ]
     },
     {
-     "clue": "Kirche",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr",
-      "de:glauben"
-     ]
-    },
-    {
      "clue": "betrachten",
      "clueEnglish": "",
      "targetWordIds": [
@@ -8626,13 +8055,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:nehmen"
-     ]
-    },
-    {
-     "clue": "anrufen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -8717,15 +8139,6 @@
      ]
     },
     {
-     "clue": "Gespräch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:Sprache",
-      "de:Treffen"
-     ]
-    },
-    {
      "clue": "Geborgenheit",
      "clueEnglish": "",
      "targetWordIds": [
@@ -8758,15 +8171,6 @@
       "de:Auto",
       "de:fahren",
       "de:Bus"
-     ]
-    },
-    {
-     "clue": "Einfahrt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:fahren",
-      "de:Auto",
-      "de:Zuhause"
      ]
     },
     {
@@ -8988,13 +8392,6 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
      "clue": "Verbrauch",
      "clueEnglish": "",
      "targetWordIds": [
@@ -9084,13 +8481,6 @@
      "targetWordIds": [
       "de:Klasse",
       "de:Stunde"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
      ]
     },
     {
@@ -9533,15 +8923,6 @@
      ]
     },
     {
-     "clue": "Licht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tag",
-      "de:sehen",
-      "de:bereit"
-     ]
-    },
-    {
      "clue": "verdienen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -9558,41 +8939,10 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz",
-      "de:bekommen"
-     ]
-    },
-    {
-     "clue": "Licht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tag",
-      "de:bereit"
-     ]
-    },
-    {
-     "clue": "Licht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:bereit"
-     ]
-    },
-    {
      "clue": "Strafe",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Geld",
-      "de:Gesetz"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
       "de:Gesetz"
      ]
     },
@@ -9731,14 +9081,6 @@
      ]
     },
     {
-     "clue": "Fahrgemeinschaft",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:fahren",
-      "de:Auto"
-     ]
-    },
-    {
      "clue": "Rad",
      "clueEnglish": "",
      "targetWordIds": [
@@ -9855,15 +9197,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Wort",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Meinung",
-      "de:Name"
-     ]
-    },
-    {
      "clue": "Überlegung",
      "clueEnglish": "",
      "targetWordIds": [
@@ -9877,22 +9210,6 @@
      "targetWordIds": [
       "de:Gedanke",
       "de:denken",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Wort",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Text",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
       "de:Meinung"
      ]
     },
@@ -10141,13 +9458,6 @@
      ]
     },
     {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
-     ]
-    },
-    {
      "clue": "Lieferwagen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -10288,13 +9598,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Hund"
-     ]
-    },
-    {
-     "clue": "kostbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tier"
      ]
     },
     {
@@ -10556,15 +9859,6 @@
      ]
     },
     {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "erwähnen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -10581,27 +9875,11 @@
      ]
     },
     {
-     "clue": "Fernseher",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Bild"
-     ]
-    },
-    {
      "clue": "Spiegel",
      "clueEnglish": "",
      "targetWordIds": [
       "de:sehen",
       "de:Bild"
-     ]
-    },
-    {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen"
      ]
     },
     {
@@ -10879,32 +10157,6 @@
      ]
     },
     {
-     "clue": "Selfie",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Bild",
-      "de:nehmen"
-     ]
-    },
-    {
-     "clue": "sprechen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:Sprache",
-      "de:Wort"
-     ]
-    },
-    {
-     "clue": "aussprechen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:Sprache",
-      "de:Wort"
-     ]
-    },
-    {
      "clue": "formulieren",
      "clueEnglish": "",
      "targetWordIds": [
@@ -10929,13 +10181,6 @@
       "de:sagen",
       "de:Sprache",
       "de:Wort"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -11107,13 +10352,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Katze"
-     ]
-    },
-    {
-     "clue": "kostbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Tier"
      ]
     },
     {
@@ -11295,13 +10533,6 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
      "clue": "Dänemark",
      "clueEnglish": "",
      "targetWordIds": [
@@ -11377,32 +10608,6 @@
      ]
     },
     {
-     "clue": "gehen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Weg",
-      "de:Mal",
-      "de:stehen"
-     ]
-    },
-    {
-     "clue": "loyal",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:glauben",
-      "de:Freund"
-     ]
-    },
-    {
-     "clue": "Fußgänger",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Person",
-      "de:Mal",
-      "de:Weg"
-     ]
-    },
-    {
      "clue": "Elternteil",
      "clueEnglish": "",
      "targetWordIds": [
@@ -11424,14 +10629,6 @@
      "targetWordIds": [
       "de:Person",
       "de:Zuhause"
-     ]
-    },
-    {
-     "clue": "Fußgänger",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Person",
-      "de:Mal"
      ]
     },
     {
@@ -11461,20 +10658,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Weg"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
      ]
     },
     {
@@ -11544,23 +10727,6 @@
      ]
     },
     {
-     "clue": "eindeutig",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:bereit",
-      "de:sicher"
-     ]
-    },
-    {
-     "clue": "Ohr",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:hören",
-      "de:Geld",
-      "de:Krone"
-     ]
-    },
-    {
      "clue": "Münze",
      "clueEnglish": "",
      "targetWordIds": [
@@ -11598,13 +10764,6 @@
      "targetWordIds": [
       "de:Geld",
       "de:Krone"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
      ]
     },
     {
@@ -11926,13 +11085,6 @@
      ]
     },
     {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
-     ]
-    },
-    {
      "clue": "Lektion",
      "clueEnglish": "",
      "targetWordIds": [
@@ -12150,13 +11302,6 @@
      "targetWordIds": [
       "de:Geschichte"
      ]
-    },
-    {
-     "clue": "älter",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:alt"
-     ]
     }
    ]
   },
@@ -12200,15 +11345,6 @@
       "de:denken",
       "de:erinnern",
       "de:Mensch"
-     ]
-    },
-    {
-     "clue": "haben",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Lust",
-      "de:Zuhause",
-      "de:Zeit"
      ]
     },
     {
@@ -12548,24 +11684,6 @@
      ]
     },
     {
-     "clue": "Wort",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:sagen",
-      "de:dänisch"
-     ]
-    },
-    {
-     "clue": "Sprache",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:dänisch",
-      "de:Meinung",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "Werkstatt",
      "clueEnglish": "",
      "targetWordIds": [
@@ -12801,13 +11919,6 @@
      ]
     },
     {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
-     ]
-    },
-    {
      "clue": "entsinnen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -13029,15 +12140,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Blut",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Leben",
-      "de:Mensch"
-     ]
-    },
-    {
      "clue": "Fahrplan",
      "clueEnglish": "",
      "targetWordIds": [
@@ -13053,24 +12155,6 @@
       "de:Person",
       "de:Bus",
       "de:Mensch"
-     ]
-    },
-    {
-     "clue": "Blut",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Leben",
-      "de:Person"
-     ]
-    },
-    {
-     "clue": "Blut",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Mensch",
-      "de:Person"
      ]
     },
     {
@@ -13210,15 +12294,6 @@
      ]
     },
     {
-     "clue": "Fußboden",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:liegen",
-      "de:Grund",
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "Bezeichnung",
      "clueEnglish": "",
      "targetWordIds": [
@@ -13235,43 +12310,11 @@
      ]
     },
     {
-     "clue": "Passant",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal",
-      "de:Weg"
-     ]
-    },
-    {
-     "clue": "eng",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Weg",
-      "de:Mal"
-     ]
-    },
-    {
-     "clue": "Gasse",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Weg",
-      "de:Mal"
-     ]
-    },
-    {
      "clue": "Fußboden",
      "clueEnglish": "",
      "targetWordIds": [
       "de:liegen",
       "de:Grund"
-     ]
-    },
-    {
-     "clue": "Fußboden",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:liegen",
-      "de:Mal"
      ]
     },
     {
@@ -13307,13 +12350,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Grund"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -13570,15 +12606,6 @@
      ]
     },
     {
-     "clue": "sprechen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:Sprache",
-      "de:Wort"
-     ]
-    },
-    {
      "clue": "kommunizieren",
      "clueEnglish": "",
      "targetWordIds": [
@@ -13705,15 +12732,6 @@
     "de:Land"
    ],
    "caseyClueGroups": [
-    {
-     "clue": "untersuchen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:finden",
-      "de:sehen",
-      "de:probieren"
-     ]
-    },
     {
      "clue": "Erde",
      "clueEnglish": "",
@@ -13870,15 +12888,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "bewusst",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:bereit",
-      "de:wissen"
-     ]
-    },
-    {
      "clue": "Passfoto",
      "clueEnglish": "",
      "targetWordIds": [
@@ -13908,13 +12917,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Stunde",
-      "de:Uhr"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
       "de:Uhr"
      ]
     },
@@ -14019,15 +13021,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Text",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Sprache",
-      "de:Meinung"
-     ]
-    },
-    {
      "clue": "Frau",
      "clueEnglish": "",
      "targetWordIds": [
@@ -14068,14 +13061,6 @@
      "targetWordIds": [
       "de:lesen",
       "de:Sprache"
-     ]
-    },
-    {
-     "clue": "Text",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Meinung"
      ]
     },
     {
@@ -14204,27 +13189,11 @@
      ]
     },
     {
-     "clue": "Bewegung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal",
-      "de:gehen"
-     ]
-    },
-    {
      "clue": "Zimmer",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Platz",
       "de:wohnen"
-     ]
-    },
-    {
-     "clue": "Wanderung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Mal"
      ]
     },
     {
@@ -14267,13 +13236,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:finden"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -14717,15 +13679,6 @@
      ]
     },
     {
-     "clue": "Schüler",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:lesen",
-      "de:Person"
-     ]
-    },
-    {
      "clue": "Lehrer",
      "clueEnglish": "",
      "targetWordIds": [
@@ -14870,15 +13823,6 @@
      ]
     },
     {
-     "clue": "Wort",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Name",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "Äußerung",
      "clueEnglish": "",
      "targetWordIds": [
@@ -14950,13 +13894,6 @@
      ]
     },
     {
-     "clue": "Benennung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name"
-     ]
-    },
-    {
      "clue": "parat",
      "clueEnglish": "",
      "targetWordIds": [
@@ -15023,47 +13960,11 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Note",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Geschichte",
-      "de:schlecht"
-     ]
-    },
-    {
      "clue": "Entdeckung",
      "clueEnglish": "",
      "targetWordIds": [
       "de:finden",
       "de:sehen"
-     ]
-    },
-    {
-     "clue": "Note",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Person",
-      "de:Geschichte"
-     ]
-    },
-    {
-     "clue": "Note",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Person",
-      "de:schlecht"
-     ]
-    },
-    {
-     "clue": "Note",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Person",
-      "de:Geschichte",
-      "de:schlecht"
      ]
     },
     {
@@ -15183,15 +14084,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "sprechen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:hören",
-      "de:Sprache"
-     ]
-    },
-    {
      "clue": "Einzug",
      "clueEnglish": "",
      "targetWordIds": [
@@ -15224,15 +14116,6 @@
       "de:Haus",
       "de:wohnen",
       "de:Zuhause"
-     ]
-    },
-    {
-     "clue": "Gespräch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:Sprache",
-      "de:hören"
      ]
     },
     {
@@ -15354,15 +14237,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Blut",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Leben",
-      "de:Person"
-     ]
-    },
-    {
      "clue": "Qualität",
      "clueEnglish": "",
      "targetWordIds": [
@@ -15371,46 +14245,11 @@
      ]
     },
     {
-     "clue": "Charakter",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Schule",
-      "de:Person"
-     ]
-    },
-    {
-     "clue": "Lehrling",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:probieren",
-      "de:Person"
-     ]
-    },
-    {
-     "clue": "Biologie",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Leben",
-      "de:probieren",
-      "de:Schule"
-     ]
-    },
-    {
      "clue": "herrlich",
      "clueEnglish": "",
      "targetWordIds": [
       "de:gut",
       "de:schön"
-     ]
-    },
-    {
-     "clue": "Prüfung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Schule"
      ]
     },
     {
@@ -15695,15 +14534,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Meinung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:meinen",
-      "de:Wort"
-     ]
-    },
-    {
      "clue": "Domizil",
      "clueEnglish": "",
      "targetWordIds": [
@@ -15732,22 +14562,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Gedanke",
-      "de:meinen"
-     ]
-    },
-    {
-     "clue": "Meinung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:Wort"
-     ]
-    },
-    {
-     "clue": "Meinung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:meinen",
       "de:Wort"
      ]
     },
@@ -15806,14 +14620,6 @@
      "targetWordIds": [
       "de:Haus",
       "de:Zuhause"
-     ]
-    },
-    {
-     "clue": "denken",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:meinen"
      ]
     }
    ]
@@ -15887,29 +14693,11 @@
      ]
     },
     {
-     "clue": "sprechen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:hören",
-      "de:Sprache"
-     ]
-    },
-    {
      "clue": "mündlich",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Sprache",
       "de:sagen",
-      "de:hören"
-     ]
-    },
-    {
-     "clue": "Gespräch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:Sprache",
       "de:hören"
      ]
     },
@@ -16040,15 +14828,6 @@
      ]
     },
     {
-     "clue": "logisch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:denken",
-      "de:bereit",
-      "de:richtig"
-     ]
-    },
-    {
      "clue": "lernen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -16062,14 +14841,6 @@
      "targetWordIds": [
       "de:Seite",
       "de:Schule"
-     ]
-    },
-    {
-     "clue": "Licht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:bereit"
      ]
     },
     {
@@ -16206,14 +14977,6 @@
      ]
     },
     {
-     "clue": "Sitzplatz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sitzen",
-      "de:Auto"
-     ]
-    },
-    {
      "clue": "Ausdruck",
      "clueEnglish": "",
      "targetWordIds": [
@@ -16236,23 +14999,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:sagen",
-      "de:Meinung",
-      "de:Wort"
-     ]
-    },
-    {
-     "clue": "Aussage",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sagen",
-      "de:Meinung",
-      "de:Wort"
-     ]
-    },
-    {
-     "clue": "Bedeutung",
-     "clueEnglish": "",
-     "targetWordIds": [
       "de:Meinung",
       "de:Wort"
      ]
@@ -16305,13 +15051,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Wort"
-     ]
-    },
-    {
-     "clue": "Sitzplatz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sitzen"
      ]
     },
     {
@@ -16532,15 +15271,6 @@
      ]
     },
     {
-     "clue": "Schüler",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:probieren",
-      "de:Klasse"
-     ]
-    },
-    {
      "clue": "sprechen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -16559,39 +15289,12 @@
      ]
     },
     {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "Elternabend",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Schule",
       "de:Kind",
       "de:Klasse"
-     ]
-    },
-    {
-     "clue": "Unterricht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Klasse",
-      "de:probieren"
-     ]
-    },
-    {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren",
-      "de:hören"
      ]
     },
     {
@@ -16702,14 +15405,6 @@
       "de:Reise",
       "de:Bus",
       "de:Mensch"
-     ]
-    },
-    {
-     "clue": "Kreditkarte",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Geld",
-      "de:benutzen"
      ]
     },
     {
@@ -16865,15 +15560,6 @@
      ]
     },
     {
-     "clue": "Klang",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:hören",
-      "de:Musik",
-      "de:Uhr"
-     ]
-    },
-    {
      "clue": "unterhaltsam",
      "clueEnglish": "",
      "targetWordIds": [
@@ -16964,13 +15650,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Musik"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -17183,15 +15862,6 @@
      ]
     },
     {
-     "clue": "Definition",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Wort",
-      "de:Meinung",
-      "de:Beispiel"
-     ]
-    },
-    {
      "clue": "Kalenderjahr",
      "clueEnglish": "",
      "targetWordIds": [
@@ -17278,13 +15948,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Wort"
-     ]
-    },
-    {
-     "clue": "Bedeutung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung"
      ]
     },
     {
@@ -17421,20 +16084,6 @@
       "de:Monat",
       "de:Jahr",
       "de:Zeit"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -17690,26 +16339,10 @@
      ]
     },
     {
-     "clue": "Foto",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Bild",
-      "de:nehmen"
-     ]
-    },
-    {
      "clue": "holen",
      "clueEnglish": "",
      "targetWordIds": [
       "de:bekommen",
-      "de:nehmen"
-     ]
-    },
-    {
-     "clue": "Selfie",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Bild",
       "de:nehmen"
      ]
     },
@@ -17719,14 +16352,6 @@
      "targetWordIds": [
       "de:bekommen",
       "de:nehmen"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz",
-      "de:bekommen"
      ]
     },
     {
@@ -17756,13 +16381,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Klasse"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
      ]
     },
     {
@@ -17838,28 +16456,11 @@
      ]
     },
     {
-     "clue": "Erklärung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Grund",
-      "de:Beispiel"
-     ]
-    },
-    {
      "clue": "Appetit",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Essen",
       "de:Lust"
-     ]
-    },
-    {
-     "clue": "Erklärung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Grund"
      ]
     },
     {
@@ -17884,14 +16485,6 @@
      "targetWordIds": [
       "de:Arbeit",
       "de:schwer"
-     ]
-    },
-    {
-     "clue": "Erklärung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Beispiel"
      ]
     },
     {
@@ -17994,47 +16587,11 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Semantik",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Sprache",
-      "de:Wort"
-     ]
-    },
-    {
      "clue": "verdienen",
      "clueEnglish": "",
      "targetWordIds": [
       "de:bekommen",
       "de:Krone"
-     ]
-    },
-    {
-     "clue": "Text",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Wort",
-      "de:Sprache",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Satz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Wort",
-      "de:Sprache",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Übersetzung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Sprache",
-      "de:Wort",
-      "de:Meinung"
      ]
     },
     {
@@ -18055,25 +16612,10 @@
      ]
     },
     {
-     "clue": "Bedeutung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Meinung",
-      "de:Wort"
-     ]
-    },
-    {
      "clue": "Zeitpunkt",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Stunde"
-     ]
-    },
-    {
-     "clue": "anrufen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -18394,13 +16936,6 @@
      ]
     },
     {
-     "clue": "sichtbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:meinen"
-     ]
-    },
-    {
      "clue": "greifen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -18419,13 +16954,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Essen"
-     ]
-    },
-    {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:dänisch"
      ]
     },
     {
@@ -18646,15 +17174,6 @@
      ]
     },
     {
-     "clue": "Mikroskop",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:klein",
-      "de:probieren"
-     ]
-    },
-    {
      "clue": "Maus",
      "clueEnglish": "",
      "targetWordIds": [
@@ -18788,47 +17307,12 @@
      ]
     },
     {
-     "clue": "Klang",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Musik",
-      "de:Uhr"
-     ]
-    },
-    {
-     "clue": "Geräusch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Musik",
-      "de:Uhr",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "Geräusch",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Musik",
       "de:Wort",
       "de:sagen"
-     ]
-    },
-    {
-     "clue": "Geräusch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr",
-      "de:Wort",
-      "de:sagen"
-     ]
-    },
-    {
-     "clue": "Geräusch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Musik",
-      "de:Uhr",
-      "de:Wort"
      ]
     },
     {
@@ -18953,15 +17437,6 @@
       "de:fahren",
       "de:Land",
       "de:Auto"
-     ]
-    },
-    {
-     "clue": "Casting",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:Film",
-      "de:Musik"
      ]
     },
     {
@@ -19188,24 +17663,10 @@
      ]
     },
     {
-     "clue": "Mittwoch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Woche"
-     ]
-    },
-    {
      "clue": "aktuellste",
      "clueEnglish": "",
      "targetWordIds": [
       "de:letzte"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -19279,15 +17740,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "überzeugt",
      "clueEnglish": "",
      "targetWordIds": [
@@ -19318,14 +17770,6 @@
      "targetWordIds": [
       "de:sagen",
       "de:reden"
-     ]
-    },
-    {
-     "clue": "mündlich",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:probieren"
      ]
     },
     {
@@ -19649,15 +18093,6 @@
      ]
     },
     {
-     "clue": "Gespräch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:reden",
-      "de:sagen",
-      "de:Sprache"
-     ]
-    },
-    {
      "clue": "äußern",
      "clueEnglish": "",
      "targetWordIds": [
@@ -19799,14 +18234,6 @@
       "de:Grund",
       "de:Welt",
       "de:Platz"
-     ]
-    },
-    {
-     "clue": "durchführen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:probieren",
-      "de:erreichen"
      ]
     },
     {
@@ -19959,29 +18386,11 @@
      ]
     },
     {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "einfach",
      "clueEnglish": "",
      "targetWordIds": [
       "de:schwer",
       "de:möglich"
-     ]
-    },
-    {
-     "clue": "nennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:heißen",
-      "de:sagen",
-      "de:Name"
      ]
     },
     {
@@ -20127,15 +18536,6 @@
      ]
     },
     {
-     "clue": "kurz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang",
-      "de:klein",
-      "de:Reise"
-     ]
-    },
-    {
      "clue": "geteilt",
      "clueEnglish": "",
      "targetWordIds": [
@@ -20165,22 +18565,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:lang",
-      "de:Platz"
-     ]
-    },
-    {
-     "clue": "kurz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:klein",
-      "de:Platz"
-     ]
-    },
-    {
-     "clue": "kurz",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang",
       "de:klein"
      ]
     },
@@ -20200,24 +18584,10 @@
      ]
     },
     {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
-     ]
-    },
-    {
      "clue": "Bett",
      "clueEnglish": "",
      "targetWordIds": [
       "de:liegen"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
      ]
     },
     {
@@ -20320,14 +18690,6 @@
     },
     {
      "clue": "Spiegel",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Bild"
-     ]
-    },
-    {
-     "clue": "Fernseher",
      "clueEnglish": "",
      "targetWordIds": [
       "de:sehen",
@@ -20451,15 +18813,6 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Wanderung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Mal",
-      "de:Reise"
-     ]
-    },
-    {
      "clue": "Gespräch",
      "clueEnglish": "",
      "targetWordIds": [
@@ -20477,24 +18830,6 @@
      ]
     },
     {
-     "clue": "Wanderer",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Mal",
-      "de:Reise"
-     ]
-    },
-    {
-     "clue": "wandern",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Mal",
-      "de:Reise"
-     ]
-    },
-    {
      "clue": "Lohn",
      "clueEnglish": "",
      "targetWordIds": [
@@ -20507,22 +18842,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:gehen",
-      "de:Mal"
-     ]
-    },
-    {
-     "clue": "Wanderung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:Reise"
-     ]
-    },
-    {
-     "clue": "Wanderung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal",
       "de:Reise"
      ]
     },
@@ -20531,13 +18850,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:gehen"
-     ]
-    },
-    {
-     "clue": "Flur",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -20784,14 +19096,6 @@
      ]
     },
     {
-     "clue": "Geld",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Krone",
-      "de:benutzen"
-     ]
-    },
-    {
      "clue": "Festival",
      "clueEnglish": "",
      "targetWordIds": [
@@ -20866,13 +19170,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:verschieden"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -21118,15 +19415,6 @@
      ]
     },
     {
-     "clue": "Unterricht",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Klasse",
-      "de:probieren"
-     ]
-    },
-    {
      "clue": "Mann",
      "clueEnglish": "",
      "targetWordIds": [
@@ -21150,15 +19438,6 @@
       "de:Mal",
       "de:Jahr",
       "de:Monat"
-     ]
-    },
-    {
-     "clue": "Ausbildung",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Schule",
-      "de:Klasse",
-      "de:probieren"
      ]
     },
     {
@@ -21191,13 +19470,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Jahr"
-     ]
-    },
-    {
-     "clue": "Korridor",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Mal"
      ]
     },
     {
@@ -21492,13 +19764,6 @@
      ]
     },
     {
-     "clue": "Dänemark",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:dänisch"
-     ]
-    },
-    {
      "clue": "fürsorglich",
      "clueEnglish": "",
      "targetWordIds": [
@@ -21618,15 +19883,6 @@
      ]
     },
     {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen",
-      "de:sagen"
-     ]
-    },
-    {
      "clue": "erwähnen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -21640,14 +19896,6 @@
      "targetWordIds": [
       "de:heißen",
       "de:sagen"
-     ]
-    },
-    {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen"
      ]
     },
     {
@@ -21960,30 +20208,6 @@
      ]
     },
     {
-     "clue": "verstehen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:wissen",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Wort",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Meinung"
-     ]
-    },
-    {
-     "clue": "Text",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lesen",
-      "de:Meinung"
-     ]
-    },
-    {
      "clue": "Sofa",
      "clueEnglish": "",
      "targetWordIds": [
@@ -22280,15 +20504,6 @@
      ]
     },
     {
-     "clue": "Aufenthalt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Zeit",
-      "de:sitzen",
-      "de:nehmen"
-     ]
-    },
-    {
      "clue": "gehorchen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -22354,13 +20569,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:nehmen"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
      ]
     },
     {
@@ -22458,15 +20666,6 @@
      ]
     },
     {
-     "clue": "Fernseher",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Bild",
-      "de:Film"
-     ]
-    },
-    {
      "clue": "Vorführung",
      "clueEnglish": "",
      "targetWordIds": [
@@ -22493,14 +20692,6 @@
     },
     {
      "clue": "Spiegel",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sehen",
-      "de:Bild"
-     ]
-    },
-    {
-     "clue": "Fernseher",
      "clueEnglish": "",
      "targetWordIds": [
       "de:sehen",
@@ -22643,15 +20834,6 @@
      ]
     },
     {
-     "clue": "Abfahrt",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Bus",
-      "de:Reise",
-      "de:fahren"
-     ]
-    },
-    {
      "clue": "Auto",
      "clueEnglish": "",
      "targetWordIds": [
@@ -22711,13 +20893,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Zuhause"
-     ]
-    },
-    {
-     "clue": "klingeln",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -22957,29 +21132,12 @@
      ]
     },
     {
-     "clue": "beleuchtet",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:bereit",
-      "de:wissen"
-     ]
-    },
-    {
      "clue": "sprechen",
      "clueEnglish": "",
      "targetWordIds": [
       "de:sagen",
       "de:hören",
       "de:dänisch"
-     ]
-    },
-    {
-     "clue": "Geräusch",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:hören",
-      "de:Uhr",
-      "de:sagen"
      ]
     },
     {
@@ -23011,20 +21169,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Stunde"
-     ]
-    },
-    {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
-     ]
-    },
-    {
-     "clue": "läuten",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Uhr"
      ]
     },
     {
@@ -23115,23 +21259,6 @@
      ]
     },
     {
-     "clue": "Gewissheit",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sicher",
-      "de:wissen",
-      "de:Zweifel"
-     ]
-    },
-    {
-     "clue": "benennen",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Name",
-      "de:heißen"
-     ]
-    },
-    {
      "clue": "Kind",
      "clueEnglish": "",
      "targetWordIds": [
@@ -23145,14 +21272,6 @@
      "targetWordIds": [
       "de:klein",
       "de:Vater"
-     ]
-    },
-    {
-     "clue": "Gewissheit",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:sicher",
-      "de:wissen"
      ]
     },
     {
@@ -23270,15 +21389,6 @@
     "de:Katze"
    ],
    "caseyClueGroups": [
-    {
-     "clue": "durchsichtig",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:bereit",
-      "de:sehen",
-      "de:Wasser"
-     ]
-    },
     {
      "clue": "Qualität",
      "clueEnglish": "",
@@ -23510,13 +21620,6 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
      "clue": "Ehefrau",
      "clueEnglish": "",
      "targetWordIds": [
@@ -23686,13 +21789,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:Meinung"
-     ]
-    },
-    {
-     "clue": "sichtbar",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:meinen"
      ]
     },
     {
@@ -23958,14 +22054,6 @@
      ]
     },
     {
-     "clue": "loyal",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:glauben",
-      "de:Freund"
-     ]
-    },
-    {
      "clue": "Vertrauen",
      "clueEnglish": "",
      "targetWordIds": [
@@ -24013,13 +22101,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:liegen"
-     ]
-    },
-    {
-     "clue": "Stillstand",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:stehen"
      ]
     },
     {
@@ -24332,13 +22413,6 @@
      ]
     },
     {
-     "clue": "Länge",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:lang"
-     ]
-    },
-    {
      "clue": "grübeln",
      "clueEnglish": "",
      "targetWordIds": [
@@ -24586,29 +22660,12 @@
    ],
    "caseyClueGroups": [
     {
-     "clue": "Tour",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:nehmen",
-      "de:fahren"
-     ]
-    },
-    {
      "clue": "überlegen",
      "clueEnglish": "",
      "targetWordIds": [
       "de:Gedanke",
       "de:Zweifel",
       "de:meinen"
-     ]
-    },
-    {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz",
-      "de:bekommen"
      ]
     },
     {
@@ -24632,22 +22689,6 @@
      "clueEnglish": "",
      "targetWordIds": [
       "de:gehen",
-      "de:nehmen"
-     ]
-    },
-    {
-     "clue": "Tour",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:gehen",
-      "de:fahren"
-     ]
-    },
-    {
-     "clue": "Tour",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:nehmen",
       "de:fahren"
      ]
     },
@@ -24694,26 +22735,10 @@
      ]
     },
     {
-     "clue": "Erlaubnis",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gesetz"
-     ]
-    },
-    {
      "clue": "erlangen",
      "clueEnglish": "",
      "targetWordIds": [
       "de:bekommen"
-     ]
-    },
-    {
-     "clue": "denken",
-     "clueEnglish": "",
-     "targetWordIds": [
-      "de:Gedanke",
-      "de:Zweifel",
-      "de:meinen"
      ]
     }
    ]
@@ -24877,6 +22902,656 @@
      "targetWordIds": [
       "de:Person",
       "de:Mensch"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank_151",
+   "wordIds": [
+    "de:Krone",
+    "de:Lust",
+    "de:lustig",
+    "de:sicher",
+    "de:Welt",
+    "de:Monat",
+    "de:möglich",
+    "de:groß",
+    "de:Mal",
+    "de:Auto",
+    "de:Weg",
+    "de:Jahr",
+    "de:Land",
+    "de:Reise",
+    "de:Woche",
+    "de:Zeit",
+    "de:kommen",
+    "de:Person"
+   ],
+   "aiGreenIds": [
+    "de:Lust",
+    "de:Mal",
+    "de:Zeit",
+    "de:Auto",
+    "de:Reise",
+    "de:Weg",
+    "de:möglich",
+    "de:sicher"
+   ],
+   "caseyClueGroups": [
+    {
+     "clue": "Transport",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Reise",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "wahrscheinlich",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:möglich",
+      "de:sicher"
+     ]
+    },
+    {
+     "clue": "fahren",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Weg",
+      "de:Reise"
+     ]
+    },
+    {
+     "clue": "Leitplanke",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Weg",
+      "de:Auto",
+      "de:sicher"
+     ]
+    },
+    {
+     "clue": "Bus",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Reise",
+      "de:Auto",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Navi",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Weg",
+      "de:Auto",
+      "de:Reise"
+     ]
+    },
+    {
+     "clue": "Transport",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Reise"
+     ]
+    },
+    {
+     "clue": "Transport",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Transport",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Reise",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Verkehr",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Weg",
+      "de:Auto"
+     ]
+    },
+    {
+     "clue": "fahren",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Fahrt",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto",
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Begierde",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Lust"
+     ]
+    },
+    {
+     "clue": "Uhr",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Zeit"
+     ]
+    },
+    {
+     "clue": "Lieferwagen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Auto"
+     ]
+    },
+    {
+     "clue": "Expedition",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Reise"
+     ]
+    },
+    {
+     "clue": "Straße",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Weg"
+     ]
+    },
+    {
+     "clue": "Potenzial",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:möglich"
+     ]
+    },
+    {
+     "clue": "geborgen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:sicher"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank_152",
+   "wordIds": [
+    "de:sitzen",
+    "de:Welt",
+    "de:Treffen",
+    "de:verschieden",
+    "de:erreichen",
+    "de:Land",
+    "de:Grund",
+    "de:Meinung",
+    "de:Stunde",
+    "de:Bus",
+    "de:Musik",
+    "de:denken",
+    "de:bereit",
+    "de:schwer",
+    "de:Tier",
+    "de:probieren",
+    "de:lang",
+    "de:Leben"
+   ],
+   "aiGreenIds": [
+    "de:Stunde",
+    "de:Bus",
+    "de:lang",
+    "de:probieren",
+    "de:schwer",
+    "de:denken",
+    "de:verschieden",
+    "de:Meinung"
+   ],
+   "caseyClueGroups": [
+    {
+     "clue": "Wartezeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Stunde",
+      "de:Bus",
+      "de:lang"
+     ]
+    },
+    {
+     "clue": "Uneinigkeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:verschieden",
+      "de:Meinung"
+     ]
+    },
+    {
+     "clue": "Reisezeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Stunde",
+      "de:Bus",
+      "de:lang"
+     ]
+    },
+    {
+     "clue": "Herausforderung",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:schwer",
+      "de:probieren"
+     ]
+    },
+    {
+     "clue": "finden",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken",
+      "de:Meinung"
+     ]
+    },
+    {
+     "clue": "Wartezeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Stunde",
+      "de:Bus"
+     ]
+    },
+    {
+     "clue": "Wartezeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Stunde",
+      "de:lang"
+     ]
+    },
+    {
+     "clue": "Wartezeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bus",
+      "de:lang"
+     ]
+    },
+    {
+     "clue": "Fahrplan",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bus",
+      "de:Stunde"
+     ]
+    },
+    {
+     "clue": "Uhrzeit",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Stunde"
+     ]
+    },
+    {
+     "clue": "Transport",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bus"
+     ]
+    },
+    {
+     "clue": "Test",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:probieren"
+     ]
+    },
+    {
+     "clue": "schwierig",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:schwer"
+     ]
+    },
+    {
+     "clue": "grübeln",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken"
+     ]
+    },
+    {
+     "clue": "anders",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:verschieden"
+     ]
+    },
+    {
+     "clue": "Standpunkt",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Meinung"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank_153",
+   "wordIds": [
+    "de:Film",
+    "de:machen",
+    "de:Bild",
+    "de:Meinung",
+    "de:Land",
+    "de:gut",
+    "de:wohnen",
+    "de:sehen",
+    "de:sagen",
+    "de:möglich",
+    "de:Musik",
+    "de:Treffen",
+    "de:Leben",
+    "de:heißen",
+    "de:nehmen",
+    "de:sitzen",
+    "de:Jahr",
+    "de:Mensch"
+   ],
+   "aiGreenIds": [
+    "de:Bild",
+    "de:Film",
+    "de:Musik",
+    "de:Mensch",
+    "de:wohnen",
+    "de:Land",
+    "de:möglich",
+    "de:machen"
+   ],
+   "caseyClueGroups": [
+    {
+     "clue": "Kunst",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild",
+      "de:Film",
+      "de:Musik"
+     ]
+    },
+    {
+     "clue": "Kunst",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild",
+      "de:Film"
+     ]
+    },
+    {
+     "clue": "Kunst",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild",
+      "de:Musik"
+     ]
+    },
+    {
+     "clue": "Szene",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Film",
+      "de:Bild"
+     ]
+    },
+    {
+     "clue": "Kameramann",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild",
+      "de:Film"
+     ]
+    },
+    {
+     "clue": "Plakat",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild",
+      "de:Film"
+     ]
+    },
+    {
+     "clue": "produzieren",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Musik",
+      "de:Film"
+     ]
+    },
+    {
+     "clue": "Passfoto",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Bild"
+     ]
+    },
+    {
+     "clue": "Thriller",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Film"
+     ]
+    },
+    {
+     "clue": "Lied",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Musik"
+     ]
+    },
+    {
+     "clue": "Mädchen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Mensch"
+     ]
+    },
+    {
+     "clue": "Hotel",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:wohnen"
+     ]
+    },
+    {
+     "clue": "Dänemark",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Land"
+     ]
+    },
+    {
+     "clue": "Potenzial",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:möglich"
+     ]
+    },
+    {
+     "clue": "tun",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:machen"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bank_154",
+   "wordIds": [
+    "de:heißen",
+    "de:Beispiel",
+    "de:denken",
+    "de:glauben",
+    "de:sagen",
+    "de:Zweifel",
+    "de:meinen",
+    "de:benutzen",
+    "de:lesen",
+    "de:Name",
+    "de:reden",
+    "de:Mal",
+    "de:erreichen",
+    "de:Seite",
+    "de:wissen",
+    "de:Schule",
+    "de:verschieden",
+    "de:Geschichte"
+   ],
+   "aiGreenIds": [
+    "de:Seite",
+    "de:lesen",
+    "de:Schule",
+    "de:denken",
+    "de:Zweifel",
+    "de:meinen",
+    "de:verschieden",
+    "de:Mal"
+   ],
+   "caseyClueGroups": [
+    {
+     "clue": "Heft",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Seite",
+      "de:lesen",
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "Notizbuch",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Seite",
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "Heft",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Seite",
+      "de:lesen"
+     ]
+    },
+    {
+     "clue": "Heft",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Seite",
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "Heft",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:lesen",
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "Hausaufgabe",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:lesen",
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "überlegen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken",
+      "de:Zweifel",
+      "de:meinen"
+     ]
+    },
+    {
+     "clue": "überlegen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken",
+      "de:Zweifel"
+     ]
+    },
+    {
+     "clue": "überlegen",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken",
+      "de:meinen"
+     ]
+    },
+    {
+     "clue": "andere",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:verschieden",
+      "de:Mal"
+     ]
+    },
+    {
+     "clue": "Notizbuch",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Seite"
+     ]
+    },
+    {
+     "clue": "Hausaufgabe",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:lesen"
+     ]
+    },
+    {
+     "clue": "Pause",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Schule"
+     ]
+    },
+    {
+     "clue": "grübeln",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:denken"
+     ]
+    },
+    {
+     "clue": "Skepsis",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:Zweifel"
+     ]
+    },
+    {
+     "clue": "andere",
+     "clueEnglish": "",
+     "targetWordIds": [
+      "de:verschieden"
      ]
     }
    ]

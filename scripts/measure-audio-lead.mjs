@@ -38,7 +38,7 @@ import { chromium } from 'playwright'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const lang = process.argv.includes('--lang') ? process.argv[process.argv.indexOf('--lang') + 1] : 'da'
-const BAKES = ['', 'slow', 'example', 'survival', 'task', 'article', 'phrase', 'phrase/slow']
+const BAKES = ['', 'slow', 'example', 'survival', 'task', 'article', 'phrase', 'phrase/slow', 'connecting']
 /**
  * Bakes whose clips are not one flat directory of `<slug>.mp3`. The City 1
  * sentence bake is `city1/<kind>/<slug>/v<n>/<variant>.mp3`, four levels

@@ -12,13 +12,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'tysk' : 'dansk',
       countryName: german ? 'Tyskland' : 'Danmark',
-      welcome: 'Visste du at 900 ord kan dekke over 80 % av det vi sier til daglig, på de fleste språk? (Trykk for å fortsette.)',
-      map: (destination) => german
-        ? `Dette er kartet vårt. Vi reiser gjennom Tyskland og samler hundre ord i hver by. ${destination} er målet vårt.`
-        : `Dette er kartet vårt. Vi reiser gjennom Danmark og samler hundre ord i hver by. ${destination} er målet vårt.`,
-      guide: german
-        ? 'Åpne Reiseguiden for grammatikk og praktiske tips i tysk. Du kan lese videre når du vil.'
-        : 'Åpne Reiseguiden for grammatikk og praktisk dansk. Du kan også lese videre når du vil.',
+      welcome: 'Visste du at 900 ord kan dekke over 80 % av det vi sier til daglig, på de fleste språk?',
       clueField: german
         ? 'Når det er din tur, skriver du ett tysk ord her som knytter sammen to eller tre av de grønne ordene dine.'
         : 'Når det er din tur, skriver du ett dansk ord her som knytter sammen to eller tre av de grønne ordene dine.',
@@ -53,32 +47,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} ord · ${cities} byer`,
   ticketHintMany: 'Trykk på en billett for å velge.',
   ticketHintOne: 'Trykk på billetten din, så drar vi.',
+  ticketComingSoon: 'Kommer snart',
 
-  // ── Caseys Hjem-introduksjon, steg for steg ─────────────────────────────
-  introWelcome:
-    'Visste du at 900 ord kan dekke over 80 % av det vi sier til daglig, på de fleste språk? (Trykk for å fortsette.)',
-  introMap:
-    'Dette er kartet vårt. Vi reiser gjennom Danmark og samler hundre ord i hver by. København er endestasjonen.',
-  introGuide:
-    'Trenger du grammatikk eller praktisk dansk, åpner du Reiseguiden. Du kan også bla framover når du vil.',
-  introPlay: 'Det er alt du trenger for nå. Trykk på Spill, så samler vi de første ordene våre.',
-  introBubbleAria: (line) => `${line} Fortsett.`,
-  introCaseyOpen: 'Åpne Casey og se ordene vi har samlet',
-  introCaseyContinue: 'Fortsett med Casey',
-  introPlayFirst: 'Spill ditt første spill',
-  introTapCasey: 'Trykk på Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Gloseøving er kjedelig, så vi spiller to spill i stedet: en byvandring for å samle ord, og et ordspill på en kafé.',
+  introExplore: (city) => `La oss utforske ${city} og se om vi finner en kafé.`,
+  introGo: 'Kom igjen',
+  walkEndFound: 'Gå igjen, eller dra hjem og spill kafeen vi fant.',
+  walkEndNotFound: 'Gå igjen for å lete etter en kafé, eller dra hjem.',
 
   // ── Veiviserne på de ekte skjermene ─────────────────────────────────────
   tourNext: 'Neste',
   tourDone: 'Da drar vi',
-  tourLoose:
-    'Ordsamlingen din blir her. Trykk på et ord når du vil se eller høre det igjen.',
-  tourLid:
-    'Dette er Caseys brettsamling. Et brettnummer og et skrevet nivå viser brettets beste forsøk.',
-  tourTray:
-    'Åpne et ferdig brett for å spille det igjen. En reprise kan forbedre beste nivå uten å tilbakestille neste obligatoriske brett.',
-  tourWrapUp:
-    'Her er ditt neste obligatoriske brett. Fullfør brett for å få nivåer. Oversettelser og hjulet kan løfte et løst brett til Platina.',
+  tourLoose: 'Ord vi har møtt, venter her oppe. Hver ring fylles en tredel for hvert merke: et bilde på en tur, en gjetning på hintet mitt og et hint fra deg.',
+  tourLid: 'Med tre merker er ordet samlet. Samlede ord havner i kofferten, og denne linjen teller dem.',
+  tourTray: 'Dette er byens stempelkort. Hver kafé du spiller, får stempelet sitt her. En stiplet sirkel er en kafé som er funnet, men ikke spilt ennå, og ? er en kafé som gjenstår å finne.',
   mapTourHere: (city, words) =>
     `Dette er ${city}, der vi er nå. Hver by har ${words} ord å ta med hjem.`,
   mapTourNext: (next, _words, city) =>
@@ -108,25 +91,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Hvert riktige svar gir hjulet et grønt felt. Du kan snurre når som helst, men lander du på et tomt felt, taper du runden. Er hjulet fullt, vinner hvert snurr.',
   wheelReadyTour:
     'Hjulet er helt grønt nå, så dette snurret vinner. Trykk på hjulet for å snurre.',
-  resultTourPostcards: (amount: string) =>
-    `Dette brettet la ${amount} til byen din. Hvert resultat viser akkurat her hva det tjente.`,
   resultTourRewardNew: (rewards: string) => `Nytt denne gangen: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Allerede tjent før, så det telles ikke igjen: ${rewards}.`,
-  resultTourNoRewards: 'Dette brettet ga ingen postkort denne gangen. Det kan skje, og du mister ingenting.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Dette resultatet er ${tier}. Beste resultat på dette brettet så langt: ${best}.`,
+    `Denne gåten ga ${tier}. Kafeens beste stempel så langt er ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Denne runden ble tapt. Bronse viser her bare at du spilte, og er ikke en rekord. Beste resultat på dette brettet så langt: ${best}.`,
+    `Denne gåten ble tapt. En tapt gåte gir likevel et bronsestempel. En vunnet gåte gir sølv, gull eller platina. Det beste for denne kafeen så langt er ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Hvert kafestempel teller for medaljen til ${city}: bronse fra 25 %, sølv fra 50 %, gull fra 75 % og platina ved 100 %.`,
   resultTourNoBestYet: 'ikke satt ennå',
   resultTourSentence:
     'Dette er en valgfri gjennomgang. Den viser et ord fra dette brettet i en setning. Det er ingen ny test.',
   resultTourNoReview:
     'Det er ingen setning å gå gjennom denne gangen. Det er helt greit. Gjennomgangen er alltid valgfri.',
-  homeTourPostcards:
-    'Dette er postkorttotalen din for denne byen. Hvert postkort et brett tjener, legges til her.',
-  homeTourCollection:
-    'Trykk på meg for å åpne kofferten. Jeg viser deg ordene vi har samlet, og brettene dine.',
+  homeTourSightseeing: 'Byvandring er turen vi nettopp gikk. Hver tur samler ord, og jo mer du går, jo flere kafeer finner du.',
+  homeTourCafe: (name) =>
+    name ? `Vår første kafé er ${name}. Trykk på Kafégåte for å sette deg og spille.` : 'Vår første kafé venter. Trykk på Kafégåte for å sette deg og spille.',
+  homeTourStamp: 'Hver kafé du spiller, får et stempel. Sammen blir de byens medalje, og her ser du hvor langt du har kommet.',
+  homeTourCollection: 'Trykk på meg for å åpne kofferten. Jeg viser deg ordene vi har samlet og kafeens stempel.',
 
   // ── Øvingsrunden: Caseys ferdigskrevne begrunnelser ─────────────────────
   practiceRationaleDrink: 'Vann, kaffe og melk er alle ting man drikker.',
@@ -148,7 +131,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» er ikke grønt på min nøkkel, så det avslutter hintet mitt. Dine grønne kommer fram når det er din tur. Dette hintet brukte min nøkkel.`,
   firstClue: (clue) =>
-    `Hei, hvilke ord på brettet kan du knytte til «${clue}»? Du kan trykke på ⓘ ved ordene for å se oversettelsene. Når du er klar, trykker du på et ord og bekrefter det.`,
+    `Velkommen til kafeen! Dette første bordet er en kort øvelse. Hvilke ord på brettet kan du knytte til «${clue}»? Trykk på ⓘ på et ord for å se oversettelsen, trykk så på et ord og bekreft det.`,
   clueFor: (clue, number) =>
     `Hintet mitt er «${clue}» for ${number}. Trykk på et ord det får deg til å tenke på.`,
   lastGreenLeft:
@@ -159,7 +142,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `Hintet ditt er «${clue}» for ${number}. De ${tokens} prikkene øverst er de felles brikkene våre for runden. Hvert hint, ditt eller mitt, bruker én. Jeg tenker høyt nedenfor.`,
   yourClue: (clue, number) =>
     `Hintet ditt er «${clue}» for ${number}. Gjetningene mine bruker din nøkkel nå. Jeg tenker høyt nedenfor.`,
-  practiceWon: 'Alle grønne er funnet. Vi vant! Fulle brett blir ikke like lette, men hvert ord vi møter, teller fortsatt.',
+  practiceWon: 'Alle grønne funnet. Vi vant! Kafégåtene blir ikke så lette, men hvert ord vi møter teller.',
   practiceLost: 'Den runden glapp for oss, men hvert ord vi møtte, teller fortsatt.',
   findingAClue: 'Min tur. Jeg leter etter et hint.',
   practiceTranslation:
@@ -167,7 +150,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'Hjulet er fullt. Spinn for å lande på grønt. På vanlige brett er det slik resultatet ditt kan nå Platina.',
   practiceFinish:
-    'Øvelsen er ferdig. Denne runden gir ikke postkort eller bynivå. På vanlige brett gir løsning, oversettelse og spinn et nivå. Spill et ferdig brett igjen for å forbedre det beste.',
+    'Øvelsen er ferdig. Dette bordet gir ikke noe stempel. I en kafégåte gir løsning, oversettelse og hjulet kafeen stempelet sitt. Du kan spille en kafé på nytt for å forbedre stempelet.',
   demoEndTitle: "Det var ditt første hele brett.",
   demoEndLine: "I appen fortsetter jeg å spille med deg, brett etter brett, og jeg tar vare på hvert ord du samler.",
   demoAppStore: "Last ned 900words fra App Store",
@@ -176,6 +159,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey hviler",
   demoRestingBody: "Mange har spilt med meg i dag, så jeg trenger en pause. Kom tilbake i morgen, eller spill med meg i appen.",
   demoCheckFailed: "Vi kunne ikke sjekke at du er et menneske. Last inn siden på nytt og prøv igjen.",
-  playFullRound: 'Spill ditt første hele brett',
+  playFullRound: 'Spill kafégåten',
   returnToParkedGame: 'Gå tilbake til spillet ditt',
 }

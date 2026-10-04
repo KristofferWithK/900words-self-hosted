@@ -10,6 +10,7 @@ import { useUi } from '../../stores/uiStore'
 import { canPlayWords, playCity1Sentence, preloadCity1Sentences, playExample, playWord, preloadExampleAudio, preloadWordAudio, type PlaybackSource } from '../speak'
 import { markDanish, markEnglish, type Segment } from '../exampleHighlight'
 import { ReplayIcon, SlowIcon } from './AudioIcons'
+import { Tag } from './Tag'
 import { useDialog } from '../useDialog'
 import { UI } from '../../i18n'
 import { ACTIVE } from '../../lang/active'
@@ -140,9 +141,7 @@ export function DictionarySheet() {
             {board && !recordingUrl(board, CITY1_CATALOG.recordings) && !recordingUrl(board, CITY1_CATALOG.recordings, 'slow') ? <span className="sheet-example-source" role="status">{UI.game.recordingsUnavailableNote}</span> : playback === 'failed' && <span className="sheet-example-source">{UI.game.recordingFailedNote}</span>}
           </p>
         </blockquote>
-        <button className="btn" onClick={closeSheet}>
-          {UI.game.close}
-        </button>
+        <Tag size="wide" className="sheet-close" label={UI.game.close} onClick={closeSheet} />
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 /**
- * The first-run flow: the language act, the ticket, Casey's staged Home, the
+ * The first-run flow: the language act, the ticket, Casey before the walk, the
  * practice round and the suitcase tour. Phase 1c fills the rest of this file;
  * the language act's own strings are Phase 1a's, because the act is what 1a
  * builds.
@@ -10,13 +10,7 @@ export const onboarding = {
     return {
       languageName: german ? 'German' : 'Danish',
       countryName: german ? 'Germany' : 'Denmark',
-      welcome: 'Did you know that 900 words can cover over 80% of daily speech in most languages? (Tap to continue.)',
-      map: (destination: string) => german
-        ? `This is our map. We’ll travel through Germany, collecting one hundred words in each city. ${destination} is our final destination.`
-        : `This is our map. We’ll travel through Denmark, collecting one hundred words in each city. ${destination} is our final destination.`,
-      guide: german
-        ? 'For grammar or practical German, open the Travel Guide. You can read ahead whenever you like.'
-        : 'If you ever want grammar or practical Danish, open the Travel Guide. You can also read ahead whenever you like.',
+      welcome: 'Did you know that 900 words can cover over 80% of daily speech in most languages?',
       clueField: german
         ? 'When it is your turn, type one German word here that connects two or three of your green words.'
         : 'When it is your turn, type one Danish word here that connects two or three of your green words.',
@@ -53,33 +47,23 @@ export const onboarding = {
   ticketMeta: (words: number, cities: number) => `${words} words · ${cities} cities`,
   ticketHintMany: 'Tap a ticket to choose.',
   ticketHintOne: 'Tap your ticket and we’re off.',
+  /** Over a course that is not playable yet: France, the UK (src/lang/upcoming.ts). */
+  ticketComingSoon: 'Coming soon',
 
-  // ── Casey's staged Home introduction ────────────────────────────────────
-  introWelcome: 'Did you know that 900 words can cover over 80% of daily speech in most languages? (Tap to continue.)',
-  introMap:
-    'This is our map. We’ll travel through Denmark, collecting one hundred words in each city. Copenhagen is our final destination.',
-  introGuide:
-    'If you ever want grammar or practical Danish, open the Travel Guide. You can also read ahead whenever you like.',
-  introPlay: 'That’s everything you need for now. Tap Play and let’s collect our first words.',
-  /** The bubble is a button: its line, then what tapping it does. */
-  introBubbleAria: (line: string) => `${line} Continue.`,
-  introCaseyOpen: 'Open Casey and see the words we collected',
-  introCaseyContinue: 'Continue with Casey',
-  introPlayFirst: 'Play your first game',
-  introTapCasey: 'Tap Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Flashcards are boring, so we play two games instead: a sightseeing walk to collect words, and a word puzzle in a café.',
+  introExplore: (city: string) => `Let’s explore ${city} and see if we can find a café.`,
+  introGo: 'Let’s go',
+  walkEndFound: 'Walk again, or go home and play the café we found.',
+  walkEndNotFound: 'Walk again to look for a café, or go home.',
 
   // ── The coach marks, on the live screens ────────────────────────────────
   tourNext: 'Next',
   /** The last coach mark's button, where Next would otherwise stand. */
   tourDone: 'On we go',
-  tourLoose:
-    'Your word collection stays here. Tap a word whenever you want to see or hear it again.',
-  tourLid:
-    'This is Casey’s board collection. A board number and named tier show that board’s best attempt.',
-  tourTray:
-    'Open any completed board to replay it. A replay can improve its best tier without resetting your next required board.',
-  tourWrapUp:
-    'This marks your next required board. Finish boards to earn their tiers. Translations and the wheel can lift a solved board to Platinum.',
+  tourLoose: 'Words we have met wait up here. Each ring fills a third for every mark: a photo on a walk, a guess from my clue, and a clue of your own.',
+  tourLid: 'Three marks and a word is collected. Collected words go into the case, and this line counts them.',
+  tourTray: 'This is the city’s stamp card. Every café you play gets its stamp here. A dashed circle is a café found but not played yet, and a ? is a café still to find.',
   // Retained as historical tour entry points. The current first-run flow no
   // longer mounts them, but they must never revive the retired wrap-up rules.
   mapTourHere: (city: string, _words: number) =>
@@ -122,19 +106,21 @@ export const onboarding = {
     'The wheel is all green now, so this spin wins. Tap the wheel to spin.',
 
   // ── The first full board's result, read from its saved receipt ──────────
-  /** The receipt's own postcard line, e.g. "2 new postcards". */
-  resultTourPostcards: (amount: string) =>
-    `This board added ${amount} to your city. Every result shows what it earned right here.`,
   /** Rewards this board earned for the first time. */
   resultTourRewardNew: (rewards: string) => `New this time: ${rewards}.`,
   /** Rewards the board had already earned, which are not paid twice. */
   resultTourRewardHeld: (rewards: string) =>
     `Already earned before, so not counted again: ${rewards}.`,
-  resultTourNoRewards: 'This board earned no postcards this time. That can happen, and nothing is taken away.',
   resultTourWinTier: (tier: string, best: string) =>
-    `This result is ${tier}. The best for this board so far is ${best}.`,
+    `This puzzle earned ${tier}. The café’s best stamp so far is ${best}.`,
+  /**
+   * A completed loss earns a Bronze stamp (owner, 2026-10-04). `best` is the
+   * café's stamp after the round: its won best, or Bronze (`cafeStamp`).
+   */
   resultTourLossTier: (best: string) =>
-    `This round was lost. Bronze here only marks that you played, and it is not a best. The best for this board so far is ${best}.`,
+    `This puzzle was lost. A lost puzzle still earns a Bronze stamp. A won one earns Silver, Gold or Platinum. This café’s best so far is ${best}.`,
+  resultTourCityPercent: (city: string) =>
+    `Every café stamp adds to ${city}’s medal: Bronze at 25%, Silver at 50%, Gold at 75% and Platinum at 100%.`,
   resultTourNoBestYet: 'not set yet',
   resultTourSentence:
     'This is an optional review. It shows a word from this board in a sentence. It is not another test.',
@@ -142,10 +128,11 @@ export const onboarding = {
     'There is no sentence to review this time. That is fine. Review is always optional.',
 
   // ── Back on Home after the first full board ──────────────────────────────
-  homeTourPostcards:
-    'This is your postcard total for this city. Every postcard a board earns is added here.',
-  homeTourCollection:
-    'Tap me to open the suitcase. I will show you the words we collected and your boards.',
+  homeTourSightseeing: 'Sightseeing is the walk we just took. Every walk collects words, and walking more finds more cafés.',
+  homeTourCafe: (name: string | null) =>
+    name ? `Our first café is ${name}. Tap Café puzzle to sit down and play it.` : 'Our first café is waiting. Tap Café puzzle to sit down and play it.',
+  homeTourStamp: 'Every café you play gets a stamp. Together they make this city’s medal, and this shows how far you are.',
+  homeTourCollection: 'Tap me to open the suitcase. I will show you the words we collected and the café’s stamp.',
 
   // ── The practice round: Casey's authored rationales ─────────────────────
   practiceRationaleDrink: 'Water, coffee and milk are all things you drink.',
@@ -168,7 +155,7 @@ export const onboarding = {
   guessMissMine: (word: string) =>
     `«${word}» is not green on my key, so that ends my clue. Your greens will appear when it is your turn. This clue used my key.`,
   firstClue: (clue: string) =>
-    `Hey, what words on this board can you connect with «${clue}»? You can tap the ⓘ on words to see their translations. When you’re ready, tap a word and confirm it.`,
+    `Welcome to the café! This first table is a short practice. What words on this board can you connect with «${clue}»? Tap the ⓘ on a word to see its translation, then tap a word and confirm it.`,
   clueFor: (clue: string, number: number) =>
     `My clue is «${clue}» for ${number}. Tap any word it makes you think of.`,
   lastGreenLeft:
@@ -179,7 +166,7 @@ export const onboarding = {
     `Your clue is «${clue}» for ${number}. The ${tokens} dots at the top are our shared round tokens. Every clue, yours or mine, uses one. I’ll think out loud below.`,
   yourClue: (clue: string, number: number) =>
     `Your clue is «${clue}» for ${number}. My guesses use your key now. I’ll think out loud below.`,
-  practiceWon: 'Every green found. We won! Full boards won’t be this easy, but every word we meet still counts.',
+  practiceWon: 'Every green found. We won! The café puzzles won’t be this easy, but every word we meet still counts.',
   practiceLost: 'That round got away from us, but every word we met still counts.',
   findingAClue: 'My turn. I’m finding a clue.',
   practiceTranslation:
@@ -187,7 +174,7 @@ export const onboarding = {
   practiceWheelReady:
     'The wheel is full. Spin it to land green. On normal boards, this is how your result can reach Platinum.',
   practiceFinish:
-    'Practice complete. This round does not earn postcards or a city tier. On normal boards, solving plus translation and the spin earns a tier. Replay a completed board to improve its best.',
+    'Practice complete. This table earns no stamp. In a café puzzle, solving, translating and the spin earn the café its stamp. You can replay a café to improve its stamp.',
   // ── The website demo (900words.app/play/): its end card and resting state ──
   demoEndTitle: "That was your first full board.",
   demoEndLine: "In the app, I keep playing with you, board after board, and I keep every word you collect.",
@@ -197,6 +184,6 @@ export const onboarding = {
   demoRestingTitle: "Casey is resting",
   demoRestingBody: "Lots of people played with me today, so I need a rest. Come back tomorrow, or play with me in the app.",
   demoCheckFailed: "We could not check that you are a person. Please reload the page and try again.",
-  playFullRound: 'Play your first full board',
+  playFullRound: 'Play the café puzzle',
   returnToParkedGame: 'Return to your game',
 }

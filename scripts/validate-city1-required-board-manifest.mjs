@@ -6,7 +6,10 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const MANIFEST_PATH = 'src/data/city1-required-board-manifest.da.json'
+// The C1-03 set (v1), superseded on 2026-09-27 by the balanced v2 set and kept
+// byte-for-byte as history. This validator is its record and checks it against
+// its own C1-02 evidence; v2 is checked by scripts/select-city1-board-set-v2.mjs.
+const MANIFEST_PATH = 'src/data/city1-required-board-manifest.da.v1.json'
 const EXPECTED_COUNT = 100
 const EXPECTED_ARCHIVE_COUNT = 150
 const EXPECTED_APPROVAL_SHA = '497382e8a3f73fd9def667fbe790d126400782b0'

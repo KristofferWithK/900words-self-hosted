@@ -1,19 +1,24 @@
 {
   "name": "cluecab-keyboard",
   "version": "8.0.5-cluecab.1",
-  "description": "Vendored fork of @capacitor/keyboard 8.0.5: the keyboardWillShow payload carries the animation's durationMs and curve, so the composer can ride the keyboard on its real timing. The resize schedule is untouched — see ios/Sources/KeyboardPlugin/Keyboard.m for the whole diff and why the +0.2s delay must stay.",
+  "description": "Vendored fork of @capacitor/keyboard 8.0.5: the keyboardWillShow payload carries the animation's durationMs and curve, so the composer can ride the keyboard on its real timing. The resize schedule is untouched — see ios/Sources/KeyboardPlugin/Keyboard.m for the whole diff and why the +0.2s delay must stay. The android/ half is new, not upstream's: it keeps the same 'body' contract (willShow with height and durationMs before anything moves, the WebView never resized, document.body shrunk after the animation) so src/ui/nativeKeyboard.ts runs unchanged on Android.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
     "ios/",
+    "android/src/",
+    "android/build.gradle",
     "Package.swift",
     "LICENSE"
   ],
   "capacitor": {
     "ios": {
       "src": "ios"
+    },
+    "android": {
+      "src": "android"
     }
   },
   "peerDependencies": {

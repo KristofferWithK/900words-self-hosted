@@ -4,6 +4,7 @@ import { Capacitor } from '@capacitor/core'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 import { UI } from '../../i18n'
 import { useGame } from '../../stores/gameStore'
+import { Tag } from './Tag'
 
 
 /** How often an installed app looks for a new version. */
@@ -74,18 +75,15 @@ function WebUpdateBanner({ suppressOfflineReady = false }: { readonly suppressOf
       <div className="update-banner" role="status">
         <span>{UI.system.updateReady}</span>
         <div className="update-actions">
-          <button className="btn btn-small btn-primary" onClick={() => void updateServiceWorker(true)}>
-            {UI.system.updateReload}
-          </button>
-          <button
-            className="btn btn-small"
+          <Tag tone="primary" className="update-reload" label={UI.system.updateReload} onClick={() => void updateServiceWorker(true)} />
+          <Tag
+            className="update-later"
+            label={UI.system.updateLater}
             onClick={() => {
               setDismissed(true)
               setNeedRefresh(false)
             }}
-          >
-            {UI.system.updateLater}
-          </button>
+          />
         </div>
       </div>
     )

@@ -143,6 +143,28 @@ export function resolveEndpoint(baseUrl: string): URL {
   return base
 }
 
+/** How long a reachability check waits before calling Casey unreachable. */
+const REACHABLE_TIMEOUT_MS = 8_000
+
+/**
+ * Whether Casey's server answers at all: one bare OPTIONS request to the
+ * decision route, which the Worker answers before any route, model call, quota
+ * or counter (proxy/worker.js). Carries no install id and no game. An offline
+ * round asks it to notice the internet coming back (src/ui/caseyBackOnline.ts).
+ */
+export async function caseyReachable(baseUrl: string): Promise<boolean> {
+  try {
+    const response = await fetch(resolveEndpoint(baseUrl), {
+      method: 'OPTIONS',
+      cache: 'no-store',
+      signal: AbortSignal.timeout(REACHABLE_TIMEOUT_MS),
+    })
+    return response.ok
+  } catch {
+    return false
+  }
+}
+
 export type CaseyRequest =
   | { protocol: 1; operation: 'clue'; view: AiClueView }
   | {

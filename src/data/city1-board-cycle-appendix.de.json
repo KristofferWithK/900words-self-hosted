@@ -1,0 +1,192 @@
+{
+ "schemaVersion": 1,
+ "sourceSha256": "00fbbe7ba545c0632c70464036ca6ad49dcd9c82b468aeed98e6cabc04beefef",
+ "danishAppendixSha256": "de70467ca2c9d109a8b89a24de03313d3cf57a530a49da986de7031d9bd5cd84",
+ "note": "The boards appended after the German 150-board archive, bank_151 onward: src/data/city1-board-cycle-appendix.da.json read through the Danish-to-German card map of the two shipped archives, cell for cell, with seedHex, firstGiver and greenOverlap carried over. Written by scripts/german-city1-course.mjs.",
+ "boards": [
+  {
+   "id": "bank_151",
+   "seedHex": "00007538",
+   "firstGiver": "player",
+   "greenOverlap": 3,
+   "wordIds": [
+    "de:Krone",
+    "de:Lust",
+    "de:lustig",
+    "de:sicher",
+    "de:Welt",
+    "de:Monat",
+    "de:möglich",
+    "de:groß",
+    "de:Mal",
+    "de:Auto",
+    "de:Weg",
+    "de:Jahr",
+    "de:Land",
+    "de:Reise",
+    "de:Woche",
+    "de:Zeit",
+    "de:kommen",
+    "de:Person"
+   ],
+   "playerGreenIds": [
+    "de:Monat",
+    "de:Zeit",
+    "de:Lust",
+    "de:Mal",
+    "de:Woche",
+    "de:Jahr",
+    "de:Krone",
+    "de:Person"
+   ],
+   "aiGreenIds": [
+    "de:Lust",
+    "de:Mal",
+    "de:Zeit",
+    "de:Auto",
+    "de:Reise",
+    "de:Weg",
+    "de:möglich",
+    "de:sicher"
+   ]
+  },
+  {
+   "id": "bank_152",
+   "seedHex": "00007537",
+   "firstGiver": "ai",
+   "greenOverlap": 1,
+   "wordIds": [
+    "de:sitzen",
+    "de:Welt",
+    "de:Treffen",
+    "de:verschieden",
+    "de:erreichen",
+    "de:Land",
+    "de:Grund",
+    "de:Meinung",
+    "de:Stunde",
+    "de:Bus",
+    "de:Musik",
+    "de:denken",
+    "de:bereit",
+    "de:schwer",
+    "de:Tier",
+    "de:probieren",
+    "de:lang",
+    "de:Leben"
+   ],
+   "playerGreenIds": [
+    "de:Grund",
+    "de:Land",
+    "de:Welt",
+    "de:Leben",
+    "de:Tier",
+    "de:Musik",
+    "de:erreichen",
+    "de:lang"
+   ],
+   "aiGreenIds": [
+    "de:Stunde",
+    "de:Bus",
+    "de:lang",
+    "de:probieren",
+    "de:schwer",
+    "de:denken",
+    "de:verschieden",
+    "de:Meinung"
+   ]
+  },
+  {
+   "id": "bank_153",
+   "seedHex": "00002730",
+   "firstGiver": "player",
+   "greenOverlap": 2,
+   "wordIds": [
+    "de:Film",
+    "de:machen",
+    "de:Bild",
+    "de:Meinung",
+    "de:Land",
+    "de:gut",
+    "de:wohnen",
+    "de:sehen",
+    "de:sagen",
+    "de:möglich",
+    "de:Musik",
+    "de:Treffen",
+    "de:Leben",
+    "de:heißen",
+    "de:nehmen",
+    "de:sitzen",
+    "de:Jahr",
+    "de:Mensch"
+   ],
+   "playerGreenIds": [
+    "de:Bild",
+    "de:Treffen",
+    "de:sehen",
+    "de:wohnen",
+    "de:sitzen",
+    "de:nehmen",
+    "de:heißen",
+    "de:sagen"
+   ],
+   "aiGreenIds": [
+    "de:Bild",
+    "de:Film",
+    "de:Musik",
+    "de:Mensch",
+    "de:wohnen",
+    "de:Land",
+    "de:möglich",
+    "de:machen"
+   ]
+  },
+  {
+   "id": "bank_154",
+   "seedHex": "00004e34",
+   "firstGiver": "ai",
+   "greenOverlap": 3,
+   "wordIds": [
+    "de:heißen",
+    "de:Beispiel",
+    "de:denken",
+    "de:glauben",
+    "de:sagen",
+    "de:Zweifel",
+    "de:meinen",
+    "de:benutzen",
+    "de:lesen",
+    "de:Name",
+    "de:reden",
+    "de:Mal",
+    "de:erreichen",
+    "de:Seite",
+    "de:wissen",
+    "de:Schule",
+    "de:verschieden",
+    "de:Geschichte"
+   ],
+   "playerGreenIds": [
+    "de:heißen",
+    "de:sagen",
+    "de:Name",
+    "de:Seite",
+    "de:lesen",
+    "de:Geschichte",
+    "de:wissen",
+    "de:Schule"
+   ],
+   "aiGreenIds": [
+    "de:Seite",
+    "de:lesen",
+    "de:Schule",
+    "de:denken",
+    "de:Zweifel",
+    "de:meinen",
+    "de:verschieden",
+    "de:Mal"
+   ]
+  }
+ ]
+}

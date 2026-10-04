@@ -99,6 +99,18 @@ describe('City 1 lesson milestones', () => {
     expect(second.survival.after).toEqual(first.survival.after)
   })
 
+  it('reads a milestone counted against the balanced v2 set exactly like a v1 one, and refuses an unknown set', () => {
+    const v2: RequiredBoardSet = { ...set, setVersion: 'city1-required-boards-v2' }
+    const v2Receipt = { acceptedAt: NOW, evidence: { board }, newMilestoneIds: [milestoneKey(v2, 30)] } as unknown as CompletionReceipt
+    const fromV1 = planRuntimeLessons({ receipt: receipt(30), curriculum: null, survival: null })
+    const fromV2 = planRuntimeLessons({ receipt: v2Receipt, curriculum: null, survival: null })
+    expect(fromV2).toEqual(fromV1)
+    const unknown = { ...v2Receipt, newMilestoneIds: [milestoneKey({ ...set, setVersion: 'city1-required-boards-v9' }, 30)] } as CompletionReceipt
+    expect(() => planRuntimeLessons({ receipt: unknown, curriculum: null, survival: null })).toThrow('valid City 1 milestone')
+    expect(() => reconcileLessonMilestones({ requiredSet: v2, completedMilestoneIds: [milestoneKey(set, 10), milestoneKey(v2, 20)],
+      consumedMilestoneIds: {}, curriculum: null, survival: null, acceptedAt: NOW })).not.toThrow()
+  })
+
   it('pins a receipt to its reviewed milestone entry instead of the next locked entry', () => {
     const plan = planRuntimeLessons({ receipt: receipt(100), curriculum: null, survival: null })
     expect(plan.curriculum.after.itemStates).toEqual({ 'sonderborg-exit': 'offered' })

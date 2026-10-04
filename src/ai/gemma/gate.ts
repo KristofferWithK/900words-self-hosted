@@ -19,7 +19,7 @@ export const playsOnDevice = (mode: CaseyMode): boolean => mode === 'gemma4-e4b'
 
 export const requestGemmaDecision: DecisionFn = async (settings, request) => {
   if (!(__ON_DEVICE_CASEY__ || __WEB_GEMMA__)) {
-    throw new AiError('server', 'On-device Gemma is available only in the 900words iPhone app.')
+    throw new AiError('server', 'On-device Gemma is available only in the 900words iPhone and Android apps.')
   }
   const local = await import('./decision')
   return local.requestGemmaDecision(settings, request)
@@ -27,7 +27,7 @@ export const requestGemmaDecision: DecisionFn = async (settings, request) => {
 
 export async function testGemmaConnection(): Promise<void> {
   if (!(__ON_DEVICE_CASEY__ || __WEB_GEMMA__)) {
-    throw new AiError('server', 'On-device Gemma is available only in the 900words iPhone app.')
+    throw new AiError('server', 'On-device Gemma is available only in the 900words iPhone and Android apps.')
   }
   const local = await import('./decision')
   return local.testGemmaConnection()

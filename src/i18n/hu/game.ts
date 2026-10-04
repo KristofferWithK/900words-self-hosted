@@ -48,6 +48,7 @@ export const game: Catalogue['game'] = {
 
   cardYourTarget: ', a te célod',
   cardFound: ', megtalálva',
+  cardMissedKey: ', Casey egyik szava, nem találtad meg',
   cardNeutralBoth: ', mindkét oldalon semleges',
   cardNeutralPlayer: ', a te nyomaid alatt semleges',
   cardNeutralCasey: ', Casey nyomai alatt semleges',
@@ -103,7 +104,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Pörgesd meg a kereket',
   wheelSpinning: 'Pörög …',
   wheelWonLine: 'Zöld! A kör megnyerve.',
-  wheelMissLine: 'A kerék egy be nem pakolt bőröndön állt meg.',
+  wheelMissLine: 'Nem zöld. A kör elveszett.',
+  wheelLedeMissed: (found, total, language) =>
+    `Találatok: ${found} / ${total}. A táblán maradt szavaknál a kerék szürke marad. Írd be a többit ${language} nyelven, aztán pörgess.`,
+  wheelAnswersLine: 'A szürke szavak azok a válaszok, amelyeket nem írtál be.',
+  wheelSeeResults: 'Eredmény megtekintése',
   phaseTranslateChallenge: 'Fordítási idő',
   settlementFailed: 'Az eredményedet még nem sikerült menteni. Tartsd meg ezt a kört, és próbáld újra.',
   settlementSaving: 'Eredmény mentése…',
@@ -120,6 +125,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Az offline Casey gondolkodik. Ez tovább tart.',
   offlineRoundPrompt: 'Nincs internet. A kör hátralévő részét az offline Casey-vel játszod? Ő lassabb.',
   playOfflineButton: 'Offline játék',
+  onlineAgainTitle: 'Újra van internet',
+  onlineAgainBody:
+    'A kör hátralévő részét a normál Casey-vel játszod? Ő gyorsabb és jobban játszik. Ha a kapcsolatod gyakran megszakad, stabilabb lehet offline maradni.',
+  playOnlineButton: 'Online játék',
+  stayOfflineButton: 'Offline maradok',
   hurryCaseyTitle: 'Koppints, hogy Casey siessen',
   hurryCaseyHint: 'Koppints ide, hogy Casey siessen.',
   caseyGuessedWord: (word) => `Casey tippje: «${word}».`,
@@ -282,7 +292,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Fordítás megjelenítése',
   reviewHideTranslation: 'Fordítás elrejtése',
   reviewAboutWord: 'Erről a szóról',
-  reviewHighFrequencyWord: 'Gyakori szó:',
   reviewNoNotes: 'Nincs jegyzet a szóhoz.',
   reviewNextSentence: 'Következő mondat',
   reviewNothingThisRound:

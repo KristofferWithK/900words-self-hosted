@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useGame } from '../../stores/gameStore'
 import { MAX_CLUE_NUMBER } from '../../engine/config'
 import { targetableGreenIds } from '../../engine/game'
@@ -10,6 +10,7 @@ import { ACTIVE } from '../../lang/active'
 import { HINT_KEYS, useFirstTimeHint } from '../hints'
 import { primeRewardDing, primeTurnClick } from '../feedback'
 import { primeWordAudio } from '../speak'
+import { afterKeyboardAway } from '../nativeKeyboard'
 
 interface Props {
   game: GameState
@@ -60,7 +61,7 @@ export function clueComposerVerdict(
  * the dictionary's four-row scroller, its "Ask Casey" button and its error
  * paragraph — is now one of the two halves of the middle line, and the line is
  * always there whether or not it has anything in it. The height that follows
- * is measured and written down as --dock-h in index.css, and layout-drive
+ * is measured and written down as --dock-h in src/styles/24-docks.css, and layout-drive
  * samples the panel's rectangle per frame across every state below.
  */
 /**
@@ -133,9 +134,23 @@ export function ClueInput({
   const dictionaryCity = useGame(s => s.boardCityIndex)
   const dictionary = useDictionary(undefined, { kind: 'board', cityIndex: dictionaryCity })
 
+  // One clue per tap: the send can wait a frame for the keyboard (below), and
+  // a second tap inside that frame must not send it twice.
+  const sending = useRef(false)
   const submit = () => {
-    onSubmit(trimmed, number)
-    setText('')
+    if (sending.current) return
+    sending.current = true
+    const clue = trimmed
+    const count = number
+    // The keyboard goes first and the clue after its first frame, so the
+    // composer's ride down is already running when Casey's turn is built.
+    // Sent in the same task, that work held the composer up while the
+    // keyboard left without it. Off the phone this sends at once.
+    afterKeyboardAway(() => {
+      sending.current = false
+      onSubmit(clue, count)
+      setText('')
+    })
   }
 
   // The left half of the shared line. At most one of these is ever true, and
@@ -215,7 +230,7 @@ export function ClueInput({
           something to say is a line that moves the board when it arrives.
           Verdict on the left, the dictionary's answer on the right; either one
           alone takes the full width, and when both are up the answer is the
-          half that gives way (see .composer-line in index.css). */}
+          half that gives way (see .composer-line in src/styles/36-composer.css). */}
       <div className="composer-line">
         {verdictLine}
         {dictionary.line}

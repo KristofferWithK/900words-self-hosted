@@ -1,0 +1,460 @@
+/* ---------- the finish screen — the approved finish/inspect design ----------
+
+   Owner-approved 2026-09-11 from the Command/Inspect prototype
+   (`prototypes/finish-review-redesign-20260910/README.md` on
+   `codex/finish-review-redesign-20260910`), and since the owner's follow-up
+   of the same day the ONE surface every round ends on: full-bleed, opaque,
+   no backdrop, no cream dialog and nothing underneath — the fixed band
+   summary it used to replace at City 1 only is gone. The class names keep
+   the `city1-review-` prefix they were built under; the surface itself is
+   every city's now.
+
+   Three regions in one column, and the reader is the only one that may
+   scroll. That is the whole geometry claim: the DOCUMENT never scrolls (the
+   dialog is fixed and in the top layer, so it cannot lengthen it), the
+   header and the footer are `flex: none`, and everything a bigger text size
+   or two open disclosures ask for comes out of the reader's own overflow.
+   Measured before the header grew its headline, at 360x640 with 150% text on
+   the longest accepted sentence: context 82.5px, reader 408 holding 673px of
+   content, footer 149 anchored at y=491, document 640 of 640. At 100% the
+   same three were 69 / 444 / 127; the review drives re-measure.
+
+   The palette is the app's own tokens, which the brief's hex values already
+   are: --bg #fff, --text #121212, --green-deep #3a7a34 for headwords,
+   --green-tile #4e8449 for the primary. Headings are deliberately SANS here,
+   overriding the global serif rule: a Georgia "Board review" over a 2rem
+   Danish sentence reads as a different app's voice. */
+.city1-review-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  /* The surface is in the top layer, so the body's own safe-area padding does
+     not reach it and the notch would otherwise eat the context header. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    0 env(safe-area-inset-left);
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+.city1-review-dialog[open] { display: flex; flex-direction: column; }
+/* No dimmed layer and nothing behind to look at: the surface is opaque. */
+.city1-review-dialog::backdrop { background: transparent; }
+.city1-review-dialog h2,
+.city1-review-dialog h3 { font-family: inherit; }
+/* The touch floor, on the surface's CONTROLS: the pills, the two disclosure
+   rows, the transcript link, a sentence card. Not on every button — the
+   collected words in the header are inline speak buttons in a running line,
+   and the transcript sheet's flags sit in a text grid; a 44px box on either
+   breaks the line it is part of. */
+.city1-review-dialog .btn,
+.city1-review-dialog .city1-review-toggle,
+.city1-review-dialog .log-toggle,
+.city1-review-dialog .sentence-hear { min-height: 44px; min-width: 44px; }
+/* Focus on the heading is a PLACE, not a control — the reader moves it there
+   on open and on Next — so it draws no ring. Controls keep a real one: an
+   inset dark outline on the white ground, white inside the green primary. */
+.city1-review-dialog [tabindex="-1"]:focus { outline: none; }
+.city1-review-dialog :focus-visible { outline: 2px solid var(--text); outline-offset: -4px; }
+
+/* 1. The header: Casey and the receipt-tier outcome, followed by the result
+      ticks, the café's stamp and the city percentage, then the round's word
+      counts. The Skip review control that stood on the right is gone with
+      the finish state it skipped to. */
+.city1-review-context {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+}
+/* The receipt header follows the owner's finish-screen mockup of
+   2026-09-26 as the café world settled it (design-settled.jpg, F1): a
+   small-caps line (city · café, and "Result" at the right), the headline in
+   the serif with Casey to its RIGHT, the result lines as green ticks, a
+   hairline, then the café's stamp beside the city percentage, and the word
+   counts under both. */
+.city1-review-context-receipt {
+  display: block;
+  padding: 10px 20px 10px;
+}
+.city1-review-meta {
+  display: flex; justify-content: space-between; gap: 12px;
+  margin: 0 0 4px;
+  font-size: .72rem; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.city1-review-context-receipt .outcome-banner { gap: 12px; align-items: center; justify-content: space-between; }
+.city1-review-context-receipt .city1-review-casey { width: 60px; margin-top: 0; }
+.city1-review-context-receipt .outcome-banner .city1-review-outcome {
+  font-family: var(--serif);
+  font-size: min(2.1rem, 8.6vw);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  color: var(--text);
+}
+.city1-review-result-details { margin-top: 6px; }
+.city1-review-context-receipt .outcome-stats { margin: 6px 0 0; font-size: .9rem; line-height: 1.3; }
+/* Casey beside the headline, not beside the middle of the block (owner,
+   2026-09-11: "Casey on the finish screen looks wrong"): a lost round's
+   header runs to five lines, and centred against them he floated next to
+   the reason rather than the verdict. Top-aligned, with 2px so his handle
+   sits on the headline's cap line. 64px, up from the dock's 44 and the
+   52 he had: this is the one face on the surface and it carries the
+   header, and at 51px tall he is still shorter than a won round's three
+   lines, so the header's height stays the text's. At 360px the headline's
+   column is 246px, against 227px for "Congratulations!" at its 6.8vw cap. */
+.city1-review-context .outcome-banner { align-items: flex-start; }
+.city1-review-casey { width: 64px; margin-top: 2px; }
+/* Capped against the viewport, not only the text size: "Congratulations!" is
+   one unbreakable word, and at 150% text on a 360px phone the 1.55rem
+   headline is 341px against the 256px beside Casey. 6.8vw is 24.5px on that
+   phone — the 100% size, near enough — and the review drives measure the
+   surface for horizontal overflow at both scales. The wrap rule is the net
+   under the cap, for a headline this file does not know yet. */
+.city1-review-outcome { font-size: min(1.55rem, 6.8vw); line-height: 1.12; font-weight: 750; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.outcome-won .city1-review-outcome { color: var(--green-deep); }
+/* The confetti falls over the whole surface. It is rendered INSIDE the
+   dialog on purpose: the dialog is in the top layer, and a fixed layer
+   outside it would fall behind the screen it celebrates. */
+.city1-review-dialog .confetti { z-index: 15; }
+
+/* 2. The reader: Danish first, then the two independent disclosures. The one
+      region on this surface that is allowed to be a scroller. When there is
+      no sentence to read — a City 1 round whose clues Casey never guessed
+      right, or any later city — the same region holds a line saying so, or
+      the cities 2–9 sentence band; the token line opens it and the
+      transcript link closes it either way. */
+.city1-review-scroll {
+  flex: 1;
+  min-height: 0; min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 12px 20px 8px;
+  scroll-padding: 16px;
+  overflow-wrap: anywhere;
+}
+.city1-review-scroll .summary-earned { padding: 0 0 16px; }
+.receipt-result {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+/* The café world's stamp inks (owner, O7: Bronze orange, Silver grey, Gold
+   ochre, Platinum blue). Bronze and Silver are the tier colours the board
+   collection already draws (68-suitcase-tray.css), Platinum is the app's
+   --blue, and the ochre is the one new colour. Global, so Home and the stamp
+   card can draw the same stamp. */
+:root {
+  --stamp-bronze: #a67247;
+  --stamp-silver: #78848e;
+  --stamp-gold: #b5861c; /* ochre (O7) */
+  --stamp-platinum: var(--blue);
+}
+.cafe-stamp { display: block; overflow: visible; }
+.cafe-stamp-bronze { color: var(--stamp-bronze); }
+.cafe-stamp-silver { color: var(--stamp-silver); }
+.cafe-stamp-gold { color: var(--stamp-gold); }
+.cafe-stamp-platinum { color: var(--stamp-platinum); }
+.cafe-stamp-empty { color: var(--beige-deep); }
+.cafe-stamp-ring { font-size: 5.6px; font-weight: 750; letter-spacing: .06em; }
+
+/* The result lines as ticks (the café world contract, section 6): what this
+   round did, one per line, a green tick before each. */
+.receipt-reward-list { display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; list-style: none; font-size: 1rem; line-height: 1.3; }
+.receipt-tick { display: grid; grid-template-columns: 2.2em 1fr; align-items: center; min-width: 0; }
+.receipt-tick-mark { width: 1.05em; height: 1.05em; color: var(--green-deep); }
+.receipt-reward-name { display: block; min-width: 0; overflow-wrap: anywhere; }
+/* The catalogue's reasons are lower case mid-sentence words; as a list each
+   line starts with a capital, drawn rather than re-worded. */
+.receipt-tick .receipt-reward-name::first-letter { text-transform: uppercase; }
+/* The stamp line, where the postcard total was: the café's stamp and what the
+   round did to it on the left, the city's percentage on the right. */
+.receipt-result-summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.receipt-result > .receipt-result-summary:first-child { margin-top: 2px; }
+.receipt-stamp { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.receipt-stamp-glyph { width: 50px; height: 50px; flex: none; }
+.receipt-stamp-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; margin: 0; }
+.receipt-stamp-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 800; line-height: 1.1; color: var(--text); }
+.receipt-stamp-card { font-size: .82rem; line-height: 1.2; color: var(--text-dim); overflow-wrap: anywhere; }
+.receipt-city-percent { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex: none; margin: 0; text-align: right; }
+.receipt-city-percent-n { font-family: var(--serif); font-size: 1.45rem; font-weight: 800; line-height: 1.05; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.receipt-city-percent-label { font-size: .82rem; line-height: 1.2; color: var(--text-dim); }
+
+/* ── The stamp lands ─────────────────────────────────────────────────────
+   One block, to swap the landing without touching anything else: a short,
+   calm press (a little larger and faint, settling to size in 340 ms), only
+   for a stamp this round earned or raised, and only when the player has not
+   asked for less motion. Without motion the stamp is simply there; a kept
+   stamp never moves. */
+@media (prefers-reduced-motion: no-preference) {
+  .receipt-stamp[data-stamp-state="new"] .receipt-stamp-glyph {
+    transform-origin: 50% 50%;
+    animation: receipt-stamp-press 340ms cubic-bezier(.2, .8, .3, 1) 120ms both;
+  }
+}
+@keyframes receipt-stamp-press {
+  0% { opacity: 0; transform: scale(1.32); }
+  70% { opacity: 1; transform: scale(.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.city1-review-context-receipt .receipt-result + .outcome-stats { padding-top: 0; }
+.receipt-lesson-offer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 2px 0; }
+.receipt-lesson-offer p { flex-basis: 100%; margin: 0; font-size: .78rem; color: var(--text-dim); }
+.receipt-guide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+.receipt-guide-overlay .travel-guide-book { flex: 1; min-height: 0; }
+.receipt-guide-return { flex: none; align-self: center; margin: 8px 20px calc(8px + env(safe-area-inset-bottom)); }
+@media (max-width: 375px) {
+  .city1-review-context-receipt { padding-right: 16px; padding-left: 16px; }
+  .receipt-reward-list { font-size: .92rem; }
+  .receipt-stamp { gap: 10px; }
+  .receipt-stamp-title { font-size: 1.18rem; }
+}
+/* The tight phone: the header sits above the reader and outside its
+   scroller, so every line it spends is a line the review loses. */
+@media (max-height: 700px) {
+  .city1-review-context-receipt { padding-top: 6px; padding-bottom: 8px; }
+  .city1-review-context-receipt .city1-review-casey { width: 48px; }
+  .city1-review-context-receipt .outcome-banner .city1-review-outcome { font-size: min(1.7rem, 7.4vw); }
+  .receipt-reward-list { font-size: .86rem; gap: 0; line-height: 1.25; }
+  .receipt-result-summary { margin-top: 6px; padding-top: 6px; }
+  .receipt-stamp-glyph { width: 40px; height: 40px; }
+  .receipt-stamp-title { font-size: 1.05rem; }
+  .receipt-stamp-card { font-size: .74rem; }
+  .receipt-city-percent-n { font-size: 1.15rem; }
+  .receipt-city-percent-label { font-size: .74rem; }
+  .city1-review-context-receipt .outcome-stats { font-size: .8rem; margin-top: 4px; }
+}
+.city1-review-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.city1-review-head h3 { font-size: 1.25rem; line-height: 1.25; font-weight: 750; letter-spacing: -.025em; }
+.city1-review-empty { margin-top: 14px; font-size: 1rem; line-height: 1.5; color: var(--text-dim); }
+/* A wrap-up's reader region: the same train Home draws, and one line of
+   journey counts under it. The train is given the region's full width — it is
+   the drawing the whole round was for — and the line reads like the header's
+   counts line so the two say their numbers the same way. */
+/* The train sits under its heading and the question sits under the train:
+   one column, read top to bottom. It was centred in the region's slack for
+   an evening, when the region held nothing else; with the choices under it
+   the slack is theirs. */
+.wrapup-journey { margin-top: 16px; }
+.wrapup-journey .train-progress { width: 100%; }
+.wrapup-journey-line { margin-top: 12px; font-size: 1rem; line-height: 1.5; color: var(--text-dim); }
+.wrapup-journey-line .stat-n { font-weight: 750; color: var(--text); font-variant-numeric: tabular-nums; }
+/* The cities 2–9 band, at the width its estimator was calibrated for: the
+   old column was the screen's 328px (360 less 16 a side), the reader is 320
+   (20 a side), and CHARS_PER_LINE in RoundSentences.tsx was read off a real
+   render at the former — endgame-drive checks every row against it. */
+.city1-review-scroll .sentence-review { margin: 14px -4px 0; }
+.city1-review-scroll .log-section { margin-top: 10px; }
+.city1-review-progress { flex: none; font-size: .8rem; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.city1-review-optional { margin-top: 2px; font-size: .8rem; color: var(--text-dim); }
+.city1-review-sentence {
+  margin: 6px 0 6px;
+  font-size: 2rem; font-weight: 500; line-height: 1.32; letter-spacing: -.025em;
+}
+.review-headword { color: var(--green-deep); font-weight: 700; }
+.review-target { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .17em; }
+
+.city1-review-audio { display: flex; gap: 8px; align-items: center; }
+/* The prototype drew these as flat #bdbdbd pills; here they keep the app's own
+   pencil edge (`.btn::before`), which is the one place this surface answers to
+   the pencil pass rather than to the brief. */
+.city1-review-audio .btn { padding: 10px 18px; font-size: .875rem; font-weight: 600; }
+.city1-review-slow { width: 48px; min-width: 48px; padding: 10px; display: grid; place-items: center; }
+.city1-review-slow .audio-icon { width: 24px; height: 24px; }
+/* Beside the pills, in the height they already take, so a failed clip still
+   does not shove the disclosures down under the player's thumb and an empty
+   note costs no line at all (2026-09-27; it used to reserve one below). */
+.city1-review-audio-note { flex: 1; min-width: 0; margin: 0; font-size: .75rem; line-height: 1.3; color: var(--text-dim); }
+
+.city1-review-disclosures { margin-top: 6px; }
+.city1-review-disclosure { border-top: 1px solid var(--line); }
+.city1-review-disclosure:last-child { border-bottom: 1px solid var(--line); }
+.city1-review-toggle {
+  width: 100%;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 10px 0; text-align: left; font-size: .9rem; font-weight: 600;
+}
+/* A minimum rather than a width: at 150% text the minus sign of some system
+   fonts is a fraction wider than 20px, and a glyph centred in a box it
+   overflows hangs past the control's edge — the review drives check that
+   every label stays inside its control. */
+.city1-review-chevron { flex: none; min-width: 20px; text-align: center; font-size: 1rem; font-weight: 400; }
+/* Set close, like a dictionary entry rather than an article (owner,
+   2026-09-27: with Translation open, About this word showed its heading and
+   one clipped line). The gaps between the note's parts were 12-20px each;
+   the type is the same size, only the air between it went. The body rides
+   8px up into its own row: the row keeps its 44px touch floor (the review
+   drives measure it), but the half of that height below the label read as
+   a gap between a heading and its text. */
+.city1-review-body { margin-top: -8px; padding: 0 0 8px; font-size: 1rem; line-height: 1.4; }
+.city1-review-body p + p { margin-top: 6px; }
+.city1-review-gloss .review-target { font-weight: 650; }
+.city1-review-example { margin-top: 8px; border-left: 2px solid var(--green-deep); padding-left: 12px; }
+.city1-review-example p + p { margin-top: 2px; color: var(--text-dim); }
+
+/* 3. The footer: anchored, never scrolled past. Next sentence owns the first
+      line while there is one; the exits share the second. On the last
+      sentence Play next game IS the primary and Home sits under it. */
+.city1-review-actions {
+  flex: none;
+  display: flex; flex-direction: column; gap: 6px;
+  /* The home indicator's inset is the footer's bottom padding, not added
+     to it: the dialog used to pad the safe area AND the footer its own
+     10px, the empty band under Home (owner, 2026-09-27). */
+  padding: 10px 20px max(6px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+.city1-review-actions .btn { min-height: 48px; }
+.city1-review-exit-row { display: flex; gap: 12px; align-items: stretch; justify-content: center; }
+.city1-review-exit-row .tag { flex: 1; }
+.city1-review-exit-row .city1-review-home { flex: none; }
+/* Third in the hierarchy, so it is a text route rather than a third pill. */
+.city1-review-home {
+  align-self: center; min-width: 64px;
+  padding: 10px 12px; font-size: .85rem; font-weight: 600;
+  border-color: transparent; background: none;
+}
+/* Third in the hierarchy means no pill at all — and the pencil pass draws a
+   .btn's edge with a pseudo-element, so `border: none` alone would still leave
+   one. */
+.city1-review-home::before { display: none; }
+/* The short phone (an SE, or any iPhone once its safe areas are paid): the
+   reader's collapsed contents — the sentence, Listen, both disclosure rows
+   and the transcript link — fit without scrolling (owner, 2026-09-27: "About
+   this word" was below the fold). Only an opened disclosure scrolls. */
+@media (max-height: 700px) {
+  .city1-review-scroll { padding-top: 8px; padding-bottom: 4px; }
+  .city1-review-head h3 { font-size: 1.1rem; }
+  .city1-review-optional { margin-top: 1px; }
+  .city1-review-sentence { margin: 4px 0 6px; font-size: 1.5rem; line-height: 1.26; }
+  .city1-review-disclosures { margin-top: 4px; }
+  .city1-review-toggle { padding: 9px 0; }
+  .city1-review-scroll .log-section { margin-top: 4px; }
+  .city1-review-actions { gap: 4px; padding-top: 8px; }
+  .city1-review-actions .btn { min-height: 44px; }
+}
+/* The post-wrap choices, in the reader rather than the footer since the owner
+   asked for the decision to be "more focused and a little bit more explained"
+   (2026-09-11). Two rows the width of the region, each a heading and the line
+   that says what it opens — a pencil-edged card rather than a pill, because a
+   pill cannot hold two lines without becoming a lozenge the width of the
+   phone. The disabled one keeps the grey the disabled pill wears. */
+.summary-wrap-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+/* The question over the cards, in the reader heading's own type. */
+.wrap-next-heading { margin: 26px 0 0; font-size: 1.25rem; line-height: 1.25; font-weight: 750; letter-spacing: -.025em; }
+/* Brand green — --green-deep, the headline's and the primary pill's — and
+   the pencil edge every other card wears (owner, 2026-09-11: "way too light"
+   and "should also have the pencil style"). The real border is transparent
+   and the line lives on ::before through #pencil-edge, exactly as the city
+   card, the docks and the sentence cards draw theirs (the pencil pass, below);
+   drawn in the primary's weight, since these are the screen's choices. */
+.wrap-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--bg);
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  min-height: 48px;
+  position: relative;
+}
+.wrap-choice::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border: 2px solid var(--green-deep);
+  border-radius: inherit;
+  filter: url(#pencil-edge);
+  pointer-events: none;
+}
+.wrap-choice-title { font-size: 1.05rem; font-weight: 750; color: var(--green-deep); letter-spacing: -.01em; }
+.wrap-choice-note { font-size: .85rem; line-height: 1.4; color: var(--text-dim); }
+.wrap-choice:disabled { cursor: default; }
+.wrap-choice:disabled::before { border-color: var(--line); border-width: 1.6px; }
+.wrap-choice:disabled .wrap-choice-title { color: #9b9b9b; }
+/* The two-games limit is one dismissible Home overlay, not another screen. */
+.daily-limit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+  background: rgba(22, 34, 28, .55);
+}
+.daily-limit-dialog {
+  position: relative;
+  width: min(100%, 390px);
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 20px;
+  border-radius: 22px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .24);
+  text-align: center;
+}
+.daily-limit-dialog h2, .daily-limit-dialog p { margin: 0; text-wrap: balance; }
+.daily-limit-dialog > small { color: var(--text-dim); line-height: 1.3; }
+/* Stacked like its siblings on a tall screen; a row on a short one. */
+.daily-limit-secondary { display: contents; }
+.purchase-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.3;
+}
+.purchase-legal a { color: var(--text-dim); text-decoration: underline; text-underline-offset: 2px; }
+.daily-limit-casey { width: 56px; height: auto; align-self: center; flex-shrink: 0; }
+.daily-limit-close { position: absolute; top: 8px; right: 8px; }
+.daily-limit-dialog .pass-option { text-align: left; }
+/* The dialog's secondary tags (restore, redeem, maybe tomorrow) are set a
+   step smaller, so two share a row in two lines and the offers stay first. */
+.daily-limit-dialog .tag .tag-label { font-size: .95rem; }
+.daily-limit-dialog .pass-option b { white-space: nowrap; }
+.pass-thanks-dialog { gap: 14px; padding-block: 28px 22px; }
+.pass-thanks-casey { width: 132px; height: auto; align-self: center; }
+@media (max-height: 680px) {
+  .daily-limit-dialog {
+    gap: 4px;
+    padding-block: 12px;
+  }
+  /* Room for the Terms/Privacy row at 360x640: offers keep their content
+     height, restore and redeem share a row, quiet buttons keep a 44px tap
+     target. */
+  .daily-limit-dialog .pass-option { min-height: 64px; }
+  .daily-limit-secondary { display: flex; gap: 4px; }
+  .daily-limit-secondary > .tag { flex: 1 1 0; min-width: 0; }
+}
+

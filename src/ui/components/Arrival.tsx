@@ -2,6 +2,7 @@ import { WORDS_PER_CITY, cityAt } from '../../journey/cities'
 import { useUi } from '../../stores/uiStore'
 import { ACTIVE } from '../../lang/active'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 
 /**
  * The moment a city is reached. Travelling happens on the map — Home's travel
@@ -47,15 +48,19 @@ export function Arrival({
       <p className="arrival-unlock">
         {returning ? UI.home.arrivalAgain(WORDS_PER_CITY) : UI.home.arrivalNew(WORDS_PER_CITY)}
       </p>
-      <button
-        className="btn btn-primary btn-big"
+      <Tag
+        size="wide"
+        tone="primary"
+        className="arrival-start"
+        label={UI.home.getStarted}
         onClick={() => (onContinue ? onContinue() : goTo('home'))}
-      >
-        {UI.home.getStarted}
-      </button>
-      <button className="btn" onClick={() => (onSeeMap ? onSeeMap() : goTo('map'))}>
-        {UI.home.seeTheMap}
-      </button>
+      />
+      <Tag
+        size="wide"
+        className="arrival-see-map"
+        label={UI.home.seeTheMap}
+        onClick={() => (onSeeMap ? onSeeMap() : goTo('map'))}
+      />
     </div>
   )
 }

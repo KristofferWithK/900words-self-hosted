@@ -149,7 +149,7 @@ async function play(page, { practice, cap = 300 } = {}) {
       await page.locator('.turn-takeover').waitFor({ state: 'detached', timeout: 5000 }).catch(() => {})
       await page.waitForTimeout(300)
       if (await page.locator('.tour-overlay').count()) continue
-      const next = game.wheel.segments.find((id) => !game.wheel.translated.includes(id))
+      const next = game.wheel.segments.find((id) => game.reveals[id]?.kind === 'green' && !game.wheel.translated.includes(id))
       if (!next) return 'no-translation-target'
       await page.locator('.wheel-input').fill(game.words.find((w) => w.wordId === next).da)
       await page.locator('.wheel-confirm').click()
@@ -163,6 +163,8 @@ async function play(page, { practice, cap = 300 } = {}) {
       if (await page.locator('.tour-overlay').count()) continue
       await page.locator('.wheel-disc').click()
       await page.waitForTimeout(3200)
+      // The board stays after the spin until See results (owner, 2026-09-27).
+      await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
     }
   }
   return 'cap'

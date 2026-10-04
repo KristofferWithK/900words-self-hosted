@@ -171,11 +171,17 @@ check('Grammar reader uses the cover beige with pencil lines', await page.evalua
   return reader.backgroundColor === 'rgb(255, 255, 255)' && paper.backgroundColor === 'rgb(242, 238, 227)'
 }))
 check('Grammar reader uses the same integrated top row as the cover', await page.locator('.guide-cover-tabs-row .book-back').count() === 1 && await page.locator('.guide-cover-tabs-row .guide-thumb-index').count() === 2 && await page.locator('.book-reader-top').count() === 0)
-check('Grammar page turns are compact controls inside the paper', await page.evaluate(() => {
+// The page turns are luggage tags since CW-12 (owner O2, "tags on every
+// labelled button"): still compact and inside the paper, now with the 44px
+// target every tag keeps.
+check('Grammar page turns are compact tags inside the paper', await page.evaluate(() => {
   const paper = document.querySelector('.book-page')
   const turns = paper?.querySelector(':scope > .guide-inline-book-turns')
-  const buttons = turns ? [...turns.querySelectorAll('.btn')] : []
-  return !!turns && buttons.length === 2 && buttons.every((button) => button.getBoundingClientRect().height < 40)
+  const buttons = turns ? [...turns.querySelectorAll('.tag')] : []
+  return !!turns && buttons.length === 2 && buttons.every((button) => {
+    const { width, height } = button.getBoundingClientRect()
+    return height >= 44 && height < 52 && width >= 44
+  })
 }))
 check('Aarhus combines both lessons into one four-page chapter', (await page.locator('.guide-page-count').innerText()) === '1 / 4')
 await page.getByRole('button', { name: 'Next', exact: true }).click()

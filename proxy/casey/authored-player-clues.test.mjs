@@ -1,10 +1,14 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it, vi } from 'vitest'
 import words from '../../src/data/words.da.json'
-import cycle from '../../src/data/city1-board-cycle.da.json'
+import archive from '../../src/data/city1-board-cycle.da.json'
+import appendix from '../../src/data/city1-board-cycle-appendix.da.json'
 import index from '../data/association-index.da.1.json'
 import keys from '../data/authored-player-keys.da.1.json'
 import { derivePlayerKeys, renderPlayerKeys } from '../../scripts/compose-player-clues.mjs'
+
+// The archive and the boards appended after it: the Worker serves both.
+const cycle = { ...archive, boards: [...archive.boards, ...appendix.boards] }
 import {
   authoredPlayerBoardFor,
   authoredPlayerGuesses,

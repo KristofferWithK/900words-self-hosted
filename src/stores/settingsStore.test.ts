@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { DEFAULT_BASE_URL } from '../ai/client'
-import { migrateSettings, useSettings } from './settingsStore'
+import { freshCaseyMode, migrateSettings, useSettings } from './settingsStore'
 
 describe('settingsStore: Casey is a server decision service', () => {
   beforeEach(() => {
@@ -45,6 +45,13 @@ describe('settingsStore: Casey is a server decision service', () => {
     useSettings.getState().markClueyVerified(456)
     useSettings.getState().set({ baseUrl: DEFAULT_BASE_URL })
     expect(useSettings.getState().klausVerifiedAt).toBe(456)
+  })
+
+  it('starts a self-build on Gemma only on an iPhone; Android and the web ask for a key', () => {
+    expect(freshCaseyMode('open-source', true, 'ios')).toBe('gemma4-e4b')
+    expect(freshCaseyMode('open-source', true, 'android')).toBe('own-key')
+    expect(freshCaseyMode('open-source', false, 'web')).toBe('own-key')
+    expect(freshCaseyMode('normal', true, 'ios')).toBe('worker')
   })
 
   it('keeps the measured defaults for fresh installs', () => {

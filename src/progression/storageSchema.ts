@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { emptyProgressFacts, mergeProgressFacts } from './facts'
 import { boardKey, receiptKey, tutorialAwardKey } from './identity'
-import { claimDelta, evaluateAttempt, gameDelta, maxTier, REWARD_WEIGHTS } from './rules'
+import { claimDelta, evaluateAttempt, gameDelta, maxTier, REWARD_WEIGHTS, type AttemptResult } from './rules'
 import { roundLearningResults } from '../srs/settlement'
 import type { AttemptEvidence, CompletionReceipt, CourseSessions, SettlementLedger } from './types'
 
@@ -43,7 +43,8 @@ export const gameSchema = z.object({
   wheel: z.object({ segments: uniqueIds, translated: uniqueIds, filled: z.array(count), attempts: count,
     landed: count.nullable(), result: z.enum(['win', 'miss']).nullable(), spent: side.nullable() }).optional(),
 }).passthrough()
-const evidence = z.object({ attemptId: id, board: board.nullable(), origin: z.enum(['primary', 'replay', 'daily', 'developer', 'optional', 'tutorial', 'retired-wrapup']),
+const origin = z.enum(['primary', 'replay', 'daily', 'developer', 'optional', 'tutorial', 'retired-wrapup'])
+const evidence = z.object({ attemptId: id, board: board.nullable(), origin,
   game: gameSchema, cancelled: z.boolean().optional() })
 const facts = z.object({
   boards: record(z.object({ board, best: tier, claims: components })),
@@ -77,33 +78,78 @@ const receipt = z.object({
     curriculum: z.object({ before: curriculumSchema.nullable(), after: curriculumSchema }),
     survival: z.object({ before: survivalSchema.nullable(), after: survivalSchema }) }).optional(),
 })
+const games = z.object({ played: count.max(1), won: count.max(1), lost: count.max(1), redeemed: z.literal(0) })
+/** One settled round in full; also the unit of the history archive and of backups' history. */
+export const settlementEntrySchema = z.object({ receipt, acknowledgedEffects: z.array(effect) })
+const archivedReceipt = z.object({ attemptId: id, acceptedAt: count, localDate: z.iso.date(), origin, board: board.nullable(),
+  attemptTier: tier, completedLoss: z.boolean().optional(), games, postcards: count })
 const ledgerSchema = z.object({ schemaVersion: z.literal(1), facts,
-  settlements: record(z.object({ receipt, acknowledgedEffects: z.array(effect) })) })
+  settlements: record(settlementEntrySchema), archived: record(archivedReceipt).optional() })
 
-export function parseLedger(value: unknown): SettlementLedger {
+/**
+ * `known`, when given, is a ledger this function returned earlier and that
+ * was then deep-frozen (the settlement cache's). An entry of `value` that is
+ * that ledger's very same frozen object under the same key cannot have changed
+ * since it was validated, so its schema and its own receipt checks are not
+ * run again: a settle rewrites the ledger once per effect, and re-checking
+ * every past receipt each time made finishing a round slower with every round
+ * played. What depends on the rest of the ledger is always checked: the facts,
+ * each receipt against the facts, and the pending count. Every other entry
+ * goes through exactly the checks below, in the same order, with the same
+ * errors.
+ */
+export function parseLedger(value: unknown, known?: SettlementLedger): SettlementLedger {
   const raw = value as Record<string, unknown>
-  const ledger = ledgerSchema.parse({ ...raw,
+  const input = { ...raw,
     facts: { ...((raw.facts ?? {}) as Record<string, unknown>), completedLosses: (((raw.facts ?? {}) as Record<string, unknown>).completedLosses ?? {}), tutorialAwards: (((raw.facts ?? {}) as Record<string, unknown>).tutorialAwards ?? {}) },
-  }) as unknown as SettlementLedger
+  }
+  const given = raw.settlements !== null && typeof raw.settlements === 'object' ? raw.settlements as Record<string, unknown> : null
+  const checked = new Set<string>()
+  if (known && given && Object.isFrozen(known) && Object.isFrozen(known.settlements)) {
+    for (const [key, entry] of Object.entries(given)) {
+      if (Object.hasOwn(known.settlements, key) && known.settlements[key] === entry && Object.isFrozen(entry)) checked.add(key)
+    }
+  }
+  // The archived summaries likewise, when they are the known ledger's very
+  // same frozen map.
+  const archivedKnown = known !== undefined && Object.isFrozen(known) && known.archived !== undefined &&
+    raw.archived === known.archived && Object.isFrozen(known.archived)
+  const toParse: Record<string, unknown> = { ...input }
+  if (checked.size) toParse.settlements = Object.fromEntries(Object.entries(given!).filter(([key]) => !checked.has(key)))
+  if (archivedKnown) delete toParse.archived
+  const parsed = ledgerSchema.parse(toParse) as unknown as SettlementLedger
+  // Put the already-checked entries back, in the stored order.
+  let ledger: SettlementLedger = parsed
+  if (checked.size) {
+    ledger = { ...ledger, settlements: Object.fromEntries(Object.keys(given!).map((key) =>
+      [key, checked.has(key) ? known!.settlements[key]! : parsed.settlements[key]!])) }
+  }
+  if (archivedKnown) ledger = { ...ledger, archived: known!.archived }
   mergeProgressFacts(emptyProgressFacts(), ledger.facts) // Validate identity-key correlations.
   let pending = 0
   for (const [key, entry] of Object.entries(ledger.settlements)) {
     const r = entry.receipt
-    const evaluation = evaluateAttempt(r.evidence as AttemptEvidence)
-    const expectedEffects = ['learning', ...(r.games.played ? ['games', 'streak', 'associations'] : []),
-      ...(r.evidence.origin === 'daily' ? ['daily'] : []), 'session', ...(r.newMilestoneIds.length ? ['lessons'] : [])]
-    if (key !== receiptKey(r.attemptId) || r.receiptId !== key || r.evidence.attemptId !== r.attemptId ||
-      evaluation.status !== 'completed' || evaluation.tier !== r.attemptTier ||
-      (r.contractRevision === 'C1-G1-A1' && r.completedLoss !== (evaluation.outcome === 'lost')) ||
-      (r.contractRevision === 'C1-PC-1' && r.completedLoss !== undefined) ||
-      JSON.stringify(r.games) !== JSON.stringify(gameDelta(r.evidence.origin, evaluation.outcome)) ||
-      JSON.stringify(r.effects) !== JSON.stringify(expectedEffects) ||
-      entry.acknowledgedEffects.some((sink) => !r.effects.includes(sink)) ||
-      new Set(entry.acknowledgedEffects).size !== entry.acknowledgedEffects.length ||
-      (r.evidence.origin === 'daily') !== (r.dailyKey !== null)) throw new Error('Inconsistent settlement receipt')
-    if (r.rewards.postcards !== r.rewards.newlyClaimed.reduce((sum, claim) => sum + REWARD_WEIGHTS[claim], 0) ||
-      r.rewards.newlyClaimed.some((claim) => !r.rewards.eligible.includes(claim) || r.rewards.alreadyHeld.includes(claim)) ||
-      (!r.cityEligible && (r.rewards.eligible.length || r.newBest || r.primary))) throw new Error('Inconsistent receipt rewards')
+    // The entry's own consistency, unless `known` already checked it. `own`
+    // is its evaluation when these checks ran here, null when they did not.
+    let own: Extract<AttemptResult, { status: 'completed' }> | null = null
+    if (!checked.has(key)) {
+      const evaluation = evaluateAttempt(r.evidence as AttemptEvidence)
+      const expectedEffects = ['learning', ...(r.games.played ? ['games', 'streak', 'associations'] : []),
+        ...(r.evidence.origin === 'daily' ? ['daily'] : []), 'session', ...(r.newMilestoneIds.length ? ['lessons'] : [])]
+      if (key !== receiptKey(r.attemptId) || r.receiptId !== key || r.evidence.attemptId !== r.attemptId ||
+        evaluation.status !== 'completed' || evaluation.tier !== r.attemptTier ||
+        (r.contractRevision === 'C1-G1-A1' && r.completedLoss !== (evaluation.outcome === 'lost')) ||
+        (r.contractRevision === 'C1-PC-1' && r.completedLoss !== undefined) ||
+        JSON.stringify(r.games) !== JSON.stringify(gameDelta(r.evidence.origin, evaluation.outcome)) ||
+        JSON.stringify(r.effects) !== JSON.stringify(expectedEffects) ||
+        entry.acknowledgedEffects.some((sink) => !r.effects.includes(sink)) ||
+        new Set(entry.acknowledgedEffects).size !== entry.acknowledgedEffects.length ||
+        (r.evidence.origin === 'daily') !== (r.dailyKey !== null)) throw new Error('Inconsistent settlement receipt')
+      if (r.rewards.postcards !== r.rewards.newlyClaimed.reduce((sum, claim) => sum + REWARD_WEIGHTS[claim], 0) ||
+        r.rewards.newlyClaimed.some((claim) => !r.rewards.eligible.includes(claim) || r.rewards.alreadyHeld.includes(claim)) ||
+        (!r.cityEligible && (r.rewards.eligible.length || r.newBest || r.primary))) throw new Error('Inconsistent receipt rewards')
+      own = evaluation
+    }
     if ((r.tutorialAward?.status === 'new' && r.tutorialAward.postcards !== 1) ||
       (r.tutorialAward?.status === 'already-held' && r.tutorialAward.postcards !== 0) ||
       (r.tutorialAward && (r.evidence.origin !== 'tutorial' || r.tutorialAward.sourceAttemptId !== r.attemptId ||
@@ -111,10 +157,10 @@ export function parseLedger(value: unknown): SettlementLedger {
         (r.evidence.board !== null && r.tutorialAward.identity.cityId !== r.evidence.board.cityId) ||
         !ledger.facts.tutorialAwards[tutorialAwardKey(r.tutorialAward.identity)] ||
         !sameValue(ledger.facts.tutorialAwards[tutorialAwardKey(r.tutorialAward.identity)]!.identity, r.tutorialAward.identity)))) throw new Error('Inconsistent tutorial award')
-    if (r.cityEligible !== (r.evidence.origin === 'primary' || r.evidence.origin === 'replay') ||
-      !sameValue(r.rewards, claimDelta(r.cityEligible && !r.completedLoss ? evaluation.components : [], r.rewards.alreadyHeld)) ||
+    if (own && (r.cityEligible !== (r.evidence.origin === 'primary' || r.evidence.origin === 'replay') ||
+      !sameValue(r.rewards, claimDelta(r.cityEligible && !r.completedLoss ? own.components : [], r.rewards.alreadyHeld)) ||
       r.newBest !== (r.cityEligible && !r.completedLoss ? maxTier(r.previousBest, r.attemptTier) : (r.completedLoss ? r.previousBest : null)) ||
-      (r.evidence.origin === 'primary') !== (r.primary !== null)) throw new Error('Inconsistent receipt progression')
+      (r.evidence.origin === 'primary') !== (r.primary !== null))) throw new Error('Inconsistent receipt progression')
     if (r.cityEligible) {
       const progress = r.evidence.board && ledger.facts.boards[boardKey(r.evidence.board)]
       if (r.completedLoss) {
@@ -122,29 +168,40 @@ export function parseLedger(value: unknown): SettlementLedger {
       } else if (!progress || r.rewards.newlyClaimed.some((claim) => !progress.claims.includes(claim)) ||
         maxTier(progress.best, r.newBest) !== progress.best) throw new Error('Receipt facts missing')
     }
-    if (r.effects.includes('lessons') !== (r.lessons !== undefined) ||
-      (r.lessons && (r.lessons.courseId !== r.evidence.board?.courseId ||
-        r.lessons.curriculum.after.routeLanguage !== r.lessons.courseId || r.lessons.survival.after.routeLanguage !== r.lessons.courseId))) {
-      throw new Error('Inconsistent captured lesson plan')
+    if (own) {
+      if (r.effects.includes('lessons') !== (r.lessons !== undefined) ||
+        (r.lessons && (r.lessons.courseId !== r.evidence.board?.courseId ||
+          r.lessons.curriculum.after.routeLanguage !== r.lessons.courseId || r.lessons.survival.after.routeLanguage !== r.lessons.courseId))) {
+        throw new Error('Inconsistent captured lesson plan')
+      }
+      const wordIds = r.evidence.game.words.map((word) => word.wordId)
+      if (!sameValue(wordIds, r.learning.changes.map((patch) => patch.wordId)) ||
+        !sameValue(r.learning.results, roundLearningResults(r.evidence.game as AttemptEvidence['game'], r.learning.results.filter((word) => word.lookedUp).map((word) => word.wordId)))) {
+        throw new Error('Invalid captured learning signals')
+      }
+      // Do not run the scheduler during recovery: a future algorithm must still
+      // apply the exact output this receipt captured. Validate structural/history
+      // invariants without recalculating scheduling or the accepted timestamp.
+      if (!sameValue(r.learning.newlyDiscovered, r.learning.changes.filter((patch) => patch.before === null).map((patch) => patch.wordId)) ||
+        r.learning.newlyCollected.some((id) => !wordIds.includes(id)) ||
+        r.learning.changes.some((patch) => patch.after.seen !== (patch.before?.seen ?? 0) + 1)) throw new Error('Invalid captured learning patches')
     }
-    const wordIds = r.evidence.game.words.map((word) => word.wordId)
-    if (!sameValue(wordIds, r.learning.changes.map((patch) => patch.wordId)) ||
-      !sameValue(r.learning.results, roundLearningResults(r.evidence.game as AttemptEvidence['game'], r.learning.results.filter((word) => word.lookedUp).map((word) => word.wordId)))) {
-      throw new Error('Invalid captured learning signals')
-    }
-    // Do not run the scheduler during recovery: a future algorithm must still
-    // apply the exact output this receipt captured. Validate structural/history
-    // invariants without recalculating scheduling or the accepted timestamp.
-    if (!sameValue(r.learning.newlyDiscovered, r.learning.changes.filter((patch) => patch.before === null).map((patch) => patch.wordId)) ||
-      r.learning.newlyCollected.some((id) => !wordIds.includes(id)) ||
-      r.learning.changes.some((patch) => patch.after.seen !== (patch.before?.seen ?? 0) + 1)) throw new Error('Invalid captured learning patches')
     if (entry.acknowledgedEffects.length < r.effects.length) pending++
+  }
+  // An archived round is keyed like its receipt, is never also held in full,
+  // and still agrees with the facts it once changed.
+  for (const [key, stub] of Object.entries(ledger.archived ?? {})) {
+    if (key !== receiptKey(stub.attemptId) || Object.hasOwn(ledger.settlements, key)) throw new Error('Inconsistent archived receipt')
+    if ((stub.origin === 'primary' || stub.origin === 'replay') && (!stub.board ||
+      !(stub.completedLoss ? ledger.facts.completedLosses[boardKey(stub.board)] : ledger.facts.boards[boardKey(stub.board)]))) {
+      throw new Error('Archived receipt facts missing')
+    }
   }
   if (pending > 1) throw new Error('Multiple pending settlements')
   return ledger
 }
 
-const continuation = z.object({ requiredSet, remainingBoardKeys: uniqueIds, source: z.enum(['canonical', 'legacy-anchor']) })
+const continuation = z.object({ requiredSet, remainingBoardKeys: uniqueIds, source: z.enum(['canonical', 'legacy-anchor', 'rebased']) })
 const slot = z.object({ attemptId: id, board, origin: z.enum(['primary', 'replay']), promptLanguage: z.enum(['en', 'de', 'es', 'zh', 'fr', 'pt', 'pl', 'hu', 'sv', 'nb', 'nl']),
   game: gameSchema, lookedUp: uniqueIds, reviewRoundId: id.nullable(), randomnessPolicy: z.literal('engine-wheel-v1') }).passthrough()
 export function parseSessions(value: unknown): CourseSessions {

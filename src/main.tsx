@@ -8,6 +8,7 @@ import { UI_LANGUAGE, UI_LANGUAGE_INFO } from './i18n'
 import { bootstrapWebDemo } from './webdemo/bootstrap'
 import './index.css'
 import { installSfxUnlock } from './ui/sfx'
+import { installRunResultsSink } from './run/sinkSetup'
 
 // The document declares the language it is written in, so a screen reader
 // pronounces the chrome correctly and the browser hyphenates it correctly.
@@ -19,6 +20,8 @@ document.documentElement.lang = UI_LANGUAGE_INFO[UI_LANGUAGE].tag
 // background, or a refused play (sfx.ts).
 installSfxUnlock()
 bootstrapWebDemo()
+// A run's photos, café finds and daily count reach the player's progress (café world, CW-04).
+installRunResultsSink()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -52,6 +52,7 @@ export const game: Catalogue['game'] = {
   // ── ett korts tillgängliga namn, byggt av dessa delar i denna ordning ─────
   cardYourTarget: ', ditt mål',
   cardFound: ', hittat',
+  cardMissedKey: ', ett av Caseys ord, inte hittat',
   cardNeutralBoth: ', neutralt för båda sidor',
   cardNeutralPlayer: ', neutralt under dina ledtrådar',
   cardNeutralCasey: ', neutralt under Caseys ledtrådar',
@@ -108,7 +109,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Snurra hjulet',
   wheelSpinning: 'Snurrar …',
   wheelWonLine: 'Grönt! Omgången är vunnen.',
-  wheelMissLine: 'Hjulet landade på en oppackad väska.',
+  wheelMissLine: 'Inget grönt. Omgången är förlorad.',
+  wheelLedeMissed: (found, total, language) =>
+    `Du hittade ${found} av ${total}. För orden som ligger kvar på spelplanen förblir hjulet grått. Skriv resten på ${language}, och snurra sedan.`,
+  wheelAnswersLine: 'De grå orden är svaren du inte skrev.',
+  wheelSeeResults: 'Se resultatet',
   phaseTranslateChallenge: 'Dags att översätta',
   settlementFailed: 'Ditt resultat kunde inte sparas än. Behåll rundan och försök igen.',
   settlementSaving: 'Sparar ditt resultat…',
@@ -126,6 +131,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Offline-Casey tänker. Det tar längre tid.',
   offlineRoundPrompt: 'Inget internet. Spela resten av rundan med offline-Casey? Hon är långsammare.',
   playOfflineButton: 'Spela offline',
+  onlineAgainTitle: 'Internet är tillbaka',
+  onlineAgainBody:
+    'Spela resten av rundan med vanliga Casey? Hon är snabbare och spelar bättre. Om anslutningen hela tiden bryts kan det vara stabilare att stanna offline.',
+  playOnlineButton: 'Spela online',
+  stayOfflineButton: 'Stanna offline',
   hurryCaseyTitle: 'Tryck för att skynda på Casey',
   hurryCaseyHint: 'Tryck här för att skynda på Casey.',
   caseyGuessedWord: (word) => `Casey gissade «${word}».`,
@@ -296,7 +306,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Visa översättning',
   reviewHideTranslation: 'Dölj översättning',
   reviewAboutWord: 'Om det här ordet',
-  reviewHighFrequencyWord: 'Högfrekvent ord:',
   reviewNoNotes: 'Inga anteckningar om ordet.',
   reviewNextSentence: 'Nästa mening',
   reviewNothingThisRound:

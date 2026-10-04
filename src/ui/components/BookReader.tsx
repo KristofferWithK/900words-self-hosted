@@ -1,5 +1,6 @@
 import { useEffect, useId, useState, type ReactNode } from 'react'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 
 /**
  * The deliberately small contract shared by the Guide and grammar books.
@@ -105,7 +106,7 @@ export function BookReader({ book, onClose, renderBlock, initialPageId, skipCove
     <header className="book-reader-top"><button className="book-back" onClick={onClose} aria-label={UI.guide.backFromAria(book.title)}>←</button><p>{book.title}</p></header>
     {topAccessory}
     <div className="book-cover-paper"><span className="book-cover-mark" aria-hidden="true">{book.cover.mark ?? '✦'}</span><p className="book-eyebrow">{book.cover.eyebrow}</p><h1 id={`${announcementId}-title`}>{book.cover.title}</h1>{book.cover.description && <p>{book.cover.description}</p>}</div>
-    <div className="book-cover-actions"><button className="btn btn-primary" onClick={open} disabled={book.pages.length === 0}>{UI.guide.openBook}</button></div>
+    <div className="book-cover-actions"><Tag size="wide" tone="primary" label={UI.guide.openBook} onClick={open} disabled={book.pages.length === 0} /></div>
   </section>
 
   return <section className={`book-reader${className ? ` ${className}` : ''}`} aria-labelledby={`${announcementId}-title`}>
@@ -119,9 +120,9 @@ export function BookReader({ book, onClose, renderBlock, initialPageId, skipCove
       {readerNotice && <p className="book-reader-notice" role="note">{readerNotice}</p>}
       <h1 id={`${announcementId}-title`}>{page.title}</h1>
       <div className="book-page-body">{renderBlock?.(page) ?? <Blocks blocks={page.blocks} />}</div>
-      {integratedTop && <nav className="book-turns guide-inline-book-turns" aria-label={UI.guide.bookNavAria}><button className="btn btn-ghost" aria-label={UI.guide.previous} onClick={() => turn(-1)} disabled={index === 0}>{UI.guide.previousLabel}</button><button className="btn btn-primary" aria-label={UI.guide.next} onClick={next} disabled={last && !onPastEnd}>{nextLabel(true)}</button></nav>}
+      {integratedTop && <nav className="book-turns guide-inline-book-turns" aria-label={UI.guide.bookNavAria}><Tag className="book-turn-previous" label={UI.guide.previousLabel} aria-label={UI.guide.previous} onClick={() => turn(-1)} disabled={index === 0} /><Tag tone="primary" className="book-turn-next" label={nextLabel(true)} aria-label={UI.guide.next} onClick={next} disabled={last && !onPastEnd} /></nav>}
     </article>
     <p id={announcementId} className="visually-hidden" aria-live="polite" aria-atomic="true">{UI.guide.pageAnnouncement(page.title, index + 1, book.pages.length)}</p>
-    {!integratedTop && <nav className="book-turns" aria-label={UI.guide.bookNavAria}><button className="btn btn-ghost" onClick={() => turn(-1)} disabled={index === 0}>{UI.guide.previous}</button><button className="btn btn-primary" onClick={next} disabled={last && !onPastEnd}>{nextLabel(false)}</button></nav>}
+    {!integratedTop && <nav className="book-turns" aria-label={UI.guide.bookNavAria}><Tag className="book-turn-previous" label={UI.guide.previous} onClick={() => turn(-1)} disabled={index === 0} /><Tag tone="primary" className="book-turn-next" label={nextLabel(false)} onClick={next} disabled={last && !onPastEnd} /></nav>}
   </section>
 }

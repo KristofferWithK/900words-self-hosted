@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import words from '../../src/data/words.de.json'
-import cycle from '../../src/data/city1-board-cycle.de.json'
+import archive from '../../src/data/city1-board-cycle.de.json'
+import appendix from '../../src/data/city1-board-cycle-appendix.de.json'
 import bank from '../data/authored-clues.de.1.json'
 import { german } from '../../src/lang/de/index.ts'
 import { GERMAN_LANGUAGE } from './language.de.js'
@@ -14,6 +15,8 @@ import { buildCluePrompt, buildGuessPrompt, buildTranslatePrompt } from './promp
 import { buildTranslatePrompt as clientTranslatePrompt } from '../../src/ai/prompts.ts'
 
 const byId = new Map(words.map(word => [word.id, word]))
+// The German course deals the archive and then the appended boards, as the Danish one does.
+const cycle = { boards: [...archive.boards, ...appendix.boards] }
 const viewFor = board => ({
   kind: 'ai-clue', clueLanguage: 'target', turnsLeft: 8, boardId: board.id,
   words: board.wordIds.map(id => {
@@ -55,7 +58,8 @@ describe('German City 1 through the server-owned decision boundary', () => {
     expect(response.decision).toMatchObject({ da: 'Lampe', en: 'lampe', article: 'eine' })
     expect(ask).toHaveBeenCalledOnce()
   })
-  it('resolves all 150 German boards, with legal own-key groups and no Danish index advice', () => {
+  it('resolves every German board, the appended ones too, with legal own-key groups and no Danish index advice', () => {
+    expect(cycle.boards.map(board => board.id)).toEqual(bank.boards.map(board => board.id))
     for (const board of cycle.boards) {
       const view = viewFor(board)
       expect(authoredBoardFor(view), board.id).not.toBeNull()

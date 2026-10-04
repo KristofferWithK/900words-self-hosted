@@ -16,13 +16,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'alemão' : 'dinamarquês',
       countryName: german ? 'Alemanha' : 'Dinamarca',
-      welcome: 'Sabias que 900 palavras podem cobrir mais de 80% da fala do dia a dia na maioria das línguas? (Toca para continuar.)',
-      map: (destination) => german
-        ? `Este é o nosso mapa. Vamos percorrer a Alemanha e recolher cem palavras em cada cidade. ${destination} é o destino final.`
-        : `Este é o nosso mapa. Vamos percorrer a Dinamarca e recolher cem palavras em cada cidade. ${destination} é o destino final.`,
-      guide: german
-        ? 'Para consultar gramática ou dicas práticas de alemão, abre o Guia de viagem. Podes ler adiante quando quiseres.'
-        : 'Para consultar gramática ou dicas práticas de dinamarquês, abre o Guia de viagem. Podes ler adiante quando quiseres.',
+      welcome: 'Sabias que 900 palavras podem cobrir mais de 80% da fala do dia a dia na maioria das línguas?',
       clueField: german
         ? 'Quando for a tua vez, escreve aqui uma palavra em alemão que ligue duas ou três palavras verdes tuas.'
         : 'Quando for a tua vez, escreve aqui uma palavra em dinamarquês que ligue duas ou três palavras verdes tuas.',
@@ -58,32 +52,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} palavras · ${cities} cidades`,
   ticketHintMany: 'Toca num bilhete para escolher.',
   ticketHintOne: 'Toca no teu bilhete e partimos.',
+  ticketComingSoon: 'Em breve',
 
-  // ── A apresentação da Casey no Início, passo a passo ────────────────────
-  introWelcome:
-    'Sabias que 900 palavras podem cobrir mais de 80% da fala do dia a dia na maioria das línguas? (Toca para continuar.)',
-  introMap:
-    'Este é o nosso mapa. Vamos atravessar a Dinamarca de comboio, a recolher cem palavras em cada cidade. Copenhaga é o destino final.',
-  introGuide:
-    'Se quiseres gramática ou dinamarquês prático, abre o Guia de Viagem. Também podes ler mais à frente sempre que quiseres.',
-  introPlay: 'Por agora é tudo o que precisas. Toca em Jogar e vamos recolher as primeiras palavras.',
-  introBubbleAria: (line) => `${line} Continuar.`,
-  introCaseyOpen: 'Abrir a Casey e ver as palavras que recolhemos',
-  introCaseyContinue: 'Continuar com a Casey',
-  introPlayFirst: 'Joga o teu primeiro jogo',
-  introTapCasey: 'Toca na Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Os cartões de vocabulário são aborrecidos, por isso jogamos dois jogos: um passeio pela cidade para juntar palavras, e um enigma de palavras num café.',
+  introExplore: (city) => `Vamos explorar ${city} e ver se encontramos um café.`,
+  introGo: 'Vamos lá',
+  walkEndFound: 'Anda outra vez, ou volta ao Início e joga o café que encontrámos.',
+  walkEndNotFound: 'Anda outra vez para procurar um café, ou volta ao Início.',
 
   // ── As dicas guiadas, nos ecrãs a sério ─────────────────────────────────
   tourNext: 'Seguinte',
   tourDone: 'Vamos lá',
-  tourLoose:
-    'A tua coleção de palavras fica aqui. Toca numa palavra quando quiseres vê-la ou ouvi-la outra vez.',
-  tourLid:
-    'Esta é a coleção de tabuleiros da Casey. Um número e o nível escrito mostram a melhor tentativa do tabuleiro.',
-  tourTray:
-    'Abre um tabuleiro concluído para o jogar de novo. Uma repetição pode melhorar o seu melhor nível sem repor o próximo tabuleiro obrigatório.',
-  tourWrapUp:
-    'Aqui está o teu próximo tabuleiro obrigatório. Conclui tabuleiros para ganhar níveis. As traduções e a roda podem levar um tabuleiro resolvido até Platina.',
+  tourLoose: 'As palavras que conhecemos esperam aqui em cima. Cada anel enche um terço por cada marca: uma foto num passeio, uma tentativa com a minha pista e uma pista tua.',
+  tourLid: 'Com três marcas, a palavra fica guardada. As palavras guardadas vão para a mala, e esta linha conta-as.',
+  tourTray: 'Este é o cartão de selos da cidade. Cada café que jogas recebe aqui o seu selo. Um círculo tracejado é um café encontrado mas ainda por jogar, e ? é um café ainda por encontrar.',
   mapTourHere: (city, words) =>
     `Isto é ${city}, onde estamos. Cada cidade dá ${words} palavras para levar para casa.`,
   mapTourNext: (next, _words, city) =>
@@ -113,25 +96,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Cada resposta certa acrescenta um segmento verde. Podes rodar quando quiseres, mas se parar num segmento vazio, perdes a ronda. Com a roda cheia, qualquer giro ganha.',
   wheelReadyTour:
     'A roda está toda verde, por isso este giro ganha. Toca na roda para rodar.',
-  resultTourPostcards: (amount: string) =>
-    `Este tabuleiro acrescentou ${amount} à tua cidade. Cada resultado mostra aqui mesmo o que ganhou.`,
   resultTourRewardNew: (rewards: string) => `Novo desta vez: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Já ganho antes, por isso não conta outra vez: ${rewards}.`,
-  resultTourNoRewards: 'Desta vez este tabuleiro não deu postais. Pode acontecer, e não perdes nada.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Este resultado é ${tier}. O melhor deste tabuleiro até agora: ${best}.`,
+    `Este enigma valeu ${tier}. O melhor selo do café até agora é ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Esta ronda foi perdida. Aqui, o Bronze só indica que jogaste e não conta como melhor resultado. O melhor deste tabuleiro até agora: ${best}.`,
+    `Este enigma foi perdido. Um enigma perdido também dá um selo de bronze. Um enigma ganho dá prata, ouro ou platina. O melhor deste café até agora é ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Cada selo de café conta para a medalha de ${city}: bronze a partir de 25%, prata de 50%, ouro de 75% e platina aos 100%.`,
   resultTourNoBestYet: 'ainda por definir',
   resultTourSentence:
     'Esta é uma revisão opcional. Mostra uma palavra deste tabuleiro numa frase. Não é outro teste.',
   resultTourNoReview:
     'Desta vez não há nenhuma frase para rever. Não faz mal. Rever é sempre opcional.',
-  homeTourPostcards:
-    'Este é o teu total de postais nesta cidade. Cada postal que um tabuleiro ganha é somado aqui.',
-  homeTourCollection:
-    'Toca em mim para abrir a mala. Mostro-te as palavras que recolhemos e os teus tabuleiros.',
+  homeTourSightseeing: 'O passeio pela cidade é a volta que acabámos de dar. Cada passeio junta palavras, e quanto mais andas, mais cafés encontras.',
+  homeTourCafe: (name) =>
+    name ? `O nosso primeiro café é o ${name}. Toca em Enigma do café para te sentares e jogares.` : 'O nosso primeiro café está à espera. Toca em Enigma do café para te sentares e jogares.',
+  homeTourStamp: 'Cada café que jogas recebe um selo. Juntos formam a medalha desta cidade, e aqui vês até onde chegaste.',
+  homeTourCollection: 'Toca em mim para abrir a mala. Mostro-te as palavras que juntámos e o selo do café.',
 
   // ── A ronda de treino: as justificações escritas da Casey ───────────────
   practiceRationaleDrink: 'Água, café e leite são coisas que se bebem.',
@@ -153,7 +136,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» não é verde na minha chave, por isso a minha pista acaba aqui. Os teus verdes aparecem quando for a tua vez. Esta pista usou a minha chave.`,
   firstClue: (clue) =>
-    `Olá! Que palavras deste tabuleiro consegues ligar a «${clue}»? Podes tocar no ⓘ das palavras para ver a tradução. Quando quiseres, toca numa palavra e confirma.`,
+    `Bem-vindo ao café! Esta primeira mesa é um treino curto. Que palavras deste tabuleiro consegues ligar a «${clue}»? Toca no ⓘ de uma palavra para ver a tradução, depois toca numa palavra e confirma.`,
   clueFor: (clue, number) =>
     `A minha pista é «${clue}» para ${number}. Toca em qualquer palavra que te faça lembrar dela.`,
   lastGreenLeft:
@@ -164,7 +147,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `A tua pista é «${clue}» para ${number}. Os ${tokens} pontos lá em cima são as fichas da ronda, partilhadas por nós. Cada pista, tua ou minha, gasta uma. Vou pensar alto aqui em baixo.`,
   yourClue: (clue, number) =>
     `A tua pista é «${clue}» para ${number}. As minhas tentativas usam agora a tua chave. Vou pensar alto aqui em baixo.`,
-  practiceWon: 'Todos os verdes encontrados. Ganhámos! Os tabuleiros completos não serão tão fáceis, mas todas as palavras que conhecemos contam.',
+  practiceWon: 'Todas as verdes encontradas. Ganhámos! Os enigmas do café não vão ser tão fáceis, mas cada palavra que encontramos conta.',
   practiceLost: 'Esta ronda escapou-nos, mas todas as palavras que conhecemos contam na mesma.',
   findingAClue: 'É a minha vez. Estou à procura de uma pista.',
   practiceTranslation:
@@ -172,7 +155,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'A roda está cheia. Roda para cair no verde. Nos tabuleiros normais, é assim que o teu resultado pode chegar a Platina.',
   practiceFinish:
-    'Treino concluído. Esta ronda não dá postais nem nível da cidade. Nos tabuleiros normais, resolver, traduzir e rodar dá um nível. Repete um tabuleiro concluído para melhorar o melhor resultado.',
+    'Treino concluído. Esta mesa não dá selo. Num enigma do café, resolver, traduzir e girar a roda dão ao café o seu selo. Podes voltar a jogar um café para melhorar o selo.',
   demoEndTitle: "Esse foi o teu primeiro tabuleiro completo.",
   demoEndLine: "Na app continuo a jogar contigo, tabuleiro após tabuleiro, e guardo cada palavra que recolhes.",
   demoAppStore: "Descarrega o 900words na App Store",
@@ -181,6 +164,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "A Casey está a descansar",
   demoRestingBody: "Hoje muita gente jogou comigo, por isso preciso de descansar. Volta amanhã ou joga comigo na app.",
   demoCheckFailed: "Não conseguimos confirmar que és uma pessoa. Recarrega a página e tenta outra vez.",
-  playFullRound: 'Joga o teu primeiro tabuleiro completo',
+  playFullRound: 'Jogar o enigma do café',
   returnToParkedGame: 'Volta à tua partida',
 }

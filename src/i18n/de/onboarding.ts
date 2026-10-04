@@ -12,13 +12,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'Deutsch' : 'Dänisch',
       countryName: german ? 'Deutschland' : 'Dänemark',
-      welcome: 'Wusstest du, dass 900 Wörter in den meisten Sprachen über 80 % der gesprochenen Alltagssprache abdecken können? (Tippe, dann geht’s weiter.)',
-      map: (destination) => german
-        ? `Das ist unsere Karte. Wir reisen durch Deutschland und sammeln in jeder Stadt hundert Wörter. ${destination} ist unser Ziel.`
-        : `Das ist unsere Karte. Wir reisen durch Dänemark und sammeln in jeder Stadt hundert Wörter. ${destination} ist unser Ziel.`,
-      guide: german
-        ? 'Wenn du Grammatik oder praktische Tipps zum Deutschlernen brauchst, öffne den Reiseführer. Du kannst jederzeit vorausblättern.'
-        : 'Wenn du Grammatik oder praktisches Dänisch brauchst, öffne den Reiseführer. Du kannst darin auch jederzeit vorausblättern.',
+      welcome: 'Wusstest du, dass 900 Wörter in den meisten Sprachen über 80 % der gesprochenen Alltagssprache abdecken können?',
       clueField: german
         ? 'Wenn du dran bist, tippe hier ein Wort auf Deutsch ein, das zwei oder drei deiner grünen Wörter verbindet.'
         : 'Wenn du dran bist, tippe hier ein dänisches Wort ein, das zwei oder drei deiner grünen Wörter verbindet.',
@@ -52,32 +46,21 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketMeta: (words, cities) => `${words} Wörter · ${cities} Städte`,
   ticketHintMany: 'Tippe auf eine Fahrkarte, um zu wählen.',
   ticketHintOne: 'Tippe auf deine Fahrkarte, dann geht’s los.',
+  ticketComingSoon: 'Demnächst',
 
-  // ── Caseys Home-Einführung, Schritt für Schritt ─────────────────────────
-  introWelcome:
-    'Wusstest du, dass 900 Wörter in den meisten Sprachen über 80 % der gesprochenen Alltagssprache abdecken können? (Tippe, dann geht’s weiter.)',
-  introMap:
-    'Das ist unsere Karte. Wir reisen durch Dänemark und sammeln in jeder Stadt hundert Wörter. Kopenhagen ist unser Ziel.',
-  introGuide:
-    'Wenn du Grammatik oder praktisches Dänisch brauchst, öffne den Reiseführer. Du kannst darin auch jederzeit vorausblättern.',
-  introPlay: 'Mehr brauchst du fürs Erste nicht. Tippe auf Spielen, dann sammeln wir unsere ersten Wörter.',
-  introBubbleAria: (line) => `${line} Weiter.`,
-  introCaseyOpen: 'Casey öffnen und die gesammelten Wörter ansehen',
-  introCaseyContinue: 'Mit Casey weiter',
-  introPlayFirst: 'Spiel deine erste Runde',
-  introTapCasey: 'Tippe auf Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Karteikarten sind langweilig, deshalb spielen wir zwei Spiele: einen Stadtbummel, auf dem wir Wörter sammeln, und ein Worträtsel im Café.',
+  introExplore: (city) => `Lass uns ${city} erkunden und schauen, ob wir ein Café finden.`,
+  introGo: 'Los geht’s',
+  walkEndFound: 'Lauf noch einmal oder geh zum Startbildschirm und spiel das Café, das wir gefunden haben.',
+  walkEndNotFound: 'Lauf noch einmal, um ein Café zu suchen, oder geh zum Startbildschirm.',
 
   // ── Die Hinweisfenster auf den echten Screens ───────────────────────────
   tourNext: 'Weiter',
   tourDone: 'Weiter geht’s',
-  tourLoose:
-    'Hier bleibt deine Wortsammlung. Tippe ein Wort an, wenn du es noch einmal sehen oder hören möchtest.',
-  tourLid:
-    'Das ist Caseys Brettsammlung. Eine Brettnummer und die ausgeschriebene Stufe zeigen den besten Versuch dieses Bretts.',
-  tourTray:
-    'Öffne ein abgeschlossenes Brett, um es erneut zu spielen. Eine Wiederholung kann seine beste Stufe verbessern, ohne dein nächstes Pflichtbrett zurückzusetzen.',
-  tourWrapUp:
-    'Hier steht dein nächstes Pflichtbrett. Schließe Bretter ab, um Stufen zu verdienen. Übersetzungen und das Rad können ein gelöstes Brett bis auf Platin heben.',
+  tourLoose: 'Wörter, denen wir begegnet sind, warten hier oben. Jeder Ring füllt sich zu einem Drittel für ein Foto beim Stadtbummel, einen Rateversuch zu meinem Hinweis und einen Hinweis von dir.',
+  tourLid: 'Mit allen drei ist ein Wort gesammelt. Gesammelte Wörter kommen in den Koffer, und diese Zeile zählt sie.',
+  tourTray: 'Das ist die Stempelkarte der Stadt. Jedes Café, das du spielst, bekommt hier seinen Stempel. Ein gestrichelter Kreis ist ein gefundenes Café, das noch nicht gespielt ist, und ? ein Café, das noch zu finden ist.',
   mapTourHere: (city, _words) =>
     `Das ist ${city}, hier sind wir gerade. Brettergebnisse bauen deine Stadtbereitschaft auf.`,
   mapTourNext: (next, _words, city) =>
@@ -106,26 +89,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Jede richtige Antwort bringt ein grünes Feld aufs Rad. Du kannst jederzeit drehen, aber landest du auf einem leeren Feld, verlierst du die Runde. Ist das Rad voll, gewinnt jeder Dreh.',
   wheelReadyTour:
     'Das Rad ist jetzt ganz grün, also gewinnt dieser Dreh. Tippe aufs Rad, um zu drehen.',
-  resultTourPostcards: (amount: string) =>
-    `Dieses Brett hat deiner Stadt ${amount} eingebracht. Jedes Ergebnis zeigt genau hier, was es verdient hat.`,
   resultTourRewardNew: (rewards: string) => `Diesmal neu: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Schon früher verdient, deshalb nicht noch einmal gezählt: ${rewards}.`,
-  resultTourNoRewards:
-    'Dieses Brett hat diesmal keine Postkarten eingebracht. Das kann passieren, und dir wird nichts weggenommen.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Dieses Ergebnis ist ${tier}. Die Bestleistung für dieses Brett ist bisher ${best}.`,
+    `Dieses Rätsel hat ${tier} erreicht. Der beste Stempel des Cafés ist bisher ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Diese Runde ging verloren. Bronze zeigt hier nur, dass du gespielt hast, und ist keine Bestleistung. Die Bestleistung für dieses Brett ist bisher ${best}.`,
+    `Dieses Rätsel ging verloren. Auch ein verlorenes Rätsel bringt einen Bronze-Stempel. Ein gewonnenes bringt Silber, Gold oder Platin. Das Beste für dieses Café ist bisher ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Jeder Café-Stempel zählt für die Medaille von ${city}: Bronze ab 25 %, Silber ab 50 %, Gold ab 75 % und Platin bei 100 %.`,
   resultTourNoBestYet: 'noch offen',
   resultTourSentence:
     'Das ist eine freiwillige Wiederholung. Sie zeigt ein Wort von diesem Brett in einem Satz. Das ist kein weiterer Test.',
   resultTourNoReview:
     'Diesmal gibt es keinen Satz zum Wiederholen. Das ist in Ordnung. Die Wiederholung ist immer freiwillig.',
-  homeTourPostcards:
-    'Das ist deine Postkartenzahl für diese Stadt. Jede Postkarte, die ein Brett verdient, kommt hier dazu.',
-  homeTourCollection:
-    'Tipp mich an, um den Koffer zu öffnen. Ich zeige dir die Wörter, die wir gesammelt haben, und deine Bretter.',
+  homeTourSightseeing: 'Der Stadtbummel ist der Lauf, den wir gerade gemacht haben. Jeder Lauf sammelt Wörter, und wer mehr läuft, findet mehr Cafés.',
+  homeTourCafe: (name) =>
+    name ? `Unser erstes Café ist ${name}. Tippe auf Café-Rätsel, setz dich und spiel es.` : 'Unser erstes Café wartet. Tippe auf Café-Rätsel, setz dich und spiel es.',
+  homeTourStamp: 'Jedes Café, das du spielst, bekommt einen Stempel. Zusammen ergeben sie die Medaille dieser Stadt, und hier siehst du, wie weit du bist.',
+  homeTourCollection: 'Tippe auf mich, um den Koffer zu öffnen. Ich zeige dir die Wörter, die wir gesammelt haben, und den Stempel des Cafés.',
 
   // ── Die Übungsrunde: Caseys geschriebene Begründungen ───────────────────
   practiceRationaleDrink: 'Wasser, Kaffee und Milch sind alles Dinge, die man trinkt.',
@@ -147,7 +129,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» ist auf meinem Schlüssel nicht grün, damit endet mein Hinweis. Deine grünen Karten erscheinen, wenn du dran bist. Bei diesem Hinweis zählte mein Schlüssel.`,
   firstClue: (clue) =>
-    `Hey, welche Wörter auf diesem Spielfeld verbindest du mit «${clue}»? Tippe auf das ⓘ neben einem Wort, um die Übersetzung zu sehen. Wenn du so weit bist, tippe ein Wort an und bestätige es.`,
+    `Willkommen im Café! Dieser erste Tisch ist eine kurze Übung. Welche Wörter auf diesem Brett passen zu «${clue}»? Tippe auf das ⓘ eines Wortes, um seine Übersetzung zu sehen, dann tippe auf ein Wort und bestätige es.`,
   clueFor: (clue, number) =>
     `Mein Hinweis ist «${clue}» für ${number}. Tippe auf ein Wort, an das du dabei denkst.`,
   lastGreenLeft:
@@ -158,7 +140,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `Dein Hinweis ist «${clue}» für ${number}. Die ${tokens} Punkte oben sind unsere gemeinsamen Hinweismarken. Jeder Hinweis, deiner oder meiner, kostet eine. Unten denke ich laut nach.`,
   yourClue: (clue, number) =>
     `Dein Hinweis ist «${clue}» für ${number}. Jetzt zählt beim Raten dein Schlüssel. Unten denke ich laut nach.`,
-  practiceWon: 'Alle grünen Karten gefunden. Wir haben gewonnen! Volle Spielfelder werden nicht so leicht, aber jedes Wort, dem wir begegnen, zählt.',
+  practiceWon: 'Alle grünen Karten gefunden. Wir haben gewonnen! Die Café-Rätsel werden nicht so leicht, aber jedes Wort, dem wir begegnen, zählt.',
   practiceLost:
     'Diese Runde ist uns entwischt, aber jedes Wort, dem wir begegnet sind, zählt trotzdem.',
   findingAClue: 'Ich bin dran. Ich suche einen Hinweis.',
@@ -167,7 +149,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'Das Rad ist voll. Dreh es, um auf Grün zu landen. In normalen Brettern kann dein Ergebnis so Platin erreichen.',
   practiceFinish:
-    'Übung abgeschlossen. Diese Runde bringt keine Postkarten und keine Stadtstufe. In normalen Brettern ergeben Lösen, Übersetzen und Drehen eine Stufe. Spiel ein abgeschlossenes Brett erneut, um sein Bestes zu verbessern.',
+    'Übung geschafft. Dieser Tisch bringt keinen Stempel. In einem Café-Rätsel bringen Lösen, Übersetzen und das Rad dem Café seinen Stempel. Du kannst ein Café noch einmal spielen, um seinen Stempel zu verbessern.',
   demoEndTitle: "Das war dein erstes ganzes Brett.",
   demoEndLine: "In der App spiele ich weiter mit dir, Brett für Brett, und ich behalte jedes Wort, das du sammelst.",
   demoAppStore: "900words im App Store laden",
@@ -176,6 +158,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey ruht sich aus",
   demoRestingBody: "Heute haben viele mit mir gespielt, deshalb brauche ich eine Pause. Komm morgen wieder oder spiel in der App mit mir.",
   demoCheckFailed: "Wir konnten nicht prüfen, dass du ein Mensch bist. Lade die Seite bitte neu und versuch es noch einmal.",
-  playFullRound: 'Spiel dein erstes ganzes Brett',
+  playFullRound: 'Spiel das Café-Rätsel',
   returnToParkedGame: 'Zurück zu deiner Runde',
 }

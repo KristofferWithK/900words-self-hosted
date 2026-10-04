@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { tapHaptic } from './feedback'
+import { prepareHaptics, tapHaptic } from './feedback'
 
 const TAP_TARGET = [
   'button',
@@ -32,6 +32,10 @@ export function useTapHaptics(): void {
     const onPointerUp = () => {
       lastPointerUp = performance.now()
     }
+    // The finger is down: get the engine ready for the tick the click will
+    // ask for. Any touch, not only one on a tap target. It is cheaper to warm
+    // for a swipe than to work out at pointer-down what the gesture will be.
+    const onPointerDown = () => prepareHaptics()
     const onClick = (event: MouseEvent) => {
       // Require a real pointer gesture immediately before the click. This
       // excludes keyboard activation and HTMLElement.click(), including the
@@ -59,9 +63,11 @@ export function useTapHaptics(): void {
       tapHaptic()
     }
 
+    window.addEventListener('pointerdown', onPointerDown, true)
     window.addEventListener('pointerup', onPointerUp, true)
     window.addEventListener('click', onClick)
     return () => {
+      window.removeEventListener('pointerdown', onPointerDown, true)
       window.removeEventListener('pointerup', onPointerUp, true)
       window.removeEventListener('click', onClick)
     }

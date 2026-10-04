@@ -1,0 +1,471 @@
+/* ---------- collection screen ---------- */
+
+.collection-chevron {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-right: 8px;
+}
+
+.collection-city-grey {
+  color: var(--text-dim);
+}
+
+/* ---------- bystanders while you guess: struck, not tinted ----------
+
+   The half-fill gradients are gone (owner, build 90): "I just want to see
+   when I'm guessing what words I already had guessed wrong. Cross them out
+   as if both parties had miss-guessed it." One treatment, whichever side
+   burned the card — no colour lesson about who. Struck during the guessing
+   turn only; everywhere else the card is plain revealed paper. The ink is
+   the dimmed text colour, the same treatment .card-spent gave its word, and
+   it clears AA on white (the card never paints itself beige any more). */
+
+.word-card.card-bystander-struck .card-da {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+/* The card-spent rules are gone with the bystander branches (owner, build 90):
+   nothing applies .card-spent any more — a struck neutral is
+   .card-bystander-struck above, and the card under it stays plain paper. */
+
+.gate-cost {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ---------- backup: the only way the collection leaves this phone ---------- */
+
+.backup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.backup-fallback {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 8px 0;
+  min-height: 40px;
+}
+
+.backup-paste {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.backup-paste textarea {
+  font: inherit;
+  font-size: 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  resize: vertical;
+}
+
+.backup-preview {
+  border: 2px solid var(--text);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.backup-preview h4 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-dim);
+}
+
+.backup-preview ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.92rem;
+}
+
+.backup-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- a new version is waiting ---------- */
+
+.update-banner {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  /* Top, not bottom: Home anchors its primary action to the bottom edge now,
+     and a bottom banner sat exactly on top of Play â€” measured by a drive
+     whose click it swallowed. And click-through except for its own buttons,
+     because up here it overlays headers and back arrows instead: a toast
+     must never eat a tap aimed at what it happens to float over. */
+  top: calc(12px + env(safe-area-inset-top));
+  z-index: 60;
+  pointer-events: none;
+  max-width: 456px;
+  margin: 0 auto;
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* The banner's two tags (owner O2, CW-12) are white tags on its dark
+   ground; the punched hole shows the ground through it. */
+.update-banner .tag-hole {
+  background: var(--text);
+}
+
+.update-banner button {
+  pointer-events: auto;
+}
+
+.update-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Purely informational and self-dismissing: it must not sit in front of the
+   buttons it happens to overlap. */
+.update-banner-quiet {
+  background: var(--surface);
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ---------- the letter that opens the game ---------- */
+
+.letter-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px calc(20px + env(safe-area-inset-bottom));
+  gap: 14px;
+}
+
+/* The letter scrolls, the button does not. A sticky button inside the scroller
+   was drawn over the paragraphs it was floating above. */
+.letter-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 24px 0 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.letter {
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  outline: none;
+}
+
+.letter-stamp {
+  font-size: 1.6rem;
+  text-align: center;
+  opacity: 0.4;
+}
+
+.letter-salutation,
+.letter-signoff {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.letter-signoff {
+  margin-top: 8px;
+}
+
+.letter-para {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.letter-from {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.letter-ps {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+.letter-ps-label {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.letter-go {
+  width: 100%;
+  max-width: 440px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.home-tagline {
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+/* ---------- the ten champions ---------- */
+
+.champion-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.champion-card-arrival {
+  background: var(--surface);
+}
+
+.champion-motif {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.champion-motif-inline {
+  font-size: 0.95rem;
+}
+
+.champion-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.champion-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.champion-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.champion-line-en {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.champion-blurb {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.champion-knew {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+}
+
+.city-champion {
+  font-size: 0.84rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.champion-says {
+  border-left: 3px solid var(--text);
+  padding: 4px 0 4px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.champion-says-farewell {
+  border-left-color: var(--green-tile);
+  margin: 10px 0;
+}
+
+.champion-attrib {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.gate-paper-line {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+/* Short and near-short phones: the hero and the map give up room so the
+   primary action stays reachable without scrolling or being painted over.
+   720px was a false cliff: at 360x721, one pixel above the old query, Casey's
+   label crossed Play despite the document still fitting. 780px is the first
+   relaxed height where the full map has enough room in every ordinary Home
+   state; `home-space-probe` holds both sides of that boundary. */
+@media (max-height: 780px) {
+  .home-screen {
+    /* T7's guide shares the map footprint, but its added focus target made
+       the older 12px inter-band rhythm spend the last clearance below Casey.
+       Keep short phones at Home's compact baseline so the mascot remains
+       above Play when the train becomes its 44px boarding control. */
+    gap: 8px;
+  }
+
+  /* Reserve real space between Casey's name and the action row. The viewport-
+     scaled mascot cap and band padding apply to onboarding too. */
+  .home-screen .cluey-band {
+    padding-bottom: clamp(12px, 2vh, 16px);
+  }
+
+  .home-screen .cluey-svg {
+    width: min(290px, 74vw, 31vh);
+  }
+
+  .home-hero {
+    padding: 6px 0 0;
+  }
+
+  .home-hero h1 {
+    font-size: 2rem;
+  }
+
+  .home-tagline {
+    display: none;
+  }
+
+  /* 23-37px of dead air in Casey's band here, not the 137px at 390x844 — so
+     this grows by the reclaimed padding and gaps, and little more.
+     21, not 24: T7's guide changed Home's measured clearance. At 24vh the
+     small Android had only 4.2px between Casey's drawing and Play; one slice
+     made the drawing clear, but Casey's name still crossed the action row.
+     21vh gives both elements two 6.4px map slices back. The no-scroll rule
+     still passes in both states, so this overlap check—not document height—
+     sets the ceiling. */
+  .home-map {
+    height: 21vh;
+  }
+
+  .city-card {
+    padding: 12px 14px;
+  }
+
+  .city-name {
+    font-size: 1.7rem;
+  }
+}
+
+/* The pass-required state has another 38px ticket row. It therefore needs the
+   compact map beyond the ordinary short-phone range: at 360x721 its Casey
+   label otherwise covers Play and steals the tap, while 390x844 retains the
+   full map with a measured 9px clearance. */
+@media (max-height: 840px) {
+  .home-screen:has(.home-pass-button) .home-map {
+    height: 16vh;
+  }
+}
+
+.map-champion {
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.map-champion-ahead {
+  font-style: italic;
+}
+
+.model-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.chip {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.chip-on {
+  border-color: var(--green-deep);
+  background: var(--green-soft);
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
+/* The `/v1` in the Base URL help. */
+.field small code {
+  font-size: 0.85em;
+  background: var(--grey-soft);
+  border-radius: 4px;
+  padding: 1px 5px;
+  overflow-wrap: anywhere;
+}
+
+.build-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.build-note {
+  flex-basis: 100%;
+  line-height: 1.4;
+}
+

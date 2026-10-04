@@ -1,15 +1,20 @@
-import { earliestByKey, furthestOf, numKeyed, mergeJourney, mergeRouteHistory, type JourneyBackup } from './journey'
-export { mergeJourney, mergeRouteHistory, type JourneyBackup } from './journey'
+import { earliestByKey, furthestOf, numKeyed, mergeJourney, mergeRouteHistory, withoutPhotos, type JourneyBackup } from './journey'
+export { mergeJourney, mergeRouteHistory, withoutPhotos, type JourneyBackup } from './journey'
 import { UI } from '../i18n'
 import { z } from 'zod'
 import { CITIES } from '../journey/cities'
 import type { LanguageCode } from '../lang/types'
 import { LEARN_REPS } from '../journey/progress'
+import { mergePhotoLedgers } from '../journey/wordMarks'
 import type { GamesTally } from '../stores/srsStore'
 import type { SrsMap, WordStats } from '../srs/types'
-import type { ProgressFacts } from '../progression/types'
+import type { LocalSettlement, ProgressFacts } from '../progression/types'
+import { settlementEntrySchema } from '../progression/storageSchema'
 import { earnedPostcards, LEGACY_CITY } from '../progression/facts'
 import { count, emptyLearning, HistoricalEligibilitySchema, LearningSchema, legacyProgress, mergeImportedProgress, mergeLearning, ProgressSchema, type PortableLearning } from './progress'
+import { CafeFindsFileSchema, PhotoLedgerSchema, TrainRunsFileSchema } from './learningSchema'
+import { mergeCafeFinds } from '../journey/cafes'
+import { mergeTrainRuns } from '../journey/progress'
 import { mergeRecovery, RecoveryArchiveSchema, type RecoveryArchive } from './recovery'
 
 /**
@@ -89,6 +94,18 @@ const JourneySchema = z.object({
   // `language`: every file written before it has none, and an older build
   // reading a newer file drops the key and restores what it always did.
   furthest: CityIndexSchema.optional(),
+  // Photo marks (journey/wordMarks.ts). Optional, no format bump, same
+  // reasoning as `furthest`: a file from before the café world has none and
+  // imports with none, and an older build drops the key it does not know.
+  photos: PhotoLedgerSchema.optional(),
+  // Café finds (journey/cafes.ts). Optional, no format bump, exactly like
+  // `photos`: an older file has none and imports with none. A record key a
+  // newer build added is stripped, not refused.
+  cafes: CafeFindsFileSchema.optional(),
+  // Train tickets (journey/progress.ts TrainRunFact, CW-07). Optional, no
+  // format bump, exactly like `cafes`: an older file has none and imports
+  // with none; a key a newer build added is stripped, not refused.
+  trainRuns: TrainRunsFileSchema.optional(),
   historicalTravelEligibility: HistoricalEligibilitySchema.optional(),
   parked: z.partialRecord(z.enum(['da', 'de']), z.object({ cityIndex: CityIndexSchema,
     arrivedAt: z.record(z.string(), count), furthest: CityIndexSchema.optional() })).optional(),
@@ -163,9 +180,16 @@ const LegacyBackupSchema = z.object({
   journey: JourneySchema,
   prefs: PrefsSchema,
 })
+/**
+ * Every settled round in full (the history archive, stores/historyArchive.ts),
+ * for research. Only the downloaded file carries it; nothing in play reads it.
+ * An extra key rather than a format bump, like `language`: an older build
+ * ignores it.
+ */
+const HistorySchema = z.array(settlementEntrySchema).default([])
 export const BackupSchema = LegacyBackupSchema.extend({
   format: z.literal(3), progress: ProgressSchema, learning: LearningSchema,
-  recovery: RecoveryArchiveSchema.default([]),
+  recovery: RecoveryArchiveSchema.default([]), history: HistorySchema,
 })
 
 const BackupV1Schema = z.object({
@@ -192,6 +216,8 @@ export interface Snapshot {
   progress?: ProgressFacts
   learning?: PortableLearning
   recovery?: RecoveryArchive
+  /** Every settled round in full, oldest first; only for the downloaded file. */
+  history?: readonly LocalSettlement[]
 }
 
 export function buildBackup(s: Snapshot, now: number): Backup {
@@ -205,11 +231,19 @@ export function buildBackup(s: Snapshot, now: number): Backup {
     progress,
     learning: mergeLearning(emptyLearning(), s.learning ?? emptyLearning()),
     recovery: RecoveryArchiveSchema.parse(s.recovery ?? []),
+    history: s.history ?? [],
     journey: {
       cityIndex: s.journey.cityIndex,
       wrapped: { ...s.journey.wrapped },
       arrivedAt: numKeyed(s.journey.arrivedAt),
       ...furthestOf(s.journey),
+      // Only when there is something to say, like `furthest`: a save with no
+      // photos writes a file byte-identical to one from before the field.
+      ...(Object.keys(s.journey.photos ?? {}).length ? { photos: s.journey.photos } : {}),
+      // The same for café finds: a save that never walked writes no key.
+      ...(Object.keys(s.journey.cafes ?? {}).length ? { cafes: s.journey.cafes } : {}),
+      // And for train tickets: a save that never caught a train writes no key.
+      ...(Object.keys(s.journey.trainRuns ?? {}).length ? { trainRuns: s.journey.trainRuns } : {}),
       historicalTravelEligibility: { ...s.journey.historicalTravelEligibility },
       parked: s.journey.parked ?? {},
       historicalRoutes: s.journey.historicalRoutes ?? {},
@@ -252,7 +286,8 @@ export function parseBackup(text: string): ParseResult {
     const progress = 'progress' in data ? data.progress as ProgressFacts : legacyProgress(data.srs.translationPostcards)
     const learning = 'learning' in data ? data.learning as PortableLearning : emptyLearning()
     const recovery = 'recovery' in data ? data.recovery as RecoveryArchive : []
-    return { ok: true, backup: { ...data, progress, learning, recovery } }
+    const history = 'history' in data ? data.history as Backup['history'] : []
+    return { ok: true, backup: { ...data, progress, learning, recovery, history } }
   }
   // Not the current shape — a format-1 file restores upgraded in memory.
   const v1 = BackupV1Schema.safeParse(json)
@@ -260,7 +295,7 @@ export function parseBackup(text: string): ParseResult {
     const { stamps, trialsSpent, banked, ...journey } = v1.data.journey
     void stamps, trialsSpent
     return { ok: true, backup: { ...v1.data, journey: { ...journey, wrapped: banked },
-      progress: legacyProgress(v1.data.srs.translationPostcards), learning: emptyLearning(), recovery: [] } }
+      progress: legacyProgress(v1.data.srs.translationPostcards), learning: emptyLearning(), recovery: [], history: [] } }
   }
   const shape =
     json && typeof json === 'object' && 'app' in json ? '' : UI.system.backupMaybeOtherApp
@@ -286,11 +321,35 @@ export function betterRecord(a: WordStats, b: WordStats): WordStats {
 }
 
 /**
+ * The record a merge stores for a word both sides know: `betterRecord`'s
+ * whole record, except that `greenByClue` and `greenByGuess` take the larger
+ * of the two sides. Those two are the clue and guess marks of the three-mark
+ * model (journey/wordMarks.ts), and keeping one whole record could drop one:
+ * a device with a clue mark and a file with a guess mark and more greens
+ * would keep the file's record and lose the clue.
+ *
+ * This is the one deliberate exception to "never a blend", and it invents no
+ * history. Both counters are add-only (srs/scheduler.ts only ever increments
+ * them), so the larger value on either side is a count the player really
+ * reached; nothing else reads them as a pair with the record's other fields.
+ * Everything else, box, `correctGuesses`, `seen`, `misses` and the rest,
+ * stays the chosen record's own.
+ */
+export function mergeWordRecord(a: WordStats, b: WordStats): WordStats {
+  const kept = betterRecord(a, b)
+  const greenByClue = Math.max(a.greenByClue, b.greenByClue)
+  const greenByGuess = Math.max(a.greenByGuess, b.greenByGuess)
+  return kept.greenByClue === greenByClue && kept.greenByGuess === greenByGuess ? kept : { ...kept, greenByClue, greenByGuess }
+}
+
+/**
  * Fold a backup into what is already on this device without losing either.
  * Every rule here is chosen so that restoring cannot cost the player anything
  * they had a moment ago:
  *
- * - words keep whichever record knows them better
+ * - words keep whichever record knows them better, with the larger clue and
+ *   guess counts of the two (`mergeWordRecord`), so no mark is lost
+ * - photo marks union by day (journey/wordMarks.ts#mergePhotoLedgers)
  * - wrapped words union, keeping the first time each was packed
  * - the furthest city wins
  * - the games tally takes the maximum, so restoring your own file twice does
@@ -318,7 +377,7 @@ export function mergeSnapshot(current: Snapshot, incoming: Backup): Snapshot {
   const stats: SrsMap = { ...current.stats }
   for (const [id, record] of Object.entries(incoming.srs.stats)) {
     const mine = stats[id]
-    stats[id] = mine ? betterRecord(mine, record) : record
+    stats[id] = mine ? mergeWordRecord(mine, record) : record
   }
   const sameLanguage = incoming.language === current.language
   return {
@@ -337,8 +396,14 @@ export function mergeSnapshot(current: Snapshot, incoming: Backup): Snapshot {
       ? mergeJourney(current.journey, incoming.journey)
       : // Words still merge — they are the part that is language-safe.
         { ...current.journey, wrapped: earliestByKey(current.journey.wrapped, incoming.journey.wrapped),
+          photos: mergePhotoLedgers(current.journey.photos ?? {}, incoming.journey.photos ?? {}),
+          // Café finds are keyed by their own city identity (course included),
+          // so they merge whatever language either side was playing.
+          cafes: mergeCafeFinds(current.journey.cafes ?? {}, incoming.journey.cafes ?? {}),
+          // Tickets are keyed by their own city identity too.
+          trainRuns: mergeTrainRuns(current.journey.trainRuns ?? {}, incoming.journey.trainRuns ?? {}),
           historicalTravelEligibility: { ...current.journey.historicalTravelEligibility, ...incoming.journey.historicalTravelEligibility },
-          parked: mergeRouteHistory(current.journey.parked ?? {}, { ...incoming.journey.parked, [incoming.language]: incoming.journey }),
+          parked: mergeRouteHistory(current.journey.parked ?? {}, { ...incoming.journey.parked, [incoming.language]: withoutPhotos(incoming.journey) }),
           historicalRoutes: mergeRouteHistory(current.journey.historicalRoutes ?? {}, incoming.journey.historicalRoutes ?? {}) },
     prefs: current.prefs,
     language: current.language,
@@ -367,6 +432,9 @@ export function replaceSnapshot(incoming: Backup): Snapshot {
       wrapped: incoming.journey.wrapped,
       arrivedAt: incoming.journey.arrivedAt as unknown as Record<number, number>,
       ...furthestOf(incoming.journey),
+      photos: incoming.journey.photos ?? {},
+      cafes: incoming.journey.cafes ?? {},
+      trainRuns: incoming.journey.trainRuns ?? {},
       historicalTravelEligibility: incoming.journey.historicalTravelEligibility,
       parked: incoming.journey.parked,
       historicalRoutes: incoming.journey.historicalRoutes,

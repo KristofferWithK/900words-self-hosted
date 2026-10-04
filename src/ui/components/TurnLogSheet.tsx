@@ -3,6 +3,7 @@ import { clueFlagId, guessFlagId, useFeedback } from '../../stores/feedbackStore
 import { UI } from '../../i18n'
 import { ACTIVE } from '../../lang/active'
 import { useDialog } from '../useDialog'
+import { Tag } from './Tag'
 
 /** The flag stays beside the reasoning it is correcting. */
 function FlagButton({
@@ -123,9 +124,7 @@ export function TurnLogSheet({ game, onClose }: { game: GameState; onClose: () =
             )
           })}
         </ol>
-        <button className="btn log-close" onClick={onClose}>
-          {UI.game.close}
-        </button>
+        <Tag size="wide" className="log-close" label={UI.game.close} onClick={onClose} />
       </div>
     </div>
   )

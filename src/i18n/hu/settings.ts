@@ -52,7 +52,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Ez az alap-URL nem használható.',
 
   // ── az eszközön futó modell ──────────────────────────────────────────────
-  gemmaUnavailableNote: 'Az offline mód a 900words iPhone-appjában működik.',
+  gemmaUnavailableNote: 'Az offline mód a 900words iPhone- és Android-appjában működik.',
   gemmaReady: (size) => `Az offline Casey kész (${size} ezen az iPhone-on).`,
   gemmaRemoveConfirm: 'Eltávolítod az offline Casey-t erről az iPhone-ról? Később újra letöltheted.',
   gemmaRemoveButton: 'Offline Casey eltávolítása',
@@ -85,6 +85,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Az MI-szolgáltatásod válaszolt.',
   gemmaOption: 'Gemma ezen az iPhone-on',
   gemmaOptionHelp: 'Casey ezen az iPhone-on játszik, internet és kulcs nélkül. Lassabb.',
+  ossCaseyHelpAndroid: 'Ez egy saját magad által épített 900words. Casey-nek MI kell a játékhoz: a saját MI-kulcsod vagy Gemma ezen az Android-telefonon.',
+  gemmaOptionAndroid: 'Gemma ezen az Android-telefonon',
+  gemmaOptionHelpAndroid: 'Casey ezen az Android-telefonon játszik, internet és kulcs nélkül. Lassabb.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Ez a saját magad által épített 900words Caseyt futtatja ezen az Android-telefonon: nincs szükség fiókra vagy kulcsra. A Gemmát csak egyszer kell letölteni (${size}). Használj Wi-Fi-t, és hagyd nyitva a 900words alkalmazást, amíg a letöltés be nem fejeződik.\n\nLegalább 12 GB memóriájú, újabb Android-telefonon működik a legjobban, például: ${phones}.${lowMemory ? '\n\nEzen a telefonon kevesebb memória van, mint az ajánlott modelleken, ezért lehet, hogy nem működik jól.' : ''}\n\nA Beállításokban saját MI-kulcsot is megadhatsz.\n\nLetöltöd most Caseyt?`,
   serverOption: 'Saját Casey-szerver',
   serverOptionHelp: 'Egy Casey Worker, amelyet te telepítettél (lásd a README-t).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -106,6 +111,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey ilyenkor felajánlja, hogy a kört a Gemmával fejezzétek be. Először ehhez le is töltődik.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Ez a 900words Casey-vel játszik az iPhone-odon: fiók és kulcs nélkül. Casey-t egyszer kell letölteni (${size}). Használj wifit, és ne zárd be az appot, amíg a letöltés be nem fejeződik.\n\nÚjabb iPhone kell hozzá: ${iphones}.${lowMemory ? '\n\nEnnek az iPhone-nak kevesebb memóriája van, mint ezeknek a modelleknek. Lehet, hogy nem fut rajta.' : ''}\n\nA Beállításokban a saját MI-kulcsodat is megadhatod.\n\nLetöltöd most Casey-t?`,
+  // ── offline Casey Androidon ──────────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Az offline Casey-hez újabb androidos telefon kell: Android 12 vagy újabb, és legalább 8 GB memória. Ez a telefon nem ilyen.',
+  gemmaReadyAndroid: (size) => `Az offline Casey kész (${size} ezen a telefonon).`,
+  gemmaRemoveConfirmAndroid:
+    'Eltávolítod az offline Casey-t erről a telefonról? Később újra letöltheted.',
+  offlineModeHelpAndroid:
+    'Normál Casey a 900words szerveréről játszik. Offline móddal internet nélkül is befejezhetsz egy kört az offline Casey-vel ezen a telefonon. Ő lassabb.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `Az offline mód kísérleti, és még fejlesztjük.\n\nAz offline mód letölti az offline Casey-t (${size}) erre a telefonra. Használj wifit, és ne zárd be az appot, amíg a letöltés be nem fejeződik.\n\nAz offline Casey lassabban játszik, mint Normál Casey.\n\nÚjabb androidos telefon kell hozzá, legalább 12 GB memóriával, például ${phones}.${lowMemory ? '\n\nEnnek a telefonnak kevesebb memóriája van ennél. Lehet, hogy nem fut rajta.' : ''}\n\nLetöltöd most?`,
+  gemmaAnsweredAndroid: 'A Gemma válaszolt ezen a telefonon.',
 
   // ── a kapcsolat ellenőrzése ──────────────────────────────────────────────
   testRunning: 'Tesztelés…',
@@ -254,4 +270,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "előzetes",
   learnerLanguagePreviewHelp: "A német egyelőre előzetes: a térkép és az Útikalauz már elérhető, a szójáték még nem. A leckéket még nem ellenőrizte német anyanyelvű ember.",
   playtestTravelHelp: "A térképen ugorhatsz előre: válassz egy későbbi megállót, és utazz tovább. Ez nem csomagol be szavakat, és nem növeli a tanulási haladásodat. Kapcsold ki, ha újra a szokásos utazási feltételeket szeretnéd tesztelni.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Hozzáférés a Google Play-ellenőrzéshez',
+  reviewAccessHelp: 'Csak a Google Play alkalmazás-ellenőrzéséhez. Add meg az utasításokban kapott ellenőrző kódot, hogy ezen az eszközön korlátlanul játszhass.',
+  reviewAccessLabel: 'Ellenőrző kód',
+  reviewAccessUnlock: 'Feloldás',
+  reviewAccessChecking: 'Ellenőrzés…',
+  reviewAccessOn: (date: string) =>
+    `Az ellenőrzési hozzáférés aktív. A korlátlan játék ezen az eszközön eddig van feloldva: ${date}.`,
+  reviewAccessInvalid: 'Ezt az ellenőrző kódot nem fogadtuk el.',
+  reviewAccessRateLimited: 'Túl sok próbálkozás. Kérlek, próbáld újra holnap.',
+  reviewAccessError: 'A kódot nem sikerült ellenőrizni. Ellenőrizd az internetkapcsolatot, és próbáld újra.',
+
+  // ── A csomagod (csak az áruházi buildekben). iOS-en Apple, Androidon Google Play.
+  planHeading: 'A csomagod',
+  planFreeShort: 'Ingyenes',
+  planUnlimitedShort: 'Korlátlan',
+  planChipAria: (plan: string) => `A csomagod: ${plan}`,
+  planChecking: 'A csomagod ellenőrzése az Apple-nél.',
+  planCheckingPlay: 'A csomagod ellenőrzése a Google Playnél.',
+  planFree: 'Ingyenes csomag. Napi két séta és két kávézós rejtvény.',
+  planMonthly: 'Korlátlan játék. Havi előfizetés. Havonta megújul, amíg le nem mondod.',
+  planLifetime: 'Korlátlan játék. Egyszeri vásárlás. Semmi sem újul meg.',
+  planBoth: 'Megvan az egyszeri vásárlásod. A havi előfizetésed még aktív, és már nincs rá szükséged. Mondd le, hogy ne terheljenek meg újra.',
+  planError: 'Az Apple most nem tudta ellenőrizni a csomagodat. Próbáld újra később.',
+  planErrorPlay: 'A Google Play most nem tudta ellenőrizni a csomagodat. Próbáld újra később.',
+  planGetUnlimited: 'Korlátlan játék',
+  planManage: 'Előfizetés kezelése vagy lemondása',
+  planSwitch: 'Váltás egyszeri vásárlásra',
+  planSwitchNote: 'Az egyszeri vásárlással örökre korlátlanul játszhatsz. A havi előfizetésedet ez nem szünteti meg. A vásárlás után mondd le a havi előfizetést az Apple-fiókodban, különben mindkettőért fizetsz.',
+  planSwitchNotePlay: 'Az egyszeri vásárlással örökre korlátlanul játszhatsz. A havi előfizetésedet ez nem szünteti meg. A vásárlás után mondd le a havi előfizetést a Google Playben, különben mindkettőért fizetsz.',
+  planBuyFor: (price: string) => `Megveszem: ${price}`,
+  planNotNow: 'Most nem',
 }

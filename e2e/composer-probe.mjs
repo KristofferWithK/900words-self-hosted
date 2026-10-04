@@ -1,4 +1,4 @@
-// K1's measurement, kept so the number in index.css can be re-taken rather
+// K1's measurement, kept so the number in src/styles/24-docks.css can be re-taken rather
 // than re-reasoned. Opt-in (not in the default drive list): it prints, it
 // asserts nothing.
 //

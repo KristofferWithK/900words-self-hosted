@@ -212,6 +212,10 @@
   "gloss": "Anatomie"
  },
  {
+  "da": "anden",
+  "gloss": "andere, zweite"
+ },
+ {
   "da": "anderledes",
   "gloss": "anders"
  },
@@ -408,6 +412,10 @@
   "gloss": "Kindersitz (Auto)"
  },
  {
+  "da": "autoværn",
+  "gloss": "Leitplanke"
+ },
+ {
   "da": "baby",
   "gloss": "Baby"
  },
@@ -586,6 +594,10 @@
  {
   "da": "bedstemor",
   "gloss": "Großmutter"
+ },
+ {
+  "da": "bedømmelse",
+  "gloss": "Beurteilung, Bewertung"
  },
  {
   "da": "befinde",
@@ -1274,14 +1286,6 @@
  {
   "da": "børn",
   "gloss": "Kinder"
- },
- {
-  "da": "børneopdragelse",
-  "gloss": "Kindererziehung"
- },
- {
-  "da": "børnesang",
-  "gloss": "Kinderlied"
  },
  {
   "da": "børste",
@@ -2454,10 +2458,6 @@
  {
   "da": "forhindring",
   "gloss": "Hindernis"
- },
- {
-  "da": "forhistorisk",
-  "gloss": "prähistorisch"
  },
  {
   "da": "forhold",
@@ -3860,10 +3860,6 @@
   "gloss": "Einkauf"
  },
  {
-  "da": "indkørsel",
-  "gloss": "Einfahrt"
- },
- {
   "da": "indlede",
   "gloss": "einleiten"
  },
@@ -4978,6 +4974,10 @@
  {
   "da": "køretøj",
   "gloss": "Fahrzeug"
+ },
+ {
+  "da": "kørsel",
+  "gloss": "Fahren, Fahrt"
  },
  {
   "da": "lag",
@@ -6276,10 +6276,6 @@
   "gloss": "aufgeklärt, beleuchtet"
  },
  {
-  "da": "oplæsning",
-  "gloss": "Vorlesen"
- },
- {
   "da": "opløse",
   "gloss": "auflösen"
  },
@@ -7224,6 +7220,10 @@
   "gloss": "Reisender"
  },
  {
+  "da": "rejsetid",
+  "gloss": "Reisezeit"
+ },
+ {
   "da": "reklame",
   "gloss": "Werbung"
  },
@@ -7600,10 +7600,6 @@
   "gloss": "Zusammenarbeit"
  },
  {
-  "da": "samkørsel",
-  "gloss": "Fahrgemeinschaft"
- },
- {
   "da": "samles",
   "gloss": "versammeln"
  },
@@ -7650,6 +7646,10 @@
  {
   "da": "sandslot",
   "gloss": "Sandburg"
+ },
+ {
+  "da": "sandsynlig",
+  "gloss": "wahrscheinlich"
  },
  {
   "da": "sandt",
@@ -8510,10 +8510,6 @@
  {
   "da": "stamtræ",
   "gloss": "Stammbaum"
- },
- {
-  "da": "standse",
-  "gloss": "anhalten"
  },
  {
   "da": "stang",
@@ -10150,6 +10146,10 @@
  {
   "da": "vugge",
   "gloss": "Wiege"
+ },
+ {
+  "da": "vurdering",
+  "gloss": "Einschätzung, Bewertung"
  },
  {
   "da": "våben",

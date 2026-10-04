@@ -8,7 +8,7 @@ import { ClueyFace } from './Cluey'
 import { Confetti } from './Confetti'
 import { CoachMarkTour } from './SuitcaseTour'
 import { UI } from '../../i18n'
-import { RECEIPT_UI } from '../../i18n/receipt'
+import { Tag } from './Tag'
 
 /**
  * Casey stays on the practice board throughout. This is deliberately a compact
@@ -194,13 +194,6 @@ export function tutorialFinishCopy(
   return null
 }
 
-/** Visible P04 outcome copy, derived only from the settled receipt. */
-export function tutorialAwardCopy(status: 'new' | 'already-held' | 'not-eligible'): string | null {
-  if (status === 'new') return RECEIPT_UI.newPostcards(1)
-  if (status === 'already-held') return RECEIPT_UI.alreadyEarned(RECEIPT_UI.newPostcards(1))
-  return null
-}
-
 export function tutorialFinishCtaCopy(resumeSlot: 'primary' | 'replay' | null): string {
   return resumeSlot ? UI.onboarding.returnToParkedGame : UI.onboarding.playFullRound
 }
@@ -210,7 +203,6 @@ export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game
   const winCopy = tutorialFinishCopy(game.outcome?.result)
   const awardStatus = settledAwardStatus ?? useGame((s) => s.completionReceipt?.tutorialAward?.status ?? 'not-eligible')
   const resumeSlot = useGame((s) => s.tutorialResumeSlot)
-  const awardLine = tutorialAwardCopy(awardStatus)
   const mood = game.outcome?.result === 'won' ? 'happy' : line.mood
   return (
     <div className="tutorial-finish" data-tutorial-award={awardStatus}>
@@ -220,9 +212,9 @@ export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game
         <p className="cluey-bubble tutorial-finish-bubble" role="status">
           {winCopy ?? line.text}
         </p>
-        <p className="tutorial-award-result" role="status">
-          {awardLine ?? (game.outcome?.result === 'lost' ? UI.onboarding.practiceLost : '')}
-        </p>
+        {/* No award line any more: the practice's one-time award was a
+            postcard, and the café world teaches stamps, not postcards
+            (CW-13). The settled status stays readable on data-tutorial-award. */}
         <div className="tutorial-finish-mascot" aria-hidden="true">
           <div className="cluey-live">
             <ClueyFace mood={mood} />
@@ -232,9 +224,11 @@ export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game
           </span>
         </div>
       </div>
-      <button
-        type="button"
-        className="btn btn-primary btn-big tutorial-full-round"
+      <Tag
+        size="wide"
+        tone="primary"
+        className="tutorial-full-round"
+        label={tutorialFinishCtaCopy(resumeSlot)}
         onClick={() => {
           const game = useGame.getState()
           // Both a first run and a replayed intro go on to the full board, its
@@ -245,9 +239,7 @@ export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game
           if (!game.restoreTutorialSuspension()) game.abandonGame()
           useUi.getState().advanceOnboarding('real-round')
         }}
-      >
-        {tutorialFinishCtaCopy(resumeSlot)}
-      </button>
+      />
     </div>
   )
 }

@@ -14,6 +14,7 @@
 import { chromium } from 'playwright'
 import openings from '../src/data/city1-opening-clues.da.json' with { type: 'json' }
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { dismissRoundGuidance, installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const PORT = 4187
@@ -24,6 +25,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const crashes = []
 page.on('pageerror', (e) => crashes.push(String(e)))
@@ -62,6 +65,9 @@ try {
   const roundDeadline = Date.now() + 60_000
   for (let i = 0; Date.now() < roundDeadline && (await page.locator('.round-summary').count()) === 0; i++) {
     await dismissRoundGuidance(page)
+    // After the spin the board stays until See results (owner, 2026-09-27).
+    const seeResults = page.locator('.wheel-results:not([disabled])')
+    if (await seeResults.isVisible().catch(() => false)) await seeResults.click()
     const wheel = page.locator('.translate-challenge-bar .wheel-disc')
     if (!spunWheel && (await wheel.isVisible().catch(() => false))) {
       await wheel.click()

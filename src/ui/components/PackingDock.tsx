@@ -95,7 +95,7 @@ export function PackingDock({ game }: { game: GameState }) {
     // the start with 12 and use postcard to look like the pack button"): "Start
     // with N" rides the actions row as a third pill, "Use postcard N" shares the
     // note row with it, and all three are the same 48px primary pill (the
-    // packing-early / packing-postcard rules in index.css). The long sentences
+    // packing-early / packing-postcard rules in src/styles/20-wrap-up-packing.css). The long sentences
     // each used to carry survive as title/aria only, and the no-wrap contract
     // of the one-line note is kept by the note's own rules.
     <div className="dock packing-dock">

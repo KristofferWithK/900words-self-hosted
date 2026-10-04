@@ -71,15 +71,47 @@ export function giverOf(phase: Phase): Side {
 }
 
 /**
- * The wheel's segments, in board order: every solved word at the moment the
- * challenge opens. The order is fixed at open so a segment keeps the identity
- * it was filled under — the UI renders segment i against `wheel.segments[i]`,
- * and the spin reads the same array.
+ * The wheel's segments, in board order: EVERY key word on the board, found or
+ * not (owner, 2026-09-27). The wheel used to hold only the words found when
+ * the challenge opened, so a round that ran out of clues with five of fifteen
+ * found could still fill a five-slice wheel and never lose. Now a word the
+ * round never found keeps a slice that can never turn green. The order is
+ * fixed at open and the spin reads the same array.
  */
 function wheelSegments(s: GameState): string[] {
   return [...new Set(s.words.map((w) => w.wordId))].filter(
-    (id) => (s.playerKey[id] === 'green' || s.aiKey[id] === 'green') && s.reveals[id]?.kind === 'green',
+    (id) => s.playerKey[id] === 'green' || s.aiKey[id] === 'green',
   )
+}
+
+/**
+ * The wheel words the player can translate: the ones found on the board.
+ * Reveals cannot change once the challenge is open, so this is fixed for it.
+ * On a save written before 2026-09-27 every segment was found, so this is all
+ * of them there.
+ */
+export function wheelFoundIds(s: GameState): string[] {
+  return (s.wheel?.segments ?? []).filter((id) => s.reveals[id]?.kind === 'green')
+}
+
+/**
+ * The segment indices that can never fill: one for each key word the round did
+ * not find, placed at random from the round's own seed (a private salt), like
+ * the fills. Derived rather than stored, so it needs no save migration: a save
+ * from before the full-board wheel has only found words on its wheel and
+ * derives none. Sorted, for the renderer and the tests.
+ */
+export function wheelMissedSegments(s: GameState): number[] {
+  const n = s.wheel?.segments.length ?? 0
+  const missing = n - wheelFoundIds(s).length
+  if (missing <= 0) return []
+  const order = Array.from({ length: n }, (_, i) => i)
+  const draw = mulberry32(s.seed ^ 0x5eedd15c)
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(draw() * (i + 1)) % (i + 1)
+    ;[order[i], order[j]] = [order[j]!, order[i]!]
+  }
+  return order.slice(0, missing).sort((a, b) => a - b)
 }
 
 /** Persisted keys/reveals prove solving independently of the terminal spin. */
@@ -91,26 +123,15 @@ export function isSolvedBoard(s: GameState): boolean {
 /** Shared by ordinary solving, sudden-death solving and token exhaustion. */
 function openTranslation(s: GameState): GameState {
   const segments = wheelSegments(s)
-  if (!segments.length) {
+  // A round that found nothing has nothing to translate: its wheel would be
+  // all grey, so it keeps the sudden-death ending it always had.
+  if (!segments.some((id) => s.reveals[id]?.kind === 'green')) {
     s.phase = 'suddenDeath'
     return s
   }
   s.phase = 'translateChallenge'
   s.wheel = { segments, translated: [], filled: [], attempts: 0, landed: null, result: null, spent: null }
   return s
-}
-
-/** How many suitcases the challenge asks for and the wheel holds. */
-export function wheelSegmentCount(s: GameState): number {
-  return s.wheel?.segments.length ?? 0
-}
-
-/**
- * The word this segment stands for, with the green word it came from — the
- * challenge's targets in the order the wheel will spin them.
- */
-export function wheelTargets(s: GameState): string[] {
-  return s.wheel?.segments ?? []
 }
 
 /**
@@ -363,6 +384,11 @@ export function applyEvent(state: GameState, event: GameEvent, lang: LanguagePac
       if (!wheel.segments.includes(event.wordId)) {
         throw new IllegalEventError(`word ${event.wordId} is not on the wheel`)
       }
+      // A key word the round never found holds a slice but is not a suitcase:
+      // only what was put into a suitcase can be translated back.
+      if (s.reveals[event.wordId]?.kind !== 'green') {
+        throw new IllegalEventError(`word ${event.wordId} was not found on the board`)
+      }
       if (wheel.translated.includes(event.wordId)) return s
       const word = s.words.find((w) => w.wordId === event.wordId)!
       // The packing grader, because the two phases ask the same kind of
@@ -382,15 +408,17 @@ export function applyEvent(state: GameState, event: GameEvent, lang: LanguagePac
       // the round's own seed stream (one mulberry32 per fill, a private salt,
       // `translated.length` as the counter — attempts can repeat across two
       // consecutive hits, which would draw the same random value twice), so
-      // the renderer cannot choose the fill and a replay replays.
+      // the renderer cannot choose the fill and a replay replays. The missed
+      // words' slices are never candidates: they stay grey.
+      const missed = wheelMissedSegments(s)
       const empty = wheel.segments
         .map((_, i) => i)
-        .filter((i) => !wheel.filled.includes(i))
+        .filter((i) => !wheel.filled.includes(i) && !missed.includes(i))
       const fill = mulberry32(s.seed ^ 0x5eedf111 ^ wheel.translated.length)
       const pick = empty[Math.floor(fill() * empty.length) % empty.length]!
       wheel.filled.push(pick)
-      if (wheel.translated.length === wheel.segments.length) {
-        // Last suitcase packed: the wheel stands filled. The phase changes by
+      if (wheel.translated.length === wheelFoundIds(s).length) {
+        // Last suitcase packed: every slice that can fill has. The phase changes by
         // itself — COMPLETE_CHALLENGE exists for a client driving the phases
         // one event at a time and is a no-op from here.
         s.phase = 'translateWheel'
@@ -406,7 +434,7 @@ export function applyEvent(state: GameState, event: GameEvent, lang: LanguagePac
       if (s.phase !== 'translateChallenge') return s
       const wheel = s.wheel
       if (!wheel || !wheel.segments.length) throw new IllegalEventError('no translation targets')
-      if (wheel.translated.length !== wheel.segments.length) {
+      if (wheel.translated.length !== wheelFoundIds(s).length) {
         throw new IllegalEventError('challenge is not complete')
       }
       s.phase = 'translateWheel'

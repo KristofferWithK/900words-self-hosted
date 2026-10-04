@@ -1,19 +1,18 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
-import type { WordEntry } from '../../data/types'
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { WORDS } from '../../data/words'
 import { cityAt } from '../../journey/cities'
-import {
-  unlockedWords,
-  wordState,
-  wordsForCity,
-} from '../../journey/progress'
+import { connectingWordsForCity } from '../../journey/cityWords'
+import { unlockedWords, wordsForCity } from '../../journey/progress'
 import { useGame } from '../../stores/gameStore'
 import { reachedIndex, useJourney } from '../../stores/journeyStore'
 import { useSrs } from '../../stores/srsStore'
 import { useUi } from '../../stores/uiStore'
 import { playWord } from '../speak'
 import { ACTIVE } from '../../lang/active'
-import { UI } from '../../i18n'
+import { UI, UI_LANGUAGE, UI_LANGUAGE_INFO } from '../../i18n'
+import { ConnectingWordNote, sayConnectingWord } from '../components/ConnectingWordNote'
+import { MarkRing } from '../components/MarkRing'
+import { connectingWordsThrough, markAria, suitcaseBands, suitcaseWords, type SuitcaseWord } from '../components/suitcaseWords'
 
 const CaseyBoardCollection = lazy(() => import('../components/CaseyBoardCollection').then((module) => ({ default: module.CaseyBoardCollection })))
 
@@ -89,6 +88,7 @@ function CaseCornerHatch() {
 
 function Pager({
   label,
+  note,
   words,
   page,
   perPage,
@@ -99,11 +99,13 @@ function Pager({
   children,
 }: {
   label: string
-  words: WordEntry[]
+  /** A small line under the label: the lid's legend. */
+  note?: string
+  words: readonly SuitcaseWord[]
   page: number
   perPage: number
   onPage: (p: number) => void
-  render: (w: WordEntry) => React.ReactNode
+  render: (w: SuitcaseWord) => React.ReactNode
   empty: string
   className?: string
   /** The drawn panel, if this band is one — it lies behind the words. */
@@ -116,7 +118,10 @@ function Pager({
     <div className={`case-band ${className}`}>
       {children}
       <div className="case-band-head">
-        <span className="case-band-label">{label}</span>
+        <span className="case-band-titles">
+          <span className="case-band-label">{label}</span>
+          {note && <span className="case-band-note">{note}</span>}
+        </span>
         {pages > 1 && (
           <span className="case-pager">
             <button
@@ -150,6 +155,11 @@ function Pager({
   )
 }
 
+/** Above this many characters a word takes the smaller tile type: the ring costs a little width. */
+const LONG_WORD = 9
+
+const LOCALE = UI_LANGUAGE_INFO[UI_LANGUAGE].tag
+
 export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
   const goTo = useUi((s) => s.goTo)
   const openSheet = useUi((s) => s.openSheet)
@@ -167,12 +177,12 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
   const [filter, setFilter] = useState<number>(journey.cityIndex)
   const [loosePage, setLoosePage] = useState(0)
   const [collectedPage, setCollectedPage] = useState(0)
+  const [note, setNote] = useState<SuitcaseWord | null>(null)
 
   useEffect(() => {
     setLoosePage(0)
     setCollectedPage(0)
   }, [filter])
-  const stateOf = (w: WordEntry) => wordState(srs[w.id], w.id in journey.wrapped)
 
   // One case: All is everything the journey has reached, and a chip narrows
   // the view without moving the player anywhere.
@@ -186,14 +196,18 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
   // them and Aalborg keeps its chip. What follows the traveller is the chip
   // that starts lit and the wrap-up button, which are about where you stand.
   const reachedTo = reachedIndex(journey)
-  const shown =
-    filter === ALL ? unlockedWords(WORDS, reachedTo) : wordsForCity(WORDS, filter)
-  // Still-learning words sit above the case. Collected and legacy-wrapped
-  // words share the lid; wrapped remains a display state, with no wrap-up path.
-  const discovered = shown.filter((w) => stateOf(w) === 'discovered')
-  const undiscovered = shown.filter((w) => stateOf(w) === 'undiscovered')
-  const loose = [...discovered, ...undiscovered]
-  const collected = shown.filter((w) => stateOf(w) === 'collected' || stateOf(w) === 'wrapped')
+  // A city's words are its board words and its connecting words (CW-11,
+  // contract section 3), each read with the three-mark model
+  // (components/suitcaseWords.ts): three marks put a word in the lid, any
+  // fewer leave it above the case with the marks it has. Old wrapped words
+  // follow their marks too (see suitcaseWords.ts).
+  const photos = journey.photos
+  const wrapped = journey.wrapped
+  const { loose, lid, total } = useMemo(() => {
+    const board = filter === ALL ? unlockedWords(WORDS, reachedTo) : wordsForCity(WORDS, filter)
+    const connecting = filter === ALL ? connectingWordsThrough(reachedTo) : connectingWordsForCity(filter)
+    return suitcaseBands(suitcaseWords(board, connecting, srs, photos ?? {}, wrapped))
+  }, [filter, reachedTo, srs, photos, wrapped])
 
   /**
    * A tile is a slot with the word button in it, never a bare button: the
@@ -202,25 +216,31 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
    * `case-tile-speak` — the stylesheet already places it, so that merge is one
    * element and no layout change.
    */
-  const wordTile = (w: WordEntry, cls: string) => (
+  const wordTile = (w: SuitcaseWord, cls: string) => (
     <li key={w.id} className="case-slot">
       <button
         // A compartment tile never wraps: the rows are short at 360×640 and a
-        // second line is what would clip. Eleven of the nine hundred words are
-        // longer than a 3-column tile holds at the normal size, so those get a
-        // smaller one instead — «international» whole beats «internatio-» cut.
-        className={`case-tile ${cls}${w.da.length > 10 ? ' case-tile-long' : ''}`}
-        lang={ACTIVE.code}
-        aria-label={UI.home.wordAria[stateOf(w)](w.da)}
+        // second line is what would clip. The longest words get a smaller
+        // type instead — «international» whole beats «internatio-» cut.
+        className={`case-tile ${cls}${w.connecting ? ' case-connecting' : ''}${w.text.length > LONG_WORD ? ' case-tile-long' : ''}`}
+        data-marks={w.marks.earned}
+        aria-label={markAria(w, UI.home, LOCALE)}
         onClick={() => {
           // The tile says the word and opens its page — the sheet has its own
           // 🔊 for a second listen, but wanting to hear a word you are looking
-          // at should not cost two taps.
+          // at should not cost two taps. A connecting word has no card and no
+          // sheet: it opens its own small note (ConnectingWordNote).
+          if (w.connecting) {
+            void sayConnectingWord(w.connecting)
+            setNote(w)
+            return
+          }
           void playWord(w.id)
           openSheet(w.id)
         }}
       >
-        {w.da}
+        <MarkRing earned={w.marks.earned} />
+        <span className="case-tile-word" lang={ACTIVE.code}>{w.text}</span>
       </button>
     </li>
   )
@@ -267,7 +287,7 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
         ))}
       </div>
 
-      {/* Loose words sit above the case. */}
+      {/* Words not collected yet sit above the case, with their rings. */}
       <Pager
         label={UI.home.looseLabel(loose.length)}
         words={loose}
@@ -276,7 +296,7 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
         onPage={setLoosePage}
         className="case-loose"
         empty={UI.home.looseEmpty}
-        render={(w) => stateOf(w) === 'undiscovered' ? (
+        render={(w) => w.place === 'unknown' ? (
           <li key={w.id} className="case-slot">
             <span className="case-tile case-unknown" aria-label={UI.home.undiscoveredAria}>
               <span aria-hidden="true">?</span>
@@ -288,14 +308,15 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
       <div className="case-open">
         <CaseHandle />
         <Pager
-          label={UI.home.lidLabel(collected.length)}
-          words={collected}
+          label={UI.home.trainSheetCollected(lid.length, total)}
+          note={UI.home.lidLegend}
+          words={lid}
           page={collectedPage}
           perPage={CASE_PAGE}
           onPage={setCollectedPage}
           className="case-panel case-panel-lid"
           empty={UI.home.lidEmpty}
-          render={(w) => wordTile(w, stateOf(w) === 'wrapped' ? 'case-wrapped' : 'case-collected')}
+          render={(w) => wordTile(w, 'case-collected')}
         >
           <CasePanel half="lid" />
           <CaseCornerHatch />
@@ -313,6 +334,9 @@ export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
           </Suspense>
         </section>
       </div>
+      {note?.connecting && (
+        <ConnectingWordNote word={note.connecting} marks={note.marks} marksText={markAria(note, UI.home, LOCALE)} onClose={() => setNote(null)} />
+      )}
     </div>
   )
 }

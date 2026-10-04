@@ -23,10 +23,14 @@
  */
 
 /**
- * v5 moves the explanation onto Home itself. Its current sequence is:
- * ticket → staged Home → small practice round → real first round → Home
- * suitcase prompt → live suitcase tour. The v4 train and Home-tour markers
- * therefore need an explicit translation rather than being resumed blindly.
+ * v5 is the café world's first session (CW-13, contract section 7): ticket →
+ * Casey's two lines → the first Sightseeing walk, which finds the first café →
+ * Home, where that café is introduced → the café's practice table with the
+ * spotlight tour → the café's own puzzle and its stamp → Home → the suitcase
+ * and its three marks. The marker key stays v5: the café acts were added to
+ * it, and a marker of the retired staged Home (`home-intro`) resumes at
+ * Casey's lines. The v4 train and Home-tour markers still need an explicit
+ * translation rather than being resumed blindly.
  */
 import { track } from '../analytics/stats'
 
@@ -37,17 +41,22 @@ const V2_ONBOARD_KEY = 'cluecab-onboard-v2'
 const OLDEST_ONBOARD_KEY = 'cluecab-onboard-v1'
 
 /**
- * The Home-first path. `home-intro` progressively reveals the real Home;
- * `tutorial` is the authored small practice round; `real-round` is the first
- * ordinary 3×6 game; `home-return` gates Play behind Casey; and the two
- * suitcase markers distinguish a tour still to be read from a completed tour
- * whose Back button finishes onboarding. A step is written as the flow
- * advances so a reload — including the language choice reload — resumes the
- * right act rather than starting over.
+ * The walk-first path (CW-13). `intro` is Casey's two lines before the walk;
+ * `walk` is the first Sightseeing walk, which finds the first café;
+ * `home-cafe` is Home introducing the café found; `tutorial` is the café's
+ * authored small practice table; `real-round` is the café's own puzzle, the
+ * first ordinary 3×6 game; `home-return` points at the city's stamp and gates
+ * the rest behind Casey; and the two suitcase markers distinguish a tour
+ * still to be read from a completed tour whose Back button finishes
+ * onboarding. A step is written as the flow advances so a reload — including
+ * the language choice reload — resumes the right act rather than starting
+ * over.
  */
 export type OnboardStep =
   | 'ticket'
-  | 'home-intro'
+  | 'intro'
+  | 'walk'
+  | 'home-cafe'
   | 'tutorial'
   | 'real-round'
   | 'home-return'
@@ -56,12 +65,20 @@ export type OnboardStep =
 
 export const isOnboardStep = (v: unknown): v is OnboardStep =>
   v === 'ticket' ||
-  v === 'home-intro' ||
+  v === 'intro' ||
+  v === 'walk' ||
+  v === 'home-cafe' ||
   v === 'tutorial' ||
   v === 'real-round' ||
   v === 'home-return' ||
   v === 'suitcase' ||
   v === 'suitcase-ready'
+
+/**
+ * The retired staged Home (`home-intro`, before CW-13) taught the map, the
+ * Guide and Play. Its place in the flow is Casey's lines before the walk.
+ */
+const RETIRED_V5_STEPS: Readonly<Record<string, OnboardStep>> = { 'home-intro': 'intro' }
 
 export type OnboardDecision =
   /** Nothing anywhere says this device has played: run the flow. */
@@ -91,10 +108,10 @@ type WritableStorage = Pick<Storage, 'setItem'> & Partial<Pick<Storage, 'removeI
 const local = (): Storage | undefined =>
   typeof localStorage === 'undefined' ? undefined : localStorage
 
-/** Translate a v4 marker into the Home-first v5 sequence. */
+/** Translate a v4 marker into the walk-first v5 sequence. */
 function legacyStep(marker: string): OnboardStep | null {
   if (marker === 'ticket') return 'ticket'
-  if (marker === 'train') return 'home-intro'
+  if (marker === 'train') return 'intro'
   if (marker === 'tutorial') return 'tutorial'
   if (marker === 'home') return 'home-return'
   return null
@@ -103,7 +120,7 @@ function legacyStep(marker: string): OnboardStep | null {
 /** Translate the longer v3 flow past the acts v4 had already retired. */
 function v3Step(marker: string): OnboardStep | null {
   if (marker === 'station' || marker === 'ticket') return 'ticket'
-  if (marker === 'train' || marker === 'practice-choice') return 'home-intro'
+  if (marker === 'train' || marker === 'practice-choice') return 'intro'
   if (marker === 'tutorial') return 'tutorial'
   if (
     marker === 'grammar-offer' ||
@@ -147,6 +164,8 @@ export function decideOnboarding(storage: ReadableStorage | undefined = local())
     const marker = storage.getItem(ONBOARD_KEY)
     if (marker === 'done') return { kind: 'done' }
     if (isOnboardStep(marker)) return { kind: 'resume', step: marker }
+    const retired = marker === null ? undefined : RETIRED_V5_STEPS[marker]
+    if (retired) return { kind: 'resume', step: retired }
     // Any other non-null marker is a step this build does not know — written
     // by a newer build, then downgraded. The flow was begun; restart it.
     if (marker !== null) return { kind: 'resume', step: 'ticket' }
@@ -170,7 +189,7 @@ export function decideOnboarding(storage: ReadableStorage | undefined = local())
     const v2Marker = storage.getItem(V2_ONBOARD_KEY)
     if (v2Marker === 'done') return { kind: 'done' }
     if (v2Marker === 'ticket') return { kind: 'resume', step: 'ticket' }
-    if (v2Marker === 'train') return { kind: 'resume', step: 'home-intro' }
+    if (v2Marker === 'train') return { kind: 'resume', step: 'intro' }
     if (v2Marker === 'tutorial') return { kind: 'resume', step: 'tutorial' }
     if (v2Marker === 'tour' || v2Marker === 'map' || v2Marker === 'arrival') {
       return { kind: 'resume', step: 'home-return' }
@@ -216,7 +235,7 @@ export function markOnboardDone(storage: WritableStorage | undefined = local()):
 /**
  * The contextual lessons that ride on real screens rather than owning an
  * act: the translation controls, the full wheel before its spin, the first
- * full board's result, and the Home postcard total. Each is `done` (read to the end) or `dismissed` (the
+ * full board's result, and Home's city stamp. Each is `done` (read to the end) or `dismissed` (the
  * learner chose Skip or Escape); absent means still owed. A lesson whose
  * controls never mounted records nothing, so it is offered again later.
  *

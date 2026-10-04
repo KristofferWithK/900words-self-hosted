@@ -1,6 +1,7 @@
 import Capacitor
 import StoreKit
 import OSLog
+import UIKit
 
 private let passPluginLogger = Logger(
     subsystem: Bundle.main.bundleIdentifier ?? "com.kristofferwithk.cluecabulary",
@@ -47,12 +48,16 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "purchase", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "restore", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "redeemCode", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "manageSubscriptions", returnType: CAPPluginReturnPromise),
     ]
 
     private let productIDs = [
         "com.kristofferwithk.cluecabulary.pass.monthly",
         "com.kristofferwithk.cluecabulary.pass.lifetime",
     ]
+    private let lifetimeID = "com.kristofferwithk.cluecabulary.pass.lifetime"
+    /** Apple's subscriptions page, for when the StoreKit sheet cannot open. Mirrors APPLE_SUBSCRIPTIONS_URL in pass.ts. */
+    private let subscriptionsURL = URL(string: "https://apps.apple.com/account/subscriptions")
 
     private var updatesTask: Task<Void, Never>?
 
@@ -69,9 +74,9 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
                 guard case .verified(let transaction) = verification,
                       self.productIDs.contains(transaction.productID) else { continue }
                 await transaction.finish()
-                let current = try? await self.currentPassEntitlement()
-                let fresh = transaction.revocationDate == nil ? transaction : nil
-                self.notifyListeners("passChanged", data: self.result(for: current ?? fresh))
+                let current = (try? await self.ownedPassProducts()) ?? []
+                let fresh: Set<String> = transaction.revocationDate == nil ? [transaction.productID] : []
+                self.notifyListeners("passChanged", data: self.result(for: current.union(fresh)))
             }
         }
     }
@@ -83,7 +88,7 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
     @objc func status(_ call: CAPPluginCall) {
         Task {
             do {
-                call.resolve(result(for: try await currentPassEntitlement()))
+                call.resolve(result(for: try await ownedPassProducts()))
             } catch {
                 call.reject("StoreKit could not verify this ticket.", nil, error)
             }
@@ -142,8 +147,8 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
                     // can still be empty; the verified transaction just
                     // checked is itself the proof, so an empty answer must not
                     // put the paid player back in front of the purchase dialog.
-                    let current = try? await currentPassEntitlement()
-                    call.resolve(result(for: current ?? transaction))
+                    let current = (try? await ownedPassProducts()) ?? []
+                    call.resolve(result(for: current.union([transaction.productID])))
                 case .pending:
                     call.resolve(["entitled": false, "pending": true])
                 case .userCancelled:
@@ -161,7 +166,7 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
         Task {
             do {
                 try await AppStore.sync()
-                call.resolve(result(for: try await currentPassEntitlement()))
+                call.resolve(result(for: try await ownedPassProducts()))
             } catch {
                 call.reject("Apple could not restore purchases.", nil, error)
             }
@@ -181,7 +186,7 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
                 }
                 // The sheet has closed. A redeemed ticket is in the stream now,
                 // or arrives shortly through Transaction.updates.
-                var data = self.result(for: try? await self.currentPassEntitlement())
+                var data = self.result(for: (try? await self.ownedPassProducts()) ?? [])
                 data["awaited"] = true
                 call.resolve(data)
             } else {
@@ -191,19 +196,70 @@ public final class PassPlugin: CAPPlugin, CAPBridgedPlugin {
         }
     }
 
-    private func currentPassEntitlement() async throws -> Transaction? {
+    /**
+     * "Manage or cancel subscription" in Settings: Apple's own sheet, where the
+     * player can see, change or cancel the monthly plan. The app cannot cancel
+     * it itself; no StoreKit API does. Resolves when the sheet closes, so
+     * JavaScript reads the plan again. If the sheet cannot open, Apple's
+     * subscriptions page opens instead.
+     */
+    @objc func manageSubscriptions(_ call: CAPPluginCall) {
+        Task { @MainActor in
+            if let scene = self.bridge?.viewController?.view.window?.windowScene {
+                do {
+                    try await AppStore.showManageSubscriptions(in: scene)
+                    passPluginLogger.notice("pass-manage outcome=sheet")
+                    call.resolve(["opened": true, "sheet": true])
+                    return
+                } catch {
+                    let diagnostic = self.safeStoreKitErrorCode(error)
+                    passPluginLogger.error("pass-manage outcome=sheet-failed errorDomain=\(diagnostic.domain, privacy: .public) errorCode=\(diagnostic.code, privacy: .public)")
+                }
+            }
+            guard let url = self.subscriptionsURL else {
+                call.reject("Apple's subscription settings could not be opened.")
+                return
+            }
+            UIApplication.shared.open(url) { opened in
+                passPluginLogger.notice("pass-manage outcome=\(opened ? "page" : "page-failed", privacy: .public)")
+                if opened {
+                    call.resolve(["opened": true, "sheet": false])
+                } else {
+                    call.reject("Apple's subscription settings could not be opened.")
+                }
+            }
+        }
+    }
+
+    /**
+     * Every pass product this Apple Account holds now: verified, not revoked.
+     * An unverified entitlement throws, as it always has, so a status read
+     * fails closed rather than guessing.
+     */
+    private func ownedPassProducts() async throws -> Set<String> {
+        var owned = Set<String>()
         for await verification in Transaction.currentEntitlements {
             let transaction = try checkVerified(verification)
             if productIDs.contains(transaction.productID), transaction.revocationDate == nil {
-                return transaction
+                owned.insert(transaction.productID)
             }
         }
-        return nil
+        return owned
     }
 
-    private func result(for transaction: Transaction?) -> [String: Any] {
-        guard let transaction else { return ["entitled": false] }
-        return ["entitled": true, "productId": transaction.productID]
+    /**
+     * The answer JavaScript reads. Lifetime wins when both are owned, as on
+     * Android (PassEntitlement.java): this used to return whichever ticket the
+     * stream listed first, so a player with both could be shown as monthly.
+     * `ownedProductIds` lists both, so "Your plan" can say the monthly plan
+     * still renews and should be cancelled.
+     */
+    private func result(for owned: Set<String>) -> [String: Any] {
+        let ownedInOrder = productIDs.filter { owned.contains($0) }
+        guard let productID = owned.contains(lifetimeID) ? lifetimeID : ownedInOrder.first else {
+            return ["entitled": false]
+        }
+        return ["entitled": true, "productId": productID, "ownedProductIds": ownedInOrder]
     }
 
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {

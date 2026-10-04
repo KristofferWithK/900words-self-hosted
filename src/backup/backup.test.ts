@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { CITIES } from '../journey/cities'
 import { newStats } from '../srs/scheduler'
+import { validatedReceiptFixture } from '../progression/fixtures'
 import type { SrsMap, WordStats } from '../srs/types'
 import {
   BACKUP_FORMAT,
   betterRecord,
   buildBackup,
   mergeSnapshot,
+  mergeWordRecord,
   parseBackup,
   replaceSnapshot,
   summarize,
@@ -38,6 +40,19 @@ const roundTrip = (s: Snapshot) => {
 }
 
 describe('export and parse', () => {
+  it('carries every settled round in full for research, and reads a file without them', () => {
+    const entry = Object.values(validatedReceiptFixture().ledger.settlements)[0]!
+    expect(roundTrip(snapshot({ history: [entry] })).history).toEqual([JSON.parse(JSON.stringify(entry))])
+    expect(roundTrip(snapshot()).history).toEqual([])
+    const older = JSON.parse(JSON.stringify(buildBackup(snapshot(), NOW)))
+    delete older.history
+    const read = parseBackup(JSON.stringify(older))
+    expect(read.ok && read.backup.history).toEqual([])
+    const junk = JSON.parse(JSON.stringify(buildBackup(snapshot({ history: [entry] }), NOW)))
+    junk.history[0].receipt.attemptTier = 'diamond'
+    expect(parseBackup(JSON.stringify(junk)).ok).toBe(false)
+  })
+
   it('preserves unspent translation postcards through export and replace', () => {
     const file = roundTrip(snapshot({ translationPostcards: 7 }))
     expect(file.srs.translationPostcards).toBe(7)
@@ -391,6 +406,33 @@ describe('merge', () => {
       roundTrip(snapshot({ stats: { hus: grey } })),
     )
     expect(onDevice.stats.hus).toMatchObject({ greenByClue: 1, greenByGuess: 1 })
+  })
+
+  it('keeps a clue mark on one side and a guess mark on the other, in both directions', () => {
+    // Review of PR #350: the file's record wins on correctGuesses, and as a
+    // whole record it would drop the device's clue mark. The two directional
+    // counters are add-only, so each takes the larger side.
+    const clueOnDevice = stats({ greenByClue: 1, greenByGuess: 0, correctGuesses: 1, seen: 1 })
+    const guessInFile = stats({ greenByClue: 0, greenByGuess: 1, correctGuesses: 2, seen: 4, box: 3 })
+    for (const [device, file] of [[clueOnDevice, guessInFile], [guessInFile, clueOnDevice]] as const) {
+      const merged = mergeSnapshot(snapshot({ stats: { hus: device } }), roundTrip(snapshot({ stats: { hus: file } }))).stats.hus!
+      expect(merged).toMatchObject({ greenByClue: 1, greenByGuess: 1 })
+      // Every other field is the chosen record's own: still no blend there.
+      expect({ ...merged, greenByClue: 0, greenByGuess: 0 }).toEqual({ ...guessInFile, greenByClue: 0, greenByGuess: 0 })
+    }
+    // Merging the result again changes nothing.
+    const once = mergeSnapshot(snapshot({ stats: { hus: clueOnDevice } }), roundTrip(snapshot({ stats: { hus: guessInFile } })))
+    expect(mergeSnapshot(once, roundTrip(snapshot({ stats: { hus: guessInFile } }))).stats.hus).toEqual(once.stats.hus)
+  })
+
+  it('takes the larger count of each side, not only the mark', () => {
+    const a = stats({ greenByClue: 3, greenByGuess: 1, correctGuesses: 4 })
+    const b = stats({ greenByClue: 1, greenByGuess: 2, correctGuesses: 5 })
+    expect(mergeWordRecord(a, b)).toMatchObject({ greenByClue: 3, greenByGuess: 2, correctGuesses: 5 })
+    expect(mergeWordRecord(b, a)).toMatchObject({ greenByClue: 3, greenByGuess: 2, correctGuesses: 5 })
+    // When the chosen record already holds the larger counts it is returned as is.
+    const full = stats({ greenByClue: 2, greenByGuess: 2, correctGuesses: 4 })
+    expect(mergeWordRecord(full, stats({ greenByClue: 1, greenByGuess: 1, correctGuesses: 2 }))).toBe(full)
   })
 
   it('keeps words that exist on only one side', () => {

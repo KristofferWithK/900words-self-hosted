@@ -137,7 +137,7 @@ try {
     }
     await page.waitForSelector('.arrival-city')
     check(`${city} is the city arrived in`, (await page.locator('.arrival-city').textContent())?.trim() === city)
-    await page.click('.arrival-screen .btn:not(.btn-primary)')
+    await page.click('.arrival-screen .arrival-see-map')
     await page.waitForSelector('.map-screen')
   }
 

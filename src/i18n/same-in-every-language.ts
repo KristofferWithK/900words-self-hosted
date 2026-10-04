@@ -510,5 +510,25 @@ export const SAME_IN_EVERY_LANGUAGE: ReadonlySet<string> = new Set<string>([
   'glosses.da:se',
   'glosses.da:fin',
   'glosses.da:fast',
+  // ── Sightseeing, the running game (2026-10-04) ───────────────────────────
+  // A word and its meaning joined by "=" ("house = hus"): there are no words
+  // in it to translate, only the two the run passes in.
+  'sightseeing.pair',
+  // "Photos" is the French word too (les photos), the label over the count.
+  'sightseeing.photosLabel',
+  // "Articles" is the French word too (les articles), the name of the walk that asks them.
+  'sightseeing.articlesWalk',
+  // "Café" is the word in German, Spanish, French, Dutch and Portuguese too,
+  // written on the café on the road when it has no name of its own.
+  'sightseeing.cafeSign',
+  // ── The suitcase's marks and stamp card (CW-11, 2026-10-04) ──────────────
+  // "photo" is the French word too (une photo), one of a word's three marks.
+  'home.markPhoto',
+  // A café with no name yet, read out as "Café 12": "Café" is the word in
+  // German, Spanish, French, Dutch and Portuguese as well.
+  'home.stampCafeNumber',
+  // A café's name and its stamp joined by the language's colon ("Café Solen:
+  // Gold stamp"): both halves are passed in already translated.
+  'home.stampCellStamped',
 ])
 

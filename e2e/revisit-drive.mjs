@@ -3,10 +3,18 @@
 // a Home that says "Sønderborg" is not evidence that its deal stayed in
 // Sønderborg after reload.
 import { chromium } from 'playwright'
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { stopDots, tapStop } from './map-stops.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
+
+// Read off the source, as the endgame drive reads the route: the release
+// scope's own constant, not a copy of it.
+const DEVELOPED_CITY_COUNT = Number(
+  /export const DEVELOPED_CITY_COUNT = (\d+)/.exec(readFileSync(new URL('../src/journey/cities.ts', import.meta.url), 'utf8'))?.[1],
+)
+if (!Number.isInteger(DEVELOPED_CITY_COUNT)) throw new Error('could not read DEVELOPED_CITY_COUNT')
 
 const PORT = 4193
 const preview = await startPreview(PORT)
@@ -17,6 +25,8 @@ const browser = await chromium.launch({
 })
 const context = await browser.newContext({ viewport: { width: 360, height: 640 } })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const errors = []
 const failed = []
@@ -109,9 +119,12 @@ check('looking at a visited stop does not move the route marker',
 // Guide opens as a fixed pocket guide.
 await page.locator('.map-screen .icon-btn[aria-label="Back"]').click()
 await page.waitForSelector('.home-screen')
+// Since CW-10 (#360, design-home-settled.jpg) the Guide stands in a stack
+// over the city's stamp and percentage: the stack is the map's sibling, the
+// Guide its first child.
 check('Home map has sibling Guide control',
   (await page.locator('.home-map-controls > .map-button').count()) === 1 &&
-  (await page.locator('.home-map-controls > .home-guide-button').count()) === 1)
+  (await page.locator('.home-map-controls > .home-guide-stack > .home-guide-button').count()) === 1)
 await page.locator('.home-guide-button').click({ force: true })
 await page.waitForSelector('.travel-guide-book', { timeout: 5_000 })
 check('Guide opens as a fixed physical book with only its two sections',
@@ -195,7 +208,7 @@ check('closing the map preview returns to the selected city on the map',
   check('Travel back touches neither the suitcase nor the travel log',
     JSON.stringify(wentBack.wrapped) === JSON.stringify(before.wrapped) &&
     JSON.stringify(wentBack.arrivedAt) === JSON.stringify(before.arrivedAt))
-  await page.click('.arrival-screen .btn:not(.btn-primary)')
+  await page.click('.arrival-screen .arrival-see-map')
   await page.waitForSelector('.map-screen')
 
   // Play at home now deals the city travelled back to — the board that "Play
@@ -238,11 +251,11 @@ check('closing the map preview returns to the selected city on the map',
     (await page.locator('.case-filter .chip-home').textContent())?.trim() === pastName)
   const band = (text) => page.locator('.case-band-label', { hasText: text })
   check('which looks empty, because nothing was collected there',
-    (await band(/^Collected: 0$/).count()) === 1 &&
+    (await band(/^Collected: 0 of \d+$/).count()) === 1 &&
     (await page.locator('.case-tile.case-collected').count()) === 0)
   await page.locator('.case-filter .chip', { hasText: startName }).click()
   check('while the city travelled back from still holds its thirty',
-    (await band(/^Collected: 30$/).count()) === 1 &&
+    (await band(/^Collected: 30 of \d+$/).count()) === 1 &&
     (await page.locator('.case-tile.case-collected').count()) > 0,
     (await page.locator('.case-band-label').allTextContents()).join(' | '))
   await page.locator('.suitcase-screen .icon-btn[aria-label="Back"]').click()
@@ -265,11 +278,19 @@ check('closing the map preview returns to the selected city on the map',
   await page.waitForSelector('.ride-screen')
   await page.click('.ride-skip')
   await page.waitForSelector('.arrival-city')
-  await page.click('.arrival-screen .btn:not(.btn-primary)')
+  await page.click('.arrival-screen .arrival-see-map')
   await page.waitForSelector('.map-screen')
   const returned = await stored('cluecab-journey-v2')
-  check('Travel on again lands where the traveller had got to, with the log intact',
-    returned.cityIndex === before.cityIndex &&
+  // Release scope (2026-09-15, bf700e53a2): `travelTo`, which Travel back and
+  // Travel on again share, moves only between the developed stops
+  // (DEVELOPED_CITY_COUNT in src/journey/cities.ts, clause 3 of the scope note
+  // in src/stores/journeyStore.ts). The ?city= seam stands the traveller past
+  // that scope, so the ride and the arrival play but the move is refused: the
+  // traveller stays at the furthest developed stop. When City 2 ships and the
+  // constant rises, this asserts the full return again without an edit.
+  const developedLimit = DEVELOPED_CITY_COUNT - 1
+  check('Travel on again lands where the traveller had got to, within the developed route, with the log intact',
+    returned.cityIndex === Math.min(before.cityIndex, developedLimit) &&
     JSON.stringify(returned.arrivedAt) === JSON.stringify(before.arrivedAt) &&
     JSON.stringify(returned.wrapped) === JSON.stringify(before.wrapped),
     JSON.stringify(returned.cityIndex))

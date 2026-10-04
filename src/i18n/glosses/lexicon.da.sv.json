@@ -212,6 +212,10 @@
     "gloss": "anatomi"
   },
   {
+    "da": "anden",
+    "gloss": "annan, andra"
+  },
+  {
     "da": "anderledes",
     "gloss": "annorlunda"
   },
@@ -408,6 +412,10 @@
     "gloss": "bilbarnstol"
   },
   {
+    "da": "autoværn",
+    "gloss": "vägräcke"
+  },
+  {
     "da": "baby",
     "gloss": "bebis"
   },
@@ -586,6 +594,10 @@
   {
     "da": "bedstemor",
     "gloss": "mormor"
+  },
+  {
+    "da": "bedømmelse",
+    "gloss": "bedömning"
   },
   {
     "da": "befinde",
@@ -1274,14 +1286,6 @@
   {
     "da": "børn",
     "gloss": "barn"
-  },
-  {
-    "da": "børneopdragelse",
-    "gloss": "barnuppfostran"
-  },
-  {
-    "da": "børnesang",
-    "gloss": "barnvisa"
   },
   {
     "da": "børste",
@@ -2454,10 +2458,6 @@
   {
     "da": "forhindring",
     "gloss": "hinder"
-  },
-  {
-    "da": "forhistorisk",
-    "gloss": "förhistorisk"
   },
   {
     "da": "forhold",
@@ -3860,10 +3860,6 @@
     "gloss": "inköp"
   },
   {
-    "da": "indkørsel",
-    "gloss": "uppfart"
-  },
-  {
     "da": "indlede",
     "gloss": "inleda"
   },
@@ -4978,6 +4974,10 @@
   {
     "da": "køretøj",
     "gloss": "fordon"
+  },
+  {
+    "da": "kørsel",
+    "gloss": "körning"
   },
   {
     "da": "lag",
@@ -6276,10 +6276,6 @@
     "gloss": "upplyst"
   },
   {
-    "da": "oplæsning",
-    "gloss": "högläsning"
-  },
-  {
     "da": "opløse",
     "gloss": "lösa upp"
   },
@@ -7224,6 +7220,10 @@
     "gloss": "resande"
   },
   {
+    "da": "rejsetid",
+    "gloss": "restid"
+  },
+  {
     "da": "reklame",
     "gloss": "reklam"
   },
@@ -7600,10 +7600,6 @@
     "gloss": "samarbete"
   },
   {
-    "da": "samkørsel",
-    "gloss": "samåkning"
-  },
-  {
     "da": "samles",
     "gloss": "samlas"
   },
@@ -7650,6 +7646,10 @@
   {
     "da": "sandslot",
     "gloss": "sandslott"
+  },
+  {
+    "da": "sandsynlig",
+    "gloss": "sannolik"
   },
   {
     "da": "sandt",
@@ -8510,10 +8510,6 @@
   {
     "da": "stamtræ",
     "gloss": "stamträd"
-  },
-  {
-    "da": "standse",
-    "gloss": "stanna"
   },
   {
     "da": "stang",
@@ -10150,6 +10146,10 @@
   {
     "da": "vugge",
     "gloss": "vagga"
+  },
+  {
+    "da": "vurdering",
+    "gloss": "bedömning, värdering"
   },
   {
     "da": "våben",

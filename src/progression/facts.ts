@@ -83,8 +83,14 @@ export function completedPrimaryCount(facts: ProgressFacts, required: RequiredBo
   return required.boards.filter((board) => facts.firstPrimaryCompletions[firstCompletionKey(board)]).length
 }
 
-/** Called only for a new queue or one-time validated legacy migration. */
-export function createPrimaryContinuation(required: RequiredBoardSet, facts: ProgressFacts, legacyAnchor?: BoardIdentity): PrimaryContinuation {
+/**
+ * Called only for a new queue, the one-time validated legacy migration, or the
+ * one-time rebase onto a superseding frozen set (`rebased`, see
+ * `rebaseCourseSessions`). Either migration may anchor the round already on
+ * the table at the front.
+ */
+export function createPrimaryContinuation(required: RequiredBoardSet, facts: ProgressFacts, legacyAnchor?: BoardIdentity,
+  rebased = false): PrimaryContinuation {
   const error = validateRequiredSet(required)
   if (error) throw new Error(error)
   const keys = required.boards.map(boardKey)
@@ -94,7 +100,7 @@ export function createPrimaryContinuation(required: RequiredBoardSet, facts: Pro
   return {
     requiredSet: { courseId: required.courseId, cityId: required.cityId, setVersion: required.setVersion },
     remainingBoardKeys: anchor ? [anchor, ...remaining.filter((key) => key !== anchor)] : remaining,
-    source: anchor ? 'legacy-anchor' : 'canonical',
+    source: rebased ? 'rebased' : anchor ? 'legacy-anchor' : 'canonical',
   }
 }
 

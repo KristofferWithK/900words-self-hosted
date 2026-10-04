@@ -42,7 +42,8 @@ export interface GridConfig {
  * floor by 2.43, and the six rows of a 3x6 are TALLER than the five rows of
  * the 3x5 it replaces. The bigger board is the roomier one, but only in that
  * order. `.word-card`'s `@container` threshold is set against that 46.43; see
- * index.css, which says which side of it this board sits on and why.
+ * src/styles/16-game-header-and-board.css, which says which side of it this
+ * board sits on and why.
  *
  * ---- what it plays like ----------------------------------------------------
  *

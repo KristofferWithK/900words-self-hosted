@@ -5,7 +5,9 @@ import {
   belowOfflineCaseyMemory,
   cancelGemmaDownload,
   gemmaStatus,
+  gemmaPlatform,
   gigabytes,
+  OFFLINE_CASEY_ANDROID_EXAMPLES,
   OFFLINE_CASEY_IPHONES,
   removeGemmaModel,
   startGemmaDownload,
@@ -20,20 +22,35 @@ import { useSettings } from '../../stores/settingsStore'
 type TestState = 'idle' | 'testing' | 'ok' | string
 
 /**
- * Gemma's lines where she runs: on the iPhone (the native plugin) or in the
- * desktop self-build's browser (src/ai/gemma/web.ts, `__WEB_GEMMA__`).
+ * Gemma's lines where she runs: on iPhone or Android (the native plugin), or
+ * in the desktop self-build's browser (src/ai/gemma/web.ts, `__WEB_GEMMA__`).
  */
 const onComputer = __WEB_GEMMA__
+const onAndroid = !onComputer && gemmaPlatform() === 'android'
 const GEMMA = {
-  caseyHelp: onComputer ? UI.settings.pcCaseyHelp : UI.settings.ossCaseyHelp,
-  option: onComputer ? UI.settings.pcGemmaOption : UI.settings.gemmaOption,
-  optionHelp: onComputer ? UI.settings.pcGemmaOptionHelp : UI.settings.gemmaOptionHelp,
-  unavailable: onComputer ? UI.settings.pcGemmaNeeds : UI.settings.gemmaUnavailableNote,
-  ready: onComputer ? UI.settings.pcGemmaReady : UI.settings.gemmaReady,
-  removeConfirm: onComputer ? UI.settings.pcGemmaRemoveConfirm : UI.settings.gemmaRemoveConfirm,
+  caseyHelp: onComputer
+    ? UI.settings.pcCaseyHelp
+    : onAndroid ? UI.settings.ossCaseyHelpAndroid : UI.settings.ossCaseyHelp,
+  option: onComputer
+    ? UI.settings.pcGemmaOption
+    : onAndroid ? UI.settings.gemmaOptionAndroid : UI.settings.gemmaOption,
+  optionHelp: onComputer
+    ? UI.settings.pcGemmaOptionHelp
+    : onAndroid ? UI.settings.gemmaOptionHelpAndroid : UI.settings.gemmaOptionHelp,
+  unavailable: onComputer
+    ? UI.settings.pcGemmaNeeds
+    : onAndroid ? UI.settings.gemmaUnsupportedAndroidNote : UI.settings.gemmaUnavailableNote,
+  ready: onComputer
+    ? UI.settings.pcGemmaReady
+    : onAndroid ? UI.settings.gemmaReadyAndroid : UI.settings.gemmaReady,
+  removeConfirm: onComputer
+    ? UI.settings.pcGemmaRemoveConfirm
+    : onAndroid ? UI.settings.gemmaRemoveConfirmAndroid : UI.settings.gemmaRemoveConfirm,
   downloading: onComputer ? UI.settings.pcGemmaDownloading : UI.settings.gemmaDownloading,
   downloadNote: onComputer ? UI.settings.pcGemmaDownloadNote : UI.settings.gemmaDownloadNote,
-  answered: onComputer ? UI.settings.pcGemmaAnswered : UI.settings.gemmaAnswered,
+  answered: onComputer
+    ? UI.settings.pcGemmaAnswered
+    : onAndroid ? UI.settings.gemmaAnsweredAndroid : UI.settings.gemmaAnswered,
 }
 
 /**
@@ -61,18 +78,24 @@ export default function OwnCaseySettings({
   const gemmaInstalled = !!gemma?.installed
 
   /**
-   * What she needs and what she costs (the first launch's explanation on the
-   * iPhone), then the download. False when the player says not now.
+   * What she needs and what she costs, then the download. False when the
+   * player says not now.
    */
   const downloadGemma = (): boolean => {
     if (!gemma) return false
     const explained = onComputer
       ? UI.settings.pcGemmaExplain(gigabytes(gemma.expectedBytes))
-      : UI.settings.ossGemmaFirstRun(
-          gigabytes(gemma.expectedBytes),
-          OFFLINE_CASEY_IPHONES.join(', '),
-          belowOfflineCaseyMemory(gemma),
-        )
+      : onAndroid
+        ? UI.settings.ossGemmaFirstRunAndroid(
+            gigabytes(gemma.expectedBytes),
+            OFFLINE_CASEY_ANDROID_EXAMPLES.join(', '),
+            belowOfflineCaseyMemory(gemma, 'android'),
+          )
+        : UI.settings.ossGemmaFirstRun(
+            gigabytes(gemma.expectedBytes),
+            OFFLINE_CASEY_IPHONES.join(', '),
+            belowOfflineCaseyMemory(gemma, 'ios'),
+          )
     if (!window.confirm(explained)) return false
     setGemmaError(null)
     void startGemmaDownload().catch((error) => {

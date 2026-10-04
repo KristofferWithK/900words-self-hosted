@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { UI } from '../../i18n'
+import { Tag } from './Tag'
 import { ACTIVE } from '../../lang/active'
 
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
    * the sudden-death rule, which stays the no-wheel path's copy.
    */
   wheel?: boolean
-  onDismiss: (hidePlayerReminder: boolean) => void
+  onDismiss: (hideReminder: boolean) => void
 }
 
 /** Translation has its own lesson. The wheel flag also supports older callers. */
@@ -49,6 +50,8 @@ export function RoundGuidanceDialog({ kind, clue, wheel = false, onDismiss }: Pr
     }
   }, [])
 
+  // Translation introduces both typing and the upcoming spin.
+  const action = kind === 'last-chance' && wheel ? COPY.translation.action : COPY[kind].action
   return (
     <dialog
       ref={dialog}
@@ -110,16 +113,20 @@ export function RoundGuidanceDialog({ kind, clue, wheel = false, onDismiss }: Pr
       ) : (
         <p id="round-guidance-description">{UI.game.guidancePlayerBody}</p>
       )}
-      {kind === 'player' && (
+      {/* Your turn and Translation time share the one opt-out box (owner,
+          2026-10-04: the translation pop-up "should also have the box"). */}
+      {(kind === 'player' || kind === 'translation') && (
         <label className="round-guidance-preference">
           <input type="checkbox" checked={hideReminder} onChange={(event) => setHideReminder(event.target.checked)} />
           <span>{UI.game.guidanceHideReminder}</span>
         </label>
       )}
-      <button className="btn btn-primary btn-big" type="button" onClick={() => onDismiss(hideReminder)}>
-        {/* Translation introduces both typing and the upcoming spin. */}
-        {kind === 'last-chance' && wheel ? COPY.translation.action : COPY[kind].action}
-      </button>
+      <Tag
+        size="wide"
+        tone="primary"
+        onClick={() => onDismiss(hideReminder)}
+        label={action}
+      />
     </dialog>
   )
 }

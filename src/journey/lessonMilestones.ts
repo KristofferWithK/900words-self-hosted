@@ -24,7 +24,12 @@ export interface LessonFinishOffer {
 const CITY1_INDEX = 0
 const CITY1_COURSE = 'da'
 const CITY1_ID = 'sonderborg'
-const CITY1_SET_VERSION = 'city1-required-boards-v1'
+/**
+ * Every frozen City 1 set a milestone can have been counted against. The map
+ * below is keyed by count, not by board, so both sets unlock the same lessons;
+ * settlement reaches each count once per city whichever set counted it.
+ */
+const CITY1_SET_VERSIONS: readonly string[] = ['city1-required-boards-v1', 'city1-required-boards-v2']
 const MILESTONE_COUNTS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] as const
 
 /**
@@ -50,7 +55,7 @@ function milestoneCount(id: string): number | null {
     const outer = JSON.parse(id)
     if (!Array.isArray(outer) || outer.length !== 3 || outer[0] !== 'milestone-v1' || typeof outer[2] !== 'string') return null
     const set = JSON.parse(outer[1])
-    if (!Array.isArray(set) || set.length !== 3 || set[0] !== CITY1_COURSE || set[1] !== CITY1_ID || set[2] !== CITY1_SET_VERSION) return null
+    if (!Array.isArray(set) || set.length !== 3 || set[0] !== CITY1_COURSE || set[1] !== CITY1_ID || !CITY1_SET_VERSIONS.includes(set[2])) return null
     const count = Number(outer[2])
     return Number.isSafeInteger(count) && count > 0 && count % 10 === 0 ? count : null
   } catch {
@@ -145,7 +150,7 @@ export interface LessonMilestoneReconciliation {
 }
 
 export function reconcileLessonMilestones(input: LessonMilestoneReconciliation): LessonEffect {
-  if (input.requiredSet.courseId !== CITY1_COURSE || input.requiredSet.cityId !== CITY1_ID || input.requiredSet.setVersion !== CITY1_SET_VERSION) {
+  if (input.requiredSet.courseId !== CITY1_COURSE || input.requiredSet.cityId !== CITY1_ID || !CITY1_SET_VERSIONS.includes(input.requiredSet.setVersion)) {
     throw new Error('No C1-09 lesson map exists for this course/city/set')
   }
   let nextCurriculum = input.curriculum

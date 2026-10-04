@@ -46,6 +46,7 @@ import { UI } from '../../i18n'
 import { SlowIcon } from './AudioIcons'
 import { ClueyFace } from './Cluey'
 import { Confetti } from './Confetti'
+import { Tag } from './Tag'
 
 // Recompute eligibility for every key: disclosures and special actions can change.
 function eligible(element: HTMLElement): boolean {
@@ -170,9 +171,12 @@ function Sentence({ row, catalog }: { row: ReviewSentence; catalog: City1Catalog
         <p lang="en">{row.text.en}</p>
       </Disclosure>
       <Disclosure id="review-about" label={UI.game.reviewAboutWord} open={aboutOpen} onToggle={() => setAboutOpen(!aboutOpen)}>
-        <p className="city1-review-target-label">{UI.game.reviewHighFrequencyWord} <span lang={row.wordId.slice(0, 2)} className="review-target">{row.targetSpan.text}</span></p>
+        {/* One line, «Hvilket = Which.», where there used to be two: a
+            "High-frequency word: Hvilket" label and the meaning under it
+            (owner, 2026-09-27). The underline ties it to the sentence's. */}
+        <p className="city1-review-gloss"><span lang={row.wordId.slice(0, 2)} className="review-target">{row.targetSpan.text}</span>{about && ` = ${about.meaningEn}`}</p>
         {about ? <>
-          <p>{about.meaningEn}</p><p>{about.usageEn}</p>
+          <p>{about.usageEn}</p>
           <div className="city1-review-example">
             <p lang={row.wordId.slice(0, 2)}><MarkedSpanText text={about.example.da} span={about.targetSpan} /></p>
             <p lang="en">{about.example.en}</p>
@@ -212,9 +216,12 @@ export function City1SentenceReview({
   // replay IS the primary and Home sits under it. A wrap-up's three Guide
   // choices already occupy that row, so it stacks.
   const exits = <>
-    {onReplay && <button className={hasNext ? 'btn' : 'btn btn-primary'} onClick={() => exit(onReplay)}>{replayLabel}</button>}
+    {/* Tags (owner O2): the replay is a tag the width of its row; Home stays
+        the text route T1 draws beside it. */}
+    {onReplay && <Tag size={hasNext ? 'row' : 'wide'} tone={hasNext ? 'plain' : 'primary'} className="city1-review-replay" label={replayLabel} onClick={() => exit(onReplay)} />}
     <button className="btn city1-review-home" onClick={() => exit(onHome)}>{UI.game.home}</button>
   </>
+  const nextSentence = <>{UI.game.reviewNextSentence} <span aria-hidden="true">→</span></>
   return <dialog ref={dialog} className="city1-review-dialog" aria-modal="true" aria-labelledby="city1-review-title"
     onKeyDown={wrapTab}
     // Escape is the keyboard's way out, and the way out of a finished round
@@ -271,7 +278,7 @@ export function City1SentenceReview({
       {footnote}
     </div>
     <footer className="city1-review-actions">
-      {hasNext && <button className="btn btn-primary city1-review-next" onClick={() => { stopWordAudio(); titleOf(dialog.current!)?.focus(); onNext() }}>{UI.game.reviewNextSentence} <span aria-hidden="true">→</span></button>}
+      {hasNext && <Tag size="wide" tone="primary" className="city1-review-next" label={nextSentence} onClick={() => { stopWordAudio(); titleOf(dialog.current!)?.focus(); onNext() }} />}
       {specialActions}
       {/* Replay and Home share one row under Next sentence. A lesson offer
           above them used to stack them too, and since the offer is an

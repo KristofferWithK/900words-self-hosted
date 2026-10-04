@@ -1,5 +1,7 @@
 import { isWebDemo } from '../../build/audience'
-import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { cafeForBoard } from '../../cafe/cafeName'
+import { cafeArrangement } from '../../cafe/cafeTable'
 import { currentClue } from '../../engine/game'
 import type { GameState, Side } from '../../engine/types'
 import { UI } from '../../i18n'
@@ -7,14 +9,19 @@ import { onPracticeCompanion, rerollOpen, useGame } from '../../stores/gameStore
 import { useSettings } from '../../stores/settingsStore'
 import { onDeviceCaseyAvailable, playsOnDevice } from '../../ai/gemma/gate'
 import { gemmaStatus } from '../../ai/gemma/native'
+import { setOfflineCaseyWanted } from '../../ai/gemma/residency'
 import { useUi } from '../../stores/uiStore'
+import { useCaseyBackOnline } from '../caseyBackOnline'
 import { AiTurnPanel } from '../components/AiTurnPanel'
-import { BoardGrid, playerKeyHidden } from '../components/BoardGrid'
+import { BoardGrid, playerKeyHidden, wheelBoardActive } from '../components/BoardGrid'
+import { CafeNameTag, CafeTableEdges } from '../components/CafeTable'
 import { ClueInput } from '../components/ClueInput'
 import { useOpenDictionary } from '../components/DictionarySheet'
 import { LeaveGameDialog } from '../components/LeaveGameDialog'
+import { OnlineAgainDialog } from '../components/OnlineAgainDialog'
 import { RoundGuidanceDialog } from '../components/RoundGuidanceDialog'
 import { RoundSummary } from '../components/RoundSummary'
+import { Tag } from '../components/Tag'
 import { TurnTakeover } from '../components/TurnTakeover'
 import { useDictionary } from '../components/TranslateBox'
 import { TranslateChallengeBar } from '../components/TranslateChallengeBar'
@@ -29,6 +36,7 @@ import {
 } from '../components/TutorialPractice'
 import { introGameTourDue, translationLessonDue, translationLessonHoldsGuidance, wheelLessonDue } from '../../onboarding/tutorial'
 import type { OnboardLessonStatus } from '../../onboarding/flow'
+import { firstFoundCafe } from '../../onboarding/firstCafe'
 import { HINT_KEYS, useFirstTimeHint } from '../hints'
 
 const PHASE_CAPTION: Record<GameState['phase'], string> = {
@@ -149,6 +157,9 @@ export function GameScreen({
   const eventGeneration = useGame((s) => s.eventGeneration)
   const activeRoundGuidance = useGame((s) => s.activeRoundGuidance)
   const wheelSpinHold = useGame((s) => s.wheelSpinHold)
+  // After the spin the board stays until "See results" (owner, 2026-09-27).
+  const wheelReview = useGame((s) => s.wheelReview)
+  const wheelShowing = wheelSpinHold || wheelReview
   const sheetWordId = useUi((s) => s.sheetWordId)
   const mode = useGame((s) => s.mode)
   const { error, aiBusy, planForClueIndex, selectedWordId, clearError, roundRecorded, settlementBusy, settlementFailure } = useGame()
@@ -177,6 +188,24 @@ export function GameScreen({
   const offlineRound = useGame((s) => s.offlineRoundFor !== null && s.offlineRoundFor === s.attemptId)
   const forcedOffline = useSettings((s) => playsOnDevice(s.caseyMode))
   const offlineCasey = onDeviceCaseyAvailable && (offlineRound || forcedOffline)
+  // Her model stays in memory only while this screen holds an unfinished
+  // round she plays (src/ai/gemma/residency.ts): the round ending, the player
+  // leaving it, or normal Casey taking it back puts her away. Leaving the app
+  // does too. A dictionary miss on the finish screen loads her for that one
+  // lookup, and she goes again after it.
+  const keepOfflineCasey = offlineCasey && !!game && game.phase !== 'finished'
+  useEffect(() => {
+    setOfflineCaseyWanted(keepOfflineCasey)
+    return () => setOfflineCaseyWanted(false)
+  }, [keepOfflineCasey])
+  // The internet is back during an offline round: offer normal Casey for the
+  // rest of it, once, unless the player already chose to stay offline.
+  const stayOffline = useGame((s) => s.stayOfflineFor !== null && s.stayOfflineFor === s.attemptId)
+  const playRoundOnline = useGame((s) => s.playRoundOnline)
+  const keepRoundOffline = useGame((s) => s.keepRoundOffline)
+  const baseUrl = useSettings((s) => s.baseUrl)
+  const watchForOnline = onDeviceCaseyAvailable && offlineRound && !stayOffline && !!game && game.phase !== 'finished'
+  const caseyBack = useCaseyBackOnline(watchForOnline, baseUrl)
   // The daily challenge is one shared board per date, so it is the one round
   // that must not be re-dealt.
   const dailyKey = useGame((s) => s.dailyKey)
@@ -308,6 +337,17 @@ export function GameScreen({
   // The onboarding practice uses this same real screen and engine. Its first
   // clue is the lesson, so there is no pre-board coach-mark gate.
   const tutorial = mode === 'tutorial'
+  // The café this round is (CW-08): a required Sønderborg board in its course
+  // slot. A seeded or daily board and the German course's boards are no café,
+  // and keep the dots, the caption and a bare table. The first session's
+  // practice is played at the café the first walk found (CW-13: "today's
+  // spotlight tutorial, restyled for the café"), so it wears that café's
+  // cups, tag and table; a practice outside the first session is no café.
+  const slotBoard = useGame((s) => (s.activeSlot && s.sessions ? s.sessions[s.activeSlot]?.board ?? null : null))
+  const practiceAtCafe = tutorial && !!onboarding
+  const practiceCafe = useMemo(() => (practiceAtCafe ? cafeForBoard(firstFoundCafe()?.board) : null), [practiceAtCafe])
+  const cafe = tutorial ? practiceCafe : cafeForBoard(slotBoard)
+  const table = useMemo(() => (cafe ? cafeArrangement(cafe) : null), [cafe])
   // The intro game's four-beat guided tour (2026-09-18). One state flag for
   // THIS screen's lifetime: `introGameTourDue` (the predicate) decides when the
   // tour may START from the game state alone, and this flag stops it from
@@ -433,7 +473,8 @@ export function GameScreen({
   if (!game) return null
   if (mustRetireRoundMode(mode)) return null
 
-  const showBoard = game.phase !== 'finished' || wheelSpinHold
+  const showBoard = game.phase !== 'finished' || wheelShowing
+  const wheelBoard = wheelBoardActive(game, wheelShowing)
   // The key is put away for the half of the round it cannot help with
   // (owner, 2026-09-11): while Casey prepares a clue and while the player
   // guesses under it there are no green frames, so the board reads as her
@@ -471,7 +512,7 @@ export function GameScreen({
 
   return (
     <div
-      className={`screen game-screen ${tutorial ? 'tutorial-game' : ''}`}
+      className={`screen game-screen ${tutorial ? 'tutorial-game' : ''}${cafe ? ' cafe-puzzle' : ''}`}
       onPointerDownCapture={beginOutsideGesture}
       onPointerMoveCapture={trackOutsideGesture}
       onPointerUpCapture={finishOutsideGesture}
@@ -502,8 +543,9 @@ export function GameScreen({
           // Skip is always visible, like the train acts. It ends the intro the
           // ticket's skip does; the half-played round goes with it, its SRS
           // already banked by finishRound if the round got that far.
-          <button
-            className="btn onboard-skip"
+          <Tag
+            className="onboard-skip"
+            label={UI.game.skip}
             onClick={() => {
               const game = useGame.getState()
               if (game.restoreTutorialSuspension()) {
@@ -515,9 +557,7 @@ export function GameScreen({
               if (run?.persist) useUi.getState().advanceOnboarding('real-round')
               else useUi.getState().finishOnboarding()
             }}
-          >
-            {UI.game.skip}
-          </button>
+          />
         ) : onboardingRealRound ? (
           // The first real round is required before Home and the suitcase gate.
           // Keep the header geometry without offering an arrow that cannot
@@ -559,10 +599,15 @@ export function GameScreen({
             total={game.config.turnTokens}
             left={game.turnsLeft}
             given={game.clueHistory.length}
+            cups={!!cafe}
           />
-          <p className="phase-caption" role="status">
+          {/* Inside a café the café's name stands where the phase caption
+              did, on a small tag (CW-08), at the caption's height so the
+              board does not move. The caption stays for screen readers. */}
+          <p className={`phase-caption${cafe ? ' visually-hidden' : ''}`} role="status">
             {PHASE_CAPTION[game.phase]}
           </p>
+          {cafe && <CafeNameTag name={cafe.name} />}
         </div>
         {/* The right-hand side is empty on purpose (owner, 2026-09-26): hear
             the board and How to play both left the round, the tutorial's
@@ -584,16 +629,10 @@ export function GameScreen({
           <p>{offerOffline ? UI.game.offlineRoundPrompt : error}</p>
           <div className="error-actions">
             {offerOffline && (
-              <button className="btn btn-small btn-primary" data-action="play-offline" onClick={playRoundOffline}>
-                {UI.game.playOfflineButton}
-              </button>
+              <Tag tone="primary" data-action="play-offline" label={UI.game.playOfflineButton} onClick={playRoundOffline} />
             )}
-            <button className="btn btn-small" onClick={clearError}>
-              {UI.game.errorRetry}
-            </button>
-            {!offerOffline && !settlementFailure && !isWebDemo() && <button className="btn btn-small" onClick={() => goTo('settings')}>
-              {UI.game.errorCaseySettings}
-            </button>}
+            <Tag label={UI.game.errorRetry} onClick={clearError} />
+            {!offerOffline && !settlementFailure && !isWebDemo() && <Tag label={UI.game.errorCaseySettings} onClick={() => goTo('settings')} />}
           </div>
         </div>
       )}
@@ -639,6 +678,8 @@ export function GameScreen({
 
       {showBoard && (
         <div className="board-area">
+          {/* The café's table, behind the cards: faint pencil, no pointer. */}
+          {table && <CafeTableEdges table={table} />}
           <BoardGrid
             game={game}
             canGuess={
@@ -652,21 +693,17 @@ export function GameScreen({
             // Locked while the board is being packed AND across the whole
             // wheel challenge: the dock asks for these exact words, so the
             // card's ⓘ and the dictionary would be the answer key.
-            dictionaryLocked={packing || wheelSpinHold || game.phase === 'translateChallenge' || game.phase === 'translateWheel'}
-            // The wheel's BOARD treatments are split (owner, build 90): the lid
-            // words and the dimming belong to the CHALLENGE, where the board
-            // is the prompt — after a WON spin the board goes back to its
-            // clue-picking look (empty suitcases, full-strength cards, key
-            // visible) and that is where the chooser's choice is made. No
-            // tap-to-select either (owner, 2026-09-17): the composer grades
-            // the typed answer against every untranslated wheel word on
-            // submit.
-            wheelActive={game.phase === 'translateChallenge'}
-            wheelSolved={
-              game.phase === 'translateChallenge' || game.phase === 'translateWheel'
-                ? (id) => game.wheel?.translated.includes(id) ?? false
-                : undefined
-            }
+            dictionaryLocked={packing || wheelShowing || game.phase === 'translateChallenge' || game.phase === 'translateWheel'}
+            // The wheel's board treatments (lid words, dimming, the missed
+            // key words' marks) run from the challenge through the filled
+            // wheel to the end of the post-spin review (owner, 2026-09-27).
+            // No tap-to-select (owner, 2026-09-17): the composer grades the
+            // typed answer against every untranslated found word on submit.
+            wheelActive={wheelBoard}
+            wheelSolved={wheelBoard ? (id) => game.wheel?.translated.includes(id) ?? false : undefined}
+            // Once the wheel has spun, every suitcase shows its Danish: the
+            // ones typed in green, the rest as the answer that was not given.
+            wheelAnswers={wheelBoard && !!game.wheel?.result}
             hidePlayerKey={keyHidden}
           />
         </div>
@@ -700,7 +737,7 @@ export function GameScreen({
         />
       )}
       {(game.phase === 'aiGuessing' || game.phase === 'aiClueInput') &&
-        !packing && <AiTurnPanel key={`${attemptId}:${eventGeneration}`} game={game} offlineCasey={offlineCasey} />}
+        !packing && <AiTurnPanel key={`${attemptId}:${eventGeneration}`} game={game} offlineCasey={offlineCasey} cafe={table} />}
       {game.phase === 'playerGuessing' && !packing && (
         <PlayerGuessBar
           game={game}
@@ -713,11 +750,12 @@ export function GameScreen({
           while suitcases remain, then the wheel itself — spinnable once every
           one is translated — whose spin decides the round. The finish screen
           waits for the spin's ~3s ease-out (the store's wheelSpinHold, cleared
-          by WheelSpinner at rest), so the disc is seen to land before the
-          outcome replaces it. The old post-win chooser is gone. */}
+          by WheelSpinner at rest) and then for "See results" (wheelReview,
+          owner 2026-09-27), so the disc is seen to land and every suitcase's
+          Danish can be read before the outcome replaces it. */}
       {/* A single keyed mount survives challenge → accepted verdict. Splitting
           these branches unmounted the disc on the very frame it should spin. */}
-      {showTranslationDock(game.phase, wheelSpinHold) && !packing && <TranslateChallengeBar key={attemptId} game={game} />}
+      {showTranslationDock(game.phase, wheelShowing) && !packing && <TranslateChallengeBar key={attemptId} game={game} />}
       {/* The takeover card borrows the dock's rectangle while a turn changes
           hands. Rendered AFTER the real dock, absolutely positioned over it:
           the dock mounts beneath on the same commit and takes the keyboard
@@ -737,7 +775,7 @@ export function GameScreen({
         />
       )}
       {game.phase === 'finished' && !roundRecorded && !error && <p role="status">{UI.game.settlementSaving}</p>}
-      {game.phase === 'finished' && roundRecorded && !wheelSpinHold &&
+      {game.phase === 'finished' && roundRecorded && !wheelShowing &&
         (tutorial ? (
           <TutorialFinish game={game} />
         ) : onboarding?.step === 'real-round' ? (
@@ -761,6 +799,13 @@ export function GameScreen({
           wheel={game.phase === 'translateChallenge' || game.phase === 'translateWheel'}
           onDismiss={useGame.getState().dismissRoundGuidance}
         />
+      )}
+      {/* Asked between Casey's turns, never over one: a switch mid-turn would
+          leave her offline move running for nothing. Every other overlay
+          keeps the floor first. */}
+      {caseyBack && watchForOnline && !aiBusy && !leaveGameOpen && !sheetWordId && !activeRoundGuidance &&
+        !tourOpen && !translationTourOpen && !wheelTourOpen && !wheelSpinHold && (
+        <OnlineAgainDialog onPlayOnline={playRoundOnline} onStayOffline={keepRoundOffline} />
       )}
       {leaveGameOpen && game.phase !== 'finished' && (
         <LeaveGameDialog

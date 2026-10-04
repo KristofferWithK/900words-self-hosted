@@ -7,7 +7,7 @@
 //     lesson (Skip or Escape) is never offered twice
 //   - the result lesson re-offers itself after a reload without re-settling or
 //     re-awarding anything, and it never opens the review for the player
-//   - the Home postcard lesson, skipped, still leaves Casey's collection tour
+//   - the Home stamp lesson, skipped, still leaves Casey's collection tour
 //   - Settings' Replay the intro teaches translation on the practice board in
 //     memory only, and hands back the exact paused primary it parked
 // Each spotlight is checked on its live control: light on target, the tour
@@ -18,6 +18,7 @@ import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startWorker } from './worker-runtime.mjs'
 import { createOnboardingFlow } from './_onboarding-flow.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { lessonMarkers, progressBytes, released, walkTour } from './_tutorial-lessons.mjs'
 
 const OFFSET = Number(process.env.DRIVE_PORT_OFFSET ?? 0)
@@ -155,7 +156,7 @@ async function play({ practice = false, stopAt = () => false, cap = 260 } = {}) 
       if ((await panel.getAttribute('data-hurry')) === '1') { stalled = 0; await panel.click() }
       else if (++stalled >= 60) return 'stalled-ai'
     } else if (game.phase === 'translateChallenge') {
-      const next = game.wheel.segments.find((id) => !game.wheel.translated.includes(id))
+      const next = game.wheel.segments.find((id) => game.reveals[id]?.kind === 'green' && !game.wheel.translated.includes(id))
       if (!next) return 'no-translation-target'
       await page.locator('.wheel-input').fill(game.words.find((w) => w.wordId === next).da)
       await page.locator('.wheel-confirm').click()
@@ -171,6 +172,8 @@ async function play({ practice = false, stopAt = () => false, cap = 260 } = {}) 
       if (await page.locator('.tour-overlay').count()) continue
       await page.locator('.wheel-disc').click()
       await page.waitForTimeout(3200)
+      // The board stays after the spin until See results (owner, 2026-09-27).
+      await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
     } else if (game.phase !== 'aiClueInput') {
       return `unexpected:${game.phase}`
     }
@@ -209,7 +212,7 @@ check('the answer field is free after the lesson', await released(page, '.wheel-
 await page.screenshot({ path: `${SHOT_DIR}/lessons-full-board-translation-390x844.png` })
 // Translate one word with no suitcase selected: any remaining answer counts.
 const beforeAnswer = (await stored()).game
-const anyWord = beforeAnswer.wheel.segments.filter((id) => !beforeAnswer.wheel.translated.includes(id)).at(-1)
+const anyWord = beforeAnswer.wheel.segments.filter((id) => beforeAnswer.reveals[id]?.kind === 'green' && !beforeAnswer.wheel.translated.includes(id)).at(-1)
 await page.locator('.wheel-input').fill(beforeAnswer.words.find((w) => w.wordId === anyWord).da)
 await page.locator('.wheel-confirm').click()
 await page.waitForFunction((id) => JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state?.game?.wheel?.translated?.includes(id), anyWord)
@@ -254,20 +257,24 @@ check('a dismissed result lesson stays dismissed across a reload', (await page.l
 check('and still nothing was awarded twice', JSON.stringify(await progressBytes(page)) === JSON.stringify(settledBytes))
 await noScroll('the first-board result at 390×844')
 await page.locator('.city1-review-home').click()
-await page.waitForSelector('.home-intro-return')
+await page.waitForSelector('.onboard-home-act .home-first-session')
 await walkTour(page, 'home', check, { label: 'skipped Home lesson', finish: 'skip', atStep: 0 })
 check('skipping the Home lesson keeps the intro going', (await lessonMarkers(page)).home === 'dismissed' && (await marker()) === 'home-return')
-check('Casey is tappable after the skipped Home lesson', await released(page, '.home-intro-return .cluey-button'))
-await page.locator('.home-intro-return .cluey-button').click()
+check('Casey is tappable after the skipped Home lesson', await released(page, '.home-first-session .cluey-button'))
+await page.locator('.home-first-session .cluey-button').click()
 await page.waitForSelector('.tour-overlay[data-tour-kind="suitcase"]')
 check('the existing collection tour still follows', (await page.locator('.suitcase-screen').count()) === 1)
 await walkTour(page, 'suitcase', check, { label: 'collection tour after a skipped Home lesson' })
 await page.locator('.suitcase-screen .icon-btn[aria-label="Back"]').click()
-await page.waitForSelector('.home-screen:not(.home-intro)')
+await page.waitForSelector('.home-screen:not(.home-first-session)')
 check('the intro ends on ordinary Home with its markers cleared',
   (await marker()) === 'done' && await page.evaluate(() => localStorage.getItem('cluecab-onboard-lessons-v1') === null))
 
 // ---- B. Settings replay with a paused primary --------------------------------
+// The café gate is on (CW-13): the next café is found as a walk would find it.
+await page.evaluate(mergeFirstCafe, seedArgs('da', 2))
+await page.goto(BASE, { waitUntil: 'networkidle' })
+await page.waitForTimeout(500)
 await page.locator('.home-play').click()
 await page.waitForSelector('.game-screen .board-grid')
 await play({ stopAt: (game) => game.phase === 'playerGuessing' || game.phase === 'playerClueInput' })

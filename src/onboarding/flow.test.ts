@@ -60,9 +60,9 @@ describe('the onboarding gate', () => {
       kind: 'resume',
       step: 'ticket',
     })
-    expect(decideOnboarding(storage({ [ONBOARD_KEY]: 'home-intro' }))).toEqual({
+    expect(decideOnboarding(storage({ [ONBOARD_KEY]: 'walk' }))).toEqual({
       kind: 'resume',
-      step: 'home-intro',
+      step: 'walk',
     })
   })
 
@@ -105,9 +105,12 @@ describe('the onboarding gate', () => {
     expect(s.dump()).toEqual({ [ONBOARD_KEY]: 'done' })
   })
 
-  it('knows exactly the Home-first sequence', () => {
-    expect(isOnboardStep('home-intro')).toBe(true)
+  it('knows exactly the walk-first sequence', () => {
     expect(isOnboardStep('ticket')).toBe(true)
+    expect(isOnboardStep('intro')).toBe(true)
+    expect(isOnboardStep('walk')).toBe(true)
+    expect(isOnboardStep('home-cafe')).toBe(true)
+    expect(isOnboardStep('home-intro')).toBe(false)
     expect(isOnboardStep('tutorial')).toBe(true)
     expect(isOnboardStep('real-round')).toBe(true)
     expect(isOnboardStep('home-return')).toBe(true)
@@ -148,10 +151,10 @@ describe('the onboarding gate', () => {
     })
   })
 
-  it('migrates v4 markers into the Home-first decisions', () => {
+  it('migrates v4 markers into the walk-first decisions', () => {
     expect(decideOnboarding(storage({ [LEGACY_ONBOARD_KEY]: 'train' }))).toEqual({
       kind: 'resume',
-      step: 'home-intro',
+      step: 'intro',
     })
     expect(decideOnboarding(storage({ [LEGACY_ONBOARD_KEY]: 'home' }))).toEqual({
       kind: 'resume',
@@ -168,11 +171,17 @@ describe('the onboarding gate', () => {
     })
   })
 
-  it('keeps the staged Home marker after a reload', () => {
+  it('resumes the retired staged Home marker at Casey’s lines before the walk', () => {
     expect(decideOnboarding(storage({ [ONBOARD_KEY]: 'home-intro' }))).toEqual({
       kind: 'resume',
-      step: 'home-intro',
+      step: 'intro',
     })
+  })
+
+  it('resumes each café act where it was left', () => {
+    for (const step of ['intro', 'walk', 'home-cafe'] as const) {
+      expect(decideOnboarding(storage({ [ONBOARD_KEY]: step }))).toEqual({ kind: 'resume', step })
+    }
   })
 
   it('moves a completed v3 destination chapter to the Home hand-off', () => {

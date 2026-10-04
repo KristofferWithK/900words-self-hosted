@@ -41,6 +41,8 @@ const challengeGame = (): GameState => {
   const solved = base.words.slice(0, 3).map((w) => w.wordId)
   return {
     ...base,
+    // Found on the board: only a found word is one the dock can ask for.
+    reveals: { ...base.reveals, ...Object.fromEntries(solved.map((id) => [id, { kind: 'green' as const }])) },
     phase: 'translateChallenge',
     turnsLeft: 0,
     wheel: {
@@ -146,7 +148,7 @@ describe('the translate-challenge dock (free-type grading)', () => {
       wheel: { ...game.wheel!, landed: 1, result: 'miss' },
     }
     const html = renderToStaticMarkup(<TranslateChallengeBar game={done} />)
-    expect(html).toContain('The wheel landed on an unpacked suitcase.')
+    expect(html).toContain(UI.game.wheelMissLine)
   })
 
   it('shows the win verdict line after a spin that landed green — the ending, not a chooser', () => {
@@ -161,5 +163,42 @@ describe('the translate-challenge dock (free-type grading)', () => {
     }
     const html = renderToStaticMarkup(<TranslateChallengeBar game={done} />)
     expect(html).toContain('Green! The round is won.')
+  })
+
+  it('says how many were found when the wheel holds key words the round missed', () => {
+    // The full-board wheel (owner, 2026-09-27): two of the five key words
+    // were never found, so the lede counts them and the field asks only for
+    // the found ones.
+    const game = challengeGame()
+    const missed = base.words.slice(3, 5).map((w) => w.wordId)
+    const full: GameState = { ...game, wheel: { ...game.wheel!, segments: [...game.wheel!.segments, ...missed] } }
+    const language = UI.onboarding.courseText(ACTIVE.code).languageName
+    const html = renderToStaticMarkup(<TranslateChallengeBar game={full} />)
+    expect(html).toContain(UI.game.wheelLedeMissed(3, 5, language))
+    const accessibleName = /<input[^>]*aria-label="([^"]+)"/.exec(html)?.[1] ?? ''
+    for (const id of missed) {
+      expect(accessibleName).not.toContain(base.words.find((w) => w.wordId === id)!.en[0])
+    }
+  })
+
+  it('after the spin: the verdict once the disc rests, then See results', () => {
+    const game = challengeGame()
+    const done: GameState = { ...game, phase: 'finished', wheel: { ...game.wheel!, landed: 1, result: 'miss' } }
+    // While the disc turns the dock says so, and See results stands hidden.
+    useGame.setState({ wheelSpinHold: true, wheelReview: true })
+    const spinning = renderToStaticMarkup(<TranslateChallengeBar game={done} />)
+    expect(spinning).toContain(UI.game.wheelSpinning)
+    expect(spinning).not.toContain(UI.game.wheelMissLine)
+    expect(spinning).toMatch(/<button disabled=""[^>]*wheel-results/)
+    expect(spinning).not.toContain('wheel-input')
+    // At rest: the verdict, the line about the grey answers (two found words
+    // were never typed), and a live See results.
+    useGame.setState({ wheelSpinHold: false })
+    const rested = renderToStaticMarkup(<TranslateChallengeBar game={done} />)
+    expect(rested).toContain(UI.game.wheelMissLine)
+    expect(rested).toContain(UI.game.wheelAnswersLine)
+    expect(rested).toContain(UI.game.wheelSeeResults)
+    expect(rested).not.toMatch(/<button disabled=""[^>]*wheel-results/)
+    useGame.setState({ wheelReview: false })
   })
 })

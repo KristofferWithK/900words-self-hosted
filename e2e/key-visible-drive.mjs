@@ -22,6 +22,7 @@ import { installRoundGuidanceHandler } from './round-guidance.mjs'
 const PORT = 4178
 const preview = await startPreview(PORT)
 import { setTimeout as sleep } from 'node:timers/promises'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const SHOT_DIR = process.env.SHOT_DIR ?? '.'
 
@@ -29,6 +30,8 @@ const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
 })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 page.on('pageerror', (e) => console.log('PAGE CRASH:', e.message))
 
@@ -44,7 +47,8 @@ try {
   // is a turn the key is deliberately absent from — see below.)
   await page.goto(preview.base + '?mock=1&seed=5&howto=0&first=player')
   await page.waitForSelector('.city-card')
-  await page.click('.btn-primary')
+  // Home's primary is the Café puzzle tag since CW-10 (Play's successor).
+  await page.click('.home-play')
   await page.waitForSelector('.board-grid')
   const study = page.locator('.study-dock .btn-primary')
   if (await study.isVisible().catch(() => false)) await study.click()
@@ -111,7 +115,7 @@ try {
   await page.waitForSelector('.sheet', { timeout: 5000 })
   console.log('tap-to-look-up opened:', (await page.locator('.sheet h2').textContent())?.trim())
   await page.screenshot({ path: `${SHOT_DIR}/k1-key-visible.png` })
-  await page.click('.sheet .btn')
+  await page.click('.sheet .sheet-close')
 
   // ---- the guessing half: the key is put away, and comes back -------------
   // Give a clue. Casey guesses under it — her guesses are judged against THIS

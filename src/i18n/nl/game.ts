@@ -48,6 +48,7 @@ export const game: Catalogue['game'] = {
   // ── de toegankelijke naam van een kaart, uit deze stukken in deze volgorde ─
   cardYourTarget: ', jouw doel',
   cardFound: ', gevonden',
+  cardMissedKey: ', een van Caseys woorden, niet gevonden',
   cardNeutralBoth: ', neutraal voor beide kanten',
   cardNeutralPlayer: ', neutraal onder jouw hints',
   cardNeutralCasey: ', neutraal onder Casey’s hints',
@@ -108,7 +109,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Draai het wiel',
   wheelSpinning: 'Draait …',
   wheelWonLine: 'Groen! De ronde is gewonnen.',
-  wheelMissLine: 'Het wiel landde op een niet-ingepakte koffer.',
+  wheelMissLine: 'Geen groen. De ronde is verloren.',
+  wheelLedeMissed: (found, total, language) =>
+    `Je vond er ${found} van de ${total}. Voor de woorden die nog op het bord liggen, blijft het wiel grijs. Typ de rest in het ${language}, en draai dan.`,
+  wheelAnswersLine: 'De grijze woorden zijn de antwoorden die je niet hebt getypt.',
+  wheelSeeResults: 'Bekijk de uitslag',
   phaseTranslateChallenge: 'Tijd om te vertalen',
   settlementFailed: 'Je resultaat kon nog niet worden opgeslagen. Bewaar deze ronde en probeer het opnieuw.',
   settlementSaving: 'Je resultaat wordt opgeslagen…',
@@ -126,6 +131,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Offline Casey denkt na. Dit duurt langer.',
   offlineRoundPrompt: 'Geen internet. De rest van deze ronde spelen met offline Casey? Ze is trager.',
   playOfflineButton: 'Offline spelen',
+  onlineAgainTitle: 'Het internet is terug',
+  onlineAgainBody:
+    'De rest van deze ronde spelen met normale Casey? Ze is sneller en speelt beter. Valt je verbinding steeds weg, dan kan offline blijven stabieler zijn.',
+  playOnlineButton: 'Online spelen',
+  stayOfflineButton: 'Offline blijven',
   hurryCaseyTitle: 'Tik zodat Casey opschiet',
   hurryCaseyHint: 'Tik hier zodat Casey opschiet.',
   caseyGuessedWord: (word) => `Casey raadde «${word}».`,
@@ -302,7 +312,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Vertaling tonen',
   reviewHideTranslation: 'Vertaling verbergen',
   reviewAboutWord: 'Over dit woord',
-  reviewHighFrequencyWord: 'Veelgebruikt woord:',
   reviewNoNotes: 'Geen notities bij dit woord.',
   reviewNextSentence: 'Volgende zin',
   reviewNothingThisRound:

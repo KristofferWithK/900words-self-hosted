@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { TOUR_STEPS, type TourStep } from '../../onboarding/tour'
 import { ClueyFace } from './Cluey'
+import { Tag } from './Tag'
 import { UI } from '../../i18n'
 
 /**
@@ -314,12 +315,8 @@ export function CoachMarkTour({
           </p>
         </div>
         <div className="onboard-controls">
-          <button ref={nextRef} className="btn btn-primary onboard-next" onClick={advance}>
-            {last ? doneLabel : UI.onboarding.tourNext}
-          </button>
-          <button className="btn onboard-skip" onClick={onSkip}>
-            {UI.onboarding.skip}
-          </button>
+          <Tag ref={nextRef} tone="primary" className="onboard-next" onClick={advance} label={last ? doneLabel : UI.onboarding.tourNext} />
+          <Tag className="onboard-skip" onClick={onSkip} label={UI.onboarding.skip} />
         </div>
       </div>
     </div>

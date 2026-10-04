@@ -3,6 +3,7 @@ import { startPreview } from './preview-server.mjs'
 import { dismissRoundGuidance, installRoundGuidanceHandler } from './round-guidance.mjs'
 import { measureReviewGeometry } from './city1-review-geometry.mjs'
 import { setTimeout as sleep } from 'node:timers/promises'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4182
 const preview = await startPreview(PORT)
@@ -19,6 +20,8 @@ const PHONE = { width: 390, height: 844 }
 const browser = await chromium.launch({ executablePath: EXE })
 const ctx = await browser.newContext({ viewport: PHONE, deviceScaleFactor: 2 })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const errors = []
 page.on('pageerror', (e) => errors.push(String(e)))
@@ -165,7 +168,8 @@ for (const vp of [
       titleGeometry.insideViewport,
     titleGeometry ? JSON.stringify(titleGeometry) : 'title or its two spans are missing',
   )
-  const primary = await page.locator('.btn-primary.btn-big').first().boundingBox()
+  // Home's primary is the Café puzzle tag since CW-10 (a preview course keeps its pill).
+  const primary = await page.locator('.home-play, .home-actions .btn-primary.btn-big').first().boundingBox()
   const homeMap = await page.locator('.home-map').boundingBox()
   const travelGuide = await page.locator('.home-guide-button').boundingBox()
   check(
@@ -252,19 +256,23 @@ await page.setViewportSize(PHONE)
 // Measure the visible rail, status and authoritative postcard total instead:
 // each must fit at the narrow phone width, without document overflow or a
 // rail squeezed beneath its meaningful 34px floor.
+//
+// Café world (CW-10): the postcard total became the city's stamp and
+// percentage, and the strip's status line shows only once the travel gate is
+// ready (the "City medal" line is gone). The same fit is measured on those.
 const progressLines = async () =>
   page.evaluate(() => {
     const row = document.querySelector('.home-progress-band')
     const train = document.querySelector('.train-progress')
     const status = document.querySelector('.home-progress-status')
-    const postcards = document.querySelector('.home-postcard-total')
-    if (!row || !train || !status || !postcards) throw new Error('Home progress fixtures are missing')
+    const postcards = document.querySelector('.home-city-stamp')
+    if (!row || !train || !postcards) throw new Error('Home progress fixtures are missing')
     return {
-      text: `train ${train.getBoundingClientRect().width.toFixed(0)}px — ${postcards.textContent.replace(/\s+/g, ' ').trim()} — ${status.textContent.replace(/\s+/g, ' ').trim()}`,
+      text: `train ${train.getBoundingClientRect().width.toFixed(0)}px — ${postcards.textContent.replace(/\s+/g, ' ').trim()} — ${status?.textContent.replace(/\s+/g, ' ').trim() ?? 'no status line'}`,
       overflows: row.scrollWidth > row.clientWidth + 1,
       clipped: train.getBoundingClientRect().width < 34,
       postcardOverflow: postcards.scrollWidth > postcards.clientWidth + 1,
-      statusOverflow: status.scrollWidth > status.clientWidth + 1,
+      statusOverflow: status ? status.scrollWidth > status.clientWidth + 1 : false,
       wide: document.scrollingElement.scrollWidth > window.innerWidth + 1,
     }
   })
@@ -276,7 +284,7 @@ for (const query of [
   await page.setViewportSize({ width: 360, height: 640 })
   await open(query)
   const p = await progressLines()
-  check('the progress rail and postcard total fit at 360px', !p.postcardOverflow && !p.statusOverflow, p.text)
+  check('the progress rail and city stamp fit at 360px', !p.postcardOverflow && !p.statusOverflow, p.text)
   check('and nothing in the progress area overflows or is cut off', !p.overflows && !p.clipped && !p.wide)
 }
 // Wipe what that seeded. `?collected=100` gives every word in city 0 a full
@@ -349,8 +357,9 @@ await page.locator('.icon-btn[aria-label="Settings"]').click()
 await page.waitForSelector('.settings-screen')
 const brainSwitch = page.locator('.casey-brain-toggle')
 check('the normal Ollama brain switch is there', (await brainSwitch.count()) === 1)
-// The usage-stats switch (PR #204) shares the class; this row is the brain's.
-const row = await page.locator('.casey-brain-switch:not(.usage-stats-switch)').boundingBox()
+// The usage-stats switch (PR #204) and the offline-mode switch (#313) share
+// the class; this row is the one that holds the brain's toggle.
+const row = await page.locator('.casey-brain-switch', { has: brainSwitch }).boundingBox()
 check(
   'and fits the phone',
   row.x >= -0.5 && row.x + row.width <= PHONE.width + 0.5,
@@ -545,6 +554,8 @@ async function driveToWinAt(city) {
     await page.reload()
     await page.getByRole('button', { name: 'Continue board' }).click()
     await page.locator('.wheel-disc').click()
+    // The board stays after the spin until See results (owner, 2026-09-27).
+    await page.locator('.wheel-results:not([disabled])').click({ timeout: 15_000 })
   }
   await page.waitForSelector('.round-summary', { timeout: 15000 })
   return page.evaluate(
@@ -564,7 +575,7 @@ await driveToWinAt(0)
 // the dialog was intercepting.)
 const finish = page.locator('.city1-review-dialog[open]')
 await finish.waitFor()
-await finish.locator('.receipt-postcard-total').waitFor()
+await finish.locator('.receipt-stamp').waitFor()
 check('the round reaches its finish screen', (await finish.count()) === 1 && (await page.locator('.round-summary').count()) === 1)
 
 // What is being measured, said out loud before it is measured. A no-scroll
@@ -578,9 +589,12 @@ const summaryParts = await finish.evaluate((el) => ({
   retiredPlayer: el.querySelectorAll('.sentence-listen, .sentence-continue, .sentence-choices, .round-sentence').length,
   discovered: el.querySelector('.stat-discovered .stat-n')?.textContent?.trim() ?? '',
   collected: el.querySelector('.stat-collected .stat-n')?.textContent?.trim() ?? '',
-  tier: el.querySelector('.receipt-tier-summary .receipt-tier')?.textContent?.trim() ?? '',
+  // The café world (CW-09): the round's tier is the stamp it put on the café.
+  tier: (el.querySelector('.receipt-stamp')?.getAttribute('data-stamp-tier') ?? '').replace(/^./, (c) => c.toUpperCase()),
+  stampState: el.querySelector('.receipt-stamp')?.getAttribute('data-stamp-state') ?? '',
+  percent: el.querySelector('.receipt-city-percent-n')?.textContent?.trim() ?? '',
   rewardReasons: el.querySelector('.receipt-reward-list')?.textContent?.trim() ?? '',
-  newRewardCount: el.querySelectorAll('.receipt-reward-new').length,
+  newRewardCount: el.querySelectorAll('.receipt-tick').length,
   openDisclosures: el.querySelectorAll('.city1-review-toggle[aria-expanded="true"]').length,
   earned: el.querySelector('.earned-section')?.textContent?.trim() ?? '',
   retired: document.querySelectorAll('.summary-scroll, .stat-city, .stat-total, .collected-section')
@@ -595,12 +609,13 @@ check(
   `${summaryParts.review} review / ${summaryParts.rows} rows / ${summaryParts.retiredPlayer} retired controls`,
 )
 check(
-  'the compact result carries reward reasons, attempt tier and concrete word counts',
+  'the compact result carries ticked result lines, the new stamp in the attempt tier, the city percentage and concrete word counts',
   /^\d+$/.test(summaryParts.discovered) &&
     /^\d+$/.test(summaryParts.collected) &&
-    ['Silver', 'Gold', 'Platinum'].includes(summaryParts.tier) &&
+    ['Silver', 'Gold', 'Platinum'].includes(summaryParts.tier) && summaryParts.stampState === 'new' &&
+    /^\d+%$/.test(summaryParts.percent) &&
     summaryParts.newRewardCount > 0,
-  `${summaryParts.discovered} new / ${summaryParts.collected} collected / ${summaryParts.tier} / ${summaryParts.rewardReasons}`,
+  `${summaryParts.discovered} new / ${summaryParts.collected} collected / ${summaryParts.tier} ${summaryParts.stampState} ${summaryParts.percent} / ${summaryParts.rewardReasons}`,
 )
 check('finish review disclosures are collapsed on arrival', summaryParts.openDisclosures === 0, `${summaryParts.openDisclosures} open`)
 check(
@@ -712,7 +727,7 @@ await page.waitForTimeout(250)
 check('and the sheet has its own way back', (await page.locator('.turn-log').count()) === 0)
 // Replay is the way out of the round, and on the anchored footer it is the
 // last thing that would be pushed off.
-const playAgain = await finish.locator('.city1-review-actions .btn-primary').boundingBox()
+const playAgain = await finish.locator('.city1-review-actions .tag-primary').boundingBox()
 check(
   'and Play next game is still on the phone',
   playAgain.y + playAgain.height <= 640.5,
@@ -927,7 +942,7 @@ for (const vp of [
   // destination; C1-13's navigation drive exercises that policy in depth.
   check(
     `Map exposes no unusable public boarding action @${vp.name}`,
-    (await page.locator('.map-screen .btn-primary.btn-big, .map-screen .train-board').count()) === 0,
+    (await page.locator('.map-screen .map-return, .map-screen .map-board, .map-screen .train-board').count()) === 0,
   )
 
   await open('?mock=1&howto=0')
@@ -944,16 +959,61 @@ for (const vp of [
   await open('?onboard=1&mock=1')
   await page.waitForSelector('.onboard-screen[data-act="ticket"]')
   await noScroll(`onboarding ticket @${vp.name}`)
+  // The tickets sit BETWEEN the heading and the hint, and no-scroll cannot see
+  // them leave that gap: a list that outgrows its flex box paints over its
+  // neighbours while the document stays one phone tall. That is how the
+  // second playable course shipped — two tickets in a box sized for one, the
+  // Danish map drawn over "Which language do you want to learn?" and the hint
+  // over the German ticket, at every size below. The coming-soon row (France,
+  // the UK) is in the same gap and is measured with them.
+  const ticketGap = await page.evaluate(() => {
+    const act = document.querySelector('.onboard-screen[data-act="ticket"]')
+    const heading = act.querySelector('.onboard-ticket-heading').getBoundingClientRect()
+    const hint = act.querySelector('.onboard-hint').getBoundingClientRect()
+    const tickets = [...act.querySelectorAll('.onboard-ticket, .onboard-ticket-soon')]
+      .map((t) => t.getBoundingClientRect())
+    return {
+      count: tickets.length,
+      underHeading: Math.min(...tickets.map((t) => t.top)) - heading.bottom,
+      overHint: hint.top - Math.max(...tickets.map((t) => t.bottom)),
+    }
+  })
+  check(
+    `onboarding tickets clear the heading and the hint @${vp.name}`,
+    ticketGap.count > 0 && ticketGap.underHeading >= 0 && ticketGap.overHint >= 0,
+    `${ticketGap.count} tickets, ${ticketGap.underHeading.toFixed(1)}px under the heading, ` +
+      `${ticketGap.overHint.toFixed(1)}px above the hint`,
+  )
+  const soon = await page.evaluate(() =>
+    [...document.querySelectorAll('.onboard-ticket-soon')].map((t) => ({
+      text: t.innerText.replace(/\s+/g, ' ').trim(),
+      tappable: t.matches('button, a, [role="button"]') || !!t.querySelector('button, a, [role="button"]'),
+    })),
+  )
+  check(
+    `France and the UK are on the ticket as coming soon, and cannot be chosen @${vp.name}`,
+    soon.length === 2 &&
+      /France/.test(soon[0].text) && /UK/.test(soon[1].text) &&
+      soon.every((t) => /coming soon/i.test(t.text) && !t.tappable),
+    soon.map((t) => t.text).join(' | '),
+  )
   await page.locator('.onboard-ticket').filter({ hasText: 'Denmark' }).click()
-  await page.waitForSelector('.home-intro-welcome')
-  await noScroll(`onboarding Home welcome @${vp.name}`)
-  check(`onboarding Casey-led Home has no floating Skip @${vp.name}`, (await page.locator('.home-intro-welcome .onboard-skip').count()) === 0)
-  for (const stage of ['map', 'guide', 'play']) {
-    await page.locator('.home-intro-bubble').click()
-    await page.waitForSelector(`.home-intro-${stage}`)
-    await noScroll(`onboarding Home ${stage} @${vp.name}`)
-  }
-  await page.locator('.home-intro-actions .home-play').click()
+  // The first session walks first (CW-13): Casey's two lines, the walk,
+  // Home's café, then the café's practice table.
+  await page.waitForSelector('[data-act="intro"]')
+  await noScroll(`onboarding Casey's lines @${vp.name}`)
+  check(`onboarding Casey's lines keep Skip on screen @${vp.name}`, (await page.locator('[data-act="intro"] .onboard-skip').count()) === 1)
+  await page.locator('.onboard-intro-next').click()
+  await noScroll(`onboarding let's explore @${vp.name}`)
+  await page.locator('.onboard-intro-go').click()
+  await page.waitForSelector('.run-screen .run-pause')
+  await noScroll(`onboarding first walk @${vp.name}`)
+  await page.locator('.run-pause').click()
+  await page.locator('.run-panel .run-home').click()
+  await page.waitForSelector('.tour-overlay[data-tour-kind="home"]')
+  await noScroll(`onboarding Home café @${vp.name}`)
+  await page.locator('.tour-panel .onboard-next').click()
+  await page.locator('.tour-spot-tap').click()
   await page.waitForSelector('.tutorial-game .board-grid')
   check(`the practice board is a 3×3 neutral grid @${vp.name}`, (await page.locator('.tutorial-game .word-card').count()) === 9 && (await page.locator('.tutorial-game .mykey-green').count()) === 0)
   await noScroll(`practice neutral board @${vp.name}`)
@@ -984,9 +1044,10 @@ for (const vp of [
   // whole game just to measure the final act.
   await page.evaluate(() => localStorage.setItem('cluecab-onboard-v5', 'home-return'))
   await open('?mock=1')
-  await page.waitForSelector('.home-intro-return')
+  await page.waitForSelector('.onboard-home-act .home-first-session')
   await noScroll(`onboarding Home return @${vp.name}`)
-  check(`real-round Home keeps its disabled Tap Casey gate @${vp.name}`, await page.locator('.home-intro-return .home-play').isDisabled() && (await page.locator('.home-intro-return .home-play').innerText()) === 'Tap Casey')
+  check(`real-round Home is the real Home, its stamp where the postcard total was @${vp.name}`,
+    (await page.locator('.home-first-session .home-city-stamp').count()) === 1 && (await page.locator('.home-postcard-total').count()) === 0)
 
   // The game, in the phase measured tallest (the opening clue dock), on the
   // widest board.
@@ -1652,7 +1713,7 @@ await page.setViewportSize(PHONE)
   // The guess bar's dictionary answer: beside the field, on the dock's last
   // row, with the action row above it still on screen. It was stacked UNDER
   // the field for two PRs, and the row that stacking took the space from was
-  // the one holding the Guess button — see .dock-dictionary in index.css.
+  // the one holding the Guess button — see .dock-dictionary in src/styles/32-guess-bar.css.
   let answerFits = true
   let sawAnswer = false
   let answerBeside = true
@@ -2049,9 +2110,15 @@ const oneRect = (states, prefix) => {
   await open('?mock=1')
   await page.waitForSelector('.onboard-ticket')
   await page.locator('.onboard-ticket').filter({ hasText: 'Denmark' }).click()
-  await page.waitForSelector('.home-intro-welcome')
-  for (let i = 0; i < 3; i++) await page.locator('.home-intro-bubble').click()
-  await page.locator('.home-intro-actions .home-play').click()
+  await page.waitForSelector('[data-act="intro"]')
+  await page.locator('.onboard-intro-next').click()
+  await page.locator('.onboard-intro-go').click()
+  await page.waitForSelector('.run-screen .run-pause')
+  await page.locator('.run-pause').click()
+  await page.locator('.run-panel .run-home').click()
+  await page.waitForSelector('.tour-overlay[data-tour-kind="home"]')
+  await page.locator('.tour-panel .onboard-next').click()
+  await page.locator('.tour-spot-tap').click()
   await page.waitForSelector('.tutorial-game .board-grid')
   check('the layout tutorial starts on the compact 3×3 board', (await page.locator('.tutorial-game .word-card').count()) === 9)
   await page.waitForSelector('.guess-bar')
@@ -2186,10 +2253,14 @@ const oneRect = (states, prefix) => {
         // What was actually on screen, so none of the six is vacuous.
         const line = document.querySelector('.clue-input .composer-line')
         const txt = line?.innerText ?? ''
+        const refusal = document.querySelector('.clue-input .clue-error')
         if (document.querySelector('.clue-input .first-hint')) window.__saw.hint = true
-        if (/looks like/.test(txt)) window.__saw.english = true
-        if (document.querySelector('.clue-input .clue-error') && !/looks like/.test(txt))
-          window.__saw.illegal = true
+        if (refusal) window.__saw.illegal = true
+        // A refusal longer than its half of the line, cut there. The English
+        // warning was the verdict that did this until #276 retired it (an
+        // English gloss is no longer a veto); a long compound's refusal is
+        // the verdict that does it now.
+        if (refusal && refusal.scrollWidth > refusal.clientWidth) window.__saw.cut = true
         if (document.querySelector('.clue-input .dict-hit')) window.__saw.answer = true
         if (/Asking Casey/.test(txt)) window.__saw.asking = true
         if (document.querySelector('.clue-input .composer-line .test-fail')) window.__saw.failed = true
@@ -2203,9 +2274,19 @@ const oneRect = (states, prefix) => {
 
   const clueField = page.locator('.clue-input #clue-word')
   const dictField = page.locator('.clue-input .translate-input')
-  const boardDa = await page.evaluate(
-    () => JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game.words[0].da,
+  const boardWords = await page.evaluate(
+    () => JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game.words.map((w) => w.da),
   )
+  const boardDa = boardWords[0]
+  // A long refusal any board can draw: its longest word compounded with
+  // «holdning», the longest part the compound rule knows (COMPOUND_PARTS in
+  // src/lang/da/morphology.ts). Built from the board as dealt, so a new first
+  // board still gets a compound refusal rather than a word that happens to be
+  // legal on it; a verdict that is not there fails the squeeze check below.
+  const longestBoardWord = boardWords
+    .filter((da) => /^\p{L}+$/u.test(da))
+    .reduce((a, b) => (b.length > a.length ? b : a))
+  const longRefusal = `${longestBoardWord}holdning`
 
   await cwhere('empty, the first-clue line')
   await page.waitForTimeout(500)
@@ -2215,13 +2296,16 @@ const oneRect = (states, prefix) => {
   await cwhere('an illegal clue')
   await clueField.fill(boardDa)
   await page.waitForTimeout(400)
-  await cwhere('an English-looking clue')
-  await clueField.fill('nice')
+  await cwhere('a long compound refused')
+  await clueField.fill(longRefusal)
   await page.waitForTimeout(400)
-  // "nice" has seven Danish glosses in the shipped set — the longest answer the
-  // offline half can produce, and the state this height is measured against.
+  // «en politistation: police station» is the longest answer line the offline
+  // half can produce (article, headword and first gloss, over the 900), and
+  // the state this height is measured against. It was «nice» until #300 made
+  // its line «fin: fine», which fits inside .dict-hit's 3.25rem floor with a
+  // Windows font and so can never be cut beside a verdict.
   await cwhere('the longest verdict and the longest answer together')
-  await dictField.fill('nice')
+  await dictField.fill('politistation')
   await page.waitForTimeout(1000)
   const squeezed = await page.evaluate(() => {
     const a = document.querySelector('.clue-input .dict-hit')
@@ -2282,7 +2366,7 @@ const oneRect = (states, prefix) => {
   const cx = { ...cxA, ...(await page.evaluate(() => window.__cx)) }
   const saw = { ...sawA, ...(await page.evaluate(() => window.__saw)) }
   const states = Object.entries(cx)
-  const missing = ['hint', 'illegal', 'english', 'answer', 'asking', 'failed'].filter(
+  const missing = ['hint', 'illegal', 'cut', 'answer', 'asking', 'failed'].filter(
     (k) => !saw[k],
   )
   check(
@@ -2421,7 +2505,7 @@ for (const lang of UI_LANGS) {
       (await page.evaluate(() => document.documentElement.lang)) === tag,
     )
 
-    const primary = await page.locator('.btn-primary.btn-big').first().boundingBox()
+    const primary = await page.locator('.home-play, .home-actions .btn-primary.btn-big').first().boundingBox()
     check(
       `Home's primary action is above the fold in ${lang} on ${vp.name}`,
       primary.y + primary.height <= vp.height,

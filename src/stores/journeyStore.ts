@@ -6,9 +6,11 @@ import { ACTIVE } from '../lang/active'
 import { DEFAULT_LANGUAGE } from '../lang/index'
 import type { LanguageCode } from '../lang/types'
 import { cityKey } from '../progression/identity'
-import type { CityIdentity } from '../progression/types'
-import type { HistoricalTravelEligibility, JourneyState } from '../journey/progress'
+import type { BoardIdentity, CityIdentity, ProgressFacts } from '../progression/types'
+import { mergeTrainRuns, type HistoricalTravelEligibility, type JourneyState, type TrainRunFact, type TrainRunFacts } from '../journey/progress'
+import { deviceTimeZone, recordPhotos as recordPhotosInLedger, usableTimeZone, type DayZone, type PhotoLedger } from '../journey/wordMarks'
 import { mergeRouteHistory } from '../backup/journey'
+import { countCafePhoto, findsFor, type AlsoFound, type Cafe, type CafeFindsByCity } from '../journey/cafes'
 import {
   alreadyRescued,
   markRescued,
@@ -87,6 +89,12 @@ interface JourneyStore extends JourneyState {
    * player who never met the closed line.
    */
   waitingForTrain: boolean
+  /** Photo marks; see `initial.photos` below and journey/wordMarks.ts. */
+  photos: PhotoLedger
+  /** Café finds per city; see `initial.cafes` below and journey/cafes.ts. */
+  cafes: CafeFindsByCity
+  /** Train tickets per city; see `initial.trainRuns` below and journey/trainTicket.ts. */
+  trainRuns: TrainRunFacts
   /**
    * Explicit old-economy eligibility facts. They can satisfy readiness for the
    * named course/city, but availability and access are checked separately.
@@ -97,6 +105,43 @@ interface JourneyStore extends JourneyState {
   preserveHistoricalTravelEligibility: (city: CityIdentity) => void
   /** Pack words safely: add-only, first timestamp wins — like the old banking. */
   wrapWords: (wordIds: string[], now: number) => void
+  /**
+   * A photo of each word in `wordIds`, taken at `at` in the player's zone
+   * (`deviceTimeZone()` unless a caller injects one). Add-only, through
+   * `journey/wordMarks.ts`; the ring on the suitcase fills from this.
+   *
+   * The zone never costs a run its photos: a zone Intl cannot format (ICU's
+   * `Etc/Unknown`, or a bad injected name) falls back to the engine's default
+   * zone (`usableTimeZone`) instead of throwing inside `set`. `at` is per
+   * answer: a caller with several answer times calls this once per time.
+   */
+  recordPhotos: (wordIds: readonly string[], at: number, zone?: DayZone) => void
+  /**
+   * One photo of a Sightseeing walk counted toward the next café of `city`
+   * (journey/cafes.ts `countCafePhoto`). `boards` is the city's required set
+   * in its fixed order; `facts` the settled progress facts that say which are
+   * played; `alsoFound` the queue head anchored out of order, if any. Returns
+   * the café this photo found, or null. Add-only: a find is never taken back.
+   */
+  recordCafePhoto: (city: CityIdentity, boards: readonly BoardIdentity[], facts: ProgressFacts | null, at: number, alsoFound?: AlsoFound) => Cafe | null
+  /**
+   * One right answer of a run, in ONE store write (so one save of this key per
+   * answer, inside the run's frame loop): the photo mark of `wordId` when it
+   * is given (as `recordPhotos`), and the count toward the next café when
+   * `cafe` is given (as `recordCafePhoto`). Returns the café found, or null.
+   */
+  recordRunPhoto: (photo: {
+    readonly wordId: string | null
+    readonly at: number
+    readonly zone?: DayZone
+    readonly cafe?: { readonly city: CityIdentity; readonly boards: readonly BoardIdentity[]; readonly facts: ProgressFacts; readonly alsoFound?: AlsoFound }
+  }) => Cafe | null
+  /**
+   * A caught train run's ticket (journey/trainTicket.ts), kept under the
+   * city's key. Add-only: the first ticket for a city is kept, and a run that
+   * did not pass never replaces one that did (`mergeTrainRuns`).
+   */
+  recordTrainRun: (fact: TrainRunFact) => void
   /** The closed-line notice was shown with the suitcase packed. */
   noteTrainClosed: () => void
   travel: (now: number) => void
@@ -117,6 +162,31 @@ const initial = {
   cityIndex: 0,
   furthest: 0,
   wrapped: {} as Record<string, number>,
+  /**
+   * Photo marks, word id -> local day -> first photo (journey/wordMarks.ts).
+   * Beside `wrapped` for the same reasons `wrapped` is here and not parked:
+   * keyed by word id, every id carries its language, one ledger for both
+   * courses. No persist version bump: a save without it reads `{}`, which is
+   * the truth for a player who never ran a street.
+   */
+  photos: {} as PhotoLedger,
+  /**
+   * Café finds, city key -> found board ids and the count toward the next
+   * find (journey/cafes.ts). Beside `photos` and for the same reasons: keyed
+   * by a city identity that carries its course, one record for both courses.
+   * No persist version bump: a save without it reads `{}`, which is the truth
+   * for a player who never walked. Boards already played are read as found
+   * from the settled facts, never written here.
+   */
+  cafes: {} as CafeFindsByCity,
+  /**
+   * Train tickets, city key -> the caught train run of that city
+   * (journey/progress.ts `TrainRunFact`, card CW-07). Beside `cafes` and for
+   * the same reasons: keyed by a city identity that carries its course. No
+   * persist version bump: a save without it reads `{}`, which is the truth for
+   * a player who never caught a train. Read by the travel gate.
+   */
+  trainRuns: {} as TrainRunFacts,
   arrivedAt: {} as Record<number, number>,
   routeLanguage: ACTIVE.code,
   parked: {} as Partial<Record<LanguageCode, RoutePosition>>,
@@ -358,6 +428,50 @@ export const useJourney = create<JourneyStore>()(
           const wrapped = { ...s.wrapped }
           for (const id of wordIds) if (!(id in wrapped)) wrapped[id] = now
           return { wrapped }
+        }),
+      recordPhotos: (wordIds, at, zone) => {
+        const day = usableTimeZone(zone === undefined ? deviceTimeZone() : zone)
+        set((s) => {
+          const photos = recordPhotosInLedger(s.photos ?? {}, wordIds, at, day)
+          return photos === s.photos ? s : { photos }
+        })
+      },
+      recordCafePhoto: (city, boards, facts, at, alsoFound) => {
+        let found: Cafe | null = null
+        set((s) => {
+          const all = s.cafes ?? {}
+          const before = findsFor(all, city)
+          const outcome = countCafePhoto(boards, before, facts, at, alsoFound)
+          found = outcome.found
+          return outcome.finds === before ? s : { cafes: { ...all, [cityKey(city)]: outcome.finds } }
+        })
+        return found
+      },
+      recordRunPhoto: ({ wordId, at, zone, cafe }) => {
+        // Either part may throw (a time no schema accepts); the `set` then
+        // throws with it and nothing is written.
+        const day = wordId === null ? undefined : usableTimeZone(zone === undefined ? deviceTimeZone() : zone)
+        let found: Cafe | null = null
+        set((s) => {
+          const photos = wordId === null ? s.photos : recordPhotosInLedger(s.photos ?? {}, [wordId], at, day)
+          const all = s.cafes ?? {}
+          let cafes = s.cafes
+          if (cafe) {
+            const before = findsFor(all, cafe.city)
+            const outcome = countCafePhoto(cafe.boards, before, cafe.facts, at, cafe.alsoFound)
+            found = outcome.found
+            if (outcome.finds !== before) cafes = { ...all, [cityKey(cafe.city)]: outcome.finds }
+          }
+          if (photos === s.photos && cafes === s.cafes) return s
+          return { ...(photos !== s.photos ? { photos } : {}), ...(cafes !== s.cafes ? { cafes } : {}) }
+        })
+        return found
+      },
+      recordTrainRun: (fact) =>
+        set((s) => {
+          const before = s.trainRuns ?? {}
+          const trainRuns = mergeTrainRuns(before, { [cityKey(fact.city)]: fact })
+          return trainRuns[cityKey(fact.city)] === before[cityKey(fact.city)] ? s : { trainRuns }
         }),
       noteTrainClosed: () => {
         track({ name: 'train_closed', city: get().cityIndex })

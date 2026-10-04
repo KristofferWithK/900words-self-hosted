@@ -15,8 +15,11 @@ decision. The Worker—not the browser—owns:
   (`lcsi.da.1.json`), all in `proxy/data/` and never bundled;
 - the evaluator that may reject a risky model clue.
 
-The Worker serves four routes and nothing else: `/v1/casey/decision`,
-`/v1/casey/deal`, `/v1/data-sharing/events` and `/v1/stats`. The pre-SEC3
+The Worker serves five routes and nothing else: `/v1/casey/decision`,
+`/v1/casey/deal`, `/v1/data-sharing/events`, `/v1/stats` and
+`/v1/review-access` (Google Play review access, `review-access.js`; fails
+closed without the `PLAY_REVIEW_ACCESS_CODE` secret and the `QUOTA`
+namespace, see docs/store/daily-games.md). The pre-SEC3
 generic route — any path forwarded to the upstream with this Worker's key —
 answers 404 unless the `LEGACY_ROUTE` variable is `1` (owner, 2026-09-07); no
 shipped app calls it, and the miniflare drives set the variable to test its

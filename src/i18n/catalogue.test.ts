@@ -173,8 +173,8 @@ describe('course-aware onboarding copy', () => {
       // The welcome is about every language (owner, 2026-09-27), so both
       // courses open on the same line rather than naming theirs.
       expect(german.welcome, code).toBe(danish.welcome)
-      expect(german.map('Hamburg'), code).not.toBe(danish.map('Copenhagen'))
-      expect(german.guide, code).not.toBe(danish.guide)
+      // Casey's lines before the walk name the city, whichever course.
+      expect(catalogue.onboarding.introExplore('Flensburg'), code).toContain('Flensburg')
       expect(german.clueField, code).not.toBe(danish.clueField)
       expect(german.dictionary, code).not.toBe(danish.dictionary)
       expect(german.practiceIntro('Zeit', 3), code).toContain('Zeit')
@@ -202,12 +202,15 @@ describe('course-aware onboarding copy', () => {
 
 describe('tutorial-visible copy punctuation', () => {
   const onboardingFields = [
-    'introCaseyContinue',
     'ticketAria',
+    'introTwoGames',
+    'introExplore',
+    'introGo',
+    'walkEndFound',
+    'walkEndNotFound',
     'tourLoose',
     'tourLid',
     'tourTray',
-    'tourWrapUp',
     'introGameTourKey',
     'introGameTourClueField',
     'introGameTourDictionary',
@@ -216,16 +219,17 @@ describe('tutorial-visible copy punctuation', () => {
     'translationTourInput',
     'translationTourWheel',
     'wheelReadyTour',
-    'resultTourPostcards',
     'resultTourRewardNew',
     'resultTourRewardHeld',
-    'resultTourNoRewards',
     'resultTourWinTier',
     'resultTourLossTier',
+    'resultTourCityPercent',
     'resultTourNoBestYet',
     'resultTourSentence',
     'resultTourNoReview',
-    'homeTourPostcards',
+    'homeTourSightseeing',
+    'homeTourCafe',
+    'homeTourStamp',
     'homeTourCollection',
     'rule1After',
     'rule2After',

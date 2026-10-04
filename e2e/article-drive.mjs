@@ -22,6 +22,7 @@
 import { chromium } from 'playwright'
 import { readFileSync } from 'node:fs'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const PORT = 4199
@@ -39,6 +40,8 @@ const browser = await chromium.launch({
 // where this is decided.
 const ctx = await browser.newContext({ viewport: { width: 360, height: 640 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const crashes = []
 page.on('pageerror', (e) => crashes.push(String(e)))

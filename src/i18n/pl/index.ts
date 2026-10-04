@@ -5,7 +5,8 @@ import { guide } from './guide'
 import { home } from './home'
 import { onboarding } from './onboarding'
 import { settings } from './settings'
+import { sightseeing } from './sightseeing'
 import { system } from './system'
 
 /** Polski. Ty, nigdy Pan/Pani; Casey jest „ona”. */
-export const pl: Catalogue = { settings, system, home, onboarding, game, casey, guide }
+export const pl: Catalogue = { settings, system, home, onboarding, game, casey, guide, sightseeing }

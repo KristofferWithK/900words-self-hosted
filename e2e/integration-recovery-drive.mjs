@@ -7,6 +7,7 @@ import { startPreview } from './preview-server.mjs'
 import { startFakeOllama, guessReply } from './fake-ollama.mjs'
 import { startWorker } from './worker-runtime.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const OFFSET = Number(process.env.DRIVE_PORT_OFFSET ?? 0)
 // startPreview itself applies DRIVE_PORT_OFFSET; fixture servers need the
@@ -26,6 +27,9 @@ if (!worker) throw new Error('Miniflare is required for the C1-17 recovery drive
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH })
 const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive plays the first board and then
+// deals the next, so the first two cafés stand found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da', 2))
 // Guidance is part of a normal round transition. Take its visible action so
 // the recovery assertions keep measuring the actual play surface beneath it.
 await installRoundGuidanceHandler(page)
@@ -160,34 +164,48 @@ try {
       recovered.srs?.games?.played === 1,
     JSON.stringify({ attemptId: recoveredReceipt?.attemptId, planned: recoveredReceipt?.effects, acknowledged: recoveredReceipts[0]?.acknowledgedEffects, played: recovered.srs?.games?.played }),
   )
-  await page.locator('.home-play').click()
-  await page.waitForSelector('.receipt-result')
-  await page.waitForSelector('.receipt-postcard-total')
-  check('the recovered immutable receipt is rendered through the Home result route',
-    (await page.locator('.receipt-postcard-total').count()) === 1,
+  // Home never offers View result, even for a result recovered on reload: its
+  // main action returns to ordinary next play (owner canon of 2026-09-20,
+  // docs/releases/ios-1.0/playtest-polish-canon.md, F07; implemented in
+  // 283717a1cf). This drive predates that canon and used to open the recovered
+  // receipt from Home. The receipt is still settled exactly once (above) and
+  // kept; Home's Play goes on to the next required board.
+  // Play is the Café puzzle tag since CW-10; `next` is the state Play stood
+  // for: no round waiting, the tag deals the next required board.
+  const homeAction = (await page.locator('.home-play').getAttribute('data-cafe-action')) ?? ''
+  check('after recovery Home offers ordinary Play, never View result',
+    homeAction === 'next' && (await page.getByRole('button', { name: 'View result' }).count()) === 0,
+    homeAction,
   )
   if (process.env.SHOT_DIR) {
-    await page.screenshot({ path: `${process.env.SHOT_DIR}/c1-17-recovered-receipt.png`, fullPage: true })
+    await page.screenshot({ path: `${process.env.SHOT_DIR}/c1-17-recovered-home.png`, fullPage: true })
   }
-  await page.getByRole('button', { name: 'Play next game' }).click()
+  await page.locator('.home-play').click()
   await page.waitForSelector('.board-grid')
-  const primaryBeforeReplay = (await stores()).sessions.byCourse.da.primary
-  check('the next primary starts only after the recovered result is acknowledged',
+  const afterPlay = await stores()
+  const primaryBeforeReplay = afterPlay.sessions.byCourse.da.primary
+  check('Play starts the next required board, not the recovered one',
     primaryBeforeReplay.board.authoredBoardId !== firstBoard && primaryBeforeReplay.game.phase !== 'finished',
     JSON.stringify({ firstBoard, nextBoard: primaryBeforeReplay.board.authoredBoardId, phase: primaryBeforeReplay.game.phase }),
+  )
+  const keptReceipts = Object.values(afterPlay.ledger.settlements ?? {})
+  check('and the recovered receipt is kept, unchanged and alone',
+    keptReceipts.length === 1 && JSON.stringify(keptReceipts[0]) === JSON.stringify(recoveredReceipts[0]),
+    JSON.stringify({ receipts: keptReceipts.length, attemptId: keptReceipts[0]?.receipt?.attemptId }),
   )
 
   // Pause the primary, open its completed predecessor in Casey's collection,
   // and start a replay from the actual collection control.
   await page.locator('.game-header > .icon-btn').first().click()
   await page.waitForSelector('.leave-game-dialog')
-  await page.locator('.leave-game-dialog .btn-primary').click()
+  await page.locator('.leave-game-dialog .leave-pause').click()
   await page.waitForSelector('.home-screen')
   await page.locator('.cluey-button').click()
   await page.waitForSelector('.casey-board-collection')
   await page.locator('button.collection-board-card').first().click()
   await page.waitForSelector('.collection-detail[open]')
-  await page.locator('.collection-detail .btn-primary').click()
+  // The replay control is the shared luggage tag since CW-11 (Tag.tsx).
+  await page.locator('.collection-detail button.tag').click()
   await page.waitForSelector('.board-grid')
   const replayStarted = await stores()
   check('collection replay preserves the exact parked primary and records an independent replay slot',
@@ -202,7 +220,7 @@ try {
   // becomes German; the slot must not settle, move, or disappear.
   await page.locator('.game-header > .icon-btn').first().click()
   await page.waitForSelector('.leave-game-dialog')
-  await page.locator('.leave-game-dialog .btn-primary').click()
+  await page.locator('.leave-game-dialog .leave-pause').click()
   await page.waitForSelector('.home-screen')
   await page.locator('.home-top .icon-btn').click()
   await page.waitForSelector('.settings-screen')
@@ -228,7 +246,7 @@ try {
   )
   await page.locator('.game-header > .icon-btn').first().click()
   await page.waitForSelector('.leave-game-dialog')
-  await page.locator('.leave-game-dialog .btn-danger').click()
+  await page.locator('.leave-game-dialog .leave-cancel-round').click()
   await page.waitForSelector('.home-screen')
   const replayCancelled = await stores()
   check('cancelling a replay removes only that slot and never changes the parked primary or receipt',
@@ -261,7 +279,7 @@ try {
   await waitForFakeCalls(1)
   await page.locator('.game-header > .icon-btn').first().click()
   await page.waitForSelector('.leave-game-dialog')
-  await page.locator('.leave-game-dialog .btn-danger').click()
+  await page.locator('.leave-game-dialog .leave-cancel-round').click()
   await page.waitForSelector('.home-screen')
   await page.locator('.home-play').click()
   await page.waitForSelector('.board-grid')

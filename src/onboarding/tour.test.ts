@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { RECEIPT_UI } from '../i18n/receipt'
-import type { CompletionReceipt } from '../progression/types'
-import { HOME_TOUR_STEPS, INTRO_GAME_TOUR_STEPS, resultTourSteps, TOUR_STEPS, translationTourSteps, wheelReadyTourSteps } from './tour'
+import type { CompletionReceipt, Tier } from '../progression/types'
+import { HOME_TOUR_STEPS, homeCafeTourSteps, INTRO_GAME_TOUR_STEPS, resultTourSteps, TOUR_STEPS, translationTourSteps, wheelReadyTourSteps } from './tour'
 import { UI } from '../i18n'
 
 /**
@@ -10,23 +10,29 @@ import { UI } from '../i18n'
  * it resolves every selector on the real screen — so this file only pins what
  * a unit can: the order, and the copy's claims about the rules.
  */
-describe('the Casey collection tour', () => {
-  it('walks the live word and board collection in reading order', () => {
+describe('the suitcase tour: the three marks and the stamp card', () => {
+  it('walks the words still out, the case, then the city’s stamp card', () => {
     expect(TOUR_STEPS.map((s) => s.anchor)).toEqual([
+      '.case-loose',
       '.case-panel-lid',
-      '.collection-summary',
-      '.collection-board-grid',
-      '.collection-primary',
+      '.stamp-card',
     ])
   })
 
-  it('makes tiers and replay improvement the successor to obsolete wrapping guidance', () => {
-    const [words, summary, boards, next] = TOUR_STEPS
-    expect(words!.text).toMatch(/word/i)
-    expect(summary!.text).toMatch(/tier/i)
-    expect(boards!.text).toMatch(/replay/i)
-    expect(next!.text).toMatch(/next required board/i)
-    for (const step of TOUR_STEPS) expect(step.text).not.toMatch(/wrap|pack/i)
+  it('teaches the three marks, collected words and stamps, never postcards', () => {
+    const [marks, lid, card] = TOUR_STEPS
+    // Contract section 3: a photo, a guess from Casey's clue, a clue of your own.
+    expect(marks!.text).toMatch(/photo/i)
+    expect(marks!.text).toMatch(/guess/i)
+    expect(marks!.text).toMatch(/clue of your own/i)
+    expect(lid!.text).toMatch(/three marks/i)
+    expect(lid!.text).toMatch(/collected/i)
+    expect(card!.text).toMatch(/stamp card/i)
+    for (const step of TOUR_STEPS) {
+      expect(step.text).not.toMatch(/wrap|pack|postcard/i)
+      // Say "collected", not "learned" (contract section 3).
+      expect(step.text).not.toMatch(/learn/i)
+    }
   })
 })
 
@@ -75,56 +81,79 @@ describe('the saved result and Home guidance', () => {
     ...overrides,
   }) as CompletionReceipt
 
-  it('walks postcard total and reasons, result tier, and introduces the review once', () => {
+  // The finish screen has no postcard total (CW-09): the lesson starts at the
+  // ticks and points its tier beat at the café's stamp (CW-13).
+  it('walks the result ticks, the stamp line, and introduces the review once', () => {
     const steps = resultTourSteps(receipt(), { hasReview: true })
     // The review's own controls and Home explain themselves (owner, 2026-09-27).
     expect(steps.map(step => step.anchor)).toEqual([
-      '.receipt-postcard-total',
       '.receipt-reward-list',
-      '.receipt-tier-summary',
+      '.receipt-stamp',
       '.city1-review-sentence',
     ])
-    expect(steps[0]!.text).toBe(UI.onboarding.resultTourPostcards(RECEIPT_UI.newPostcards(2).replace(/^\+\s*/, '')))
-    expect(steps[0]!.text).toContain('added 2 new postcards')
-    expect(steps[1]!.text).toBe(`${UI.onboarding.resultTourRewardNew(RECEIPT_UI.rewardSolved)} ${UI.onboarding.resultTourRewardHeld(RECEIPT_UI.rewardSpin)}`)
-    expect(steps[2]!.text).toBe(UI.onboarding.resultTourWinTier(RECEIPT_UI.gold, RECEIPT_UI.gold))
-    expect(steps[3]!.text).toBe(UI.onboarding.resultTourSentence)
+    expect(steps[0]!.text).toBe(`${UI.onboarding.resultTourRewardNew(RECEIPT_UI.rewardSolved)} ${UI.onboarding.resultTourRewardHeld(RECEIPT_UI.rewardSpin)}`)
+    expect(steps[1]!.text).toBe(UI.onboarding.resultTourWinTier(RECEIPT_UI.gold, RECEIPT_UI.gold))
+    expect(steps[2]!.text).toBe(UI.onboarding.resultTourSentence)
+    expect(steps.map(step => step.text).join(' ')).not.toMatch(/postcard/i)
   })
 
   it('describes zero-reward losses and says when there is no sentence to review', () => {
     const steps = resultTourSteps(receipt({
       attemptTier: 'bronze',
       completedLoss: true,
+      cityEligible: true,
       previousBest: 'silver',
-      newBest: null,
+      newBest: 'silver',
       rewards: { eligible: [], postcards: 0, newlyClaimed: [], alreadyHeld: [] },
       evidence: { game: { outcome: { result: 'lost' } } } as CompletionReceipt['evidence'],
     }), { hasReview: false })
-    // No reward reasons to point at: the postcard band says so once, honestly.
+    // No ticks to point at: the stamp line is the result's one beat.
     expect(steps.map(step => step.anchor)).toEqual([
-      '.receipt-postcard-total',
-      '.receipt-tier-summary',
+      '.receipt-stamp',
       '.city1-review-empty',
     ])
-    expect(steps[0]!.text).toBe(UI.onboarding.resultTourNoRewards)
-    expect(steps[1]!.text).toBe(UI.onboarding.resultTourLossTier(RECEIPT_UI.silver))
-    expect(steps[2]!.text).toBe(UI.onboarding.resultTourNoReview)
+    expect(steps[0]!.text).toBe(UI.onboarding.resultTourLossTier(RECEIPT_UI.silver))
+    // The passed value is the café's stamp: a loss keeps the better Silver.
+    expect(steps[0]!.text).toContain(`best so far is ${RECEIPT_UI.silver}.`)
+    expect(steps[1]!.text).toBe(UI.onboarding.resultTourNoReview)
     expect(steps.map(step => step.text).join(' ')).not.toMatch(/[1-9] new postcards?/)
   })
 
-  it('tells a win that earned nothing new as held rewards, never as fresh postcards', () => {
+  it('CW-03b names the café stamp after a loss: Bronze on a first visit, the better stamp on a replay', () => {
+    const lost = (previousBest: Tier | null, origin: 'primary' | 'replay', cityEligible = true) => resultTourSteps(receipt({
+      attemptTier: 'gold', completedLoss: true, cityEligible, previousBest, newBest: previousBest,
+      rewards: { eligible: [], postcards: 0, newlyClaimed: [], alreadyHeld: [] },
+      evidence: { origin, game: { outcome: { result: 'lost' } } } as CompletionReceipt['evidence'],
+    }), { hasReview: false })[0]!
+    // A lost first visit: the attempt reached Gold, the café's stamp is Bronze.
+    const first = lost(null, 'primary')
+    expect(first.anchor).toBe('.receipt-stamp')
+    expect(first.text).toBe(UI.onboarding.resultTourLossTier(RECEIPT_UI.bronze))
+    expect(first.text).toContain(`best so far is ${RECEIPT_UI.bronze}.`)
+    expect(first.text).not.toContain(UI.onboarding.resultTourNoBestYet)
+    // A lost replay of a Gold café keeps Gold, as the stamp line says.
+    const gold = lost('gold', 'replay')
+    expect(gold.text).toBe(UI.onboarding.resultTourLossTier(RECEIPT_UI.gold))
+    expect(gold.text).toContain(`best so far is ${RECEIPT_UI.gold}.`)
+    // A lost replay of a café only ever lost (no won best) is Bronze.
+    expect(lost(null, 'replay').text).toBe(UI.onboarding.resultTourLossTier(RECEIPT_UI.bronze))
+    // A round that is not a café has no stamp card: no Bronze is claimed.
+    expect(lost(null, 'primary', false).text).toBe(UI.onboarding.resultTourLossTier(UI.onboarding.resultTourNoBestYet))
+  })
+
+  it('tells a win that earned nothing new as held rewards', () => {
     const steps = resultTourSteps(receipt({
       attemptTier: 'silver',
       previousBest: 'gold',
       newBest: null,
       rewards: { eligible: [], postcards: 0, newlyClaimed: [], alreadyHeld: ['solved', 'spinWin'] } as never,
     }), { hasReview: false })
-    expect(steps[0]!.text).toBe(UI.onboarding.resultTourNoRewards)
-    expect(steps[1]!.anchor).toBe('.receipt-reward-list')
-    expect(steps[1]!.text).toBe(UI.onboarding.resultTourRewardHeld(`${RECEIPT_UI.rewardSolved} · ${RECEIPT_UI.rewardSpin}`))
-    expect(steps[1]!.text).not.toMatch(/New this time/)
+    expect(steps[0]!.anchor).toBe('.receipt-reward-list')
+    expect(steps[0]!.text).toBe(UI.onboarding.resultTourRewardHeld(`${RECEIPT_UI.rewardSolved} · ${RECEIPT_UI.rewardSpin}`))
+    expect(steps[0]!.text).not.toMatch(/New this time/)
     // The best stays the earlier Gold; this attempt's Silver is not a new best.
-    expect(steps[2]!.text).toBe(UI.onboarding.resultTourWinTier(RECEIPT_UI.silver, RECEIPT_UI.gold))
+    expect(steps[1]!.anchor).toBe('.receipt-stamp')
+    expect(steps[1]!.text).toBe(UI.onboarding.resultTourWinTier(RECEIPT_UI.silver, RECEIPT_UI.gold))
   })
 
   it('reads only the receipt: the same receipt always gives the same lesson', () => {
@@ -135,13 +164,35 @@ describe('the saved result and Home guidance', () => {
     expect(JSON.stringify(r)).toBe(frozen)
   })
 
-  it('targets the Home postcard total and the live Casey suitcase button', () => {
+  it('points at the city’s stamp where the postcard total was, then the live Casey suitcase button', () => {
     expect(HOME_TOUR_STEPS.map(step => step.anchor)).toEqual([
-      '.home-postcard-total',
+      '.home-city-stamp',
       '.cluey-button',
     ])
-    expect(HOME_TOUR_STEPS[0]!.text).toMatch(/postcard/i)
+    expect(HOME_TOUR_STEPS[0]!.text).toMatch(/stamp/i)
     expect(HOME_TOUR_STEPS[1]!.text).toMatch(/suitcase|collection/i)
+    for (const step of HOME_TOUR_STEPS) expect(step.text).not.toMatch(/postcard/i)
+  })
+
+  it('introduces Sightseeing, then the café found, whose tag plays it', () => {
+    const steps = homeCafeTourSteps('Café Solen')
+    expect(steps.map(step => step.anchor)).toEqual(['.home-tag-sightseeing', '.home-play'])
+    expect(steps[1]!.text).toContain('Café Solen')
+    expect(steps[1]!.tapThrough).toBe(true)
+    // The German course has no café names: the line still reads.
+    expect(homeCafeTourSteps(null)[1]!.text).toBe(UI.onboarding.homeTourCafe(null))
+    expect(homeCafeTourSteps(null)[1]!.text).not.toMatch(/null/)
+  })
+
+  it('adds the city’s percentage beside the stamp only where the screen draws it', () => {
+    const withPercent = resultTourSteps(receipt(), { hasReview: false, cityPercentOf: 'Sønderborg' })
+    expect(withPercent.map(step => step.anchor)).toEqual([
+      '.receipt-reward-list',
+      '.receipt-stamp',
+      '.receipt-city-percent',
+      '.city1-review-empty',
+    ])
+    expect(withPercent[2]!.text).toBe(UI.onboarding.resultTourCityPercent('Sønderborg'))
   })
 })
 
@@ -150,5 +201,7 @@ describe('the wheel lessons', () => {
     expect(wheelReadyTourSteps()).toEqual([expect.objectContaining({ anchor: '.wheel-disc', tapThrough: true })])
     expect(translationTourSteps('da').some((step) => step.tapThrough)).toBe(false)
     expect([...TOUR_STEPS, ...INTRO_GAME_TOUR_STEPS, ...HOME_TOUR_STEPS].some((step) => step.tapThrough)).toBe(false)
+    // The one other tap-through: Home's Café puzzle tag in the first session.
+    expect(homeCafeTourSteps(null).filter((step) => step.tapThrough).map((step) => step.anchor)).toEqual(['.home-play'])
   })
 })

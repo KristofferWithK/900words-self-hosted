@@ -3,9 +3,11 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { inflateSync } from 'node:zlib'
+import { setTimeout as sleep } from 'node:timers/promises'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { dismissRoundGuidance } from './round-guidance.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = 4280
 const OUT = resolve(process.env.SHOT_DIR ?? 'e2e-shots')
@@ -140,6 +142,12 @@ const captureLiveFrameRaster = async (page, { screenshotSelector, name }) => {
   const captures = []
   const captureTimes = []
   for (let index = 0; index < 4; index++) {
+    // Paced by one frame's hold (720ms / 3 frames = 240ms, plus margin). Taken
+    // back to back, four screenshots can span less than one hold on a fast
+    // machine (170-275ms measured on Windows) and all show the same frame, so
+    // the check failed on a different subset every run while the rAF sampling
+    // above saw every frame change. Paced, the four span more than a cycle.
+    if (index > 0) await sleep(260)
     const captureStartedAt = Date.now()
     captures.push(await target.screenshot({ animations: 'allow', timeout: 5000 }))
     captureTimes.push(Date.now() - captureStartedAt)
@@ -189,6 +197,8 @@ try {
       reducedMotion: 'no-preference',
     })
     const page = await context.newPage()
+    // The café gate is on (CW-13): this drive's board needs its first café found.
+    await page.addInitScript(mergeFirstCafe, seedArgs('da'))
     const crashes = []
     page.on('pageerror', (error) => crashes.push(String(error)))
     await page.addInitScript(() => {
@@ -582,7 +592,7 @@ try {
     await page.emulateMedia({ reducedMotion: 'no-preference' })
     const translation = await page.evaluate(() => {
       const game = JSON.parse(localStorage.getItem('cluecab-game-v1')).state.game
-      const wordId = game.wheel.segments.find((id) => !game.wheel.translated.includes(id))
+      const wordId = game.wheel.segments.find((id) => game.reveals[id]?.kind === 'green' && !game.wheel.translated.includes(id))
       const word = game.words.find((candidate) => candidate.wordId === wordId)
       return { wordId, answer: word.da }
     })

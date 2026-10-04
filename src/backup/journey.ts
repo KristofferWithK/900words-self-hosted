@@ -1,4 +1,7 @@
 import type { LanguageCode } from '../lang/types'
+import { mergePhotoLedgers, type PhotoLedger } from '../journey/wordMarks'
+import { mergeCafeFinds, type CafeFindsByCity } from '../journey/cafes'
+import { mergeTrainRuns, type TrainRunFacts } from '../journey/progress'
 
 export interface JourneyBackup {
   cityIndex: number
@@ -6,6 +9,24 @@ export interface JourneyBackup {
   arrivedAt: Record<number, number>
   /** See JourneySchema. Absent from files and snapshots written before it. */
   furthest?: number
+  /**
+   * Photo marks (journey/wordMarks.ts), word id -> local day -> first photo.
+   * Absent from every file and save written before the café world; absent
+   * reads as none, which is the truth for a player who never ran a street.
+   */
+  photos?: PhotoLedger
+  /**
+   * Café finds (journey/cafes.ts), city key -> found cafés and the count
+   * toward the next. Absent from every file and save written before the café
+   * world, the same way as `photos`; absent reads as nothing found by a walk.
+   */
+  cafes?: CafeFindsByCity
+  /**
+   * Train tickets (journey/progress.ts `TrainRunFact`, card CW-07), city key
+   * -> the caught train run. Absent from every file and save written before
+   * the train run, the same way as `cafes`; absent reads as no ticket.
+   */
+  trainRuns?: TrainRunFacts
   historicalTravelEligibility?: Record<string, true>
   parked?: Partial<Record<LanguageCode, { cityIndex: number; arrivedAt: Record<number, number>; furthest?: number }>>
   historicalRoutes?: JourneyBackup['parked']
@@ -24,6 +45,25 @@ export const earliestByKey = (
   const out: Record<string, number> = { ...a }
   for (const [k, v] of Object.entries(b)) out[k] = Math.min(out[k] ?? v, v)
   return out
+}
+
+/**
+ * A journey as it goes into `parked` / `historicalRoutes` when a whole
+ * journey is filed there (backup merge across languages, restore). Those
+ * entries hold a route position; photo marks are word knowledge and café
+ * finds are keyed by their own city identity, both kept once at the top of
+ * the journey, and a second frozen copy inside the route history would only
+ * grow the save. Everything else is filed exactly as before the café world,
+ * so the stored shape is unchanged for older builds. (The name predates the
+ * café finds and the train tickets; it drops all three. Tickets are keyed by
+ * their own city identity too.)
+ */
+export function withoutPhotos<T extends { photos?: unknown; cafes?: unknown; trainRuns?: unknown }>(journey: T): Omit<T, 'photos' | 'cafes' | 'trainRuns'> {
+  const route: T = { ...journey }
+  delete route.photos
+  delete route.cafes
+  delete route.trainRuns
+  return route
 }
 
 export function mergeRouteHistory(a: NonNullable<JourneyBackup['parked']>, b: NonNullable<JourneyBackup['parked']>): NonNullable<JourneyBackup['parked']> {
@@ -51,6 +91,9 @@ export function mergeJourney(
     wrapped: Record<string, number>
     arrivedAt: Record<string, number>
     furthest?: number
+    photos?: PhotoLedger
+    cafes?: CafeFindsByCity
+    trainRuns?: TrainRunFacts
     historicalTravelEligibility?: Record<string, true>
     parked?: JourneyBackup['parked']
     historicalRoutes?: JourneyBackup['historicalRoutes']
@@ -59,6 +102,15 @@ export function mergeJourney(
   return {
     cityIndex,
     wrapped: earliestByKey(current.wrapped, j.wrapped),
+    // Photo days union, earliest first photo kept: a mark, once earned, is
+    // never lost to a merge (wordMarks.ts).
+    photos: mergePhotoLedgers(current.photos ?? {}, j.photos ?? {}),
+    // Finds union, earlier find kept; the count toward the next comes from
+    // the side that has found more (journey/cafes.ts#mergeCafeFinds).
+    cafes: mergeCafeFinds(current.cafes ?? {}, j.cafes ?? {}),
+    // Tickets union; a caught train beats one not caught, the earlier ticket
+    // is kept (journey/progress.ts#mergeTrainRuns). A merge never loses one.
+    trainRuns: mergeTrainRuns(current.trainRuns ?? {}, j.trainRuns ?? {}),
     arrivedAt: earliestByKey(numKeyed(current.arrivedAt), j.arrivedAt) as unknown as Record<
       number,
       number

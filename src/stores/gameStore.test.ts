@@ -53,6 +53,8 @@ const { applyEvent } = await import('../engine/game')
 const { danish } = await import('../lang/da')
 const { buildAiClueView } = await import('../ai/projections')
 const { useJourney } = await import('./journeyStore')
+// Required boards are cafés a walk must find first (CW-04); these tests are about the board game.
+const { everyCafeFound } = await import('../journey/cafeTestSupport')
 const { useSettings } = await import('./settingsStore')
 const { useCurriculum } = await import('./curriculumStore')
 const { useSurvival } = await import('./survivalStore')
@@ -79,7 +81,7 @@ beforeEach(async () => {
   useGame.setState(useGame.getInitialState())
   useSrs.setState(useSrs.getInitialState())
   useStreak.setState(useStreak.getInitialState())
-  useJourney.setState(useJourney.getInitialState())
+  useJourney.setState({ ...useJourney.getInitialState(), cafes: everyCafeFound() })
   useCurriculum.setState(useCurriculum.getInitialState())
   useSurvival.setState(useSurvival.getInitialState())
   useUi.setState({ pendingFirstGiver: null, screen: 'home', onboarding: null })
@@ -1009,6 +1011,28 @@ describe('gameStore: the tutorial round (O2)', () => {
       } finally {
         globalThis.fetch = previousFetch
       }
+    })
+
+    it('"Play online" hands the round back to normal Casey; "Stay offline" is remembered for that round only', async () => {
+      await reachPlayerClue()
+      useGame.getState().playRoundOffline()
+      expect(roundPlaysOffline()).toBe(true)
+
+      useGame.getState().keepRoundOffline()
+      expect(roundPlaysOffline()).toBe(true)
+      expect(useGame.getState().stayOfflineFor).toBe(useGame.getState().attemptId)
+
+      useGame.getState().playRoundOnline()
+      expect(roundPlaysOffline()).toBe(false)
+      expect(useGame.getState().offlineRoundFor).toBeNull()
+      expect(useGame.getState().stayOfflineFor).toBeNull()
+
+      // A later drop can still go offline again, and a new round starts clean.
+      useGame.getState().playRoundOffline()
+      useGame.getState().keepRoundOffline()
+      useGame.getState().newGame({ seed: 613 })
+      expect(roundPlaysOffline()).toBe(false)
+      expect(useGame.getState().stayOfflineFor).toBeNull()
     })
 
     it('does not offer offline Casey for an error that is not a lost connection', async () => {

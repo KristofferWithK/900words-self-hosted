@@ -1,0 +1,441 @@
+/* ---------- Sightseeing: the running game (café world, CW-05) ----------
+ *
+ * Scoped to .run-screen. The run itself is drawn on a canvas (src/run/draw.ts);
+ * these rules are the frame around it and the panels over it. The panel is the
+ * prototype's luggage tag (manila, clipped top corners, a punched hole and a
+ * string going up); the buttons are tags in place of buttons (T1 in
+ * docs/design/cafe-world/design-suitcase-tags-options.jpg). One unbroken
+ * outline each: an ink layer clipped to the tag's shape, and the fill inset
+ * inside it, clipped to the same shape. */
+
+.run-screen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  /* The road runs on under the home indicator, to the screen's bottom edge:
+     the run takes back the body's safe-area padding below it. Casey and the
+     pause button keep clear of it (draw.ts runFrame, .run-pause). */
+  margin-bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  /* The run owns every touch on its road: no scroll, no zoom, no text picking. */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  overflow: hidden;
+}
+
+/* Measures env(safe-area-inset-bottom) in px for the screen and the painter. */
+.run-safe-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: env(safe-area-inset-bottom, 0px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.run-stage {
+  position: relative;
+  /* The screen sets the exact size in px: the full height, and the width of
+     the prototype's 480 x 800 frame at most (a wide screen letterboxes
+     sideways). The ratio only holds until it has measured. */
+  aspect-ratio: 480 / 800;
+  max-width: 100%;
+  max-height: 100%;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  container-type: size;
+}
+
+.run-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* During a run: a small round button, out of Casey's way at the bottom left. */
+.run-screen .run-pause {
+  position: absolute;
+  left: 3.5cqw;
+  bottom: calc(2.5cqh + env(safe-area-inset-bottom, 0px));
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.run-scrim {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0 7cqw env(safe-area-inset-bottom, 0px);
+  touch-action: auto;
+  overflow-y: auto;
+}
+
+/* ── the panel: a manila luggage tag ── */
+.run-tag {
+  --tag-cut: 7cqw;
+  --tag-line: 2.5px;
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  padding: calc(var(--tag-cut) + 22px) 7cqw 6cqw;
+  text-align: center;
+  color: var(--text);
+  border-radius: 0 0 14px 14px;
+  background: var(--text);
+  clip-path: polygon(0 var(--tag-cut), var(--tag-cut) 0, calc(100% - var(--tag-cut)) 0, 100% var(--tag-cut), 100% 100%, 0 100%);
+}
+
+.run-tag::before {
+  content: '';
+  position: absolute;
+  inset: var(--tag-line);
+  z-index: -1;
+  background: #f2eee3;
+  border-radius: 0 0 12px 12px;
+  clip-path: polygon(
+    0 calc(var(--tag-cut) - 1px),
+    calc(var(--tag-cut) - 1px) 0,
+    calc(100% - var(--tag-cut) + 1px) 0,
+    100% calc(var(--tag-cut) - 1px),
+    100% 100%,
+    0 100%
+  );
+}
+
+.run-tag-hole {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: #fff;
+  border: var(--tag-line) solid var(--text);
+}
+
+/* The string leaves the hole and runs up out of the panel; the panel's clip
+   cuts it at the tag's edge, so only its first stretch shows. */
+.run-tag-string {
+  position: absolute;
+  top: -78px;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.run-tag-string path {
+  fill: none;
+  stroke: rgba(18, 18, 18, 0.5);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.run-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 28px;
+  font-size: clamp(22px, 7.1cqw, 40px);
+  line-height: 1.15;
+}
+
+.run-title-wrong {
+  color: var(--red);
+}
+
+.run-sub {
+  margin-top: 4px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(16px, 4.2cqw, 22px);
+}
+
+.run-line {
+  margin-top: 10px;
+  font-size: clamp(13px, 2.9cqw, 16px);
+  line-height: 1.35;
+}
+
+.run-hint {
+  font-weight: 700;
+}
+
+.run-answer {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: clamp(18px, 5cqw, 26px);
+  color: var(--green-tile);
+}
+
+.run-total {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(16px, 4.2cqw, 22px);
+  white-space: pre-wrap;
+}
+
+.run-new-best {
+  margin-top: 4px;
+  font-weight: 700;
+  color: var(--green-tile);
+}
+
+.run-missed ul {
+  list-style: none;
+  margin-top: 4px;
+  font-size: clamp(13px, 2.9cqw, 16px);
+}
+
+.run-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── a tag in place of a button (T1): clipped corners and a hole at the string
+   end (the left), one unbroken ink outline, white inside ── */
+.run-tag-btn {
+  --btn-cut: 14px;
+  position: relative;
+  isolation: isolate;
+  min-height: 48px;
+  min-width: 70%;
+  padding: 10px 26px 10px 40px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(16px, 4cqw, 20px);
+  color: var(--text);
+  background: var(--text);
+  clip-path: polygon(var(--btn-cut) 0, 100% 0, 100% 100%, var(--btn-cut) 100%, 0 calc(100% - var(--btn-cut)), 0 var(--btn-cut));
+}
+
+.run-tag-btn::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  background: #fff;
+  clip-path: polygon(
+    calc(var(--btn-cut) - 1px) 0,
+    100% 0,
+    100% 100%,
+    calc(var(--btn-cut) - 1px) 100%,
+    0 calc(100% - var(--btn-cut) + 1px),
+    0 calc(var(--btn-cut) - 1px)
+  );
+}
+
+.run-tag-btn::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin-top: -4.5px;
+  border-radius: 50%;
+  border: 2px solid var(--text);
+  background: #fff;
+}
+
+.run-tag-btn-primary {
+  color: var(--green-deep);
+  --btn-cut: 15px;
+}
+
+.run-tag-btn-primary::before {
+  inset: 2.5px;
+}
+
+/* "Home" sits beside the tags as plain words, as in T1. */
+.run-tag-btn:not(.run-tag-btn-primary) {
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 18px;
+  background: none;
+  clip-path: none;
+}
+
+.run-tag-btn:not(.run-tag-btn-primary)::before,
+.run-tag-btn:not(.run-tag-btn-primary)::after {
+  content: none;
+}
+
+.run-tag-btn:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 3px;
+}
+
+/* The tag's clip would cut a focus ring off, so a focused tag fills instead. */
+.run-tag-btn-primary:focus-visible {
+  outline: none;
+}
+
+.run-tag-btn-primary:focus-visible::before {
+  background: var(--green-soft);
+}
+
+/* ── "You found a café" (CW-08b, the first session's walk only): the café's
+   name on a white name board, as on the café on the road, and one tag to
+   keep walking ── */
+.run-cafe-name {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 12px;
+  padding: 6px 18px;
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  background: #fff;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(20px, 6cqw, 30px);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.run-cafe .run-actions {
+  margin-top: 16px;
+}
+
+.run-cafe .run-cafe-go {
+  width: min(100%, 300px);
+  justify-content: center;
+}
+
+/* As the run's other panel tags: the clip-free ring of the shared tag would
+   stand square around the tag on the manila panel, so a focused tag fills. */
+.run-cafe .run-cafe-go:focus-visible {
+  outline: none;
+  --tag-fill: var(--green-soft);
+}
+
+/* ---------- Catch the train (CW-07) ----------
+ *
+ * The train run's part of Home's train sheet (TrainRunPanel.tsx, inside
+ * .train-sheet from 72-home-bands.css), and the ticket it shares with the
+ * run's "You caught the train" panel. */
+
+.train-run-hint {
+  margin: 4px 0 0;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.train-run-catch .tag-note {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.train-run-ticket .train-ticket {
+  margin-top: 10px;
+  --ticket-behind: #f2eee3;
+  --ticket-fill: #fff;
+}
+
+/* The ticket: a notch in each side, a perforated line under its heading. The
+   notches are discs of the colour behind the ticket, clipped to the half that
+   bites into it, so the outline stays one line. */
+.train-ticket {
+  --ticket-behind: var(--bg);
+  --ticket-fill: #f2eee3;
+  position: relative;
+  max-width: 320px;
+  margin: 12px auto 0;
+  padding: 10px 26px 12px;
+  border: 2px solid var(--text);
+  border-radius: 10px;
+  background: var(--ticket-fill);
+  color: var(--text);
+  text-align: center;
+}
+
+.train-ticket::before,
+.train-ticket::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background: var(--ticket-behind);
+}
+
+.train-ticket::before {
+  left: -12px;
+  clip-path: inset(0 0 0 50%);
+}
+
+.train-ticket::after {
+  right: -12px;
+  clip-path: inset(0 50% 0 0);
+}
+
+.train-ticket-label {
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 2px dashed rgba(18, 18, 18, 0.35);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.train-ticket-route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 10px;
+  margin: 8px 0 4px;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.train-ticket-arrow {
+  width: 28px;
+  height: 12px;
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.train-ticket-line {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+/* On the run's manila panel the ticket is white, and its notches manila. */
+.run-tag .train-ticket {
+  --ticket-behind: #f2eee3;
+  --ticket-fill: #fff;
+  margin-top: 14px;
+}
+
+.run-title-caught {
+  color: var(--green-tile);
+}

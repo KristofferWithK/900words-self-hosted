@@ -1,0 +1,3774 @@
+{
+  "language": "da",
+  "city": 0,
+  "cityName": "Sønderborg",
+  "status": "draft",
+  "about": [
+    "Sønderborg's connecting words for the café world (docs/roadmap/cafe-world.md section 3): the words a city teaches outside its 100 cards.",
+    "Derived from two sources and checked by city1-connecting-words.test.ts: the ledger forms in src/lang/da/curriculum-support.ts whose first stage is city 0 (taught as productive-target or preview-as-chunk, or heard as receptive-ambient), plus every targetSpan of src/data/city1-review-upgrade.da.json. \"okay\" is left out (the same word in English).",
+    "Added by the owner on 2026-10-04: skål, om and hen. The ledger (src/lang/da/curriculum-support.ts) stages them at city 0 too, but only as receptive-ambient: heard in City 1, not taught, with no coverage floor. They were left out of the first 44 for that reason; the owner added them, making 47. Their from is ledger-city0-heard (ledger-city0 stays the taught forms), ledger records the stage, and addedBy records the decision.",
+    "en.shown is the short English on the tag; en.keys are every English meaning. Two words whose keys overlap are never offered against each other. kind is the pool for \"same kind of word\" wrong answers (greeting, question, little-word); pos is the finer word class.",
+    "meaning.source: city1-review-upgrade = the accepted meaningEn of that file (owner-approved 2026-09-26); cafe-world-prototype = written in the planning session for docs/design/cafe-world/build-door-dash-data.py, not reviewed. needsDanishReview marks every meaning a Danish speaker has not checked.",
+    "de is the German meaning for players whose app language is German (the src/i18n/glosses/da.de.json role). source lexicon.da.de.json = taken from that file; cw-14 / cw-14b = written for this list (cw-14b for the three added on 2026-10-04). The owner (native German) should read them.",
+    "fr, pl, pt, sv and zh are the meanings for players whose app language is French, Polish, European Portuguese, Swedish or Chinese (simplified), the other languages with a complete gloss overlay (COMPLETE in src/i18n/glosses/index.ts). Same shape as de. source lexicon.da.<lang>.json = taken from that file because its gloss is the course sense; cw-14c = written for this list (2026-10-04), with lexicon recording that file's gloss where it differs from the one shown, and note giving the reason for a hard choice. needsOwnerReview marks that no native speaker has read them (src/i18n/REVIEW.md). es, hu, nb and nl have none: their board tags are still English, so their connecting tags are too.",
+    "audio.key is the clip under public/audio/da/: audio/da/<key>.mp3. audio.spoken is what the voice was asked to say; five bare words came back near-silent (en, et, ja, i dag, and om in the 2026-10-04 batch), so they were said as one-word sentences."
+  ],
+  "count": 47,
+  "words": [
+    {
+      "da": "hej",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "hi",
+        "keys": [
+          "hi",
+          "hello"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "hi | hello",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "hallo",
+        "keys": [
+          "hallo",
+          "hi"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "salut",
+        "keys": [
+          "salut",
+          "bonjour",
+          "coucou"
+        ],
+        "source": "cw-14c",
+        "lexicon": "bonjour",
+        "note": "hej is the informal greeting: salut. lexicon.da.fr.json has bonjour, kept as a key.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "cześć",
+        "keys": [
+          "cześć",
+          "hej"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "olá",
+        "keys": [
+          "olá",
+          "oi"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "hej",
+        "keys": [
+          "hej",
+          "hejsan"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "你好",
+        "keys": [
+          "你好",
+          "嗨"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hej",
+        "spoken": "hej"
+      }
+    },
+    {
+      "da": "goddag",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "good day",
+        "keys": [
+          "good day",
+          "hello"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "good day | hello",
+        "needsDanishReview": true,
+        "reviewNote": "Rather formal in Danish; everyday greeting is hej."
+      },
+      "de": {
+        "shown": "guten Tag",
+        "keys": [
+          "guten Tag",
+          "hallo"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "bonjour",
+        "keys": [
+          "bonjour"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dzień dobry",
+        "keys": [
+          "dzień dobry"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "bom dia",
+        "keys": [
+          "bom dia",
+          "boa tarde"
+        ],
+        "source": "cw-14c",
+        "note": "Literally good day; Danish goddag is said at any hour, so boa tarde is a key too.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "goddag",
+        "keys": [
+          "goddag",
+          "god dag"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "您好",
+        "keys": [
+          "您好",
+          "你好"
+        ],
+        "source": "cw-14c",
+        "note": "The polite 您好 for the rather formal goddag.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/goddag",
+        "spoken": "goddag"
+      }
+    },
+    {
+      "da": "godmorgen",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "good morning",
+        "keys": [
+          "good morning"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "good morning",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "guten Morgen",
+        "keys": [
+          "guten Morgen"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "bonjour (le matin)",
+        "keys": [
+          "bonjour (le matin)",
+          "bonjour"
+        ],
+        "source": "cw-14c",
+        "note": "French says bonjour in the morning. The bracket tells it from goddag on the tag; the keys drop it, so the two are never offered against each other.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dzień dobry (rano)",
+        "keys": [
+          "dzień dobry (rano)",
+          "dzień dobry"
+        ],
+        "source": "cw-14c",
+        "note": "Polish says dzień dobry in the morning. The bracket tells it from goddag on the tag; the keys drop it.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "bom dia (de manhã)",
+        "keys": [
+          "bom dia (de manhã)",
+          "bom dia"
+        ],
+        "source": "cw-14c",
+        "note": "Bom dia is the morning greeting. The bracket tells it from goddag (also bom dia) on the tag; the keys drop it.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "god morgon",
+        "keys": [
+          "god morgon"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "早上好",
+        "keys": [
+          "早上好",
+          "早安"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/godmorgen",
+        "spoken": "godmorgen"
+      }
+    },
+    {
+      "da": "godnat",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "good night",
+        "keys": [
+          "good night"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "good night",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "gute Nacht",
+        "keys": [
+          "gute Nacht"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "bonne nuit",
+        "keys": [
+          "bonne nuit"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dobranoc",
+        "keys": [
+          "dobranoc"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "boa noite",
+        "keys": [
+          "boa noite"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "god natt",
+        "keys": [
+          "god natt"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "晚安",
+        "keys": [
+          "晚安"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/godnat",
+        "spoken": "godnat"
+      }
+    },
+    {
+      "da": "hallo",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "hello",
+        "keys": [
+          "hello"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "hello",
+        "needsDanishReview": true,
+        "reviewNote": "In Danish mostly on the phone or to get attention; check that \"hello\" does not overstate it."
+      },
+      "de": {
+        "shown": "hallo",
+        "keys": [
+          "hallo"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "allô",
+        "keys": [
+          "allô",
+          "salut"
+        ],
+        "source": "cw-14c",
+        "note": "Danish hallo is mostly the phone or calling for attention: allô.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "halo",
+        "keys": [
+          "halo",
+          "cześć"
+        ],
+        "source": "cw-14c",
+        "note": "Polish halo is the phone and calling for attention, as Danish hallo.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "alô",
+        "keys": [
+          "alô",
+          "olá"
+        ],
+        "source": "cw-14c",
+        "note": "Phone and calling for attention. Alô leans Brazilian; a Portuguese speaker answers the phone with \"Estou?\". A reader should choose.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "hallå",
+        "keys": [
+          "hallå",
+          "hej"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "喂",
+        "keys": [
+          "喂",
+          "你好"
+        ],
+        "source": "cw-14c",
+        "note": "喂 is the phone hello and calling for attention, as Danish hallo.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hallo",
+        "spoken": "hallo"
+      }
+    },
+    {
+      "da": "velkommen",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "welcome",
+        "keys": [
+          "welcome"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "welcome",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "willkommen",
+        "keys": [
+          "willkommen"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "bienvenue",
+        "keys": [
+          "bienvenue"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "witaj",
+        "keys": [
+          "witaj",
+          "witajcie",
+          "witamy"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "bem-vindo",
+        "keys": [
+          "bem-vindo",
+          "bem-vinda",
+          "bem-vindos"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "välkommen",
+        "keys": [
+          "välkommen"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "欢迎",
+        "keys": [
+          "欢迎"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/velkommen",
+        "spoken": "velkommen"
+      }
+    },
+    {
+      "da": "farvel",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0",
+        "review-target"
+      ],
+      "en": {
+        "shown": "goodbye",
+        "keys": [
+          "goodbye"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "goodbye",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "auf Wiedersehen",
+        "keys": [
+          "auf Wiedersehen",
+          "tschüss"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "au revoir",
+        "keys": [
+          "au revoir",
+          "adieu"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "do widzenia",
+        "keys": [
+          "do widzenia",
+          "żegnaj"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "adeus",
+        "keys": [
+          "adeus",
+          "tchau"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "hej då",
+        "keys": [
+          "hej då",
+          "adjö"
+        ],
+        "source": "cw-14c",
+        "lexicon": "adjö",
+        "note": "Danish farvel is the everyday goodbye; Swedish adjö (lexicon.da.sv.json) is formal and old-fashioned, so hej då is shown and adjö kept as a key.",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "再见",
+        "keys": [
+          "再见"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/farvel",
+        "spoken": "farvel"
+      }
+    },
+    {
+      "da": "tak",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "thank you",
+        "keys": [
+          "thank you"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "thank you",
+        "needsDanishReview": true,
+        "reviewNote": "Also \"thanks\", and \"please\" in \"ja tak\"."
+      },
+      "de": {
+        "shown": "danke",
+        "keys": [
+          "danke"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "merci",
+        "keys": [
+          "merci"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dziękuję",
+        "keys": [
+          "dziękuję",
+          "dzięki"
+        ],
+        "source": "cw-14c",
+        "lexicon": "dzięki",
+        "note": "The tag is thank you, so dziękuję; lexicon.da.pl.json has the informal dzięki, kept as a key.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "obrigado",
+        "keys": [
+          "obrigado",
+          "obrigada"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "tack",
+        "keys": [
+          "tack"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "谢谢",
+        "keys": [
+          "谢谢"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/tak",
+        "spoken": "tak"
+      }
+    },
+    {
+      "da": "undskyld",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "sorry",
+        "keys": [
+          "sorry",
+          "excuse me"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "sorry | excuse me",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "Entschuldigung",
+        "keys": [
+          "Entschuldigung",
+          "Verzeihung"
+        ],
+        "source": "cw-14",
+        "lexicon": "Verzeihung",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "pardon",
+        "keys": [
+          "pardon",
+          "excusez-moi",
+          "désolé"
+        ],
+        "source": "cw-14c",
+        "lexicon": "excuse",
+        "note": "lexicon.da.fr.json has the noun excuse, not the word said.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "przepraszam",
+        "keys": [
+          "przepraszam"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "desculpe",
+        "keys": [
+          "desculpe",
+          "desculpa",
+          "com licença"
+        ],
+        "source": "cw-14c",
+        "lexicon": "desculpa",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "förlåt",
+        "keys": [
+          "förlåt",
+          "ursäkta"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "对不起",
+        "keys": [
+          "对不起",
+          "不好意思"
+        ],
+        "source": "cw-14c",
+        "lexicon": "道歉",
+        "note": "lexicon.da.zh.json has 道歉 (to apologise), the verb, not the word said.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/undskyld",
+        "spoken": "undskyld"
+      }
+    },
+    {
+      "da": "ja",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "yes",
+        "keys": [
+          "yes"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "yes",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "ja",
+        "keys": [
+          "ja"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "oui",
+        "keys": [
+          "oui"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "tak",
+        "keys": [
+          "tak"
+        ],
+        "source": "lexicon.da.pl.json",
+        "note": "Polish tak (yes) is spelled like Danish tak (thanks), and both are greetings here, so a gate asking ja can show the tag tak with the suitcase tak as a wrong answer. A false friend, kept because tak is the Polish word.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "sim",
+        "keys": [
+          "sim"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "ja",
+        "keys": [
+          "ja"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "是的",
+        "keys": [
+          "是的",
+          "是",
+          "对"
+        ],
+        "source": "cw-14c",
+        "lexicon": "是",
+        "note": "lexicon.da.zh.json has 是, which alone also reads as \"to be\"; 是的 is the answer yes.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/ja",
+        "spoken": "Ja!"
+      }
+    },
+    {
+      "da": "nej",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "no",
+        "keys": [
+          "no"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "no",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "nein",
+        "keys": [
+          "nein"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "non",
+        "keys": [
+          "non"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "nie",
+        "keys": [
+          "nie"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "não",
+        "keys": [
+          "não"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "nej",
+        "keys": [
+          "nej"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "不",
+        "keys": [
+          "不",
+          "不是"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/nej",
+        "spoken": "nej"
+      }
+    },
+    {
+      "da": "hvor",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "where",
+        "keys": [
+          "where"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "where",
+        "needsDanishReview": true,
+        "reviewNote": "Also \"how\" in exclamations (\"Hvor er det godt!\")."
+      },
+      "de": {
+        "shown": "wo",
+        "keys": [
+          "wo"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "où",
+        "keys": [
+          "où"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "gdzie",
+        "keys": [
+          "gdzie"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "onde",
+        "keys": [
+          "onde"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "var",
+        "keys": [
+          "var"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "哪里",
+        "keys": [
+          "哪里",
+          "哪儿"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvor",
+        "spoken": "hvor"
+      }
+    },
+    {
+      "da": "hvad",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "what",
+        "keys": [
+          "what"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "what",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "was",
+        "keys": [
+          "was"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "quoi",
+        "keys": [
+          "quoi",
+          "que",
+          "qu'est-ce que"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "co",
+        "keys": [
+          "co"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "o que",
+        "keys": [
+          "o que",
+          "que"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "vad",
+        "keys": [
+          "vad"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "什么",
+        "keys": [
+          "什么"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvad",
+        "spoken": "hvad"
+      }
+    },
+    {
+      "da": "hvem",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "who",
+        "keys": [
+          "who"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "who",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "wer",
+        "keys": [
+          "wer"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "qui",
+        "keys": [
+          "qui"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "kto",
+        "keys": [
+          "kto"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "quem",
+        "keys": [
+          "quem"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "vem",
+        "keys": [
+          "vem"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "谁",
+        "keys": [
+          "谁"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvem",
+        "spoken": "hvem"
+      }
+    },
+    {
+      "da": "hvorfor",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "why",
+        "keys": [
+          "why"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Why.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "warum",
+        "keys": [
+          "warum"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "pourquoi",
+        "keys": [
+          "pourquoi"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dlaczego",
+        "keys": [
+          "dlaczego",
+          "czemu"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "porquê",
+        "keys": [
+          "porquê",
+          "porque",
+          "por que"
+        ],
+        "source": "lexicon.da.pt.json",
+        "note": "European Portuguese writes porquê standing alone and porque at the head of a question.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "varför",
+        "keys": [
+          "varför"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "为什么",
+        "keys": [
+          "为什么"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvorfor",
+        "spoken": "hvorfor"
+      }
+    },
+    {
+      "da": "hvornår",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "when",
+        "keys": [
+          "when"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "When.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "wann",
+        "keys": [
+          "wann"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "quand",
+        "keys": [
+          "quand"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "kiedy",
+        "keys": [
+          "kiedy"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "quando",
+        "keys": [
+          "quando"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "när",
+        "keys": [
+          "när"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "什么时候",
+        "keys": [
+          "什么时候",
+          "何时"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvornaar",
+        "spoken": "hvornår"
+      }
+    },
+    {
+      "da": "hvilket",
+      "kind": "question",
+      "pos": "interrogative",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "which",
+        "keys": [
+          "which"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Which.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "welches",
+        "keys": [
+          "welches",
+          "welche",
+          "welcher"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "quel",
+        "keys": [
+          "quel",
+          "quelle",
+          "lequel",
+          "laquelle"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "który",
+        "keys": [
+          "który",
+          "która",
+          "które"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "qual",
+        "keys": [
+          "qual",
+          "quais"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "vilket",
+        "keys": [
+          "vilket",
+          "vilken",
+          "vilka"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "哪个",
+        "keys": [
+          "哪个"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hvilket",
+        "spoken": "hvilket"
+      }
+    },
+    {
+      "da": "igen",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "again",
+        "keys": [
+          "again"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "again",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "wieder",
+        "keys": [
+          "wieder",
+          "noch einmal"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "encore",
+        "keys": [
+          "encore",
+          "de nouveau",
+          "à nouveau"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "znowu",
+        "keys": [
+          "znowu",
+          "ponownie",
+          "jeszcze raz"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "de novo",
+        "keys": [
+          "de novo",
+          "outra vez",
+          "novamente"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "igen",
+        "keys": [
+          "igen"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "再次",
+        "keys": [
+          "再次",
+          "再",
+          "又"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/igen",
+        "spoken": "igen"
+      }
+    },
+    {
+      "da": "lidt",
+      "kind": "little-word",
+      "pos": "quantifier",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "a little",
+        "keys": [
+          "a little"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "a little",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "ein bisschen",
+        "keys": [
+          "ein bisschen",
+          "ein wenig"
+        ],
+        "source": "cw-14",
+        "lexicon": "wenig",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "un peu",
+        "keys": [
+          "un peu"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "trochę",
+        "keys": [
+          "trochę"
+        ],
+        "source": "cw-14c",
+        "lexicon": "mało",
+        "note": "lexicon.da.pl.json has mało (little, too little), the other sense; lidt here is a little: trochę.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "um pouco",
+        "keys": [
+          "um pouco"
+        ],
+        "source": "cw-14c",
+        "lexicon": "poucos",
+        "note": "lexicon.da.pt.json has poucos (few); lidt here is a little: um pouco.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "lite",
+        "keys": [
+          "lite",
+          "lite grann"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "一点",
+        "keys": [
+          "一点",
+          "一点儿",
+          "有点"
+        ],
+        "source": "cw-14c",
+        "lexicon": "少量",
+        "note": "lexicon.da.zh.json has 少量 (a small amount), a written word; 一点 is what is said.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/lidt",
+        "spoken": "lidt"
+      }
+    },
+    {
+      "da": "her",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "here",
+        "keys": [
+          "here"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "here",
+        "needsDanishReview": true
+      },
+      "de": {
+        "shown": "hier",
+        "keys": [
+          "hier"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "ici",
+        "keys": [
+          "ici"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "tutaj",
+        "keys": [
+          "tutaj",
+          "tu"
+        ],
+        "source": "cw-14c",
+        "lexicon": "tu",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "aqui",
+        "keys": [
+          "aqui",
+          "cá"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "här",
+        "keys": [
+          "här"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "这里",
+        "keys": [
+          "这里",
+          "这儿"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/her",
+        "spoken": "her"
+      }
+    },
+    {
+      "da": "der",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "there",
+        "keys": [
+          "there"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "there",
+        "needsDanishReview": true,
+        "reviewNote": "Also the \"der\" of \"der er\" (there is) and a relative \"who/that\"."
+      },
+      "de": {
+        "shown": "da",
+        "keys": [
+          "da",
+          "dort"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "là",
+        "keys": [
+          "là",
+          "là-bas"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "tam",
+        "keys": [
+          "tam"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "ali",
+        "keys": [
+          "ali",
+          "lá",
+          "aí"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "där",
+        "keys": [
+          "där"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "那里",
+        "keys": [
+          "那里",
+          "那儿"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/der",
+        "spoken": "der"
+      }
+    },
+    {
+      "da": "også",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "also",
+        "keys": [
+          "also",
+          "too"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Also; too.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "auch",
+        "keys": [
+          "auch"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "aussi",
+        "keys": [
+          "aussi"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "też",
+        "keys": [
+          "też",
+          "także",
+          "również"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "também",
+        "keys": [
+          "também"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "också",
+        "keys": [
+          "också",
+          "även"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "也",
+        "keys": [
+          "也"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/ogsaa",
+        "spoken": "også"
+      }
+    },
+    {
+      "da": "altid",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "always",
+        "keys": [
+          "always"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Always.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "immer",
+        "keys": [
+          "immer"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "toujours",
+        "keys": [
+          "toujours"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "zawsze",
+        "keys": [
+          "zawsze"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "sempre",
+        "keys": [
+          "sempre"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "alltid",
+        "keys": [
+          "alltid"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "总是",
+        "keys": [
+          "总是",
+          "一直",
+          "永远"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/altid",
+        "spoken": "altid"
+      }
+    },
+    {
+      "da": "gerne",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "gladly",
+        "keys": [
+          "gladly",
+          "like to"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Gladly; like to.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "gern",
+        "keys": [
+          "gern",
+          "gerne"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "volontiers",
+        "keys": [
+          "volontiers",
+          "avec plaisir"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "chętnie",
+        "keys": [
+          "chętnie",
+          "z przyjemnością"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "com prazer",
+        "keys": [
+          "com prazer",
+          "de bom grado",
+          "com gosto"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "gärna",
+        "keys": [
+          "gärna"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "乐意",
+        "keys": [
+          "乐意",
+          "愿意"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/gerne",
+        "spoken": "gerne"
+      }
+    },
+    {
+      "da": "kun",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "only",
+        "keys": [
+          "only"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Only.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "nur",
+        "keys": [
+          "nur"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "seulement",
+        "keys": [
+          "seulement",
+          "uniquement",
+          "juste"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "tylko",
+        "keys": [
+          "tylko"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "só",
+        "keys": [
+          "só",
+          "apenas",
+          "somente"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "bara",
+        "keys": [
+          "bara",
+          "endast",
+          "enbart"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "只",
+        "keys": [
+          "只",
+          "只有",
+          "仅"
+        ],
+        "source": "cw-14c",
+        "lexicon": "只有",
+        "note": "lexicon.da.zh.json has 只有, kept as a key; 只 alone is the adverb.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/kun",
+        "spoken": "kun"
+      }
+    },
+    {
+      "da": "meget",
+      "kind": "little-word",
+      "pos": "quantifier",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "very",
+        "keys": [
+          "very",
+          "much",
+          "a lot"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Very; much; a lot.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "sehr",
+        "keys": [
+          "sehr",
+          "viel"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "très",
+        "keys": [
+          "très",
+          "beaucoup"
+        ],
+        "source": "cw-14c",
+        "lexicon": "beaucoup",
+        "note": "The tag is very (the English shown); lexicon.da.fr.json has beaucoup, kept as a key, which also keeps it apart from mange.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "bardzo",
+        "keys": [
+          "bardzo",
+          "dużo"
+        ],
+        "source": "cw-14c",
+        "lexicon": "dużo",
+        "note": "The tag is very; lexicon.da.pl.json has dużo, kept as a key.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "muito",
+        "keys": [
+          "muito"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "mycket",
+        "keys": [
+          "mycket"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "很",
+        "keys": [
+          "很",
+          "非常",
+          "很多"
+        ],
+        "source": "cw-14c",
+        "lexicon": "很多",
+        "note": "The tag is very; lexicon.da.zh.json has 很多, kept as a key.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/meget",
+        "spoken": "meget"
+      }
+    },
+    {
+      "da": "ikke",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "not",
+        "keys": [
+          "not"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Not.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "nicht",
+        "keys": [
+          "nicht"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "ne… pas",
+        "keys": [
+          "ne… pas",
+          "ne pas",
+          "pas"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "nie",
+        "keys": [
+          "nie"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "não",
+        "keys": [
+          "não"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "inte",
+        "keys": [
+          "inte"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "不",
+        "keys": [
+          "不",
+          "没"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/ikke",
+        "spoken": "ikke"
+      }
+    },
+    {
+      "da": "virkelig",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "really",
+        "keys": [
+          "really"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Really.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "wirklich",
+        "keys": [
+          "wirklich"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "vraiment",
+        "keys": [
+          "vraiment"
+        ],
+        "source": "cw-14c",
+        "lexicon": "réel",
+        "note": "The course sense is the adverb really; lexicon.da.fr.json has the adjective réel.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "naprawdę",
+        "keys": [
+          "naprawdę"
+        ],
+        "source": "cw-14c",
+        "lexicon": "prawdziwy",
+        "note": "The course sense is the adverb really; lexicon.da.pl.json has the adjective prawdziwy.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "realmente",
+        "keys": [
+          "realmente",
+          "de verdade",
+          "a sério"
+        ],
+        "source": "cw-14c",
+        "lexicon": "real",
+        "note": "The course sense is the adverb really; lexicon.da.pt.json has the adjective real.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "verkligen",
+        "keys": [
+          "verkligen"
+        ],
+        "source": "cw-14c",
+        "lexicon": "verklig",
+        "note": "The course sense is the adverb really; lexicon.da.sv.json has the adjective verklig.",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "真的",
+        "keys": [
+          "真的",
+          "确实"
+        ],
+        "source": "cw-14c",
+        "lexicon": "真实",
+        "note": "The course sense is really; lexicon.da.zh.json has 真实 (real, true).",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/virkelig",
+        "spoken": "virkelig"
+      }
+    },
+    {
+      "da": "samme",
+      "kind": "little-word",
+      "pos": "adjective",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "same",
+        "keys": [
+          "same"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Same.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "gleich",
+        "keys": [
+          "gleich",
+          "derselbe",
+          "dasselbe"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "même",
+        "keys": [
+          "même",
+          "le même",
+          "la même"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "ten sam",
+        "keys": [
+          "ten sam",
+          "taki sam",
+          "to samo"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "mesmo",
+        "keys": [
+          "mesmo",
+          "o mesmo",
+          "a mesma"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "samma",
+        "keys": [
+          "samma"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "一样",
+        "keys": [
+          "一样",
+          "相同",
+          "同样"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/samme",
+        "spoken": "samme"
+      }
+    },
+    {
+      "da": "tilbage",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "back",
+        "keys": [
+          "back",
+          "left over"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Back; left (over).",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "zurück",
+        "keys": [
+          "zurück"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "de retour",
+        "keys": [
+          "de retour",
+          "en arrière",
+          "qui reste"
+        ],
+        "source": "cw-14c",
+        "lexicon": "retour",
+        "note": "lexicon.da.fr.json has the noun retour; the adverb is de retour.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "z powrotem",
+        "keys": [
+          "z powrotem",
+          "wstecz",
+          "zostało"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "de volta",
+        "keys": [
+          "de volta",
+          "para trás",
+          "restante"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "tillbaka",
+        "keys": [
+          "tillbaka",
+          "kvar"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "回来",
+        "keys": [
+          "回来",
+          "回去",
+          "剩下"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/tilbage",
+        "spoken": "tilbage"
+      }
+    },
+    {
+      "da": "helt",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "completely",
+        "keys": [
+          "completely",
+          "quite"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Completely; quite.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "ganz",
+        "keys": [
+          "ganz"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "complètement",
+        "keys": [
+          "complètement",
+          "tout à fait",
+          "entièrement"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "całkowicie",
+        "keys": [
+          "całkowicie",
+          "zupełnie",
+          "całkiem"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "completamente",
+        "keys": [
+          "completamente",
+          "totalmente"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "helt",
+        "keys": [
+          "helt",
+          "alldeles"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "完全",
+        "keys": [
+          "完全"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/helt",
+        "spoken": "helt"
+      }
+    },
+    {
+      "da": "mange",
+      "kind": "little-word",
+      "pos": "quantifier",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "many",
+        "keys": [
+          "many",
+          "a lot of",
+          "a lot"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Many; a lot of.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "viele",
+        "keys": [
+          "viele",
+          "viel"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "beaucoup de",
+        "keys": [
+          "beaucoup de",
+          "beaucoup",
+          "nombreux"
+        ],
+        "source": "cw-14c",
+        "lexicon": "beaucoup",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "wiele",
+        "keys": [
+          "wiele",
+          "wielu",
+          "dużo"
+        ],
+        "source": "cw-14c",
+        "lexicon": "dużo",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "muitos",
+        "keys": [
+          "muitos",
+          "muitas",
+          "muito"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "många",
+        "keys": [
+          "många"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "许多",
+        "keys": [
+          "许多",
+          "很多"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/mange",
+        "spoken": "mange"
+      }
+    },
+    {
+      "da": "nu",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "now",
+        "keys": [
+          "now"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Now.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "jetzt",
+        "keys": [
+          "jetzt"
+        ],
+        "source": "lexicon.da.de.json",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "maintenant",
+        "keys": [
+          "maintenant"
+        ],
+        "source": "lexicon.da.fr.json",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "teraz",
+        "keys": [
+          "teraz"
+        ],
+        "source": "lexicon.da.pl.json",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "agora",
+        "keys": [
+          "agora"
+        ],
+        "source": "lexicon.da.pt.json",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "nu",
+        "keys": [
+          "nu"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "现在",
+        "keys": [
+          "现在"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/nu",
+        "spoken": "nu"
+      }
+    },
+    {
+      "da": "uden",
+      "kind": "little-word",
+      "pos": "preposition",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "without",
+        "keys": [
+          "without"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Without.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "ohne",
+        "keys": [
+          "ohne"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "sans",
+        "keys": [
+          "sans"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "bez",
+        "keys": [
+          "bez"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "sem",
+        "keys": [
+          "sem"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "utan",
+        "keys": [
+          "utan"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "没有",
+        "keys": [
+          "没有",
+          "不带",
+          "无"
+        ],
+        "source": "cw-14c",
+        "note": "Chinese has no one preposition for without; 没有 is the plainest (\"without milk\": 没有牛奶). It also reads \"not have\".",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/uden",
+        "spoken": "uden"
+      }
+    },
+    {
+      "da": "i morgen",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "tomorrow",
+        "keys": [
+          "tomorrow"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Tomorrow.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "morgen",
+        "keys": [
+          "morgen"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "demain",
+        "keys": [
+          "demain"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "jutro",
+        "keys": [
+          "jutro"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "amanhã",
+        "keys": [
+          "amanhã"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "i morgon",
+        "keys": [
+          "i morgon",
+          "imorgon"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "明天",
+        "keys": [
+          "明天"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/i-morgen",
+        "spoken": "i morgen"
+      }
+    },
+    {
+      "da": "i dag",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "today",
+        "keys": [
+          "today"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Today.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "heute",
+        "keys": [
+          "heute"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "aujourd'hui",
+        "keys": [
+          "aujourd'hui"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "dzisiaj",
+        "keys": [
+          "dzisiaj",
+          "dziś"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "hoje",
+        "keys": [
+          "hoje"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "i dag",
+        "keys": [
+          "i dag",
+          "idag"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "今天",
+        "keys": [
+          "今天"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/i-dag",
+        "spoken": "I dag."
+      }
+    },
+    {
+      "da": "var",
+      "kind": "little-word",
+      "pos": "verb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "was",
+        "keys": [
+          "was",
+          "were"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "Was; were.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "war",
+        "keys": [
+          "war",
+          "waren"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "était",
+        "keys": [
+          "était",
+          "étais",
+          "étaient",
+          "a été",
+          "été"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "był",
+        "keys": [
+          "był",
+          "była",
+          "było",
+          "byli",
+          "były"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "era",
+        "keys": [
+          "era",
+          "eram",
+          "foi",
+          "foram",
+          "estava"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "var",
+        "keys": [
+          "var"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "是（过去式）",
+        "keys": [
+          "是（过去式）",
+          "曾是",
+          "过去是"
+        ],
+        "source": "cw-14c",
+        "note": "Chinese verbs have no past tense; the tag names the past of 是.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/var",
+        "spoken": "var"
+      }
+    },
+    {
+      "da": "må",
+      "kind": "little-word",
+      "pos": "verb",
+      "from": [
+        "review-target"
+      ],
+      "en": {
+        "shown": "may",
+        "keys": [
+          "may",
+          "be allowed to"
+        ]
+      },
+      "meaning": {
+        "source": "city1-review-upgrade",
+        "sourceText": "May; be allowed to.",
+        "approval": "owner-chat-2026-09-26",
+        "needsDanishReview": false
+      },
+      "de": {
+        "shown": "darf",
+        "keys": [
+          "darf",
+          "dürfen"
+        ],
+        "source": "cw-14",
+        "lexicon": "dürfen",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "avoir le droit",
+        "keys": [
+          "avoir le droit",
+          "avoir le droit de",
+          "pouvoir"
+        ],
+        "source": "cw-14c",
+        "lexicon": "pouvoir",
+        "note": "May, be allowed to. French pouvoir is both may and can, so it is a key of må and kan alike and the two are never offered against each other.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "wolno",
+        "keys": [
+          "wolno",
+          "móc"
+        ],
+        "source": "cw-14c",
+        "lexicon": "móc",
+        "note": "May, be allowed to. lexicon.da.pl.json has móc, which is also can; it is a key of må and kan alike.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "ter permissão",
+        "keys": [
+          "ter permissão",
+          "poder"
+        ],
+        "source": "cw-14c",
+        "lexicon": "poder",
+        "note": "May, be allowed to. lexicon.da.pt.json has poder, which is also can; it is a key of må and kan alike.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "får",
+        "keys": [
+          "får",
+          "få"
+        ],
+        "source": "lexicon.da.sv.json",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "可以",
+        "keys": [
+          "可以",
+          "允许"
+        ],
+        "source": "lexicon.da.zh.json",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/maa",
+        "spoken": "må"
+      }
+    },
+    {
+      "da": "kan",
+      "kind": "little-word",
+      "pos": "verb",
+      "from": [
+        "ledger-city0",
+        "review-target"
+      ],
+      "en": {
+        "shown": "can",
+        "keys": [
+          "can"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "can",
+        "needsDanishReview": true,
+        "reviewNote": "Taught at city 0 only inside chunks (\"Kan jeg få …?\"); the modal itself comes at city 7."
+      },
+      "de": {
+        "shown": "kann",
+        "keys": [
+          "kann",
+          "können"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "pouvoir",
+        "keys": [
+          "pouvoir",
+          "peut"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "móc",
+        "keys": [
+          "móc",
+          "może",
+          "potrafić"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "poder",
+        "keys": [
+          "poder",
+          "pode",
+          "conseguir"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "kan",
+        "keys": [
+          "kan",
+          "kunna"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "能",
+        "keys": [
+          "能",
+          "会",
+          "可以"
+        ],
+        "source": "cw-14c",
+        "note": "可以 is both may and can, so it is a key of kan and må alike.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/kan",
+        "spoken": "kan"
+      }
+    },
+    {
+      "da": "en",
+      "kind": "little-word",
+      "pos": "article",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "a",
+        "keys": [
+          "a"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "a",
+        "needsDanishReview": true,
+        "reviewNote": "Also the number one; shown as \"a\"."
+      },
+      "de": {
+        "shown": "ein",
+        "keys": [
+          "ein",
+          "eine"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "un",
+        "keys": [
+          "un",
+          "une"
+        ],
+        "source": "cw-14c",
+        "note": "Danish en/et (common/neuter) do not line up with French un/une; both show un, as the English shows a for both.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "jeden",
+        "keys": [
+          "jeden",
+          "jedna",
+          "jedno"
+        ],
+        "source": "cw-14c",
+        "note": "Polish has no articles. Danish en/et are also the number one, so both show jeden.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "um",
+        "keys": [
+          "um",
+          "uma"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "en",
+        "keys": [
+          "en",
+          "ett"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "一个",
+        "keys": [
+          "一个",
+          "一"
+        ],
+        "source": "cw-14c",
+        "note": "Chinese has no articles; 一个 (one, a) for both en and et.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/en",
+        "spoken": "En."
+      }
+    },
+    {
+      "da": "et",
+      "kind": "little-word",
+      "pos": "article",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "a",
+        "keys": [
+          "a"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "a",
+        "needsDanishReview": true,
+        "reviewNote": "Also the number one; shown as \"a\"."
+      },
+      "de": {
+        "shown": "ein",
+        "keys": [
+          "ein"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "un",
+        "keys": [
+          "un",
+          "une"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "jeden",
+        "keys": [
+          "jeden",
+          "jedna",
+          "jedno"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "um",
+        "keys": [
+          "um",
+          "uma"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "ett",
+        "keys": [
+          "ett",
+          "en"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "一个",
+        "keys": [
+          "一个",
+          "一"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/et",
+        "spoken": "Et."
+      }
+    },
+    {
+      "da": "den",
+      "kind": "little-word",
+      "pos": "pronoun",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "it",
+        "keys": [
+          "it"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "it",
+        "needsDanishReview": true,
+        "reviewNote": "Also \"that\", and \"the\" before an adjective (\"den røde dør\"); shown as \"it\"."
+      },
+      "de": {
+        "shown": "es",
+        "keys": [
+          "es",
+          "er",
+          "sie"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "il / elle",
+        "keys": [
+          "il / elle",
+          "il",
+          "elle",
+          "ça"
+        ],
+        "source": "cw-14c",
+        "note": "Den stands for a common-gender thing; French says il or elle by the noun.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "on / ona",
+        "keys": [
+          "on / ona",
+          "on",
+          "ona",
+          "to"
+        ],
+        "source": "cw-14c",
+        "note": "Den stands for a common-gender thing; Polish says on or ona by the noun.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "ele / ela",
+        "keys": [
+          "ele / ela",
+          "ele",
+          "ela",
+          "isso"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "den",
+        "keys": [
+          "den"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "它",
+        "keys": [
+          "它"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/den",
+        "spoken": "den"
+      }
+    },
+    {
+      "da": "det",
+      "kind": "little-word",
+      "pos": "pronoun",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "it",
+        "keys": [
+          "it"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "it",
+        "needsDanishReview": true,
+        "reviewNote": "Also \"that\", and \"the\" before an adjective (\"det store hus\"); shown as \"it\"."
+      },
+      "de": {
+        "shown": "es",
+        "keys": [
+          "es"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "ça",
+        "keys": [
+          "ça",
+          "ce",
+          "cela",
+          "il"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "to",
+        "keys": [
+          "to",
+          "ono"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "isso",
+        "keys": [
+          "isso",
+          "isto"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "det",
+        "keys": [
+          "det"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "它",
+        "keys": [
+          "它",
+          "这",
+          "那"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/det",
+        "spoken": "det"
+      }
+    },
+    {
+      "da": "i",
+      "kind": "little-word",
+      "pos": "preposition",
+      "from": [
+        "ledger-city0"
+      ],
+      "en": {
+        "shown": "in",
+        "keys": [
+          "in"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "in",
+        "needsDanishReview": true,
+        "reviewNote": "Lower-case \"i\" is \"in\"; capital \"I\" is \"you\" (plural). Shown as \"in\"."
+      },
+      "de": {
+        "shown": "in",
+        "keys": [
+          "in"
+        ],
+        "source": "cw-14",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "dans",
+        "keys": [
+          "dans",
+          "en",
+          "à"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "w",
+        "keys": [
+          "w",
+          "we"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "em",
+        "keys": [
+          "em",
+          "no",
+          "na"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "i",
+        "keys": [
+          "i"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "在…里",
+        "keys": [
+          "在…里",
+          "在",
+          "里"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/i",
+        "spoken": "i"
+      }
+    },
+    {
+      "da": "skål",
+      "kind": "greeting",
+      "pos": "interjection",
+      "from": [
+        "ledger-city0-heard"
+      ],
+      "en": {
+        "shown": "cheers",
+        "keys": [
+          "cheers"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "cheers",
+        "needsDanishReview": true,
+        "reviewNote": "The toast. Also the noun \"skål\" (bowl), which this list does not mean."
+      },
+      "de": {
+        "shown": "Prost",
+        "keys": [
+          "Prost",
+          "zum Wohl"
+        ],
+        "source": "cw-14b",
+        "needsOwnerReview": true,
+        "note": "lexicon.da.de.json glosses skål as the noun \"Schüssel\" (bowl), not the toast, so it is not used here."
+      },
+      "fr": {
+        "shown": "santé",
+        "keys": [
+          "santé",
+          "à la vôtre",
+          "à la tienne",
+          "tchin-tchin"
+        ],
+        "source": "cw-14c",
+        "lexicon": "bol",
+        "note": "lexicon.da.fr.json glosses skål as the noun bol (bowl), not the toast.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "na zdrowie",
+        "keys": [
+          "na zdrowie"
+        ],
+        "source": "cw-14c",
+        "lexicon": "miska",
+        "note": "lexicon.da.pl.json glosses skål as the noun miska (bowl), not the toast.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "saúde",
+        "keys": [
+          "saúde",
+          "tchim-tchim"
+        ],
+        "source": "cw-14c",
+        "lexicon": "tigela",
+        "note": "lexicon.da.pt.json glosses skål as the noun tigela (bowl), not the toast.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "skål",
+        "keys": [
+          "skål"
+        ],
+        "source": "cw-14c",
+        "lexicon": "skål",
+        "note": "Swedish skål is the toast as well as the bowl, as in Danish; the toast is meant here.",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "干杯",
+        "keys": [
+          "干杯"
+        ],
+        "source": "cw-14c",
+        "lexicon": "碗",
+        "note": "lexicon.da.zh.json glosses skål as the noun 碗 (bowl), not the toast.",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/skaal",
+        "spoken": "skål"
+      },
+      "ledger": {
+        "firstCity": 0,
+        "use": "receptive-ambient",
+        "functionIds": [
+          "listen",
+          "repair",
+          "identify"
+        ]
+      },
+      "addedBy": {
+        "by": "owner",
+        "date": "2026-10-04",
+        "note": "Heard in City 1, not taught (ledger receptive-ambient); added to the connecting words by the owner."
+      }
+    },
+    {
+      "da": "om",
+      "kind": "little-word",
+      "pos": "preposition",
+      "from": [
+        "ledger-city0-heard"
+      ],
+      "en": {
+        "shown": "about",
+        "keys": [
+          "about",
+          "whether",
+          "if"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "about | whether | if",
+        "needsDanishReview": true,
+        "reviewNote": "The prototype lists it twice: preposition \"about\" and conjunction \"whether | if\". Also \"in\" with time (\"om en time\"). Shown as \"about\"."
+      },
+      "de": {
+        "shown": "über",
+        "keys": [
+          "über",
+          "ob"
+        ],
+        "source": "cw-14b",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "à propos de",
+        "keys": [
+          "à propos de",
+          "au sujet de",
+          "sur",
+          "si"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "o",
+        "keys": [
+          "o",
+          "czy"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "sobre",
+        "keys": [
+          "sobre",
+          "acerca de",
+          "se"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "om",
+        "keys": [
+          "om"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "关于",
+        "keys": [
+          "关于",
+          "是否"
+        ],
+        "source": "cw-14c",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/om",
+        "spoken": "Om."
+      },
+      "ledger": {
+        "firstCity": 0,
+        "use": "receptive-ambient",
+        "functionIds": [
+          "listen",
+          "repair",
+          "identify"
+        ]
+      },
+      "addedBy": {
+        "by": "owner",
+        "date": "2026-10-04",
+        "note": "Heard in City 1, not taught (ledger receptive-ambient); added to the connecting words by the owner."
+      }
+    },
+    {
+      "da": "hen",
+      "kind": "little-word",
+      "pos": "adverb",
+      "from": [
+        "ledger-city0-heard"
+      ],
+      "en": {
+        "shown": "over to",
+        "keys": [
+          "over to",
+          "over"
+        ]
+      },
+      "meaning": {
+        "source": "cafe-world-prototype",
+        "sourceText": "over (to a place)",
+        "needsDanishReview": true,
+        "reviewNote": "A direction word, rarely alone: \"gå hen til\" (go over to), \"Hvor skal du hen?\" (where are you going?). Shown as \"over to\"."
+      },
+      "de": {
+        "shown": "hin",
+        "keys": [
+          "hin",
+          "hinüber"
+        ],
+        "source": "cw-14b",
+        "needsOwnerReview": true
+      },
+      "fr": {
+        "shown": "vers",
+        "keys": [
+          "vers",
+          "jusqu'à"
+        ],
+        "source": "cw-14c",
+        "note": "A direction word: \"gå hen til\" is aller vers, s'approcher de.",
+        "needsOwnerReview": true
+      },
+      "pl": {
+        "shown": "w stronę",
+        "keys": [
+          "w stronę",
+          "do"
+        ],
+        "source": "cw-14c",
+        "note": "A direction word: \"gå hen til\" is podejść do.",
+        "needsOwnerReview": true
+      },
+      "pt": {
+        "shown": "até",
+        "keys": [
+          "até",
+          "para"
+        ],
+        "source": "cw-14c",
+        "note": "A direction word: \"gå hen til døren\" is ir até à porta.",
+        "needsOwnerReview": true
+      },
+      "sv": {
+        "shown": "fram till",
+        "keys": [
+          "fram till",
+          "bort till",
+          "bort"
+        ],
+        "source": "cw-14c",
+        "note": "A direction word: \"gå hen til\" is gå fram till; \"Hvor skal du hen?\" is \"Vart ska du?\".",
+        "needsOwnerReview": true
+      },
+      "zh": {
+        "shown": "过去",
+        "keys": [
+          "过去",
+          "到",
+          "往"
+        ],
+        "source": "cw-14c",
+        "note": "A direction word: \"gå hen til\" is 走过去. 过去 alone also reads \"the past\".",
+        "needsOwnerReview": true
+      },
+      "audio": {
+        "key": "connecting/hen",
+        "spoken": "hen"
+      },
+      "ledger": {
+        "firstCity": 0,
+        "use": "receptive-ambient",
+        "functionIds": [
+          "listen",
+          "repair",
+          "identify"
+        ]
+      },
+      "addedBy": {
+        "by": "owner",
+        "date": "2026-10-04",
+        "note": "Heard in City 1, not taught (ledger receptive-ambient); added to the connecting words by the owner."
+      }
+    }
+  ]
+}

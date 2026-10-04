@@ -1,0 +1,313 @@
+/* ---- the translation wheel (2026-09-16) ----
+
+   The last chance's docks: challenge (prompt + field, like packing's),
+   then the wheel itself, then the chooser. One rectangle, --dock-h like
+   every dock — the wheel is the one dock whose content wants height more
+   than width, so it draws the disc as large as the 150px reserve allows
+   and keeps its status line inside the row beneath. */
+.translate-challenge-bar {
+  /* Same three-row rhythm as the guess bar: lede, give-way middle, note. */
+  position: relative;
+  overflow: visible;
+}
+
+/* The early rules (.wheel-actions overflow / .wheel-answer-row width /
+   .wheel-prompt) were retired — the dock's own block further down owns those
+   selectors now, and .wheel-prompt left the markup with the tap-flow dock. */
+.wheel-input {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* The free retry's shake: a miss says so, physically, and nothing else
+   happens. Reduced motion stands still — the line under the field already
+   says it. */
+@keyframes wheel-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+.wheel-miss-shake {
+  animation: wheel-shake 260ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel-miss-shake {
+    animation: none;
+  }
+}
+
+/* The last chance's dimming (owner, 2026-09-17): during the wheel phase the
+   non-suitcase cards step back — content at ~half strength, border muted —
+   so the intention goes to the suitcase words, which keep full strength.
+   Visual only: the cards stay tappable for what a tap still means there, and
+   the accessible names are untouched. */
+.board-grid .card-dimmed {
+  opacity: 0.5;
+  border-color: var(--line-soft);
+}
+
+/* The disc: a button holding the SVG, so the tap is the wheel. */
+.wheel-disc {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  flex: none;
+  margin: 0 auto;
+  display: block;
+}
+
+.wheel-disc:disabled {
+  cursor: default;
+}
+
+.wheel-svg {
+  width: 100%;
+  height: 100%;
+  transition: none;
+  display: block;
+}
+
+/* The spin's transition is set inline by WheelSpinner from SPIN_MS and
+   SPIN_EASING (wheelAngle.ts), the curve the clack rate is tested against
+   (2026-09-27). .wheel-spinning only marks a disc in flight; reduced motion
+   never starts one. */
+
+.wheel-label {
+  font-size: 7.5px;
+  fill: var(--text);
+  pointer-events: none;
+}
+
+/* The luggage-tag pointer (direction B): a bent tag at 12 o'clock over the
+   spinning disc, the mockup's little black tab. */
+.wheel-pointer {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 14px;
+  height: 17px;
+  transform: translateX(-50%) rotate(4deg);
+  background: var(--text);
+  clip-path: polygon(0 0, 100% 0, 92% 55%, 62% 100%, 40% 62%, 0 55%);
+  border-radius: 2px;
+}
+
+.wheel-line {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wheel-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* The tap-flow dock: the lede line, then a row block holding the field + note
+   stacked LEFT and the wheel RIGHT — the mockup's composer (wheel right,
+   typing left). The wheel is IN the flex flow (owner build 87): it used to
+   hang absolutely at right:10px and its 112px reserved gutter squeezed the
+   field to ~120px and let the note row slide under the disc at phone width.
+   In the flow it takes the width it needs and the field takes the rest. */
+.wheel-lede {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.wheel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.wheel-answer-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  /* Composer clip fix (owner screenshot, build 87): the field's 2px black
+     focus ring (input:focus) is painted OUTSIDE the border box, and with the
+     row clipped at its left edge the ring's left side cut off — exactly the
+     straight vertical edge the screenshot showed while the right rounded.
+     This block padding stands between the clip and the ring so the ring has
+     room on both edges; the field's own look is untouched. */
+  padding: 2px 4px;
+}
+
+.wheel-side {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  pointer-events: auto;
+}
+
+/* The disc fills its box instead of overflowing it: the fixed 118px used to
+   poke out of a 104px container and, with the wheel in the flow, out of the
+   dock's 150px reserve. Percentage sizing keeps the disc inside whatever box
+   the row gives it. */
+.translate-challenge-bar .wheel-disc {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 379px) {
+  /* 360px leaves ~230px for the field row beside the wheel; the 88px box
+     keeps the field comfortable at the narrowest phone. */
+  .wheel-side {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+.wheel-confirm {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.3px solid var(--green-deep);
+  background: var(--green-soft);
+  color: var(--green-deep);
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-confirm:disabled {
+  border-color: var(--line-soft);
+  background: var(--line-soft);
+  color: #9b9b9b;
+  cursor: default;
+}
+
+/* THE FULL-BOARD WHEEL (owner, 2026-09-27): one slice per key word, and the
+   board shows which words the round missed. Your own missed words keep your
+   key's solid green border through the wheel phase's dimming (the dimming
+   rule above used to grey it out); Casey's get a dashed green frame. Both
+   stay dimmed with the other cards that are not suitcases. */
+.board-grid .card-dimmed.mykey-green {
+  border-color: var(--green-tile);
+}
+
+/* The frame is an SVG so the dashes can be long, with a clear gap: a CSS
+   dashed border's dash length is the browser's, and at 3px it reads as a
+   dotted grey line. The rect sits on the card's own (transparent) border. */
+.board-grid .word-card.card-wheel-missed {
+  border-color: transparent;
+  border-width: 3px;
+  overflow: visible;
+}
+
+.card-missed-frame {
+  position: absolute;
+  left: -1.5px;
+  top: -1.5px;
+  width: calc(100% + 3px);
+  height: calc(100% + 3px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.card-missed-frame rect {
+  fill: none;
+  stroke: var(--green-tile);
+  stroke-width: 3px;
+  stroke-dasharray: 11 8;
+}
+
+/* After the spin every lid shows the Danish: green and upright for a word the
+   player typed, pencil-grey italic for the answer they did not give — and
+   that suitcase itself steps back to a lighter line. */
+.card-lid-answer {
+  font-style: italic;
+  color: #4d4d4d;
+}
+
+.card-wheel-packed .card-lid-word.card-lid-yours {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.card-lid-article {
+  font-family: -apple-system, system-ui, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  margin-right: 3px;
+}
+
+.card-wheel-unpacked .card-suitcase-line,
+.card-wheel-unpacked .card-suitcase-body,
+.card-wheel-unpacked .card-suitcase-hatch line {
+  stroke: #9a9da1;
+}
+
+/* The dock after the spin: the verdict where the lede was, then the line
+   about the grey answers and "See results" where the field was. */
+.wheel-verdict {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wheel-verdict-win {
+  color: var(--green-deep);
+}
+
+.wheel-answers-line {
+  margin: 0;
+}
+
+/* Present while the disc turns so the dock keeps its height, but not shown
+   or pressable until it rests. */
+.tag.wheel-results:disabled {
+  visibility: hidden;
+}
+
+/* The chooser: one title, two doors, the chooser's whole rule. */
+.wheel-chooser .dock-actions {
+  gap: 8px;
+}
+
+.wheel-chooser .dock-actions > .btn {
+  flex: 1 1 0;
+  min-width: 0;
+}
+

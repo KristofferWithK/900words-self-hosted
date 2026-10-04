@@ -1,0 +1,350 @@
+/* ---------- dictionary sheet ---------- */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.35);
+  display: flex;
+  align-items: flex-end;
+  z-index: 20;
+}
+
+.sheet {
+  max-height: 82dvh;
+  overflow-y: auto;
+  background: var(--bg);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+  padding: 10px 22px calc(22px + env(safe-area-inset-bottom));
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slide-up 0.2s ease;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(40%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  margin: 0 auto;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Four things now: the headword, its part of speech, 🔊 and 🐢. «en
+     sygeplejerske» — the longest headword in the dataset with its article —
+     plus the badge and both buttons runs past 360px, so the row wraps rather
+     than squeezing the word nobody could then read. */
+  flex-wrap: wrap;
+}
+
+.speak-btn {
+  font-size: 1.1rem;
+  padding: 6px;
+  line-height: 1;
+}
+
+.speak-btn-inline {
+  font-size: 0.9rem;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* The drawn glyphs (AudioIcons.tsx) sit where the emoji sat, sized off the
+   button's font so the sheet row and the inline sentence buttons keep the
+   boxes they were measured with. */
+.audio-icon {
+  display: block;
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--text);
+}
+.speak-btn-inline .audio-icon { width: 1.25em; height: 1.25em; }
+/* The composer's answer rides a 1.65rem line built for a 0.9rem glyph on 6px
+   padding (26.41px, see .composer-line). The drawn glyph is 1.25em = 18px, so
+   on the same padding the button was 30px and lifted the row 3.6px — and the
+   dock's actions row hung 3px past the panel (layout-drive, 2026-09-07,
+   measured 631 against a 628 bottom). Same icon, 4px of vertical padding:
+   26px, back inside the line. */
+.composer-line .speak-btn-inline { padding-top: 4px; padding-bottom: 4px; }
+
+/* The word being looked up, marked in its example sentences. Pencil weight
+   rather than a colour block: bold, with the same dotted line the tappable
+   words carry, so it reads as "this one" without looking like a link. */
+mark.example-hit {
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--text-dim);
+  text-underline-offset: 3px;
+}
+
+/* A word that is its own speak button. The global button reset above already
+   drops the background, border and font; only the padding and the affordance
+   are left. Nothing here changes the box, on purpose — these sit in the round
+   summary's lists, which are measured against the no-scroll rule. */
+.speak-word {
+  padding: 0;
+  text-align: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--text-dim);
+  text-underline-offset: 3px;
+}
+
+.sheet-head h2 {
+  font-size: 1.5rem;
+}
+
+.pos-badge {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.sheet-glosses {
+  font-size: 1.1rem;
+}
+
+.sheet-example {
+  border-left: 3px solid var(--green);
+  padding-left: 12px;
+  line-height: 1.55;
+  font-family: var(--serif);
+}
+
+.sheet-example-en {
+  color: var(--text-dim);
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: 0.92rem;
+}
+
+/* The one line that says the fallback spoke. Smaller than the English it
+   trails, so it reads as a note on the sound rather than part of the gloss. */
+.sheet-example-source {
+  font-size: 0.78rem;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ---------- settings & stats ---------- */
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Installed on a phone there is no browser chrome, so a scrolled page draws
+     straight under the status bar â€” the back button and the title end up
+     behind the clock. Pin the header and give it its own inset and an opaque
+     background, so it covers the content instead of the clock covering it. */
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  margin: calc(-1 * env(safe-area-inset-top)) -16px 0;
+  padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
+}
+
+.screen-header h1 {
+  font-size: 1.6rem;
+}
+
+.settings-section {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-section h3 {
+  font-size: 1.05rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field > span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field small {
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.field-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.field-row input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--text);
+}
+
+/* The normal brain is a switch, not a service-name riddle. It says exactly
+   what ON and OFF mean while keeping the experimental Gemma path available. */
+.casey-brain-switch {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 10px 12px;
+  border-radius: 12px 8px 11px 9px / 9px 11px 8px 12px;
+  background: var(--surface);
+}
+
+.casey-brain-switch-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.casey-brain-switch-copy strong {
+  font-family: var(--serif);
+  font-size: 1rem;
+}
+
+.casey-brain-switch-copy small,
+.casey-brain-status span {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.casey-brain-toggle {
+  position: relative;
+  width: 52px;
+  height: 30px;
+  margin: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  appearance: none;
+  background: var(--grey-soft);
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.casey-brain-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 1px 3px rgba(18, 18, 18, 0.25);
+  transition: transform 140ms ease;
+}
+
+.casey-brain-toggle:checked {
+  border-color: var(--green-deep);
+  background: var(--green);
+}
+
+.casey-brain-toggle:checked::after {
+  transform: translateX(22px);
+}
+
+.casey-brain-toggle:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.casey-brain-status {
+  display: grid;
+  gap: 2px;
+  margin: -3px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--line);
+}
+
+.casey-brain-status.is-normal {
+  border-left-color: var(--green-deep);
+}
+
+.casey-brain-status.is-normal strong {
+  color: var(--green-deep);
+}
+
+.test-ok {
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
+.test-fail {
+  color: var(--red);
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.stats-games {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: var(--text-dim);
+}
+
+.stats-games strong {
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+
+/* Google Play review access (Settings, Android store build only). */
+.review-access { display: grid; gap: 10px; }
+.review-access .settings-note { margin: 0; }
+.review-access .btn { justify-self: start; }
+
+/* "Your plan" (Settings, store builds only): a chip beside the title and a
+   section built from what Settings already draws, the pass options and pills. */
+.your-plan-offers,
+.your-plan-switch,
+.your-plan-quiet { display: grid; gap: 10px; }
+.your-plan-offers .settings-note { display: block; }
+/* Google Play's manage link is an <a> drawn as a Tag (styles/99-tag.css). */
+a.tag { text-decoration: none; }
+/* The chip shares Settings' header with the title. "Einstellungen" and
+   "UNBEGRENZT" side by side were 6px wider than a 360px phone, so the chip
+   is compact and never breaks inside. On a narrower phone (German or
+   Swedish at 320px) it moves under the title, not past the screen edge. */
+.settings-screen .screen-header { flex-wrap: wrap; column-gap: 8px; row-gap: 2px; }
+.your-plan-chip {
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  letter-spacing: 0;
+  padding: 0.12rem 0.45rem;
+}
+.your-plan-chip.is-unlimited { border-color: var(--green-deep); color: var(--green-deep); }

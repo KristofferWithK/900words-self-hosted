@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`the café table (CW-08) > pins Café Solen, so a change to the generator is a visible decision 1`] = `
+{
+  "bottom": [
+    {
+      "drawing": "sun",
+      "flip": true,
+      "signature": true,
+      "spot": "bottom-large",
+      "turn": -17,
+    },
+    {
+      "drawing": "spoon",
+      "flip": false,
+      "signature": false,
+      "spot": "bottom-small",
+      "turn": -27,
+    },
+  ],
+  "cafeId": "cafe-solen",
+  "edges": [
+    {
+      "drawing": "sun",
+      "flip": false,
+      "signature": true,
+      "spot": "left-mid",
+      "turn": 20,
+    },
+    {
+      "drawing": "cup",
+      "flip": true,
+      "signature": false,
+      "spot": "right-high",
+      "turn": -23,
+    },
+    {
+      "drawing": "pencil",
+      "flip": false,
+      "signature": false,
+      "spot": "right-low",
+      "turn": 27,
+    },
+  ],
+  "signature": "sun",
+}
+`;

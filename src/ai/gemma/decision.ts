@@ -2,7 +2,8 @@ import { AiError, requestDecision, type CaseyEnvelope, type CaseyRequest, type D
 import { UI } from '../../i18n'
 import { CaseyServiceError, type CaseyAskModel, type CaseyChatMessage } from '../../../proxy/casey/orchestrator.js'
 import { decideInApp } from '../inAppCasey'
-import { cancelGemmaGeneration, gemmaStatus, generateWithGemma } from './native'
+import { cancelGemmaGeneration, gemmaStatus, generateWithGemma, unloadGemma, wasPutAway } from './native'
+import { offlineCaseyWanted } from './residency'
 
 /**
  * On-device Casey: the Worker's own orchestrator, running in the native app
@@ -28,7 +29,8 @@ const METRICS_KEY = 'cluecab-gemma-device-gate-v1'
 
 /**
  * Gemma's whole context on the phone, prompt AND reply: `maxNumTokens` in
- * GemmaPlugin.swift (decision.test.ts pins the two together). Casey's clue
+ * GemmaPlugin.swift and CONTEXT_TOKENS in the Android plugin's GemmaModel.kt
+ * (decision.test.ts pins all three together). Casey's clue
  * prompt measured 13,199 characters on a City 1 board and a guess prompt
  * 8,840 (2026-09-27), so the old 4,096 could not hold a clue at all, and the
  * native engine was left to overflow with no one waiting to stop it.
@@ -58,6 +60,39 @@ const OUTPUT_TOKENS: Record<CaseyRequest['operation'], number> = {
  */
 const GENERATION_TIMEOUT_MS = 60_000
 const TURN_BUDGET_MS = 90_000
+
+/**
+ * Leaving the app puts Gemma away (GemmaPlugin.swift and GemmaPlugin.kt: her
+ * memory is freed, iOS runs no GPU work in the background, and Android kills
+ * a background app holding gigabytes first), so a turn she was thinking
+ * about fails with PUT_AWAY. It is asked again once the player is back, with
+ * a fresh turn budget, rather than handed to the orchestrator's fallback: the
+ * time away was the player's, not Gemma's. The waits grow, because JavaScript
+ * may still run for a few seconds after the app leaves the screen, and every
+ * ask in that window is refused at once; timers do not run while iOS has the
+ * app suspended, so the next wait ends after the player is back.
+ */
+const PUT_AWAY_WAITS_MS = [1_000, 2_000, 4_000, 8_000, 16_000]
+
+/**
+ * How many times the page has been hidden. A generation timeout that fires
+ * after the player left measured their absence, not Gemma, and on resume it
+ * can race the plugin's own PUT_AWAY rejection.
+ */
+let departures = 0
+if (typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') departures++
+  })
+}
+
+/** Waits `ms`, and then for as long as the app is off screen. */
+async function untilBack(ms: number): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, ms))
+  while (typeof document !== 'undefined' && document.visibilityState === 'hidden') {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+  }
+}
 
 /** Whether a prompt and its longest reply fit Gemma's context. */
 export function fitsContext(system: string, prompt: string, maxOutputTokens: number): boolean {
@@ -94,9 +129,11 @@ type Metric =
       loadMs: number
       firstTokenMs: number
       generationMs: number
+      /** Android only: whether the GPU or the CPU answered. */
+      backend?: string
     }
   | { kind: 'decision'; operation: CaseyRequest['operation']; arm: string; refused: boolean; ms: number }
-  | { kind: 'skipped'; operation: CaseyRequest['operation']; attempt: number; reason: 'context' | 'turn-budget' | 'timeout' | 'error' }
+  | { kind: 'skipped'; operation: CaseyRequest['operation']; attempt: number; reason: 'context' | 'turn-budget' | 'timeout' | 'error' | 'put-away' }
 
 /** The device gate's ring of the last hundred measurements, read off the phone. */
 function recordMetric(metric: Metric): void {
@@ -133,11 +170,11 @@ function promptParts(messages: readonly CaseyChatMessage[]): { system: string; p
 
 function gemmaModel(operation: CaseyRequest['operation']): CaseyAskModel {
   let attempt = 0
-  const deadline = Date.now() + TURN_BUDGET_MS
+  let deadline = Date.now() + TURN_BUDGET_MS
   // No answer is a model failure, not a refusal: the orchestrator plays its
   // own authored/index move instead, exactly as it does when the Worker's
   // upstream is down. The device-gate ring says which it was.
-  const noAnswer = (reason: 'context' | 'turn-budget' | 'timeout' | 'error') => {
+  const noAnswer = (reason: 'context' | 'turn-budget' | 'timeout' | 'error' | 'put-away') => {
     recordMetric({ kind: 'skipped', operation, attempt: attempt++, reason })
     return new CaseyServiceError('upstream_unavailable', 'Casey’s on-device model did not answer.', 502)
   }
@@ -147,16 +184,32 @@ function gemmaModel(operation: CaseyRequest['operation']): CaseyAskModel {
     // A prompt that cannot fit is never sent: the native engine is not
     // trusted to fail cleanly past its context.
     if (!fitsContext(system, prompt, maxOutputTokens)) throw noAnswer('context')
-    const left = deadline - Date.now()
-    if (left <= 0) throw noAnswer('turn-budget')
     let result
-    try {
-      result = await withinTime(
-        generateWithGemma({ system, prompt, temperature: options.temperature, maxOutputTokens }),
-        Math.min(GENERATION_TIMEOUT_MS, left),
-      )
-    } catch (error) {
-      throw noAnswer(error instanceof Error && error.message === 'timed out' ? 'timeout' : 'error')
+    for (let putAways = 0; ; putAways++) {
+      const left = deadline - Date.now()
+      if (left <= 0) throw noAnswer('turn-budget')
+      const departed = departures
+      try {
+        result = await withinTime(
+          generateWithGemma({ system, prompt, temperature: options.temperature, maxOutputTokens }),
+          Math.min(GENERATION_TIMEOUT_MS, left),
+        )
+        break
+      } catch (error) {
+        const putAway = wasPutAway(error) || departures !== departed
+        const wait = PUT_AWAY_WAITS_MS[putAways]
+        if (putAway && wait !== undefined) {
+          await untilBack(wait)
+          // Asked again only for a round still open with her: one the player
+          // left, or took back online, must not load her again.
+          if (offlineCaseyWanted()) {
+            recordMetric({ kind: 'skipped', operation, attempt: attempt++, reason: 'put-away' })
+            deadline = Date.now() + TURN_BUDGET_MS
+            continue
+          }
+        }
+        throw noAnswer(putAway ? 'put-away' : error instanceof Error && error.message === 'timed out' ? 'timeout' : 'error')
+      }
     }
     recordMetric({
       kind: 'generation',
@@ -165,6 +218,7 @@ function gemmaModel(operation: CaseyRequest['operation']): CaseyAskModel {
       loadMs: result.loadMs,
       firstTokenMs: result.firstTokenMs,
       generationMs: result.generationMs,
+      ...(result.backend ? { backend: result.backend } : {}),
     })
     return result.text
   }
@@ -201,15 +255,22 @@ export const requestGemmaDecision: DecisionFn = async (settings, request) => {
 
 const decideOnDevice: DecisionFn = async (settings, request): Promise<CaseyEnvelope> => {
   const started = Date.now()
-  const envelope = await decideInApp(settings, request, gemmaModel(request.operation), ARM)
-  recordMetric({
-    kind: 'decision',
-    operation: request.operation,
-    arm: envelope.report.arm,
-    refused: envelope.report.refused,
-    ms: Date.now() - started,
-  })
-  return envelope
+  try {
+    const envelope = await decideInApp(settings, request, gemmaModel(request.operation), ARM)
+    recordMetric({
+      kind: 'decision',
+      operation: request.operation,
+      arm: envelope.report.arm,
+      refused: envelope.report.refused,
+      ms: Date.now() - started,
+    })
+    return envelope
+  } finally {
+    // A move nobody is waiting for any more (the round was left while she
+    // thought), or one asked from outside a round (the Settings test): she
+    // goes away with it rather than staying in memory.
+    if (!offlineCaseyWanted()) void unloadGemma().catch(() => {})
+  }
 }
 
 export async function testGemmaConnection(): Promise<void> {

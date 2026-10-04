@@ -15,13 +15,7 @@ export const onboarding: Catalogue['onboarding'] = {
     return {
       languageName: german ? 'niemiecki' : 'duński',
       countryName: german ? 'Niemcy' : 'Danię',
-      welcome: 'Czy wiesz, że w większości języków 900 słów może pokryć ponad 80% codziennej mowy? (Dotknij, aby kontynuować.)',
-      map: (destination) => german
-        ? `To nasza mapa. Przemierzymy Niemcy, zbierając po sto słów w każdym mieście. ${destination} to nasz cel.`
-        : `To nasza mapa. Przemierzymy Danię, zbierając po sto słów w każdym mieście. ${destination} to nasz cel.`,
-      guide: german
-        ? 'Gramatykę i praktyczne wskazówki do niemieckiego znajdziesz w Przewodniku. Możesz czytać dalej, kiedy chcesz.'
-        : 'Gramatykę i praktyczne wskazówki do duńskiego znajdziesz w Przewodniku. Możesz czytać dalej, kiedy chcesz.',
+      welcome: 'Czy wiesz, że w większości języków 900 słów może pokryć ponad 80% codziennej mowy?',
       clueField: german
         ? 'Gdy będzie twoja kolej, wpisz tu niemieckie słowo łączące dwa lub trzy twoje zielone słowa.'
         : 'Gdy będzie twoja kolej, wpisz tu duńskie słowo łączące dwa lub trzy twoje zielone słowa.',
@@ -57,33 +51,22 @@ export const onboarding: Catalogue['onboarding'] = {
     `${words} ${plural(words, 'słowo', 'słowa', 'słów')} · ${cities} ${plural(cities, 'miasto', 'miasta', 'miast')}`,
   ticketHintMany: 'Dotknij biletu, żeby wybrać.',
   ticketHintOne: 'Dotknij biletu i ruszamy.',
+  ticketComingSoon: 'Wkrótce',
 
-  // ── Casey przedstawia ekran startowy, krok po kroku ─────────────────────
-  introWelcome:
-    'Czy wiesz, że w większości języków 900 słów może pokryć ponad 80% codziennej mowy? (Dotknij, aby kontynuować.)',
-  introMap:
-    'To nasza mapa. Pojedziemy przez Danię, zbierając po sto słów w każdym mieście. Kopenhaga to nasz cel.',
-  introGuide:
-    'Jeśli kiedyś zechcesz gramatyki albo praktycznego duńskiego, otwórz Przewodnik. Możesz też zaglądać dalej, kiedy chcesz.',
-  introPlay: 'To na razie wszystko, czego potrzebujesz. Dotknij Graj i zbierzmy pierwsze słowa.',
-  introBubbleAria: (line) => `${line} Kontynuuj.`,
-  introCaseyOpen: 'Otwórz Casey i zobacz zebrane słowa',
-  introCaseyContinue: 'Dalej z Casey',
-  introPlayFirst: 'Zagraj pierwszą grę',
-  introTapCasey: 'Dotknij Casey',
+  // ── Casey before the first walk, and the first walk’s end (CW-13) ──
+  introTwoGames: 'Fiszki są nudne, więc gramy w dwie gry: spacer po mieście, na którym zbieramy słowa, i łamigłówkę słowną w kawiarni.',
+  introExplore: (city) => `Zwiedźmy ${city} i sprawdźmy, czy znajdziemy kawiarnię.`,
+  introGo: 'Ruszamy',
+  walkEndFound: 'Przejdź się jeszcze raz albo wróć do ekranu Start i zagraj w znalezionej kawiarni.',
+  walkEndNotFound: 'Przejdź się jeszcze raz, żeby poszukać kawiarni, albo wróć do ekranu Start.',
 
   // ── Podpowiedzi ekranowe na prawdziwych ekranach ────────────────────────
   tourNext: 'Dalej',
   tourDone: 'Ruszamy',
-  tourLoose:
-    'Tu zostaje twoja kolekcja słów. Dotknij słowa, gdy chcesz je znów zobaczyć lub usłyszeć.',
-  tourLid:
-    'To kolekcja plansz Casey. Numer planszy i nazwana ranga pokazują jej najlepszą próbę.',
-  tourTray:
-    'Otwórz ukończoną planszę, aby zagrać ponownie. Powtórka może poprawić jej najlepszą rangę bez resetowania następnej obowiązkowej planszy.',
+  tourLoose: 'Słowa, które poznaliśmy, czekają tu na górze. Każdy pierścień wypełnia się o jedną trzecią za każdy znak: zdjęcie na spacerze, próbę przy mojej wskazówce i twoją własną wskazówkę.',
+  tourLid: 'Z trzema znakami słowo jest zebrane. Zebrane słowa trafiają do walizki, a ta linijka je liczy.',
+  tourTray: 'To karta pieczątek miasta. Każda kawiarnia, w której zagrasz, dostaje tu swoją pieczątkę. Przerywane kółko to kawiarnia znaleziona, ale jeszcze nierozegrana, a ? to kawiarnia wciąż do znalezienia.',
   // „trzeba co najmniej” rządzi dopełniaczem: 1 zebranego słowa, 3 zebranych słów.
-  tourWrapUp:
-    'Tu jest twoja następna obowiązkowa plansza. Kończ plansze, aby zdobywać rangi. Tłumaczenia i koło mogą podnieść rozwiązaną planszę do Platyny.',
   mapTourHere: (city, words) =>
     `To ${city}, tu jesteśmy. Każde miasto daje ${words} ${plural(words, 'słowo', 'słowa', 'słów')} do zabrania do domu.`,
   mapTourNext: (next, _words, city) =>
@@ -113,25 +96,25 @@ export const onboarding: Catalogue['onboarding'] = {
     'Każda dobra odpowiedź dodaje zielony segment. Możesz zakręcić w każdej chwili, ale pusty segment oznacza przegraną rundę. Gdy koło jest pełne, każdy obrót wygrywa.',
   wheelReadyTour:
     'Koło jest teraz całe zielone, więc ten obrót wygrywa. Stuknij koło, żeby zakręcić.',
-  resultTourPostcards: (amount: string) =>
-    `Ta plansza dodała ${amount} do twojego miasta. Każdy wynik pokazuje właśnie tutaj, co zdobył.`,
   resultTourRewardNew: (rewards: string) => `Nowe tym razem: ${rewards}.`,
   resultTourRewardHeld: (rewards: string) =>
     `Zdobyte już wcześniej, więc nie liczą się ponownie: ${rewards}.`,
-  resultTourNoRewards: 'Tym razem ta plansza nie przyniosła pocztówek. Tak bywa i nic nie tracisz.',
   resultTourWinTier: (tier: string, best: string) =>
-    `Ten wynik to ${tier}. Najlepszy wynik tej planszy do tej pory: ${best}.`,
+    `Ta łamigłówka dała ${tier}. Najlepsza pieczątka kawiarni do tej pory: ${best}.`,
   resultTourLossTier: (best: string) =>
-    `Ta runda jest przegrana. Brąz oznacza tu tylko udział w grze i nie jest najlepszym wynikiem. Najlepszy wynik tej planszy do tej pory: ${best}.`,
+    `Ta łamigłówka jest przegrana. Przegrana łamigłówka też daje brązową pieczątkę. Wygrana daje srebrną, złotą lub platynową. Najlepszy wynik tej kawiarni do tej pory: ${best}.`,
+  resultTourCityPercent: (city) =>
+    `Każda pieczątka kawiarni liczy się do medalu miasta ${city}: brąz od 25%, srebro od 50%, złoto od 75% i platyna przy 100%.`,
   resultTourNoBestYet: 'jeszcze brak',
   resultTourSentence:
     'To opcjonalna powtórka. Pokazuje słowo z tej planszy w zdaniu. To nie jest kolejny test.',
   resultTourNoReview:
     'Tym razem nie ma zdania do powtórki. Nic nie szkodzi. Powtórka jest zawsze opcjonalna.',
-  homeTourPostcards:
-    'To łączna liczba twoich pocztówek w tym mieście. Każda pocztówka zdobyta przez planszę trafia tutaj.',
-  homeTourCollection:
-    'Dotknij mnie, aby otworzyć walizkę. Pokażę ci słowa, które razem zebraliśmy, i twoje plansze.',
+  homeTourSightseeing: 'Zwiedzanie to spacer, który właśnie odbyliśmy. Każdy spacer zbiera słowa, a im więcej chodzisz, tym więcej kawiarni znajdujesz.',
+  homeTourCafe: (name) =>
+    name ? `Nasza pierwsza kawiarnia to ${name}. Dotknij Kawiarnianej łamigłówki, żeby usiąść i zagrać.` : 'Nasza pierwsza kawiarnia czeka. Dotknij Kawiarnianej łamigłówki, żeby usiąść i zagrać.',
+  homeTourStamp: 'Każda kawiarnia, w której zagrasz, dostaje pieczątkę. Razem tworzą medal tego miasta, a tu widać, jak daleko jesteś.',
+  homeTourCollection: 'Dotknij mnie, żeby otworzyć walizkę. Pokażę ci zebrane słowa i pieczątkę kawiarni.',
 
   // ── Runda próbna: uzasadnienia Casey napisane z góry ────────────────────
   practiceRationaleDrink: 'Wodę, kawę i mleko: wszystko to się pije.',
@@ -155,7 +138,7 @@ export const onboarding: Catalogue['onboarding'] = {
   guessMissMine: (word) =>
     `«${word}» nie jest zielone na moim kluczu, więc to kończy moją wskazówkę. Twoje zielone pokażą się w twojej kolejce. Ta wskazówka używała mojego klucza.`,
   firstClue: (clue) =>
-    `Hej, które słowa na tej planszy łączą ci się z «${clue}»? Dotknij ⓘ przy słowie, żeby zobaczyć tłumaczenie. Gdy zdecydujesz, dotknij słowa i potwierdź.`,
+    `Witaj w kawiarni! Ten pierwszy stolik to krótka rozgrzewka. Jakie słowa na tej planszy możesz połączyć z «${clue}»? Dotknij ⓘ przy słowie, żeby zobaczyć tłumaczenie, potem dotknij słowa i je potwierdź.`,
   clueFor: (clue, number) =>
     `Moja wskazówka to «${clue}» na ${number}. Dotknij słowa, które ci przez nią przychodzi do głowy.`,
   lastGreenLeft:
@@ -166,7 +149,7 @@ export const onboarding: Catalogue['onboarding'] = {
     `Twoja wskazówka to «${clue}» na ${number}. ${tokens} ${plural(tokens, 'kropka u góry to nasz wspólny żeton', 'kropki u góry to nasze wspólne żetony', 'kropek u góry to nasze wspólne żetony')} rundy. Każda wskazówka, twoja czy moja, zużywa jeden. Poniżej myślę na głos.`,
   yourClue: (clue, number) =>
     `Twoja wskazówka to «${clue}» na ${number}. Moje próby używają teraz twojego klucza. Poniżej myślę na głos.`,
-  practiceWon: 'Wszystkie zielone znalezione. Wygrana! Pełne plansze nie będą tak łatwe, ale każde spotkane słowo nadal się liczy.',
+  practiceWon: 'Wszystkie zielone znalezione. Wygraliśmy! Kawiarniane łamigłówki nie będą tak łatwe, ale każde poznane słowo się liczy.',
   practiceLost: 'Ta runda nam uciekła, ale każde spotkane słowo nadal się liczy.',
   findingAClue: 'Moja kolej. Szukam wskazówki.',
   practiceTranslation:
@@ -174,7 +157,7 @@ export const onboarding: Catalogue['onboarding'] = {
   practiceWheelReady:
     'Koło jest pełne. Zakręć, by wylądować na zielonym. Na zwykłych planszach właśnie tak wynik może osiągnąć Platynę.',
   practiceFinish:
-    'Trening ukończony. Ta runda nie daje pocztówek ani rangi miasta. Na zwykłych planszach rozwiązanie, tłumaczenie i zakręcenie dają rangę. Powtórz ukończoną planszę, aby poprawić najlepszy wynik.',
+    'Ćwiczenie ukończone. Ten stolik nie daje pieczątki. W kawiarnianej łamigłówce rozwiązanie, tłumaczenie i koło dają kawiarni jej pieczątkę. Możesz zagrać w kawiarni ponownie, żeby poprawić pieczątkę.',
   demoEndTitle: "To była twoja pierwsza pełna plansza.",
   demoEndLine: "W aplikacji gram z tobą dalej, plansza po planszy, i zachowuję każde słowo, które zbierzesz.",
   demoAppStore: "Pobierz 900words z App Store",
@@ -183,6 +166,6 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingTitle: "Casey odpoczywa",
   demoRestingBody: "Dziś grało ze mną dużo osób, więc muszę odpocząć. Wróć jutro albo zagraj ze mną w aplikacji.",
   demoCheckFailed: "Nie udało się sprawdzić, że jesteś człowiekiem. Odśwież stronę i spróbuj ponownie.",
-  playFullRound: 'Zagraj na swojej pierwszej pełnej planszy',
+  playFullRound: 'Zagraj w kawiarnianą łamigłówkę',
   returnToParkedGame: 'Wróć do swojej gry',
 }

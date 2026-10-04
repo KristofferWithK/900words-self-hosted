@@ -49,7 +49,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Den bas-URL:en kan inte användas.',
 
   // ── modellen på enheten ──────────────────────────────────────────────────
-  gemmaUnavailableNote: 'Offlineläget fungerar i 900words app för iPhone.',
+  gemmaUnavailableNote: 'Offlineläget fungerar i 900words appar för iPhone och Android.',
   gemmaReady: (size) => `Offline-Casey är klar (${size} på den här iPhonen).`,
   gemmaRemoveConfirm: 'Ta bort offline-Casey från den här iPhonen? Du kan ladda ner henne igen senare.',
   gemmaRemoveButton: 'Ta bort offline-Casey',
@@ -82,6 +82,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'Din AI-tjänst svarade.',
   gemmaOption: 'Gemma på den här iPhonen',
   gemmaOptionHelp: 'Casey spelar på den här iPhonen, utan internet och utan nyckel. Hon är långsammare.',
+  ossCaseyHelpAndroid: 'Det här är ett egenbyggt 900words. Casey behöver en AI att spela med: din egen AI-nyckel eller Gemma på den här Android-telefonen.',
+  gemmaOptionAndroid: 'Gemma på den här Android-telefonen',
+  gemmaOptionHelpAndroid: 'Casey spelar på den här Android-telefonen, utan internet och utan nyckel. Hon är långsammare.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Det här egenbyggda 900words spelar med Casey på den här Android-telefonen: inget konto eller någon nyckel behövs. Gemma behöver bara hämtas en gång (${size}). Använd wifi och låt 900words vara öppet tills hämtningen är klar.\n\nHon fungerar bäst på en nyare Android-telefon med minst 12 GB minne, till exempel ${phones}.${lowMemory ? '\n\nDen här telefonen har mindre minne än de rekommenderade modellerna, så hon kanske inte fungerar bra.' : ''}\n\nDu kan också lägga till din egen AI-nyckel i Inställningar.\n\nHämta Casey nu?`,
   serverOption: 'Din egen Casey-server',
   serverOptionHelp: 'En Casey-Worker som du själv har driftsatt (se README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -103,6 +108,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'Casey erbjuder då att spela klart rundan med Gemma. Första gången laddas hon ner.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Det här 900words spelar med Casey på din iPhone: inget konto och ingen nyckel. Hon laddas ner en gång (${size}). Använd wifi och håll 900words öppen tills nedladdningen är klar.\n\nHon behöver en nyare iPhone: ${iphones}.${lowMemory ? '\n\nDen här iPhonen har mindre minne än de modellerna. Hon kanske inte fungerar på den.' : ''}\n\nDu kan också lägga till din egen AI-nyckel i Inställningar.\n\nLadda ner Casey nu?`,
+  // ── offline-Casey på Android ─────────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'Offline-Casey behöver en nyare Android-telefon: Android 12 eller senare och minst 8 GB minne. Den här telefonen har inte det.',
+  gemmaReadyAndroid: (size) => `Offline-Casey är klar (${size} på den här telefonen).`,
+  gemmaRemoveConfirmAndroid:
+    'Ta bort offline-Casey från den här telefonen? Du kan ladda ner henne igen senare.',
+  offlineModeHelpAndroid:
+    'Vanliga Casey spelar via 900words server. Med offlineläget kan du spela klart en runda med offline-Casey på den här telefonen när internet är borta. Hon är långsammare.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `Offlineläget är experimentellt och förbättras fortfarande.\n\nOfflineläget laddar ner offline-Casey (${size}) till den här telefonen. Använd wifi och håll 900words öppen tills nedladdningen är klar.\n\nOffline-Casey spelar långsammare än vanliga Casey.\n\nHon behöver en nyare Android-telefon med 12 GB minne eller mer, till exempel ${phones}.${lowMemory ? '\n\nDen här telefonen har mindre minne än så. Hon kanske inte fungerar på den.' : ''}\n\nLadda ner nu?`,
+  gemmaAnsweredAndroid: 'Gemma svarade på den här telefonen.',
 
   // ── anslutningstestet ────────────────────────────────────────────────────
   testRunning: 'Testar…',
@@ -252,4 +268,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "förhandsversion",
   learnerLanguagePreviewHelp: "Tyska är en förhandsversion: kartan och Reseguiden finns, men inte ordspelet. Lektionerna har ännu inte granskats av någon med tyska som modersmål.",
   playtestTravelHelp: "Hoppa framåt på kartan: välj en senare hållplats och res vidare. Inga ord packas och inga framsteg i lärandet läggs till. Stäng av detta för att testa de vanliga resevillkoren igen.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Åtkomst för Google Play-granskning',
+  reviewAccessHelp: 'Endast för appgranskningen i Google Play. Ange granskningskoden från instruktionerna för att låsa upp obegränsat spelande på den här enheten.',
+  reviewAccessLabel: 'Granskningskod',
+  reviewAccessUnlock: 'Lås upp',
+  reviewAccessChecking: 'Kontrollerar…',
+  reviewAccessOn: (date: string) =>
+    `Granskningsåtkomsten är på. Obegränsat spelande är upplåst på den här enheten till ${date}.`,
+  reviewAccessInvalid: 'Den granskningskoden godtogs inte.',
+  reviewAccessRateLimited: 'För många försök. Försök igen i morgon.',
+  reviewAccessError: 'Koden kunde inte kontrolleras. Kontrollera internetanslutningen och försök igen.',
+
+  // ── Din plan (bara i butiksversionerna). Apple på iOS, Google Play på Android.
+  planHeading: 'Din plan',
+  planFreeShort: 'Gratis',
+  planUnlimitedShort: 'Obegränsat',
+  planChipAria: (plan: string) => `Din plan: ${plan}`,
+  planChecking: 'Kontrollerar din plan hos Apple.',
+  planCheckingPlay: 'Kontrollerar din plan hos Google Play.',
+  planFree: 'Gratisplan. Två promenader och två kafégåtor om dagen.',
+  planMonthly: 'Obegränsat spelande. Månadsprenumeration. Den förnyas varje månad tills du säger upp den.',
+  planLifetime: 'Obegränsat spelande. Engångsköp. Inget förnyas.',
+  planBoth: 'Du äger engångsköpet. Din månadsprenumeration är fortfarande aktiv, och du behöver den inte längre. Säg upp den så att du inte debiteras igen.',
+  planError: 'Apple kunde inte kontrollera din plan just nu. Försök igen senare.',
+  planErrorPlay: 'Google Play kunde inte kontrollera din plan just nu. Försök igen senare.',
+  planGetUnlimited: 'Spela obegränsat',
+  planManage: 'Hantera eller avsluta prenumerationen',
+  planSwitch: 'Byt till engångsköp',
+  planSwitchNote: 'Engångsköpet ger dig obegränsat spelande för alltid. Det avslutar inte din månadsprenumeration. När du har köpt det, avsluta månadsprenumerationen på ditt Apple-konto, annars betalar du för båda.',
+  planSwitchNotePlay: 'Engångsköpet ger dig obegränsat spelande för alltid. Det avslutar inte din månadsprenumeration. När du har köpt det, avsluta månadsprenumerationen i Google Play, annars betalar du för båda.',
+  planBuyFor: (price: string) => `Köp för ${price}`,
+  planNotNow: 'Inte nu',
 }

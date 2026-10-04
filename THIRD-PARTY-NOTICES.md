@@ -10,6 +10,10 @@ item keeps its own licence.
 Apache License 2.0; the licence is in that folder, and `SOURCE.md` names the
 exact upstream release. It runs Gemma on the iPhone.
 
+**LiteRT-LM Android plugin** (Google), `ios-plugins/cluecab-gemma/android/`,
+using `com.google.ai.edge.litertlm:litertlm-android` 0.16.0 from Google Maven.
+Apache License 2.0. It runs Gemma on Android phones.
+
 **@capacitor/keyboard 8.0.5** (Ionic), forked as `ios-plugins/cluecab-keyboard/`.
 MIT License; the licence is in that folder. The fork adds the keyboard
 animation's timing to one event.
@@ -42,8 +46,9 @@ Xcode from Google's GitHub release, pinned by checksum in
 which a desktop self-build serves itself to run Gemma in the browser.
 Apache License 2.0.
 
-**Gemma 4 E4B** (Google), as `gemma-4-E4B-it-gpu.litertlm` (iPhone) and
-`gemma-4-E4B-it-web.litertlm` (browser) from
+**Gemma 4 E4B** (Google), as `gemma-4-E4B-it-gpu.litertlm` (iPhone),
+`gemma-4-E4B-it.litertlm` (Android) and `gemma-4-E4B-it-web.litertlm`
+(browser) from
 [litert-community on Hugging Face](https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm).
 Apache License 2.0. Not in this repository: the app downloads it only when
 you ask for it.

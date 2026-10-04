@@ -67,6 +67,10 @@ export const system: Catalogue['system'] = {
   passRestoreError: 'Apple kon de aankopen niet herstellen. Probeer het nog eens.',
   passRedeemOpened: 'Apple heeft het venster voor het inwisselen van codes geopend.',
   passRedeemUnavailable: 'Codes inwisselen kan in de iOS-app.',
+  passPendingPlay: 'Google Play bevestigt deze aankoop nog. Houd de app open en probeer dan Aankopen herstellen.',
+  passErrorPlay: 'Google Play kon deze aankoop niet controleren. Probeer het nog eens.',
+  passNotEntitledPlay: 'Er is geen aankoop van onbeperkt spelen gevonden voor dit Google-account.',
+  passRestoreErrorPlay: 'Google Play kon de aankopen niet herstellen. Probeer het nog eens.',
 
   // ── de opslag wilde niet ─────────────────────────────────────────────────
   backupFileUnreadable: 'Dat bestand kon niet worden gelezen.',

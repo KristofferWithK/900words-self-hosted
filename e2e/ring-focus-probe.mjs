@@ -8,6 +8,7 @@
 // why earlier probes on .home-play (never focused) found nothing.
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
 const PORT = Number(process.env.DRIVE_PORT_OFFSET ?? 0) + 4400 || 4460
 const preview = await startPreview(PORT)
@@ -15,6 +16,8 @@ const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/data/toolchain/playwright-browsers/chromium-1234/chrome-linux64/chrome',
 })
 const page = await browser.newPage({ viewport: { width: 360, height: 640 } })
+// The café gate is on (CW-13): this probe's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 const url = `${preview.base}?mock=1&howto=0&seed=7&city=0`
 await page.goto(url, { waitUntil: 'networkidle' })
 await page.evaluate(() => localStorage.removeItem('cluecab-game-v1'))
@@ -24,7 +27,7 @@ await page.waitForSelector('.board-grid', { timeout: 20_000 })
 await page.waitForSelector('dialog.round-guidance-dialog[open]', { timeout: 15_000 })
 
 const ring = await page.evaluate(() => {
-  const btn = document.querySelector('dialog.round-guidance-dialog[open] .btn')
+  const btn = document.querySelector('dialog.round-guidance-dialog[open] .tag')
   if (!btn) return null
   const cs = getComputedStyle(btn)
   return {

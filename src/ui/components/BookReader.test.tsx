@@ -27,7 +27,8 @@ describe('BookReader page contract', () => {
     const html = renderToStaticMarkup(<BookReader book={book} initialPageId="chapter-1" onClose={() => {}} />)
     expect(html).toContain(UI.guide.pageAnnouncement('Sønderborg', 2, 2))
     expect(html).toContain(UI.guide.backToCoverOfAria(book.title))
-    expect(html).toContain(`${UI.guide.previous}</button>`)
+    // The page turns are tags (CW-12): the label sits in the tag's label span.
+    expect(html).toContain(`<span class="tag-label">${UI.guide.previous}</span>`)
     expect(html).toContain('disabled=""')
   })
 

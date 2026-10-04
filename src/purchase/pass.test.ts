@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { capacitor, nativePass } = vi.hoisted(() => ({
+const { capacitor, nativePass, build } = vi.hoisted(() => ({
   capacitor: {
     isNativePlatform: vi.fn(),
     getPlatform: vi.fn(),
@@ -11,7 +11,9 @@ const { capacitor, nativePass } = vi.hoisted(() => ({
     purchase: vi.fn(),
     restore: vi.fn(),
     redeemCode: vi.fn(),
+    addListener: vi.fn(),
   },
+  build: { audience: 'normal' as string },
 }))
 
 vi.mock('@capacitor/core', () => ({
@@ -19,12 +21,18 @@ vi.mock('@capacitor/core', () => ({
   registerPlugin: vi.fn(() => nativePass),
 }))
 
-import { FREE_CITIES, PASS_GATE_ENABLED, PASS_PRODUCTS, canBoardWithPass, listPassOffers, needsPassForDeparture } from './pass'
+vi.mock('../build/audience', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../build/audience')>()
+  return { ...actual, get buildAudience() { return build.audience } }
+})
+
+import { FREE_CITIES, PASS_GATE_ENABLED, PASS_PRODUCTS, PLAY_PASS_PRODUCTS, canBoardWithPass, listPassOffers, needsPassForDeparture, storeDisplayPrice } from './pass'
 
 beforeEach(() => {
   vi.clearAllMocks()
   capacitor.isNativePlatform.mockReturnValue(true)
   capacitor.getPlatform.mockReturnValue('ios')
+  build.audience = 'normal'
   vi.spyOn(console, 'debug').mockImplementation(() => undefined)
   vi.spyOn(console, 'info').mockImplementation(() => undefined)
   vi.spyOn(console, 'warn').mockImplementation(() => undefined)
@@ -85,7 +93,7 @@ describe('StoreKit pass offer diagnostics', () => {
 
     expect(await listPassOffers()).toEqual([])
     expect(console.warn).toHaveBeenCalledWith('900words.pass-offers', expect.objectContaining({
-      outcome: 'storekit-request-failed',
+      outcome: 'store-request-failed',
       errorCode: 'SKErrorDomain:5',
       returnedProducts: [],
     }))
@@ -97,7 +105,7 @@ describe('StoreKit pass offer diagnostics', () => {
 
     expect(await listPassOffers()).toEqual([])
     expect(console.info).toHaveBeenCalledWith('900words.pass-offers', expect.objectContaining({
-      outcome: 'storekit-empty',
+      outcome: 'store-empty',
       requestedProductIds: Object.values(PASS_PRODUCTS),
       returnedProducts: [],
     }))
@@ -113,21 +121,181 @@ describe('StoreKit pass offer diagnostics', () => {
 
     expect(await listPassOffers()).toEqual(offers)
     expect(console.info).toHaveBeenCalledWith('900words.pass-offers', expect.objectContaining({
-      outcome: 'storekit-products',
+      outcome: 'store-products',
       returnedProducts: offers,
     }))
   })
 
-  it('reports non-iOS without attempting the native plugin', async () => {
+  it('reports a browser without attempting the native plugin', async () => {
     capacitor.isNativePlatform.mockReturnValue(false)
     capacitor.getPlatform.mockReturnValue('web')
 
     expect(await listPassOffers()).toEqual([])
     expect(console.debug).toHaveBeenCalledWith('900words.pass-offers', expect.objectContaining({
-      outcome: 'not-ios',
+      outcome: 'no-store',
       platform: 'web',
       returnedProducts: [],
     }))
     expect(nativePass.offers).not.toHaveBeenCalled()
+  })
+})
+
+describe('one entitlement API for both stores', () => {
+  it('sells the App Store pair on iOS and the short Google Play pair on Android', async () => {
+    const { PLAY_PASS_PRODUCTS, billingPlatform, buyPass, passProducts, storeBillingAvailable, storeKitAvailable } = await import('./pass')
+    expect(billingPlatform()).toBe('ios')
+    expect(passProducts()).toEqual(PASS_PRODUCTS)
+    capacitor.getPlatform.mockReturnValue('android')
+    expect(billingPlatform()).toBe('android')
+    expect(storeBillingAvailable()).toBe(true)
+    expect(storeKitAvailable()).toBe(false)
+    expect(passProducts()).toEqual(PLAY_PASS_PRODUCTS)
+    // Play caps a product ID at 40 characters.
+    for (const id of Object.values(PLAY_PASS_PRODUCTS)) expect(id.length).toBeLessThanOrEqual(40)
+    nativePass.purchase.mockResolvedValue({ entitled: true, productId: PLAY_PASS_PRODUCTS.monthly })
+    expect(await buyPass('monthly')).toEqual({ status: 'entitled', productId: PLAY_PASS_PRODUCTS.monthly })
+    expect(nativePass.purchase).toHaveBeenCalledWith({ productId: 'pass.monthly' })
+  })
+
+  it('grants Unlimited for either qualifying product on either store', async () => {
+    const { PLAY_PASS_PRODUCTS, readPassStatus, restorePass } = await import('./pass')
+    for (const [platform, products] of [['ios', PASS_PRODUCTS], ['android', PLAY_PASS_PRODUCTS]] as const) {
+      capacitor.getPlatform.mockReturnValue(platform)
+      for (const productId of Object.values(products)) {
+        nativePass.status.mockResolvedValue({ entitled: true, productId })
+        nativePass.restore.mockResolvedValue({ entitled: true, productId })
+        expect(await readPassStatus()).toEqual({ status: 'entitled', productId })
+        expect(await restorePass()).toEqual({ status: 'entitled', productId })
+      }
+    }
+  })
+
+  it('does not grant Unlimited for an unrelated product, or for the other store\'s IDs', async () => {
+    const { PLAY_PASS_PRODUCTS, buyPass, readPassStatus, restorePass } = await import('./pass')
+    const cases = [
+      ['ios', ['coins.100', PLAY_PASS_PRODUCTS.lifetime, undefined]],
+      ['android', ['coins.100', PASS_PRODUCTS.lifetime, undefined]],
+    ] as const
+    for (const [platform, ids] of cases) {
+      capacitor.getPlatform.mockReturnValue(platform)
+      for (const productId of ids) {
+        nativePass.status.mockResolvedValue({ entitled: true, productId })
+        nativePass.restore.mockResolvedValue({ entitled: true, productId })
+        nativePass.purchase.mockResolvedValue({ entitled: true, productId })
+        expect((await readPassStatus()).status).toBe('not-entitled')
+        expect((await restorePass()).status).toBe('not-entitled')
+        expect((await buyPass('lifetime')).status).toBe('not-entitled')
+      }
+    }
+  })
+
+  it('never turns an Android unavailable, error, pending or cancelled answer into Unlimited', async () => {
+    const { buyPass, readPassStatus, restorePass } = await import('./pass')
+    capacitor.getPlatform.mockReturnValue('android')
+    nativePass.status.mockRejectedValue(Object.assign(new Error('Google Play billing is not available.'), { code: 'PlayBilling:3' }))
+    nativePass.restore.mockRejectedValue(new Error('no connection'))
+    expect(await readPassStatus()).toEqual({ status: 'error' })
+    expect(await restorePass()).toEqual({ status: 'error' })
+    nativePass.purchase.mockResolvedValue({ entitled: false, pending: true })
+    expect(await buyPass('lifetime')).toEqual({ status: 'not-entitled', pending: true, cancelled: undefined })
+    nativePass.purchase.mockResolvedValue({ entitled: false, cancelled: true })
+    expect(await buyPass('monthly')).toEqual({ status: 'not-entitled', cancelled: true, pending: undefined })
+    nativePass.purchase.mockRejectedValue(new Error('unverified'))
+    expect(await buyPass('monthly')).toEqual({ status: 'error' })
+  })
+
+  it('keeps a browser out of every store call', async () => {
+    const { buyPass, readPassStatus, restorePass, billingPlatform } = await import('./pass')
+    capacitor.isNativePlatform.mockReturnValue(false)
+    capacitor.getPlatform.mockReturnValue('web')
+    expect(billingPlatform()).toBeNull()
+    expect(await readPassStatus()).toEqual({ status: 'unavailable' })
+    expect(await restorePass()).toEqual({ status: 'unavailable' })
+    expect(await buyPass('lifetime')).toEqual({ status: 'unavailable' })
+    expect(nativePass.status).not.toHaveBeenCalled()
+    expect(nativePass.purchase).not.toHaveBeenCalled()
+  })
+
+  it('keeps native non-store audiences out of every billing plugin call', async () => {
+    const { billingPlatform, storeBillingAvailable, readPassStatus, buyPass, restorePass, redeemPassCode, onPassChanged } = await import('./pass')
+    capacitor.isNativePlatform.mockReturnValue(true)
+    capacitor.getPlatform.mockReturnValue('android')
+
+    for (const audience of ['open-source', 'web-demo', 'feedback', 'developer']) {
+      build.audience = audience
+      expect(billingPlatform()).toBeNull()
+      expect(storeBillingAvailable()).toBe(false)
+      expect(await readPassStatus()).toEqual({ status: 'unavailable' })
+      expect(await listPassOffers()).toEqual([])
+      expect(await buyPass('monthly')).toEqual({ status: 'unavailable' })
+      expect(await restorePass()).toEqual({ status: 'unavailable' })
+      expect(await redeemPassCode()).toEqual({ opened: false })
+      await onPassChanged(vi.fn())
+    }
+
+    expect(nativePass.status).not.toHaveBeenCalled()
+    expect(nativePass.offers).not.toHaveBeenCalled()
+    expect(nativePass.purchase).not.toHaveBeenCalled()
+    expect(nativePass.restore).not.toHaveBeenCalled()
+    expect(nativePass.redeemCode).not.toHaveBeenCalled()
+    expect(nativePass.addListener).not.toHaveBeenCalled()
+  })
+
+  it('keeps Apple\'s offer-code sheet on iOS only', async () => {
+    const { redeemPassCode } = await import('./pass')
+    capacitor.getPlatform.mockReturnValue('android')
+    expect(await redeemPassCode()).toEqual({ opened: false })
+    expect(nativePass.redeemCode).not.toHaveBeenCalled()
+  })
+
+  it('logs Google Play offers under the Play IDs', async () => {
+    const { PLAY_PASS_PRODUCTS } = await import('./pass')
+    capacitor.getPlatform.mockReturnValue('android')
+    const offers = [{ id: PLAY_PASS_PRODUCTS.monthly, displayPrice: '7,00 kr.' }]
+    nativePass.offers.mockResolvedValue({ offers })
+    expect(await listPassOffers()).toEqual(offers)
+    expect(console.info).toHaveBeenCalledWith('900words.pass-offers', expect.objectContaining({
+      outcome: 'store-products',
+      platform: 'android',
+      requestedProductIds: Object.values(PLAY_PASS_PRODUCTS),
+      returnedProducts: offers,
+    }))
+  })
+})
+
+describe('the price shown for Unlimited', () => {
+  // What the stores hand back for a player in each storefront: StoreKit's
+  // Product.displayPrice and Play's getFormattedPrice() are already formatted
+  // for the storefront, so the test builds them the same way.
+  const storePrice = (locale: string, currency: string, amount: number) =>
+    new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount)
+
+  it.each([
+    ['da-DK', 'DKK', 7],
+    ['de-DE', 'EUR', 0.99],
+    ['en-US', 'USD', 0.99],
+  ])("shows the store's own string for a %s storefront (%s), unchanged", (locale, currency, amount) => {
+    const price = storePrice(locale, currency, amount)
+    const offers = [{ id: PASS_PRODUCTS.monthly, displayPrice: price }]
+    expect(storeDisplayPrice(offers, PASS_PRODUCTS.monthly)).toBe(price)
+    // Only a US storefront ever puts a dollar sign in front of the player.
+    expect(storeDisplayPrice(offers, PASS_PRODUCTS.monthly)!.includes('$')).toBe(currency === 'USD')
+  })
+
+  it('prices each product from its own offer, Play IDs included', () => {
+    const offers = [
+      { id: PLAY_PASS_PRODUCTS.monthly, displayPrice: '7,00 kr.' },
+      { id: PLAY_PASS_PRODUCTS.lifetime, displayPrice: '79,00 kr.' },
+    ]
+    expect(storeDisplayPrice(offers, PLAY_PASS_PRODUCTS.monthly)).toBe('7,00 kr.')
+    expect(storeDisplayPrice(offers, PLAY_PASS_PRODUCTS.lifetime)).toBe('79,00 kr.')
+    // An App Store product is never priced from a Play offer, or the reverse.
+    expect(storeDisplayPrice(offers, PASS_PRODUCTS.monthly)).toBeNull()
+  })
+
+  it('has no price at all until the store returns the product', () => {
+    expect(storeDisplayPrice([], PASS_PRODUCTS.monthly)).toBeNull()
+    expect(storeDisplayPrice([{ id: PASS_PRODUCTS.monthly, displayPrice: '  ' }], PASS_PRODUCTS.monthly)).toBeNull()
+    expect(storeDisplayPrice([{ id: PASS_PRODUCTS.lifetime, displayPrice: '$10.99' }], PASS_PRODUCTS.monthly)).toBeNull()
   })
 })

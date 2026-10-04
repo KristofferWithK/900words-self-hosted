@@ -5,7 +5,8 @@ import { guide } from './guide'
 import { home } from './home'
 import { onboarding } from './onboarding'
 import { settings } from './settings'
+import { sightseeing } from './sightseeing'
 import { system } from './system'
 
 /** Magyar. Tegezés; Casey „ő”, nőnemű szereplő. */
-export const hu: Catalogue = { settings, system, home, onboarding, game, casey, guide }
+export const hu: Catalogue = { settings, system, home, onboarding, game, casey, guide, sightseeing }

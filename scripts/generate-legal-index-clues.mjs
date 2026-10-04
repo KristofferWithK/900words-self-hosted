@@ -27,6 +27,8 @@
  * boards (`--full` re-derives all 150, about two minutes).
  */
 import { readFileSync, writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { checkClueLegality } from '../proxy/casey/language.js'
 
 export const INDEX_PATH = 'proxy/data/association-index.da.1.json'
@@ -161,6 +163,8 @@ function main(argv) {
   return 0
 }
 
-if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop())) {
+// Compared as paths: splitting argv on '/' kept the whole Windows path, so on
+// Windows the script (and its --check in npm run verify) used to do nothing.
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   process.exit(main(process.argv.slice(2)))
 }

@@ -5,6 +5,7 @@ import {
   parseDecisionRequest,
 } from './casey/orchestrator.js'
 import { DATA_SHARING_PATH, handleDataSharing } from './data-sharing.js'
+import { REVIEW_ACCESS_PATH, handleReviewAccess } from './review-access.js'
 import {
   DEAL_MAX_REQUEST_BYTES,
   DEAL_PATH,
@@ -964,12 +965,18 @@ export default {
       }
       return handleStats(request, env, cors)
     }
+    if (url.pathname === REVIEW_ACCESS_PATH) {
+      if (url.search) {
+        return caseyError('invalid_request', 'The review-access endpoint accepts no query parameters.', 400, cors)
+      }
+      return handleReviewAccess(request, env, cors)
+    }
 
     // Everything below is the pre-SEC3 generic route: any path forwarded to
     // the upstream with this Worker's key attached. No shipped app has called
     // it since the decision route, and a launch hands this Worker's address to
     // every install, so it is OFF unless the LEGACY_ROUTE variable says
-    // otherwise (owner, 2026-09-07). The four routes above are the whole
+    // otherwise (owner, 2026-09-07). The five routes above are the whole
     // service.
     if (env?.LEGACY_ROUTE !== '1') {
       return caseyError('not_found', 'This server serves Casey decisions only.', 404, cors)

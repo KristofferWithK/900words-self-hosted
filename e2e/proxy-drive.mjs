@@ -8,6 +8,7 @@ import { chromium } from 'playwright'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { startFakeOllama } from './fake-ollama.mjs'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startWorker } from './worker-runtime.mjs'
 
@@ -59,6 +60,8 @@ const browser = await chromium.launch({
 })
 const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 page.on('pageerror', (error) => console.log('PAGE CRASH:', error.message))
 

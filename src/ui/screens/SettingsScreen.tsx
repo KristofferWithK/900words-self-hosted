@@ -5,7 +5,9 @@ import { onDeviceCaseyAvailable, testGemmaConnection } from '../../ai/gemma/gate
 import {
   cancelGemmaDownload,
   belowOfflineCaseyMemory,
+  OFFLINE_CASEY_ANDROID_EXAMPLES,
   OFFLINE_CASEY_IPHONES,
+  gemmaPlatform,
   gemmaStatus,
   onGemmaDownloadProgress,
   removeGemmaModel,
@@ -28,6 +30,7 @@ import { devSwitchesAllowed, uiLanguageChoiceAllowed, useUi } from '../../stores
 import { BackupPanel } from '../components/BackupPanel'
 import { BuildFooter } from '../components/BuildFooter'
 import { ClueLedgerPanel } from '../components/ClueLedgerPanel'
+import { Tag } from '../components/Tag'
 import {
   REMINDER_HOUR,
   dailyReminderCopy,
@@ -40,6 +43,9 @@ import {
 } from '../../reminders/reminders'
 import { useStreak } from '../../streak/streak'
 import { DataSharingSettings } from '../components/DataSharingChoice'
+import { ReviewAccessPanel } from '../components/ReviewAccessPanel'
+import { reviewAccessApplies } from '../../purchase/reviewAccess'
+import { YourPlanChip, YourPlanSection } from '../components/YourPlan'
 
 const gigabytes = (bytes: number): string => `${(bytes / 1_000_000_000).toFixed(1)} GB`
 
@@ -140,6 +146,8 @@ export function SettingsScreen() {
   )
   const [reminderBusy, setReminderBusy] = useState(false)
   const [gemma, setGemma] = useState<GemmaStatus | null>(null)
+  // Offline Casey's copy names the iPhone on iOS and "this phone" on Android.
+  const android = gemmaPlatform() === 'android'
   const provider = providerFor(settings.baseUrl)
   const normalCasey =
     settings.caseyMode === 'worker' && provider?.id === 'cluecabulary' && !settings.useMock
@@ -210,16 +218,23 @@ export function SettingsScreen() {
 
   /**
    * Offline Casey's first-time explanation (download size, slower play, the
-   * iPhones she needs, and a warning when this one has less memory than
-   * those), then her download. False when the player says not now.
+   * iPhones she needs or, on Android, the memory and some example phones, and
+   * a warning when this one has less memory than those), then her download.
+   * False when the player says not now.
    */
   const downloadOfflineCasey = (): boolean => {
     if (!gemma) return false
-    const explained = UI.settings.offlineModeExplain(
-      gigabytes(gemma.expectedBytes),
-      OFFLINE_CASEY_IPHONES.join(', '),
-      belowOfflineCaseyMemory(gemma),
-    )
+    const explained = android
+      ? UI.settings.offlineModeExplainAndroid(
+          gigabytes(gemma.expectedBytes),
+          OFFLINE_CASEY_ANDROID_EXAMPLES.join(', '),
+          belowOfflineCaseyMemory(gemma, 'android'),
+        )
+      : UI.settings.offlineModeExplain(
+          gigabytes(gemma.expectedBytes),
+          OFFLINE_CASEY_IPHONES.join(', '),
+          belowOfflineCaseyMemory(gemma, 'ios'),
+        )
     if (!window.confirm(explained)) return false
     void startGemmaDownload().catch((error) => {
       setGemma({ ...gemma, error: error instanceof Error ? error.message : UI.settings.gemmaDownloadFailed })
@@ -236,6 +251,11 @@ export function SettingsScreen() {
     if (gemma?.installed || gemma?.downloading || downloadOfflineCasey()) settings.set({ offlineMode: true })
   }
 
+  const testLabel = test === 'testing'
+    ? UI.settings.testRunning
+    : settings.caseyMode === 'gemma4-e4b'
+      ? UI.settings.testGemmaButton
+      : UI.settings.testConnectionButton
   const runTest = async () => {
     setTest('testing')
     try {
@@ -275,6 +295,8 @@ export function SettingsScreen() {
           ←
         </button>
         <h1>{UI.settings.title}</h1>
+        {/* Free or Unlimited at a glance; store builds only. */}
+        <YourPlanChip />
       </header>
 
       {/* Settings is the one screen with more to say than a phone is tall.
@@ -300,7 +322,7 @@ export function SettingsScreen() {
         <label className="casey-brain-switch">
           <span className="casey-brain-switch-copy">
             <strong>{UI.settings.offlineModeLabel}</strong>
-            <small>{UI.settings.offlineModeHelp}</small>
+            <small>{android ? UI.settings.offlineModeHelpAndroid : UI.settings.offlineModeHelp}</small>
           </span>
           <input
             className="offline-mode-toggle"
@@ -315,40 +337,40 @@ export function SettingsScreen() {
         {(settings.offlineMode || !gemma?.supported || gemma.installed || gemma.downloading) && (
           <div className="field" data-testid="gemma-model-settings">
             {!gemma || !gemma.supported ? (
-              <small>{UI.settings.gemmaUnavailableNote}</small>
+              <small>
+                {android && gemma ? UI.settings.gemmaUnsupportedAndroidNote : UI.settings.gemmaUnavailableNote}
+              </small>
             ) : gemma.installed ? (
               <>
-                <p className="test-ok">✓ {UI.settings.gemmaReady(gigabytes(gemma.expectedBytes))}</p>
-                <button
-                  className="btn btn-quiet"
+                <p className="test-ok">
+                  ✓ {(android ? UI.settings.gemmaReadyAndroid : UI.settings.gemmaReady)(gigabytes(gemma.expectedBytes))}
+                </p>
+                <Tag
+                  size="wide"
+                  label={UI.settings.gemmaRemoveButton}
                   onClick={() => {
-                    if (!window.confirm(UI.settings.gemmaRemoveConfirm)) return
+                    if (!window.confirm(android ? UI.settings.gemmaRemoveConfirmAndroid : UI.settings.gemmaRemoveConfirm)) return
                     settings.set({ offlineMode: false, caseyMode: 'worker' })
                     void removeGemmaModel().then(() => gemmaStatus().then(setGemma))
                   }}
-                >
-                  {UI.settings.gemmaRemoveButton}
-                </button>
+                />
               </>
             ) : gemma.downloading ? (
               <>
                 <progress max={1} value={gemma.progress} aria-label={UI.settings.gemmaProgressAria} />
                 <small>{UI.settings.gemmaDownloading(Math.round(gemma.progress * 100))}</small>
-                <button className="btn btn-quiet" onClick={() => void cancelGemmaDownload()}>
-                  {UI.settings.gemmaCancelDownloadButton}
-                </button>
+                <Tag size="wide" label={UI.settings.gemmaCancelDownloadButton} onClick={() => void cancelGemmaDownload()} />
               </>
             ) : (
               <>
                 <small>{UI.settings.gemmaDownloadNote(gigabytes(gemma.expectedBytes))}</small>
-                <button
-                  className="btn"
+                <Tag
+                  size="wide"
+                  label={UI.settings.gemmaDownloadButton}
                   onClick={() => {
                     if (downloadOfflineCasey()) settings.set({ offlineMode: true })
                   }}
-                >
-                  {UI.settings.gemmaDownloadButton}
-                </button>
+                />
               </>
             )}
             {gemma?.error && <p className="test-fail">{gemma.error}</p>}
@@ -417,25 +439,20 @@ export function SettingsScreen() {
             {baseUrlProblem && <p className="test-fail">{baseUrlProblem}</p>}
           </label>
         )}
-        <button
-          className="btn"
+        <Tag
+          size="wide"
           disabled={
             test === 'testing' ||
             (settings.caseyMode === 'worker' ? !!baseUrlProblem : !gemma?.installed)
           }
           onClick={runTest}
           data-action="test-casey"
-        >
-          {test === 'testing'
-            ? UI.settings.testRunning
-            : settings.caseyMode === 'gemma4-e4b'
-              ? UI.settings.testGemmaButton
-              : UI.settings.testConnectionButton}
-        </button>
+          label={testLabel}
+        />
         {test === 'ok' && (
           <p className="test-ok">
             ✓ {settings.caseyMode === 'gemma4-e4b'
-              ? UI.settings.gemmaAnswered
+              ? android ? UI.settings.gemmaAnsweredAndroid : UI.settings.gemmaAnswered
               : normalCasey
                 ? UI.settings.normalCaseyAnswered
                 : UI.settings.customCaseyAnswered}
@@ -481,9 +498,7 @@ export function SettingsScreen() {
           {/* A transient re-run of the first-run flow (O1): the same train,
               the same ticket, and the done flag is not touched — so this can
               be tapped freely without re-arming the intro for every load. */}
-          <button className="btn replay-intro" onClick={() => useUi.getState().startOnboarding()}>
-            {UI.settings.replayIntroButton}
-          </button>
+          <Tag size="wide" className="replay-intro" label={UI.settings.replayIntroButton} onClick={() => useUi.getState().startOnboarding()} />
           <small>{UI.settings.replayIntroHelp}</small>
         </div>
       </section>
@@ -495,23 +510,17 @@ export function SettingsScreen() {
         ) : reminderPermission === 'denied' ? (
           <>
             <p className="settings-note">{UI.settings.reminderDeniedNote}</p>
-            <button className="btn" disabled={reminderBusy} onClick={() => void openReminderSettings()}>
-              {UI.settings.reminderOpenSettingsButton}
-            </button>
+            <Tag size="wide" disabled={reminderBusy} onClick={() => void openReminderSettings()} label={UI.settings.reminderOpenSettingsButton} />
           </>
         ) : settings.dailyReminders && reminderPermission === 'authorized' ? (
           <>
             <p className="settings-note">{UI.settings.reminderOnNote(reminderTime)}</p>
-            <button className="btn" disabled={reminderBusy} onClick={disableReminders}>
-              {reminderBusy ? UI.settings.reminderTurningOff : UI.settings.reminderTurnOffButton}
-            </button>
+            <Tag size="wide" disabled={reminderBusy} onClick={disableReminders} label={reminderBusy ? UI.settings.reminderTurningOff : UI.settings.reminderTurnOffButton} />
           </>
         ) : (
           <>
             <p className="settings-note">{UI.settings.reminderOffNote(reminderTime)}</p>
-            <button className="btn daily-reminder-opt-in" disabled={reminderBusy} onClick={enableReminders}>
-              {reminderBusy ? UI.settings.reminderAsking : UI.settings.reminderTurnOnButton}
-            </button>
+            <Tag size="wide" className="daily-reminder-opt-in" disabled={reminderBusy} onClick={enableReminders} label={reminderBusy ? UI.settings.reminderAsking : UI.settings.reminderTurnOnButton} />
           </>
         )}
       </section>
@@ -529,6 +538,11 @@ export function SettingsScreen() {
           <ClueLedgerPanel />
         </section>
       )}
+
+      {/* Your plan (store builds only): Restore, and Google Play's required
+          manage-and-cancel link. Above Data, and never below review access,
+          which the Play reviewer instructions place last. */}
+      <YourPlanSection />
 
       <section className="settings-section">
         <h3>{UI.settings.dataHeading}</h3>
@@ -557,9 +571,11 @@ export function SettingsScreen() {
             <DataSharingSettings />
           </>
         )}
-        <button
-          className="btn btn-danger"
+        <Tag
+          size="wide"
+          className="tag-danger settings-reset"
           disabled={resetBusy}
+          label={UI.settings.resetButton}
           onClick={async () => {
             // The journey must reset with the words: gates passed against zero
             // collected words would be a broken state.
@@ -570,12 +586,19 @@ export function SettingsScreen() {
               finally { setResetBusy(false) }
             }
           }}
-        >
-          {UI.settings.resetButton}
-        </button>
+        />
         {resetError && <p role="alert" className="test-fail">{UI.system.saveChangeFailed}</p>}
         <BuildFooter />
       </section>
+
+      {/* Last on purpose: the Play Console reviewer instructions say "scroll
+          to the bottom of Settings". Android store build only. */}
+      {reviewAccessApplies() && (
+        <section className="settings-section" data-testid="review-access-settings">
+          <h3>{UI.settings.reviewAccessHeading}</h3>
+          <ReviewAccessPanel />
+        </section>
+      )}
       </div>
     </div>
   )

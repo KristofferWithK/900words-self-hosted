@@ -10,11 +10,16 @@ export const SAVE_KEYS = [
   'cluecab-game-v1', 'cluecab-settlement-v1', 'cluecab-progression-sessions-v1', SAVE_MIGRATION_KEY,
 ] as const
 export type SaveStorage = Pick<Storage, 'getItem' | 'setItem'>
+// Validated once per stored string, like the settlement ledger (see
+// validatedLedger in settlementStorage.ts); each caller gets its own copy.
+let validMigration: { readonly raw: string; readonly value: Partial<z.infer<typeof migrationSchema>> } | null = null
 /** Corrupt local metadata is evidence to retain, not permission to guess a
  * new migration or balance. Callers surface the ordinary retryable save error. */
 export function readSaveMigration(storage: SaveStorage): Partial<z.infer<typeof migrationSchema>> {
   const raw = storage.getItem(SAVE_MIGRATION_KEY)
-  return raw === null ? {} : migrationSchema.parse(JSON.parse(raw))
+  if (raw === null) return {}
+  if (validMigration?.raw !== raw) validMigration = { raw, value: migrationSchema.parse(JSON.parse(raw)) }
+  return structuredClone(validMigration.value)
 }
 export type SaveKey = typeof SAVE_KEYS[number] | `cluecab-daily:${string}`
 const dailyKeySchema = z.string().regex(/^cluecab-daily:\d{4}-\d{2}-\d{2}$/)

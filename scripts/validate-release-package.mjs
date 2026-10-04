@@ -11,7 +11,7 @@
  * in the native Gemma build; the web release still rejects both.
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
-import { basename, extname, join, resolve } from 'node:path'
+import { basename, extname, join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { inflateRawSync } from 'node:zlib'
 import { corpusSentinels, derivedLexicon, onDeviceCaseyBuild, onDeviceCorpus, orchestrationSentinels } from './validate-client-boundary.mjs'
@@ -26,6 +26,7 @@ const CORPUS_FILE = /(?:^|\/)(?:matrix|book|deal-index|association-index|lcsi|au
 const RAW_VOTES_OR_RATIONALES = /(?:^|\/)(?:raw[-_.]?)?(?:votes?|rationales?)(?:[-_.]|$)/i
 const ON_DEVICE_MODEL = /\.litertlm$/i
 const INTERNAL_PLAN = /(?:^|\/)(?:docs?|internal)(?:\/|$)|(?:^|\/)(?:plan(?:-\d+)?|decisions|security-private-cutover)\.md$/i
+const KOTLIN_RUNTIME_BUILTINS_PATH = 'kotlin/internal/internal.kotlin_builtins'
 const RESEARCH_OR_WORKER_PATH = /(?:^|\/)(?:experiments|research|proxy)(?:\/|$)/i
 const SECRET_FILENAME = /(?:^|\/)(?:\.env(?:[.-].*)?|[^/]*(?:secret|credential|api[-_.]?key|token)[^/]*\.(?:json|pem|p8|key|txt))$/i
 const SECRET_TEXT = [
@@ -52,8 +53,8 @@ function textRecord(name, bytes) {
     : null
 }
 
-/** Read a .ipa without shelling out, so the same gate works on CI and locally. */
-function ipaEntries(path) {
+/** Read an APK or IPA without shelling out, so the same gate works on CI and locally. */
+function archiveEntries(path) {
   const bytes = readFileSync(path)
   // End of central directory is in the final 65,557 bytes of a ZIP file.
   const start = Math.max(0, bytes.length - 65_557)
@@ -78,13 +79,20 @@ function ipaEntries(path) {
     const localOffset = bytes.readUInt32LE(offset + 42)
     const name = bytes.subarray(offset + 46, offset + 46 + nameLength).toString('utf8')
     offset += 46 + nameLength + extraLength + commentLength
-    if (name.endsWith('/')) continue
+    const packageRelativeName = name.replaceAll('\\', '/')
+    if (
+      !packageRelativeName || packageRelativeName.startsWith('/') || packageRelativeName.includes('\0') ||
+      /^[A-Za-z]:/.test(packageRelativeName) || packageRelativeName.split('/').includes('..')
+    ) {
+      throw new Error(`${path}:${name}: unsafe archive path`)
+    }
+    if (packageRelativeName.endsWith('/')) continue
     if (bytes.readUInt32LE(localOffset) !== 0x04034b50) throw new Error(`${path}:${name}: malformed IPA entry`)
     const localNameLength = bytes.readUInt16LE(localOffset + 26)
     const localExtraLength = bytes.readUInt16LE(localOffset + 28)
     const body = bytes.subarray(localOffset + 30 + localNameLength + localExtraLength, localOffset + 30 + localNameLength + localExtraLength + compressedSize)
-    if (compression === 0) entries.push({ name: `${path}:${name}`, bytes: body })
-    else if (compression === 8) entries.push({ name: `${path}:${name}`, bytes: inflateRawSync(body) })
+    if (compression === 0) entries.push({ name: `${path}:${name}`, packageRelativeName, bytes: body })
+    else if (compression === 8) entries.push({ name: `${path}:${name}`, packageRelativeName, bytes: inflateRawSync(body) })
     else throw new Error(`${path}:${name}: unsupported IPA compression method ${compression}`)
   }
   return entries
@@ -95,7 +103,7 @@ export function packageEntries(target) {
   if (statSync(target).isDirectory()) {
     return filesUnder(target).map((path) => ({ name: path, bytes: readFileSync(path) }))
   }
-  if (extname(target).toLowerCase() === '.ipa') return ipaEntries(target)
+  if (['.apk', '.ipa'].includes(extname(target).toLowerCase())) return archiveEntries(target)
   return [{ name: target, bytes: readFileSync(target) }]
 }
 
@@ -164,6 +172,7 @@ export function inspectReleasePackage(target, dataDir, {
   expectedSourceSha = '',
 } = {}) {
   const records = packageEntries(target)
+  const packageDirectory = statSync(target).isDirectory() ? resolve(target) : null
   if (records.length === 0) throw new Error(`release package is empty: ${target}`)
   const lexicon = derivedLexicon(dataDir)
   assertFlatLexicon(lexicon.entries)
@@ -176,16 +185,21 @@ export function inspectReleasePackage(target, dataDir, {
   const violations = []
 
   for (const record of records) {
-    const normalizedName = record.name.replaceAll('\\', '/')
+    const packageRelativeName = packageDirectory
+      ? relative(packageDirectory, record.name).replaceAll('\\', '/')
+      : record.packageRelativeName ?? basename(record.name)
+    const normalizedName = packageRelativeName.replaceAll('\\', '/')
     const file = basename(normalizedName)
     if (CORPUS_FILE.test(normalizedName)) violations.push(`${record.name}: authored book or matrix was packaged`)
     if (RAW_VOTES_OR_RATIONALES.test(normalizedName)) violations.push(`${record.name}: raw votes or rationales were packaged`)
     if (ON_DEVICE_MODEL.test(normalizedName)) violations.push(`${record.name}: on-device model was packaged instead of downloaded`)
-    if (INTERNAL_PLAN.test(normalizedName)) violations.push(`${record.name}: internal plan was packaged`)
+    if (INTERNAL_PLAN.test(normalizedName) && packageRelativeName !== KOTLIN_RUNTIME_BUILTINS_PATH) {
+      violations.push(`${record.name}: internal plan was packaged`)
+    }
     if (RESEARCH_OR_WORKER_PATH.test(normalizedName)) violations.push(`${record.name}: research or Worker-only path was packaged`)
     if (SECRET_FILENAME.test(normalizedName)) violations.push(`${record.name}: secret-shaped file was packaged`)
     if (file.endsWith('.map')) violations.push(`${record.name}: source map was packaged`)
-    const content = textRecord(normalizedName, record.bytes)
+    const content = textRecord(packageRelativeName, record.bytes)
     if (content === null) continue
     if (/sourceMappingURL\s*=|sourceMappingURL=/i.test(content)) violations.push(`${record.name}: source-map reference was packaged`)
     // `rationale` is a live Casey response field the client needs to render.

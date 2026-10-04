@@ -13,6 +13,9 @@ import {
   isGuessable,
   remainingGreenIds,
   targetableGreenIds,
+  isSolvedBoard,
+  wheelFoundIds,
+  wheelMissedSegments,
 } from '../engine/game'
 import { checkClueLegality } from '../engine/legality'
 import { mulberry32 } from '../engine/rng'
@@ -192,7 +195,7 @@ async function playOneGame(
        * the phases terminate, and the round stays legal to its finish.
        */
       case 'translateChallenge': {
-        for (const id of s.wheel!.segments) {
+        for (const id of wheelFoundIds(s)) {
           if (s.wheel!.translated.includes(id)) continue
           s = applyEvent(s, { type: 'SUBMIT_TRANSLATION', wordId: id, answer: s.words.find((w) => w.wordId === id)!.da })
         }
@@ -251,12 +254,23 @@ describe('self-play: engine + mock companion never reach an illegal state', () =
         expect(end.outcome).toBeDefined()
         const key = `${end.outcome!.result}:${end.outcome!.reason}`
         outcomes[key] = (outcomes[key] ?? 0) + 1
+        // This harness translates every found word, so a spin can only lose
+        // on a key word the round never found (owner, 2026-09-27) — and a
+        // solved board, which has none, can only win.
+        if (end.outcome!.reason === 'wheel-miss') {
+          expect(wheelMissedSegments(end)).toContain(end.wheel!.landed)
+        }
+        if (end.wheel && isSolvedBoard(end)) expect(end.outcome!.result).toBe('won')
       }
       // C1-PC-1 successor: tutorial solves now join exhaustion at the wheel.
-      // This harness translates every found word, so all 50 seeded tutorial
-      // rounds must finish through a full-wheel win, not an all-greens bypass.
-      if (grid === 'tutorial') expect(outcomes).toEqual({ 'won:wheel-win': 50 })
-      else expect(Object.keys(outcomes).length).toBeGreaterThan(0)
+      // Every seeded tutorial round finishes through the wheel, never an
+      // all-greens bypass; the ones that ran out of clues can lose there.
+      if (grid === 'tutorial') {
+        expect(Object.keys(outcomes).sort()).toEqual(
+          Object.keys(outcomes).filter((k) => k === 'won:wheel-win' || k === 'lost:wheel-miss').sort(),
+        )
+        expect(outcomes['won:wheel-win']).toBeGreaterThan(0)
+      } else expect(Object.keys(outcomes).length).toBeGreaterThan(0)
     },
   )
 })
@@ -447,7 +461,7 @@ function playSkilled(seed: number, config: GridConfig, skill: number, cap = 3): 
     // either pays a token or ends the round, and both keep the harness in a
     // legal state, which is what it is here to prove.
     if (s.phase === 'translateChallenge') {
-      for (const id of s.wheel!.segments) {
+      for (const id of wheelFoundIds(s)) {
         if (s.wheel!.translated.includes(id)) continue
         s = applyEvent(s, {
           type: 'SUBMIT_TRANSLATION',

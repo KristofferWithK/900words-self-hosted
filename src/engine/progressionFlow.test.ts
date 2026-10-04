@@ -6,7 +6,7 @@ import { attemptFixture, FIXTURE_CONTENT, FIXTURE_TARGETS, FIXTURE_WORDS } from 
 import { evaluateAttempt, gameDelta, matchesAuthoredContent, rewardEligibility } from '../progression/rules'
 import { mulberry32 } from './rng'
 import { BOARD } from './config'
-import { giverOf, targetableGreenIds } from './game'
+import { giverOf, targetableGreenIds, wheelFoundIds, wheelMissedSegments } from './game'
 import { CITY1_REQUIRED_BOARD_IDS, city1RequiredBoardById } from '../data/city1RequiredBoardManifest'
 
 // C1-PC-1 F01-F12 through the actual reducer. No terminal-state construction,
@@ -70,12 +70,25 @@ describe('C1-07 reducer traces: AC01–AC06, AC27', () => {
 
   it('AC01/AC02: partial finds yield Bronze on miss and Silver on win, even when all found words translate', () => {
     const s = partial()
-    expect(s.wheel!.segments).toEqual(['a', 'b'])
+    // The wheel holds every key word (owner, 2026-09-27): c, d and e were
+    // never found, so their three slices can never fill.
+    expect(s.wheel!.segments).toEqual(FIXTURE_TARGETS)
+    expect(wheelFoundIds(s)).toEqual(['a', 'b'])
+    expect(wheelMissedSegments(s)).toHaveLength(3)
     expect(isSolvedBoard(s)).toBe(false)
     expect(result(spin(s))).toMatchObject({ status: 'completed', tier: 'bronze', solved: false, components: [] })
-    const full = spin(translate(s, ['a', 'b']))
-    expect(result(full)).toMatchObject({ status: 'completed', tier: 'silver', fullyTranslated: true, solved: false, components: ['spinWin'] })
-    expect(isSolvedAndTranslated(full)).toBe(false)
+    // Every found word typed is no longer a sure win: the spin can still land
+    // on a missed slice. Settlement reads both verdicts from the new wheel.
+    const fullOutcomes = new Set<string>()
+    for (let seed = 1; seed <= 30; seed++) {
+      const full = spin(translate(partial(seed), ['a', 'b']))
+      fullOutcomes.add(full.outcome!.result)
+      expect(result(full)).toMatchObject(full.outcome!.result === 'won'
+        ? { status: 'completed', tier: 'silver', fullyTranslated: true, solved: false, components: ['spinWin'] }
+        : { status: 'completed', tier: 'bronze', fullyTranslated: true, solved: false, components: [] })
+      expect(isSolvedAndTranslated(full)).toBe(false)
+    }
+    expect(fullOutcomes).toEqual(new Set(['won', 'lost']))
     const outcomes = new Set<string>()
     for (let seed = 1; seed <= 30; seed++) {
       const terminal = spin(translate(partial(seed), ['a']))
@@ -83,6 +96,23 @@ describe('C1-07 reducer traces: AC01–AC06, AC27', () => {
       expect(result(terminal)).toMatchObject({ status: 'completed', tier: terminal.outcome!.result === 'won' ? 'silver' : 'bronze' })
     }
     expect(outcomes).toEqual(new Set(['won', 'lost']))
+  })
+
+  it('settlement reads the full-board wheel and the older found-only wheel, and refuses a filled missed slice', () => {
+    const full = spin(translate(partial(3), ['a', 'b']))
+    expect(result(full)).toMatchObject({ status: 'completed', fullyTranslated: true })
+    // A fill can never sit on a missed key word's slice: evidence that says
+    // so was not produced by the engine.
+    const missed = wheelMissedSegments(full)
+    const forged = reload(full)
+    forged.wheel!.filled = [missed[0]!, forged.wheel!.filled[1]!]
+    expect(result(forged)).toEqual({ status: 'invalid', reason: 'invalid-wheel' })
+    // A round settled from a save written before the change holds only the
+    // found words on its wheel; that shape is still honest evidence.
+    const older = reload(full)
+    older.wheel = { ...older.wheel!, segments: ['a', 'b'], filled: [0, 1], landed: 1, result: 'win' }
+    older.outcome = { result: 'won', reason: 'wheel-win' }
+    expect(result(older)).toMatchObject({ status: 'completed', tier: 'silver', fullyTranslated: true })
   })
 
   it('AC03/AC04: solve evidence survives partial translation, either wheel result, and reload', () => {

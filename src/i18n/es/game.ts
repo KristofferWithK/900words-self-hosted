@@ -45,6 +45,7 @@ export const game: Catalogue['game'] = {
 
   cardYourTarget: ', tu objetivo',
   cardFound: ', encontrada',
+  cardMissedKey: ', una de las palabras de Casey, sin encontrar',
   cardNeutralBoth: ', neutral para los dos lados',
   cardNeutralPlayer: ', neutral con tus pistas',
   cardNeutralCasey: ', neutral con las pistas de Casey',
@@ -103,7 +104,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Girar la rueda',
   wheelSpinning: 'Girando…',
   wheelWonLine: '¡Verde! La ronda está ganada.',
-  wheelMissLine: 'La rueda paró en una maleta sin preparar.',
+  wheelMissLine: 'No es verde. La ronda está perdida.',
+  wheelLedeMissed: (found, total, language) =>
+    `Encontraste ${found} de ${total}. Las palabras que siguen en el tablero dejan su parte de la rueda en gris. Escribe el resto en ${language} y luego gira.`,
+  wheelAnswersLine: 'Las palabras en gris son las respuestas que no escribiste.',
+  wheelSeeResults: 'Ver resultados',
   phaseTranslateChallenge: 'Hora de traducir',
   settlementFailed: 'Todavía no se ha podido guardar tu resultado. Conserva esta ronda e inténtalo de nuevo.',
   settlementSaving: 'Guardando tu resultado…',
@@ -120,6 +125,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Casey sin conexión está pensando. Tarda más.',
   offlineRoundPrompt: 'No hay internet. ¿Jugar el resto de esta ronda con Casey sin conexión? Es más lenta.',
   playOfflineButton: 'Jugar sin conexión',
+  onlineAgainTitle: 'Vuelve a haber internet',
+  onlineAgainBody:
+    '¿Jugar el resto de esta ronda con Casey normal? Es más rápida y juega mejor. Si tu conexión se corta a menudo, seguir sin conexión puede ser más estable.',
+  playOnlineButton: 'Jugar en línea',
+  stayOfflineButton: 'Seguir sin conexión',
   hurryCaseyTitle: 'Toca para que Casey se dé prisa',
   hurryCaseyHint: 'Toca aquí para que Casey se dé prisa.',
   caseyGuessedWord: (word) => `Casey ha dicho «${word}».`,
@@ -283,7 +293,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Mostrar traducción',
   reviewHideTranslation: 'Ocultar traducción',
   reviewAboutWord: 'Sobre esta palabra',
-  reviewHighFrequencyWord: 'Palabra frecuente:',
   reviewNoNotes: 'No hay notas para esta palabra.',
   reviewNextSentence: 'Siguiente frase',
   // «adivinó» aquí sí es telico: la frase se ofrece solo cuando Casey acertó.

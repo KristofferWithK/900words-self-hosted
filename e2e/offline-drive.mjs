@@ -25,6 +25,7 @@ import { chromium } from 'playwright'
 import { audioSlug } from '../scripts/audio-slug.mjs'
 import { silentMp3 } from '../scripts/silent-mp3.mjs'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -94,6 +95,8 @@ const browser = await chromium.launch({
 })
 const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await context.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 page.on('pageerror', (e) => console.log('PAGE CRASH:', e.message))
 
@@ -392,11 +395,18 @@ try {
   }
   console.log('offline lazy clue lexicon: pram → barnevogn')
 
+  // Waited for rather than slept on: a dropped request is retried once, 1.5s
+  // later (#203), so the failure lands about 2.4s after the fill, past the
+  // 1.8s this used to sleep. The line prints the short failure and keeps the
+  // reason in its title and accessible name (#298), so the reason is read
+  // there.
   await field.fill('helicopter')
-  await sleep(1800)
+  const failure = dictionary.locator('.composer-line .test-fail')
+  await failure.waitFor({ timeout: 8000 }).catch(() => {})
   const missLine = await line.innerText()
-  if (!/(?:You appear to be offline\.|Could not reach Casey)/.test(missLine) || missLine.includes('helikopter')) {
-    fail(`offline true miss did not return an existing connection error: ${JSON.stringify(missLine)}`)
+  const missReason = (await failure.getAttribute('title').catch(() => null)) ?? ''
+  if (!/(?:You appear to be offline\.|Could not reach Casey)/.test(missReason) || missLine.includes('helikopter')) {
+    fail(`offline true miss did not return an existing connection error: ${JSON.stringify({ line: missLine, reason: missReason })}`)
   }
   console.log('offline true miss: helicopter → existing connection error (no fabricated answer)')
 

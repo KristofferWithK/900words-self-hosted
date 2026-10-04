@@ -18,7 +18,7 @@ one, under **Settings → Casey's AI**:
 
 | | You need | What it's like |
 |---|---|---|
-| **Gemma on your iPhone or computer** | A recent iPhone (list below), or Chrome or Edge on a computer with a graphics card; 3 GB free space | Works offline. Free and private. Slower. Experimental. |
+| **Gemma on your phone or computer** | A recent iPhone, an Android 12+ phone with a 64-bit processor and at least 8 GB of memory (12 GB recommended), or Chrome or Edge on a computer with a graphics card; up to 7 GB free on Android | Works offline. Free and private. Slower. Experimental. |
 | **Your own AI key** | An API key from an AI service | The same Casey as the App Store with Ollama Cloud's `gpt-oss:120b` |
 | **Your own Casey server** | A Cloudflare account | For playing on several devices without typing your key into each one |
 
@@ -35,11 +35,15 @@ Cloud has been played through; another service may play a weaker Casey or
 refuse the request, and **Test connection** tells you which.
 
 Gemma runs on these iPhones: iPhone 15 Pro, 15 Pro Max, 16, 16 Plus, 16 Pro,
-16 Pro Max, 16e, 17, Air, 17 Pro and 17 Pro Max. On a computer she runs in
-the browser, on the graphics card, through WebGPU (Chrome or Edge). On an
-RTX 4090 laptop she answers Casey's clue in about 5 seconds and a guess in
-about 7. The model is Google's Gemma 4 E4B (Apache 2.0), downloaded from
-Hugging Face the first time you ask for it, and kept on your device.
+16 Pro Max, 16e, 17, Air, 17 Pro and 17 Pro Max. On Android she needs Android
+12 or newer, a supported 64-bit processor and at least 8 GB of memory; 12 GB
+is recommended. Examples include Samsung Galaxy S24 Ultra, Galaxy S25, S25+,
+S25 Ultra and S26 Ultra. The first Android download and model setup need about
+7 GB of free space. On a computer she runs in the browser, on the graphics
+card, through WebGPU (Chrome or Edge). On an RTX 4090 laptop she answers
+Casey's clue in about 5 seconds and a guess in about 7. The model is Google's
+Gemma 4 E4B (Apache 2.0), downloaded from Hugging Face the first time you ask
+for it, and kept on your device.
 
 With your own key, you can also turn on **Play offline when the internet is
 gone**: if Casey cannot reach your AI service, she offers to finish the round
@@ -98,12 +102,39 @@ build again. A paid developer account ($99 a year) makes that a year.
    **Settings → General → VPN & Device Management**, then turn on
    **Developer Mode** if it asks (**Settings → Privacy & Security**).
 5. When 900words opens, it offers to download Gemma. Say yes to play
-   offline, or no to use your own AI key instead. The download is 3 GB and
-   takes a few minutes on Wi-Fi. If Casey says she is not set up yet, tap
+   offline, or no to use your own AI key instead. The download is about 3 GB
+   and takes a few minutes on Wi-Fi. If Casey says she is not set up yet, tap
    **Casey settings** to watch the download or add a key, go back, and tap
    **Retry**.
 
 After changing the code, run `npm run ios` again and press Run.
+
+## Play on your Android phone
+
+Any Mac, Windows or Linux computer with
+[Android Studio](https://developer.android.com/studio) can put a self-build on
+your phone. No developer account is needed.
+
+1. Do steps 1 and 2 of [Play in your browser](#play-in-your-browser), then:
+
+   ```bash
+   npm run android
+   ```
+
+   This builds the app and opens it in Android Studio. The first build
+   downloads Android's build tools and takes a few minutes.
+2. On the phone, turn on **Developer options** (tap **Build number** seven
+   times under **Settings → About phone**), then **USB debugging** inside it.
+3. Plug in the phone, allow the computer when it asks, choose the phone at
+   the top of Android Studio, and press **Run** (▶).
+4. When Casey first needs her AI, she offers to download Gemma. The Android
+   model is about 3.66 GB and needs about 7 GB free for its first setup; use
+   Wi-Fi and keep 900words open. You can also choose **Your own AI key** in
+   Casey settings. If Casey says she is not set up yet, tap **Casey settings**
+   to watch the download or add a key, go back, and tap **Retry**.
+
+A self-build has no purchases: Google Play Billing is not part of this
+repository. After changing the code, run `npm run android` again and press Run.
 
 ## Your own Casey server (optional)
 
@@ -126,6 +157,8 @@ npm run drives       # browser tests; set CHROMIUM_PATH to a Chromium first
   Cloudflare Worker that runs the same logic for the App Store version.
 - `ios/` and `ios-plugins/`: the Capacitor iPhone shell, Gemma's plugin,
   and a keyboard plugin fork.
+- `android/`: the Capacitor Android shell, with Android's Back button and
+  backup sharing.
 - `e2e/`: browser tests that play the built app.
 
 A self-build is chosen when the app is built: `BUILD_AUDIENCE` is

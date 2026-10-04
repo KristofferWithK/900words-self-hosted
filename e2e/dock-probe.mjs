@@ -1,4 +1,4 @@
-// K2's measurement, kept so the numbers in index.css can be re-taken rather
+// K2's measurement, kept so the numbers in src/styles/24-docks.css can be re-taken rather
 // than re-reasoned. Opt-in (not in the default drive list): it prints, it
 // asserts nothing. e2e/composer-probe.mjs is its K1 half, and asks the same
 // question of the composer's seven states alone.

@@ -114,7 +114,7 @@ describe('the private LCSI file', () => {
         }
       }
     }
-    expect(pairs).toBe(3116)
+    expect(pairs).toBe(3148)
   })
 })
 

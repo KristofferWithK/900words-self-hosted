@@ -1,0 +1,196 @@
+/* ---------- the suitcase: rings, the lid's legend, the stamp card (CW-11) ----------
+
+   S2 in docs/design/cafe-world/design-suitcase-tags-options.jpg: each word
+   carries a small ring that fills a third per mark, collected words sit in
+   the lid, and the tray holds the city's stamp card, one cell per café with
+   its name, its stamp and a word under it.
+
+   THE LOOK, IN ONE PLACE. Every choice the picture does not settle is a token
+   here, so swapping one is one edit (the "Open look-and-feel questions" of the
+   CW-11 PR list the alternatives):
+   - the ring's size, ink and empty edge;
+   - the cell's paper and edge, and the dashed edge of a café not found;
+   - how many lines a café name may take before it ends in an ellipsis.
+   (A café only ever lost is Bronze since CW-03b, so "played, no stamp" and
+   its ink are gone.)
+   The stamp inks themselves are CW-09's `--stamp-*` (92-finish-screen.css). */
+:root {
+  --case-ring-size: 11px;
+  --case-ring-ink: var(--green-deep);
+  --case-ring-edge: #8fa98b;
+  --stamp-cell-paper: #fbf8f1;
+  --stamp-cell-edge: #ddd5c4;
+  --stamp-cell-unfound-edge: var(--beige-deep);
+  --stamp-cell-name-lines: 2;
+}
+
+/* ---- the ring ---- */
+
+.case-ring {
+  flex: none;
+  width: var(--case-ring-size);
+  height: var(--case-ring-size);
+  display: block;
+}
+.case-ring-edge {
+  fill: #fff;
+  stroke: var(--case-ring-edge);
+  stroke-width: 1.2;
+}
+.case-ring-fill { fill: var(--case-ring-ink); }
+.case-ring-3 .case-ring-edge { stroke: var(--case-ring-ink); }
+
+/* A tile is the ring and the word, side by side and centred. The word, not
+   the ring, gives way: it ends in an ellipsis rather than pushing the ring
+   out of the tile. */
+.case-tile:has(.case-ring) { gap: 4px; }
+.case-tile-word {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-loose .case-tile:has(.case-ring) { gap: 3px; }
+.case-loose .case-ring { width: calc(var(--case-ring-size) - 1px); height: calc(var(--case-ring-size) - 1px); }
+
+/* ---- the lid's label and legend ---- */
+
+.case-band-titles {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 1px;
+}
+/* The legend may take a second line (German and the narrow phone need it)
+   rather than lose its end; the lid's tiles give up the height. */
+.case-band-note {
+  font-size: .64rem;
+  line-height: 1.15;
+  color: var(--text-dim);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ---- the stamp card ---- */
+
+.stamp-card .stamp-card-line {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Paper cells with the stamp as the only colour, as in the picture. These
+   override the tray's older tier tints by being later in the cascade. */
+.stamp-card .collection-board-card {
+  justify-content: flex-start;
+  gap: 1px;
+  padding: 3px 2px 2px;
+  background: var(--stamp-cell-paper);
+  border-color: var(--stamp-cell-edge);
+  color: var(--text);
+}
+.stamp-card .stamp-cell-unfound .collection-board-card {
+  background: transparent;
+  border: 1px dashed var(--stamp-cell-unfound-edge);
+  color: var(--text-dim);
+}
+.stamp-card .stamp-cell-found .collection-board-card {
+  cursor: default;
+}
+.stamp-card button.collection-board-card { cursor: pointer; }
+
+/* The café's name: two lines, then an ellipsis (a supporter may name a café
+   at length). Two lines are always reserved, so the stamps of a row stand on
+   one line whatever the names are. The screen reader gets the whole name
+   from the cell's own label. */
+.stamp-cell-name {
+  flex: none;
+  max-width: 100%;
+  min-height: calc(var(--stamp-cell-name-lines) * 1.08em);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--stamp-cell-name-lines);
+  line-clamp: var(--stamp-cell-name-lines);
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  font-family: var(--serif);
+  font-size: .58rem;
+  font-weight: 700;
+  line-height: 1.08;
+  text-align: center;
+}
+.stamp-cell-unfound .stamp-cell-name { font-size: .72rem; }
+
+/* The stamp takes whatever height the cell has left, up to a size that still
+   reads as a stamp and not a medal. */
+.stamp-cell-mark {
+  flex: 1 1 0;
+  min-height: 12px;
+  max-height: 46px;
+  width: 100%;
+}
+.stamp-cell-found .cafe-stamp-empty { color: var(--text-dim); }
+
+.stamp-card .collection-board-card small {
+  font-size: .5rem;
+  letter-spacing: .02em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stamp-cell-stamped.tier-bronze small { color: var(--stamp-bronze); }
+.stamp-cell-stamped.tier-silver small { color: var(--stamp-silver); }
+.stamp-cell-stamped.tier-gold small { color: var(--stamp-gold); }
+.stamp-cell-stamped.tier-platinum small { color: var(--stamp-platinum); }
+
+/* ---- the detail: a café's stamp and its replay tag ---- */
+
+.collection-detail-stamp {
+  width: 96px;
+  height: 96px;
+  align-self: center;
+}
+.collection-detail-card > p,
+.collection-detail-card > h3 { margin: 0; text-align: center; }
+.collection-detail-name { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; }
+.collection-detail-card .tag { align-self: stretch; }
+
+/* ---- a connecting word, opened from the suitcase ---- */
+
+.case-word-note .collection-detail-card { gap: 8px; }
+.case-word-note-kind {
+  margin: 0;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.case-word-note-word {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.case-word-note-meaning { margin: 0; font-size: 1.1rem; }
+.case-word-note-marks {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: .85rem;
+  color: var(--text-dim);
+}
+.case-word-note-marks .case-ring { width: 14px; height: 14px; }
+.case-word-note-rule { margin: 0; font-size: .85rem; color: var(--text-dim); }
+
+@media (max-height: 650px) {
+  .case-band-note { font-size: .58rem; }
+  .stamp-cell-name { font-size: .52rem; }
+  .stamp-cell-unfound .stamp-cell-name { font-size: .64rem; }
+  .stamp-card .collection-board-card { padding: 2px 2px 1px; }
+  .stamp-card .collection-board-card small { font-size: .45rem; }
+}

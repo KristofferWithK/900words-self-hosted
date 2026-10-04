@@ -1,7 +1,7 @@
 // Focused Home CTA regression. Uses the existing local mock switches and
 // onboarding resume fixtures; all non-preview network requests are blocked.
 import assert from 'node:assert/strict'
-import { mkdirSync } from 'node:fs'
+import { mkdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
@@ -10,12 +10,20 @@ import { installRoundGuidanceHandler } from './round-guidance.mjs'
 const SHOT_DIR = process.env.SHOT_DIR ?? resolve('e2e-shots')
 mkdirSync(SHOT_DIR, { recursive: true })
 const preview = await startPreview(4201)
+// Café world (CW-04): a required board is a café, and Play cannot deal one
+// before a Sightseeing walk has found it. This drive is about the Play button,
+// not the walk, so the profile starts as a player whose first walk found the
+// first café (the first board of the frozen Danish manifest) and nothing else.
+const FIRST_CAFE = JSON.parse(readFileSync(resolve('src/data/city1-required-board-manifest.da.json'), 'utf8')).requiredBoards[0].authoredBoardId
+const FOUND_FIRST_CAFE = JSON.stringify({ version: 7, state: {
+  cityIndex: 0, furthest: 0, arrivedAt: {}, wrapped: {}, routeLanguage: 'da', parked: {}, historicalRoutes: {},
+  waitingForTrain: false, historicalTravelEligibility: {}, photos: {},
+  cafes: { [JSON.stringify(['da', 'sonderborg'])]: { found: { [FIRST_CAFE]: Date.now() }, toward: 0 } },
+} })
 let browser
 const WHITE = 'rgb(255, 255, 255)'
-// --green-deep: the primary's label and its line, since the owner's
-// "Direction B" (2026-09-11) — a primary is a white pill drawn in green, not
-// a filled one. The visible line is the pencil pass's ::before, so that is
-// what `edge*` reads; the element's own border is transparent on every pill.
+// --green-deep: a primary tag's label (CW-10/CW-12), as it was the primary
+// pill's since the owner's "Direction B" (2026-09-11).
 const GREEN = 'rgb(58, 122, 52)'
 const styles = (button) => button.evaluate((el) => {
   const s = getComputedStyle(el)
@@ -36,22 +44,43 @@ const luminance = (rgb) => rgb.match(/\d+/g).slice(0, 3)
   .map((n) => n <= 0.04045 ? n / 12.92 : ((n + 0.055) / 1.055) ** 2.4)
   .reduce((sum, n, i) => sum + n * [0.2126, 0.7152, 0.0722][i], 0)
 
-/** The primary as every screen draws it: white, green label, one 2px green
- * ring — the SINGLE-RING amendment (owner, 2026-09-16): the pencil ::before
- * pass is retired, the element's own border is the ring. */
-async function outlinePrimary(button, label) {
+const INK = 'rgb(18, 18, 18)'
+const PRESSED_FILL = 'rgb(239, 234, 220)'
+const PENCIL_INK = 'rgb(201, 195, 178)'
+const tagStyles = (button) => button.evaluate((el) => {
+  const ink = getComputedStyle(el, '::before')
+  const fill = getComputedStyle(el, '::after')
+  const label = el.querySelector('.tag-label')
+  const r = el.getBoundingClientRect()
+  return {
+    tag: el.tagName, type: el.getAttribute('type'), disabled: el.disabled,
+    ink: ink.backgroundColor, inkClip: ink.clipPath, fill: fill.backgroundColor, fillClip: fill.clipPath,
+    label: label ? getComputedStyle(label).color : null, ownClip: getComputedStyle(el).clipPath,
+    active: el.matches(':active'), focusVisible: el.matches(':focus-visible'),
+    outline: getComputedStyle(el).outlineStyle, outlineWidth: parseFloat(getComputedStyle(el).outlineWidth),
+    width: r.width, height: r.height, hole: !!el.querySelector('.tag-hole'),
+  }
+})
+
+/** Café world (CW-10): Play is the Café puzzle TAG. A real button, one ink
+ * outline clipped to the tag's shape, white inside, ink label, a punched hole,
+ * and at least 44 x 44 CSS px. */
+async function tagLook(button, label, { fill = WHITE, labelColor = null } = {}) {
   assert.ok(await button.isVisible(), `${label}: visible`)
-  const s = await styles(button)
-  assert.equal(s.tag, 'BUTTON', `${label}: native button`)
-  assert.equal(s.background, WHITE, `${label}: white background`)
-  assert.equal(s.color, GREEN, `${label}: green text`)
-  assert.equal(s.edgeDisplay, 'none', `${label}: single ring (no second pencil pass)`)
-  assert.equal(s.borderStyle, 'solid', `${label}: drawn ring`)
-  assert.equal(s.border, GREEN, `${label}: green ring`)
-  assert.equal(s.borderWidth, '2px', `${label}: the primary's heavier edge`)
-  const contrast = (luminance(s.background) + 0.05) / (luminance(s.color) + 0.05)
-  assert.ok(contrast >= 4.5, `${label}: text contrast ${contrast}`)
-  console.log(`OK ${label}: white/green, green 2px edge, contrast ${contrast.toFixed(2)}:1`)
+  const t = await tagStyles(button)
+  assert.equal(t.tag, 'BUTTON', `${label}: native button`)
+  assert.equal(t.type, 'button', `${label}: type=button`)
+  assert.equal(t.ink, INK, `${label}: ink outline layer`)
+  assert.equal(t.fill, fill, `${label}: fill`)
+  assert.ok(t.inkClip.startsWith('polygon') && t.fillClip.startsWith('polygon'), `${label}: clipped to the tag's shape`)
+  assert.equal(t.ownClip, 'none', `${label}: the button itself is not clipped`)
+  assert.ok(t.hole, `${label}: punched hole`)
+  if (labelColor) assert.equal(t.label, labelColor, `${label}: label colour`)
+  assert.ok(t.width >= 44 && t.height >= 44, `${label}: 44px target (${t.width.toFixed(1)}x${t.height.toFixed(1)})`)
+  const contrast = (luminance(t.fill) + 0.05) / (luminance(t.label) + 0.05)
+  assert.ok(contrast >= 4.5, `${label}: label contrast ${contrast}`)
+  console.log(`OK ${label}: tag ${t.width.toFixed(0)}x${t.height.toFixed(0)}, ink outline, fill ${t.fill}, contrast ${contrast.toFixed(2)}:1`)
+  return t
 }
 
 async function focusWithTab(page, button) {
@@ -70,9 +99,9 @@ async function fits(page, button) {
   assert.ok(await button.evaluate((el) => {
     const r = el.getBoundingClientRect()
     return r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight &&
-      r.height >= 48 && document.scrollingElement.scrollHeight <= innerHeight &&
-      document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2) === el
-  }), 'Play fits the viewport, has a 48px target, and receives its own taps')
+      r.height >= 44 && document.scrollingElement.scrollHeight <= innerHeight &&
+      el.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2))
+  }), 'Play fits the viewport, has a 44px target, and receives its own taps')
 }
 
 async function assertHomeGeometry(page, label, { expectTrain = false } = {}) {
@@ -160,6 +189,13 @@ try {
       external.push(url)
       return route.abort()
     })
+    // Seeded once per tab, before the app's first load; the onboarding checks
+    // below clear storage themselves and are not re-seeded.
+    await context.addInitScript((journey) => {
+      if (sessionStorage.getItem('drive-seeded')) return
+      sessionStorage.setItem('drive-seeded', '1')
+      localStorage.setItem('cluecab-journey-v2', journey)
+    }, FOUND_FIRST_CAFE)
     const page = await context.newPage()
     await installRoundGuidanceHandler(page)
     page.setDefaultTimeout(10_000)
@@ -171,8 +207,26 @@ try {
     const home = preview.base + '?mock=1&howto=0&city=0&first=player'
     await page.goto(home, { waitUntil: 'networkidle' })
     const play = page.locator('.home-play')
-    assert.equal(await play.innerText(), 'Play')
-    await outlinePrimary(play, `${size} Play`)
+    const note = page.locator('.home-play .tag-note')
+    // Café world (CW-10): Play became the Café puzzle tag, with the café it
+    // opens on its note line; Sightseeing is the second tag beside it.
+    assert.equal(await page.locator('.home-play .tag-label').innerText(), 'Café puzzle')
+    assert.equal(await note.innerText(), 'Café Solen')
+    await tagLook(play, `${size} Café puzzle`)
+    const sightseeingTag = page.locator('.home-tag-sightseeing')
+    await tagLook(sightseeingTag, `${size} Sightseeing`)
+    const ticket = await page.locator('.home-ticket').boundingBox()
+    assert.ok(ticket.width >= 44 && ticket.height >= 44, `${size}: the ticket's target is 44px (${ticket.width}x${ticket.height})`)
+    // Disabled: no Home tag is disabled today, so set it on the Sightseeing
+    // tag for a moment and read the state the stylesheet gives it.
+    await sightseeingTag.evaluate((el) => { el.disabled = true })
+    const off = await tagStyles(sightseeingTag)
+    assert.ok(off.disabled, `${size}: tag disables natively`)
+    assert.equal(off.ink, PENCIL_INK, `${size}: a disabled tag is drawn in pencil`)
+    assert.notEqual(off.label, INK, `${size}: a disabled tag's label is grey`)
+    assert.ok(off.width >= 44 && off.height >= 44, `${size}: a disabled tag keeps its size`)
+    await sightseeingTag.evaluate((el) => { el.disabled = false })
+    console.log(`OK ${size}: disabled tag in pencil ink ${off.ink}, label ${off.label}`)
     await fits(page, play)
     await assertHomeGeometry(page, `${size} initial Play`, { expectTrain: true })
     await page.screenshot({ path: resolve(SHOT_DIR, `white-play-${size}.png`) })
@@ -185,17 +239,18 @@ try {
     await page.mouse.down()
     assert.ok((await styles(play)).active, 'pointer down enters native :active')
     assert.equal((await styles(play)).transform, idle.transform, 'pressed geometry is unchanged')
-    await outlinePrimary(play, `${size} pressed Play`)
+    assert.deepEqual(await play.boundingBox(), box, 'pressed tag does not move')
+    await tagLook(play, `${size} pressed Café puzzle`, { fill: PRESSED_FILL })
     await page.mouse.up()
     await page.waitForSelector('.game-screen .board-grid')
     assert.equal(await page.locator('.word-card').count(), 18, 'click starts a standard game')
     const board = await page.locator('.card-word').allTextContents()
 
     await page.locator('.game-header .icon-btn[aria-label="Home"]').click()
-    await outlinePrimary(page.getByRole('button', { name: 'Pause game', exact: true }), `${size} Pause game`)
+    await tagLook(page.getByRole('button', { name: 'Pause game', exact: true }), `${size} Pause game`, { labelColor: GREEN })
     await page.getByRole('button', { name: 'Pause game', exact: true }).click()
-    assert.equal(await play.innerText(), 'Continue board')
-    await outlinePrimary(play, `${size} Continue game`)
+    assert.equal(await note.innerText(), 'Continue board')
+    await tagLook(play, `${size} Continue game`)
     await fits(page, play)
     await assertHomeGeometry(page, `${size} Continue game`, { expectTrain: true })
     await focusWithTab(page, play)
@@ -209,7 +264,7 @@ try {
     await focusWithTab(page, play)
     await page.keyboard.down('Space')
     assert.ok((await styles(play)).active, 'Space enters native :active')
-    await outlinePrimary(play, `${size} keyboard-pressed Play`)
+    await tagLook(play, `${size} keyboard-pressed Café puzzle`, { fill: PRESSED_FILL })
     assert.equal(await page.locator('.game-screen').count(), 0, 'Space waits for release')
     await page.keyboard.up('Space')
     await page.waitForSelector('.game-screen .board-grid')
@@ -224,44 +279,40 @@ try {
       }, step)
       await page.goto(preview.base + '?mock=1', { waitUntil: 'networkidle' })
     }
-    await onboarding('home-intro')
-    assert.ok(await play.isDisabled(), 'unrevealed intro Play is disabled')
-    assert.ok(await play.isHidden(), 'unrevealed intro Play stays hidden')
-    for (let i = 0; i < 3; i++) await page.locator('.home-intro-bubble').click()
-    await page.waitForSelector('.home-intro-play .home-play:enabled')
-    assert.equal(await play.innerText(), 'Play your first game')
-    await outlinePrimary(play, `${size} intro Play`)
+    // The first session's Home (CW-13) is the real Home with its doors
+    // routed: after the walk, a spotlight introduces the café found, and the
+    // Café puzzle tag opens its practice table.
+    await onboarding('home-cafe')
+    const cafeLesson = page.locator('.tour-overlay[data-tour-kind="home"]')
+    await cafeLesson.waitFor({ state: 'attached' })
+    await page.locator('.tour-panel .onboard-next').click()
+    await page.locator('.tour-panel .onboard-next').click()
+    await cafeLesson.waitFor({ state: 'detached' })
+    assert.equal(await page.locator('.home-first-session').count(), 1, 'the first session shows the real Home')
+    assert.equal(await play.getAttribute('data-cafe-action'), 'next', 'the first café is found and playable')
+    await tagLook(play, `${size} first-session Café puzzle`)
     await fits(page, play)
-    await assertHomeGeometry(page, `${size} onboarding Play`)
+    await assertHomeGeometry(page, `${size} first-session Home`)
     await page.screenshot({ path: resolve(SHOT_DIR, `white-play-intro-${size}.png`), animations: 'disabled' })
     await play.click()
     await page.waitForSelector('.tutorial-game .board-grid')
-    assert.equal(await page.locator('.word-card').count(), 9, 'intro Play starts the tutorial')
+    assert.equal(await page.locator('.word-card').count(), 9, 'the first-session Café puzzle tag starts the practice table')
 
     await onboarding('home-return')
-    // A fresh profile still owes the Home postcard lesson, which dims Home
-    // and holds the pointer until it closes. Close it, then measure the gate
-    // it hands back: the same Play, now receiving its own taps again.
+    // A fresh profile still owes the Home stamp lesson, which dims Home and
+    // holds the pointer until it closes. Close it: every door then leads to
+    // Casey's suitcase, the one step left, so no tap is dead.
     const homeLesson = page.locator('.tour-overlay[data-tour-kind="home"]')
     await homeLesson.waitFor({ state: 'attached' })
     await page.keyboard.press('Escape')
     await homeLesson.waitFor({ state: 'detached' })
-    assert.equal(await play.innerText(), 'Tap Casey')
-    assert.ok(await play.isDisabled(), 'Tap Casey remains natively disabled')
-    const disabled = await styles(play)
-    assert.equal(disabled.background, 'rgb(230, 230, 230)', 'disabled background unchanged')
-    assert.equal(disabled.color, 'rgb(155, 155, 155)', 'disabled text unchanged')
-    assert.equal(disabled.border, 'rgb(230, 230, 230)', 'disabled border unchanged')
     await fits(page, play)
-    await assertHomeGeometry(page, `${size} onboarding Tap Casey`)
-    await play.click({ force: true })
-    for (let i = 0; i < 8; i++) {
-      await page.keyboard.press('Tab')
-      assert.ok(await play.evaluate((el) => el !== document.activeElement), 'Tab skips disabled Play')
-    }
-    assert.equal(await page.locator('.home-intro-return').count(), 1, 'disabled click cannot start a game')
-    assert.equal(await page.locator('.board-grid').count(), 0)
+    await assertHomeGeometry(page, `${size} onboarding return Home`)
     await page.screenshot({ path: resolve(SHOT_DIR, `white-play-disabled-${size}.png`) })
+    await play.click()
+    await page.waitForSelector('.suitcase-screen')
+    assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-onboard-v5')), 'suitcase', 'the Café puzzle tag leads to the suitcase step')
+    assert.equal(await page.locator('.board-grid').count(), 0, 'and cannot start a game inside the flow')
     assert.deepEqual(external, [], 'no external API requests beyond the usage-counter beacon')
     assert.ok(new Set(beacons.map((u) => new URL(u).origin)).size <= 1, `usage-counter beacons go to one Worker: ${beacons.join(', ')}`)
     assert.deepEqual(errors, [], 'no browser errors')

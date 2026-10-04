@@ -1,6 +1,17 @@
 import { fileURLToPath } from 'node:url'
 
 export const IOS_1_0_RELEASE_REF = 'refs/heads/release/ios-1.0'
+export const CAFE_WORLD_INTEGRATION_REF = 'refs/heads/integration/cafe-world'
+
+/**
+ * The only refs a normal-audience (store-like, version 1.0) build may come from.
+ * The café line is here by the owner's decision of 4 October 2026: a store-like
+ * build of the café world for internal TestFlight testing while 1.0 is in App
+ * Review. A café-line build is never an App Store submission candidate. Every
+ * other normal-audience rule (explicit expected SHA, source/workflow/checkout
+ * SHA equality) applies to both refs alike.
+ */
+export const NORMAL_AUDIENCE_REFS = Object.freeze([IOS_1_0_RELEASE_REF, CAFE_WORLD_INTEGRATION_REF])
 const SHA = /^[0-9a-f]{40}$/i
 const AUDIENCES = new Set(['developer', 'normal', 'open-source'])
 
@@ -26,8 +37,8 @@ export function validateTestflightDispatch({
   }
 
   if (audience === 'normal') {
-    if (sourceRef !== IOS_1_0_RELEASE_REF) {
-      errors.push(`normal audience requires ${IOS_1_0_RELEASE_REF}`)
+    if (!NORMAL_AUDIENCE_REFS.includes(sourceRef)) {
+      errors.push(`normal audience requires one of ${NORMAL_AUDIENCE_REFS.join(', ')}`)
     }
     if (!SHA.test(expectedSourceSha)) {
       errors.push('normal audience requires an explicit full expected source SHA')

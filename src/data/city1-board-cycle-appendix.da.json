@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "27c4bc226701cf9936ae9c6f60e3bded3581c0bca4a54a47c8571ace6ae2d455",
+  "appendixSha256": "61aa68ea1bbf551cfbe0a2535f174de103ea63c11716501786a667a25c85490a",
+  "boards": [
+    {
+      "id": "bank_151",
+      "seedHex": "00007538",
+      "firstGiver": "player",
+      "greenOverlap": 3,
+      "wordIds": [
+        "da:krone",
+        "da:lyst",
+        "da:sjov",
+        "da:sikker",
+        "da:verden",
+        "da:måned",
+        "da:mulig",
+        "da:stor",
+        "da:gang",
+        "da:bil",
+        "da:vej",
+        "da:år",
+        "da:land",
+        "da:rejse",
+        "da:uge",
+        "da:tid",
+        "da:komme",
+        "da:person"
+      ],
+      "playerGreenIds": [
+        "da:måned",
+        "da:tid",
+        "da:lyst",
+        "da:gang",
+        "da:uge",
+        "da:år",
+        "da:krone",
+        "da:person"
+      ],
+      "aiGreenIds": [
+        "da:lyst",
+        "da:gang",
+        "da:tid",
+        "da:bil",
+        "da:rejse",
+        "da:vej",
+        "da:mulig",
+        "da:sikker"
+      ]
+    },
+    {
+      "id": "bank_152",
+      "seedHex": "00007537",
+      "firstGiver": "ai",
+      "greenOverlap": 1,
+      "wordIds": [
+        "da:sidde",
+        "da:verden",
+        "da:møde",
+        "da:forskellig",
+        "da:nå",
+        "da:land",
+        "da:grund",
+        "da:mening",
+        "da:time",
+        "da:bus",
+        "da:musik",
+        "da:tænke",
+        "da:klar",
+        "da:svær",
+        "da:dyr",
+        "da:prøve",
+        "da:lang",
+        "da:liv"
+      ],
+      "playerGreenIds": [
+        "da:grund",
+        "da:land",
+        "da:verden",
+        "da:liv",
+        "da:dyr",
+        "da:musik",
+        "da:nå",
+        "da:lang"
+      ],
+      "aiGreenIds": [
+        "da:time",
+        "da:bus",
+        "da:lang",
+        "da:prøve",
+        "da:svær",
+        "da:tænke",
+        "da:forskellig",
+        "da:mening"
+      ]
+    },
+    {
+      "id": "bank_153",
+      "seedHex": "00002730",
+      "firstGiver": "player",
+      "greenOverlap": 2,
+      "wordIds": [
+        "da:film",
+        "da:lave",
+        "da:billede",
+        "da:mening",
+        "da:land",
+        "da:god",
+        "da:bo",
+        "da:se",
+        "da:sige",
+        "da:mulig",
+        "da:musik",
+        "da:møde",
+        "da:liv",
+        "da:hedde",
+        "da:tage",
+        "da:sidde",
+        "da:år",
+        "da:menneske"
+      ],
+      "playerGreenIds": [
+        "da:billede",
+        "da:møde",
+        "da:se",
+        "da:bo",
+        "da:sidde",
+        "da:tage",
+        "da:hedde",
+        "da:sige"
+      ],
+      "aiGreenIds": [
+        "da:billede",
+        "da:film",
+        "da:musik",
+        "da:menneske",
+        "da:bo",
+        "da:land",
+        "da:mulig",
+        "da:lave"
+      ]
+    },
+    {
+      "id": "bank_154",
+      "seedHex": "00004e34",
+      "firstGiver": "ai",
+      "greenOverlap": 3,
+      "wordIds": [
+        "da:hedde",
+        "da:eksempel",
+        "da:tænke",
+        "da:tro",
+        "da:sige",
+        "da:tvivl",
+        "da:synes",
+        "da:bruge",
+        "da:læse",
+        "da:navn",
+        "da:snakke",
+        "da:gang",
+        "da:nå",
+        "da:side",
+        "da:vide",
+        "da:skole",
+        "da:forskellig",
+        "da:historie"
+      ],
+      "playerGreenIds": [
+        "da:hedde",
+        "da:sige",
+        "da:navn",
+        "da:side",
+        "da:læse",
+        "da:historie",
+        "da:vide",
+        "da:skole"
+      ],
+      "aiGreenIds": [
+        "da:side",
+        "da:læse",
+        "da:skole",
+        "da:tænke",
+        "da:tvivl",
+        "da:synes",
+        "da:forskellig",
+        "da:gang"
+      ]
+    }
+  ]
+}

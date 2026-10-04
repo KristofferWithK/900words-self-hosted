@@ -52,7 +52,7 @@ export const settings: Catalogue['settings'] = {
   baseUrlUnusable: 'Esse URL base não pode ser usado.',
 
   // ── o modelo no dispositivo ──────────────────────────────────────────────
-  gemmaUnavailableNote: 'O modo sem ligação funciona na app do 900words para iPhone.',
+  gemmaUnavailableNote: 'O modo sem ligação funciona nas apps do 900words para iPhone e Android.',
   gemmaReady: (size) => `A Casey sem ligação está pronta (${size} neste iPhone).`,
   gemmaRemoveConfirm: 'Remover a Casey sem ligação deste iPhone? Podes voltar a descarregá-la mais tarde.',
   gemmaRemoveButton: 'Remover a Casey sem ligação',
@@ -85,6 +85,11 @@ export const settings: Catalogue['settings'] = {
   ownKeyAnswered: 'O teu serviço de IA respondeu.',
   gemmaOption: 'Gemma neste iPhone',
   gemmaOptionHelp: 'A Casey joga neste iPhone, sem internet e sem chave. É mais lenta.',
+  ossCaseyHelpAndroid: 'Este 900words foi compilado por ti. A Casey precisa de uma IA para jogar: a tua própria chave de IA ou o Gemma neste telemóvel Android.',
+  gemmaOptionAndroid: 'Gemma neste telemóvel Android',
+  gemmaOptionHelpAndroid: 'A Casey joga neste telemóvel Android, sem internet e sem chave. É mais lenta.',
+  ossGemmaFirstRunAndroid: (size, phones, lowMemory) =>
+    `Este 900words compilado por ti joga com a Casey neste telemóvel Android: sem conta nem chave. O Gemma só precisa de ser descarregado uma vez (${size}). Usa Wi-Fi e mantém o 900words aberto até terminar.\n\nFunciona melhor num telemóvel Android recente com pelo menos 12 GB de memória, por exemplo ${phones}.${lowMemory ? '\n\nEste telemóvel tem menos memória do que os modelos recomendados; pode não funcionar bem.' : ''}\n\nTambém podes adicionar a tua própria chave de IA nas Definições.\n\nDescarregar a Casey agora?`,
   serverOption: 'O teu próprio servidor da Casey',
   serverOptionHelp: 'Um Worker da Casey que tu próprio implementaste (vê o README).',
   // Gemma in the browser, in the desktop self-build (src/ai/gemma/web.ts).
@@ -106,6 +111,17 @@ export const settings: Catalogue['settings'] = {
   ossOfflineHelp: 'A Casey oferece-se então para acabar a ronda com a Gemma. Da primeira vez, isto descarrega-a.',
   ossGemmaFirstRun: (size, iphones, lowMemory) =>
     `Este 900words joga com a Casey no teu iPhone: sem conta e sem chave. É uma transferência única (${size}). Usa Wi-Fi e mantém o 900words aberto até terminar.\n\nPrecisa de um iPhone mais recente: ${iphones}.${lowMemory ? '\n\nEste iPhone tem menos memória do que esses modelos. Pode não funcionar nele.' : ''}\n\nTambém podes adicionar a tua própria chave de IA nas Definições.\n\nDescarregar a Casey agora?`,
+  // ── a Casey sem ligação no Android ────────────────────────────────────────
+  gemmaUnsupportedAndroidNote:
+    'A Casey sem ligação precisa de um telemóvel Android mais recente: Android 12 ou mais recente e pelo menos 8 GB de memória. Este telemóvel não tem isso.',
+  gemmaReadyAndroid: (size) => `A Casey sem ligação está pronta (${size} neste telemóvel).`,
+  gemmaRemoveConfirmAndroid:
+    'Remover a Casey sem ligação deste telemóvel? Podes voltar a descarregá-la mais tarde.',
+  offlineModeHelpAndroid:
+    'A Casey normal joga a partir do servidor do 900words. Com o modo sem ligação, podes acabar uma ronda com a Casey sem ligação neste telemóvel quando não há internet. Ela é mais lenta.',
+  offlineModeExplainAndroid: (size, phones, lowMemory) =>
+    `O modo sem ligação é experimental e ainda está a ser melhorado.\n\nO modo sem ligação descarrega a Casey sem ligação (${size}) para este telemóvel. Usa Wi-Fi e mantém o 900words aberto até a transferência terminar.\n\nA Casey sem ligação joga mais devagar do que a Casey normal.\n\nPrecisa de um telemóvel Android mais recente com 12 GB de memória ou mais, por exemplo ${phones}.${lowMemory ? '\n\nEste telemóvel tem menos memória do que isso. Pode não funcionar nele.' : ''}\n\nDescarregar agora?`,
+  gemmaAnsweredAndroid: 'A Gemma respondeu neste telemóvel.',
 
   // ── o teste de ligação ───────────────────────────────────────────────────
   testRunning: 'A testar…',
@@ -257,4 +273,37 @@ export const settings: Catalogue['settings'] = {
   learnerLanguagePreviewTag: "prévia",
   learnerLanguagePreviewHelp: "O alemão é uma prévia: o mapa e o Guia de viagem já estão disponíveis, mas o jogo de palavras ainda não. As lições ainda não foram revistas por uma pessoa de língua materna alemã.",
   playtestTravelHelp: "Para avançar, abre o mapa, escolhe uma paragem mais à frente e toca em Viajar mais à frente. Nenhuma palavra é embrulhada e não ganhas progresso de aprendizagem. Desativa esta opção para voltares a testar as condições normais da viagem.",
+
+  // ── Google Play review access (Android store build only) ───────────────
+  reviewAccessHeading: 'Acesso para a revisão do Google Play',
+  reviewAccessHelp: 'Apenas para a revisão da app pelo Google Play. Introduz o código de revisão das instruções para desbloquear o jogo ilimitado neste dispositivo.',
+  reviewAccessLabel: 'Código de revisão',
+  reviewAccessUnlock: 'Desbloquear',
+  reviewAccessChecking: 'A verificar…',
+  reviewAccessOn: (date: string) =>
+    `O acesso de revisão está ativo. O jogo ilimitado está desbloqueado neste dispositivo até ${date}.`,
+  reviewAccessInvalid: 'Esse código de revisão não foi aceite.',
+  reviewAccessRateLimited: 'Demasiadas tentativas. Tenta outra vez amanhã.',
+  reviewAccessError: 'Não foi possível verificar o código. Verifica a ligação à internet e tenta outra vez.',
+
+  // ── O teu plano (só nas versões das lojas). Apple no iOS, Google Play no Android.
+  planHeading: 'O teu plano',
+  planFreeShort: 'Grátis',
+  planUnlimitedShort: 'Ilimitado',
+  planChipAria: (plan: string) => `O teu plano: ${plan}`,
+  planChecking: 'A verificar o teu plano com a Apple.',
+  planCheckingPlay: 'A verificar o teu plano com o Google Play.',
+  planFree: 'Plano gratuito. Dois passeios e dois enigmas do café por dia.',
+  planMonthly: 'Jogos ilimitados. Subscrição mensal. Renova todos os meses até a cancelares.',
+  planLifetime: 'Jogos ilimitados. Pagamento único. Nada é renovado.',
+  planBoth: 'Já tens o pagamento único. A tua subscrição mensal continua ativa e já não precisas dela. Cancela-a para não voltares a pagar.',
+  planError: 'A Apple não conseguiu verificar o teu plano agora. Tenta novamente mais tarde.',
+  planErrorPlay: 'O Google Play não conseguiu verificar o teu plano agora. Tenta novamente mais tarde.',
+  planGetUnlimited: 'Jogar sem limite',
+  planManage: 'Gerir ou cancelar a subscrição',
+  planSwitch: 'Mudar para pagamento único',
+  planSwitchNote: 'O pagamento único dá-te jogos ilimitados para sempre. Não termina a tua subscrição mensal. Depois de o comprares, cancela a subscrição mensal na tua Conta Apple, ou continuarás a pagar as duas.',
+  planSwitchNotePlay: 'O pagamento único dá-te jogos ilimitados para sempre. Não termina a tua subscrição mensal. Depois de o comprares, cancela a subscrição mensal no Google Play, ou continuarás a pagar as duas.',
+  planBuyFor: (price: string) => `Comprar por ${price}`,
+  planNotNow: 'Agora não',
 }

@@ -14,6 +14,7 @@
 // key changing shape between versions) has already been a real hazard here.
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const PORT = 4198
@@ -24,6 +25,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 const crashes = []
 page.on('pageerror', (e) => crashes.push(String(e)))
@@ -197,6 +200,9 @@ try {
       sessionStorage.setItem('__repeat_v1_injected', '1')
     }
   }, legacy)
+  // The clear above also took the found café the first init script seeded:
+  // seed it again after it, so the migrated device can still deal its board.
+  await page.addInitScript(mergeFirstCafe, seedArgs('da'))
   // `fresh=1` abandons persisted state before hydration. A migration assertion
   // must boot the injected v1 bytes instead of clearing the very seam it claims
   // to cover.

@@ -46,6 +46,7 @@ export const game: Catalogue['game'] = {
 
   cardYourTarget: ', twój cel',
   cardFound: ', znalezione',
+  cardMissedKey: ', jedno ze słów Casey, nieznalezione',
   cardNeutralBoth: ', neutralne dla obu stron',
   cardNeutralPlayer: ', neutralne pod twoimi wskazówkami',
   cardNeutralCasey: ', neutralne pod wskazówkami Casey',
@@ -100,7 +101,11 @@ export const game: Catalogue['game'] = {
   wheelSpinAria: 'Zakręć kołem',
   wheelSpinning: 'Kręci się …',
   wheelWonLine: 'Zielone! Runda wygrana.',
-  wheelMissLine: 'Koło zatrzymało się na nieupakowanej walizce.',
+  wheelMissLine: 'Nie zielone. Runda przegrana.',
+  wheelLedeMissed: (found, total, language) =>
+    `Znaleziono ${found} z ${total}. Dla słów, które zostały na planszy, koło zostaje szare. Wpisz resztę na ${language}, a potem zakręć.`,
+  wheelAnswersLine: 'Szare słowa to brakujące odpowiedzi.',
+  wheelSeeResults: 'Zobacz wyniki',
   phaseTranslateChallenge: 'Czas na tłumaczenie',
   settlementFailed: 'Nie udało się jeszcze zapisać wyniku. Zachowaj tę rundę i spróbuj ponownie.',
   settlementSaving: 'Zapisywanie wyniku…',
@@ -117,6 +122,11 @@ export const game: Catalogue['game'] = {
   offlineCaseyIsThinking: 'Casey offline myśli. To potrwa dłużej.',
   offlineRoundPrompt: 'Brak internetu. Dokończyć tę rundę z Casey offline? Jest wolniejsza.',
   playOfflineButton: 'Graj offline',
+  onlineAgainTitle: 'Internet wrócił',
+  onlineAgainBody:
+    'Dokończyć tę rundę ze zwykłą Casey? Jest szybsza i gra lepiej. Jeśli połączenie ciągle się zrywa, pozostanie offline może być stabilniejsze.',
+  playOnlineButton: 'Graj online',
+  stayOfflineButton: 'Zostań offline',
   hurryCaseyTitle: 'Dotknij, by pogonić Casey',
   hurryCaseyHint: 'Dotknij tutaj, by pogonić Casey.',
   caseyGuessedWord: (word) => `Casey obstawiła «${word}».`,
@@ -285,7 +295,6 @@ export const game: Catalogue['game'] = {
   reviewShowTranslation: 'Pokaż tłumaczenie',
   reviewHideTranslation: 'Ukryj tłumaczenie',
   reviewAboutWord: 'O tym słowie',
-  reviewHighFrequencyWord: 'Częste słowo:',
   reviewNoNotes: 'Brak notatek o słowie.',
   reviewNextSentence: 'Następne zdanie',
   reviewNothingThisRound:

@@ -28,15 +28,19 @@
     "validate:deal-index": "node scripts/generate-deal-index.mjs --check",
     "validate:legal-index-clues": "node scripts/generate-legal-index-clues.mjs --check",
     "drives": "node scripts/run-drives.mjs",
-    "verify": "npm run typecheck && npm run validate:literals && npm run test && npm run validate:words && npm run validate:grammar && npm run validate:curriculum && npm run validate:examples && npm run validate:audio && npm run validate:review-sentences && npm run validate:audio-acoustics && npm run validate:ui-sfx && npm run validate:coverage-claims && npm run validate:matrix && npm run validate:book && npm run validate:clue-lexicon && npm run validate:legal-index-clues && npm run drives",
+    "verify": "npm run typecheck && npm run validate:literals && npm run test && npm run validate:words && npm run validate:grammar && npm run validate:curriculum && npm run validate:examples && npm run validate:audio && npm run validate:review-sentences && npm run validate:audio-acoustics && npm run validate:ui-sfx && npm run validate:board-set && npm run validate:german-course && npm run validate:coverage-claims && npm run validate:matrix && npm run validate:book && npm run validate:clue-lexicon && npm run validate:legal-index-clues && npm run drives",
+    "validate:board-set": "node scripts/select-city1-board-set-v2.mjs --check",
+    "validate:german-course": "node scripts/german-city1-course.mjs --check",
     "validate:coverage-claims": "node scripts/validate-coverage-claims.mjs",
     "measure:spoken-coverage": "node scripts/measure-spoken-coverage.mjs",
     "measure:shipped-coverage": "node scripts/measure-shipped-coverage.mjs",
     "validate:literals": "node scripts/validate-literals.mjs",
     "build:web-demo": "node scripts/build-web-demo.mjs",
-    "ios": "CAP_BUILD=1 npm run build && npx cap sync ios && npx cap open ios"
+    "ios": "CAP_BUILD=1 npm run build && npx cap sync ios && npx cap open ios",
+    "android": "CAP_BUILD=1 npm run build && npx cap sync android && npx cap open android"
   },
   "dependencies": {
+    "@capacitor/android": "8.5.0",
     "@capacitor/core": "^8.5.0",
     "@capacitor/haptics": "^8.0.2",
     "@capacitor/ios": "^8.5.0",
@@ -64,5 +68,5 @@
     "wrangler": "4.130.0"
   },
   "license": "MPL-2.0",
-  "description": "900words, built yourself: a Danish vocabulary game with Casey, on your iPhone or in your browser."
+  "description": "900words, built yourself: a Danish vocabulary game with Casey, on your iPhone, your Android phone or in your browser."
 }

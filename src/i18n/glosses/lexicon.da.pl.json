@@ -212,6 +212,10 @@
   "gloss": "anatomia"
  },
  {
+  "da": "anden",
+  "gloss": "inny, drugi"
+ },
+ {
   "da": "anderledes",
   "gloss": "inny"
  },
@@ -408,6 +412,10 @@
   "gloss": "fotelik samochodowy"
  },
  {
+  "da": "autoværn",
+  "gloss": "bariera ochronna"
+ },
+ {
   "da": "baby",
   "gloss": "niemowlę"
  },
@@ -586,6 +594,10 @@
  {
   "da": "bedstemor",
   "gloss": "babcia"
+ },
+ {
+  "da": "bedømmelse",
+  "gloss": "ocena"
  },
  {
   "da": "befinde",
@@ -1274,14 +1286,6 @@
  {
   "da": "børn",
   "gloss": "dzieci"
- },
- {
-  "da": "børneopdragelse",
-  "gloss": "wychowanie dzieci"
- },
- {
-  "da": "børnesang",
-  "gloss": "piosenka dla dzieci"
  },
  {
   "da": "børste",
@@ -2454,10 +2458,6 @@
  {
   "da": "forhindring",
   "gloss": "przeszkoda"
- },
- {
-  "da": "forhistorisk",
-  "gloss": "prehistoryczny"
  },
  {
   "da": "forhold",
@@ -3860,10 +3860,6 @@
   "gloss": "zakupy"
  },
  {
-  "da": "indkørsel",
-  "gloss": "podjazd"
- },
- {
   "da": "indlede",
   "gloss": "rozpocząć"
  },
@@ -4978,6 +4974,10 @@
  {
   "da": "køretøj",
   "gloss": "pojazd"
+ },
+ {
+  "da": "kørsel",
+  "gloss": "jazda"
  },
  {
   "da": "lag",
@@ -6276,10 +6276,6 @@
   "gloss": "oświecony, oświetlony"
  },
  {
-  "da": "oplæsning",
-  "gloss": "czytanie na głos"
- },
- {
   "da": "opløse",
   "gloss": "rozpuszczać"
  },
@@ -7224,6 +7220,10 @@
   "gloss": "pasażer"
  },
  {
+  "da": "rejsetid",
+  "gloss": "czas podróży"
+ },
+ {
   "da": "reklame",
   "gloss": "reklama"
  },
@@ -7600,10 +7600,6 @@
   "gloss": "współpraca"
  },
  {
-  "da": "samkørsel",
-  "gloss": "wspólne dojazdy"
- },
- {
   "da": "samles",
   "gloss": "zbierać się"
  },
@@ -7650,6 +7646,10 @@
  {
   "da": "sandslot",
   "gloss": "zamek z piasku"
+ },
+ {
+  "da": "sandsynlig",
+  "gloss": "prawdopodobny"
  },
  {
   "da": "sandt",
@@ -8510,10 +8510,6 @@
  {
   "da": "stamtræ",
   "gloss": "drzewo genealogiczne"
- },
- {
-  "da": "standse",
-  "gloss": "zatrzymać"
  },
  {
   "da": "stang",
@@ -10150,6 +10146,10 @@
  {
   "da": "vugge",
   "gloss": "kołyska"
+ },
+ {
+  "da": "vurdering",
+  "gloss": "ocena, osąd"
  },
  {
   "da": "våben",

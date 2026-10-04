@@ -1,0 +1,206 @@
+/* ---------- Casey, alive ----------
+
+   A face that holds still is a picture of a suitcase. Four things make it a
+   character, and none of them are big: he blinks, his eyes drift, he breathes,
+   and he reacts to how the round is going.
+
+   transform-box: fill-box on every animated shape is load-bearing. An SVG
+   child's transform origin is the viewBox corner by default, so scaling an eye
+   to blink without it swings the eye across the lid instead of closing it. */
+
+.cluey-hatch line {
+  stroke: rgba(18, 18, 18, 0.26);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+/* The mood parts ride along in the markup and are switched here, so changing
+   expression never remounts the SVG mid-animation. */
+.cluey-arc,
+.cluey-brow,
+.cluey-mouth-o {
+  display: none;
+  stroke: var(--text);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.cluey-mouth-o {
+  stroke-width: 2.6;
+}
+
+.cluey-eye-g,
+.cluey-pupil,
+.cluey-figure {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.cluey-figure {
+  /* Bottom-centre, so a hop lifts him off the ground rather than about his
+     middle, and a breath settles rather than shrinks. */
+  transform-origin: 50% 92%;
+  animation: cluey-breathe 3.6s ease-in-out infinite;
+}
+
+.cluey-eye-g {
+  animation: cluey-blink 5.2s infinite;
+}
+
+/* A second face on screen blinking in lockstep with the first reads as a
+   machine, so the small one is offset. */
+.cluey-mini .cluey-eye-g {
+  animation-duration: 4.3s;
+}
+
+.cluey-pupil {
+  animation: cluey-wander 9s ease-in-out infinite;
+}
+
+/* While the pointer is near him the eyes follow it, so the drift stands down
+   rather than fighting the inline transform the handler writes. The class goes
+   on the wrapper, which is what the handler holds a ref to. */
+.cluey-live {
+  display: block;
+}
+
+.cluey-looking .cluey-pupil {
+  animation: none;
+  transition: transform 0.12s ease-out;
+}
+
+@keyframes cluey-blink {
+  0%,
+  92%,
+  95%,
+  100% {
+    transform: scaleY(1);
+  }
+  93.5% {
+    transform: scaleY(0.06);
+  }
+}
+
+@keyframes cluey-wander {
+  0%,
+  16% {
+    transform: translate(0, 0);
+  }
+  22%,
+  40% {
+    transform: translate(-2.1px, 0.4px);
+  }
+  46%,
+  64% {
+    transform: translate(2.1px, -0.3px);
+  }
+  70%,
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes cluey-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(0.8px) scaleY(0.988);
+  }
+}
+
+/* Happy: the eyes become arcs and he hops. Used when a guess lands green, and
+   on a tap, because a mascot that never reacts to being poked is furniture. */
+.mood-happy .cluey-eye,
+.mood-happy .cluey-pupil {
+  display: none;
+}
+
+.mood-happy .cluey-arc {
+  display: block;
+}
+
+.mood-happy .cluey-figure {
+  animation: cluey-hop 0.6s ease-in-out;
+}
+
+@keyframes cluey-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  30% {
+    transform: translateY(-7px) scale(0.98, 1.03);
+  }
+  60% {
+    transform: translateY(0) scale(1.03, 0.96);
+  }
+}
+
+/* Thinking: eyes up and away, one brow raised, a slow sway. This is the state
+   the player watches while a model is answering, so it has to be worth
+   watching for a couple of seconds without becoming a distraction. */
+.mood-thinking .cluey-pupil {
+  animation: none;
+  transform: translate(-1.6px, -2.1px);
+}
+
+.mood-thinking .cluey-brow {
+  display: block;
+}
+
+.mood-thinking .cluey-figure {
+  animation: cluey-sway 2.8s ease-in-out infinite;
+}
+
+@keyframes cluey-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.4deg);
+  }
+}
+
+/* Caught out: small pupils, round mouth, a flinch. */
+.mood-oops .cluey-pupil {
+  animation: none;
+  transform: scale(0.62);
+}
+
+.mood-oops .cluey-smile {
+  display: none;
+}
+
+.mood-oops .cluey-mouth-o {
+  display: block;
+}
+
+.mood-oops .cluey-figure {
+  animation: cluey-shake 0.42s linear;
+}
+
+@keyframes cluey-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2.5px);
+  }
+  50% {
+    transform: translateX(2.2px);
+  }
+  75% {
+    transform: translateX(-1.4px);
+  }
+}
+
+/* Casey in a dock, next to what he is saying. */
+.cluey-mini {
+  width: 44px;
+  flex: none;
+}
+

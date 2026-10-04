@@ -4,7 +4,7 @@ import { BOARD } from '../../engine/config'
 import { createGame } from '../../engine/game'
 import { WORDS } from '../../data/words'
 import type { GameState } from '../../engine/types'
-import { BoardGrid, playerKeyHidden } from './BoardGrid'
+import { BoardGrid, playerKeyHidden, wheelBoardActive } from './BoardGrid'
 
 const game = createGame({
   config: BOARD,
@@ -197,10 +197,11 @@ describe('the wheel phase board treatments (owner, 2026-09-17)', () => {
         onInfoTap={() => undefined}
         dictionaryLocked={state.phase === 'translateChallenge' || state.phase === 'translateWheel'}
         englishFace={() => false}
-        // GameScreen's split predicate (owner, build 90): the lid words and
-        // the dimming are the CHALLENGE's; the won-spin board is empty.
-        wheelActive={state.phase === 'translateChallenge'}
+        // GameScreen's predicate (owner, 2026-09-27): the wheel's board runs
+        // from the challenge through the filled wheel to the post-spin review.
+        wheelActive={wheelBoardActive(state, true)}
         wheelSolved={(wordId) => state.wheel?.translated.includes(wordId) ?? false}
+        wheelAnswers={wheelBoardActive(state, true) && !!state.wheel?.result}
       />,
     )
 
@@ -219,19 +220,84 @@ describe('the wheel phase board treatments (owner, 2026-09-17)', () => {
     expect(render(wheelGame('playerGuessing'))).not.toContain('card-dimmed')
   })
 
-  it('won-spin board (translateWheel): empty suitcases, full-strength cards, key visible', () => {
+  it('filled wheel (translateWheel): the lids, the checks and the dimming stay on', () => {
+    // The won-spin chooser board this used to pin is gone (owner, 2026-09-18);
+    // the filled wheel is still the challenge's board, waiting for the spin.
     const html = render(wheelGame('translateWheel'))
-    // No dimming at all — the non-suitcase cards are full strength.
-    expect(html).not.toContain('card-dimmed')
-    // And the suitcases are EMPTY: no lid word renders in translateWheel.
-    const lidWord = game.words[0].en[0]
-    expect(html).not.toContain(`card-lid-word`)
-    expect(html).not.toContain(lidWord)
-    expect(html).not.toContain('card-wheel-packed')
-    expect(html).not.toContain('card-packed-check')
-    // The key is shown (translateWheel reads like playerClueInput), so the
-    // solved suitcases still carry their mykey mark.
+    expect(html).toContain('card-dimmed')
+    expect(html).toContain('card-lid-word')
+    expect(html).toContain(game.words[0].en[0])
+    expect(html.split('card-packed-check').length - 1).toBe(2)
+    // Your key is still shown on the cards that are not suitcases.
     expect(html).toContain('mykey-green')
+  })
+
+  it('marks the key words the round missed: Casey\'s dashed, yours with your own border', () => {
+    const state = wheelGame('translateChallenge')
+    const cardFor = (html: string, wordId: string) => {
+      const da = state.words.find((word) => word.wordId === wordId)!.da
+      return [...html.matchAll(/<button class="([^"]*word-card[^"]*)"[^>]*aria-label="([^"]*)"[^>]*>([\s\S]*?)<\/button>/g)]
+        .find(([, , , body]) => body.includes(`>${da}<`))!
+    }
+    const hidden = state.words.filter((word) => state.reveals[word.wordId]!.kind === 'hidden')
+    const casey = hidden.find((word) => state.aiKey[word.wordId] === 'green' && state.playerKey[word.wordId] !== 'green')!
+    const yours = hidden.find((word) => state.playerKey[word.wordId] === 'green')!
+    const neither = hidden.find((word) => state.aiKey[word.wordId] !== 'green' && state.playerKey[word.wordId] !== 'green')!
+    const html = render(state)
+
+    const [, caseyClass, caseyName, caseyBody] = cardFor(html, casey.wordId)
+    expect(caseyClass).toContain('card-wheel-missed')
+    expect(caseyClass).toContain('card-dimmed')
+    expect(caseyBody).toContain('card-missed-frame')
+    expect(caseyName).toContain('one of Casey')
+
+    const [, yoursClass, , yoursBody] = cardFor(html, yours.wordId)
+    expect(yoursClass).toContain('mykey-green')
+    expect(yoursClass).toContain('card-dimmed')
+    expect(yoursClass).not.toContain('card-wheel-missed')
+    expect(yoursBody).not.toContain('card-missed-frame')
+
+    const [, neitherClass, neitherName] = cardFor(html, neither.wordId)
+    expect(neitherClass).not.toContain('card-wheel-missed')
+    expect(neitherName).not.toContain('one of Casey')
+
+    // Outside the wheel phase nothing is marked: the key stays Casey's secret.
+    expect(render(wheelGame('playerGuessing'))).not.toContain('card-wheel-missed')
+  })
+
+  it('after the spin every lid shows its Danish: typed in green, the rest as the answer', () => {
+    const state = wheelGame('translateChallenge')
+    const [typed, untyped] = state.wheel!.segments
+    const spun: GameState = {
+      ...state,
+      phase: 'finished',
+      wheel: { ...state.wheel!, translated: [typed!], filled: [0], landed: 1, result: 'miss' },
+    }
+    const html = render(spun)
+    const suitcases = [...html.matchAll(/<button class="([^"]*word-card[^"]*)"[^>]*aria-label="([^"]*)"[^>]*>([\s\S]*?)<\/button>/g)]
+      .filter(([, , , body]) => body.includes('card-suitcase-glyph'))
+    expect(suitcases).toHaveLength(2)
+    for (const [className, name, body] of suitcases.map(([, c, n, b]) => [c, n, b] as const)) {
+      const word = state.words.find((entry) => body.includes(`>${entry.da}<`) || body.includes(`</span>${entry.da}<`))!
+      expect(word).toBeDefined()
+      // The meaning gives way to the Danish, on the lid and in the name.
+      expect(body).toContain('card-lid-answer')
+      expect(body).not.toContain(`>${word.en[0]}<`)
+      expect(name).toContain(word.da)
+      if (word.wordId === typed) {
+        expect(body).toContain('card-lid-yours')
+        expect(className).toContain('card-wheel-packed')
+      } else {
+        expect(word.wordId).toBe(untyped)
+        expect(body).not.toContain('card-lid-yours')
+        expect(className).toContain('card-wheel-unpacked')
+      }
+    }
+    // The review board stays dimmed and still, like the challenge's.
+    expect(html).toContain('card-dimmed')
+    expect(html).not.toContain('card-border-motion')
+    // Before the spin the lids still carry the meaning.
+    expect(render(state)).not.toContain('card-lid-answer')
   })
 
   it('challenge board (translateChallenge): lid words and dimming on', () => {

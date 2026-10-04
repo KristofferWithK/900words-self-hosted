@@ -1,0 +1,76 @@
+/* ---------- the website demo (900words.app/play/) ----------
+
+   Its end card stands where the app's Home would, and its resting overlay
+   covers a round Casey will not answer today. Both are fixed or flex within
+   the viewport, so the no-scroll rule holds. */
+.demo-end {
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+}
+
+.demo-end-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 340px);
+}
+
+.demo-end-actions .btn {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.demo-app-soon {
+  margin: 0;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.demo-resting {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(20, 20, 20, 0.55);
+}
+
+.demo-resting-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 340px);
+  padding: 20px 18px;
+  border: 2px solid var(--text);
+  border-radius: 14px 12px 15px 13px / 13px 15px 12px 14px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.demo-resting-card h2 {
+  margin: 0;
+  font-family: var(--serif);
+}
+
+.demo-resting-card p {
+  margin: 0;
+}
+
+.demo-resting-card .btn {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.turnstile-slot {
+  position: fixed;
+  left: 50%;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 60;
+  transform: translateX(-50%);
+}

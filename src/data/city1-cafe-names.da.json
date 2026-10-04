@@ -1,0 +1,1805 @@
+{
+  "language": "da",
+  "city": 0,
+  "cityName": "Sønderborg",
+  "status": "draft: every name needs a Danish speaker check",
+  "about": [
+    "100 default café names for Sønderborg (docs/roadmap/cafe-world.md section 5). Not assigned to boards; that is CW-08's job.",
+    "Every content word is a course word: a card word (wordId; courseCity is the city that teaches it, 1 = Sønderborg) or one of Sønderborg's connecting words (src/data/city1-connecting-words.da.json) or a ledger form the course teaches later (ved, under, og). \"Café\" itself is the frame, not a course word.",
+    "Capitals: every word of a name is capitalised except og, ved, i and under. A Danish speaker should confirm the style as well as the grammar.",
+    "signatureItem is the one item drawn from the name that lies on the café table (contract section 5). It is a suggestion in English for the artist, not player copy."
+  ],
+  "forms": {
+    "definite": "Café + one course word in its \"the\" form: -en for an en-word, -et for an et-word.",
+    "definite-plural": "Café + a course word in its plural \"the\" form (-ne, -ene, -erne).",
+    "adjective-definite": "den (en-word) or det (et-word) + the adjective with -e + the noun, as in \"Den Røde Dør\".",
+    "genitive": "Someone's place: the owner with -s, then the thing, as in \"Mors Køkken\".",
+    "pair": "Two course words joined by og.",
+    "compound": "One compound word in its \"the\" form, as in \"Kaffehuset\" or \"Strandcaféen\".",
+    "place": "A noun with ved, i or under, as in \"Huset ved Havet\".",
+    "phrase": "An everyday phrase built from Sønderborg's connecting words."
+  },
+  "count": 100,
+  "names": [
+    {
+      "id": "cafe-solen",
+      "name": "Café Solen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "sol",
+          "wordId": "da:sol",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Sun",
+      "signatureItem": "a sun-shaped sugar bowl",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-maanen",
+      "name": "Café Månen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "måne",
+          "wordId": "da:måne",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Moon",
+      "signatureItem": "a crescent-moon biscuit",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-stjernen",
+      "name": "Café Stjernen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "stjerne",
+          "wordId": "da:stjerne",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Star",
+      "signatureItem": "a star-shaped cookie",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-himlen",
+      "name": "Café Himlen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "himmel",
+          "wordId": "da:himmel",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Sky",
+      "signatureItem": "a kite",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-sneen",
+      "name": "Café Sneen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "sne",
+          "wordId": "da:sne",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Snow",
+      "signatureItem": "a snow globe",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-havet",
+      "name": "Café Havet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "hav",
+          "wordId": "da:hav",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Sea",
+      "signatureItem": "a seashell",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-stranden",
+      "name": "Café Stranden",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "strand",
+          "wordId": "da:strand",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Beach",
+      "signatureItem": "a bucket and spade",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-gaden",
+      "name": "Café Gaden",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "gade",
+          "wordId": "da:gade",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Street",
+      "signatureItem": "a street sign",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-kirken",
+      "name": "Café Kirken",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "kirke",
+          "wordId": "da:kirke",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Church",
+      "signatureItem": "a church bell",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-byen",
+      "name": "Café Byen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "by",
+          "wordId": "da:by",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Town",
+      "signatureItem": "a folded town map",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-skolen",
+      "name": "Café Skolen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "skole",
+          "wordId": "da:skole",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The School",
+      "signatureItem": "a slate and chalk",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-bogen",
+      "name": "Café Bogen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "bog",
+          "wordId": "da:bog",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Book",
+      "signatureItem": "an open book",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-blomsten",
+      "name": "Café Blomsten",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "blomst",
+          "wordId": "da:blomst",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Flower",
+      "signatureItem": "a single flower in a vase",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-hesten",
+      "name": "Café Hesten",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "hest",
+          "wordId": "da:hest",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Horse",
+      "signatureItem": "a horseshoe",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-hunden",
+      "name": "Café Hunden",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "hund",
+          "wordId": "da:hund",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Dog",
+      "signatureItem": "a dog bowl",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-kagen",
+      "name": "Café Kagen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "kage",
+          "wordId": "da:kage",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Cake",
+      "signatureItem": "a cake stand",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-traeet",
+      "name": "Café Træet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "træ",
+          "wordId": "da:træ",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Tree",
+      "signatureItem": "a twig with two leaves",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-lampen",
+      "name": "Café Lampen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "lampe",
+          "wordId": "da:lampe",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Lamp",
+      "signatureItem": "an oil lamp",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-vinduet",
+      "name": "Café Vinduet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "vindue",
+          "wordId": "da:vindue",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Window",
+      "signatureItem": "a pot of herbs from the windowsill",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-doeren",
+      "name": "Café Døren",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "dør",
+          "wordId": "da:dør",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Door",
+      "signatureItem": "a big old key",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-hjertet",
+      "name": "Café Hjertet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "hjerte",
+          "wordId": "da:hjerte",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Heart",
+      "signatureItem": "a heart-shaped biscuit",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-toget",
+      "name": "Café Toget",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "tog",
+          "wordId": "da:tog",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Train",
+      "signatureItem": "a toy train",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-bussen",
+      "name": "Café Bussen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "bus",
+          "wordId": "da:bus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Bus",
+      "signatureItem": "a bus ticket",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-osten",
+      "name": "Café Osten",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "ost",
+          "wordId": "da:ost",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Cheese",
+      "signatureItem": "a cheese board",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-maelken",
+      "name": "Café Mælken",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "mælk",
+          "wordId": "da:mælk",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Milk",
+      "signatureItem": "a milk jug",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-fisken",
+      "name": "Café Fisken",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "fisk",
+          "wordId": "da:fisk",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Fish",
+      "signatureItem": "a fishing float",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-aegget",
+      "name": "Café Ægget",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "æg",
+          "wordId": "da:æg",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Egg",
+      "signatureItem": "an egg cup",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-broen",
+      "name": "Café Broen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "bro",
+          "wordId": "da:bro",
+          "courseCity": 5
+        }
+      ],
+      "meaningEn": "The Bridge",
+      "signatureItem": "a postcard of a bridge",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-skoven",
+      "name": "Café Skoven",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "skov",
+          "wordId": "da:skov",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Forest",
+      "signatureItem": "a pine cone",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-soeen",
+      "name": "Café Søen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "sø",
+          "wordId": "da:sø",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Lake",
+      "signatureItem": "a paper boat",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-oeen",
+      "name": "Café Øen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "ø",
+          "wordId": "da:ø",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Island",
+      "signatureItem": "a toy lighthouse",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-skibet",
+      "name": "Café Skibet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "skib",
+          "wordId": "da:skib",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Ship",
+      "signatureItem": "a ship in a bottle",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-udsigten",
+      "name": "Café Udsigten",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "udsigt",
+          "wordId": "da:udsigt",
+          "courseCity": 9
+        }
+      ],
+      "meaningEn": "The View",
+      "signatureItem": "a pair of binoculars",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-sommerfuglen",
+      "name": "Café Sommerfuglen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "sommerfugl",
+          "wordId": "da:sommerfugl",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Butterfly",
+      "signatureItem": "a butterfly",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-skyen",
+      "name": "Café Skyen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "sky",
+          "wordId": "da:sky",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Cloud",
+      "signatureItem": "a cloud-shaped meringue",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-koppen",
+      "name": "Café Koppen",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "kop",
+          "wordId": "da:kop",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Cup",
+      "signatureItem": "an oversized cup",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-gaven",
+      "name": "Café Gaven",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "gave",
+          "wordId": "da:gave",
+          "courseCity": 5
+        }
+      ],
+      "meaningEn": "The Gift",
+      "signatureItem": "a wrapped present",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-lykken",
+      "name": "Café Lykken",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "lykke",
+          "wordId": "da:lykke",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "Happiness",
+      "signatureItem": "a four-leaf clover",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-glaeden",
+      "name": "Café Glæden",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "glæde",
+          "wordId": "da:glæde",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "Joy",
+      "signatureItem": "a balloon",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-vinden",
+      "name": "Café Vinden",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "vind",
+          "wordId": "da:vind",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Wind",
+      "signatureItem": "a pinwheel",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-bladet",
+      "name": "Café Bladet",
+      "form": "definite",
+      "sourceWords": [
+        {
+          "da": "blad",
+          "wordId": "da:blad",
+          "courseCity": 8
+        }
+      ],
+      "meaningEn": "The Leaf",
+      "signatureItem": "a fallen leaf",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-aeblerne",
+      "name": "Café Æblerne",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "æble",
+          "wordId": "da:æble",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Apples",
+      "signatureItem": "a basket of apples",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-vennerne",
+      "name": "Café Vennerne",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "ven",
+          "wordId": "da:ven",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Friends",
+      "signatureItem": "a deck of cards",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-soestrene",
+      "name": "Café Søstrene",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "søster",
+          "wordId": "da:søster",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Sisters",
+      "signatureItem": "two matching teacups",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-broedrene",
+      "name": "Café Brødrene",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "bror",
+          "wordId": "da:bror",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Brothers",
+      "signatureItem": "a chess board",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-kattene",
+      "name": "Café Kattene",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "kat",
+          "wordId": "da:kat",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Cats",
+      "signatureItem": "a cat basket",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-stjernerne",
+      "name": "Café Stjernerne",
+      "form": "definite-plural",
+      "sourceWords": [
+        {
+          "da": "stjerne",
+          "wordId": "da:stjerne",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Stars",
+      "signatureItem": "a telescope",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-roede-doer",
+      "name": "Den Røde Dør",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "rød",
+          "wordId": "da:rød",
+          "courseCity": 1
+        },
+        {
+          "da": "dør",
+          "wordId": "da:dør",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Red Door",
+      "signatureItem": "a brass door knocker",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "det-hvide-hus",
+      "name": "Det Hvide Hus",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "hvid",
+          "wordId": "da:hvid",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The White House",
+      "signatureItem": "a white teapot",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-sorte-kat",
+      "name": "Den Sorte Kat",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "sort",
+          "wordId": "da:sort",
+          "courseCity": 1
+        },
+        {
+          "da": "kat",
+          "wordId": "da:kat",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Black Cat",
+      "signatureItem": "a black cat figurine",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-lille-fugl",
+      "name": "Den Lille Fugl",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "lille",
+          "wordId": "da:lille",
+          "courseCity": 1
+        },
+        {
+          "da": "fugl",
+          "wordId": "da:fugl",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Little Bird",
+      "signatureItem": "a birdcage",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "det-store-trae",
+      "name": "Det Store Træ",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "stor",
+          "wordId": "da:stor",
+          "courseCity": 1
+        },
+        {
+          "da": "træ",
+          "wordId": "da:træ",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Big Tree",
+      "signatureItem": "a rope swing",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-gamle-bog",
+      "name": "Den Gamle Bog",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "gammel",
+          "wordId": "da:gammel",
+          "courseCity": 1
+        },
+        {
+          "da": "bog",
+          "wordId": "da:bog",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Old Book",
+      "signatureItem": "a pair of reading glasses",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-glade-ko",
+      "name": "Den Glade Ko",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "glad",
+          "wordId": "da:glad",
+          "courseCity": 1
+        },
+        {
+          "da": "ko",
+          "wordId": "da:ko",
+          "courseCity": 6
+        }
+      ],
+      "meaningEn": "The Happy Cow",
+      "signatureItem": "a cow-shaped milk jug",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-gule-cykel",
+      "name": "Den Gule Cykel",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "gul",
+          "wordId": "da:gul",
+          "courseCity": 3
+        },
+        {
+          "da": "cykel",
+          "wordId": "da:cykel",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Yellow Bicycle",
+      "signatureItem": "a bicycle bell",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-blaa-baad",
+      "name": "Den Blå Båd",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "blå",
+          "wordId": "da:blå",
+          "courseCity": 2
+        },
+        {
+          "da": "båd",
+          "wordId": "da:båd",
+          "courseCity": 4
+        }
+      ],
+      "meaningEn": "The Blue Boat",
+      "signatureItem": "a pair of oars",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-gode-ven",
+      "name": "Den Gode Ven",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "god",
+          "wordId": "da:god",
+          "courseCity": 2
+        },
+        {
+          "da": "ven",
+          "wordId": "da:ven",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Good Friend",
+      "signatureItem": "two cups on one tray",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "det-gamle-tog",
+      "name": "Det Gamle Tog",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "gammel",
+          "wordId": "da:gammel",
+          "courseCity": 1
+        },
+        {
+          "da": "tog",
+          "wordId": "da:tog",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Old Train",
+      "signatureItem": "a conductor's cap",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "det-groenne-hus",
+      "name": "Det Grønne Hus",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "grøn",
+          "wordId": "da:grøn",
+          "courseCity": 3
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Green House",
+      "signatureItem": "a potted plant",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-hvide-hest",
+      "name": "Den Hvide Hest",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "hvid",
+          "wordId": "da:hvid",
+          "courseCity": 1
+        },
+        {
+          "da": "hest",
+          "wordId": "da:hest",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The White Horse",
+      "signatureItem": "a white rocking horse",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-glade-kok",
+      "name": "Den Glade Kok",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "glad",
+          "wordId": "da:glad",
+          "courseCity": 1
+        },
+        {
+          "da": "kok",
+          "wordId": "da:kok",
+          "courseCity": 7
+        }
+      ],
+      "meaningEn": "The Happy Cook",
+      "signatureItem": "a chef's hat",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "det-lille-hus",
+      "name": "Det Lille Hus",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "lille",
+          "wordId": "da:lille",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Little House",
+      "signatureItem": "a dollhouse",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "den-hyggelige-stue",
+      "name": "Den Hyggelige Stue",
+      "form": "adjective-definite",
+      "sourceWords": [
+        {
+          "da": "hyggelig",
+          "wordId": "da:hyggelig",
+          "courseCity": 8
+        },
+        {
+          "da": "stue",
+          "wordId": "da:stue",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Cosy Living Room",
+      "signatureItem": "a knitted blanket",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "mors-koekken",
+      "name": "Mors Køkken",
+      "form": "genitive",
+      "sourceWords": [
+        {
+          "da": "mor",
+          "wordId": "da:mor",
+          "courseCity": 1
+        },
+        {
+          "da": "køkken",
+          "wordId": "da:køkken",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Mum's Kitchen",
+      "signatureItem": "a mixing bowl and whisk",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "fars-kaffe",
+      "name": "Fars Kaffe",
+      "form": "genitive",
+      "sourceWords": [
+        {
+          "da": "far",
+          "wordId": "da:far",
+          "courseCity": 1
+        },
+        {
+          "da": "kaffe",
+          "wordId": "da:kaffe",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Dad's Coffee",
+      "signatureItem": "a thermos flask",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "laererens-bord",
+      "name": "Lærerens Bord",
+      "form": "genitive",
+      "sourceWords": [
+        {
+          "da": "lærer",
+          "wordId": "da:lærer",
+          "courseCity": 1
+        },
+        {
+          "da": "bord",
+          "wordId": "da:bord",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Teacher's Table",
+      "signatureItem": "a globe",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "byens-stue",
+      "name": "Byens Stue",
+      "form": "genitive",
+      "sourceWords": [
+        {
+          "da": "by",
+          "wordId": "da:by",
+          "courseCity": 1
+        },
+        {
+          "da": "stue",
+          "wordId": "da:stue",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Town's Living Room",
+      "signatureItem": "a newspaper",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "kaffe-og-kage",
+      "name": "Kaffe og Kage",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "kaffe",
+          "wordId": "da:kaffe",
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "kage",
+          "wordId": "da:kage",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Coffee and Cake",
+      "signatureItem": "a slice of layer cake",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "ost-og-oel",
+      "name": "Ost og Øl",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "ost",
+          "wordId": "da:ost",
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "øl",
+          "wordId": "da:øl",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Cheese and Beer",
+      "signatureItem": "a cheese knife",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "broed-og-smoer",
+      "name": "Brød og Smør",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "brød",
+          "wordId": "da:brød",
+          "courseCity": 2
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "smør",
+          "wordId": "da:smør",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Bread and Butter",
+      "signatureItem": "a butter dish",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "sol-og-regn",
+      "name": "Sol og Regn",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "sol",
+          "wordId": "da:sol",
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "regn",
+          "wordId": "da:regn",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Sun and Rain",
+      "signatureItem": "a rainbow",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "salt-og-peber",
+      "name": "Salt og Peber",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "salt",
+          "wordId": "da:salt",
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "peber",
+          "wordId": "da:peber",
+          "courseCity": 9
+        }
+      ],
+      "meaningEn": "Salt and Pepper",
+      "signatureItem": "a salt and pepper pair",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "fisk-og-kartofler",
+      "name": "Fisk og Kartofler",
+      "form": "pair",
+      "sourceWords": [
+        {
+          "da": "fisk",
+          "wordId": "da:fisk",
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "kartoffel",
+          "wordId": "da:kartoffel",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Fish and Potatoes",
+      "signatureItem": "a sack of potatoes",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "kaffehuset",
+      "name": "Kaffehuset",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "kaffe",
+          "wordId": "da:kaffe",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Coffee House",
+      "signatureItem": "a coffee grinder",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "kagehuset",
+      "name": "Kagehuset",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "kage",
+          "wordId": "da:kage",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Cake House",
+      "signatureItem": "a glass cake dome",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "strandcafeen",
+      "name": "Strandcaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "strand",
+          "wordId": "da:strand",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Beach Café",
+      "signatureItem": "a beach ball",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "skovcafeen",
+      "name": "Skovcaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "skov",
+          "wordId": "da:skov",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Forest Café",
+      "signatureItem": "a basket of mushrooms",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "bogcafeen",
+      "name": "Bogcaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "bog",
+          "wordId": "da:bog",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Book Café",
+      "signatureItem": "a bookmark",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cykelcafeen",
+      "name": "Cykelcaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "cykel",
+          "wordId": "da:cykel",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Bicycle Café",
+      "signatureItem": "a bicycle pump",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "stationscafeen",
+      "name": "Stationscaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "station",
+          "wordId": "da:station",
+          "courseCity": 3
+        }
+      ],
+      "meaningEn": "The Station Café",
+      "signatureItem": "a station clock",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "sommercafeen",
+      "name": "Sommercaféen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "sommer",
+          "wordId": "da:sommer",
+          "courseCity": 4
+        }
+      ],
+      "meaningEn": "The Summer Café",
+      "signatureItem": "a straw hat",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "kaffestuen",
+      "name": "Kaffestuen",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "kaffe",
+          "wordId": "da:kaffe",
+          "courseCity": 1
+        },
+        {
+          "da": "stue",
+          "wordId": "da:stue",
+          "courseCity": 2
+        }
+      ],
+      "meaningEn": "The Coffee Parlour",
+      "signatureItem": "a coffee pot",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "blomsterhuset",
+      "name": "Blomsterhuset",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "blomst",
+          "wordId": "da:blomst",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Flower House",
+      "signatureItem": "a watering can",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "fuglehuset",
+      "name": "Fuglehuset",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "fugl",
+          "wordId": "da:fugl",
+          "courseCity": 1
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Bird House",
+      "signatureItem": "a birdhouse",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "tehuset",
+      "name": "Tehuset",
+      "form": "compound",
+      "sourceWords": [
+        {
+          "da": "te",
+          "wordId": "da:te",
+          "courseCity": 2
+        },
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Tea House",
+      "signatureItem": "a teapot",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "huset-ved-havet",
+      "name": "Huset ved Havet",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        },
+        {
+          "da": "ved",
+          "ledger": true,
+          "courseCity": 5
+        },
+        {
+          "da": "hav",
+          "wordId": "da:hav",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The House by the Sea",
+      "signatureItem": "a ship's lantern",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "bordet-ved-vinduet",
+      "name": "Bordet ved Vinduet",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "bord",
+          "wordId": "da:bord",
+          "courseCity": 1
+        },
+        {
+          "da": "ved",
+          "ledger": true,
+          "courseCity": 5
+        },
+        {
+          "da": "vindue",
+          "wordId": "da:vindue",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "The Table by the Window",
+      "signatureItem": "a lace curtain",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "huset-ved-broen",
+      "name": "Huset ved Broen",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "hus",
+          "wordId": "da:hus",
+          "courseCity": 1
+        },
+        {
+          "da": "ved",
+          "ledger": true,
+          "courseCity": 5
+        },
+        {
+          "da": "bro",
+          "wordId": "da:bro",
+          "courseCity": 5
+        }
+      ],
+      "meaningEn": "The House by the Bridge",
+      "signatureItem": "a toy drawbridge",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-i-parken",
+      "name": "Café i Parken",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "i",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "park",
+          "wordId": "da:park",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Café in the Park",
+      "signatureItem": "a park bench",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "under-traeet",
+      "name": "Under Træet",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "under",
+          "ledger": true,
+          "courseCity": 5
+        },
+        {
+          "da": "træ",
+          "wordId": "da:træ",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Under the Tree",
+      "signatureItem": "a picnic blanket",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "ved-kirken",
+      "name": "Ved Kirken",
+      "form": "place",
+      "sourceWords": [
+        {
+          "da": "ved",
+          "ledger": true,
+          "courseCity": 5
+        },
+        {
+          "da": "kirke",
+          "wordId": "da:kirke",
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "By the Church",
+      "signatureItem": "a hymn book",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "her-og-nu",
+      "name": "Her og Nu",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "her",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "og",
+          "ledger": true,
+          "courseCity": 2
+        },
+        {
+          "da": "nu",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Here and Now",
+      "signatureItem": "an hourglass",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "hvorfor-ikke",
+      "name": "Hvorfor Ikke",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "hvorfor",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "ikke",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Why Not",
+      "signatureItem": "a fortune cookie",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "hej-igen",
+      "name": "Hej Igen",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "hej",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "igen",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Hello Again",
+      "signatureItem": "a guest book",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-velkommen",
+      "name": "Café Velkommen",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "velkommen",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Café Welcome",
+      "signatureItem": "a welcome mat",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "cafe-godmorgen",
+      "name": "Café Godmorgen",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "godmorgen",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Café Good Morning",
+      "signatureItem": "an alarm clock",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "kun-i-dag",
+      "name": "Kun i Dag",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "kun",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "i dag",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Today Only",
+      "signatureItem": "a chalkboard with today's special",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "mange-tak",
+      "name": "Mange Tak",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "mange",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "tak",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Many Thanks",
+      "signatureItem": "a thank-you card",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "ja-tak",
+      "name": "Ja Tak",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "ja",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "tak",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Yes Please",
+      "signatureItem": "a cake server",
+      "needsDanishCheck": true
+    },
+    {
+      "id": "samme-tid-i-morgen",
+      "name": "Samme Tid i Morgen",
+      "form": "phrase",
+      "sourceWords": [
+        {
+          "da": "samme",
+          "connecting": true,
+          "courseCity": 1
+        },
+        {
+          "da": "tid",
+          "wordId": "da:tid",
+          "courseCity": 3
+        },
+        {
+          "da": "i morgen",
+          "connecting": true,
+          "courseCity": 1
+        }
+      ],
+      "meaningEn": "Same Time Tomorrow",
+      "signatureItem": "a wall calendar",
+      "needsDanishCheck": true
+    }
+  ]
+}

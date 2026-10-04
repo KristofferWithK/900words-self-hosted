@@ -3,6 +3,7 @@
 // actually applies the update when asked.
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -22,6 +23,8 @@ const browser = await chromium.launch({
 })
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } })
 const page = await ctx.newPage()
+// The café gate is on (CW-13): this drive's board needs its first café found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da'))
 await installRoundGuidanceHandler(page)
 page.on('pageerror', (e) => console.log('PAGE CRASH:', e.message))
 
@@ -56,10 +59,10 @@ try {
   await writeFile(SW, `${original}\n// build 2\n`)
   await checkForUpdate()
   await page.waitForSelector(REFRESH, { timeout: 15000 })
-  console.log('told the player:', (await page.locator(`${REFRESH} span`).textContent()).trim())
+  console.log('told the player:', (await page.locator(`${REFRESH} > span`).textContent()).trim())
 
   // Dismissing must stick — nagging on every check would be worse than silence.
-  await page.locator(`${REFRESH} .btn:not(.btn-primary)`).click()
+  await page.locator(`${REFRESH} .update-later`).click()
   await sleep(400)
   if (await page.locator(REFRESH).count()) throw new Error('Later did not dismiss')
   await checkForUpdate()
@@ -83,19 +86,29 @@ try {
   console.log('silent during a round')
 
   // Back on Home with the round abandoned, it may speak again — and Reload
-  // must actually take the new worker.
-  await page.goto(`${BASE}?mock=1&howto=0&city=0`)
+  // must actually take the new worker. Abandoned the way a player does it,
+  // with the arrow and Cancel round: a course board lives in the progression
+  // sessions store too, so removing cluecab-game-v1 alone no longer abandons
+  // it, and the reload restores it ("Continue board") with the banner rightly
+  // held back.
+  await page.locator('.game-header .icon-btn[aria-label="Home"]').click()
+  await page.getByRole('button', { name: 'Cancel round', exact: true }).click()
   await page.waitForSelector('.city-card')
-  await page.evaluate(() => localStorage.removeItem('cluecab-game-v1'))
   await page.reload()
   await page.waitForSelector('.city-card')
+  // Café world (CW-10/CW-12): Continue board is the Café puzzle tag's note, so
+  // the tag's accessible name is its label and then that note. The old exact
+  // 'Continue board' name could no longer match anything.
+  if (await page.getByRole('button', { name: 'Café puzzle Continue board', exact: true }).count()) {
+    throw new Error('Cancel round left a board to continue')
+  }
   await checkForUpdate()
   await page.waitForSelector(REFRESH, { timeout: 15000 })
   const before = await page.evaluate(
     async () => (await navigator.serviceWorker.getRegistration())?.waiting !== null,
   )
   if (!before) throw new Error('expected a waiting worker before Reload')
-  await page.locator(`${REFRESH} .btn-primary`).click()
+  await page.locator(`${REFRESH} .update-reload`).click()
   await page.waitForFunction(
     async () => {
       const r = await navigator.serviceWorker.getRegistration()

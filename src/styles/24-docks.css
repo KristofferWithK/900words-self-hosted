@@ -1,0 +1,311 @@
+/* ---------- docks ---------- */
+
+.dock {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---- the board never moves, and neither does any dock --------------------
+ *
+ * The complaint: "when guessing it's a giant text block that adjusts the
+ * sizing of the grid. The grid should stay locked. and the text can be cut."
+ *
+ * The board is a flex:1 area sharing this column with the dock, so every line
+ * a dock gained or lost came straight off the grid — and the grid resizes
+ * every card with it. Measured over one seeded round at 360x640, before any of
+ * this: 200px of height and 18px of position, over one round.
+ *
+ * The fix is to reserve rather than to shrink. Every dock a round can be in
+ * gets the SAME height, so the flex:1 board above it is handed the same
+ * leftover in every phase and the grid is locked by construction — no
+ * measuring, no JS, nothing to keep in sync with the phase machine.
+ *
+ * ---- ONE number, and how it stopped being two (K2) ------------------------
+ *
+ * K1 had to declare two. It measured the composer at 149.41px and made that
+ * --dock-h, but the guess bar still wanted 189.27 — a title, a swap row and a
+ * dictionary BOX with its own rule, its own field row and its own answer row
+ * under it — so a second variable, --dock-slot-h, went on holding the old
+ * 200px reserve in an invisible slot the docks sat inside.
+ *
+ * K2 redrew the other docks to the composer's shape, and the second number
+ * went with the slot. The shape is the whole of it: three regions, each a
+ * fixed number of lines, and nothing that appears and vanishes.
+ *
+ *   composer      field row      · ONE shared line   · stepper + send
+ *   guess bar     title          · ONE action row    · dictionary + its answer
+ *   last chance   title          · ONE line          · one action row
+ *   packing       title + link   · field + Pack      · ONE note line
+ *   Casey's turn  face + bubble (2 lines, clamped)   · ONE clue/result line
+ *   study         title          · hint (2 lines)    · Start the round
+ *
+ * ---- --dock-h: 9.375rem = 150px, unchanged -------------------------------
+ *
+ * Measured with e2e/dock-probe.mjs (opt-in), at 360x640, by asking each dock
+ * how tall it WANTS to be (height:auto) in the fullest state its phase can
+ * reach — the same question e2e/composer-probe.mjs asks of the composer alone:
+ *
+ *   the composer, every state (K1's seven)      149.41   <- the tallest
+ *   study the board                             147.27
+ *   packing, a card selected                    146.00
+ *   guess bar, a card selected + a lookup       141.86
+ *   guess bar, bare, and with that lookup       135.86
+ *   packing, nothing selected / after a miss    128.00
+ *   last chance, nothing selected               113.86
+ *   last chance, a card selected                112.86
+ *   Casey's turn (thinking, and each guess)      77.83
+ *
+ * so the composer is still the tallest of them and --dock-h is still its own
+ * measured height rather than a budget anything is squeezed into. The gap
+ * between the tallest dock and the shortest is the price of the board not
+ * moving, and it is paid in whichever phase is not the tallest — but it is
+ * 72.17 now rather than the 83.31 it was, and it is air rather than panel.
+ *
+ * In rem, not px, so it tracks the text it has to hold when the phone's font
+ * size is turned up.
+ *
+ * ---- what the board got ---------------------------------------------------
+ *
+ * Measured the same way, at 360x640, seed 7, in the opening clue phase, and
+ * it is the same rectangle in all fifteen states above, which it was not
+ * before. The 3x5 in the first two rows is the board K2 measured; N1 landed
+ * the 3x6 on the space it freed, and the third row is that board:
+ *
+ *              board top   height   rows            card    a 6th row
+ *   before K2     147.44    239.30   5 of 41.46     44.00       33.22
+ *   after  K2     147.44    318.56   5 of 57.31     57.31       46.43
+ *   N1, the 3x6   147.44    318.56   6 of 46.42     46.42          --
+ *
+ * 79.26px, of which 50 is the reserve coming down from 200 and the rest is
+ * the key legend and the column's gap. K2's card row grew by 13.31px -- the
+ * cards were riding their own 44px min-height floor INSIDE a 41.46px row, and
+ * they are not any more. N1 then spent that on a sixth row: 46.42px measured
+ * against a predicted 46.43, clear of the 44px floor by 2.42, and still 5px
+ * taller than the 41.46px rows of the five-row board it replaced. The board
+ * rectangle itself did not move at all, which is the whole point of K2 holding
+ * still underneath it. layout-drive asserts the floor directly now -- a grid
+ * row may never be shorter than 44px -- so the next thing that reaches for
+ * this space fails loudly rather than painting over the dock.
+ *
+ * The guided first game uses this same board and dock. Its teaching lives in
+ * fixed coach marks, so it does not borrow height from either rectangle.
+ */
+.game-screen {
+  --dock-h: 9.375rem;
+  /* The takeover card is absolutely positioned against this screen. */
+  position: relative;
+}
+
+/* Every dock a round can be in, at that one height.
+ *
+ * The `.dock-slot` wrapper that used to hold it is gone, and the ripple table
+ * in PLAN-2 is why: the slot existed because the docks were different heights,
+ * so the difference had to be held somewhere invisible while each panel hugged
+ * its own content against the bottom edge (PR #90 — "it's still way too much
+ * grey"). Once every dock is the same height the PANEL is the reserve again
+ * and the slot has nothing left to hold. Deleted rather than kept as a
+ * documented no-op: a wrapper that reserves exactly what its only child
+ * declares is a second place to look for the number, and the next reader would
+ * have to prove it does nothing before changing either.
+ *
+ * Three things follow, and all three are the point rather than side effects:
+ * the field sits at the bottom of the screen where a thumb already is; a
+ * lookup answer cannot grow the panel at all, so nothing below it moves and
+ * nothing above it resizes; and the dock is still the last thing in the
+ * layout, so the native keyboard still lands against it with no arithmetic
+ * (see .kb-up below). */
+.dock.clue-input,
+.dock.guess-bar,
+.dock.ai-panel,
+.dock.packing-dock {
+  height: var(--dock-h);
+}
+
+/* Inside a fixed dock, everything holds its natural height... */
+.dock.clue-input > *,
+.dock.guess-bar > *,
+.dock.ai-panel > *,
+.dock.packing-dock > * {
+  flex: none;
+}
+
+/* ...except ONE region per dock, which takes the leftover and clips inside
+ * itself. That is what keeps the send/guess button pinned: the growth has
+ * somewhere to go that is not the button's row, and not the board. Which
+ * region it is, is a design choice per dock — the row that may be cut without
+ * costing the player the thing they are in the phase to do.
+ *
+ * The composer is not in this list, and that is the K1 change stated in one
+ * rule: it has no give-way region because it has nothing that can grow. Three
+ * rows of fixed height, the middle one a single line that ellipsizes rather
+ * than wraps, so the panel's own height IS its content's height.
+ *
+ * Deliberately NOT overflow:hidden on the dock itself. A fixed-height box
+ * whose content spills still lengthens the document, so if a future dock
+ * outgrows its height the no-scroll assertion in layout-drive fails and says
+ * so. Clipping the dock would hide the content AND silence the check — the
+ * trap the shell's own overflow comment is about. */
+.dock.guess-bar > .dock-actions,
+.dock.guess-bar > .dock-flex,
+.dock.packing-dock > .packing-help {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Prose rather than a control: it may be cut, and it is the thing that gives
+   way so the button under it does not move when a card is selected. */
+.dock-flex {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+
+/* ---- the play docks are not painted either (K2) ----
+
+   K1 took the panel off the composer and said why: a panel is a container
+   drawn to say "these things belong together", and at a FIXED height it is
+   drawn at its fullest in every state — so the turns with less to say, which
+   is most of them, pay for a rectangle of grey around three controls. That
+   was the whole of the owner's complaint, twice.
+
+   Every dock is at a fixed height now, so the argument covers all of them —
+   and it gained a second half. The composer, the guess bar and the AI panel
+   alternate turn by turn in the SAME rectangle, so a panel on two of the three
+   is a sheet of grey blinking in and out of a box that never moves. One
+   hairline rule for all three, and the fields carry their own borders.
+
+   It is also what makes the height reachable: a panel costs 20px of padding
+   and 2px of border, the rule costs 10 and 1, and the guess bar redrawn wants
+   141.86 of the 150 either way.
+
+   The study dock and the packing dock KEEP their ink border, and that is the
+   one deliberate exception. Neither is a turn: they are the two moments the
+   board is not in play — reading it, and recalling it from the English side —
+   each shown once and then not again, and the border is what says the round
+   has not started. They take --dock-h like everything else. */
+.dock.clue-input,
+.dock.guess-bar,
+.dock.ai-panel {
+  background: none;
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  border-radius: 0;
+  padding: 10px 0 0;
+}
+
+/* The compact-phone composer has three deliberately fixed rows. At 360x640,
+   the two inherited 8px gaps plus the platform-rounded input/line/button
+   heights put the first-clue guidance row 1.4px past the 150px reserve. Keep
+   the fields, guidance type and 44px controls at their established sizes;
+   taking one pixel from each of the two internal gaps brings every state back
+   inside the dock without changing the board or clipping the diagnostic. */
+.dock.clue-input {
+  gap: 7px;
+}
+
+/* No pencil-edge chrome either — that ::before IS the panel's border, drawn
+   through the wobble filter, and a hairline rule does not want a wobbling
+   rectangle behind it. */
+.dock.clue-input::before,
+.dock.guess-bar::before,
+.dock.ai-panel::before {
+  content: none;
+}
+
+/* ---- the turn-takeover card (build 83) ----
+
+   A turn changing hands plays one full-width card over the dock's rectangle:
+   the dock mounts beneath it on the same commit, the card slides up, holds
+   ~1.4s (build 87: the owner asked for longer), and fades before the player
+   can want the dock it was covering.
+
+   Absolutely positioned over the .game-screen (which is the flex column the
+   docks live in), pinned to the BOTTOM the way the dock is — so the card
+   occupies the same rectangle the dock already reserved and the board cannot
+   move by a pixel. Height is --dock-h, the same number every dock is.
+   aria-hidden and pointer-events: none throughout: the card says nothing a
+   screen reader has not been told by the live region's caption, and nothing
+   under it is tappable that should not be. */
+.turn-takeover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--dock-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: var(--bg);
+  /* Keep the entrance inside the rectangle it owns. Moving this outer box
+     from translateY(100%) enlarged the document's scrollable overflow while
+     Casey's reveal was still mounted, and could leave the stale giver card
+     competing with translation/wheel entry. */
+  overflow: clip;
+  animation: takeover-in 350ms ease-out both;
+}
+
+/* The big line itself — serif, like the app's headings, at a size that reads
+   as an announcement rather than a caption. One line, ellipsized on the
+   narrowest screen rather than wrapping into the dock's height. */
+.turn-takeover-line {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  padding: 0 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  animation: takeover-line-in 350ms ease-out both;
+}
+
+@keyframes takeover-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes takeover-line-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* The out-beat, on a class the component adds: a quick fade rather than a
+   slide, so the dock beneath is revealed where it already stands. (Build 87
+   doubled the on-screen hold to ~1400ms; the out keeps its 400ms.) */
+.turn-takeover-out {
+  animation: takeover-out 400ms ease-in both;
+}
+
+@keyframes takeover-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion: no slide, no fade — the card simply stands its ~1.8s and
+   goes, the way the keyboard ride and the tour spot stand down. */
+@media (prefers-reduced-motion: reduce) {
+  .turn-takeover,
+  .turn-takeover-out,
+  .turn-takeover-line {
+    animation: none;
+  }
+}
+

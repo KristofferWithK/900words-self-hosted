@@ -1,0 +1,309 @@
+/* ================= the pencil pass =================
+
+   Everything the app draws now reads as drawn â€” by hand, in pencil, on paper â€”
+   without a single new asset, font or image. Three techniques, chosen for what
+   they cost rather than for how they look in isolation:
+
+   1. PAPER. One fixed feTurbulence rect behind the whole app (see PencilDefs in
+      App.tsx). A texture per card would be the same picture rendered twenty
+      times; this is one filtered element for every screen.
+
+   2. WOBBLED EDGES, on chrome only. A displacement filter on a border drawn in
+      a pseudo-element, so the wobble never touches text. Reserved for things
+      there are a handful of â€” docks, panels, buttons, Casey â€” never the board.
+
+   3. THE BOARD, WITHOUT FILTERS. Twenty cards each running a displacement map,
+      re-rasterising on every tap and transition, is the kind of cost nothing in
+      this repo would catch. The cards get their hand-drawn edge from geometry
+      instead: an irregular border-radius and a hair of rotation. It survives
+      being tapped sixty times a round, which the filter version might not.
+
+   Two things this pass must not break, both of them load-bearing:
+
+   - THE KEY IS THE BORDER. .mykey-green is solid green and thicker than a
+     plain card, so nothing rests on telling greens apart. (There was a second
+     marking, .mykey-forbidden, dashed black; it went with the forbidden
+     words.) It is left exactly as it was; only the corner geometry changes,
+     which is why the cards keep a real border rather than moving to a
+     pseudo-element.
+
+   - THE TILE FILLS STAY SOLID. --green-tile measures 4.45:1 against white and
+     article-drive.mjs asserts a 4.4 floor across four grounds, reading the
+     palette straight out of :root. Hatching or lightening a tile that carries
+     white text fails that drive, correctly. So the pencil goes on the EDGES of
+     the board, and the fills are not touched. */
+
+.pencil-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Above the page background, below everything drawn on it â€” and below is the
+     whole job, so it takes the negative index rather than making every other
+     layer in the app claim a positive one. */
+  z-index: -1;
+  opacity: 0.85;
+}
+
+/* Defs only â€” nothing to see, but display:none would stop some engines
+   resolving the filters referenced from CSS. */
+.pencil-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Nothing else is touched to put the grain behind â€” it goes behind itself.
+   Lifting every child of the shell to z-index: 1 instead was tried, and it
+   outranked the dictionary sheet's own stacking by specificity: the backdrop
+   ended up under the screen, and tapping it stopped closing the sheet. The
+   nav drive caught it. */
+
+/* ---- the board: hand-drawn without filters ----
+
+   The corner radii are deliberately uneven and mismatched on each axis, which
+   is what a box drawn by hand does and a box drawn by a computer never does.
+   Keep the cards themselves square to the grid: rotating their painted boxes
+   after layout made an exact 8px grid gap look uneven on a short phone, and at
+   some phases made neighbouring cards appear to overlap. */
+.word-card {
+  border-radius: 14px 8px 12px 9px / 9px 12px 8px 14px;
+}
+
+/* A tap still presses in without changing the resting grid geometry. */
+.card-guessable:active {
+  transform: scale(0.97) rotate(0deg);
+}
+
+/* The how-to tiles are miniature copies of a card, so they pick up the same
+   hand-drawn corners. The key legend's swatch was the other one of these and
+   went with the legend (K2). */
+.demo-tile {
+  border-radius: 9px 5px 8px 6px / 6px 8px 5px 9px;
+}
+
+/* ---- chrome: the wobble proper ----
+
+   Drawn on a pseudo-element rather than the element, so the filter has only a
+   border to displace and never any text. The host keeps its own background and
+   radius; the border it used to draw moves here. */
+.dock,
+.packing-dock,
+.city-card,
+.daily-card,
+.grid-card,
+.settings-section,
+.cluey-bubble,
+.error-banner,
+.practice-note,
+.setup-nudge,
+.pass-option,
+.pass-kindness,
+/* The finish screen's sentence cards (cities 2–9's band): the one box on
+   that surface, which can afford the filter the board cannot, and reads
+   like the cards. */
+.sentence-hear {
+  border-color: transparent;
+  position: relative;
+}
+
+.dock::before,
+.packing-dock::before,
+.city-card::before,
+.daily-card::before,
+.grid-card::before,
+.settings-section::before,
+.cluey-bubble::before,
+.error-banner::before,
+.practice-note::before,
+.setup-nudge::before,
+.pass-option::before,
+.pass-kindness::before,
+.sentence-hear::before {
+  content: '';
+  position: absolute;
+  /* Inset by a hair: the displacement pushes the stroke outward, and a border
+     sitting exactly on the edge would have its wobble clipped by any ancestor
+     that hides overflow. */
+  inset: 1px;
+  border: 1.6px solid var(--line);
+  border-radius: inherit;
+  filter: url(#pencil-edge);
+  pointer-events: none;
+}
+
+.packing-dock::before,
+.cluey-bubble::before {
+  border-color: var(--text);
+}
+
+.error-banner::before {
+  border-color: var(--red);
+}
+
+/* Ticket choices keep their perforation, but now share the drawn paper edge
+   used by cards, docks and the review note below them. */
+.pass-option::before {
+  border-color: var(--text);
+  border-style: dashed;
+}
+
+/* Buttons: the same trick, gentler. A pill is a 999px radius, and displacement
+   that reads as "drawn by hand" on a panel's soft corner reads as "scratched
+   out" on a tight curve â€” measured by looking at it, at scale 5, on Â«Deal new wordsÂ». */
+.btn,
+.chip,
+.icon-btn {
+  border-color: transparent;
+  position: relative;
+}
+
+.btn::before,
+.chip::before,
+.icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.6px solid var(--text);
+  border-radius: inherit;
+  filter: url(#pencil-edge-fine);
+  pointer-events: none;
+}
+
+/* The ordinary pill steps back to the chip's grey line (owner, 2026-09-11,
+   "Direction B"): the primary is the pill drawn in green, and a secondary
+   drawn in the same black weight beside it was a second candidate. */
+.btn::before,
+.chip::before,
+.icon-btn::before {
+  border-color: var(--line);
+  border-width: 1.4px;
+}
+
+/* The primary's line IS its signal, so it is the heaviest line on the
+   screen and in the primary's own green (currentColor: the label's). The
+   toggle that is on wears the same ring, and the danger pill the same line
+   in red. */
+.btn-primary::before,
+.btn-danger::before,
+.icon-btn-active::before {
+  border-color: currentColor;
+  border-width: 2px;
+}
+
+/* A filled button already reads as a shape; its outline would only muddy the
+   edge. The disabled primary is the one filled pill left. */
+.btn-primary:disabled::before {
+  display: none;
+}
+
+/* SINGLE-RING PRIMARY (owner, 2026-09-16): the drawn pill's line is its real
+   border; the pencil pass's second ring doubled it into two concentric
+   outlines. The same suppression .update-banner .btn::before and the
+   travel-guide-book rule already use. */
+.btn-primary::before {
+  display: none;
+}
+
+/* The danger pill drew the same doubling in red (the pass's ring sat inside
+   the pill's own 2px line), so it is single-ringed the same way. */
+.btn-danger::before {
+  display: none;
+}
+
+/* Casey is drawn by the same hand as everything else. He is one element, so he
+   can afford the filter the board cannot. */
+.cluey-svg {
+  filter: url(#pencil-edge);
+}
+
+/* The small Casey — a dock's 44px, the finish screen's 64 — gets the pill
+   filter, for the pill's reason: displacement is in pixels, not in his own
+   units, so the 3.4px that reads as pencil on the 290px Home Casey is more
+   than a line's width at 52px, and his handle, latches and eyes came out
+   chewed rather than drawn (owner, 2026-09-11: "Casey on the finish screen
+   looks wrong"; seen at 3× in e2e shots of the finish header). */
+.cluey-mini {
+  filter: url(#pencil-edge-fine);
+}
+
+.cluey-body {
+  fill: #ece7da;
+}
+
+/* The speech tail is a rotated square with two borders; filtering it as well
+   makes the join with the bubble mushy, so it stays crisp and only the bubble
+   itself wobbles. */
+.cluey-bubble::after {
+  filter: none;
+}
+
+/* Bottom band: Play fills it, centred. The daily star and the rules button
+   that used to flank the stack are gone (owner, 2026-09-15), so the stack is
+   the row's only child and needs no side slots to stay balanced. */
+.home-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+/* A preview language's Home, where the row of play controls would be: one
+   panel that says why there is no game and offers the thing that IS built.
+   It occupies the same band, so nothing above it moves and Home still does
+   not scroll at 360x640. */
+.home-preview {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.home-preview-heading {
+  margin: 0;
+  font-size: 17px;
+}
+
+.home-preview-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0.75;
+}
+
+/* Play is the primary as every other screen draws it now — white, green
+   line, green label — with no override of its own: the white pill with a
+   black border it kept while primaries were filled black is what every
+   primary became (owner, 2026-09-11, "Direction B"). home-play-drive reads
+   the primary's colours here and on the rules' Play and Pause game. */
+.home-play {
+  flex: 1;
+}
+
+/* Play and, when a round of the other kind is waiting, a second way in under
+   it — Play beside Continue wrap-up, or Continue game beside Continue
+   wrap-up. Stacked and full width so neither label has to fit half a row at
+   360px; the row grows by one pill and Casey's band, the flexible child
+   above it, gives that up. Measured in wrapup-drive at 360×640: no scroll,
+   Casey clear of the train and of the buttons. */
+.home-play-stack {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-play-stack .btn {
+  flex: none;
+  width: 100%;
+}
+
+/* The daily star's classes went with the button (owner, 2026-09-15). Kept
+   empty on purpose: nothing else may take these names while the daily
+   feature's return is expected, and the outcome ledger (cluecab-daily:*)
+   in gameStore still writes the state they showed. */
+

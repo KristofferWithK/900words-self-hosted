@@ -1,6 +1,6 @@
 import { isWebDemo } from '../../build/audience'
 import { DemoEndAct } from '../../webdemo/DemoEndAct'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   CATALOGUES,
   UI,
@@ -14,31 +14,66 @@ import {
 } from '../../i18n'
 import { ACTIVE, setActiveLanguage } from '../../lang/active'
 import { playableLanguages } from '../../lang/index'
-import type { LanguagePack } from '../../lang/types'
+import type { LanguagePack, MapArt } from '../../lang/types'
+import { UPCOMING_COURSES } from '../../lang/upcoming'
 import { routePath } from '../../journey/map'
 import { writeOnboardStep, type OnboardLessonStatus } from '../../onboarding/flow'
+import { ensureFirstCafeFound, firstCafeName, firstFoundCafe } from '../../onboarding/firstCafe'
 import { isCurrentTutorialGame, TUTORIAL_LANGUAGE } from '../../onboarding/tutorial'
+import { admitFirstWalk, canStartRun, endFirstWalkAdmission } from '../../purchase/dailyGames'
+import { primeRunAudio } from '../../run/audio'
 import { useGame } from '../../stores/gameStore'
 import { useUi, uiLanguageChoiceAllowed } from '../../stores/uiStore'
+import { openIntroRound } from '../introRound'
+import { ClueyFace } from '../components/Cluey'
 import { CoachMarkTour, SuitcaseTour } from '../components/SuitcaseTour'
-import { HOME_TOUR_STEPS } from '../../onboarding/tour'
+import { Tag } from '../components/Tag'
+import { primeSfx } from '../sfx'
+import { HOME_TOUR_STEPS, homeCafeTourSteps } from '../../onboarding/tour'
 import { GameScreen } from './GameScreen'
-import { HomeScreen, type HomeIntroStage } from './HomeScreen'
+import { HomeScreen } from './HomeScreen'
+import { SightseeingScreen } from './SightseeingScreen'
 import { SuitcaseScreen } from './SuitcaseScreen'
 
 /**
- * The ticket is the first decision. It leads to Home, where Casey introduces
- * the journey by revealing the map, Travel Guide and Play in place.
+ * The first session, walk first (CW-13; docs/roadmap/cafe-world.md section 7):
+ *
+ *   1. the language act and the ticket, as before;
+ *   2. Casey: the 900-words line, then why there are two games;
+ *   3. "Let's explore Sønderborg and see if we can find a café." Its tag
+ *      starts the walk, so the walk is two taps after the ticket;
+ *   4. the first Words walk; its fifth photo finds the first café and holds
+ *      the run on "You found a café" (CW-08b, src/run/cafeHold.ts);
+ *   5. at the run's end: walk again, or Home, where a short spotlight
+ *      introduces Sightseeing and the café found;
+ *   6. the Café puzzle tag opens the café's practice table with today's
+ *      spotlight tour (dressed as that café), then the café's own puzzle and
+ *      its stamp's lesson; Home's city stamp; the suitcase's three marks;
+ *   7. the train is not introduced on day one.
+ *
+ * The café gate is on (journey/cafeAccess.ts), so nothing here may deal a
+ * café no walk has found. Every path that reaches Home or the first puzzle
+ * without the walk's find (any Skip, or a first walk that ended before its
+ * fifth photo) finds the first café first (onboarding/firstCafe.ts): the
+ * player lands on a Home whose Café puzzle tag plays.
  *
  * The ticket is a language picker, but collapses to a single confirm card when
  * only one playable course is available — never a one-entry select, which is
  * `hasLanguageChoice`'s own reasoning. Its display format matches Settings:
  * `name (endonym)`.
  *
- * Skip stays available on the ticket and practice/suitcase tutorials. Casey's
- * staged Home introduction and post-round suitcase gate stay deliberately
- * clean: their visible affordances carry the continuation themselves.
+ * Skip stays available on the ticket, Casey's lines, the walk's panels, the
+ * Home spotlight and the practice/suitcase tutorials. The first café puzzle
+ * and the post-round suitcase gate stay deliberately clean: their visible
+ * affordances carry the continuation themselves.
  */
+
+/**
+ * Whether the walk act should start its run at once: set by Casey's "Let's
+ * go" tap, read once by the walk. Module state, never stored, so a reload
+ * mid-walk resumes on the walk's ready panel instead of spending a run.
+ */
+let startWalkNow = false
 
 /**
  * The act BEFORE the ticket: which language do you already speak?
@@ -119,6 +154,16 @@ function TicketCountryMap({ pack }: { pack: LanguagePack }) {
   )
 }
 
+/** A coming-soon ticket's country: the drawing alone, with no route on it yet. */
+function ComingSoonMap({ map }: { map: MapArt }) {
+  return (
+    <svg className="ticket-soon-map" viewBox={`0 0 ${map.width} ${map.height}`} aria-hidden="true">
+      <path className="map-land" d={map.path} />
+      <path className="map-hatch" d={map.hatch} />
+    </svg>
+  )
+}
+
 export function OnboardingScreen() {
   const onboarding = useUi((s) => s.onboarding)
   const advance = useUi((s) => s.advanceOnboarding)
@@ -128,6 +173,8 @@ export function OnboardingScreen() {
   const lessons = onboarding.lessons ?? {}
 
   const finishRun = () => {
+    // Skip lands on a Home whose Café puzzle tag plays (see the file comment).
+    ensureFirstCafeFound()
     const game = useGame.getState()
     // A transient Settings replay may have put a real primary or replay slot
     // down before showing the nine-word practice. Bring that exact session
@@ -155,9 +202,7 @@ export function OnboardingScreen() {
   }
 
   const skip = (
-    <button className="btn onboard-skip" onClick={finishRun}>
-      {UI.onboarding.skip}
-    </button>
+    <Tag className="onboard-skip" onClick={finishRun} label={UI.onboarding.skip} />
   )
 
   // The website demo ends after the first full board's finish screen: its
@@ -165,7 +210,9 @@ export function OnboardingScreen() {
   if (isWebDemo() && (onboarding.step === 'home-return' || onboarding.step === 'suitcase' || onboarding.step === 'suitcase-ready')) {
     return <DemoEndAct />
   }
-  if (onboarding.step === 'home-intro') return <HomeIntroAct />
+  if (onboarding.step === 'intro') return <IntroAct skip={finishRun} />
+  if (onboarding.step === 'walk') return <WalkAct skip={finishRun} />
+  if (onboarding.step === 'home-cafe') return <HomeCafeAct skip={finishRun} />
   // A lesson already done or dismissed (flow.ts) is never shown twice. A
   // practice skipped before its translation step leaves that lesson owed, so
   // the first full board teaches it instead.
@@ -213,12 +260,12 @@ export function OnboardingScreen() {
       // A real choice reloads the app (src/lang/active.ts): every index, the
       // route and the word list change at once. The flow's marker must be
       // down BEFORE that reload so the way back up resumes instead of
-      // starting over — on the staged Home introduction.
-      if (onboarding.persist) writeOnboardStep('home-intro')
+      // starting over — on Casey's lines.
+      if (onboarding.persist) writeOnboardStep('intro')
       setActiveLanguage(pack.code)
       return
     }
-    advance('home-intro')
+    advance('intro')
   }
 
   return (
@@ -246,6 +293,21 @@ export function OnboardingScreen() {
             </span>
           </button>
         ))}
+        {/* Where the journey goes next. Not buttons and not `.onboard-ticket`:
+            nothing here can be chosen, and the drives that tap a ticket select
+            it by that class. */}
+        <div className="onboard-tickets-soon">
+          {UPCOMING_COURSES.map((course) => (
+            <div key={course.code} className="onboard-ticket-soon">
+              <ComingSoonMap map={course.map} />
+              <span className="ticket-copy">
+                <span className="ticket-eyebrow">{UI.onboarding.ticketComingSoon}</span>
+                <span className="ticket-dest">{course.country}</span>
+                <span className="ticket-lang">{course.name}</span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
       <p className="onboard-hint">
         {languages.length > 1 ? UI.onboarding.ticketHintMany : UI.onboarding.ticketHintOne}
@@ -256,33 +318,130 @@ export function OnboardingScreen() {
   )
 }
 
-const homeIntroLines = (): Record<Exclude<HomeIntroStage, 'return'>, string> => {
-  const copy = UI.onboarding.courseText(ACTIVE.code)
-  const destination = ACTIVE.route.cities.at(-1)?.name ?? copy.countryName
-  return {
-    welcome: copy.welcome,
-    map: ACTIVE.code === 'da' ? UI.onboarding.introMap : copy.map(destination),
-    guide: copy.guide,
-    play: UI.onboarding.introPlay,
+/**
+ * Casey's lines before the walk (contract section 7 steps 2 and 3), on the
+ * onboarding screen's own paper: Casey large with her bubble, as on the
+ * staged Home this replaces, and one tag under her. Two beats, so the walk is
+ * two taps after the ticket: Next, then "Let's go", which primes the run's
+ * sounds inside the tap and starts the walk at once.
+ */
+function IntroAct({ skip }: { skip: () => void }) {
+  const advance = useUi((s) => s.advanceOnboarding)
+  const [beat, setBeat] = useState<'games' | 'explore'>('games')
+  const course = UI.onboarding.courseText(ACTIVE.code)
+  const city = ACTIVE.route.cities[0]?.name ?? course.countryName
+  const go = () => {
+    primeRunAudio()
+    primeSfx()
+    startWalkNow = true
+    advance('walk')
   }
+  return (
+    <div className="screen onboard-screen onboard-intro" data-act="intro" data-beat={beat}>
+      <div className="cluey-band onboard-intro-casey">
+        <div className="cluey-bubble onboard-intro-bubble" role="status">
+          {beat === 'games' ? (
+            <>
+              <p>{course.welcome}</p>
+              <p>{UI.onboarding.introTwoGames}</p>
+            </>
+          ) : (
+            <p>{UI.onboarding.introExplore(city)}</p>
+          )}
+        </div>
+        <div className="onboard-intro-mascot" aria-hidden="true">
+          <div className="cluey-live"><ClueyFace mood={beat === 'explore' ? 'happy' : 'idle'} /></div>
+        </div>
+      </div>
+      <div className="onboard-spacer" />
+      <div className="onboard-controls onboard-intro-controls">
+        {beat === 'games' ? (
+          <Tag size="wide" tone="primary" className="onboard-intro-next" label={UI.onboarding.tourNext} onClick={() => setBeat('explore')} autoFocus />
+        ) : (
+          <Tag size="wide" tone="primary" className="onboard-intro-go" label={UI.onboarding.introGo} onClick={go} autoFocus />
+        )}
+        <Tag className="onboard-skip" onClick={skip} label={UI.onboarding.skip} />
+      </div>
+    </div>
+  )
 }
 
-function HomeIntroAct() {
-  const advanceOnboarding = useUi((s) => s.advanceOnboarding)
-  const [stage, setStage] = useState<Exclude<HomeIntroStage, 'return'>>('welcome')
-  const lines = homeIntroLines()
-  const next = () => setStage((current) => (
-    current === 'welcome' ? 'map' : current === 'map' ? 'guide' : current === 'guide' ? 'play' : 'play'
-  ))
+/**
+ * The first walk (contract section 7 step 4): the real Sightseeing screen, its
+ * Words walk. Home from it goes to Home's café introduction; a first walk that
+ * ended before its find still lands there with the first café found.
+ */
+export function WalkAct({ skip }: { skip: () => void }) {
+  const advance = useUi((s) => s.advanceOnboarding)
+  const persist = useUi((s) => s.onboarding?.persist ?? false)
+  const [startNow] = useState(() => {
+    const now = startWalkNow
+    startWalkNow = false
+    return now
+  })
+  // Day one (CW-15): a first session's walk is never refused, and it counts
+  // like any other (purchase/dailyGames.ts admitFirstWalk). The admission is
+  // made while this act DRAWS, not in an effect, on purpose: React runs the
+  // child's effects before the parent's, and SightseeingScreen's own effect
+  // starts the walk at once (`startNow`) after asking `canStartRun`, so an
+  // admission made in this act's effect would come too late. The effect
+  // admits again on mount (StrictMode's remount) and ends the admission when
+  // the act goes. A replayed intro is not a first session: its walk asks the
+  // count, and with today's two used the upgrade dialog says why the walk
+  // does not start (App draws the dialog over a replayed intro, never over a
+  // first session).
+  useState(() => admitFirstWalk(persist))
+  useEffect(() => {
+    admitFirstWalk(persist)
+    if (!persist && !canStartRun()) useUi.getState().openDailyLimit()
+    return () => endFirstWalkAdmission()
+  }, [persist])
+  return (
+    <SightseeingScreen firstWalk={{
+      startNow,
+      cafeFound: () => firstFoundCafe() !== null,
+      onHome: () => {
+        ensureFirstCafeFound()
+        advance('home-cafe')
+      },
+      onSkip: skip,
+    }} />
+  )
+}
+
+/**
+ * Home after the walk (contract section 7 step 5): the real Home, with a
+ * short spotlight on Sightseeing and then on the café found. The last beat is
+ * the Café puzzle tag itself: tapping it sits down at the café's practice
+ * table. Skip ends the first session on this Home, the café still waiting.
+ */
+function HomeCafeAct({ skip }: { skip: () => void }) {
+  const advance = useUi((s) => s.advanceOnboarding)
+  // A reload here, or a resume from an older marker, may arrive without the
+  // walk's find: the first café is found before Home is drawn.
+  const [cafeName] = useState(() => {
+    ensureFirstCafeFound()
+    return firstCafeName()
+  })
+  const [tourClosed, setTourClosed] = useState(false)
+  const steps = useMemo(() => homeCafeTourSteps(cafeName), [cafeName])
   return (
     <div className="onboard-home-act">
       <HomeScreen intro={{
-        stage,
-        line: lines[stage],
-        onAdvance: next,
-        onPlay: () => advanceOnboarding('tutorial'),
-        onCasey: next,
+        onCafePuzzle: () => advance('tutorial'),
+        onSightseeing: () => advance('walk'),
+        onCasey: () => undefined,
       }} />
+      {!tourClosed && (
+        <CoachMarkTour
+          steps={steps}
+          surfaceSelector=".onboard-home-act .home-screen"
+          onDone={() => setTourClosed(true)}
+          onSkip={skip}
+          onUnavailable={() => setTourClosed(true)}
+          kind="home"
+        />
+      )}
     </div>
   )
 }
@@ -351,19 +510,10 @@ function RealRoundAct({
   const mode = useGame((s) => s.mode)
   const game = useGame((s) => s.game)
   const persist = useUi((s) => s.onboarding?.persist ?? false)
-  useEffect(() => {
-    const s = useGame.getState()
-    if (!s.game || s.mode !== 'normal') {
-      s.abandonGame()
-      // A replayed intro's full board is the player's own next one, the
-      // board Home's Play would give them, not City 1's first.
-      if (!persist) s.resumePrimary()
-      // The first full board opens the way every normal board does: with
-      // Casey's clue (owner, 2026-09-26). The practice round already taught
-      // the player's own clue turn.
-      else s.newGame({ cityIndex: 0, firstGiver: 'ai' })
-    }
-  }, [persist])
+  // The board: the first session's found café, or a replayed intro's own
+  // next board. No round (any refusal) ends the intro on Home rather than a
+  // blank act (src/ui/introRound.ts).
+  useEffect(() => openIntroRound(persist), [persist])
   if (!game || mode !== 'normal') return null
   return <GameScreen
     showTranslationLesson={showTranslationLesson}
@@ -376,11 +526,11 @@ function RealRoundAct({
 }
 
 /**
- * After the real round, Home is visible but Play is deliberately inert. A
- * short spotlight points at the city's real postcard total, then at Casey;
- * the button carries the instruction and tapping Casey opens the suitcase,
- * whose own tour teaches the collection. The spotlight never taps for the
- * player: done, skipped or unavailable, it simply releases the real Home.
+ * After the café's puzzle, the real Home with its doors held: a short
+ * spotlight points at the city's stamp (where the postcard total used to be),
+ * then at Casey, and tapping Casey opens the suitcase, whose own tour teaches
+ * the three marks. The tags lead there too, so no tap is dead. The spotlight
+ * never taps for the player: done, skipped or unavailable, it releases Home.
  */
 function HomeReturnAct({
   showLesson,
@@ -400,10 +550,8 @@ function HomeReturnAct({
   return (
     <div className="onboard-home-act">
       <HomeScreen intro={{
-        stage: 'return',
-        line: '',
-        onAdvance: openCasey,
-        onPlay: openCasey,
+        onCafePuzzle: openCasey,
+        onSightseeing: openCasey,
         onCasey: openCasey,
       }} />
       {showLesson && !lessonClosed && (

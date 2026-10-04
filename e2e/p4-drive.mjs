@@ -5,6 +5,7 @@
 import { chromium } from 'playwright'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startFakeOllama, clueReply, guessReply } from './fake-ollama.mjs'
 import { startWorker } from './worker-runtime.mjs'
@@ -25,6 +26,9 @@ const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
 })
 const page = await browser.newPage({ viewport: { width: 360, height: 640 } })
+// The café gate is on (CW-13): this drive finishes the first board and deals
+// the next, so the course's first two cafés are found.
+await page.addInitScript(mergeFirstCafe, seedArgs('da', 2))
 await installRoundGuidanceHandler(page)
 const BASE = preview.base
 const fail = []
@@ -35,6 +39,32 @@ const check = (name, ok, detail = '') => {
 
 await page.addInitScript(
   ({ baseUrl }) => {
+    // The last-chance fixture below, written before the app boots rather than
+    // into the live page. Written live it is lost: the app saves the live game
+    // on visibilitychange while the reload is under way (see endgame-drive),
+    // and boot restores a course board from its durable slot, not from the
+    // game cache. So the slot and the cache are queued together here, the way
+    // endgame-drive's fixture does it.
+    try {
+      const queued = sessionStorage.getItem('__p4-primary-fixture-v1')
+      if (queued) {
+        const { cache, sessions } = JSON.parse(queued)
+        localStorage.setItem('cluecab-progression-sessions-v1', sessions)
+        localStorage.setItem('cluecab-game-v1', cache)
+        sessionStorage.removeItem('__p4-primary-fixture-v1')
+      }
+    } catch { /* opaque origins do not carry this test-only fixture */ }
+    window.__p4WritePrimaryFixture = (raw) => {
+      const persisted = JSON.parse(localStorage.getItem('cluecab-progression-sessions-v1') ?? '{}')
+      const sessions = persisted?.state?.byCourse?.da
+      if (!sessions?.primary || sessions.activeSlot !== 'primary' || !raw?.state?.game) {
+        throw new Error('p4 fixture has no active durable primary slot')
+      }
+      sessions.primary.game = raw.state.game
+      sessionStorage.setItem('__p4-primary-fixture-v1', JSON.stringify({
+        sessions: JSON.stringify(persisted), cache: JSON.stringify(raw),
+      }))
+    }
     localStorage.setItem(
       'cluecab-settings-v1',
       JSON.stringify({
@@ -54,14 +84,18 @@ await page.addInitScript(
 const gameState = () =>
   page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state?.game)
 
-async function startRound(seed = 41) {
-  await page.goto(`${BASE}?howto=0&first=player&seed=${seed}`)
+// The course's own first board, not a seeded one: a seed deals a developer
+// round, which Home has had no way to resume since "Continue game" left it
+// (2026-09-20, Home and Map progression). A course board resumes through
+// "Continue board", and ?first=player still opens it on the player's clue.
+async function startRound() {
+  await page.goto(`${BASE}?howto=0&first=player`)
   await page.waitForSelector('.city-card')
   await page.evaluate(() => {
     localStorage.removeItem('cluecab-game-v1')
     localStorage.removeItem('cluecab-feedback-v1')
   })
-  await page.goto(`${BASE}?howto=0&first=player&seed=${seed}`)
+  await page.goto(`${BASE}?howto=0&first=player`)
   await page.waitForSelector('.city-card')
   await page.locator('.home-play').click()
   await page.waitForSelector('.board-grid')
@@ -101,15 +135,17 @@ try {
     const raw = JSON.parse(localStorage.getItem('cluecab-game-v1'))
     raw.state.game.phase = 'suddenDeath'
     raw.state.game.turnsLeft = 0
-    localStorage.setItem('cluecab-game-v1', JSON.stringify(raw))
-    // Reload in the same browser task so an already-started Casey clue cannot
-    // persist its old phase over this deterministic fixture in the gap.
+    // Queued for the init script, which writes it before the next boot, so
+    // nothing the page does before the reload commits can overwrite it.
+    window.__p4WritePrimaryFixture(raw)
     location.reload()
   })
   await page.waitForSelector('.city-card')
   const forced = await gameState()
   check('the transcript fixture reloads in last chance', forced?.phase === 'suddenDeath', forced?.phase)
-  await page.getByRole('button', { name: 'Continue game' }).click()
+  // Café world (CW-10/CW-12): Continue board is the Café puzzle tag's note, so
+  // the tag's accessible name is its label and then that note.
+  await page.getByRole('button', { name: 'Café puzzle Continue board', exact: true }).click()
   await page.waitForSelector('.sudden-death-bar')
   const afterGuess = await gameState()
   const dud = afterGuess.words.find(
