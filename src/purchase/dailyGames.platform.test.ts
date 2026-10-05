@@ -34,7 +34,7 @@ const { attemptFixture, MATRIX_FIXTURES, settlementFixture } = await import('../
 const { acknowledgeEffect, emptySettlementLedger, prepareSettlement } = await import('../progression/settlement')
 const { SETTLEMENT_KEY } = await import('../stores/settlementStorage')
 const { prepareLearning } = await import('../srs/settlement')
-const { canDeveloperContinue, canStartDailyGame, dailyGateApplies, dailyLimitReached, localDay } = await import('./dailyGames')
+const { canDeveloperContinue, canStartDailyGame, dailyGateApplies, dailyLimitReached, localDay, withIntroPuzzleAdmitted } = await import('./dailyGames')
 const { usePass } = await import('./passStore')
 const { PLAY_PASS_PRODUCTS } = await import('./pass')
 const { REVIEW_ACCESS_KEY, REVIEW_GRANT_MS } = await import('./reviewAccess')
@@ -107,6 +107,14 @@ describe.each(['ios', 'android'] as const)('the limit on %s', (platform) => {
   it('does not count the tutorial', () => {
     playedToday(['primary', 'tutorial'])
     expect(canStartDailyGame()).toBe(true)
+  })
+
+  it("lets the intro's café puzzle past the limit, for that one deal only", () => {
+    playedToday(['primary', 'replay'])
+    expect(withIntroPuzzleAdmitted(() => canStartDailyGame())).toBe(true)
+    expect(canStartDailyGame()).toBe(false)
+    expect(() => withIntroPuzzleAdmitted(() => { throw new Error('refused') })).toThrow('refused')
+    expect(canStartDailyGame()).toBe(false)
   })
 
   it('lets paid Unlimited start any number of games', () => {

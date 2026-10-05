@@ -268,6 +268,16 @@ received native-speaker review. The likeliest to need a reader:
 - German "Du warst heute schon zweimal auf Stadtbummel", which the owner may
   prefer shorter.
 
+The 2026-10-04 Home train strip and empty stamp (owner's TestFlight 122
+notes) added `home.stampNone` to all eleven catalogues (a `trainStripSlips`
+line on Home's "Catch the train" tag came and went the same day: the owner
+found the tag too big). `home.stampNone` is
+written inside Home's empty stamp circle ("No stamp"); it brings back the
+`stampNone` wording CW-03b removed from every catalogue, unchanged. Non-English
+wording is machine-authored and has not received native-speaker review. The
+likeliest to need a reader: whether "Kein Stempel" and "Bez pieczątki" read
+well split over two lines inside the small circle.
+
 **Casey's own voice is tracked separately**, because it lives in the Worker
 rather than the catalogue (`proxy/casey/player-language.js`): the fifteen
 sentences she writes a rationale, a reasoning and an error message with.

@@ -23,7 +23,7 @@ import { useSettings } from '../../stores/settingsStore'
 import { useUi } from '../../stores/uiStore'
 import { Cluey } from '../components/Cluey'
 import { ACTIVE } from '../../lang/active'
-import { TicketGlyph, TrainProgress } from '../components/TrainProgress'
+import { TrainProgress, TrainRunner } from '../components/TrainProgress'
 import { useCityTrain } from '../components/TrainRunPanel'
 import { usePass } from '../../purchase/passStore'
 import { buildAudience } from '../../build/audience'
@@ -49,8 +49,9 @@ import { useCallback, useMemo, useState } from 'react'
  *
  * Café world (card CW-10, docs/design/cafe-world/design-home-settled.jpg and
  * contract section 6): two white tags, "Café puzzle" and "Sightseeing", in
- * place of Play; a ticket at the left end of the train strip that opens the
- * train sheet; the city's stamp and percentage under the Guide where the
+ * place of Play; at the back of the train strip someone running after the
+ * train, and a "Catch the train" tag that opens the train sheet (owner,
+ * 2026-10-04, in place of the ticket at its left end); the city's stamp and percentage under the Guide where the
  * postcard count was; no "City medal" line. The first session shows this
  * same Home with its doors routed by onboarding (CW-13, `intro` below).
  *
@@ -177,6 +178,12 @@ export interface HomeIntroPresentation {
   onSightseeing: () => void
   /** Tapping Casey (the suitcase door) in this act. */
   onCasey: () => void
+  /**
+   * The Café puzzle tag's small line, when the act sets it: a replayed intro
+   * names the city's first café there, as a first session sees it, whatever
+   * the player's own next board is. Omitted, Home says what the tag would do.
+   */
+  cafeNote?: string | null
 }
 
 export function HomeScreen({ intro }: { intro?: HomeIntroPresentation } = {}) {
@@ -308,7 +315,12 @@ export function homeWalks() {
 function HomeCityStamp({ cityName, medal, percent }: { cityName: string; medal: Tier | null; percent: number }) {
   return (
     <p className="home-city-stamp" data-medal={medal ?? 'none'}>
-      <CafeStamp tier={medal} ring={medal ? RECEIPT_UI.stampRing[medal] : undefined} className="home-city-stamp-glyph" />
+      <CafeStamp
+        tier={medal}
+        ring={medal ? RECEIPT_UI.stampRing[medal] : undefined}
+        emptyLabel={medal ? undefined : UI.home.stampNone}
+        className="home-city-stamp-glyph"
+      />
       <strong className="home-city-stamp-percent" aria-hidden="true">{RECEIPT_UI.cityPercent(percent)}</strong>
       <span className="visually-hidden">
         {UI.home.cityStampAria(cityName, RECEIPT_UI.cityPercent(percent))} {UI.home.cityMedal(tierLabel(medal))}
@@ -356,7 +368,11 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
   const srsStats = useSrs((s) => s.stats)
   const durable = readCourseProgress()
   const sessions = runtimeSessions ?? durable.sessions
-  const courseSlot = actionableCourseSlot(activeSlot, sessions)
+  // Inside the intro no round is "waiting": its doors go where the flow goes,
+  // so the Café puzzle tag never offers to continue a game there (a replayed
+  // intro over a paused round used to say "Continue board"). The paused round
+  // itself is untouched and is offered again on the ordinary Home after.
+  const courseSlot = intro ? null : actionableCourseSlot(activeSlot, sessions)
   const nextBoard = nextHomeBoard(durable.facts, sessions)
   // Casey's sticker: the words in the case, counted the way the suitcase's
   // "All" view counts its lid — words with all three marks (CW-02's model,
@@ -507,20 +523,26 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
       </div>
 
       <section className="city-card home-progress-band">
-        <button
-          type="button"
-          className="home-ticket"
-          aria-label={nextCity ? UI.home.trainSheetTitle(nextCity.name) : UI.home.trainJourneyOver}
+        {/* The train, and someone running after it at its back end (owner,
+            2026-10-04): one line, the runner on the train's own rail. */}
+        <div className="home-train-line">
+          <TrainProgress
+            earned={cityTrain.collected}
+            goal={cityTrain.total}
+            label={travel.canBoard && nextCity ? UI.home.boardTrain(nextCity.name) : UI.sightseeing.trainStripLabel(cityTrain.collected, cityTrain.total, cityTrain.slips)}
+            onBoard={travel.canBoard ? board : undefined}
+          />
+          <TrainRunner />
+        </div>
+        {/* The door to the train sheet, where the ticket at the strip's left
+            end was. One small line, named for what it does; the slips are in
+            the train's own sentence. */}
+        <Tag
+          className="home-catch-train"
+          label={UI.sightseeing.trainTitle}
+          aria-label={UI.sightseeing.trainTitle}
           aria-haspopup="dialog"
           onClick={() => setSheet('train')}
-        >
-          <TicketGlyph />
-        </button>
-        <TrainProgress
-          earned={cityTrain.collected}
-          goal={cityTrain.total}
-          label={travel.canBoard && nextCity ? UI.home.boardTrain(nextCity.name) : UI.sightseeing.trainStripLabel(cityTrain.collected, cityTrain.total, cityTrain.slips)}
-          onBoard={travel.canBoard ? board : undefined}
         />
         {/* The "City medal" line is gone (the stamp above says it). The travel
             gate's own line stays until CW-07 moves the gate to the train run:
@@ -555,7 +577,7 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
           <Tag
             className="home-play home-tag-cafe"
             label={UI.home.cafePuzzle}
-            note={cafePuzzleNote(cafe)}
+            note={intro?.cafeNote !== undefined ? intro.cafeNote : cafePuzzleNote(cafe)}
             data-cafe-action={cafe.kind}
             aria-haspopup={cafe.kind === 'find-first' ? 'dialog' : undefined}
             onClick={runCafePuzzle}

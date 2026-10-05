@@ -23,6 +23,7 @@ import { CITY1_REQUIRED_SET, initialCourseSessions } from '../../session/courseR
 import type { CourseSessions } from '../../progression/types'
 import { useGame } from '../../stores/gameStore'
 import { useJourney } from '../../stores/journeyStore'
+import { emptyLabelLines } from '../components/CafeStamp'
 import {
   actionableCourseSlot,
   cafePuzzleAction,
@@ -190,6 +191,9 @@ describe('Home navigation', () => {
       const stamp = html.match(/<p class="home-city-stamp" data-medal="none">([\s\S]*?)<\/p>/)
       expect(stamp).not.toBeNull()
       expect(stamp![1]).toContain('cafe-stamp-empty')
+      // The empty circle says so in words (owner, 2026-10-04): "No stamp".
+      expect(emptyLabelLines(UI.home.stampNone)).toEqual(['No', 'stamp'])
+      for (const line of emptyLabelLines(UI.home.stampNone)) expect(stamp![1]).toMatch(new RegExp(`class="cafe-stamp-empty-label"[^>]*>${line}</text>`))
       expect(stamp![1]).toContain(`<strong class="home-city-stamp-percent" aria-hidden="true">${RECEIPT_UI.cityPercent(0)}</strong>`)
       // The medal is still said, to a screen reader, inside the stamp.
       expect(stamp![1]).toContain(UI.home.cityMedal(UI.home.cityMedalInProgress))
@@ -199,7 +203,7 @@ describe('Home navigation', () => {
     }
   })
 
-  it('draws two tags in place of Play, and a ticket that opens the train sheet', () => {
+  it('draws two tags in place of Play, and a Catch the train tag beside a runner on the train strip', () => {
     const priorGameState = useGame.getState()
     const priorJourney = useJourney.getState()
     useGame.setState({ activeSlot: null, sessions: initialCourseSessions(emptyProgressFacts()) })
@@ -212,15 +216,26 @@ describe('Home navigation', () => {
       const tags = [...html.matchAll(/<button([^>]*)>([\s\S]*?)<\/button>/g)]
         .map((tag) => [tag[1]!.match(/class="([^"]*)"/)?.[1], tag[2], tag[1]] as const)
         .filter(([classes]) => classes?.startsWith('tag '))
-      expect(tags.map((tag) => tag[0])).toEqual(['tag tag-row home-play home-tag-cafe', 'tag tag-row home-tag-sightseeing'])
-      expect(tags[0]![2]).toContain('data-cafe-action="next"')
+      expect(tags.map((tag) => tag[0])).toEqual(['tag tag-row home-catch-train', 'tag tag-row home-play home-tag-cafe', 'tag tag-row home-tag-sightseeing'])
+      const [catchTrain, cafe, sightseeing] = tags
+      expect(cafe![2]).toContain('data-cafe-action="next"')
       // Danish has Words and Articles, so Sightseeing opens the chooser sheet.
-      expect(tags[1]![2]).toContain('aria-haspopup="dialog"')
-      expect(tags[0]![1]).toContain(`<span class="tag-label">${UI.home.cafePuzzle}</span>`)
-      expect(tags[0]![1]).toContain(`<span class="tag-note">${cafeNameForBoard(CITY1_REQUIRED_SET.boards[0])}</span>`)
-      expect(tags[1]![1]).toContain(`<span class="tag-label">${UI.sightseeing.title}</span>`)
-      expect(tags[1]![1]).toContain(`<span class="tag-note">${UI.home.sightseeingNote}</span>`)
-      expect(html).toContain(`class="home-ticket" aria-label="${UI.home.trainSheetTitle('Ribe')}" aria-haspopup="dialog"`)
+      expect(sightseeing![2]).toContain('aria-haspopup="dialog"')
+      expect(cafe![1]).toContain(`<span class="tag-label">${UI.home.cafePuzzle}</span>`)
+      expect(cafe![1]).toContain(`<span class="tag-note">${cafeNameForBoard(CITY1_REQUIRED_SET.boards[0])}</span>`)
+      expect(sightseeing![1]).toContain(`<span class="tag-label">${UI.sightseeing.title}</span>`)
+      expect(sightseeing![1]).toContain(`<span class="tag-note">${UI.home.sightseeingNote}</span>`)
+      // The train strip (owner, 2026-10-04): no ticket; someone running after
+      // the train; and "Catch the train", named just that, opening the sheet,
+      // with the slips under its name. The train keeps its own sentence.
+      expect(html).not.toContain('home-ticket')
+      expect(html).toMatch(/<div class="home-train-line"><svg class="train-progress"[^>]*role="img" aria-label="0 of 147 words collected, 1 slip\.[^"]*">[\s\S]*?<\/svg><svg class="train-runner"/)
+      expect(catchTrain![2]).toContain(`aria-label="${UI.sightseeing.trainTitle}"`)
+      expect(catchTrain![2]).toContain('aria-haspopup="dialog"')
+      expect(UI.sightseeing.trainTitle).toBe('Catch the train')
+      expect(catchTrain![1]).toContain(`<span class="tag-label">${UI.sightseeing.trainTitle}</span>`)
+      // One line: no slips line on the tag (the train's own name says them).
+      expect(catchTrain![1]).not.toContain('tag-note')
     } finally {
       useGame.setState(priorGameState)
       useJourney.setState(priorJourney)
@@ -251,6 +266,33 @@ describe('Home navigation', () => {
     // Casey's bubble stays quiet: the spotlight speaks for her.
     expect(html).not.toContain('cluey-bubble')
     expect(html).not.toContain('home-postcard-total')
+  })
+
+  it('inside a replayed intro a paused round is not offered: the tag names the first café, no Continue, no Return', () => {
+    // A server render reads the stores' INITIAL state, so the paused round is
+    // written there for the render and put back after.
+    const initial = useGame.getInitialState()
+    const saved = { sessions: initial.sessions, activeSlot: initial.activeSlot }
+    const sessions = {
+      ...initialCourseSessions(emptyProgressFacts()),
+      activeSlot: 'replay',
+      primary: retainedSlot('paused-primary', 'primary', 'playerGuessing'),
+      replay: retainedSlot('paused-replay', 'replay', 'aiClueInput'),
+    } as unknown as CourseSessions
+    Object.assign(initial, { sessions, activeSlot: 'replay' })
+    try {
+      const ordinary = renderToStaticMarkup(<HomeScreen />)
+      expect(ordinary).toContain(`<span class="tag-note">${UI.home.continueReplay}</span>`)
+      expect(ordinary).toContain('home-play-second')
+      const replay = renderToStaticMarkup(<HomeScreen intro={{ onCafePuzzle: () => {}, onSightseeing: () => {}, onCasey: () => {}, cafeNote: 'Café Solen' }} />)
+      expect(replay).not.toContain('data-cafe-action="continue"')
+      expect(replay).not.toContain(UI.home.continuePrimary)
+      expect(replay).not.toContain(UI.home.continueReplay)
+      expect(replay).not.toContain('home-play-second')
+      expect(replay).toContain('<span class="tag-note">Café Solen</span>')
+    } finally {
+      Object.assign(initial, saved)
+    }
   })
 
   it('a paused round still offers to continue: the Café puzzle tag continues it', () => {

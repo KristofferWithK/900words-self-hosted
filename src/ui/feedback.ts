@@ -60,6 +60,34 @@ export function tapHaptic(): void {
   nativeHaptic(() => Haptics.impact({ style: ImpactStyle.Light }), 10)
 }
 
+/**
+ * The tap target that already ticked as the finger landed, so the click
+ * that follows it does not tick a second time (useTapHaptics).
+ */
+let pressed: { target: Element; at: number } | null = null
+
+/**
+ * The same tick, given the moment a finger LANDS on a target rather than
+ * when it lifts (owner, build 122: "a delay between me touching the card and
+ * feeling the vibration"). A word card says its word on pointer-down, and its
+ * tick now comes with it, first, before the word and before anything the tap
+ * changes on screen. The click that follows on the same target is quiet.
+ */
+export function pressHaptic(target: Element): void {
+  pressed = { target, at: performance.now() }
+  tapHaptic()
+}
+
+/**
+ * Whether `target` already ticked at pointer-down for the click now arriving
+ * (and so must not tick again). Answers once: the next click ticks as usual.
+ */
+export function consumePressHaptic(target: Element): boolean {
+  const press = pressed
+  pressed = null
+  return !!press && press.target === target && performance.now() - press.at < 2000
+}
+
 /** The existing result buzz, upgraded to real native haptics. */
 export function guessResultHaptic(result: CardRole): void {
   nativeHaptic(

@@ -106,20 +106,40 @@ export function boardLabel(nextCity: string): string {
 }
 
 /**
- * The ticket at the left end of Home's train strip (café world, contract
- * section 6), drawn in the train's pencil: a ticket with notched ends and two
- * printed lines. Decorative; the button around it carries the name. Kept here,
- * beside the train it belongs to, so another glyph is one swap.
+ * Someone running after the train, suitcase in hand (owner, 2026-10-04: "place
+ * a person running after the train on the other side. Ideally they hold a
+ * suitcase"). Home draws it at the back of the train, the end away from the
+ * locomotive, on the same dashed rail; the map and the train sheet do not.
+ *
+ * A pencil stick figure in the train's own hand: the same graphite strokes,
+ * the paper-white head, and a small case in Casey's beige. Leaning into the
+ * run with one arm reaching for the last wagon. Decorative: the strip's
+ * sentence and the "Catch the train" tag beside it carry the meaning.
+ *
+ * ONE component on purpose, so another runner is one swap. Its viewBox is
+ * 30 x 40 with the rail at y 36.5, which puts the rail 2.6 px above the bottom
+ * at Home's 30 px height: the train's rail, bottom-aligned beside it.
  */
-export function TicketGlyph({ className = '' }: { className?: string }) {
+export function TrainRunner({ className = '' }: { className?: string }) {
   return (
-    <svg className={`ticket-glyph ${className}`.trimEnd()} viewBox="0 0 44 26" aria-hidden="true" focusable="false">
-      <path
-        className="ticket-glyph-body"
-        d="M3 3 H41 V9.5 A3.5 3.5 0 0 0 41 16.5 V23 H3 V16.5 A3.5 3.5 0 0 0 3 9.5 Z"
-      />
-      <path className="ticket-glyph-line" d="M13 10 H30 M13 15 H26" />
-      <path className="ticket-glyph-perf" d="M34 5.5 V20.5" />
+    <svg className={`train-runner ${className}`.trimEnd()} viewBox="0 0 30 40" aria-hidden="true" focusable="false">
+      <g className="cluey-hatch">
+        <path className="train-rail" d="M0 36.5 H30" />
+        {/* Speed lines behind the runner. */}
+        <path className="train-runner-speed" d="M26.5 9.5 h3 M27.4 13.4 h2.4" />
+        {/* The case, swinging from the back hand. */}
+        <path className="train-runner-handle" d="M21.4 20.6 v-1.7 h3.6 v1.7" />
+        <rect className="train-runner-case" x="19.4" y="20.6" width="7.6" height="5.8" rx="1.3" />
+        <path className="train-runner-latch" d="M23.2 22.4 v2.2" />
+        {/* Legs mid-stride: the front foot on the rail, the back one kicked up. */}
+        <path className="train-runner-limb" d="M17.4 24.2 L13.4 29.4 L11.6 36 L9.2 36" />
+        <path className="train-runner-limb" d="M17.4 24.2 L20.6 29.6 L25.4 30.6" />
+        {/* Body leaning into the run; one arm reaching for the train. */}
+        <path className="train-runner-limb" d="M14.4 14.6 L17.4 24.2" />
+        <path className="train-runner-limb" d="M15 16.8 L10.8 19.2 L7.2 16.6" />
+        <path className="train-runner-limb" d="M15.4 17 L19.4 19.8 L23.2 19.2" />
+        <circle className="train-runner-head" cx="13" cy="11" r="3.5" />
+      </g>
     </svg>
   )
 }
@@ -206,6 +226,9 @@ export function TrainProgress({
     <svg
       className={`train-progress ${onBoard === undefined ? className : ''}`.trimEnd()}
       viewBox={`0 0 ${width} ${VB_H}`}
+      // Drawn to the bottom-left of its box: where a row narrows the box (Home's
+      // strip), the train keeps its rail on the bottom line beside the runner.
+      preserveAspectRatio="xMinYMax meet"
       data-slips={train.slips}
       data-wagons={train.wagons}
       {...(named ? { role: 'img', 'aria-label': label } : { 'aria-hidden': true })}

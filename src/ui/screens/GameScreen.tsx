@@ -1,5 +1,6 @@
 import { isWebDemo } from '../../build/audience'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { cafeForBoard } from '../../cafe/cafeName'
 import { cafeArrangement } from '../../cafe/cafeTable'
 import { currentClue } from '../../engine/game'
@@ -14,7 +15,7 @@ import { useUi } from '../../stores/uiStore'
 import { useCaseyBackOnline } from '../caseyBackOnline'
 import { AiTurnPanel } from '../components/AiTurnPanel'
 import { BoardGrid, playerKeyHidden, wheelBoardActive } from '../components/BoardGrid'
-import { CafeNameTag, CafeTableEdges } from '../components/CafeTable'
+import { CafeNameTag, CafeTable } from '../components/CafeTable'
 import { ClueInput } from '../components/ClueInput'
 import { useOpenDictionary } from '../components/DictionarySheet'
 import { LeaveGameDialog } from '../components/LeaveGameDialog'
@@ -162,7 +163,20 @@ export function GameScreen({
   const wheelShowing = wheelSpinHold || wheelReview
   const sheetWordId = useUi((s) => s.sheetWordId)
   const mode = useGame((s) => s.mode)
-  const { error, aiBusy, planForClueIndex, selectedWordId, clearError, roundRecorded, settlementBusy, settlementFailure } = useGame()
+  // Only what this screen draws from: a whole-store subscription re-rendered
+  // the screen (board, dock and table) on every store event of the round.
+  const { error, aiBusy, planForClueIndex, selectedWordId, clearError, roundRecorded, settlementBusy, settlementFailure } = useGame(
+    useShallow((s) => ({
+      error: s.error,
+      aiBusy: s.aiBusy,
+      planForClueIndex: s.planForClueIndex,
+      selectedWordId: s.selectedWordId,
+      clearError: s.clearError,
+      roundRecorded: s.roundRecorded,
+      settlementBusy: s.settlementBusy,
+      settlementFailure: s.settlementFailure,
+    })),
+  )
   const lastAiGuess = useGame((s) => s.lastAiGuess)
   // No internet, offline mode on, and offline Casey on this iPhone: the error
   // banner offers to play the rest of the round with her (owner, 2026-09-27:
@@ -346,7 +360,11 @@ export function GameScreen({
   const slotBoard = useGame((s) => (s.activeSlot && s.sessions ? s.sessions[s.activeSlot]?.board ?? null : null))
   const practiceAtCafe = tutorial && !!onboarding
   const practiceCafe = useMemo(() => (practiceAtCafe ? cafeForBoard(firstFoundCafe()?.board) : null), [practiceAtCafe])
-  const cafe = tutorial ? practiceCafe : cafeForBoard(slotBoard)
+  const slotCafe = useMemo(() => cafeForBoard(slotBoard), [slotBoard])
+  const cafe = tutorial ? practiceCafe : slotCafe
+  // One table per café, fixed for the whole puzzle (owner, build 122): made
+  // once from the café's identity and drawn by a memoised layer that no game
+  // state reaches.
   const table = useMemo(() => (cafe ? cafeArrangement(cafe) : null), [cafe])
   // The intro game's four-beat guided tour (2026-09-18). One state flag for
   // THIS screen's lifetime: `introGameTourDue` (the predicate) decides when the
@@ -524,6 +542,9 @@ export function GameScreen({
           the white composer sheet and bottom inset with the fields instead of
           leaving that page-painted surface a beat behind. */}
       <div className="kb-surface" aria-hidden="true" />
+      {/* The café's table: big faint pencil items behind everything on this
+          screen, the same in every state of the puzzle. */}
+      {table && <CafeTable table={table} />}
       {/* While the keyboard is up, a tap anywhere else puts it away — and does
           nothing else. It is a real element rather than a document listener
           precisely so the tap lands HERE: dismissing the keyboard and also
@@ -678,8 +699,6 @@ export function GameScreen({
 
       {showBoard && (
         <div className="board-area">
-          {/* The café's table, behind the cards: faint pencil, no pointer. */}
-          {table && <CafeTableEdges table={table} />}
           <BoardGrid
             game={game}
             canGuess={
@@ -737,7 +756,7 @@ export function GameScreen({
         />
       )}
       {(game.phase === 'aiGuessing' || game.phase === 'aiClueInput') &&
-        !packing && <AiTurnPanel key={`${attemptId}:${eventGeneration}`} game={game} offlineCasey={offlineCasey} cafe={table} />}
+        !packing && <AiTurnPanel key={`${attemptId}:${eventGeneration}`} game={game} offlineCasey={offlineCasey} cafe={!!table} />}
       {game.phase === 'playerGuessing' && !packing && (
         <PlayerGuessBar
           game={game}
@@ -831,7 +850,7 @@ export function GameScreen({
  * is shown on purpose — knowing how many remain is most of the puzzle.
  */
 function SuddenDeathBar({ game }: { game: GameState }) {
-  const { selectedWordId } = useGame()
+  const selectedWordId = useGame((s) => s.selectedWordId)
   const selected = selectedWordId ? game.words.find((w) => w.wordId === selectedWordId) : null
 
   return (
@@ -885,7 +904,7 @@ function PlayerGuessBar({
   /** Casey's opening clue: the learner has not yet seen their green frames. */
   tutorialFirstGuess?: boolean
 }) {
-  const { selectedWordId } = useGame()
+  const selectedWordId = useGame((s) => s.selectedWordId)
   const clue = currentClue(game)!
   const made = clue.guesses.length
   const left = clue.number - made

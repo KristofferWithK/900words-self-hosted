@@ -11,15 +11,23 @@ import type { Tier } from '../../progression/types'
  * Decorative: the line beside it says the stamp in words, so the drawing is
  * hidden from assistive technology. `ring` is that word, already translated.
  */
-export function CafeStamp({ tier, ring, className = '' }: {
+export function CafeStamp({ tier, ring, emptyLabel, className = '' }: {
   readonly tier: Tier | null
   readonly ring?: string
+  /** Words written inside the empty circle (Home's "No stamp"), already translated. Ignored once there is a tier. */
+  readonly emptyLabel?: string
   readonly className?: string
 }) {
   const classes = `cafe-stamp ${tier ? `cafe-stamp-${tier}` : 'cafe-stamp-empty'} ${className}`.trim()
   if (!tier) {
+    const lines = emptyLabel ? emptyLabelLines(emptyLabel) : []
+    const top = lines.length === 2 ? 22.4 : 27
     return <svg viewBox="0 0 48 48" className={classes} aria-hidden="true" focusable="false">
       <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" strokeWidth="1.6" strokeDasharray="3.2 3" />
+      {lines.map((line, i) => {
+        const squeeze = estimatedWidth(line) > EMPTY_LABEL_MAX ? { textLength: EMPTY_LABEL_MAX, lengthAdjust: 'spacingAndGlyphs' as const } : {}
+        return <text key={i} x="24" y={top + i * 9} textAnchor="middle" fontSize={EMPTY_LABEL_SIZE} className="cafe-stamp-empty-label" fill="currentColor" {...squeeze}>{line}</text>
+      })}
     </svg>
   }
   const word = (ring ?? '').toLocaleUpperCase()
@@ -35,4 +43,29 @@ export function CafeStamp({ tier, ring, className = '' }: {
     </g>
     {word && <text x="24" y="34.6" textAnchor="middle" className="cafe-stamp-ring" fill="currentColor" {...squeeze}>{word}</text>}
   </svg>
+}
+
+/** The empty circle's words: their size and the widest a line may run inside the dashed ring, in viewBox units. */
+const EMPTY_LABEL_SIZE = 8.4
+const EMPTY_LABEL_MAX = 33
+
+/** A rough width for squeezing: CJK glyphs are about an em wide, Latin ones a little over half. */
+function estimatedWidth(line: string): number {
+  return [...line].reduce((w, ch) => w + ((ch.codePointAt(0) ?? 0) >= 0x2e80 ? 1 : 0.56), 0) * EMPTY_LABEL_SIZE
+}
+
+/** One line for one word ("无印章"), two for more, split where the halves come out most even ("No" / "stamp"). */
+export function emptyLabelLines(label: string): string[] {
+  const words = label.trim().split(/\s+/).filter(Boolean)
+  if (words.length < 2) return words
+  let best = 1
+  let bestWidth = Infinity
+  for (let i = 1; i < words.length; i++) {
+    const widest = Math.max(words.slice(0, i).join(' ').length, words.slice(i).join(' ').length)
+    if (widest < bestWidth) {
+      best = i
+      bestWidth = widest
+    }
+  }
+  return [words.slice(0, best).join(' '), words.slice(best).join(' ')]
 }

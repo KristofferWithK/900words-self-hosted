@@ -160,5 +160,4 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingBody: "Många har spelat med mig i dag, så jag behöver vila. Kom tillbaka i morgon, eller spela med mig i appen.",
   demoCheckFailed: "Vi kunde inte kontrollera att du är en människa. Ladda om sidan och försök igen.",
   playFullRound: 'Spela kafégåtan',
-  returnToParkedGame: 'Gå tillbaka till ditt spel',
 }

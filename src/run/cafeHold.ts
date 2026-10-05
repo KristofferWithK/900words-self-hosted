@@ -30,6 +30,12 @@ export interface CafeHold {
  * `hold` says whether a find holds the run: true only on the first session's
  * walk. `onFind` hears each find once the café is placed (and the run held,
  * with `hold`). Returns the function that stops listening.
+ *
+ * The sink writes a run's answers a moment after they are given, and at the
+ * latest when the run ends (sinkSetup.ts, deferred writes): a café found by
+ * one of the last answers can be heard after the run is over, when there is
+ * no road to place it on. `onLate` hears that find, so the run-end panel can
+ * still name it; the café itself is stored by the sink like any other.
  */
 export function holdRunForCafes(
   engine: Pick<RunEngine, 'walk' | 'findCafe'>,
@@ -37,6 +43,7 @@ export function holdRunForCafes(
   sign: string,
   hold: boolean,
   onFind: (find: CafeHold) => void,
+  onLate?: (name: string | null) => void,
 ): () => void {
   if (!walkFindsCafes(engine.walk)) return () => {}
   return onCafeFound((cafe, photo) => {
@@ -44,5 +51,6 @@ export function holdRunForCafes(
     const name = nameOf(cafe)
     const shop = engine.findCafe(name ?? sign, hold)
     if (shop) onFind({ name, shop, held: hold })
+    else onLate?.(name)
   })
 }

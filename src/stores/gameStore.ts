@@ -189,7 +189,12 @@ function gameCacheStorage() {
   return {
     getItem: (key: string) => storage.getItem(key),
     setItem: (key: string, value: string) => {
-      if (!suppressGameCachePersistence) return storage.setItem(key, value)
+      if (suppressGameCachePersistence) return
+      // An event that changes nothing this cache holds (a card selected on a
+      // guessing turn) finds its bytes already stored: rewriting them only
+      // put a write and a save-transfer check inside the tap.
+      if (storage.getItem(key) === value) return
+      return storage.setItem(key, value)
     },
     removeItem: (key: string) => {
       if (!suppressGameCachePersistence) return storage.removeItem(key)
@@ -217,6 +222,13 @@ interface GameStore {
    * only in the tutorial cache; ordinary course sessions remain the authority.
    */
   tutorialResumeSlot: 'primary' | 'replay' | null
+  /**
+   * The practice on the table belongs to a Settings replay of the intro (a
+   * transient onboarding run). A replay is a demo: its practice settles
+   * nothing (no receipt, no learning, no award) and never enters the
+   * carry-over window. `finishRound` marks it recorded and stops there.
+   */
+  tutorialDemo: boolean
   sessions: CourseSessions | null
   completionReceipt: CompletionReceipt | null
   settlementBusy: boolean
@@ -235,7 +247,8 @@ interface GameStore {
    * not in `partialize`, so never saved. The boolean results are unchanged.
    */
   lastDealRefusal: DealRefusal | null
-  startReplay: (authoredBoardId: string, developerContinue?: boolean) => boolean
+  /** `firstGiver`: who opens a newly dealt replay (the intro's café puzzle opens with Casey's clue). */
+  startReplay: (authoredBoardId: string, developerContinue?: boolean, firstGiver?: 'player' | 'ai') => boolean
   resumePrimary: () => void
   resumeReplay: () => void
   /** Restore the course slot parked by a transient tutorial, never settle it. */
@@ -871,6 +884,7 @@ const freshRound = () => ({
   attemptOrigin: null as AttemptOrigin | null,
   activeSlot: null as 'primary' | 'replay' | null,
   tutorialResumeSlot: null as 'primary' | 'replay' | null,
+  tutorialDemo: false,
   completionReceipt: null as CompletionReceipt | null,
   gameLanguage: ACTIVE.code,
   gameUiLanguage: UI_LANGUAGE,
@@ -1063,6 +1077,7 @@ const noRound = {
   attemptOrigin: null,
   activeSlot: null,
   tutorialResumeSlot: null as 'primary' | 'replay' | null,
+  tutorialDemo: false,
   completionReceipt: null,
   reviewRoundId: null as string | null,
   sentenceReview: null as QueueState | null,
@@ -1413,7 +1428,11 @@ export const useGame = create<GameStore>()(
           const slot = sessions?.[next.activeSlot]
           if (slot?.attemptId === next.attemptId) {
             const updated = runtimeSlot(next, slot.board, next.activeSlot)
-            if (JSON.stringify(updated) !== JSON.stringify(slot)) {
+            // Compared as values, not as JSON text: the stored slot comes back
+            // from its schema in the schema's field order, so the text never
+            // matched and every event, a card selected included, rewrote and
+            // re-validated the whole two-slot value inside the tap.
+            if (!sameValue(updated, slot)) {
               const saved = { ...sessions, [next.activeSlot]: updated }
               try {
                 adapter.saveSessions(ACTIVE.code, saved)
@@ -1467,6 +1486,7 @@ export const useGame = create<GameStore>()(
       attemptOrigin: null,
       activeSlot: null,
       tutorialResumeSlot: null,
+      tutorialDemo: false,
       sessions: null,
       completionReceipt: null,
       settlementBusy: false,
@@ -1561,7 +1581,7 @@ export const useGame = create<GameStore>()(
           return false
         }
       },
-      startReplay: (id, developerContinue = false) => {
+      startReplay: (id, developerContinue = false, firstGiver) => {
         if (get().lastDealRefusal !== null) rawSet({ lastDealRefusal: null })
         if (get().settlementBusy) return false
         const sessions = loadSessions()
@@ -1581,7 +1601,7 @@ export const useGame = create<GameStore>()(
           useUi.getState().openDailyLimit(() => get().startReplay(id, true))
           return false
         }
-        const { game } = dealCity1AuthoredBoard(CITY1_BOARD_CYCLE.findIndex((item) => item.id === id))
+        const { game } = dealCity1AuthoredBoard(CITY1_BOARD_CYCLE.findIndex((item) => item.id === id), firstGiver)
         const state = { ...get(), ...freshRound(), game, attemptOrigin: 'replay' as const, activeSlot: 'replay' as const,
           mode: 'normal' as const, dailyKey: null, boardCityIndex: 0, authoredBoardId: id,
           boardCertification: 'authored-cycle' as const, roundGuidance: newRoundGuidance(game) }
@@ -1971,6 +1991,9 @@ export const useGame = create<GameStore>()(
         const tutorialResumeSlot = get().activeSlot ?? sessionBeforeTutorial.activeSlot ??
           (sessionBeforeTutorial.primary && !sessionBeforeTutorial.replay ? 'primary' :
             sessionBeforeTutorial.replay && !sessionBeforeTutorial.primary ? 'replay' : null)
+        // A Settings replay of the intro is a demo (OnboardingScreen.tsx): its
+        // practice records nothing, so it settles nothing (finishRound).
+        const tutorialDemo = useUi.getState().onboarding?.persist === false
         suspendForOtherMode()
         // Each supported course has its own nine compatible words and authored
         // clue script; the fixed seed pins the role layout in tutorial.test.ts.
@@ -1998,11 +2021,12 @@ export const useGame = create<GameStore>()(
           // transient Settings replay is different: it must restore the
           // paused course byte-for-byte, so its practice cards never enter
           // that course's future-deal history.
-          recentBoards: tutorialResumeSlot ? prior : [entries.map((w) => w.id), ...prior].slice(0, 4),
+          recentBoards: tutorialResumeSlot || tutorialDemo ? prior : [entries.map((w) => w.id), ...prior].slice(0, 4),
           dailyKey: null,
           boardCertification: 'not-applicable',
           ...freshRound(),
           tutorialResumeSlot,
+          tutorialDemo,
           attemptOrigin: 'tutorial',
           eventGeneration: get().eventGeneration + 1,
           mode: 'tutorial',
@@ -2550,6 +2574,12 @@ export const useGame = create<GameStore>()(
         if (finishing) return finishing
         const state = get()
         const { game, attemptId, attemptOrigin, lookedUp } = state
+        // A replayed intro's practice is a demo: finished is all it needs to
+        // be, so its finish screen shows, and nothing is written anywhere.
+        if (state.mode === 'tutorial' && state.tutorialDemo && game?.phase === 'finished') {
+          if (!state.roundRecorded) rawSet({ roundRecorded: true })
+          return Promise.resolve()
+        }
         // Legacy terminal snapshots have no trustworthy per-effect evidence.
         // C1-06 reconciles them; never replay the old non-atomic reward path.
         if (!game || game.phase !== 'finished' || state.roundRecorded || !attemptId || !attemptOrigin || state.mode === 'wrapup' || attemptOrigin === 'retired-wrapup') return Promise.resolve()
@@ -2642,6 +2672,8 @@ export const useGame = create<GameStore>()(
         // not make a two-slot restore guess which course to reopen.
         state.tutorialResumeSlot = saved.tutorialResumeSlot === 'primary' || saved.tutorialResumeSlot === 'replay'
           ? saved.tutorialResumeSlot : null
+        // Older caches have no demo flag: their practice was a real one.
+        state.tutorialDemo = saved.tutorialDemo === true
         state.reviewRoundId = typeof saved.reviewRoundId === 'string' && saved.reviewRoundId.length > 0 ? saved.reviewRoundId : null
         state.sentenceReview = state.reviewRoundId && state.game?.phase === 'finished' &&
           state.boardCityIndex === 0 && state.gameLanguage === ACTIVE.code && state.mode !== 'tutorial'
@@ -2685,6 +2717,7 @@ export const useGame = create<GameStore>()(
         attemptOrigin: s.attemptOrigin,
         activeSlot: s.activeSlot,
         tutorialResumeSlot: s.tutorialResumeSlot,
+        tutorialDemo: s.tutorialDemo,
         reviewRoundId: s.reviewRoundId,
         sentenceReview: s.sentenceReview,
         roundGuidance: s.roundGuidance,

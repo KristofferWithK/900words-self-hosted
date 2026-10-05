@@ -119,7 +119,10 @@ async function completeWin() {
 
 function startNonSlot(origin: 'daily' | 'developer' | 'tutorial') {
   if (origin === 'tutorial') {
-    useUi.setState({ onboarding: { step: 'tutorial', persist: false } })
+    // A first session's practice (its marker is written by reloadFixture): it
+    // is real practice and settles. A Settings replay's practice settles
+    // nothing (the 'replayed intro practice' test below).
+    useUi.setState({ onboarding: { step: 'tutorial', persist: true } })
     useGame.getState().newTutorialGame()
   } else useGame.getState().newGame({ seed: 99, ...(origin === 'daily' ? { dailyKey: '2026-09-19' } : {}) })
 }

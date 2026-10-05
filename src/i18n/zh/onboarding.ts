@@ -148,5 +148,4 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingBody: "今天有很多人和我一起玩，我需要休息一下。明天再来，或者在应用里和我一起玩。",
   demoCheckFailed: "我们无法确认你是真人。请重新加载页面后再试一次。",
   playFullRound: '玩咖啡馆谜题',
-  returnToParkedGame: '返回你正在进行的游戏',
 }

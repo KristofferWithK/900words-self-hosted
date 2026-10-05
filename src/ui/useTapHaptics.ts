@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { prepareHaptics, tapHaptic } from './feedback'
+import { consumePressHaptic, prepareHaptics, tapHaptic } from './feedback'
 
 const TAP_TARGET = [
   'button',
@@ -60,6 +60,8 @@ export function useTapHaptics(): void {
       ) {
         return
       }
+      // A word card ticks as the finger lands (pressHaptic); its click is quiet.
+      if (consumePressHaptic(target)) return
       tapHaptic()
     }
 

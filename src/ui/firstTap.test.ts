@@ -73,3 +73,34 @@ describe('priming the word player', () => {
     expect(CountingAudio.played).toHaveLength(0)
   })
 })
+
+/**
+ * The card's tick as the finger LANDS (owner, build 122: "a delay between me
+ * touching the card and feeling the vibration"). BoardGrid ticks at
+ * pointer-down; useTapHaptics then leaves that card's click quiet, once.
+ */
+describe('the tick at pointer-down', () => {
+  afterEach(() => {
+    vi.doUnmock('@capacitor/core')
+    vi.unstubAllGlobals()
+    vi.resetModules()
+  })
+
+  it('ticks at once, and only the click on that same target is then quiet, once', async () => {
+    shell(false)
+    const vibrate = vi.fn(() => true)
+    vi.stubGlobal('navigator', { vibrate })
+    const { consumePressHaptic, pressHaptic } = await import('./feedback')
+    const card = {} as Element
+    const other = {} as Element
+    pressHaptic(card)
+    expect(vibrate).toHaveBeenCalledTimes(1)
+    expect(consumePressHaptic(card)).toBe(true)
+    // The next click on it is an ordinary one again.
+    expect(consumePressHaptic(card)).toBe(false)
+    pressHaptic(card)
+    // A click that lands somewhere else ticks as usual.
+    expect(consumePressHaptic(other)).toBe(false)
+    expect(consumePressHaptic(card)).toBe(false)
+  })
+})

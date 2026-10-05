@@ -53,8 +53,8 @@ export const REVEAL_SECONDS = 0.3
 /** Seconds the slip and faster notes stay up. */
 export const SLIP_NOTE_SECONDS = 2.2
 export const FASTER_NOTE_SECONDS = 1.6
-/** A café leaves the road's list once it is this far behind Casey: faded out, and Casey back in her lane after going round it (draw.ts `caseyDodge`). */
-export const SHOPFRONT_GONE = -0.45
+/** A café leaves the road's list once it is this far behind Casey: walked through, collected and gone (draw.ts `cafeAlphaAt`). */
+export const SHOPFRONT_GONE = -0.1
 
 export type RunPhase = 'ready' | 'play' | 'over'
 
@@ -202,6 +202,26 @@ export const LANES = 3
  * the road could not be filled with words that are not already on it.
  */
 export const ROAD_GATES = Math.ceil(FAR / SPACING) + 1
+
+/**
+ * THE QUIET PART OF A GATE. Work that can wait (making the pictures of the
+ * next gates' words, readying their recordings) is done only while no answer
+ * is near: the frames around an answer already carry the answer itself (the
+ * word said, the suitcase turning green, the next gate coming into play), and
+ * the owner's stutter was exactly there. Quiet means at least QUIET_BEFORE
+ * seconds before the next gate reaches Casey and QUIET_AFTER seconds after the
+ * last answer (`sinceAnswer`). A run that is not moving is quiet throughout.
+ */
+export const QUIET_BEFORE = 0.35
+export const QUIET_AFTER = 0.3
+
+export function runIsQuiet(state: Pick<RunState, 'phase' | 'held' | 'gates' | 'speed'>, sinceAnswer: number): boolean {
+  if (state.phase !== 'play' || state.held) return true
+  if (sinceAnswer < QUIET_AFTER) return false
+  const next = state.gates.find((g) => !g.resolved)
+  if (!next || state.speed <= 0) return true
+  return next.z / state.speed >= QUIET_BEFORE
+}
 
 /** The lane Casey starts in: the middle of three, the left of two (as in the prototype). */
 export const startLane = (lanes: number) => Math.floor((lanes - 1) / 2)

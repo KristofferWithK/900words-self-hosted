@@ -165,5 +165,4 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingBody: "Hoje muita gente jogou comigo, por isso preciso de descansar. Volta amanhã ou joga comigo na app.",
   demoCheckFailed: "Não conseguimos confirmar que és uma pessoa. Recarrega a página e tenta outra vez.",
   playFullRound: 'Jogar o enigma do café',
-  returnToParkedGame: 'Volta à tua partida',
 }

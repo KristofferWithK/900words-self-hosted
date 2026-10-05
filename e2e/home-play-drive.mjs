@@ -215,8 +215,28 @@ try {
     await tagLook(play, `${size} Café puzzle`)
     const sightseeingTag = page.locator('.home-tag-sightseeing')
     await tagLook(sightseeingTag, `${size} Sightseeing`)
-    const ticket = await page.locator('.home-ticket').boundingBox()
-    assert.ok(ticket.width >= 44 && ticket.height >= 44, `${size}: the ticket's target is 44px (${ticket.width}x${ticket.height})`)
+    // The train strip (owner, 2026-10-04): no ticket; the train, someone
+    // running after it, and a "Catch the train" tag that opens the train
+    // sheet. All three inside the strip's border, none over another, the tag
+    // a 44px target.
+    assert.equal(await page.locator('.home-ticket').count(), 0, `${size}: the ticket is gone from the strip`)
+    const catchTrain = page.getByRole('button', { name: 'Catch the train', exact: true })
+    await tagLook(catchTrain, `${size} Catch the train`)
+    const strip = await page.evaluate(() => {
+      const box = (selector) => { const r = document.querySelector(selector)?.getBoundingClientRect(); return r ? { left: r.left, top: r.top, right: r.right, bottom: r.bottom } : null }
+      return { band: box('.home-progress-band'), train: box('.home-progress-band .train-progress'), runner: box('.home-progress-band .train-runner'), tag: box('.home-progress-band .home-catch-train') }
+    })
+    const inside = (inner, outer) => inner.left >= outer.left && inner.right <= outer.right && inner.top >= outer.top && inner.bottom <= outer.bottom
+    const apart = (a, b) => a.right <= b.left + 0.5 || b.right <= a.left + 0.5 || a.bottom <= b.top + 0.5 || b.bottom <= a.top + 0.5
+    for (const part of ['train', 'runner', 'tag']) assert.ok(strip[part] && inside(strip[part], strip.band), `${size}: the ${part} is inside the strip's border ${JSON.stringify(strip)}`)
+    assert.ok(apart(strip.train, strip.runner) && apart(strip.runner, strip.tag) && apart(strip.train, strip.tag), `${size}: train, runner and tag do not overlap ${JSON.stringify(strip)}`)
+    assert.ok(strip.runner.left >= strip.train.right - 0.5 && strip.tag.left >= strip.runner.right - 0.5, `${size}: the runner is at the back of the train, the tag to its right`)
+    await catchTrain.click()
+    await page.getByRole('dialog').waitFor()
+    assert.equal(await page.locator('.train-sheet').count(), 1, `${size}: Catch the train opens the train sheet`)
+    await page.locator('.home-sheet-close').click()
+    await page.locator('.train-sheet').waitFor({ state: 'detached' })
+    console.log(`OK ${size}: train strip runner and Catch the train tag inside a ${(strip.band.bottom - strip.band.top).toFixed(1)}px strip`)
     // Disabled: no Home tag is disabled today, so set it on the Sightseeing
     // tag for a moment and read the state the stylesheet gives it.
     await sightseeingTag.evaluate((el) => { el.disabled = true })

@@ -1,7 +1,7 @@
 // The café puzzle on the real board (card CW-08; docs/roadmap/cafe-world.md
 // section 5): coffee cups for the turn dots, the café's name on a tag where
-// the phase caption stood, faint pencil items on the table behind the cards,
-// and Casey large while she thinks.
+// the phase caption stood, large faint pencil items on the table behind the
+// cards, and Casey large while she thinks.
 //
 // Built app + a scripted Casey transport: every external origin is blocked and
 // Casey's decisions are answered locally (as round-opening-guidance-drive
@@ -11,11 +11,13 @@
 //   - the café chrome moves no card: card rects with the café chrome reverted
 //     to the pre-café geometry (dots, caption, small Casey, no table) are
 //     identical to the rects with it;
-//   - no table item, and no edge SPOT any café could use, touches a card's
-//     text, a ⓘ, a button, the header text or the dock's text and controls;
+//   - the table is painted behind everything (a fixed, pointerless layer at
+//     z-index -1), its ink is faint, every card is opaque paper over it, and
+//     no item reaches the header's text or buttons;
 //   - the header fits, and every one of the 100 café names fits its tag;
-//   - bottom items show only while Casey thinks; edge items hide with the
-//     keyboard; the page never scrolls.
+//   - the café's table is fixed (owner, build 122): the same six items in
+//     the same places in every state, keyboard and Casey's turns included;
+//     the page never scrolls.
 import { mkdirSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -111,32 +113,25 @@ const read = () => page.evaluate(() => {
   const box = (el) => { const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height } }
   const shown = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && !el.closest('.visually-hidden, [hidden]') }
   const all = (sel) => [...document.querySelectorAll(sel)].filter(shown)
-  const keepClear = [
-    ...all('.card-da, .card-word, .card-lid-word, .card-info').map((el) => ({ what: el.className, ...box(el) })),
-    ...all('.game-header button, .game-header .turn-tokens, .game-header .phase-caption, .game-header .cafe-name-tag').map((el) => ({ what: `header ${el.className}`, ...box(el) })),
-    ...all('.game-screen .dock button, .game-screen .dock input, .game-screen .dock p, .game-screen .dock .cluey-mini')
-      .filter((el) => el.tagName !== 'P' || el.textContent.trim())
-      .map((el) => ({ what: `dock ${el.tagName}`, ...box(el) })),
-  ]
-  const items = all('.cafe-item').map((el) => ({ spot: el.dataset.spot, drawing: el.dataset.drawing, ...box(el) }))
-  // Every edge spot any café could use, measured from a clone of the layer.
-  const spots = []
-  const layer = document.querySelector('.cafe-table-edges')
-  if (layer && getComputedStyle(layer).display !== 'none') {
-    const clone = layer.cloneNode(true)
-    const template = clone.querySelector('.cafe-item')
-    clone.replaceChildren(...['left-high', 'left-mid', 'left-low', 'right-high', 'right-mid', 'right-low'].map((spot) => {
-      const item = template.cloneNode(true)
-      item.dataset.spot = spot
-      return item
-    }))
-    layer.after(clone)
-    for (const el of clone.querySelectorAll('.cafe-item')) spots.push({ spot: `any ${el.dataset.spot}`, ...box(el) })
-    clone.remove()
-  }
+  // The header must stay clear of the table: its text and its buttons.
+  const keepClear = all('.game-header button, .game-header .turn-tokens, .game-header .phase-caption, .game-header .cafe-name-tag')
+    .map((el) => ({ what: `header ${el.className}`, ...box(el) }))
+  const items = [...document.querySelectorAll('.cafe-item')].map((el) => {
+    const r = box(el)
+    // The ink lies inside the drawing's circle (radius 22 of the 48 box).
+    const inset = r.w * (1 - 44 / 48) / 2
+    const s = getComputedStyle(el)
+    return { spot: el.dataset.spot, drawing: el.dataset.drawing, shown: s.display !== 'none' && s.visibility !== 'hidden' && !el.closest('[hidden]'),
+      x: r.x + inset, y: r.y + inset, w: r.w - 2 * inset, h: r.h - 2 * inset }
+  })
   const hit = (a, b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h
   const overlaps = []
-  for (const item of [...items, ...spots]) for (const clear of keepClear) if (hit(item, clear)) overlaps.push(`${item.spot} x ${clear.what}`)
+  for (const item of items) for (const clear of keepClear) if (hit(item, clear)) overlaps.push(`${item.spot} x ${clear.what}`)
+  const layer = document.querySelector('.cafe-table')
+  const layerStyle = layer ? getComputedStyle(layer) : null
+  const alpha = layerStyle ? Number(/rgba?\(([^)]+)\)/.exec(layerStyle.color)?.[1].split(',')[3] ?? 1) : null
+  const behind = !!layerStyle && layerStyle.position === 'fixed' && Number(layerStyle.zIndex) < 0 && layerStyle.pointerEvents === 'none'
+  const opaqueCards = [...document.querySelectorAll('.word-card-surface')].every((el) => getComputedStyle(el).backgroundColor === 'rgb(255, 255, 255)')
   const header = document.querySelector('.game-header')
   const tag = document.querySelector('.cafe-name-tag-text')
   const doc = document.scrollingElement
@@ -144,7 +139,10 @@ const read = () => page.evaluate(() => {
     cards: [...document.querySelectorAll('.word-card')].map(box),
     items,
     overlaps,
-    pairs: (items.length + spots.length) * keepClear.length,
+    pairs: items.length * keepClear.length,
+    behind,
+    alpha,
+    opaqueCards,
     cups: document.querySelectorAll('.game-header .token-cup').length,
     tag: tag?.textContent ?? null,
     tagTruncated: tag ? tag.scrollWidth > tag.clientWidth + 0.5 : null,
@@ -174,7 +172,7 @@ const cardsWithoutCafeChrome = () => page.evaluate(() => {
 const maxDelta = (a, b) => a.length !== b.length ? Infinity
   : Math.max(0, ...a.flatMap((r, i) => ['x', 'y', 'w', 'h'].map((f) => Math.abs(r[f] - b[i][f]))))
 
-async function state(size, name, expect) {
+async function state(size, name) {
   await page.waitForFunction(() => !document.querySelector('.turn-takeover'), undefined, { timeout: 6000 }).catch(() => {})
   await page.waitForTimeout(300)
   const seen = await read()
@@ -182,14 +180,17 @@ async function state(size, name, expect) {
   await page.screenshot({ path: resolve(output, `${size}-${name}.png`) })
   const at = `${name} @${size}`
   check(`${at}: the café chrome moves no card`, maxDelta(seen.cards, plain) === 0, `max delta ${maxDelta(seen.cards, plain)} over ${seen.cards.length} cards`)
-  check(`${at}: no table item or edge spot touches text or a control`, seen.overlaps.length === 0, seen.overlaps.length ? seen.overlaps.join('; ') : `${seen.pairs} pairs`)
+  check(`${at}: the table lies behind everything, faint, under opaque cards`, seen.behind && seen.alpha !== null && seen.alpha <= 0.3 && seen.opaqueCards, JSON.stringify({ behind: seen.behind, alpha: seen.alpha, opaqueCards: seen.opaqueCards }))
+  check(`${at}: no table item reaches the header's text or buttons`, seen.overlaps.length === 0, seen.overlaps.length ? seen.overlaps.join('; ') : `${seen.pairs} pairs`)
   check(`${at}: Café Solen on the tag, eight cups, the header fits`, seen.tag === 'Café Solen' && !seen.tagTruncated && seen.cups === 8 && !seen.headerOverflows, JSON.stringify({ tag: seen.tag, cups: seen.cups, overflow: seen.headerOverflows }))
-  check(`${at}: ${expect.label}`, expect.items(seen.items), seen.items.map((i) => `${i.drawing}@${i.spot}`).join(', ') || 'no items')
+  const table = seen.items.map((i) => `${i.drawing}@${i.spot} ${i.shown ? '' : 'HIDDEN '}${[i.x, i.y, i.w].map((n) => n.toFixed(2)).join(',')}`).join(' | ')
+  tables[size] ??= table
+  check(`${at}: the café's table is the same as in the first state (six items, none hidden)`, seen.items.length === 6 && seen.items.every((i) => i.shown) && table === tables[size], table || 'no items')
   check(`${at}: the page does not scroll`, !seen.scrolls)
   return seen
 }
 
-const edgesOnly = (items) => items.length === 3 && items.every((i) => /^(left|right)-/.test(i.spot))
+const tables = {}
 
 try {
   for (const viewport of [{ width: 390, height: 844 }, { width: 360, height: 640 }]) {
@@ -202,7 +203,7 @@ try {
     await page.waitForTimeout(2600)
     await dismissGuidance()
     await page.waitForSelector('.guess-bar')
-    await state(size, 'your-turn-to-guess', { label: 'the three edge items only', items: edgesOnly })
+    await state(size, 'your-turn-to-guess')
 
     const fit = await page.evaluate((names) => {
       const text = document.querySelector('.cafe-name-tag-text')
@@ -226,7 +227,7 @@ try {
     await page.waitForSelector('.clue-input')
     await page.waitForTimeout(2600)
     await dismissGuidance()
-    await state(size, 'your-turn-to-clue', { label: 'the three edge items only', items: edgesOnly })
+    await state(size, 'your-turn-to-clue')
 
     // The simulated keyboard the board drives use (keyboard-board-drive).
     await page.locator('.clue-input input').first().focus()
@@ -237,7 +238,7 @@ try {
       document.querySelector('.clue-input')?.classList.add('kb-lifted')
       document.body.style.height = `${window.innerHeight - keyboardHeight}px`
     }, 336)
-    await state(size, 'keyboard-open', { label: 'no items while the keyboard is up', items: (items) => items.length === 0 })
+    await state(size, 'keyboard-open')
     await page.evaluate(() => {
       document.body.style.height = ''
       document.documentElement.classList.remove('kb-up')
@@ -250,10 +251,7 @@ try {
     await page.locator('.clue-input .btn-primary').click()
     await page.waitForSelector('.ai-bubble.thinking')
     await page.waitForTimeout(2600)
-    const thinking = await state(size, 'casey-thinking', {
-      label: 'edge items and the large signature item in the bottom area',
-      items: (items) => items.filter((i) => /^(left|right)-/.test(i.spot)).length === 3 && items.some((i) => i.spot === 'bottom-large' && i.drawing === 'sun'),
-    })
+    const thinking = await state(size, 'casey-thinking')
     check(`casey-thinking @${size}: Casey is large`, thinking.caseyWidth === 96, `${thinking.caseyWidth}px`)
     holdGuess = false
     releaseGuess?.()
@@ -261,9 +259,7 @@ try {
     await page.waitForSelector('.ai-bubble:not(.thinking)')
     await page.waitForTimeout(200)
     const guessing = await read()
-    check(`casey-guessing @${size}: her reasoning has the bottom area, Casey is small again`,
-      !guessing.items.some((i) => i.spot.startsWith('bottom')) && guessing.caseyWidth === 44,
-      JSON.stringify({ casey: guessing.caseyWidth, items: guessing.items.map((i) => i.spot) }))
+    check(`casey-guessing @${size}: Casey is her ordinary size again while she guesses`, guessing.caseyWidth === 44, `${guessing.caseyWidth}px`)
 
     await page.evaluate(() => {
       const value = JSON.parse(localStorage.getItem('cluecab-game-v1'))
@@ -282,7 +278,7 @@ try {
     await page.waitForTimeout(2600)
     await dismissGuidance()
     await page.waitForSelector('.translate-challenge, .dock')
-    await state(size, 'translation-time', { label: 'the three edge items only', items: edgesOnly })
+    await state(size, 'translation-time')
   }
   check('no page errors', errors.length === 0, errors.join(' | '))
 } catch (error) {

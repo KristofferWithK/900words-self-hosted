@@ -4,6 +4,7 @@ import type { CardRole, GameState, Reveal } from '../../engine/types'
 import { isGuessable } from '../../engine/game'
 import { UI } from '../../i18n'
 import { ACTIVE } from '../../lang/active'
+import { pressHaptic } from '../feedback'
 import { playWord, preloadWordAudio } from '../speak'
 import { WordBorderFrames } from './BorderFrames'
 import { SuitcaseGlyph } from './SuitcaseGlyph'
@@ -321,9 +322,19 @@ export function BoardGrid({
                    * suitcase tap stays silent — and it SELECTS nothing any
                    * more: the composer grades on submit against every
                    * untranslated wheel word, no tap-to-select.
+                   *
+                   * The tick comes FIRST, before the word and before anything
+                   * the tap changes on screen (owner, build 122: "a delay
+                   * between me touching the card and feeling the vibration").
+                   * It used to wait for the click, which on a guessing turn
+                   * also waited for the selection's store update and render.
+                   * Same rule as every tap target's tick: an enabled card
+                   * ticks, a face-down one included; its click is then quiet
+                   * (useTapHaptics). Nothing else may run ahead of these two.
                    */
-                  if (faceDown || e.button !== 0) return
-                  if (wheelActive) return
+                  if (e.button !== 0) return
+                  if (!e.currentTarget.disabled) pressHaptic(e.currentTarget)
+                  if (faceDown || wheelActive) return
                   spoken.current = { id: w.wordId, at: performance.now() }
                   void playWord(w.wordId)
                 }}

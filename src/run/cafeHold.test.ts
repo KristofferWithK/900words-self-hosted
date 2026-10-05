@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import type { Cafe } from '../journey/cafes'
 import { holdRunForCafes, type CafeHold } from './cafeHold'
-import { boxesOverlap, cafeAlphaAt, cafeBox, caseyBox, caseyDodge, DODGE_X, dodgedX, dodgeSide, gateRects, kioskRects } from './draw'
-import { createRunEngine, FAR, LANES, SHOPFRONT_GONE, SPACING, type RunEngine } from './engine'
+import { boxesOverlap, cafeAlphaAt, cafeBoardAlpha, cafeBox, CAFE_GONE_AT, caseyBox, caseyDrawX, gateBehind, gateRects, KIOSK_SCALE, kioskRects, type ScreenBox } from './draw'
+import { createRunEngine, FAR, SHOPFRONT_GONE, SPACING, type RunEngine } from './engine'
 import type { RunResult, RunWalk } from './results'
 import { createProgressRunResultsSink } from './sinkSetup'
 import { activeArticleLanes, walkPool } from './sources'
@@ -271,6 +271,56 @@ describe('a café found on any other walk: Casey keeps walking', () => {
     }
   })
 
+  it('deferred writes: a café found by the last answers of a run is heard after it ends, and still named (onLate)', () => {
+    const waiting: (() => void)[] = []
+    let photos = 0
+    const sink = createProgressRunResultsSink(
+      { countRun: () => {}, recordPhoto: ({ findsCafes }) => (findsCafes && ++photos === 5 ? cafeAt(0) : null) },
+      { defer: (run) => (waiting.push(run), () => waiting.splice(waiting.indexOf(run), 1)) },
+    )
+    const engine = createRunEngine({ walk: 'words', cityIndex: 0, pool: walkPool('words', 0, lanes), lanes, sink, rng: mulberry32(8), now: () => 1000 })
+    const holds: CafeHold[] = []
+    const late: (string | null)[] = []
+    const stop = holdRunForCafes(engine, (c) => `Café ${c.index}`, 'Café', false, (h) => holds.push(h), (name) => late.push(name))
+    try {
+      engine.start()
+      runUntil(engine, () => engine.state.photos >= 5)
+      // Found, not yet written: nothing on the road yet.
+      expect(engine.state.shopfronts).toEqual([])
+      engine.leave()
+      expect(holds).toEqual([])
+      expect(late).toEqual(['Café 0'])
+      expect(engine.state.shopfronts).toEqual([])
+    } finally {
+      stop()
+    }
+  })
+
+  it('deferred writes: a café found mid-walk stands on the road a moment later, still between the gates', () => {
+    const waiting: (() => void)[] = []
+    let photos = 0
+    const sink = createProgressRunResultsSink(
+      { countRun: () => {}, recordPhoto: ({ findsCafes }) => (findsCafes && ++photos === 5 ? cafeAt(0) : null) },
+      { defer: (run) => (waiting.push(run), () => waiting.splice(waiting.indexOf(run), 1)) },
+    )
+    const engine = createRunEngine({ walk: 'words', cityIndex: 0, pool: walkPool('words', 0, lanes), lanes, sink, rng: mulberry32(8), now: () => 1000 })
+    const holds: CafeHold[] = []
+    const stop = holdRunForCafes(engine, (c) => `Café ${c.index}`, 'Café', false, (h) => holds.push(h))
+    try {
+      engine.start()
+      runUntil(engine, () => engine.state.photos >= 5)
+      // The write a quarter of a second later (WRITE_AFTER_MS).
+      for (let i = 0; i < 8; i++) engine.step(1 / 30)
+      waiting.splice(0).forEach((run) => run())
+      expect(holds).toHaveLength(1)
+      const shop = holds[0].shop
+      expect(shop.z).toBeCloseTo(engine.activeGate()!.z - SPACING / 2, 9)
+      expect(shop.z).toBeGreaterThan(0.8)
+    } finally {
+      stop()
+    }
+  })
+
   it('nothing is placed before a run starts or after it ends', () => {
     const { engine, stop } = walkWithFinds('words', [])
     try {
@@ -284,6 +334,12 @@ describe('a café found on any other walk: Casey keeps walking', () => {
     }
   })
 })
+
+/** What a café draws at `z` with the nearest gate behind it at `zBehind`: the kiosk always, the name board once it is shown. */
+function drawnParts(z: number, zBehind: number | undefined): ScreenBox[] {
+  const { kiosk, board } = kioskRects(z)
+  return cafeBoardAlpha(z, zBehind) > 0 ? [kiosk, board] : [kiosk]
+}
 
 describe('the café on the road, on the screen', () => {
   const walks: [string, RunWalk, number][] = [
@@ -304,11 +360,11 @@ describe('the café on the road, on the screen', () => {
         400,
         () => {
           for (const shop of engine.state.shopfronts) {
-            const box = cafeBox(shop.z)
+            const parts = drawnParts(shop.z, gateBehind(engine.state, shop.z))
             for (const g of engine.state.gates) {
               if (g.z < -0.18 || g.z > FAR) continue
               checked++
-              for (const r of gateRects(g.z, laneCount)) expect(boxesOverlap(box, r), `cafe ${shop.z} gate ${g.z}`).toBe(false)
+              for (const part of parts) for (const r of gateRects(g.z, laneCount)) expect(boxesOverlap(part, r), `cafe ${shop.z} gate ${g.z}`).toBe(false)
             }
           }
         },
@@ -320,112 +376,88 @@ describe('the café on the road, on the screen', () => {
     }
   })
 
-  it('never stands over a gate anywhere on its way, for two and three lanes, and stays on the road', () => {
+  it('never stands over a gate anywhere on its way, for two and three lanes, and covers the road kerb to kerb', () => {
     let checked = 0
     for (const laneCount of [2, 3])
       for (let z = SPACING / 2; z > SHOPFRONT_GONE; z -= 0.01) {
         const box = cafeBox(z)
         const s = 1 / (1 + z)
-        expect(box.left).toBeGreaterThanOrEqual(240 - KERB * s - 1e-9)
-        expect(box.right).toBeLessThanOrEqual(240 + KERB * s + 1e-9)
+        expect(box.left).toBeCloseTo(240 - KERB * s, 9)
+        expect(box.right).toBeCloseTo(240 + KERB * s, 9)
+        // The kiosk and its island reach both kerbs.
+        const { kiosk } = kioskRects(z)
+        expect(kiosk.left).toBeCloseTo(box.left, 9)
+        expect(kiosk.right).toBeCloseTo(box.right, 9)
+        const zBehind = z + SPACING / 2
+        const parts = drawnParts(z, zBehind)
+        for (const part of parts) {
+          expect(part.left).toBeGreaterThanOrEqual(box.left - 1e-9)
+          expect(part.right).toBeLessThanOrEqual(box.right + 1e-9)
+          expect(part.top).toBeGreaterThanOrEqual(box.top - 1e-9)
+          expect(part.bottom).toBeLessThanOrEqual(box.bottom + 1e-9)
+        }
         for (let k = -1; k <= 3; k++) {
           const gz = z + (k + 0.5) * SPACING
           if (gz < -0.18 || gz > FAR) continue
           checked++
-          for (const r of gateRects(gz, laneCount)) expect(boxesOverlap(box, r), `${laneCount} lanes, cafe ${z}, gate ${gz}`).toBe(false)
+          for (const part of parts) for (const r of gateRects(gz, laneCount)) expect(boxesOverlap(part, r), `${laneCount} lanes, cafe ${z}, gate ${gz}`).toBe(false)
         }
       }
-    expect(checked).toBeGreaterThan(1000)
+    expect(checked).toBeGreaterThan(900)
+  })
+
+  it('it is bigger than the kiosk was, and its name board comes in on the way, well before Casey reaches it', () => {
+    expect(KIOSK_SCALE).toBeGreaterThan(1)
+    // Far down the road the board is left out over the gate behind...
+    expect(cafeBoardAlpha(SPACING / 2, SPACING)).toBe(0)
+    // ...and it is all there long before the café reaches her.
+    expect(cafeBoardAlpha(0.7, 0.7 + SPACING / 2)).toBe(1)
+    expect(cafeBoardAlpha(0.3, undefined)).toBe(1)
   })
 
   it('the check can fail, since a café that was not halfway between gates would stand over one', () => {
     expect(gateRects(2, 2).some((r) => boxesOverlap(cafeBox(3), r))).toBe(true)
     expect(gateRects(1.6, 3).some((r) => boxesOverlap(cafeBox(1.1), r))).toBe(true)
+    // And without leaving its board out, the bigger kiosk would stand over the gate behind.
+    expect(gateRects(SPACING, 3).some((r) => boxesOverlap(kioskRects(SPACING / 2).board, r))).toBe(true)
   })
 })
 
-describe('Casey and the kiosk: the road splits round it', () => {
+describe('Casey and the café: she walks straight into it, in her lane', () => {
   /** A lane's place across the road, from its middle (draw.ts `laneAt`: three lanes of 158 share the road). */
   const laneAt = (i: number, n: number) => (i - (n - 1) / 2) * ((3 * 158) / n)
-  /** Her pencil wobble while running (draw.ts: 0.03 radians either way). */
-  const WOBBLE = 0.03
 
-  it('the kiosk is all inside the box the gates are checked against', () => {
-    for (let z = SPACING / 2; z > SHOPFRONT_GONE; z -= 0.01) {
-      const box = cafeBox(z)
-      for (const r of kioskRects(z)) {
-        expect(r.left).toBeGreaterThanOrEqual(box.left - 1e-9)
-        expect(r.right).toBeLessThanOrEqual(box.right + 1e-9)
-        expect(r.top).toBeGreaterThanOrEqual(box.top - 1e-9)
-        expect(r.bottom).toBeLessThanOrEqual(box.bottom + 1e-9)
-      }
+  it.each([2, 3])('%i lanes: every lane runs into the kiosk, so whichever lane she is in she walks into it', (n) => {
+    const { kiosk } = kioskRects(0)
+    for (let i = 0; i < n; i++) {
+      const casey = caseyBox(laneAt(i, n), 0, 0)
+      expect(casey.left).toBeGreaterThanOrEqual(kiosk.left)
+      expect(casey.right).toBeLessThanOrEqual(kiosk.right)
     }
   })
 
-  for (const lanes of [2, 3]) {
-    it(`${lanes} lanes: Casey never runs into the kiosk, in any lane or between lanes, on either branch`, () => {
-      let checked = 0
-      const hits: string[] = []
-      for (let laneX = 0; laneX <= lanes - 1 + 1e-9; laneX += 0.05) {
-        const x = laneAt(laneX, lanes)
-        // Settled in a lane, or on her way to either neighbour.
-        const targets = [Math.floor(laneX + 1e-9), Math.ceil(laneX - 1e-9)].map((i) => laneAt(i, lanes))
-        // The branch is chosen where she is as the kiosk comes near; she may have steered since.
-        for (const side of [dodgeSide(x), -dodgeSide(x) as -1 | 1])
-          for (let z = SPACING / 2; z > SHOPFRONT_GONE; z -= 0.01) {
-            if (cafeAlphaAt(z) <= 0) continue
-            const w = caseyDodge(z)
-            const drawn = dodgedX(x, w, side)
-            for (const target of targets) {
-              const lean = (dodgedX(target, w, side) - drawn) * 0.004
-              for (const angle of [lean - WOBBLE, lean, lean + WOBBLE])
-                for (const bob of [0, -3.5, -7]) {
-                  const casey = caseyBox(drawn, bob, angle)
-                  checked++
-                  if (kioskRects(z).some((r) => boxesOverlap(casey, r))) hits.push(`laneX ${laneX.toFixed(2)} side ${side} z ${z.toFixed(3)}`)
-                }
-            }
-          }
-      }
-      expect(hits.slice(0, 5)).toEqual([])
-      expect(checked).toBeGreaterThan(10000)
-    }, 30000)
-  }
-
-  it('the check can fail: without going round, Casey in the middle lane runs into it', () => {
-    const middle = laneAt(1, LANES)
-    expect(kioskRects(0.02).some((r) => boxesOverlap(caseyBox(middle, 0, 0), r))).toBe(true)
-    expect(kioskRects(0.02).some((r) => boxesOverlap(caseyBox(laneAt(1, 2), 0, 0), r))).toBe(true)
-  })
-
-  it('going round, she stays on the road', () => {
-    for (const side of [-1, 1] as const) {
-      const box = caseyBox(dodgedX(0, 1, side), 0, WOBBLE)
-      expect(box.left).toBeGreaterThan(240 - 237)
-      expect(box.right).toBeLessThan(240 + 237)
-    }
-    expect(DODGE_X).toBeLessThan(237 - 65)
-  })
-
-  it.each(['words', 'articles'] as const)('%s walk: she goes round it only while no gate is near, and is back in her lane before the next one', (walk) => {
+  it.each(['words', 'articles'] as const)('%s walk: her drawn place never leaves her lane because of a café; there is no swerve', (walk) => {
     const { engine, stop } = walkWithFinds(walk, [5, 15, 25, 35], { seed: 5, hold: false })
-    let dodging = 0
+    let withCafe = 0
     try {
       engine.start()
       runUntil(engine, () => engine.state.photos >= 40, 200, () => {
-        for (const shop of engine.state.shopfronts) {
-          if (caseyDodge(shop.z) <= 0) continue
-          dodging++
-          // No gate at her feet or close ahead: the nearest is a second's walk away or more.
-          for (const g of engine.state.gates) if (!g.resolved) expect(g.z, `cafe ${shop.z}`).toBeGreaterThan(1)
-          for (const g of engine.state.gates) if (g.resolved) expect(g.z).toBeLessThan(-0.2 + 1e-9)
-        }
+        const s = engine.state
+        if (s.shopfronts.length) withCafe++
+        expect(caseyDrawX(s)).toBe(laneAt(s.laneX, s.lanes))
+        // Without its cafés she is drawn in exactly the same place.
+        expect(caseyDrawX({ ...s, shopfronts: [] } as typeof s)).toBe(caseyDrawX(s))
       })
-      expect(dodging).toBeGreaterThan(100)
-      // Once the café has left the road she is drawn in her lane again.
-      expect(caseyDodge(SHOPFRONT_GONE)).toBe(0)
+      expect(withCafe).toBeGreaterThan(30)
     } finally {
       stop()
     }
+  })
+
+  it('as she reaches it, it fades and is gone just behind her, as the kiosk always did; nothing lights up', () => {
+    expect(cafeAlphaAt(0.2)).toBe(1)
+    expect(cafeAlphaAt(0.05)).toBeLessThan(1)
+    expect(cafeAlphaAt(CAFE_GONE_AT)).toBe(0)
+    expect(CAFE_GONE_AT).toBeGreaterThan(SHOPFRONT_GONE)
   })
 })

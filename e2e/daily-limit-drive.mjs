@@ -164,7 +164,7 @@ try {
     })
     if (!runsFits) throw new Error('The run-limit dialog clips or internally scrolls at 360x640')
     await runsDialog.getByRole('button', { name: 'Maybe tomorrow' }).click()
-    await runsPage.locator('.home-ticket').click()
+    await runsPage.locator('.home-catch-train').click()
     await runsPage.locator('.train-run-catch').click()
     await runsDialog.waitFor()
     if (await runsPage.locator('.run-stage').count()) throw new Error('The train run started past the run limit')

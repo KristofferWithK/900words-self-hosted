@@ -162,5 +162,4 @@ export const onboarding: Catalogue['onboarding'] = {
   demoRestingBody: "Ma sokan játszottak velem, ezért pihennem kell. Gyere vissza holnap, vagy játssz velem az appban.",
   demoCheckFailed: "Nem tudtuk ellenőrizni, hogy ember vagy. Töltsd újra az oldalt, és próbáld újra.",
   playFullRound: 'Játssz a kávézós rejtvénnyel',
-  returnToParkedGame: 'Térj vissza a játékodhoz',
 }

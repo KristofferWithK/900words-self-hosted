@@ -204,6 +204,7 @@ export const home: Catalogue['home'] = {
   trainSheetCollected: (collected, total) => `已收集：${collected} / ${total}`,
   trainSheetRule: '跑完全程是上车的唯一方法。',
   cityStampAria: (city, percent) => `${city}：咖啡馆印章已集齐 ${percent}。`,
+  stampNone: '无印章',
   cafeNotFoundNote: '先找到一家咖啡馆',
   cafeNotFoundLine: '先在城市观光中找到一家咖啡馆。',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────

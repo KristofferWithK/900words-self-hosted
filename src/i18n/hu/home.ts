@@ -226,6 +226,7 @@ export const home: Catalogue['home'] = {
   trainSheetCollected: (collected, total) => `Összegyűjtve: ${collected} / ${total}`,
   trainSheetRule: 'Csak a futással lehet felszállni a vonatra.',
   cityStampAria: (city, percent) => `${city}: a kávézók pecsétjeinek ${percent}-a.`,
+  stampNone: 'Nincs pecsét',
   cafeNotFoundNote: 'előbb találj egy kávézót',
   cafeNotFoundLine: 'Előbb találj egy kávézót városnézés közben.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────

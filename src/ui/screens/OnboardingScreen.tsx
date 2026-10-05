@@ -1,6 +1,6 @@
 import { isWebDemo } from '../../build/audience'
 import { DemoEndAct } from '../../webdemo/DemoEndAct'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   CATALOGUES,
   UI,
@@ -19,12 +19,13 @@ import { UPCOMING_COURSES } from '../../lang/upcoming'
 import { routePath } from '../../journey/map'
 import { writeOnboardStep, type OnboardLessonStatus } from '../../onboarding/flow'
 import { ensureFirstCafeFound, firstCafeName, firstFoundCafe } from '../../onboarding/firstCafe'
+import { installReplayWalkSink, replayCafeName, replayWalkFoundCafe, startReplayWalk } from '../../onboarding/replayWalk'
 import { isCurrentTutorialGame, TUTORIAL_LANGUAGE } from '../../onboarding/tutorial'
-import { admitFirstWalk, canStartRun, endFirstWalkAdmission } from '../../purchase/dailyGames'
+import { admitFirstWalk, endFirstWalkAdmission } from '../../purchase/dailyGames'
 import { primeRunAudio } from '../../run/audio'
 import { useGame } from '../../stores/gameStore'
 import { useUi, uiLanguageChoiceAllowed } from '../../stores/uiStore'
-import { openIntroRound } from '../introRound'
+import { dealReplayPractice, openIntroRound } from '../introRound'
 import { ClueyFace } from '../components/Cluey'
 import { CoachMarkTour, SuitcaseTour } from '../components/SuitcaseTour'
 import { Tag } from '../components/Tag'
@@ -61,6 +62,15 @@ import { SuitcaseScreen } from './SuitcaseScreen'
  * only one playable course is available — never a one-entry select, which is
  * `hasLanguageChoice`'s own reasoning. Its display format matches Settings:
  * `name (endonym)`.
+ *
+ * A Settings replay (`persist: false`) shows every one of these acts as a
+ * first session sees them, from the ticket (src/onboarding/replayWalk.ts):
+ * its walk is a demo that finds the city's first café without storing it,
+ * and its practice is dealt fresh and settles nothing. Its café puzzle is
+ * real play, dealt fresh as the first café, with the finish screen's stamp
+ * lesson (owner, 2026-10-04: "It's part of the intro"); it records like any
+ * café puzzle. A round the player had paused is never offered during the
+ * replay and is there, the same round, after it.
  *
  * Skip stays available on the ticket, Casey's lines, the walk's panels, the
  * Home spotlight and the practice/suitcase tutorials. The first café puzzle
@@ -174,7 +184,8 @@ export function OnboardingScreen() {
 
   const finishRun = () => {
     // Skip lands on a Home whose Café puzzle tag plays (see the file comment).
-    ensureFirstCafeFound()
+    // A replay records nothing: the player's own cafés are as they were.
+    if (onboarding.persist) ensureFirstCafeFound()
     const game = useGame.getState()
     // A transient Settings replay may have put a real primary or replay slot
     // down before showing the nine-word practice. Bring that exact session
@@ -386,22 +397,36 @@ export function WalkAct({ skip }: { skip: () => void }) {
   // starts the walk at once (`startNow`) after asking `canStartRun`, so an
   // admission made in this act's effect would come too late. The effect
   // admits again on mount (StrictMode's remount) and ends the admission when
-  // the act goes. A replayed intro is not a first session: its walk asks the
-  // count, and with today's two used the upgrade dialog says why the walk
-  // does not start (App draws the dialog over a replayed intro, never over a
-  // first session).
-  useState(() => admitFirstWalk(persist))
+  // the act goes.
+  //
+  // A replayed intro's walk is a demo (src/onboarding/replayWalk.ts): it is
+  // admitted the same way, and since its run reports to a sink that writes
+  // nothing it is never counted either, so a replay neither spends nor needs
+  // one of today's walks. Its café is found for the replay's screens only.
+  // The sink goes in while the act draws for the same reason as the
+  // admission: the walk screen makes its run engine, and takes the sink, as
+  // it first draws.
+  useState(() => {
+    if (!persist) {
+      startReplayWalk()
+      installReplayWalkSink()
+    }
+    return admitFirstWalk(true)
+  })
   useEffect(() => {
-    admitFirstWalk(persist)
-    if (!persist && !canStartRun()) useUi.getState().openDailyLimit()
-    return () => endFirstWalkAdmission()
+    admitFirstWalk(true)
+    const uninstall = persist ? undefined : installReplayWalkSink()
+    return () => {
+      endFirstWalkAdmission()
+      uninstall?.()
+    }
   }, [persist])
   return (
     <SightseeingScreen firstWalk={{
       startNow,
-      cafeFound: () => firstFoundCafe() !== null,
+      cafeFound: persist ? () => firstFoundCafe() !== null : replayWalkFoundCafe,
       onHome: () => {
-        ensureFirstCafeFound()
+        if (persist) ensureFirstCafeFound()
         advance('home-cafe')
       },
       onSkip: skip,
@@ -417,9 +442,13 @@ export function WalkAct({ skip }: { skip: () => void }) {
  */
 function HomeCafeAct({ skip }: { skip: () => void }) {
   const advance = useUi((s) => s.advanceOnboarding)
+  const persist = useUi((s) => s.onboarding?.persist ?? false)
   // A reload here, or a resume from an older marker, may arrive without the
-  // walk's find: the first café is found before Home is drawn.
+  // walk's find: the first café is found before Home is drawn. A replay finds
+  // nothing: it speaks of the city's first café, as a first session does,
+  // and its Café puzzle tag names that café, never "Continue board".
   const [cafeName] = useState(() => {
+    if (!persist) return replayCafeName()
     ensureFirstCafeFound()
     return firstCafeName()
   })
@@ -431,6 +460,7 @@ function HomeCafeAct({ skip }: { skip: () => void }) {
         onCafePuzzle: () => advance('tutorial'),
         onSightseeing: () => advance('walk'),
         onCasey: () => undefined,
+        ...(persist ? {} : { cafeNote: cafeName }),
       }} />
       {!tourClosed && (
         <CoachMarkTour
@@ -466,6 +496,12 @@ function TutorialAct({
   const mode = useGame((s) => s.mode)
   const game = useGame((s) => s.game)
   const advance = useUi((s) => s.advanceOnboarding)
+  const persist = useUi((s) => s.onboarding?.persist ?? false)
+  // A replay sits down at a FRESH practice table, once, on entry: a practice
+  // left on the table by an earlier replay (or an earlier session) is never
+  // continued. A first session's reload, by contrast, resumes its practice.
+  const dealFresh = useRef(!persist)
+  const [dealt, setDealt] = useState(persist)
   // Do not run a different course's script if a future playable pack is added
   // before its own practice round has been authored.
   const scripted = ACTIVE.code === TUTORIAL_LANGUAGE
@@ -474,11 +510,19 @@ function TutorialAct({
       advance('real-round')
       return
     }
+    if (dealFresh.current) {
+      dealFresh.current = false
+      dealReplayPractice()
+      setDealt(true)
+      return
+    }
     const s = useGame.getState()
     if (s.mode === 'tutorial' && s.game && !isCurrentTutorialGame(s.game)) s.abandonGame()
     if (!s.game || s.mode !== 'tutorial' || !isCurrentTutorialGame(s.game)) s.newTutorialGame()
-  }, [scripted, advance])
-  if (!scripted || !game || mode !== 'tutorial') return null
+  }, [scripted, advance, persist])
+  // Nothing is drawn over an old practice while the fresh one is dealt: the
+  // table only appears once it is the new one.
+  if (!dealt || !scripted || !game || mode !== 'tutorial') return null
   return <GameScreen
     showTranslationLesson={showTranslationLesson}
     onTranslationLessonComplete={onTranslationLessonComplete}
@@ -510,9 +554,9 @@ function RealRoundAct({
   const mode = useGame((s) => s.mode)
   const game = useGame((s) => s.game)
   const persist = useUi((s) => s.onboarding?.persist ?? false)
-  // The board: the first session's found café, or a replayed intro's own
-  // next board. No round (any refusal) ends the intro on Home rather than a
-  // blank act (src/ui/introRound.ts).
+  // The board: the first session's found café, or a replay's fresh first
+  // café. No round (any refusal) ends the intro on Home or goes on to its
+  // lesson rather than a blank act (src/ui/introRound.ts).
   useEffect(() => openIntroRound(persist), [persist])
   if (!game || mode !== 'normal') return null
   return <GameScreen

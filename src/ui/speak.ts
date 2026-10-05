@@ -824,6 +824,19 @@ export function createWordPlayer(ports: WordAudioPorts) {
         ...wordIds.map((id) => ({ key: `${variant}:${id}`, url: wordAudioUrl(id, variant) })),
       ])
     },
+    /**
+     * Ready recordings that are not words of the course data (the run's
+     * connecting words, audio/da/connecting/*.mp3) the way a board's words
+     * are readied: fetched, memoised and parked on a warm element, so saying
+     * one is `play()` and nothing else (`playClip`).
+     */
+    preloadClips(urls: readonly string[]): Promise<void> {
+      return preload(urls.map((url) => ({ key: `clip:${url}`, url })))
+    },
+    /** Say a recording readied by `preloadClips` (or fetched now if it was not). */
+    playClip(url: string): Promise<PlaybackSource> {
+      return settled('word', () => attempt(url, { key: 'clip', kind: 'word', url }))
+    },
     /** Ready the example sentences a screen is about to offer. */
     preloadExamples(wordIds: readonly string[]): Promise<void> {
       return preload(wordIds.map((id) => ({ key: `example:${id}`, url: exampleAudioUrl(id) })))
@@ -1423,6 +1436,22 @@ export function playWord(wordId: string, opts?: { slow?: boolean; article?: bool
  */
 export function preloadWordAudio(wordIds: readonly string[], opts?: { slow?: boolean }): Promise<void> {
   return player.preloadWords(wordIds, opts).catch(() => {})
+}
+
+/**
+ * Ready recordings that are not words of the course data (the run's
+ * connecting words) on warm elements, before they are said. Never rejects.
+ * Added for the Sightseeing run: its connecting words used to be handed to the
+ * one shared element as a new blob at the moment of the answer, which loaded
+ * and decoded the clip inside the run's frame.
+ */
+export function preloadClipAudio(urls: readonly string[]): Promise<void> {
+  return player.preloadClips(urls).catch(() => {})
+}
+
+/** Say a recording readied by `preloadClipAudio`. Never rejects. */
+export function playClipAudio(url: string): Promise<PlaybackSource> {
+  return player.playClip(url)
 }
 
 /** Ready the example sentences a screen is about to offer. */

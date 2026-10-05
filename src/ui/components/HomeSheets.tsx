@@ -84,7 +84,7 @@ export function SightseeingChooser({ walks, articleAsk, lanes, lead, onChoose, o
 }
 
 /**
- * The train sheet, opened by the ticket at the left end of Home's train strip.
+ * The train sheet, opened by the "Catch the train" tag on Home's train strip.
  * What the city's train asks of the player: every word of the city, and the
  * run as the only way on (contract section 4).
  *

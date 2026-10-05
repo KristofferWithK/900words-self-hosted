@@ -258,7 +258,7 @@ export const home = {
    */
   articlesWalkNote: (ask: string, lanes: number) =>
     lanes === 2 ? `${ask} Take the left or the right way.` : `${ask} Each article has its own lane.`,
-  /** The train sheet's title, and the name of the ticket that opens it. */
+  /** The train sheet's title. */
   trainSheetTitle: (city: string) => `The train to ${city}`,
   /** Under the title: the city's words, the length of the train run. */
   trainSheetWords: (city: string, total: number, board: number, connecting: number) =>
@@ -267,6 +267,8 @@ export const home = {
   trainSheetRule: 'The run is the only way onto the train.',
   /** Read out for the stamp on Home, before the city medal line. `percent` is already formatted. */
   cityStampAria: (city: string, percent: string) => `${city}: ${percent} of the café stamps.`,
+  /** Written inside Home's empty stamp circle while the city has no medal yet. */
+  stampNone: 'No stamp',
   /** The Café puzzle tag's note while no café is found yet (CW-04's rule). Lower case, as a note. */
   cafeNotFoundNote: 'find a café first',
   /** At the top of the Sightseeing sheet, when the Café puzzle tag sent the player there. */

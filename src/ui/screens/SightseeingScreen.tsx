@@ -18,8 +18,9 @@ import { primeSfx } from '../sfx'
 import { stopWordAudio } from '../speak'
 import { primeRunAudio, readyRunWords, sayRunWord } from '../../run/audio'
 import { holdRunForCafes, type CafeHold } from '../../run/cafeHold'
+import { flushRunProgress, warmRunProgress } from '../../run/sinkSetup'
 import { createRunPainter, stageSize as fitStage, type RunLabels, type RunPainter } from '../../run/draw'
-import { createRunEngine, type RunEngine } from '../../run/engine'
+import { createRunEngine, runIsQuiet, type RunEngine } from '../../run/engine'
 import { runResultsSink, type RunResult, type RunWalk } from '../../run/results'
 import { activeArticleLanes, walkPool } from '../../run/sources'
 import { chosenWalk } from '../../run/walks'
@@ -203,15 +204,29 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
   const autoRef = useRef(autoSteer())
   /** The cafés found since the run started, for its end panel. */
   const cafesRef = useRef<(string | null)[]>([])
+  /**
+   * The recordings of gates placed on the road, readied one gate per frame
+   * while the run is quiet (`runIsQuiet`): readying makes media elements, and
+   * that work does not belong in the frames around an answer.
+   */
+  const toReady = useRef<RunWord[][]>([])
+  /** The run's clock at its last answer. */
+  const lastAnswer = useRef({ answered: 0, at: -Infinity })
 
   const [panel, setPanelState] = useState<Panel>('ready')
   const [ending, setEnding] = useState<Ending | null>(null)
   const [cafeFound, setCafeFound] = useState<CafeHold | null>(null)
-  const [announce, setAnnounce] = useState('')
+  /**
+   * The gate read out to a screen reader, written straight into its live
+   * region: a React state here re-rendered the whole screen at every gate,
+   * right after each answer.
+   */
+  const announceRef = useRef<HTMLParagraphElement>(null)
   const [stageSize, setStageSize] = useState<{ w: number; h: number } | null>(null)
 
   const setPanel = useCallback((p: Panel) => {
     panelRef.current = p
+    if (p !== 'play' && announceRef.current) announceRef.current.textContent = ''
     setPanelState(p)
   }, [])
 
@@ -227,7 +242,7 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       forgiven: walk === 'train' ? () => trainSlipsNow(cityIndex) : FORGIVEN,
       ...(walk === 'train' ? { trainLimit: devTrainLimit() } : {}),
       // The articles are not recordings: in the Articles walk only the noun is readied.
-      onGateSpawned: (gate) => readyRunWords(gate.kind === 'article' ? [gate.word] : gate.options),
+      onGateSpawned: (gate) => void toReady.current.push(gate.kind === 'article' ? [gate.word] : [...gate.options]),
       events: {
         photo: (word) => sayRunWord(word),
         miss: (word) => {
@@ -275,6 +290,9 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     })
   }
   const engine = engineRef.current
+  // `?auto` (local hosts only): a probe reads where the run is, to take its
+  // screenshots at the right moment (a café ahead, at Casey, behind her).
+  if (autoRef.current !== null && typeof window !== 'undefined') (window as unknown as { __runState?: unknown }).__runState = engine.state
 
   const labels: RunLabels = useMemo(
     () => ({
@@ -319,6 +337,9 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       prev = now
       // A paused or café-held run stands still; on the other panels only Casey's own clock moves.
       if (panelRef.current !== 'paused' && panelRef.current !== 'cafe') engine.step(dt)
+      const st = engine.state
+      if (st.answered !== lastAnswer.current.answered) lastAnswer.current = { answered: st.answered, at: st.clock }
+      if (toReady.current.length && runIsQuiet(st, st.clock - lastAnswer.current.at)) readyRunWords(toReady.current.shift()!)
       // Read after the step: a photo in it may have found a café and held the
       // run, and a held run does not steer (the loops below would never end).
       const playing = panelRef.current === 'play' && !engine.state.held
@@ -331,7 +352,7 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       if (playing && active && active.reveal > 0 && announcedGate.current !== active.id) {
         announcedGate.current = active.id
         const choices = active.options.map((o) => o.target).join(', ')
-        setAnnounce(articles ? t.articleGateAria(active.prompt, choices) : t.gateAria(active.prompt, choices))
+        if (announceRef.current) announceRef.current.textContent = articles ? t.articleGateAria(active.prompt, choices) : t.gateAria(active.prompt, choices)
       }
       painterRef.current?.draw(engine.state, {
         labels,
@@ -377,17 +398,33 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     }
   }, [setPanel])
 
+  // ── the slow first-time work of the deferred writes, done while the ready
+  // panel shows rather than in the frame of the first answer ───────────────
+  useEffect(() => {
+    const id = window.setTimeout(warmRunProgress, 60)
+    return () => window.clearTimeout(id)
+  }, [])
+
   // ── a café found: it stands on the road; only the first session's walk
   // holds the run on a panel, every other walk keeps walking ───────────────
   const holdOnFind = !!firstWalk
   useEffect(
     () =>
-      holdRunForCafes(engine, (cafe) => cafeNameForBoard(cafe.board), t.cafeSign, holdOnFind, (find) => {
-        cafesRef.current.push(find.name)
-        if (!find.held) return
-        setCafeFound(find)
-        setPanel('cafe')
-      }),
+      holdRunForCafes(
+        engine,
+        (cafe) => cafeNameForBoard(cafe.board),
+        t.cafeSign,
+        holdOnFind,
+        (find) => {
+          cafesRef.current.push(find.name)
+          if (!find.held) return
+          setCafeFound(find)
+          setPanel('cafe')
+        },
+        // Found by one of the run's last answers, written as it ended: no road
+        // to stand on any more, but the run-end panel still names it.
+        (name) => cafesRef.current.push(name),
+      ),
     [engine, t, setPanel, holdOnFind],
   )
 
@@ -414,6 +451,8 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     primeSfx()
     announcedGate.current = 0
     cafesRef.current = []
+    toReady.current = []
+    lastAnswer.current = { answered: 0, at: -Infinity }
     setEnding(null)
     engine.start()
     setPanel('play')
@@ -423,6 +462,8 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     if (panelRef.current !== 'play') return
     stopWordAudio()
     setPanel('paused')
+    // The answers' progress is written now: a paused run may be closed.
+    flushRunProgress()
   }, [setPanel])
 
   const resume = useCallback(() => {
@@ -701,9 +742,7 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
           </div>
         )}
       </div>
-      <p className="visually-hidden" aria-live="polite">
-        {panel === 'play' ? announce : ''}
-      </p>
+      <p className="visually-hidden" aria-live="polite" ref={announceRef} />
     </div>
   )
 }

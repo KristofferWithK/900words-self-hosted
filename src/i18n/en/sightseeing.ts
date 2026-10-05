@@ -95,7 +95,7 @@ export const sightseeing = {
   /** After the ticket, while the next city is not released yet (owner O3). */
   opensSoonTitle: (city: string) => `${city} opens soon`,
   opensSoonBody: (city: string) => `Your ticket is kept. When ${city} opens, it takes you there.`,
-  // ── the train sheet: opened from the ticket on Home's train strip ──────────
+  // ── the train sheet: opened from Home's "Catch the train" tag ─────────────
   sheetSlips: (slips: number) => `Slips: ${slips}`,
   /** The slip rule, read off the train in the train sheet: `per` is the words one wagon holds (20). */
   sheetSlipsHint: (per: number) => `The engine is your first slip. Each wagon holds ${per} words, and a full one gives one more.`,

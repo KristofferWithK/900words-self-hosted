@@ -2,42 +2,36 @@
  *
  * docs/roadmap/cafe-world.md section 5: "Inside a café puzzle: the turn dots
  * are coffee cups, the café's name sits on a small luggage tag where the
- * status line was, faint pencil items lie on the table behind the cards, and
- * Casey is large while she thinks." Section 6: things the player acts on are
- * bold ink; everything else is faint pencil.
+ * status line was, large faint pencil items lie on the table behind the
+ * cards, and Casey is large while she thinks. ... Each café's table art is
+ * fixed and does not change during the puzzle." Section 6: things the player
+ * acts on are bold ink; everything else is faint pencil.
  *
  * Only `.cafe-puzzle` rounds (a required Sønderborg board) get any of this.
  * NOTHING here may move a card: the cups are the dots' height, the tag is the
- * caption's height, and the table items are absolutely positioned layers that
- * take no space and no pointer. The CW-08 probe measures every card rect
- * against the base build (max delta 0) and asserts no item box touches a
- * card's text, a button or the header text.
+ * caption's height, and the table is a fixed layer that takes no space and no
+ * pointer and is painted behind everything else on the screen. The CW-08
+ * drive measures every card rect against the pre-café geometry (max delta
+ * 0), checks the table is the same in every state, and keeps the items off
+ * the header.
  *
  * THE LOOK IN ONE PLACE: every colour, size and spot below is a custom
  * property on .game-screen.cafe-puzzle. Swap them here. */
 
 .game-screen.cafe-puzzle {
-  /* The table's pencil: the same graphite as Casey's hatching. */
-  --cafe-pencil: rgba(18, 18, 18, 0.24);
-  --cafe-pencil-line: 1.5px;
-  /* Must equal .screen's side padding (00-base.css): the edge layer reaches
-     exactly that far past the board, so the page never widens. */
-  --cafe-gutter: 16px;
-  /* Edge items: a 48px drawing of which only the outer part shows. On the
-     left it may reach 4px behind the outer card (a card's text starts 6px in,
-     past its 2px border and 4px padding); on the right it stays in the
-     gutter, clear of the ⓘ in the card's top right corner. */
-  --cafe-edge-size: 48px;
-  --cafe-edge-peek-left: 20px;
-  --cafe-edge-peek-right: 15px;
-  --cafe-edge-high: 14%;
-  --cafe-edge-mid: 50%;
-  --cafe-edge-low: 86%;
-  /* Bottom items, while Casey thinks: the signature large in the dock's
-     lower right corner, an ordinary thing to its left. */
-  --cafe-bottom-large: 68px;
-  --cafe-bottom-small: 34px;
-  --cafe-bottom-small-right: 84px;
+  /* The table's pencil: faint grey, bold in size (the owner's concept). Faint
+     enough that a dock's text reads over it wherever an item lies behind. */
+  --cafe-pencil: rgba(18, 18, 18, 0.26);
+  --cafe-pencil-line: 1.8px;
+  /* The table's width: the app's column (00-base.css .app-shell). Every
+     item's size is a share of it, so the table scales with the phone. */
+  --cafe-table-w: min(100vw, 480px);
+  /* The board's region starts under the header: the safe area, the screen's
+     12px padding, the 58px header and the 12px gap. */
+  --cafe-board-top: calc(env(safe-area-inset-top) + 82px);
+  /* The bottom area: the dock's height on the screen's 12px bottom padding
+     and the home indicator. */
+  --cafe-bottom-h: calc(var(--dock-h) + 12px + env(safe-area-inset-bottom));
   /* Casey while she thinks. The dock's 44px face otherwise. */
   --casey-thinking-w: 96px;
   /* The coffee cups. */
@@ -167,29 +161,65 @@
   padding-top: 1px;
 }
 
-/* ---- the table: faint pencil items behind the cards ---- */
+/* ---- the table: large faint pencil items behind everything ----
+   One layer, fixed to the phone's screen and painted beneath every other
+   thing on the game screen: the cards (opaque white) lie on top of it, so an
+   item shows only in the gutters, the margins and the bottom area, the way
+   the owner's concept draws it. It is fixed rather than laid out with the
+   board or the dock, which is what keeps it the same in every state: no
+   phase, dock, turn card or keyboard moves it. The keyboard (Keyboard.resize
+   'body' shrinks the document, never the screen) simply covers the bottom
+   items, as the composer riding up covers whatever it passes. */
+/* z-index -1: beneath every block, card and control of the screen, above
+   only the page's own background (body's, which the canvas carries). No
+   stacking context is added for it, so the screen's overlays keep theirs. */
 .cafe-table {
-  position: absolute;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--cafe-table-w);
+  transform: translateX(-50%);
   overflow: hidden;
   pointer-events: none;
   color: var(--cafe-pencil);
 }
 
+.cafe-table-region {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.cafe-table-board {
+  top: var(--cafe-board-top);
+  bottom: calc(var(--cafe-bottom-h) + 12px);
+}
+
+.cafe-table-bottom {
+  bottom: 0;
+  height: var(--cafe-bottom-h);
+}
+
+/* An item's centre at (--x, --y) of its region, its side a share (--size,
+   percent) of the table's width: set per item from src/cafe/cafeTable.ts. */
 .cafe-item {
   position: absolute;
   display: block;
+  left: var(--x);
+  top: var(--y);
+  width: calc(var(--cafe-table-w) * var(--size) / 100);
+  height: calc(var(--cafe-table-w) * var(--size) / 100);
+  transform: translate(-50%, -50%);
   pointer-events: none;
-}
-
-.cafe-item[hidden] {
-  display: none;
 }
 
 .cafe-drawing {
   display: block;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .cafe-drawing * {
@@ -201,73 +231,14 @@
   vector-effect: non-scaling-stroke;
 }
 
-/* The edges: a layer as tall as the board area that reaches over the
-   screen's side padding and clips there. Positioned, so the cards (whose
-   surfaces are positioned and come later) paint over it. */
-.cafe-puzzle .board-area {
-  position: relative;
-}
-
-.cafe-table-edges {
-  top: 0;
-  bottom: 0;
-  left: calc(-1 * var(--cafe-gutter));
-  right: calc(-1 * var(--cafe-gutter));
-}
-
-.cafe-table-edges .cafe-item {
-  width: var(--cafe-edge-size);
-  height: var(--cafe-edge-size);
-  margin-top: calc(var(--cafe-edge-size) / -2);
-}
-
-.cafe-item[data-spot^='left-'] {
-  left: calc(var(--cafe-edge-peek-left) - var(--cafe-edge-size));
-}
-
-.cafe-item[data-spot^='right-'] {
-  right: calc(var(--cafe-edge-peek-right) - var(--cafe-edge-size));
-}
-
-.cafe-item[data-spot$='-high'] {
-  top: var(--cafe-edge-high);
-}
-
-.cafe-item[data-spot$='-mid'] {
-  top: var(--cafe-edge-mid);
-}
-
-.cafe-item[data-spot$='-low'] {
-  top: var(--cafe-edge-low);
-}
-
-/* The keyboard is the bottom area in use, and it turns the board into a
-   scroller; the table goes until it is down. */
-.kb-up .cafe-table-edges {
-  display: none;
-}
-
-/* The bottom: only Casey's thinking dock renders it (AiTurnPanel). */
-.dock.ai-panel.ai-panel-cafe {
-  position: relative;
-}
-
-.cafe-table-bottom {
-  inset: 0;
-}
-
-.cafe-item[data-spot='bottom-large'] {
-  width: var(--cafe-bottom-large);
-  height: var(--cafe-bottom-large);
-  right: 2px;
-  bottom: 0;
-}
-
-.cafe-item[data-spot='bottom-small'] {
-  width: var(--cafe-bottom-small);
-  height: var(--cafe-bottom-small);
-  right: var(--cafe-bottom-small-right);
-  bottom: 4px;
+/* Every card is opaque paper on the table, whatever it shows: a found word's
+   suitcase (transparent card, 20-wrap-up-packing.css) and a dimmed card on
+   the wheel board (opacity, 28-translation-wheel.css) would otherwise let the
+   table's lines run through their text. The surface is the card's own box,
+   so this paints under the card and moves nothing. */
+.cafe-puzzle .word-card-surface {
+  background: var(--bg);
+  border-radius: 8px;
 }
 
 /* ---- Casey is large while she thinks ---- */

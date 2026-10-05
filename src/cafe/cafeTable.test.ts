@@ -1,21 +1,25 @@
 import { describe, expect, it } from 'vitest'
 import cafes from '../data/city1-cafe-names.da.json'
 import {
-  BOTTOM_SPOTS,
+  COMPANIONS,
   DRAWINGS,
-  EDGE_SPOTS,
   FALLBACK_DRAWING,
+  LONG_DRAWINGS,
   ORDINARY_DRAWINGS,
+  SPOTS,
+  SPOT_IDS,
   cafeArrangement,
   signatureDrawing,
 } from './cafeTable'
 
 describe('the café table (CW-08)', () => {
-  it('keeps the drawing set small: fifteen, three of them ordinary', () => {
-    expect(DRAWINGS.length).toBe(15)
+  it('keeps the drawing set small: eighteen, five of them ordinary', () => {
+    expect(DRAWINGS.length).toBe(18)
     expect(new Set(DRAWINGS).size).toBe(DRAWINGS.length)
-    expect(ORDINARY_DRAWINGS).toEqual(['cup', 'spoon', 'pencil'])
+    expect(ORDINARY_DRAWINGS).toEqual(['cup', 'spoon', 'pencil', 'plate', 'lamp'])
+    for (const long of Object.keys(LONG_DRAWINGS)) expect(ORDINARY_DRAWINGS).toContain(long)
     expect(DRAWINGS).toContain(FALLBACK_DRAWING)
+    for (const companion of Object.values(COMPANIONS)) expect(DRAWINGS).toContain(companion)
   })
 
   it('maps the signature items it was written for, and anything else to the postcard', () => {
@@ -36,8 +40,11 @@ describe('the café table (CW-08)', () => {
       expect(ORDINARY_DRAWINGS).not.toContain(drawing)
       counts.set(drawing, (counts.get(drawing) ?? 0) + 1)
     }
-    // Every signature drawing is used by at least one café.
-    for (const drawing of DRAWINGS) if (!ORDINARY_DRAWINGS.includes(drawing)) expect(counts.get(drawing) ?? 0).toBeGreaterThan(0)
+    // Every signature drawing (not the ordinary things, not a companion) is used by at least one café.
+    const companions = new Set(Object.values(COMPANIONS))
+    for (const drawing of DRAWINGS) {
+      if (!ORDINARY_DRAWINGS.includes(drawing) && !companions.has(drawing)) expect(counts.get(drawing) ?? 0).toBeGreaterThan(0)
+    }
     // 34 of 100 today (CW-08 report); more drawings would bring it down.
     expect(counts.get(FALLBACK_DRAWING) ?? 0).toBeLessThan(cafes.names.length * 0.4)
     expect(signatureDrawing('a butterfly')).toBe(FALLBACK_DRAWING)
@@ -50,23 +57,39 @@ describe('the café table (CW-08)', () => {
     expect(layouts.size).toBeGreaterThan(cafes.names.length * 0.9)
   })
 
-  it('only uses the known spots, one item per spot, with the signature on the table twice', () => {
+  it('lays six items, one per spot: three behind the board, three in the bottom area', () => {
     for (const cafe of cafes.names) {
       const table = cafeArrangement(cafe)
-      expect(table.edges).toHaveLength(3)
-      expect(table.bottom).toHaveLength(2)
-      for (const item of table.edges) expect(EDGE_SPOTS).toContain(item.spot)
-      for (const item of table.bottom) expect(BOTTOM_SPOTS).toContain(item.spot)
-      expect(new Set(table.edges.map((item) => item.spot)).size).toBe(3)
-      expect(new Set(table.bottom.map((item) => item.spot)).size).toBe(2)
-      expect(table.edges.filter((item) => item.signature).map((item) => item.drawing)).toEqual([table.signature])
-      expect(table.bottom.find((item) => item.spot === 'bottom-large')).toMatchObject({ drawing: table.signature, signature: true })
-      const ordinary = [...table.edges, ...table.bottom].filter((item) => !item.signature).map((item) => item.drawing)
-      expect(new Set(ordinary).size).toBe(3)
-      for (const item of [...table.edges, ...table.bottom]) {
+      expect(table.items).toHaveLength(6)
+      for (const item of table.items) {
+        expect(SPOT_IDS).toContain(item.spot)
+        expect(item.region).toBe(SPOTS[item.spot].region)
+        // Near its spot: a few percent of jitter, never a different place.
+        expect(Math.abs(item.x - SPOTS[item.spot].x)).toBeLessThanOrEqual(3)
+        expect(Math.abs(item.y - SPOTS[item.spot].y)).toBeLessThanOrEqual(4)
+        expect(Math.abs(item.size - SPOTS[item.spot].size)).toBeLessThanOrEqual(4)
         expect(Number.isInteger(item.turn)).toBe(true)
-        expect(Math.abs(item.turn)).toBeLessThanOrEqual(30)
       }
+      expect(new Set(table.items.map((item) => item.spot)).size).toBe(6)
+      expect(table.items.filter((item) => item.region === 'board')).toHaveLength(3)
+      expect(table.items.filter((item) => item.region === 'bottom')).toHaveLength(3)
+      // The signature lies on the table twice: at a board edge and in the corner.
+      const signature = table.items.filter((item) => item.signature)
+      expect(signature.map((item) => item.drawing)).toEqual([table.signature, table.signature])
+      expect(signature.map((item) => item.spot).sort()).toEqual(expect.arrayContaining(['corner']))
+      expect(signature.find((item) => item.region === 'board')?.spot).toMatch(/^(left|right)-/)
+      // The ordinary things on one table are different things.
+      const ordinary = table.items.filter((item) => ORDINARY_DRAWINGS.includes(item.drawing)).map((item) => item.drawing)
+      expect(new Set(ordinary).size).toBe(ordinary.length)
+      // A long thing lies nearly level along the bottom.
+      const along = table.items.find((item) => item.spot === 'along')!
+      const level = LONG_DRAWINGS[along.drawing]!
+      expect(Math.abs(along.turn - (along.flip ? -level : level))).toBeLessThanOrEqual(10)
+      // The companion: the concept's yarn by the paws, starfish by the shell.
+      const beside = table.items.find((item) => item.spot === 'beside')!.drawing
+      const companion = COMPANIONS[table.signature]
+      if (companion) expect(beside).toBe(companion)
+      else expect(ORDINARY_DRAWINGS).toContain(beside)
     }
   })
 

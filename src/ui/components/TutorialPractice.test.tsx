@@ -35,12 +35,8 @@ describe('tutorial post-match copy', () => {
     expect(html).not.toContain('tutorial-award-result')
   })
 
-  it.each(['primary', 'replay'] as const)('offers a return label when a %s slot is parked', slot => {
-    expect(tutorialFinishCtaCopy(slot)).toBe(UI.onboarding.returnToParkedGame)
-  })
-
-  it('introduces the café puzzle after fresh practice', () => {
-    expect(tutorialFinishCtaCopy(null)).toBe(UI.onboarding.playFullRound)
+  it('introduces the café puzzle after the practice, a first session and a replay alike: never the paused game', () => {
+    expect(tutorialFinishCtaCopy()).toBe(UI.onboarding.playFullRound)
   })
 
   it('knows the opening Casey turn of the practice round, and only that', () => {

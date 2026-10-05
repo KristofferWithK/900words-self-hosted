@@ -213,6 +213,7 @@ export const home: Catalogue['home'] = {
   trainSheetCollected: (collected, total) => `Coleccionadas: ${collected} de ${total}`,
   trainSheetRule: 'La carrera es la única forma de subir al tren.',
   cityStampAria: (city, percent) => `${city}: ${percent} de los sellos de los cafés.`,
+  stampNone: 'Sin sello',
   cafeNotFoundNote: 'encuentra antes un café',
   cafeNotFoundLine: 'Primero encuentra un café en Turismo.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────

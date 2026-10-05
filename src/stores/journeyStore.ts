@@ -1,5 +1,7 @@
 import { create } from 'zustand'
-import { guardedPersist as persist } from './settlementStorage'
+import { createJSONStorage } from 'zustand/middleware'
+import { holdableStorage } from './heldStorage'
+import { guardedPersist as persist, transferAwareStorage } from './settlementStorage'
 import { track } from '../analytics/stats'
 import { CITIES, DEVELOPED_CITY_COUNT, FINAL_CITY_INDEX } from '../journey/cities'
 import { ACTIVE } from '../lang/active'
@@ -419,6 +421,24 @@ export function switchRoute<T extends Travelling>(state: T, to: LanguageCode): T
   }
 }
 
+/**
+ * The journey's storage: the guarded default every store uses
+ * (settlementStorage.ts `guardedPersist`), made holdable so the run can write
+ * a batch of answers once (`holdJourneyWrites`). Undefined without
+ * localStorage (vitest), where persist passes through as before.
+ */
+const journeyStorage = holdableStorage<unknown>(createJSONStorage(() => transferAwareStorage(localStorage)))
+
+/**
+ * Apply `writes` to the journey store with its persistence held: every update
+ * lands in memory at once, and the store is written to localStorage once, at
+ * the end, with the last state. The run's results sink writes a batch of
+ * answers this way (src/run/sinkSetup.ts); nothing else needs to.
+ */
+export function holdJourneyWrites<T>(writes: () => T): T {
+  return journeyStorage.hold(writes)
+}
+
 export const useJourney = create<JourneyStore>()(
   persist(
     (set, get) => ({
@@ -530,6 +550,7 @@ export const useJourney = create<JourneyStore>()(
     {
       name: 'cluecab-journey-v2',
       version: 7,
+      storage: journeyStorage.storage,
       migrate: migrateJourney,
       /**
        * The language may have changed since this save was written — the picker

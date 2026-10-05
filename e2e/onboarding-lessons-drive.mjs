@@ -9,7 +9,9 @@
 //     re-awarding anything, and it never opens the review for the player
 //   - the Home stamp lesson, skipped, still leaves Casey's collection tour
 //   - Settings' Replay the intro teaches translation on the practice board in
-//     memory only, and hands back the exact paused primary it parked
+//     memory only, offers no "Continue" of the paused primary, plays the full
+//     game (the first café, fresh) with its finish-screen stamp lesson
+//     (owner 2026-10-04), and hands back the exact paused primary
 // Each spotlight is checked on its live control: light on target, the tour
 // holding the pointer while it is up, and nothing left over the control after.
 import { chromium, webkit } from 'playwright'
@@ -290,7 +292,22 @@ await page.waitForSelector('.settings-screen')
 await page.locator('.replay-intro').click()
 await page.waitForTimeout(300)
 await flow.ticketToHome('Denmark')
-await flow.homeToTutorial()
+await flow.introToWalk()
+await flow.walkToHome()
+// Home's café act over the paused primary: the Café puzzle tag names the
+// city's first café, as a first session sees it, never "Continue board".
+check('the replayed Home café act does not offer to continue the paused round',
+  (await page.locator('.home-play').getAttribute('data-cafe-action')) !== 'continue' &&
+  !/Continue/.test(await page.locator('.home-play').innerText()) &&
+  (await page.locator('.home-play-second').count()) === 0,
+  await page.locator('.home-play').innerText())
+await flow.homeCafeToTutorial()
+check('the replay sits down at a fresh practice table', await page.evaluate(() => {
+  const game = JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state
+  // At most Casey's opening clue, and not one card turned yet.
+  return game?.mode === 'tutorial' && game?.tutorialDemo === true && (game?.game?.clueHistory?.length ?? 9) <= 1 &&
+    Object.values(game?.game?.reveals ?? { x: {} }).every((reveal) => reveal.kind === 'hidden')
+}))
 const practiceLeg = await play({ practice: true, stopAt: (game) => game.phase === 'translateChallenge' })
 check('the replayed practice reaches translation', practiceLeg === 'stopped' || practiceLeg === 'tour:translation', practiceLeg)
 const replayBeats = await walkTour(page, 'translation', check, { label: 'replayed practice translation lesson', shots: `${SHOT_DIR}/lessons-replay-translation-lesson-390x844` })
@@ -303,19 +320,55 @@ check('and a replay still writes no lesson markers', await page.evaluate(() => l
 const practiceEnd = await play({ practice: true })
 check('the replayed practice finishes', practiceEnd === 'finished', practiceEnd)
 await page.waitForSelector('.tutorial-finish')
-check('the replay finish offers the way back to the paused game', /Return to your game/.test(await page.locator('.tutorial-full-round').innerText()))
+check('the replay finish leads into the café puzzle, as on the first time', /Play the café puzzle/.test(await page.locator('.tutorial-full-round').innerText()),
+  await page.locator('.tutorial-full-round').innerText())
 await page.locator('.tutorial-full-round').click()
-// A replay goes on to its full board like a first run (owner, 2026-09-27):
-// the paused primary comes back AS that board, inside the intro, so its
-// finish screen, the Home spotlight and the suitcase tour still follow.
+// Phase 2 of the intro is a full game whose finish screen explains the stamp
+// (owner, 2026-10-04). A replay plays it too: the city's first café, dealt
+// fresh beside the paused primary, which it never touches.
 await page.waitForSelector('.game-screen .board-grid')
-check('the replay continues to the full board instead of ending on Home',
-  (await page.locator('.home-screen').count()) === 0 && (await page.locator('.tutorial-finish').count()) === 0)
+const replayBoard = await page.evaluate(() => {
+  const state = JSON.parse(localStorage.getItem('cluecab-game-v1') ?? '{}').state
+  const sessions = JSON.parse(localStorage.getItem('cluecab-progression-sessions-v1') ?? '{}').state?.byCourse?.da
+  return { board: state?.authoredBoardId, slot: state?.activeSlot, cards: state?.game?.words?.length, clues: state?.game?.clueHistory?.length,
+    primary: sessions?.primary ? JSON.stringify(sessions.primary) : null }
+})
+check('the replay plays the full game: the first café, fresh, not the paused round',
+  replayBoard.board === 'bank_001' && replayBoard.slot === 'replay' && replayBoard.cards === 18 && replayBoard.clues <= 1 && replayBoard.primary === parked.primary,
+  JSON.stringify({ ...replayBoard, primary: replayBoard.primary === parked.primary }))
+check('no Continue offer during the replay', (await page.getByText('Continue board').count()) === 0)
+await page.screenshot({ path: `${SHOT_DIR}/lessons-replay-full-game-390x844.png` })
+const replayEnd = await play()
+check('the replayed full game finishes', replayEnd === 'finished' || replayEnd === 'tour:result', replayEnd)
+await page.waitForSelector('.round-summary')
+// The light is drawn once the saved receipt's lines are laid out (the
+// summary's receipt is lazy): measure the beats from there, as a player sees them.
+await page.waitForSelector('.tour-overlay[data-tour-kind="result"] .tour-spot', { timeout: 8000 })
+await walkTour(page, 'result', check, { label: 'replayed finish-screen stamp lesson', shots: `${SHOT_DIR}/lessons-replay-result-lesson-390x844` })
+check('the replay finish screen taught the stamp, and wrote no lesson marker', await page.evaluate(() => localStorage.getItem('cluecab-onboard-lessons-v1') === null))
+await page.locator('.city1-review-home').click()
+await page.waitForSelector('.onboard-home-act .home-first-session')
 const restored = await page.evaluate(() => {
   const sessions = JSON.parse(localStorage.getItem('cluecab-progression-sessions-v1') ?? '{}').state?.byCourse?.da
-  return { active: sessions?.activeSlot ?? null, primary: sessions?.primary ? JSON.stringify(sessions.primary) : null }
+  return { primary: sessions?.primary ? JSON.stringify(sessions.primary) : null }
 })
-check('the replay hands back the exact paused primary', restored.active === 'primary' && restored.primary === parked.primary)
+check('the paused primary is the exact same round after the full game', restored.primary === parked.primary)
+check('Home inside the replay offers no Continue', (await page.locator('.home-play').getAttribute('data-cafe-action')) !== 'continue')
+await page.screenshot({ path: `${SHOT_DIR}/lessons-replay-home-stamp-lesson-390x844.png` })
+await walkTour(page, 'home', check, { label: 'replayed Home lesson' })
+await page.locator('.home-first-session .cluey-button').click()
+await page.waitForSelector('.tour-overlay[data-tour-kind="suitcase"]')
+await walkTour(page, 'suitcase', check, { label: 'replayed collection tour' })
+await page.locator('.suitcase-screen .icon-btn[aria-label="Back"]').click()
+await page.waitForSelector('.home-screen:not(.home-first-session)')
+check('after the replay, ordinary Home offers the paused round again',
+  (await page.locator('.home-play').getAttribute('data-cafe-action')) === 'continue')
+await page.locator('.home-play').click()
+await page.waitForSelector('.game-screen .board-grid')
+check('and it is the same round, continued', await page.evaluate((before) => {
+  const sessions = JSON.parse(localStorage.getItem('cluecab-progression-sessions-v1') ?? '{}').state?.byCourse?.da
+  return sessions?.activeSlot === 'primary' && sessions.primary?.attemptId === JSON.parse(before).attemptId
+}, parked.primary))
 check('and the done flag never moved', (await marker()) === 'done')
 
 check('no page errors', errors.length === 0, errors.join(' | ').slice(0, 300))

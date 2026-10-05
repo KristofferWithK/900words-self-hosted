@@ -76,9 +76,30 @@ function unlimited(): boolean {
 }
 
 export function canStartDailyGame(): boolean {
+  if (introPuzzleAdmitted) return true
   if (!dailyGateApplies()) return true
   if (unlimited()) return true
   try { return completedToday(localStorage) < FREE_GAMES_PER_DAY } catch { return false }
+}
+
+/**
+ * THE INTRO'S CAFÉ PUZZLE (owner, 2026-10-04: "phase 2 of the intro is a full
+ * game ... It's part of the intro"). The intro's full board, on a first
+ * session and on a Settings replay alike, is never refused by the daily
+ * limit, and it counts like any other puzzle once it is completed. The intro
+ * admits it around the one deal call (src/ui/introRound.ts) and ends the
+ * admission straight after, so nothing else is let through. Nothing is stored.
+ */
+let introPuzzleAdmitted = false
+
+/** Deal the intro's café puzzle past the daily limit: `deal` runs admitted. */
+export function withIntroPuzzleAdmitted<T>(deal: () => T): T {
+  introPuzzleAdmitted = true
+  try {
+    return deal()
+  } finally {
+    introPuzzleAdmitted = false
+  }
 }
 
 /** Require no purchasable store offer before showing the developer-only retry. */

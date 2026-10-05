@@ -304,82 +304,136 @@
 
 /* ---------- café world Home (CW-10) ----------
  *
- * docs/design/cafe-world/design-home-settled.jpg: the ticket at the left end
- * of the train strip, the city's stamp under the Guide, and two tags in place
- * of Play. The tag itself is styles/99-tag.css; only Home's arrangement is
- * here. The strip has no "City medal" line any more, so it is one row unless
- * the travel gate is ready. */
+ * docs/design/cafe-world/design-home-settled.jpg: the city's stamp under the
+ * Guide, and two tags in place of Play. The tag itself is styles/99-tag.css;
+ * only Home's arrangement is here. The strip has no "City medal" line any
+ * more, so it is one row unless the travel gate is ready.
+ *
+ * The train strip (owner, 2026-10-04): the train, someone running after it at
+ * its back end with a gap behind the last wagon, and a small one-line "Catch
+ * the train" tag, which opens the train sheet. The ticket that stood at the left end is
+ * gone. The card is drawn round just those parts: as wide as they need, up to
+ * the screen, and as tall as the tag's 44 px target. */
 
 .home-progress-band {
-  grid-template-columns: auto minmax(34px, 1fr);
+  display: grid;
+  grid-template-columns: minmax(0, auto) auto;
   grid-template-areas:
-    'ticket train'
+    'train catch'
     'status status';
+  justify-content: start;
+  align-items: center;
+  align-self: center;
+  gap: 2px 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 1px 4px 1px 10px;
 }
 
-/* The ticket opens the train sheet. Its target is 48 x 44, but negative
-   block margins keep it from making the strip taller than the train: the
-   extra target reaches into the strip's own padding. */
+/* The train and its runner share one bottom line, so the runner's feet are on
+   the train's rail. The train is the only thing that gives way when the row
+   is short: it draws narrower (and so a little lower), never the tag. */
+.home-train-line {
+  grid-area: train;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+}
+
 .home-progress-band .train-progress,
 .home-progress-band .train-board {
-  /* The train starts at the ticket, as in the design, rather than centring. */
+  flex: 0 1 auto;
+  min-width: 34px;
   justify-self: start;
 }
 
 /* Sized by its height, so the drawing (not a centred box around it) is what
-   sits next to the ticket. 25px is the cap the strip has always had. */
+   sits next to the runner. 25px is the cap the strip has always had; drawn
+   to the box's bottom-left so a narrowed train keeps its rail on the line. */
 .home-progress-band .train-progress {
   width: auto;
   height: 25px;
   max-width: 100%;
 }
 
-.home-ticket {
-  grid-area: ticket;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 44px;
-  margin: -9px 0 -9px -8px;
-  padding: 0;
-  border-radius: 8px;
-}
-
-.home-ticket:active {
-  background: rgba(18, 18, 18, 0.06);
-}
-
-.home-ticket:focus-visible {
-  outline: 2px solid var(--green-deep);
-  outline-offset: -2px;
-}
-
-.ticket-glyph {
+.train-runner {
   display: block;
-  width: 38px;
-  height: 23px;
+  flex: 0 0 auto;
+  width: 22.5px;
+  height: 30px;
+  /* A clear gap between the last wagon and the runner, still on the rail. */
+  margin-left: 14px;
   overflow: visible;
 }
 
-.ticket-glyph-body {
-  fill: #f2eee3;
-  stroke: var(--text);
-  stroke-width: 2;
-  stroke-linejoin: round;
-}
-
-.ticket-glyph-line {
+/* The train's pencil (styles/04), for the hand that drew both. */
+.train-runner .cluey-hatch path,
+.train-runner .cluey-hatch rect,
+.train-runner .cluey-hatch circle {
   fill: none;
-  stroke: var(--text);
-  stroke-width: 1.8;
+  stroke: rgba(18, 18, 18, 0.68);
+  stroke-width: 1.6;
   stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
-.ticket-glyph-perf {
-  fill: none;
-  stroke: var(--text);
+.train-runner .cluey-hatch .train-rail {
+  stroke: rgba(18, 18, 18, 0.45);
+  stroke-dasharray: 5 4;
+  stroke-linecap: butt;
+  opacity: 0.5;
+}
+
+.train-runner .cluey-hatch .train-runner-speed {
+  stroke: rgba(18, 18, 18, 0.35);
   stroke-width: 1.2;
-  stroke-dasharray: 2 2;
+}
+
+.train-runner .cluey-hatch circle.train-runner-head {
+  fill: #fff;
+}
+
+.train-runner .cluey-hatch rect.train-runner-case {
+  fill: #ece4d2;
+}
+
+.train-runner .cluey-hatch .train-runner-latch {
+  stroke-width: 1.2;
+}
+
+/* The tag: the shared luggage tag, small (owner, 2026-10-04: "the catch the
+   train tag is too big"). One line, small type. The tag is DRAWN 30 px tall
+   but its button keeps the 44 px target: the ink and the fill sit 7 px in
+   from the top and bottom, and the rest of the target is invisible. */
+.home-progress-band .home-catch-train {
+  grid-area: catch;
+  justify-self: end;
+  min-height: 44px;
+  padding: 7px 7px 7px 20px;
+  --tag-cut: 8px;
+  --tag-inset: 7px;
+}
+
+.home-progress-band .home-catch-train::before {
+  inset: var(--tag-inset) 0;
+}
+
+.home-progress-band .home-catch-train::after {
+  inset: calc(var(--tag-inset) + var(--tag-line)) var(--tag-line);
+}
+
+.home-progress-band .home-catch-train .tag-hole {
+  left: 7px;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+}
+
+.home-progress-band .home-catch-train .tag-label {
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* The city's stamp, where the postcard count was: the stamp in the medal's
@@ -395,6 +449,14 @@
 .home-city-stamp-glyph {
   width: 42px;
   height: 42px;
+}
+
+/* "No stamp", inside the empty dashed place, in the dim ink: the circle's
+   own beige is too light for words. */
+.home-city-stamp .cafe-stamp-empty-label {
+  fill: var(--text-dim);
+  font-family: var(--serif);
+  font-weight: 700;
 }
 
 .home-city-stamp-percent {

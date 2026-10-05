@@ -1,15 +1,16 @@
-import { useLayoutEffect, useRef, type ReactElement } from 'react'
-import type { BottomSpot, CafeArrangement, DrawingId, EdgeSpot, TableItem } from '../../cafe/cafeTable'
+import { memo, type CSSProperties, type ReactElement } from 'react'
+import type { CafeArrangement, DrawingId, TableItem } from '../../cafe/cafeTable'
 
 /**
  * The café puzzle's table and name tag (docs/roadmap/cafe-world.md section 5;
  * card CW-08). What lies where is decided by `src/cafe/cafeTable.ts`; this
- * file draws it. Spots, sizes and the pencil ink are custom properties in
+ * file draws it. The two regions, the pencil ink and the stacking are in
  * `src/styles/77-cafe-puzzle.css`.
  *
  * Section 6's rule: things the player acts on are bold ink, everything else
- * faint pencil. Every item here is faint pencil, decorative (aria-hidden) and
- * takes no pointer, so it can never be tapped instead of a card.
+ * faint pencil. Every item here is faint pencil, decorative (aria-hidden),
+ * takes no pointer and is painted behind everything else on the screen, so it
+ * can never cover text or be tapped instead of a card.
  */
 
 /**
@@ -42,6 +43,20 @@ const PATHS: Record<DrawingId, ReactElement> = {
       <path d="M5 44l2-1" />
     </>
   ),
+  plate: (
+    <>
+      <circle cx="24" cy="24" r="20" />
+      <circle cx="24" cy="24" r="13.5" />
+      <path d="M10.5 15.5c1.2-1.8 2.6-3.2 4.3-4.4M35.5 34.8c-1.3 1.6-2.8 3-4.6 4" />
+    </>
+  ),
+  lamp: (
+    <>
+      <path d="M15 8h18l7 15H8z" />
+      <path d="M24 23v14M24 37c-7 0-11 2-11 4s4 3 11 3 11-1 11-3-4-4-11-4z" />
+      <path d="M13 23c0 2 1 3 2 3M29 27v4" />
+    </>
+  ),
   // Signature items.
   sun: (
     <>
@@ -57,13 +72,24 @@ const PATHS: Record<DrawingId, ReactElement> = {
       <path d="M20 41h8l-1 3h-6z" />
     </>
   ),
+  // Paw prints: a little trail of three, as a cat walks across the table.
   paw: (
     <>
-      <path d="M24 26c-6 0-11 6-11 10s4 5 6 5 3-1.5 5-1.5 3 1.5 5 1.5 6-1 6-5-5-10-11-10z" />
-      <ellipse cx="12.5" cy="20" rx="3.4" ry="4.4" />
-      <ellipse cx="19.5" cy="12.5" rx="3.4" ry="4.6" />
-      <ellipse cx="28.5" cy="12.5" rx="3.4" ry="4.6" />
-      <ellipse cx="35.5" cy="20" rx="3.4" ry="4.4" />
+      <path d="M12 38.5c-2.6 0-4.6 2.4-4.6 4s1.6 2 2.6 2 1.3-.6 2-.6 1.2.6 2.1.6 2.5-.4 2.5-2-2-4-4.6-4z" />
+      <circle cx="7.2" cy="35.6" r="1.5" />
+      <circle cx="10.3" cy="33.2" r="1.6" />
+      <circle cx="14" cy="33.2" r="1.6" />
+      <circle cx="17" cy="35.6" r="1.5" />
+      <path d="M25 24.5c-2.6 0-4.6 2.4-4.6 4s1.6 2 2.6 2 1.3-.6 2-.6 1.2.6 2.1.6 2.5-.4 2.5-2-2-4-4.6-4z" />
+      <circle cx="20.2" cy="21.6" r="1.5" />
+      <circle cx="23.3" cy="19.2" r="1.6" />
+      <circle cx="27" cy="19.2" r="1.6" />
+      <circle cx="30" cy="21.6" r="1.5" />
+      <path d="M36 11.5c-2.6 0-4.6 2.4-4.6 4s1.6 2 2.6 2 1.3-.6 2-.6 1.2.6 2.1.6 2.5-.4 2.5-2-2-4-4.6-4z" />
+      <circle cx="31.2" cy="8.6" r="1.5" />
+      <circle cx="34.3" cy="6.2" r="1.6" />
+      <circle cx="38" cy="6.2" r="1.6" />
+      <circle cx="41" cy="8.6" r="1.5" />
     </>
   ),
   flower: (
@@ -116,6 +142,14 @@ const PATHS: Record<DrawingId, ReactElement> = {
       <path d="M4 43c3-2 5-2 8 0s5 2 8 0 5-2 8 0 5 2 8 0 5-2 8 0" />
     </>
   ),
+  // A companion: the ball of yarn beside a cat café's paw prints.
+  yarn: (
+    <>
+      <circle cx="22" cy="22" r="15" />
+      <path d="M9 16c6 1 13 7 15 20M12 30c5-9 14-15 24-15M17 8.5c5 6 7 15 6 28M29 9c-1 8-6 16-16 22" />
+      <path d="M35 28c3 4 5 8 3 11s-6 2-6 5" />
+    </>
+  ),
   // The fallback: a postcard with a stamp, for a name no drawing fits.
   card: (
     <>
@@ -135,12 +169,16 @@ export function CafeDrawing({ drawing, turn = 0, flip = false }: { drawing: Draw
   )
 }
 
-function Item<Spot extends string>({ item }: { item: TableItem<Spot> }) {
+function Item({ item }: { item: TableItem }) {
+  // Placed by custom properties the stylesheet reads, so where a spot sits on
+  // the screen stays a stylesheet matter (77-cafe-puzzle.css).
+  const place = { '--x': `${item.x}%`, '--y': `${item.y}%`, '--size': item.size } as CSSProperties
   return (
     <span
       className={`cafe-item${item.signature ? ' cafe-item-signature' : ''}`}
       data-spot={item.spot}
       data-drawing={item.drawing}
+      style={place}
     >
       <CafeDrawing drawing={item.drawing} turn={item.turn} flip={item.flip} />
     </span>
@@ -148,62 +186,30 @@ function Item<Spot extends string>({ item }: { item: TableItem<Spot> }) {
 }
 
 /**
- * The items at the board's two side edges, behind the cards. A layer inside
- * `.board-area` that reaches out over the screen's side padding and clips
- * there, so nothing can widen the page. Hidden while the keyboard is up.
+ * The café's table: one layer behind everything on the game screen, fixed to
+ * the phone's screen, with the board's region and the bottom area's
+ * (docs/roadmap/cafe-world.md section 5: "each café's table art is fixed and
+ * does not change during the puzzle"). Nothing in the game reaches it: it
+ * takes the arrangement and nothing else, so no turn, phase, keyboard or
+ * Casey state can show, hide, move or redraw an item. Memoised on that one
+ * prop (GameScreen makes it once per café), so the round's re-renders, a card
+ * tap's included, never touch these drawings.
  */
-export function CafeTableEdges({ table }: { table: CafeArrangement }) {
-  return (
-    <div className="cafe-table cafe-table-edges" aria-hidden="true" data-cafe={table.cafeId}>
-      {table.edges.map((item) => (
-        <Item<EdgeSpot> key={item.spot} item={item} />
+export const CafeTable = memo(function CafeTable({ table }: { table: CafeArrangement }) {
+  const region = (name: TableItem['region']) => (
+    <div className={`cafe-table-region cafe-table-${name}`}>
+      {table.items.filter((item) => item.region === name).map((item) => (
+        <Item key={item.spot} item={item} />
       ))}
     </div>
   )
-}
-
-const overlaps = (a: DOMRect, b: DOMRect) =>
-  a.width > 0 && a.height > 0 && b.width > 0 && b.height > 0 &&
-  a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom
-
-/**
- * The bottom area's items. Rendered only by Casey's thinking dock, the one
- * state in which that area is not in use: the composer, the guess bar, the
- * keyboard, her reasoning and translation all take it and these go.
- *
- * A guard after layout puts away any item that would touch Casey or what she
- * is saying (a longer line in another language can reach the spot), so an
- * item never covers text or a control whatever the copy is.
- */
-export function CafeTableBottom({ table }: { table: CafeArrangement }) {
-  const layer = useRef<HTMLDivElement>(null)
-  useLayoutEffect(() => {
-    const root = layer.current
-    const dock = root?.parentElement
-    if (!root || !dock) return
-    const guard = () => {
-      const keepClear = [...dock.querySelectorAll('.ai-bubble, .cluey-mini, button, input')].map((el) => el.getBoundingClientRect())
-      for (const item of root.querySelectorAll<HTMLElement>('.cafe-item')) {
-        item.hidden = false
-        const box = item.getBoundingClientRect()
-        item.hidden = keepClear.some((clear) => overlaps(box, clear))
-      }
-    }
-    guard()
-    if (typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(guard)
-    observer.observe(dock)
-    for (const el of dock.querySelectorAll('.ai-bubble')) observer.observe(el)
-    return () => observer.disconnect()
-  }, [table])
   return (
-    <div ref={layer} className="cafe-table cafe-table-bottom" aria-hidden="true" data-cafe={table.cafeId}>
-      {table.bottom.map((item) => (
-        <Item<BottomSpot> key={item.spot} item={item} />
-      ))}
+    <div className="cafe-table" aria-hidden="true" data-cafe={table.cafeId}>
+      {region('board')}
+      {region('bottom')}
     </div>
   )
-}
+})
 
 /**
  * The café's name on a small luggage tag, where the phase caption stood. Not

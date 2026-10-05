@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import type { GameState } from '../../engine/types'
 import { useGame } from '../../stores/gameStore'
 import { UI } from '../../i18n'
@@ -6,8 +7,6 @@ import { beatPlan, REVEAL_MS, type AiBeat } from '../aiBeats'
 import { playWord } from '../speak'
 import { ClueyFace, type ClueyMood } from './Cluey'
 import { caseyBubble, landedCaseyGuess, type LandedCaseyGuess as Landed } from '../caseyJustification'
-import type { CafeArrangement } from '../../cafe/cafeTable'
-import { CafeTableBottom } from './CafeTable'
 
 /**
  * Shows the AI side of a turn and paces its guesses one by one.
@@ -61,17 +60,28 @@ import { CafeTableBottom } from './CafeTable'
  * `offlineCasey`: offline Casey is playing this round (GameScreen decides).
  * Her thinking says so, because she is slower.
  *
- * `cafe`: the café's table, inside a café puzzle (CW-08). While Casey thinks
- * she is drawn large and the bottom area shows the café's table items: it is
- * the one state in which nothing in that area is in use. Every other state is
- * unchanged.
+ * `cafe`: inside a café puzzle (CW-08), Casey is drawn large while she
+ * thinks, as the owner's concept shows. The café's table lies behind the
+ * whole screen (GameScreen's CafeTable) and is not this panel's to show or
+ * hide. Every other state is unchanged.
  */
-export function AiTurnPanel({ game, offlineCasey = false, cafe = null }: {
+export function AiTurnPanel({ game, offlineCasey = false, cafe = false }: {
   game: GameState
   offlineCasey?: boolean
-  cafe?: CafeArrangement | null
+  cafe?: boolean
 }) {
-  const { aiBusy, aiGuessQueue, planForClueIndex, lastAiGuess, authoredBoardId, attemptId, activeSlot, eventGeneration } = useGame()
+  const { aiBusy, aiGuessQueue, planForClueIndex, lastAiGuess, authoredBoardId, attemptId, activeSlot, eventGeneration } = useGame(
+    useShallow((s) => ({
+      aiBusy: s.aiBusy,
+      aiGuessQueue: s.aiGuessQueue,
+      planForClueIndex: s.planForClueIndex,
+      lastAiGuess: s.lastAiGuess,
+      authoredBoardId: s.authoredBoardId,
+      attemptId: s.attemptId,
+      activeSlot: s.activeSlot,
+      eventGeneration: s.eventGeneration,
+    })),
+  )
   const planReady = planForClueIndex === game.clueHistory.length
   const guessing = game.phase === 'aiGuessing' && planReady
   const next = aiGuessQueue[0]
@@ -208,7 +218,6 @@ export function AiTurnPanel({ game, offlineCasey = false, cafe = null }: {
   if ((game.phase === 'aiClueInput' || aiBusy) && !landed) {
     return (
       <div className={`dock ai-panel${cafe ? ' ai-panel-cafe' : ''}`}>
-        {cafe && <CafeTableBottom table={cafe} />}
         <div className="ai-say">
           <ClueyFace mood="thinking" className={`cluey-mini${cafe ? ' cluey-thinking-large' : ''}`} />
           <p className={`ai-bubble thinking${offlineCasey ? ' offline' : ''}`}>

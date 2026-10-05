@@ -9,6 +9,7 @@ import { Confetti } from './Confetti'
 import { CoachMarkTour } from './SuitcaseTour'
 import { UI } from '../../i18n'
 import { Tag } from './Tag'
+import { leavePractice } from '../introRound'
 
 /**
  * Casey stays on the practice board throughout. This is deliberately a compact
@@ -194,15 +195,21 @@ export function tutorialFinishCopy(
   return null
 }
 
-export function tutorialFinishCtaCopy(resumeSlot: 'primary' | 'replay' | null): string {
-  return resumeSlot ? UI.onboarding.returnToParkedGame : UI.onboarding.playFullRound
+/**
+ * The finish button's words: on to the café's own puzzle, on a first session
+ * and on a replayed intro alike (owner, 2026-10-04: the full game is part of
+ * the intro). A round the player had paused is never offered here; it is
+ * there to continue once the intro is over.
+ */
+export function tutorialFinishCtaCopy(): string {
+  return UI.onboarding.playFullRound
 }
 
 export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game: GameState; awardStatus?: 'new' | 'already-held' | 'not-eligible' }) {
   const line = commentary(game, { type: 'state' })
   const winCopy = tutorialFinishCopy(game.outcome?.result)
   const awardStatus = settledAwardStatus ?? useGame((s) => s.completionReceipt?.tutorialAward?.status ?? 'not-eligible')
-  const resumeSlot = useGame((s) => s.tutorialResumeSlot)
+  const replay = useUi((s) => s.onboarding?.persist === false)
   const mood = game.outcome?.result === 'won' ? 'happy' : line.mood
   return (
     <div className="tutorial-finish" data-tutorial-award={awardStatus}>
@@ -228,17 +235,12 @@ export function TutorialFinish({ game, awardStatus: settledAwardStatus }: { game
         size="wide"
         tone="primary"
         className="tutorial-full-round"
-        label={tutorialFinishCtaCopy(resumeSlot)}
-        onClick={() => {
-          const game = useGame.getState()
-          // Both a first run and a replayed intro go on to the full board, its
-          // finish-screen lesson, the Home spotlight and the suitcase tour
-          // (owner, 2026-09-27: a replay used to end here, on Home). A replay
-          // that paused a course slot brings that exact slot back as its full
-          // board; RealRoundAct deals one only when there is none.
-          if (!game.restoreTutorialSuspension()) game.abandonGame()
-          useUi.getState().advanceOnboarding('real-round')
-        }}
+        label={tutorialFinishCtaCopy()}
+        // On to the café's own puzzle, its finish-screen stamp lesson, the
+        // Home spotlight and the suitcase tour: a first session and a
+        // replayed intro alike. A replay's puzzle is dealt fresh as the first
+        // café, beside the round the player had paused (src/ui/introRound.ts).
+        onClick={() => leavePractice(!replay)}
       />
     </div>
   )

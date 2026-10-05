@@ -185,5 +185,4 @@ export const onboarding = {
   demoRestingBody: "Lots of people played with me today, so I need a rest. Come back tomorrow, or play with me in the app.",
   demoCheckFailed: "We could not check that you are a person. Please reload the page and try again.",
   playFullRound: 'Play the café puzzle',
-  returnToParkedGame: 'Return to your game',
 }
