@@ -355,8 +355,9 @@ const restored = await page.evaluate(() => {
 check('the paused primary is the exact same round after the full game', restored.primary === parked.primary)
 check('Home inside the replay offers no Continue', (await page.locator('.home-play').getAttribute('data-cafe-action')) !== 'continue')
 await page.screenshot({ path: `${SHOT_DIR}/lessons-replay-home-stamp-lesson-390x844.png` })
-await walkTour(page, 'home', check, { label: 'replayed Home lesson' })
-await page.locator('.home-first-session .cluey-button').click()
+// Casey's beat is passed only by tapping her (walkTour taps the light on her).
+const replayHomeBeats = await walkTour(page, 'home', check, { label: 'replayed Home lesson' })
+check('the replay forces the Casey tap too', replayHomeBeats.at(-1)?.tapOnly === true)
 await page.waitForSelector('.tour-overlay[data-tour-kind="suitcase"]')
 await walkTour(page, 'suitcase', check, { label: 'replayed collection tour' })
 await page.locator('.suitcase-screen .icon-btn[aria-label="Back"]').click()

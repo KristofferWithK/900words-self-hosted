@@ -55,16 +55,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Em breve',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Os cartões de vocabulário são aborrecidos, por isso jogamos dois jogos: um passeio pela cidade para juntar palavras, e um enigma de palavras num café.',
+  introTwoGames: 'Os cartões de vocabulário são aborrecidos, por isso jogamos dois jogos: o Sightseeing para juntar palavras, e um enigma de palavras num café.',
   introExplore: (city) => `Vamos explorar ${city} e ver se encontramos um café.`,
   introGo: 'Vamos lá',
-  walkEndFound: 'Anda outra vez, ou volta ao Início e joga o café que encontrámos.',
-  walkEndNotFound: 'Anda outra vez para procurar um café, ou volta ao Início.',
+  walkEndFound: 'Faz Sightseeing outra vez, ou volta ao Início e joga o café que encontrámos.',
+  walkEndNotFound: 'Faz Sightseeing outra vez para procurar um café, ou volta ao Início.',
 
   // ── As dicas guiadas, nos ecrãs a sério ─────────────────────────────────
   tourNext: 'Seguinte',
   tourDone: 'Vamos lá',
-  tourLoose: 'As palavras que conhecemos esperam aqui em cima. Cada anel enche um terço por cada marca: uma foto num passeio, uma tentativa com a minha pista e uma pista tua.',
+  tourLoose: 'As palavras que conhecemos esperam aqui em cima. Cada anel enche um terço por cada marca: uma foto no Sightseeing, uma tentativa com a minha pista e uma pista tua.',
   tourLid: 'Com três marcas, a palavra fica guardada. As palavras guardadas vão para a mala, e esta linha conta-as.',
   tourTray: 'Este é o cartão de selos da cidade. Cada café que jogas recebe aqui o seu selo. Um círculo tracejado é um café encontrado mas ainda por jogar, e ? é um café ainda por encontrar.',
   mapTourHere: (city, words) =>
@@ -104,17 +104,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Este enigma foi perdido. Um enigma perdido também dá um selo de bronze. Um enigma ganho dá prata, ouro ou platina. O melhor deste café até agora é ${best}.`,
   resultTourCityPercent: (city) =>
-    `Cada selo de café conta para a medalha de ${city}: bronze a partir de 25%, prata de 50%, ouro de 75% e platina aos 100%.`,
+    `Cada selo de café conta para o selo da cidade de ${city}. A percentagem são todos os teus selos de café juntos: selos melhores fazem-na subir. Bronze a partir de 25%, prata de 50%, ouro de 75% e platina aos 100%.`,
   resultTourNoBestYet: 'ainda por definir',
   resultTourSentence:
     'Esta é uma revisão opcional. Mostra uma palavra deste tabuleiro numa frase. Não é outro teste.',
   resultTourNoReview:
     'Desta vez não há nenhuma frase para rever. Não faz mal. Rever é sempre opcional.',
-  homeTourSightseeing: 'O passeio pela cidade é a volta que acabámos de dar. Cada passeio junta palavras, e quanto mais andas, mais cafés encontras.',
+  homeTourSightseeing: 'O Sightseeing é o que acabámos de fazer. Cada sessão junta palavras, e quanto mais Sightseeing fazes, mais cafés encontras.',
   homeTourCafe: (name) =>
     name ? `O nosso primeiro café é o ${name}. Toca em Enigma do café para te sentares e jogares.` : 'O nosso primeiro café está à espera. Toca em Enigma do café para te sentares e jogares.',
-  homeTourStamp: 'Cada café que jogas recebe um selo. Juntos formam a medalha desta cidade, e aqui vês até onde chegaste.',
-  homeTourCollection: 'Toca em mim para abrir a mala. Mostro-te as palavras que juntámos e o selo do café.',
+  homeTourStamp: 'Este é o selo da cidade. A percentagem são todos os teus selos de café juntos, e um selo melhor conta mais. Joga um café outra vez para um selo melhor, e ela sobe.',
+  homeTourCollection: 'Toca em mim para abrir a mala. Lá dentro estão as nossas palavras e o selo do café.',
 
   // ── A ronda de treino: as justificações escritas da Casey ───────────────
   practiceRationaleDrink: 'Água, café e leite são coisas que se bebem.',

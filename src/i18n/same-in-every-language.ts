@@ -514,10 +514,12 @@ export const SAME_IN_EVERY_LANGUAGE: ReadonlySet<string> = new Set<string>([
   // A word and its meaning joined by "=" ("house = hus"): there are no words
   // in it to translate, only the two the run passes in.
   'sightseeing.pair',
+  // "Sightseeing" is the running game's name, a brand kept untranslated in
+  // every language (owner, 2026-10-04: "Sightseeing is a very universal word,
+  // and since it's a brand thing it should stay consistent").
+  'sightseeing.title',
   // "Photos" is the French word too (les photos), the label over the count.
   'sightseeing.photosLabel',
-  // "Articles" is the French word too (les articles), the name of the walk that asks them.
-  'sightseeing.articlesWalk',
   // "Café" is the word in German, Spanish, French, Dutch and Portuguese too,
   // written on the café on the road when it has no name of its own.
   'sightseeing.cafeSign',

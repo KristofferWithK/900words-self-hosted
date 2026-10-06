@@ -60,6 +60,22 @@ describe('the café table', () => {
     expect(renderToStaticMarkup(<CafeTable table={solen} />)).toBe(renderToStaticMarkup(<CafeTable table={cafeArrangement(cafes.names[0]!)} />))
   })
 
+  it('draws the board items on the fixed layer and the bottom items on the layer that rides with the dock', () => {
+    for (const cafe of cafes.names.slice(0, 10)) {
+      const table = cafeArrangement(cafe)
+      const html = renderToStaticMarkup(<CafeTable table={table} />)
+      const [fixed, composer] = html.split('<div class="cafe-table-composer"')
+      expect(fixed).toContain('class="cafe-table"')
+      for (const item of table.items) {
+        const spot = `data-spot="${item.spot}"`
+        expect(item.region === 'bottom' ? composer : fixed, `${cafe.id} ${item.spot}`).toContain(spot)
+        expect(item.region === 'bottom' ? fixed : composer, `${cafe.id} ${item.spot}`).not.toContain(spot)
+      }
+      // The same arrangement, so the same items: only the bottom group's anchor moved.
+      expect(html.match(/class="cafe-item/g)).toHaveLength(table.items.length)
+    }
+  })
+
   it('has a drawing for every drawing id', () => {
     for (const drawing of DRAWINGS) {
       const html = renderToStaticMarkup(<CafeDrawing drawing={drawing} />)
@@ -87,10 +103,19 @@ describe('Casey in a café', () => {
     expect(html).not.toContain('cafe-table')
   })
 
-  it('is her ordinary size again once she is guessing', () => {
+  it('stays large while she explains her guess (owner, build 123: she must not jump back to small)', () => {
     useGame.setState({ aiBusy: false, planForClueIndex: 0, aiGuessQueue: [{ wordId: deal().words[0]!.wordId, confidence: 0.9, reasoning: 'A reason.' }] as never })
     const html = renderToStaticMarkup(<AiTurnPanel game={{ ...deal(), phase: 'aiGuessing' }} cafe />)
     expect(html).not.toContain('cafe-table')
+    expect(html).toContain('cluey-mini cluey-thinking-large')
+    expect(html).toContain('ai-panel-cafe')
+    expect(html).toContain('data-beat="think"')
+  })
+
+  it('is the ordinary size while guessing outside a café', () => {
+    useGame.setState({ aiBusy: false, planForClueIndex: 0, aiGuessQueue: [{ wordId: deal().words[0]!.wordId, confidence: 0.9, reasoning: 'A reason.' }] as never })
+    const html = renderToStaticMarkup(<AiTurnPanel game={{ ...deal(), phase: 'aiGuessing' }} />)
     expect(html).not.toContain('cluey-thinking-large')
+    expect(html).not.toContain('ai-panel-cafe')
   })
 })

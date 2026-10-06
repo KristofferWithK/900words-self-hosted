@@ -1,4 +1,9 @@
 import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
+import { installFocusModality } from '../focusModality'
+
+// The tag's keyboard focus shows only while the player Tabs (focusModality.ts):
+// iOS matches :focus-visible for script focus, which every pop-up uses.
+installFocusModality()
 
 /**
  * A luggage tag in place of a button: the café world's house look
@@ -12,11 +17,12 @@ import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
  * properties at the top of that file, so a different ink, fill or cut is one
  * edit there.
  *
- * It is a real <button>: the native pressed (:active), disabled and
- * focus-visible states all apply, and its box is at least 44 x 44 CSS px. The
- * outline and the fill are drawn by the tag's own pseudo-elements, clipped to
- * the tag's shape, so the button itself is never clipped and the focus ring
- * around it is never cut off.
+ * It is a real <button>: the native pressed (:active) and disabled states
+ * apply, and its box is at least 44 x 44 CSS px. The outline and the fill are
+ * drawn by the tag's own pseudo-elements, clipped to the tag's shape. Focus
+ * never draws a rectangle: keyboard focus thickens and greens the tag's own
+ * outline, and script or touch focus (a pop-up focusing its action on open)
+ * shows nothing (styles/99-tag.css, ../focusModality.ts).
  *
  * `label` is the tag's name in the serif; `note` the small line under it. The
  * button's accessible name is both, in that order, unless an `aria-label` is

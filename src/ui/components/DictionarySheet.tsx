@@ -7,7 +7,8 @@ import { useGame } from '../../stores/gameStore'
 import { useSettings } from '../../stores/settingsStore'
 
 import { useUi } from '../../stores/uiStore'
-import { canPlayWords, playCity1Sentence, preloadCity1Sentences, playExample, playWord, preloadExampleAudio, preloadWordAudio, type PlaybackSource } from '../speak'
+import { canPlayWords, playCity1Sentence, preloadCity1Sentences, playExample, playWord, preloadExampleAudio, preloadWordAudio, WORD_POOL_LIMITS, type PlaybackSource } from '../speak'
+import { useWordPool } from '../useWordPool'
 import { markDanish, markEnglish, type Segment } from '../exampleHighlight'
 import { ReplayIcon, SlowIcon } from './AudioIcons'
 import { Tag } from './Tag'
@@ -22,6 +23,9 @@ export function DictionarySheet() {
   const board = presentation?.board
   const mode = useGame((s) => s.mode)
   const packingDone = useGame((s) => s.packingDone)
+  // An open sheet readies its own few clips and lets them go as it closes;
+  // the board's stay in the board's pool underneath.
+  useWordPool('sheet', WORD_POOL_LIMITS.sheet, !!sheetWordId)
 
   // An open sheet must not survive into a phase that closes the dictionary —
   // it would display the answer to a card the player is being asked to type.

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { SPIN_EASING, SPIN_MS, angleStep, segmentCrossings, spinTarget, transformRotationDegrees } from './wheelAngle'
+import { SPIN_EASING, SPIN_MS, angleStep, bezierTimeAt, cssTimeMs, segmentCrossings, spinTarget, spinTickTimes, transformRotationDegrees } from './wheelAngle'
 
 /** What a browser writes for rotate(θ) in each form. */
 const matrix2d = (deg: number) => {
@@ -132,5 +132,85 @@ describe('the wheel clacks once for every segment that passes the pointer', () =
     }
     const gaps = clacksAt.slice(1).map((f, i) => f - clacksAt[i]!)
     expect(gaps.at(-1)).toBe(Math.max(...gaps))
+  })
+})
+
+// Owner, build 123: "When I spun the wheel, the sound wasn't matching the
+// spinning." The clack track is built from these times, so they are held to
+// the disc's own angle: one clack per boundary passed, each at the moment the
+// curve carries that boundary under the pointer, and none after the disc stops.
+describe('the clack track is timed off the angle the disc turns through', () => {
+  it('inverts the CSS curve: the time it gives reaches exactly that progress', () => {
+    for (const progress of [0.01, 0.1, 0.25, 0.5, 0.75, 0.9, 0.999]) {
+      expect(bezier(SPIN_EASING, bezierTimeAt(SPIN_EASING, progress))).toBeCloseTo(progress, 6)
+    }
+    expect(bezierTimeAt(SPIN_EASING, 0)).toBe(0)
+    expect(bezierTimeAt(SPIN_EASING, 1)).toBe(1)
+  })
+
+  it.each([2, 3, 5, 8, 12, 13, 15])('holds one clack per segment boundary a %s-segment spin passes', (n) => {
+    const arc = 360 / n
+    for (const rest of [0, 17, 5 * arc + 1, 1234.5, 360 - arc / 2]) {
+      for (const landed of [0, Math.floor(n / 2), n - 1]) {
+        // The renderer's own numbers: the transform plus the disc's lean.
+        const from = rest - 3
+        const to = spinTarget(rest, 360 - ((landed + 0.5) / n) * 360) - 3
+        const times = spinTickTimes(from, to, n, -3)
+        expect(times, `${n} from ${rest}`).toHaveLength(segmentCrossings(from, to, n, -3))
+        // Each clack is the moment its boundary reaches the pointer: just
+        // before it, one boundary fewer has passed; just after, one more.
+        times.forEach((t, i) => {
+          const angleAt = (ms: number) => from + (to - from) * bezier(SPIN_EASING, ms / SPIN_MS)
+          expect(segmentCrossings(from, angleAt(Math.max(0, t - 0.5)), n, -3)).toBe(i)
+          expect(segmentCrossings(from, angleAt(Math.min(SPIN_MS, t + 0.5)), n, -3)).toBe(i + 1)
+        })
+      }
+    }
+  })
+
+  it('puts no clack after the disc stops, and none before it starts', () => {
+    for (const n of [4, 9, 15]) {
+      const times = spinTickTimes(-3, spinTarget(0, 359.9 - 360 / n) - 3, n, -3)
+      expect(times.length).toBeGreaterThan(0)
+      expect(Math.min(...times)).toBeGreaterThan(0)
+      expect(Math.max(...times)).toBeLessThanOrEqual(SPIN_MS)
+    }
+  })
+
+  it('follows the disc into the landing: once past its fastest, every gap is longer', () => {
+    const times = spinTickTimes(-3, spinTarget(0, 12) - 3, 15, -3)
+    const gaps = times.slice(1).map((t, i) => t - times[i]!)
+    const fastest = gaps.indexOf(Math.min(...gaps))
+    gaps.slice(fastest + 1).forEach((gap, i) => expect(gap).toBeGreaterThanOrEqual(gaps[fastest + i]! - 1e-6))
+    expect(gaps.at(-1)).toBe(Math.max(...gaps))
+    // And never faster than 30 a second (the curve's own promise).
+    expect(Math.min(...gaps)).toBeGreaterThan(1000 / 30 - 1e-6)
+  })
+
+  it('agrees with the frame loop it replaces, clack for clack, on a 60 Hz spin', () => {
+    const n = 15
+    const to = spinTarget(0, 360 - (7.5 / n) * 360)
+    const { clacksAt } = simulate(n, 0, to)
+    const times = spinTickTimes(0 - 3, to - 3, n, -3)
+    expect(times).toHaveLength(clacksAt.length)
+    // The loop hears a boundary on the first frame after it passes.
+    times.forEach((t, i) => {
+      const frame = clacksAt[i]! * (SPIN_MS / Math.round(SPIN_MS / (1000 / 60)))
+      expect(frame - t).toBeGreaterThanOrEqual(-1e-6)
+      expect(frame - t).toBeLessThan(1000 / 60 + 1e-6)
+    })
+  })
+
+  it('has no clacks for a wheel with no boundaries, or no turn', () => {
+    expect(spinTickTimes(0, 900, 1)).toEqual([])
+    expect(spinTickTimes(40, 40, 12)).toEqual([])
+  })
+
+  it('reads a computed transition delay in milliseconds', () => {
+    expect(cssTimeMs('0s')).toBe(0)
+    expect(cssTimeMs('500ms')).toBe(500)
+    expect(cssTimeMs('0.5s, 0s')).toBe(500)
+    expect(cssTimeMs('')).toBe(0)
+    expect(cssTimeMs(undefined)).toBe(0)
   })
 })

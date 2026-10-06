@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * Render the three UI sound effects to files: public/audio/ui/<name>.wav.
+ * Render the UI sound effects to files: public/audio/ui/<name>.wav — the
+ * three game effects, and every café-collect candidate
+ * (cafe-collect-<a|b|c>.wav; sfx.ts SFX_FILES picks the one that plays).
  *
  * The sound design lives in src/ui/sfxSynthesis.ts — the Web Audio graphs the
  * effects were first played live with. The app no longer runs them (a live
@@ -55,12 +57,17 @@ try {
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296
       }
       const out = {}
-      for (const [kind, synth] of Object.entries(window.SFX.SFX_SYNTH)) {
-        const seconds = window.SFX.SFX_DURATION[kind]
+      const render = async (synth, seconds) => {
         const ctx = new OfflineAudioContext(1, Math.ceil(seconds * sampleRate), sampleRate)
         synth(ctx, 0, seeded(seed))
         const buffer = await ctx.startRendering()
-        out[kind] = Array.from(buffer.getChannelData(0))
+        return Array.from(buffer.getChannelData(0))
+      }
+      for (const [kind, synth] of Object.entries(window.SFX.SFX_SYNTH)) {
+        out[kind] = await render(synth, window.SFX.SFX_DURATION[kind])
+      }
+      for (const [letter, synth] of Object.entries(window.SFX.CAFE_COLLECT_CANDIDATES)) {
+        out[`cafe-${letter}`] = await render(synth, window.SFX.SFX_DURATION.cafe)
       }
       return out
     },
@@ -73,9 +80,10 @@ try {
     if (peak >= 1) throw new Error(`${kind} clips (peak ${peak.toFixed(3)}); the synthesis must stay under full scale`)
     if (peak === 0) throw new Error(`${kind} rendered silence`)
     const wav = encodeWav(samples, SAMPLE_RATE)
-    const file = join(OUT, FILES[kind])
+    const name = FILES[kind] ?? `cafe-collect-${kind.slice('cafe-'.length)}.wav`
+    const file = join(OUT, name)
     console.log(
-      `${FILES[kind].padEnd(20)} ${(samples.length / SAMPLE_RATE).toFixed(3)} s  peak ${peak.toFixed(3)}  ${wav.length} bytes`,
+      `${name.padEnd(20)} ${(samples.length / SAMPLE_RATE).toFixed(3)} s  peak ${peak.toFixed(3)}  ${wav.length} bytes`,
     )
     if (!dryRun) writeFileSync(file, wav)
   }

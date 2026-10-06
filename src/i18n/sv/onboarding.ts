@@ -50,16 +50,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Kommer snart',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Glosor är tråkiga, så vi spelar två spel i stället: en stadsvandring där vi samlar ord, och en ordgåta på ett kafé.',
+  introTwoGames: 'Glosor är tråkiga, så vi spelar två spel i stället: Sightseeing där vi samlar ord, och en ordgåta på ett kafé.',
   introExplore: (city) => `Vi utforskar ${city} och ser om vi hittar ett kafé.`,
   introGo: 'Nu kör vi',
-  walkEndFound: 'Gå igen, eller gå hem och spela kaféet vi hittade.',
-  walkEndNotFound: 'Gå igen för att leta efter ett kafé, eller gå hem.',
+  walkEndFound: 'Gå på Sightseeing igen, eller gå hem och spela kaféet vi hittade.',
+  walkEndNotFound: 'Gå på Sightseeing igen för att leta efter ett kafé, eller gå hem.',
 
   // ── Rundturens rutor på de riktiga skärmarna ─────────────────────────────
   tourNext: 'Nästa',
   tourDone: 'Nu åker vi',
-  tourLoose: 'Ord vi har mött väntar här uppe. Varje ring fylls en tredjedel för varje märke: ett foto på en promenad, en gissning på min ledtråd och en egen ledtråd.',
+  tourLoose: 'Ord vi har mött väntar här uppe. Varje ring fylls en tredjedel för varje märke: ett foto på Sightseeing, en gissning på min ledtråd och en egen ledtråd.',
   tourLid: 'Med tre märken är ordet samlat. Samlade ord hamnar i väskan, och den här raden räknar dem.',
   tourTray: 'Det här är stadens stämpelkort. Varje kafé du spelar får sin stämpel här. En streckad cirkel är ett kafé som hittats men inte spelats än, och ? är ett kafé som återstår att hitta.',
   mapTourHere: (city, words) =>
@@ -99,17 +99,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Den här gåtan förlorades. En förlorad gåta ger ändå en bronsstämpel. En vunnen gåta ger silver, guld eller platina. Det bästa för det här kaféet hittills är ${best}.`,
   resultTourCityPercent: (city) =>
-    `Varje kaféstämpel räknas till medaljen för ${city}: brons från 25 %, silver från 50 %, guld från 75 % och platina vid 100 %.`,
+    `Varje kaféstämpel räknas till stadsstämpeln för ${city}. Procenten är alla dina kaféstämplar tillsammans: bättre stämplar höjer den. Brons från 25 %, silver från 50 %, guld från 75 % och platina vid 100 %.`,
   resultTourNoBestYet: 'inte fastställt ännu',
   resultTourSentence:
     'Det här är en frivillig genomgång. Den visar ett ord från det här brädet i en mening. Det är inget nytt test.',
   resultTourNoReview:
     'Det finns ingen mening att gå igenom den här gången. Det gör inget. Genomgången är alltid frivillig.',
-  homeTourSightseeing: 'Stadsvandring är promenaden vi just tog. Varje promenad samlar ord, och ju mer du går, desto fler kaféer hittar du.',
+  homeTourSightseeing: 'Sightseeing är det vi just gjorde. Varje runda samlar ord, och ju fler rundor du tar, desto fler kaféer hittar du.',
   homeTourCafe: (name) =>
     name ? `Vårt första kafé är ${name}. Tryck på Kafégåta för att slå dig ner och spela.` : 'Vårt första kafé väntar. Tryck på Kafégåta för att slå dig ner och spela.',
-  homeTourStamp: 'Varje kafé du spelar får en stämpel. Tillsammans blir de stadens medalj, och här ser du hur långt du har kommit.',
-  homeTourCollection: 'Tryck på mig för att öppna resväskan. Jag visar orden vi har samlat och kaféets stämpel.',
+  homeTourStamp: 'Det här är stadsstämpeln. Procenten är alla dina kaféstämplar tillsammans, och en bättre stämpel räknas mer. Spela ett kafé igen för en bättre stämpel, så stiger den.',
+  homeTourCollection: 'Tryck på mig för att öppna resväskan. Inuti finns våra ord och kaféets stämpel.',
 
   // ── Övningsrundan: Caseys skrivna motiveringar ───────────────────────────
   practiceRationaleDrink: 'Vatten, kaffe och mjölk är alla saker man dricker.',

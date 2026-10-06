@@ -1,6 +1,8 @@
 // FIRST: the website demo swaps localStorage/sessionStorage for memory before
 // any store module below is evaluated. A no-op for every other build.
 import './webdemo/installMemoryStorage'
+// The hidden performance log, before React loads (so it can count commits). Off: one flag read.
+import './ui/diagnostics/boot'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'

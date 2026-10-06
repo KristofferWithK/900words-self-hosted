@@ -35,7 +35,7 @@ import { startFakeOllama } from './fake-ollama.mjs'
 import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { startWorker } from './worker-runtime.mjs'
-import { createOnboardingFlow } from './_onboarding-flow.mjs'
+import { createOnboardingFlow, firstWalkCafePanel } from './_onboarding-flow.mjs'
 import { lessonMarkers, progressBytes, released, walkTour } from './_tutorial-lessons.mjs'
 import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
@@ -554,7 +554,7 @@ check(
 )
 check(
   'then says flashcards are boring, so there are two games',
-  /Flashcards are boring/.test(introGames) && /sightseeing walk/.test(introGames) && /word puzzle in a café/.test(introGames),
+  /Flashcards are boring/.test(introGames) && /sightseeing to collect words/.test(introGames) && /word puzzle in a café/.test(introGames),
   introGames,
 )
 check('the 900-words line no longer asks for a tap on the bubble', !/Tap to continue/.test(introGames))
@@ -877,12 +877,13 @@ check(
   homeBeats.map((beat) => beat.anchor).join(' | '),
 )
 check('the Home lesson never speaks of postcards', !/postcard/i.test(homeBeats.map((beat) => beat.text).join(' ')))
-check('the Home lesson is recorded as done and leaves the suitcase tour to come', (await lessonMarkers(page)).home === 'done' && (await marker()) === 'home-return')
-check('Casey is tappable once the Home lesson closes', await released(page, '.home-first-session .cluey-button'))
-await noScroll('the real-round Home hand-off at 360x640')
-await page.screenshot({ path: `${SHOT_DIR}/da-home-return-after-lesson-${VPN}.png` })
-await page.locator('.home-first-session .cluey-button').click()
+check('the Home lesson says "city stamp", never medal', /city stamp/i.test(homeBeats[0]?.text ?? '') && !/medal/i.test(homeBeats.map((beat) => beat.text).join(' ')), homeBeats[0]?.text ?? '')
+// Casey's beat (owner, 2026-10-04): tapping her is the only way on. No Next,
+// the light on her is the named, focused button, a tap elsewhere does nothing
+// (walkTour checks all three), and her tap opens the suitcase.
+check('Casey\'s beat has no Next and is passed only by tapping Casey', homeBeats[1]?.tapOnly === true && /tap me/i.test(homeBeats[1]?.text ?? ''), homeBeats[1]?.text ?? '')
 await page.waitForSelector('.suitcase-screen')
+check('the Home lesson is recorded as done', (await lessonMarkers(page)).home === 'done')
 check('tapping Casey opens the real suitcase tour', (await page.locator('.suitcase-screen').count()) === 1 && (await page.locator('.tour-overlay[data-tour-kind="suitcase"]').count()) === 1)
 const suitcaseBeats = await walkTour(page, 'suitcase', check, { label: 'Casey collection tour after the first board', shots: `${SHOT_DIR}/da-suitcase-marks-lesson-${VPN}` })
 check('the collection tour teaches the three marks, the case and the stamp card', suitcaseBeats.map((beat) => beat.anchor).join(' | ') === '.case-loose | .case-panel-lid | .stamp-card', suitcaseBeats.map((beat) => beat.anchor).join(' | '))
@@ -1416,6 +1417,25 @@ await dePage.waitForSelector('.home-first-session')
 check('Guide return restores the first-session Home', (await dePage.locator('.home-first-session').count()) === 1)
 check('German geometry leg makes zero external requests', deExternalRequests.length === 0, deExternalRequests.join(', '))
 await deCtx.close()
+
+// The first walk's café (owner, after build 123): found on the fifth photo,
+// it comes down the road in a gate's place, and "You found a café" opens as
+// Casey reaches it, not at the find. A fresh player in a context of its own.
+const cafeWalk = await firstWalkCafePanel(browser, BASE, { country: 'Denmark', viewport: VP, shot: `${SHOT_DIR}/onboarding-en-${VPN}-cafe-reached.png` })
+check('the first walk finds its café on the fifth photo and walks on: no panel, no hold at the find',
+  cafeWalk.atFind.photos === 5 && !cafeWalk.atFind.held && !cafeWalk.atFind.panel && cafeWalk.atFind.cafeZ > 8, JSON.stringify(cafeWalk.atFind))
+check('"You found a café" opens as Casey reaches the café',
+  cafeWalk.atCafe.held && cafeWalk.atCafe.photos > 5 && cafeWalk.atCafe.cafeZ !== null && cafeWalk.atCafe.cafeZ > 0 && cafeWalk.atCafe.cafeZ <= 0.1, JSON.stringify(cafeWalk.atCafe))
+// The café-collect sound (owner, 2026-10-05): asked for once, as Casey reaches
+// the café (not at the find), from its own file, and not with an answer's word.
+const cafeSound = cafeWalk.atCafe.cafeSounds[0]
+check('no café sound at the find, before Casey reaches it', cafeWalk.atFind.cafeSounds === 0, JSON.stringify(cafeWalk.atFind))
+check('the café sound is asked for once, as Casey reaches the café',
+  cafeWalk.atCafe.cafeSounds.length === 1 && /audio\/ui\/cafe-collect-[abc]\.wav$/.test(cafeSound.url) && cafeSound.cafeZ !== null && cafeSound.cafeZ > 0 && cafeSound.cafeZ <= 0.1,
+  JSON.stringify(cafeWalk.atCafe.cafeSounds))
+check('the café sound is not in an answer’s frame', cafeSound !== undefined && cafeSound.fromAnswerMs > 200, JSON.stringify(cafeSound))
+check('Keep sightseeing carries on from the café', !cafeWalk.after.held)
+check('no page errors on the walk to the café', cafeWalk.errors.length === 0, cafeWalk.errors.join(' | '))
 
 check('no page errors', errors.length === 0, errors.join(' | ').slice(0, 300))
 check('the full fresh-player journey made zero external requests', externalRequests.length === 0, externalRequests.join(', '))

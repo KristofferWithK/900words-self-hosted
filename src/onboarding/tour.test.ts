@@ -174,6 +174,24 @@ describe('the saved result and Home guidance', () => {
     for (const step of HOME_TOUR_STEPS) expect(step.text).not.toMatch(/postcard/i)
   })
 
+  it('makes tapping Casey the only way on from her beat (owner, 2026-10-04)', () => {
+    const casey = HOME_TOUR_STEPS.at(-1)!
+    expect(casey).toMatchObject({ anchor: '.cluey-button', tapThrough: true, tapOnly: true })
+    // The line says plainly to tap her, now.
+    expect(casey.text).toMatch(/tap me/i)
+    // Only Casey's beat is tap-only: the stamp beat still moves on with Next.
+    expect(HOME_TOUR_STEPS.slice(0, -1).some((step) => step.tapOnly)).toBe(false)
+  })
+
+  it("explains the city stamp's percentage truthfully on Home and on the finish screen", () => {
+    expect(HOME_TOUR_STEPS[0]!.text).toMatch(/city stamp/i)
+    expect(HOME_TOUR_STEPS[0]!.text).toMatch(/percentage/i)
+    expect(HOME_TOUR_STEPS[0]!.text).toMatch(/again/i)
+    const line = UI.onboarding.resultTourCityPercent('Sønderborg')
+    expect(line).toContain('Sønderborg’s city stamp')
+    for (const level of ['Bronze at 25%', 'Silver at 50%', 'Gold at 75%', 'Platinum at 100%']) expect(line).toContain(level)
+  })
+
   it('introduces Sightseeing, then the café found, whose tag plays it', () => {
     const steps = homeCafeTourSteps('Café Solen')
     expect(steps.map(step => step.anchor)).toEqual(['.home-tag-sightseeing', '.home-play'])
@@ -200,8 +218,10 @@ describe('the wheel lessons', () => {
   it('lets the full wheel spin from a tap on the wheel itself, and only there', () => {
     expect(wheelReadyTourSteps()).toEqual([expect.objectContaining({ anchor: '.wheel-disc', tapThrough: true })])
     expect(translationTourSteps('da').some((step) => step.tapThrough)).toBe(false)
-    expect([...TOUR_STEPS, ...INTRO_GAME_TOUR_STEPS, ...HOME_TOUR_STEPS].some((step) => step.tapThrough)).toBe(false)
-    // The one other tap-through: Home's Café puzzle tag in the first session.
+    expect([...TOUR_STEPS, ...INTRO_GAME_TOUR_STEPS].some((step) => step.tapThrough)).toBe(false)
+    // The other tap-throughs: Home's Café puzzle tag in the first session, and
+    // Casey on Home's stamp lesson, whose tap opens the suitcase.
     expect(homeCafeTourSteps(null).filter((step) => step.tapThrough).map((step) => step.anchor)).toEqual(['.home-play'])
+    expect(HOME_TOUR_STEPS.filter((step) => step.tapThrough).map((step) => step.anchor)).toEqual(['.cluey-button'])
   })
 })

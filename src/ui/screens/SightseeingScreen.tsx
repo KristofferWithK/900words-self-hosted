@@ -13,35 +13,46 @@ import { useSrs } from '../../stores/srsStore'
 import { devSwitchesAllowed, useUi } from '../../stores/uiStore'
 import { Tag } from '../components/Tag'
 import { TrainTicket } from '../components/TrainRunPanel'
-import { guessErrorBlip } from '../feedback'
+import { cafeCollectSound, guessErrorBlip } from '../feedback'
+import { AUTOPLAY_SECONDS, autoplaysNext, cancelOnHide, startCountdown } from '../runAutoplay'
 import { primeSfx } from '../sfx'
-import { stopWordAudio } from '../speak'
-import { primeRunAudio, readyRunWords, sayRunWord } from '../../run/audio'
+import { stopWordAudio, WORD_POOL_LIMITS } from '../speak'
+import { useWordPool } from '../useWordPool'
+import { primeRunAudio, readyRunWords, sayRunWord, takeGateToReady } from '../../run/audio'
 import { holdRunForCafes, type CafeHold } from '../../run/cafeHold'
 import { flushRunProgress, warmRunProgress } from '../../run/sinkSetup'
 import { createRunPainter, stageSize as fitStage, type RunLabels, type RunPainter } from '../../run/draw'
-import { createRunEngine, runIsQuiet, type RunEngine } from '../../run/engine'
-import { runResultsSink, type RunResult, type RunWalk } from '../../run/results'
-import { activeArticleLanes, walkPool } from '../../run/sources'
-import { chosenWalk } from '../../run/walks'
+import { createRunEngine, runIsQuiet, type RunEngine, type RunGate } from '../../run/engine'
+import { runResultsSink, type RunAnswerKind, type RunResult, type RunWalk } from '../../run/results'
+import { activeArticleGateLanes, runWordsForCity } from '../../run/sources'
+import { chosenWalk, takeWalkStartNow } from '../../run/walks'
 import type { RunWord } from '../../run/words'
+import { diagAnswer, diagHit } from '../diagnostics/recorder'
+import { exposeRunForDiag } from '../diagnostics/autoplayGate'
 
 /**
- * SIGHTSEEING: the running game (café world): the Words walk (CW-05), the
- * Articles walk (CW-06) and the train run, Catch the train (CW-07). Which one opens is chosen before the screen does
- * (src/run/walks.ts `chooseWalk`: home's question, CW-10, or the
- * `?sightseeing=` dev switch); a course without articles always opens Words.
+ * SIGHTSEEING: the running game (café world): the walk (CW-05), with article
+ * gates mixed in where the course has articles (CW-06; owner, 2026-10-05: the
+ * Articles walk merged into the walk), and the train run, Catch the train
+ * (CW-07). Which one opens is chosen before the screen does
+ * (src/run/walks.ts `chooseWalk`: Home's Sightseeing tag, the train sheet, or
+ * the `?sightseeing=` dev switch).
  *
  * The run itself lives in src/run: the engine (rules, no screen), the painter
  * (the prototype's drawing on a canvas) and the one results interface the
  * rule cards plug into. This screen is the shell around them: the canvas at
  * device resolution, the frame loop, touch and keys, pausing when the app is
  * hidden, reduced motion, and the panels before, between and after runs.
+ * A walk chosen on Home starts at once, without the ready panel; a lost
+ * walk's end panel starts the next one after a short count
+ * (src/ui/runAutoplay.ts).
  *
- * A photo that finds a café (Words and Articles walks) puts the café, with
- * its name, on the road ahead, and Casey walks through it (src/run/cafeHold.ts).
+ * A photo that finds a café (any right answer of the walk) puts the café, with
+ * its name, on the road ahead in the place of a gate not yet in sight, and
+ * Casey walks through it (src/run/cafeHold.ts, engine.ts `findCafe`).
  * Only the first session's walk (`firstWalk`, onboarding) holds the run on the
- * "You found a café" panel (`cafe`) until the player keeps walking; held,
+ * "You found a café" panel (`cafe`), from the moment Casey reaches the café
+ * until the player keeps walking; held,
  * nothing moves, so the speed, the slips and the photos carry on as they
  * were. Every other walk keeps walking, and its run-end panel says which
  * cafés it found (owner, 2026-10-04).
@@ -62,41 +73,45 @@ import type { RunWord } from '../../run/words'
 type Panel = 'ready' | 'play' | 'paused' | 'cafe' | 'over' | 'caught' | 'soon'
 
 const BEST_KEY = 'cluecab-sightseeing-best'
-/** Forgiven wrong words in both walks (contract §2). The train run's come from its slips. */
+/** Forgiven wrong words on the walk (contract §2). The train run's come from its slips. */
 const FORGIVEN = 1
 /** A pointer that moves this far (CSS px) sideways is a swipe; less is a tap on a half. */
 const SWIPE_PX = 24
 /** The right word is said after a wrong one, a moment after the blip (prototype: 450 ms). */
 const SAY_AFTER_MISS_MS = 450
 
-/** Each walk keeps its own best: `{ words, articles }`. */
-function readBests(): Record<string, unknown> {
+/**
+ * The walk's one best photo count, from what is stored under BEST_KEY:
+ * `{ words: n }`. A save from the time of two walks also holds `articles`, the
+ * Articles walk's own best: the higher of the two is the best now (owner,
+ * 2026-10-05: one walk), and the next best written drops the old field.
+ * Anything unreadable is no best.
+ */
+export function readWalkBest(raw: string | null): number {
   try {
-    const all = JSON.parse(localStorage.getItem(BEST_KEY) ?? '{}')
-    return all && typeof all === 'object' ? all : {}
+    const all: unknown = JSON.parse(raw ?? '{}')
+    if (!all || typeof all !== 'object') return 0
+    const bests = ['words', 'articles'].map((k) => Number((all as Record<string, unknown>)[k] ?? 0))
+    return Math.max(0, ...bests.map((n) => (Number.isFinite(n) && n > 0 ? Math.floor(n) : 0)))
   } catch {
-    return {}
+    return 0
   }
 }
 
-function readBest(walk: RunWalk): number {
-  const n = Number(readBests()[walk] ?? 0)
-  return Number.isFinite(n) && n > 0 ? Math.floor(n) : 0
+function readBest(): number {
+  try {
+    return readWalkBest(localStorage.getItem(BEST_KEY))
+  } catch {
+    return 0
+  }
 }
 
-function writeBest(walk: RunWalk, n: number): void {
+function writeBest(n: number): void {
   try {
-    localStorage.setItem(BEST_KEY, JSON.stringify({ ...readBests(), [walk]: n }))
+    localStorage.setItem(BEST_KEY, JSON.stringify({ words: n }))
   } catch {
     // No storage: the best simply is not kept.
   }
-}
-
-/** The walk this screen opens: the one chosen, unless the course has no lanes for it. */
-function openingWalk(lanes: readonly string[]): RunWalk {
-  const chosen = chosenWalk()
-  if (chosen === 'train') return 'train'
-  return chosen === 'articles' && lanes.length >= 2 ? 'articles' : 'words'
 }
 
 /** The train run's slips now: one plus one per 20 of the city's words collected (journey/trainSlips.ts). */
@@ -117,6 +132,8 @@ function devTrainLimit(): number | undefined {
 
 /** A noun with its article, as it is said: «et hus», «die Milch». */
 const withArticle = (w: RunWord) => (w.article ? `${w.article} ${w.target}` : w.target)
+/** A word's answer as the gate that asked it shows it: with its article at an article gate. */
+const answerOf = (w: RunWord, asked: RunAnswerKind) => (asked === 'article' ? withArticle(w) : w.target)
 
 function prefersReducedMotion(): boolean {
   return typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -142,8 +159,9 @@ interface Ending {
   readonly result: RunResult
   /** The cafés this walk found, in order: each one's own name, or null for a café without one. */
   readonly cafes: readonly (string | null)[]
-  readonly lastMiss: { readonly word: RunWord; readonly picked: RunWord } | null
-  readonly missed: readonly RunWord[]
+  readonly lastMiss: { readonly word: RunWord; readonly picked: RunWord; readonly asked: RunAnswerKind } | null
+  /** The words missed on this run, each once per kind it was asked (meaning or article). */
+  readonly missed: readonly { readonly word: RunWord; readonly asked: RunAnswerKind }[]
   readonly best: number
   readonly newBest: boolean
 }
@@ -175,19 +193,54 @@ export function RunCafesFound({ cafes }: { cafes: readonly (string | null)[] }) 
   return <p className="run-line run-cafes-found">{UI.sightseeing.cafesFound(cafes.length, cafes.length === 1 ? cafes[0] : null)}</p>
 }
 
+/**
+ * The recordings a gate needs readied when it is placed: its own word, the
+ * only one the run ever says (a photo, or the right word after a miss).
+ */
+export function gateRecordings(gate: Pick<RunGate, 'word'>): RunWord[] {
+  return [gate.word]
+}
+
+/**
+ * "More sightseeing" on the run-end panel. While the next walk counts down to
+ * starting by itself (src/ui/runAutoplay.ts), the tag fills from its hole end
+ * over the seconds, with no number (owner's choice, option D). With reduced
+ * motion it does not fill and reads as it always does.
+ */
+export function SightseeingAgainTag({ counting, primary, autoFocus, onClick }: { counting: boolean; primary: boolean; autoFocus: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      className={`run-tag-btn run-again${primary ? ' run-tag-btn-primary' : ''}${counting ? ' run-again-counting' : ''}`}
+      onClick={onClick}
+      autoFocus={autoFocus}
+    >
+      {counting && <span className="run-again-fill" aria-hidden="true" style={{ animationDuration: `${AUTOPLAY_SECONDS}s` }} />}
+      {UI.sightseeing.sightseeingAgain}
+    </button>
+  )
+}
+
 export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {}) {
+  // The words of the gates on the road, and nothing once the walk is left (speak.ts, `claimWordPool`).
+  useWordPool('sightseeing', WORD_POOL_LIMITS.sightseeing)
   const goTo = useUi((s) => s.goTo)
   const cityIndex = useJourney((s) => s.cityIndex)
   const t = UI.sightseeing
 
-  const lanes = useMemo(() => activeArticleLanes(), [])
-  // The first walk is always Words (contract section 7), whichever course.
-  const [walk] = useState<RunWalk>(() => (firstWalk ? 'words' : openingWalk(lanes)))
-  const articles = walk === 'articles'
+  // The first session's walk is always the walk (contract section 7).
+  const [walk] = useState<RunWalk>(() => (!firstWalk && chosenWalk() === 'train' ? 'train' : 'words'))
+  // A walk chosen on Home starts as the screen opens, without the ready panel
+  // (`chooseWalk`'s startNow); the first walk says so itself.
+  const [chosenStartsNow] = useState(() => !firstWalk && takeWalkStartNow())
   const train = walk === 'train'
+  // Article gates: the walk's, where the course has them. Never on the first
+  // session's walk (it stays as onboarding made it) or the train run.
+  const [lanes] = useState(() => (firstWalk || train ? null : activeArticleGateLanes()))
+  const articleChoices = useMemo(() => (lanes ?? []).filter((a): a is string => a !== null), [lanes])
   const here = cityAt(cityIndex).name
   const next = cityIndex + 1 < CITIES.length ? cityAt(cityIndex + 1).name : null
-  const words = useMemo(() => walkPool(walk, cityIndex, lanes), [walk, cityIndex, lanes])
+  const words = useMemo(() => runWordsForCity(cityIndex), [cityIndex])
 
   const screenRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
@@ -197,25 +250,32 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const painterRef = useRef<RunPainter | null>(null)
   const panelRef = useRef<Panel>('ready')
-  const bestRef = useRef(readBest(walk))
+  const bestRef = useRef(readBest())
   const reducedRef = useRef(prefersReducedMotion())
   const missTimer = useRef<number | undefined>(undefined)
   const announcedGate = useRef(0)
   const autoRef = useRef(autoSteer())
   /** The cafés found since the run started, for its end panel. */
   const cafesRef = useRef<(string | null)[]>([])
+  /** The first walk's finds still ahead on the road, by café: the panel opens as Casey reaches one. */
+  const heldFinds = useRef(new Map<number, CafeHold>())
   /**
-   * The recordings of gates placed on the road, readied one gate per frame
-   * while the run is quiet (`runIsQuiet`): readying makes media elements, and
-   * that work does not belong in the frames around an answer.
+   * The gates placed on the road whose recordings are still to be readied,
+   * one gate per frame while the run is quiet (`runIsQuiet`): readying loads
+   * media elements, and that work does not belong in the frames around an
+   * answer. Only the current gate and the next two are readied
+   * (`takeGateToReady`); a gate already passed is dropped.
    */
-  const toReady = useRef<RunWord[][]>([])
+  const toReady = useRef<RunGate[]>([])
   /** The run's clock at its last answer. */
   const lastAnswer = useRef({ answered: 0, at: -Infinity })
 
   const [panel, setPanelState] = useState<Panel>('ready')
   const [ending, setEnding] = useState<Ending | null>(null)
   const [cafeFound, setCafeFound] = useState<CafeHold | null>(null)
+  /** Seconds before the next walk starts by itself, on a lost walk's end panel; null when nothing counts. */
+  const [autoLeft, setAutoLeft] = useState<number | null>(null)
+  const cancelAutoplayRef = useRef<() => void>(() => {})
   /**
    * The gate read out to a screen reader, written straight into its live
    * region: a React state here re-rendered the whole screen at every gate,
@@ -232,21 +292,35 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
 
   const engineRef = useRef<RunEngine | null>(null)
   if (!engineRef.current) {
-    const missed: RunWord[] = []
+    const missed: { word: RunWord; asked: RunAnswerKind }[] = []
     engineRef.current = createRunEngine({
       walk,
       cityIndex,
       pool: words,
-      lanes,
+      articleLanes: lanes,
       sink: runResultsSink(),
       forgiven: walk === 'train' ? () => trainSlipsNow(cityIndex) : FORGIVEN,
       ...(walk === 'train' ? { trainLimit: devTrainLimit() } : {}),
-      // The articles are not recordings: in the Articles walk only the noun is readied.
-      onGateSpawned: (gate) => void toReady.current.push(gate.kind === 'article' ? [gate.word] : [...gate.options]),
+      // Only the gate's own word is ever said (a photo, or the right word after
+      // a miss), so only it is readied: readying the two wrong words too made
+      // three media elements a gate, two of them never played, and pushed the
+      // board's warm words out of the word player's pool (long sessions,
+      // build 123). An article gate's articles are not recordings either.
+      onGateSpawned: (gate) => void toReady.current.push(gate),
       events: {
-        photo: (word) => sayRunWord(word),
-        miss: (word) => {
-          missed.push(word)
+        photo: (word) => (diagAnswer(true, engineRef.current), sayRunWord(word)),
+        // Casey walks through a café on the road: it is collected, with its sound.
+        cafeReached: () => cafeCollectSound(),
+        // The first walk holds as Casey reaches the café it found: "You found a café".
+        cafeHeld: (shop) => {
+          const find = heldFinds.current.get(shop.id) ?? { name: shop.name, shop, held: true }
+          heldFinds.current.delete(shop.id)
+          setCafeFound(find)
+          setPanel('cafe')
+        },
+        miss: (word, _picked, _ended, asked) => {
+          diagHit(asked === 'article' ? 'article-wrong' : 'answer-wrong')
+          missed.push({ word, asked })
           guessErrorBlip()
           window.clearTimeout(missTimer.current)
           missTimer.current = window.setTimeout(() => sayRunWord(word), SAY_AFTER_MISS_MS)
@@ -273,13 +347,13 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
           const newBest = result.photos > previous
           if (newBest) {
             bestRef.current = result.photos
-            writeBest(walk, result.photos)
+            writeBest(result.photos)
           }
           setEnding({
             result,
             cafes: [...cafesRef.current],
             lastMiss: engine.state.lastMiss,
-            missed: [...new Map(missed.map((w) => [w.id, w])).values()],
+            missed: [...new Map(missed.map((m) => [`${m.asked}:${m.word.id}`, m])).values()],
             best: bestRef.current,
             newBest,
           })
@@ -290,6 +364,7 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     })
   }
   const engine = engineRef.current
+  exposeRunForDiag(engine) // performance log's soak player; nothing unless seeded
   // `?auto` (local hosts only): a probe reads where the run is, to take its
   // screenshots at the right moment (a café ahead, at Casey, behind her).
   if (autoRef.current !== null && typeof window !== 'undefined') (window as unknown as { __runState?: unknown }).__runState = engine.state
@@ -299,14 +374,19 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       // The train run counts words answered and words to go, not photos and a best.
       photos: upper(train ? t.wordsLabel : t.photosLabel),
       best: upper(train ? t.toGoLabel : t.bestLabel),
-      // Articles: "EN OR ET?  ·  house", as in the prototype's Article Crossroads.
-      ask: upper(articles ? t.articleAsk(lanes.slice(0, -1).join(', '), lanes[lanes.length - 1] ?? '') : t.askLabel),
-      ...(articles ? { askDetail: (gate: { word: RunWord }) => gate.word.prompt } : {}),
+      ask: upper(t.askLabel),
+      // An article gate: "EN OR ET?  ·  house", as in the prototype's Article Crossroads.
+      ...(articleChoices.length >= 2
+        ? {
+            articleAsk: upper(t.articleAsk(articleChoices.slice(0, -1).join(', '), articleChoices[articleChoices.length - 1])),
+            askDetail: (gate: { word: RunWord }) => gate.word.prompt,
+          }
+        : {}),
       slipsLeft: t.slipsLeft,
       faster: t.faster,
-      slipNote: articles ? withArticle : (w: RunWord) => t.pair(w.prompt, w.target),
+      slipNote: (w: RunWord, asked: RunAnswerKind) => (asked === 'article' ? withArticle(w) : t.pair(w.prompt, w.target)),
     }),
-    [t, articles, lanes, train],
+    [t, articleChoices, train],
   )
 
   // ── the stage: the screen's full height, the prototype's width at most ─────
@@ -329,7 +409,8 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    painterRef.current = createRunPainter(canvas)
+    const painter = createRunPainter(canvas)
+    painterRef.current = painter
     let raf = 0
     let prev = performance.now()
     const frame = (now: number) => {
@@ -339,7 +420,10 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       if (panelRef.current !== 'paused' && panelRef.current !== 'cafe') engine.step(dt)
       const st = engine.state
       if (st.answered !== lastAnswer.current.answered) lastAnswer.current = { answered: st.answered, at: st.clock }
-      if (toReady.current.length && runIsQuiet(st, st.clock - lastAnswer.current.at)) readyRunWords(toReady.current.shift()!)
+      if (toReady.current.length && runIsQuiet(st, st.clock - lastAnswer.current.at)) {
+        const gate = takeGateToReady(toReady.current, st.gates)
+        if (gate) readyRunWords(gateRecordings(gate))
+      }
       // Read after the step: a photo in it may have found a café and held the
       // run, and a held run does not steer (the loops below would never end).
       const playing = panelRef.current === 'play' && !engine.state.held
@@ -351,8 +435,9 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       }
       if (playing && active && active.reveal > 0 && announcedGate.current !== active.id) {
         announcedGate.current = active.id
-        const choices = active.options.map((o) => o.target).join(', ')
-        if (announceRef.current) announceRef.current.textContent = articles ? t.articleGateAria(active.prompt, choices) : t.gateAria(active.prompt, choices)
+        // The wall's lane says nothing: only the articles are read out.
+        const choices = active.options.filter((o) => o.target).map((o) => o.target).join(', ')
+        if (announceRef.current) announceRef.current.textContent = active.kind === 'article' ? t.articleGateAria(active.prompt, choices) : t.gateAria(active.prompt, choices)
       }
       painterRef.current?.draw(engine.state, {
         labels,
@@ -365,8 +450,14 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
       raf = requestAnimationFrame(frame)
     }
     raf = requestAnimationFrame(frame)
-    return () => cancelAnimationFrame(raf)
-  }, [engine, labels, t, articles])
+    return () => {
+      cancelAnimationFrame(raf)
+      // The word pictures and the canvas give their pixels back now, not at
+      // the next collection: a phone keeps paying for them until then.
+      if (painterRef.current === painter) painterRef.current = null
+      painter.dispose()
+    }
+  }, [engine, labels, t])
 
   // ── reduced motion, followed live ─────────────────────────────────────────
   useEffect(() => {
@@ -417,9 +508,8 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
         holdOnFind,
         (find) => {
           cafesRef.current.push(find.name)
-          if (!find.held) return
-          setCafeFound(find)
-          setPanel('cafe')
+          // The panel waits until Casey reaches the café (engine.ts `cafeHeld`).
+          if (find.held) heldFinds.current.set(find.shop.id, find)
         },
         // Found by one of the run's last answers, written as it ended: no road
         // to stand on any more, but the run-end panel still names it.
@@ -451,6 +541,7 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     primeSfx()
     announcedGate.current = 0
     cafesRef.current = []
+    heldFinds.current.clear()
     toReady.current = []
     lastAnswer.current = { answered: 0, at: -Infinity }
     setEnding(null)
@@ -481,14 +572,43 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
     setPanel('play')
   }, [engine, setPanel])
 
+  // ── a lost walk's end panel starts the next walk by itself after a few
+  // seconds (src/ui/runAutoplay.ts), unless anything stops it first: a tap or
+  // key on the panel, the panel or the screen going away, the app hidden ───
+  const isFirstWalk = !!firstWalk
+  useEffect(() => {
+    if (panel !== 'over' || !ending) return
+    if (!autoplaysNext({ walk, firstWalk: isFirstWalk, end: ending.result.end, canStart: canStartRun() })) return
+    const countdown = startCountdown(AUTOPLAY_SECONDS, setAutoLeft, () => {
+      stop()
+      start()
+    })
+    let stopListening = () => {}
+    const stop = () => {
+      countdown.cancel()
+      stopListening()
+      window.removeEventListener('keydown', stop, true)
+      setAutoLeft(null)
+    }
+    stopListening = cancelOnHide(stop)
+    window.addEventListener('keydown', stop, true)
+    cancelAutoplayRef.current = stop
+    return () => {
+      cancelAutoplayRef.current = () => {}
+      stop()
+    }
+  }, [panel, ending, walk, isFirstWalk, start])
+
   const onFirstWalkHome = firstWalk?.onHome
   const home = useCallback(() => (onFirstWalkHome ? onFirstWalkHome() : goTo('home')), [goTo, onFirstWalkHome])
 
   // The first walk starts at once: Casey's "Let's go" was the tap that primed
-  // the run's audio (OnboardingScreen). Once per mount, StrictMode included.
+  // the run's audio (OnboardingScreen). So does a walk chosen on Home, whose
+  // tap primed it (HomeScreen `startHomeWalk`). Once per mount, StrictMode included.
   const startedNow = useRef(false)
-  const startNow = !!firstWalk?.startNow
-  useEffect(() => {
+  const startNow = firstWalk ? !!firstWalk.startNow : chosenStartsNow
+  // A layout effect, so the ready panel is never painted under a walk that starts at once.
+  useLayoutEffect(() => {
     if (!startNow || startedNow.current) return
     startedNow.current = true
     if (canStartRun()) start()
@@ -572,7 +692,8 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
           </button>
         )}
         {panel !== 'play' && (
-          <div className="run-scrim">
+          // Any tap on a panel stops the count to the next walk.
+          <div className="run-scrim" onPointerDownCapture={() => cancelAutoplayRef.current()}>
             <section className="run-tag run-panel" aria-live="polite">
               <span className="run-tag-hole" aria-hidden="true" />
               <svg className="run-tag-string" viewBox="0 0 120 120" aria-hidden="true">
@@ -598,8 +719,6 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
               {panel === 'ready' && !train && (
                 <>
                   <h1 className="run-title">{t.title}</h1>
-                  <p className="run-sub">{articles ? t.articlesWalk : t.wordsWalk}</p>
-                  {articles && <p className="run-line">{t.articlesHint}</p>}
                   <p className="run-line dim">{t.rules}</p>
                   <p className="run-line run-hint">{t.steerHint}</p>
                   <div className="run-actions">
@@ -692,14 +811,14 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
               )}
               {panel === 'over' && ending && !train && (
                 <>
-                  <h1 className="run-title run-title-wrong">{articles ? t.wrongArticle : t.wrongWord}</h1>
-                  {ending.lastMiss && articles && (
+                  <h1 className="run-title run-title-wrong">{ending.lastMiss?.asked === 'article' ? t.wrongArticle : t.wrongWord}</h1>
+                  {ending.lastMiss && ending.lastMiss.asked === 'article' && (
                     <>
                       <p className="run-answer">{withArticle(ending.lastMiss.word)}</p>
                       <p className="run-line dim">{t.pair(ending.lastMiss.word.target, ending.lastMiss.word.prompt)}</p>
                     </>
                   )}
-                  {ending.lastMiss && !articles && (
+                  {ending.lastMiss && ending.lastMiss.asked !== 'article' && (
                     <>
                       <p className="run-answer">{t.pair(ending.lastMiss.word.prompt, ending.lastMiss.word.target)}</p>
                       <p className="run-line dim">{t.youPicked(ending.lastMiss.picked.target, ending.lastMiss.picked.prompt)}</p>
@@ -719,18 +838,14 @@ export function SightseeingScreen({ firstWalk }: { firstWalk?: FirstWalk } = {})
                     <div className="run-missed">
                       <p className="run-line dim">{t.comingBack}</p>
                       <ul>
-                        {ending.missed.map((w) => (
-                          <li key={w.id}>{t.pair(w.prompt, articles ? withArticle(w) : w.target)}</li>
+                        {ending.missed.map(({ word: w, asked }) => (
+                          <li key={`${asked}:${w.id}`}>{t.pair(w.prompt, answerOf(w, asked))}</li>
                         ))}
                       </ul>
                     </div>
                   )}
                   <div className="run-actions">
-                    {mayWalk && (
-                      <button type="button" className={`run-tag-btn${homeFirst ? '' : ' run-tag-btn-primary'}`} onClick={start} autoFocus={!homeFirst}>
-                        {t.walkAgain}
-                      </button>
-                    )}
+                    {mayWalk && <SightseeingAgainTag counting={autoLeft !== null} primary={!homeFirst} autoFocus={!homeFirst} onClick={start} />}
                     <button type="button" className={`run-tag-btn run-home${homeFirst ? ' run-tag-btn-primary' : ''}`} onClick={home} autoFocus={homeFirst}>
                       {UI.game.home}
                     </button>

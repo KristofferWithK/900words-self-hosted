@@ -230,6 +230,8 @@ function putAway(via: string, beforeRestore?: () => void): boolean {
   hideT0 = performance.now()
   const dock = document.querySelector<HTMLElement>('.dock.kb-lifted')
   const surface = document.querySelector<HTMLElement>('.game-screen .kb-surface')
+  // A café puzzle's bottom table art rides with the dock (CafeTable.tsx).
+  const art = document.querySelector<HTMLElement>('.game-screen .cafe-table-composer')
   // Where the dock is on screen right now, a ride up still in flight
   // included: a blur mid-ride sinks from there rather than from where the
   // released ride would drop it.
@@ -262,6 +264,11 @@ function putAway(via: string, beforeRestore?: () => void): boolean {
   }
   dock.style.transition = 'none'
   dock.style.transform = `translateY(${dy}px)`
+  if (art) {
+    art.classList.add('kb-sinking')
+    art.style.transition = 'none'
+    art.style.transform = `translateY(${dy}px)`
+  }
   void dock.offsetHeight
   if (surface) void surface.offsetHeight
   dock.style.transition = `transform ${ms}ms ${RIDE_EASE}`
@@ -269,6 +276,10 @@ function putAway(via: string, beforeRestore?: () => void): boolean {
   if (surface) {
     surface.style.transition = `transform ${ms}ms ${RIDE_EASE}`
     surface.style.transform = 'translateY(0)'
+  }
+  if (art) {
+    art.style.transition = `transform ${ms}ms ${RIDE_EASE}`
+    art.style.transform = 'translateY(0)'
   }
   let done = false
   const end = () => {
@@ -278,6 +289,11 @@ function putAway(via: string, beforeRestore?: () => void): boolean {
     dock.style.transition = ''
     dock.style.transform = ''
     dock.classList.remove('kb-sinking')
+    if (art) {
+      art.style.transition = ''
+      art.style.transform = ''
+      art.classList.remove('kb-sinking')
+    }
     if (surface) {
       surface.style.transition = ''
       surface.style.transform = ''
@@ -364,6 +380,8 @@ function startRide(px: number, durMs?: number): (() => void) | null {
   lastDurMs = ms
   const dock = document.querySelector<HTMLElement>('.dock.kb-lifted')
   const surface = document.querySelector<HTMLElement>('.game-screen .kb-surface')
+  // A café puzzle's bottom table art rides with the dock (CafeTable.tsx).
+  const art = document.querySelector<HTMLElement>('.game-screen .cafe-table-composer')
   if (!dock || !px) {
     report({ lift: 0 })
     return null
@@ -401,6 +419,11 @@ function startRide(px: number, durMs?: number): (() => void) | null {
   }
   dock.style.transition = 'none'
   dock.style.transform = 'translateY(0)'
+  if (art) {
+    art.classList.add('kb-riding')
+    art.style.transition = 'none'
+    art.style.transform = 'translateY(0)'
+  }
   void dock.offsetHeight
   if (surface) void surface.offsetHeight
   dock.style.transition = `transform ${ms}ms ${RIDE_EASE}`
@@ -408,6 +431,10 @@ function startRide(px: number, durMs?: number): (() => void) | null {
   if (surface) {
     surface.style.transition = `transform ${ms}ms ${RIDE_EASE}`
     surface.style.transform = `translateY(${dy}px)`
+  }
+  if (art) {
+    art.style.transition = `transform ${ms}ms ${RIDE_EASE}`
+    art.style.transform = `translateY(${dy}px)`
   }
   report({ lift: dy, land: Math.round(to), dur: ms, ride: Math.round(performance.now() - rideT0) })
 
@@ -420,12 +447,18 @@ function startRide(px: number, durMs?: number): (() => void) | null {
     // animated too — a 250ms slide back down to where we started.
     dock.style.transition = 'none'
     if (surface) surface.style.transition = 'none'
+    if (art) art.style.transition = 'none'
     dock.style.transform = ''
     if (surface) surface.style.transform = ''
+    if (art) art.style.transform = ''
     void dock.offsetHeight
     if (surface) void surface.offsetHeight
     const rest = Math.round(dock.getBoundingClientRect().top)
     dock.style.transition = ''
+    if (art) {
+      art.style.transition = ''
+      art.classList.remove('kb-riding')
+    }
     if (surface) {
       surface.style.transition = ''
       surface.style.top = ''

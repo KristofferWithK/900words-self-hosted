@@ -1,8 +1,9 @@
+import { readdirSync, readFileSync } from 'node:fs'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
 import { UI } from '../../i18n'
 import { isTurnHandover, mustRetireRoundMode, takeoverSideOf, takeoverPhaseOf, showTranslationDock, showTurnTakeover } from './GameScreen'
-import { TurnTakeover } from '../components/TurnTakeover'
+import { TurnTakeover, takeoverLayers } from '../components/TurnTakeover'
 
 // The takeover borrows catalogue lines that already existed (no new copy, no
 // catalogue change), so the render test reads them from the same source the
@@ -101,5 +102,53 @@ describe('TurnTakeover', () => {
   it('renders the Casey line for her turn', () => {
     const html = renderToStaticMarkup(<TurnTakeover turn={2} side="ai" />)
     expect(html).toContain(UI.game.phaseCaseyClue)
+  })
+})
+
+// Owner, build 123: during the Your turn / Casey's turn card the bottom must be
+// solid white, with no café table art showing through the card's fades.
+describe('the takeover keeps the bottom opaque for its whole duration', () => {
+  const stylesDir = new URL('../../styles/', import.meta.url)
+  const sheets = readdirSync(stylesDir)
+    .filter((name) => name.endsWith('.css'))
+    .map((name) => readFileSync(new URL(name, stylesDir), 'utf8').replace(/\/\*[\s\S]*?\*\//g, ''))
+  /** Every declaration block, in every sheet, whose selector list names the class. */
+  const blocksFor = (cls: string) => {
+    const names = new RegExp(`\\.${cls}(?![\\w-])`)
+    return sheets.flatMap((css) =>
+      [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+        .filter((match) => match[1]!.split(',').some((part) => names.test(part)))
+        .map((match) => match[2]!),
+    )
+  }
+
+  it('renders a backdrop beside the card, not inside it, for every side', () => {
+    for (const side of ['player', 'ai', 'translation'] as const) {
+      const html = renderToStaticMarkup(<TurnTakeover turn={1} side={side} />)
+      // A sibling that comes first: inside the card it would fade with it.
+      expect(html).toMatch(/^<div class="turn-takeover-backdrop" aria-hidden="true"><\/div><div class="turn-takeover /)
+    }
+  })
+
+  it('keeps the same backdrop through the in-beat, the hold and the out-beat', () => {
+    expect(takeoverLayers('in').backdrop).toBe('turn-takeover-backdrop')
+    expect(takeoverLayers('out').backdrop).toBe('turn-takeover-backdrop')
+    expect(takeoverLayers('out').card).toContain('turn-takeover-out')
+    expect(takeoverLayers('in').card).not.toContain('turn-takeover-out')
+  })
+
+  it('styles it as the page background over the table and under the dock, never animated or faded', () => {
+    const blocks = blocksFor('turn-takeover-backdrop')
+    expect(blocks.length).toBeGreaterThan(0)
+    const all = blocks.join(';')
+    expect(all).toMatch(/background:\s*var\(--bg\)/)
+    expect(all).toMatch(/z-index:\s*-1/)
+    // The card's rectangle and the screen padding above it, from the dock's top rule down.
+    // And on down through the home indicator's strip to the phone's edge.
+    expect(all).toMatch(/height:\s*calc\(var\(--dock-h\) \+ 12px \+ env\(safe-area-inset-bottom\)\)/)
+    expect(all).toMatch(/bottom:\s*calc\(-1 \* env\(safe-area-inset-bottom\)\)/)
+    for (const property of ['animation', 'transition', 'opacity', 'visibility', 'display']) {
+      expect(all, property).not.toMatch(new RegExp(`(^|[;\\s])${property}(-[a-z-]+)?\\s*:`))
+    }
   })
 })

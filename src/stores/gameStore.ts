@@ -74,6 +74,7 @@ import { useSrs } from './srsStore'
 import { refreshDailyReminder } from '../reminders/reminders'
 import { canDeveloperContinue, canStartDailyGame } from '../purchase/dailyGames'
 import { devSwitchesAllowed, useUi } from './uiStore'
+import { diagAutoplayOn } from '../ui/diagnostics/autoplayGate'
 import { roundEventId, shareCompletedRound } from '../dataSharing/client'
 import {
   canCertifyCity,
@@ -610,7 +611,7 @@ function companion(mode: RoundMode = 'normal'): Companion {
   // Explicit local dev/e2e seam only. Normal play always reaches model-backed
   // Casey. The authored evaluator now exists only behind Casey's Worker; this
   // mock is intentionally nonsensical and cannot be mistaken for a companion.
-  if (s.useMock && devSwitchesAllowed()) return new MockCompanion()
+  if (s.useMock && (devSwitchesAllowed() || diagAutoplayOn())) return new MockCompanion()
   return new OllamaCompanion(
     {
       baseUrl: s.baseUrl,
@@ -629,7 +630,7 @@ function companion(mode: RoundMode = 'normal'): Companion {
 function dictionaryCompanion(mode: RoundMode = 'normal'): Companion {
   if (mode === 'tutorial') return new TutorialCompanion()
   const s = useSettings.getState()
-  if (s.useMock && devSwitchesAllowed()) return new MockCompanion()
+  if (s.useMock && (devSwitchesAllowed() || diagAutoplayOn())) return new MockCompanion()
   return new OllamaCompanion(
     {
       baseUrl: s.baseUrl,

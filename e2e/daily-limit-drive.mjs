@@ -63,7 +63,12 @@ const newPage = async (emptyOffers = false, native = true, { puzzles = true, run
         return Promise.reject(new Error(`Unexpected ${plugin}.${method}`))
       },
     }
-  }, { serializedLedger: puzzles ? dailyLedger : null, emptyOffers, runsLedger: runs ? runsLedger : null })
+  }, {
+    serializedLedger: puzzles ? dailyLedger : null,
+    emptyOffers,
+    // `runs`: true for today's two walks used, or how many are used.
+    runsLedger: runs === true ? runsLedger : typeof runs === 'number' ? JSON.stringify({ days: { [localDate]: runs } }) : null,
+  })
   await page.goto(`${preview.base}?howto=0&seed=1701`)
   // Play is the Café puzzle tag since CW-10; `next` is the state Play stood for.
   await page.locator('.home-play[data-cafe-action="next"]').waitFor()
@@ -102,7 +107,7 @@ try {
     if (await page.locator('.game-screen').count()) throw new Error('Third game was dealt')
     // CW-15: the dialog says which limit was reached, and that the walks are still free.
     if (!(await dialog.textContent()).includes('You’ve played two café puzzles today.')) throw new Error('The puzzle limit was not named')
-    if (!(await dialog.textContent()).includes('You can still take 2 walks today.')) throw new Error('The walks still free today were not offered')
+    if (!(await dialog.textContent()).includes('You can still go sightseeing 2 times today.')) throw new Error('The walks still free today were not offered')
     const fits = await dialog.evaluate((element) => {
       const bounds = element.getBoundingClientRect()
       return bounds.top >= 0 && bounds.bottom <= innerHeight && element.scrollHeight <= element.clientHeight
@@ -151,9 +156,9 @@ try {
     const runsDialog = runsPage.getByRole('dialog', { name: 'Keep playing with Casey' })
     await runsPage.locator('.home-tag-sightseeing').click()
     await runsDialog.waitFor()
-    if (await runsPage.locator('.run-stage, .home-sheet-sightseeing, .sightseeing-chooser').count()) throw new Error('A run or the walk chooser opened past the run limit')
+    if (await runsPage.locator('.run-stage, .home-sheet').count()) throw new Error('A run or a sheet opened past the run limit')
     const runsText = await runsDialog.textContent()
-    if (!runsText.includes('You’ve walked twice today.')) throw new Error('The run limit was not named')
+    if (!runsText.includes('You’ve been sightseeing twice today.')) throw new Error('The run limit was not named')
     if (!runsText.includes('You can still play 2 café puzzles today.')) throw new Error('The café puzzles still free today were not offered')
     if (!runsText.includes('$0.99') || !runsText.includes('$10.99')) throw new Error('The run limit dialog lost the store prices')
     for (const name of ['Terms of Use', 'Privacy Policy']) await runsDialog.getByRole('link', { name, exact: true }).waitFor()
@@ -175,16 +180,37 @@ try {
     if (await runsPage.getByRole('dialog', { name: 'Keep playing with Casey' }).count()) throw new Error('The run limit blocked a café puzzle')
     await runsPage.close()
 
+    // The last free walk of the day (owner, after build 123): Home's
+    // Sightseeing tag starts it at once, with no chooser (one walk since
+    // 2026-10-05) and no ready panel. Lost, its end panel does not
+    // count down to the next walk, since none is left today; Walk again opens
+    // the dialog as before.
+    const lastPage = await newPage(false, true, { puzzles: false, runs: 1 })
+    await lastPage.locator('.home-tag-sightseeing').click()
+    if (await lastPage.locator('.home-sheet').count()) throw new Error('Sightseeing opened a sheet instead of starting the walk')
+    await lastPage.locator('.run-pause').waitFor()
+    if (await lastPage.locator('.run-panel').count()) throw new Error('Sightseeing showed a ready panel before the walk')
+    // Casey keeps to the middle lane: two wrong words end the walk soon enough.
+    await lastPage.locator('.run-again').waitFor({ timeout: 180_000 })
+    if (await lastPage.locator('.run-again-counting').count()) throw new Error('The last free walk counted down to another walk')
+    await lastPage.waitForTimeout(5000)
+    if (await lastPage.locator('.run-pause').count()) throw new Error('A walk started by itself past the run limit')
+    await lastPage.locator('.run-again').click()
+    await lastPage.getByRole('dialog', { name: 'Keep playing with Casey' }).waitFor()
+    if (await lastPage.locator('.run-pause').count()) throw new Error('Walk again started a walk past the run limit')
+    await lastPage.close()
+
     // Both limits: the dialog names both and offers nothing more for today.
     const bothPage = await newPage(false, true, { puzzles: true, runs: true })
     await bothPage.locator('.home-tag-sightseeing').click()
     const bothDialog = bothPage.getByRole('dialog', { name: 'Keep playing with Casey' })
     await bothDialog.waitFor()
     const bothText = await bothDialog.textContent()
-    if (!bothText.includes('You’ve walked twice and played two café puzzles today.')) throw new Error('Both limits were not named')
+    if (!bothText.includes('You’ve been sightseeing twice and played two café puzzles today.')) throw new Error('Both limits were not named')
     if (/You can still/.test(bothText)) throw new Error('A spent limit was offered as still free')
     await bothPage.close()
     console.log('DAILY LIMIT DRIVE OK: run limit (Sightseeing, Catch the train) and puzzle limit each named, the other kind offered, both named together;')
+    console.log('DAILY LIMIT DRIVE OK: the last free walk starts at once from Home, does not count down to another when lost, and Walk again opens the dialog;')
     console.log('DAILY LIMIT DRIVE OK: no developer action; Terms of Use and Privacy Policy linked; normal block, dismissal, restore and code sheet intact; a verified purchase thanks the player with a happy Casey and starts the blocked game')
   }
 } finally {

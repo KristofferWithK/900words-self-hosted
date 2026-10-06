@@ -30,7 +30,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Tábla folytatása', continueReplay: 'Újrajátszás folytatása', returnToPrimary: 'Vissza a tábládhoz',
   viewResult: 'Eredmény megtekintése', improveBoards: 'Táblák fejlesztése', postcardsEarned: 'szerzett képeslap',
   postcardsRemaining: (remaining) => `${remaining} képeslap kell az utazáshoz`, postcardReadiness: (earned, remaining) => `${earned} szerzett képeslap; még ${remaining} kell az utazáshoz.`,
-  readyToTravel: 'Készen állsz az utazásra', nextStopNotReleased: (city) => `Készen állsz az utazásra. ${city} még nem érhető el.`, cityMedalInProgress: 'még nincs megszerezve', cityMedal: (tier) => `Városi érem: ${tier}`,
+  readyToTravel: 'Készen állsz az utazásra', nextStopNotReleased: (city) => `Készen állsz az utazásra. ${city} még nem érhető el.`, cityMedalInProgress: 'még nincs megszerezve', cityMedal: (tier) => `Városi pecsét: ${tier}`,
   backToCity: (city) => `Vissza ${hova(city)}`,
 
   // ── A térkép ────────────────────────────────────────────────────────────
@@ -155,14 +155,14 @@ export const home: Catalogue['home'] = {
     'címre, és cserébe kapsz egy 6 hónapos bérletkódot. Az értékelésed lehet jó vagy rossz, attól függően, mennyire tetszik az app.',
 
   // ── Napi korlát utáni ajánlat ────────────────────────────────────────────
-  dailyLimitKicker: 'Ingyen napi két séta és két kávézós rejtvény jár.',
-  dailyLimitRunsKicker: 'Ma már kétszer sétáltál.',
+  dailyLimitKicker: 'Ingyen napi két Sightseeing és két kávézós rejtvény jár.',
+  dailyLimitRunsKicker: 'Ma már kétszer voltál Sightseeingen.',
   dailyLimitPuzzlesKicker: 'Ma már két kávézós rejtvényt játszottál.',
-  dailyLimitBothKicker: 'Ma már kétszer sétáltál, és két kávézós rejtvényt is játszottál.',
+  dailyLimitBothKicker: 'Ma már kétszer voltál Sightseeingen, és két kávézós rejtvényt is játszottál.',
   dailyLimitPuzzlesLeft: (n: number) => `Ma még ${n} kávézós rejtvényt játszhatsz.`,
-  dailyLimitRunsLeft: (n: number) => `Ma még ${n} sétát tehetsz.`,
+  dailyLimitRunsLeft: (n: number) => `Ma még ${n} Sightseeingre mehetsz.`,
   dailyLimitHeading: 'Játssz tovább Caseyvel',
-  dailyLimitBody: 'Gyere vissza holnap, vagy oldd fel a korlátlan sétákat és kávézós rejtvényeket.',
+  dailyLimitBody: 'Gyere vissza holnap, vagy oldd fel a korlátlan Sightseeinget és kávézós rejtvényeket.',
   dailyLimitOptionsAria: 'Korlátlan játék lehetőségei',
   dailyLimitMonthly: 'Havi',
   dailyLimitMonthlyHelp: 'Havonta automatikusan megújul, amíg le nem mondod.',
@@ -216,10 +216,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Kávézós rejtvény',
   sightseeingNote: 'találj új kávézókat',
-  sightseeingAsk: 'Mire szeretnél figyelni?',
-  wordsWalkNote: 'Mit jelent? Fotózd le a helyes szót, és találj új kávézókat.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Válaszd a bal vagy a jobb utat.` : `${ask} Minden névelőnek saját sávja van.`,
   trainSheetTitle: (city) => `A vonat úti célja: ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} szó (${board} a táblákon, ${connecting} összekötő szó)` : `${city}: ${total} szó`,
@@ -228,7 +224,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: a kávézók pecsétjeinek ${percent}-a.`,
   stampNone: 'Nincs pecsét',
   cafeNotFoundNote: 'előbb találj egy kávézót',
-  cafeNotFoundLine: 'Előbb találj egy kávézót városnézés közben.',
+  cafeNotFoundLine: 'Előbb találj egy kávézót Sightseeing közben.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Egy-egy harmad a fotóért, a tippért és a nyomért',
   markPhoto: 'fotó',
@@ -250,6 +246,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: megtalálva, még nem játszott`,
   stampCellNotFound: (place) => `${place}. kávézó: még nincs meg`,
   stampNextCafe: (cafe) => `Következő kávézó: ${cafe}`,
-  stampNextCafeUnfound: 'Keresd meg a következő kávézót városnézés közben.',
+  stampNextCafeUnfound: 'Keresd meg a következő kávézót Sightseeing közben.',
   stampAllPlayed: 'Minden kávézót lejátszottál. Koppints egyre, hogy újra játszd.',
 }

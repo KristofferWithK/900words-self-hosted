@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { gateBox, queuedGateAlpha, runFrame } from './draw'
 import { createRunEngine, FAR, FIRST_GATE, SPACING, type RunEngine } from './engine'
 import { createMemoryRunResultsSink } from './results'
-import { activeArticleLanes, walkPool } from './sources'
+import { activeArticleGateLanes, runWordsForCity } from './sources'
 
 function mulberry32(seed: number): () => number {
   let a = seed >>> 0
@@ -15,12 +15,11 @@ function mulberry32(seed: number): () => number {
   }
 }
 
-const lanes = activeArticleLanes()
-/** Gates drawn when a run starts: the Words walk shows the next one too; the Articles walk's
- *  two wide (so tall) suitcases show the next gate once it is clear of the first. */
+const articleLanes = activeArticleGateLanes()
+/** Gates drawn when a run starts: the next one shows too. */
 const engines: [string, () => RunEngine, number][] = [
-  ['Words', () => createRunEngine({ cityIndex: 0, pool: walkPool('words', 0), sink: createMemoryRunResultsSink(), rng: mulberry32(31) }), 2],
-  ['Articles', () => createRunEngine({ walk: 'articles', lanes, cityIndex: 0, pool: walkPool('articles', 0, lanes), sink: createMemoryRunResultsSink(), rng: mulberry32(32) }), 1],
+  ['walk without article gates', () => createRunEngine({ cityIndex: 0, pool: runWordsForCity(0), sink: createMemoryRunResultsSink(), rng: mulberry32(31) }), 2],
+  ['walk with article gates', () => createRunEngine({ articleLanes, cityIndex: 0, pool: runWordsForCity(0), sink: createMemoryRunResultsSink(), rng: mulberry32(32) }), 2],
 ]
 
 /** Every frame of a run that answers everything right, from the first one. */
@@ -35,8 +34,8 @@ function* frames(engine: RunEngine, seconds = 60): Generator<RunEngine['state']>
   }
 }
 
-describe.each(engines)('the gates of the %s walk', (_name, make, atStart) => {
-  it('stand SPACING apart on the road from the first frame, and come out of the haze no further than FAR', () => {
+describe.each(engines)('the gates of the %s', (_name, make, atStart) => {
+  it('stand SPACING apart on the road from the first frame (an article gate two, its slot in front empty), and come out of the haze no further than FAR', () => {
     let first = true
     for (const state of frames(make())) {
       const zs = state.gates.map((g) => g.z)
@@ -44,8 +43,9 @@ describe.each(engines)('the gates of the %s walk', (_name, make, atStart) => {
         expect(zs[0]).toBeCloseTo(FIRST_GATE, 9)
         first = false
       }
-      for (let i = 1; i < zs.length; i++) expect(zs[i] - zs[i - 1]).toBeCloseTo(SPACING, 9)
-      expect(Math.max(...zs)).toBeLessThanOrEqual(FAR + 1e-9)
+      for (let i = 1; i < zs.length; i++) expect(zs[i] - zs[i - 1]).toBeCloseTo(state.gates[i].kind === 'article' ? (4 / 3) * SPACING : SPACING, 9)
+      // An article gate is placed as a gate of the usual spacing would be: it waits beyond the haze for its run-up's extra third.
+      for (const g of state.gates) expect(g.z - (g.kind === 'article' ? SPACING / 3 : 0)).toBeLessThanOrEqual(FAR + 1e-9)
     }
   })
 

@@ -34,7 +34,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Kontynuuj planszę', continueReplay: 'Kontynuuj powtórkę', returnToPrimary: 'Wróć do swojej planszy',
   viewResult: 'Zobacz wynik', improveBoards: 'Ulepsz swoje plansze', postcardsEarned: 'zdobyte pocztówki',
   postcardsRemaining: (remaining) => `${remaining} ${plural(remaining, 'pocztówka', 'pocztówki', 'pocztówek')} do podróży`, postcardReadiness: (earned, remaining) => `${earned} zdobyte pocztówki; ${remaining} do podróży.`,
-  readyToTravel: 'Gotowe do podróży', nextStopNotReleased: (city) => `Gotowe do podróży. ${city} nie jest jeszcze dostępne.`, cityMedalInProgress: 'jeszcze niezdobyty', cityMedal: (tier) => `Medal miasta: ${tier}`,
+  readyToTravel: 'Gotowe do podróży', nextStopNotReleased: (city) => `Gotowe do podróży. ${city} nie jest jeszcze dostępne.`, cityMedalInProgress: 'jeszcze niezdobyta', cityMedal: (tier) => `Pieczątka miasta: ${tier}`,
   backToCity: (city) => `Wróć do ${city}`,
 
   // ── Mapa ────────────────────────────────────────────────────────────────
@@ -166,14 +166,14 @@ export const home: Catalogue['home'] = {
     'a dostaniesz kod na 6-miesięczną kartę podróżną. Recenzja może być dobra albo zła, zależnie od tego, jak ci się podoba aplikacja.',
 
   // ── Oferta po dziennym limicie ───────────────────────────────────────────
-  dailyLimitKicker: 'Za darmo masz dwa spacery i dwie kawiarniane łamigłówki dziennie.',
-  dailyLimitRunsKicker: 'Dzisiejsze dwa spacery masz już za sobą.',
+  dailyLimitKicker: 'Za darmo masz dwa razy Sightseeing i dwie kawiarniane łamigłówki dziennie.',
+  dailyLimitRunsKicker: 'Dwa dzisiejsze Sightseeingi masz już za sobą.',
   dailyLimitPuzzlesKicker: 'Dzisiejsze dwie kawiarniane łamigłówki masz już za sobą.',
-  dailyLimitBothKicker: 'Dzisiejsze dwa spacery i dwie kawiarniane łamigłówki masz już za sobą.',
+  dailyLimitBothKicker: 'Dwa dzisiejsze Sightseeingi i dwie kawiarniane łamigłówki masz już za sobą.',
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'Dziś możesz jeszcze rozwiązać 1 kawiarnianą łamigłówkę.' : n < 5 ? `Dziś możesz jeszcze rozwiązać ${n} kawiarniane łamigłówki.` : `Dziś możesz jeszcze rozwiązać ${n} kawiarnianych łamigłówek.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Dziś możesz jeszcze pójść na 1 spacer.' : n < 5 ? `Dziś możesz jeszcze pójść na ${n} spacery.` : `Dziś możesz jeszcze pójść na ${n} spacerów.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Dziś możesz jeszcze raz pójść na Sightseeing.' : `Dziś możesz jeszcze ${n} razy pójść na Sightseeing.`),
   dailyLimitHeading: 'Graj dalej z Casey',
-  dailyLimitBody: 'Wróć jutro albo odblokuj nielimitowane spacery i kawiarniane łamigłówki.',
+  dailyLimitBody: 'Wróć jutro albo odblokuj nielimitowany Sightseeing i kawiarniane łamigłówki.',
   dailyLimitOptionsAria: 'Opcje nielimitowanej gry',
   dailyLimitMonthly: 'Co miesiąc',
   dailyLimitMonthlyHelp: 'Subskrypcja odnawia się co miesiąc, dopóki jej nie anulujesz.',
@@ -229,10 +229,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Kawiarniana łamigłówka',
   sightseeingNote: 'znajdź nowe kawiarnie',
-  sightseeingAsk: 'Na co chcesz zwracać uwagę?',
-  wordsWalkNote: 'Co to znaczy? Sfotografuj właściwe słowo i znajdź nowe kawiarnie.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Wybierz drogę w lewo albo w prawo.` : `${ask} Każdy rodzajnik ma swój pas.`,
   trainSheetTitle: (city) => `Pociąg do ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} słów (${board} na planszach, ${connecting} łączących)` : `${city}: ${total} słów`,
@@ -241,7 +237,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: ${percent} pieczątek kawiarni.`,
   stampNone: 'Bez pieczątki',
   cafeNotFoundNote: 'najpierw znajdź kawiarnię',
-  cafeNotFoundLine: 'Najpierw znajdź kawiarnię podczas zwiedzania.',
+  cafeNotFoundLine: 'Najpierw znajdź kawiarnię podczas Sightseeingu.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Po jednej trzeciej za zdjęcie, próbę i wskazówkę',
   markPhoto: 'zdjęcie',
@@ -263,6 +259,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: znaleziona, jeszcze nierozegrana`,
   stampCellNotFound: (place) => `Kawiarnia ${place}: jeszcze nieznaleziona`,
   stampNextCafe: (cafe) => `Następna kawiarnia: ${cafe}`,
-  stampNextCafeUnfound: 'Znajdź następną kawiarnię podczas zwiedzania.',
+  stampNextCafeUnfound: 'Znajdź następną kawiarnię podczas Sightseeingu.',
   stampAllPlayed: 'Wszystkie kawiarnie rozegrane. Dotknij jednej, by zagrać ponownie.',
 }

@@ -1,6 +1,7 @@
-import { FAR, runIsQuiet, SPACING, type RunGate, type RunShopfront, type RunState } from './engine'
+import { FAR, runIsQuiet, SHOPFRONT_REACHED, SPACING, type RunGate, type RunShopfront, type RunState } from './engine'
 import { GATE_TIERS } from './tiers'
 import type { RunWord } from './words'
+import { diagSwitch } from '../ui/diagnostics/switches'
 
 /**
  * THE RUN, DRAWN.
@@ -13,13 +14,14 @@ import type { RunWord } from './words'
  *  - gates: white suitcases under a tied manila tag, a different slant per gate;
  *  - the bar at the top: a luggage tag, with the camera beside the photo count;
  *  - a café found on the walk: a faint café front ACROSS the road ahead,
- *    kerb to kerb, between two gates, with a doorway in every lane and its
- *    name in clear ink (contract §5); Casey walks straight through it, and it
- *    lights up and is gone. It never stands over a gate (`cafeBox`).
+ *    kerb to kerb, in the slot of a gate, with its name in clear ink
+ *    (contract §5); it comes down the road like a gate (`slotAlphas`), Casey
+ *    walks straight through it, and it is gone.
  *
- * Both walks share it. The Articles walk has two or three lanes, so lanes are
- * measured from the road's width (`lanesFor`), as in the prototype, and its
- * articles are large and never scribbled over: there is nothing to hide on them.
+ * The walk and the train run share it. An article gate's articles are large
+ * and never scribbled over: there is nothing to hide on them. A two-article
+ * course's article gate has a brick wall in its middle lane (`wallPicture`),
+ * in the street's own faint pencil, drawn once as a picture and scaled.
  *
  * Everything is drawn in the prototype's 480 x 800 game units and scaled to the
  * canvas, which is sized at device resolution by the screen. On a phone taller
@@ -186,6 +188,14 @@ export function gateBox(z: number, lanes: number): { base: number; suitcaseTop: 
   return { base, suitcaseTop, tagTop }
 }
 
+/**
+ * THE BRICK WALL in the middle lane of a two-article gate, in game units at
+ * s = 1: the whole lane wide, so it stands solid between the two suitcases,
+ * and as tall as a suitcase's body, so it stays inside what a gate draws
+ * (`gateRects`). Courses of bricks: `rows` high, `bricks` across.
+ */
+export const WALL = { w: lanesFor(3), h: 70 * ((lanesFor(3) * 0.93) / 104), rows: 6, bricks: 4 } as const
+
 /** A box on the screen in the world's game units (before the extra sky is added). */
 export interface ScreenBox {
   readonly left: number
@@ -273,15 +283,10 @@ export const CAFE_SIZE = { half: KERB, tall: KIOSK.boardTo * KIOSK_SCALE, below:
 /**
  * WHERE THE CAFÉ ON THE ROAD STANDS ON THE SCREEN, in the world's game units.
  *
- * It never stands over a gate. The engine places it halfway between two gates
- * (engine.ts `findCafe`), and gates and cafés move with the road, so it keeps
- * that place. The gate in front of it is the one just passed, at Casey's feet
- * or behind her: its tag's top is lower on the screen than the café's island.
- * The gate behind it stands above its kiosk and awning on the screen; only
- * the name board, which the bigger kiosk carries higher, could reach that
- * gate's suitcases while the café is still far away, and it is not drawn
- * until it clears them (`cafeBoardAlpha`). cafeHold.test.ts checks it along
- * its whole way, for two and three lanes, and in every frame of a walk.
+ * It stands in a gate's slot (engine.ts `findCafe`). The gate in front of it
+ * is nearer, so it is drawn over the café; the gate behind it comes out from
+ * behind the café as a gate comes out from behind the gate in front
+ * (`slotAlphas`). cafeHold.test.ts checks it along its whole way.
  */
 export function cafeBox(z: number): ScreenBox {
   const s = sAt(z)
@@ -290,13 +295,11 @@ export function cafeBox(z: number): ScreenBox {
   return { left: CX - k.half * s, right: CX + k.half * s, top: base - k.tall * s, bottom: base + k.below * s }
 }
 
-/** A café that did not hold the run comes out of the road over this much of it as it comes nearer. */
-export const CAFE_FADE_IN = 0.35
 /**
  * And it goes as Casey reaches it, the kiosk's own way: from this far ahead
  * of her... (`cafeAlphaAt`)
  */
-const CAFE_FADE_FROM = 0.1
+const CAFE_FADE_FROM = SHOPFRONT_REACHED
 /** ...until this far behind her, where it is gone. */
 export const CAFE_GONE_AT = -0.03
 
@@ -306,9 +309,20 @@ export function cafeAlphaAt(z: number): number {
 }
 
 /**
+ * How much of a café at `z` is drawn (0 to 1), `queued` being how far it has
+ * come out from behind the slot in front of it (`slotAlphas`). It comes out of
+ * the haze at FAR as a gate does (`drawGate`), and goes as Casey passes it
+ * (`cafeAlphaAt`). There is no other fade: it is never placed in view.
+ */
+export function cafeDrawnAlpha(z: number, queued: number): number {
+  return Math.max(0, Math.min(queued, (FAR - z) / 0.6, cafeAlphaAt(z)))
+}
+
+/**
  * THE KIOSK'S PARTS ON THE SCREEN, in the world's game units: the island with
  * the kiosk and its awning (from its island's near edge to the awning's top),
- * and the name board on its posts. The same sums `drawCafe` draws with.
+ * and the name board on its posts. The same sums `drawCafe` draws with. The
+ * board's top is the highest thing a gate behind the café can be hidden by.
  */
 export function kioskRects(z: number): { kiosk: ScreenBox; board: ScreenBox } {
   const s = sAt(z)
@@ -319,27 +333,6 @@ export function kioskRects(z: number): { kiosk: ScreenBox; board: ScreenBox } {
     kiosk: box(Math.min(KIOSK.islandHalf * KIOSK_STRETCH, KERB / U), -KIOSK.below, KIOSK.awningTop),
     board: box(KIOSK.boardHalf, KIOSK.awningTop, KIOSK.boardTo),
   }
-}
-
-/**
- * How much of the name board is drawn (0 to 1), with the nearest gate behind
- * the café at `zBehind` (none: undefined). Far down the road the bigger
- * kiosk's board would stand over that gate's suitcases and words; it is left
- * out until it is clear of them and then comes in over a few units.
- */
-export function cafeBoardAlpha(z: number, zBehind: number | undefined): number {
-  if (zBehind === undefined) return 1
-  const board = kioskRects(z).board
-  const gate = gateRects(zBehind, 3)[0]
-  const fade = 10 * sAt(z)
-  return Math.max(0, Math.min(1, (board.top - gate.bottom) / fade))
-}
-
-/** The nearest gate further down the road than `z`: the one a café there stands in front of. */
-export function gateBehind(state: Pick<RunState, 'gates'>, z: number): number | undefined {
-  let best: number | undefined
-  for (const g of state.gates) if (g.z > z && (best === undefined || g.z < best)) best = g.z
-  return best
 }
 
 /**
@@ -487,10 +480,44 @@ const CLEAR_HIDDEN = 0.6
  */
 export function queuedGateAlpha(z: number, zAhead: number | undefined, lanes: number): number {
   if (zAhead === undefined) return 1
+  return clearOf(z, gateBox(zAhead, lanes).tagTop, lanes)
+}
+
+/** How much of a gate's slot at `z` to draw, with the top of what stands in front of it at `frontTop` on the screen. */
+function clearOf(z: number, frontTop: number, lanes: number): number {
   const me = gateBox(z, lanes)
-  const front = gateBox(zAhead, lanes)
-  const hidden = Math.max(0, Math.min(1, (me.base - front.tagTop) / (me.base - me.suitcaseTop)))
+  const hidden = Math.max(0, Math.min(1, (me.base - frontTop) / (me.base - me.suitcaseTop)))
   return Math.max(0, Math.min(1, (CLEAR_HIDDEN - hidden) / (CLEAR_HIDDEN - CLEAR_SHOWN)))
+}
+
+/** A gate's or a café's slot on the road ahead, as the painter draws it. */
+export type RoadSlot = { readonly kind: 'gate'; readonly gate: RunGate } | { readonly kind: 'cafe'; readonly shop: RunShopfront }
+
+const slotZ = (slot: RoadSlot) => (slot.kind === 'gate' ? slot.gate.z : slot.shop.z)
+
+/**
+ * THE ROAD AHEAD, FAR TO NEAR, and how much of each slot is drawn (0 to 1).
+ *
+ * A café stands in a gate's slot (engine.ts `findCafe`), so it is queued like
+ * one: it comes out from behind the slot in front of it at the very moment a
+ * gate in its place would (`queuedGateAlpha`), out of the haze at FAR like a
+ * gate (`cafeDrawnAlpha`). The
+ * slot behind a café comes out from behind the café's highest part, its name
+ * board, by the same rule, so the board covers a gate behind it no more than
+ * a gate's tag covers the gate behind that. The café's own look does not
+ * change with this; only when it is first drawn.
+ */
+export function slotAlphas(state: Pick<RunState, 'gates' | 'shopfronts' | 'lanes'>): { slot: RoadSlot; alpha: number }[] {
+  const slots: RoadSlot[] = [
+    ...state.gates.filter((g) => g.z > 0).map((gate): RoadSlot => ({ kind: 'gate', gate })),
+    ...state.shopfronts.map((shop): RoadSlot => ({ kind: 'cafe', shop })),
+  ].sort((a, b) => slotZ(b) - slotZ(a))
+  return slots.map((slot, i) => {
+    const front = slots[i + 1]
+    if (!front) return { slot, alpha: 1 }
+    const frontTop = front.kind === 'gate' ? gateBox(front.gate.z, state.lanes).tagTop : kioskRects(front.shop.z).board.top
+    return { slot, alpha: clearOf(slotZ(slot), frontTop, state.lanes) }
+  })
 }
 
 /** What the bar and the notes say, from the catalogue. */
@@ -499,12 +526,14 @@ export interface RunLabels {
   readonly best: string
   /** The small line over the word in the bar. */
   readonly ask: string
-  /** Said after `ask` for the gate ahead, when the walk has more to say ("EN OR ET?  ·  house"). */
+  /** The small line over the noun at an article gate ("EN OR ET?"), in place of `ask`. */
+  readonly articleAsk?: string
+  /** Said after `articleAsk` for an article gate ahead ("EN OR ET?  ·  house"). */
   readonly askDetail?: (gate: RunGate) => string
   readonly slipsLeft: (n: number) => string
   readonly faster: string
-  /** The red note after a forgiven wrong answer: the right answer ("house = hus", "et hus"). */
-  readonly slipNote: (word: RunWord) => string
+  /** The red note after a forgiven wrong answer: the right answer ("house = hus", or "et hus" for an article). */
+  readonly slipNote: (word: RunWord, asked: RunGate['kind']) => string
 }
 
 export interface RunView {
@@ -519,8 +548,72 @@ export interface RunView {
   readonly safeBottom?: number
 }
 
-export function createRunPainter(canvas: HTMLCanvasElement) {
+/**
+ * Word pictures a painter keeps at most (`createRunPainter`'s `sprites`). 128
+ * rather than 200: over a 400 s walk painted at 60 frames a second
+ * (painterMemory.test.ts) it makes no more pictures in a frame of the run
+ * than 200 did (22 against 24 in 169 answers), holds a third fewer pixels
+ * (19.5 MB at most against 29.3), and the road never needs more than about
+ * sixty at once (five gates of a few words at three sizes, and the cafés).
+ * Below 128 pictures still on the road are pushed out and made again in a
+ * frame (49 at 96, 73 at 64).
+ */
+export const SPRITES_MAX = 128
+
+/**
+ * THE PICTURE CANVASES ARE REUSED, painter after painter (owner, build 124:
+ * the freeze that grows the longer the app runs; iPhone simulator soak: 5,169
+ * canvases made in 30 minutes, about ten an answer). A word picture used to be
+ * a new canvas every time, and a picture leaving the cache (or a painter going
+ * with the screen) only had its pixels zeroed: the canvas, its 2D context and
+ * everything WebKit keeps for them stayed until a garbage collection, and the
+ * phone paid for all of them in between. Now a picture leaving the cache hands
+ * its canvas, zeroed, to this pool, and the next picture is drawn into it
+ * (resized, which also clears it and resets its context). The pool outlives a
+ * painter, so a new Sightseeing screen takes the last one's canvases: the
+ * painters together never make many more canvases than one painter holds.
+ */
+const spareCanvases: HTMLCanvasElement[] = []
+const SPARE_MAX = SPRITES_MAX + 1
+let canvasesMade = 0
+
+/** A canvas for a picture: a spare one, or a new one when there is none. */
+function takeCanvas(): HTMLCanvasElement {
+  const spare = spareCanvases.pop()
+  if (spare) return spare
+  canvasesMade++
+  return document.createElement('canvas')
+}
+
+/**
+ * Give a picture's pixels back at once, and its canvas to the spares. A
+ * canvas holds its backing store until it is resized or collected (a 150 px
+ * word is about half a megabyte at a phone's resolution). Nothing draws a
+ * picture that left its painter's cache.
+ */
+function giveBack(c: HTMLCanvasElement): void {
+  c.width = 0
+  c.height = 0
+  if (spareCanvases.length < SPARE_MAX && !spareCanvases.includes(c)) spareCanvases.push(c)
+}
+
+/** The picture canvases, for tests and probes: made since the app started, spare now; `reset` forgets them. */
+export const runPictureCanvases = {
+  get made(): number {
+    return canvasesMade
+  },
+  get spare(): number {
+    return spareCanvases.length
+  },
+  reset(): void {
+    spareCanvases.length = 0
+    canvasesMade = 0
+  },
+}
+
+export function createRunPainter(canvas: HTMLCanvasElement, options: { readonly spritesMax?: number } = {}) {
   const ctx = canvas.getContext('2d', { alpha: false }) as CanvasRenderingContext2D
+  const noPictures = diagSwitch('runPictures') // performance log switch: words as plain text
   /** Device pixels per game unit. */
   let K = 1
   let haze: CanvasGradient | null = null
@@ -590,26 +683,70 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
   }
 
   // ── pencil helpers ──────────────────────────────────────────────────────
-  function sketch(x1: number, y1: number, x2: number, y2: number, seed: number, amp = 2.5): void {
+  function sketch(x1: number, y1: number, x2: number, y2: number, seed: number, amp = 2.5, g: CanvasRenderingContext2D = ctx): void {
     const len = Math.hypot(x2 - x1, y2 - y1)
     const n = Math.max(2, Math.round(len / 45))
     const nx = -(y2 - y1) / len
     const ny = (x2 - x1) / len
-    ctx.beginPath()
-    ctx.moveTo(x1, y1)
+    g.beginPath()
+    g.moveTo(x1, y1)
     for (let i = 1; i <= n; i++) {
       const a = (i - 0.5) / n
       const b = i / n
       const o = noise(seed + i) * amp
       const e = i === n ? 0 : noise(seed + i + 50) * amp * 0.5
-      ctx.quadraticCurveTo(
+      g.quadraticCurveTo(
         x1 + (x2 - x1) * a + nx * o,
         y1 + (y2 - y1) * a + ny * o,
         x1 + (x2 - x1) * b + nx * e,
         y1 + (y2 - y1) * b + ny * e,
       )
     }
-    ctx.stroke()
+    g.stroke()
+  }
+
+  // ── the brick wall: the middle lane of a two-article gate ────────────────
+  // Drawn ONCE as a picture at the size of a gate at Casey (s = 1), at the
+  // canvas's resolution, and scaled down the road like the gates' words: no
+  // pencil lines are drawn for it frame by frame. Made again only when the
+  // canvas's resolution changes.
+  let wall: { c: HTMLCanvasElement; k: number } | null = null
+  function wallPicture(): HTMLCanvasElement {
+    if (wall && wall.k === K) return wall.c
+    if (wall) letGo(wall)
+    const c = takeCanvas()
+    const g = c.getContext('2d') as CanvasRenderingContext2D
+    const pad = 3
+    c.width = Math.ceil((WALL.w + pad * 2) * K)
+    c.height = Math.ceil((WALL.h + pad * 2) * K)
+    g.scale(K, K)
+    g.translate(pad, pad)
+    g.lineCap = 'round'
+    g.lineJoin = 'round'
+    const { w, h } = WALL
+    // Solid: white paper, like the houses, so nothing of the road shows through.
+    g.fillStyle = '#fff'
+    g.fillRect(0, 0, w, h)
+    // The bricks: courses of stretchers, every other one set off by half a brick.
+    g.strokeStyle = C.pencil
+    g.lineWidth = 1.7
+    const rows = WALL.rows
+    const rowH = h / rows
+    const brick = w / WALL.bricks
+    for (let r = 1; r < rows; r++) sketch(0, r * rowH, w, r * rowH, 700 + r * 7, 1.2, g)
+    // The top course is the coping: one long stone, no joints.
+    for (let r = 1; r < rows; r++) {
+      const from = r % 2 ? brick / 2 : brick
+      for (let x = from; x < w - 4; x += brick) sketch(x, r * rowH + 1.5, x, (r + 1) * rowH - 1.5, 760 + r * 13 + x, 0.8, g)
+    }
+    // Its outline in the kerb's firmer pencil.
+    g.strokeStyle = 'rgba(18,18,18,.4)'
+    g.lineWidth = 2
+    sketch(0, h, 0, 0, 801, 1.5, g)
+    sketch(0, 0, w, 0, 803, 1.5, g)
+    sketch(w, 0, w, h, 805, 1.5, g)
+    wall = { c, k: K }
+    return c
   }
 
   // Text size is worked out from one measurement at a fixed size, never from
@@ -650,7 +787,10 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
 
   // A word that grows as its gate comes closer is drawn once, large, and then
   // scaled as a picture. Three picture sizes, so a far-away word is not shrunk
-  // from a huge one.
+  // from a huge one. All three are made ahead for every word: a gate's words
+  // pass through them as it comes up the road to Casey (the tag's word from
+  // 72 to 150, the suitcases' from 36 to 150), so a size made only when first
+  // drawn would be made in a frame of the run, often the frame of an answer.
   //
   // Drawing a picture of a word (a canvas, a 150 px fillText) is slow on a
   // phone, and every word of a gate used to be drawn the moment the gate came
@@ -659,12 +799,24 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
   // placed far down the road; a word then only finds its picture. The oldest
   // unused pictures make room for new ones, a few at a time.
   const sprites = new Map<string, { c: HTMLCanvasElement; B: number }>()
-  const SPRITES_MAX = 200
+  const spritesMax = options.spritesMax ?? SPRITES_MAX
+  /** Pictures made in the frame that first drew them, not ahead (`ready`): for tests and probes. */
+  let madeLate = 0
   const BUCKETS = [36, 72, 150] as const
   const spriteKey = (B: number, weight: string, font: string, fill: string, text: string) => `${B}|${weight}|${font}|${fill}|${text}`
+  /** A picture leaves the cache: its pixels at once, its canvas to the spares (`giveBack`). */
+  function letGo(sp: { c: HTMLCanvasElement }): void {
+    giveBack(sp.c)
+  }
   function makeSprite(key: string, B: number, weight: string, font: string, fill: string, text: string) {
-    while (sprites.size >= SPRITES_MAX) sprites.delete(sprites.keys().next().value as string)
-    const c = document.createElement('canvas')
+    while (sprites.size >= spritesMax) {
+      const oldest = sprites.keys().next().value as string
+      letGo(sprites.get(oldest)!)
+      sprites.delete(oldest)
+    }
+    // A spare canvas is drawn into as a new one is: setting its size below
+    // clears it and puts its context back to the defaults.
+    const c = takeCanvas()
     const g = c.getContext('2d') as CanvasRenderingContext2D
     const f = `${weight} ${B}px ${font}`
     g.font = f
@@ -680,6 +832,7 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     return sp
   }
   function stamp(text: string, x: number, y: number): void {
+    if (noPictures) return void (ctx.save(), (ctx.font = `${TF.weight} ${TF.size}px ${TF.font}`), (ctx.textAlign = 'center'), (ctx.textBaseline = 'middle'), ctx.fillText(text, x, y), ctx.restore())
     const want = TF.size * K
     const B = want <= 34 ? 36 : want <= 70 ? 72 : 150
     const fill = String(ctx.fillStyle)
@@ -689,7 +842,10 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
       // Used now: the last to make room.
       sprites.delete(key)
       sprites.set(key, sp)
-    } else sp = makeSprite(key, B, TF.weight, TF.font, fill, text)
+    } else {
+      madeLate++
+      sp = makeSprite(key, B, TF.weight, TF.font, fill, text)
+    }
     const k = TF.size / sp.B
     ctx.drawImage(sp.c, x - (sp.c.width * k) / 2, y - (sp.c.height * k) / 2, sp.c.width * k, sp.c.height * k)
   }
@@ -716,6 +872,8 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
       ahead.push({ key, B, font, text })
     }
   }
+  /** The bar's room for the gate's prompt when it was last drawn (`drawHud`), to ready its lines ahead. */
+  let hudRoom = hudWordRoom(14, 14)
   /** The run's clock at its last answer, to keep the frames around an answer free of work that can wait. */
   let answeredCount = -1
   let answeredAt = -Infinity
@@ -745,6 +903,7 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
    * frame (`runIsQuiet`), make one of them and ready the next counts.
    */
   function ready(state: RunState): void {
+    if (noPictures) return
     if (state.answered !== answeredCount) {
       answeredCount = state.answered
       answeredAt = state.clock
@@ -753,12 +912,23 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
       if (g.resolved || readied.has(g.id)) continue
       readied.add(g.id)
       want(g.prompt, SERIF)
-      if (g.kind !== 'article') for (const o of g.options) want(o.target, SANS)
+      // A prompt the bar shows on two lines is stamped a line at a time
+      // (`drawHud`): those pictures are wanted too, or the frame of the answer
+      // that brings the gate into play would draw them.
+      for (const line of hudWordLayout(g.prompt, (t) => unitWidth(t, SERIF), hudRoom).lines) if (line.text !== g.prompt) want(line.text, SERIF)
+      // The suitcases' words; an article gate's articles too (always shown,
+      // never scribbled over), the wall's lane excepted.
+      g.options.forEach((o, i) => i !== g.wall && want(o.target, SANS))
     }
     if (readied.size > 64) readied.clear()
     for (const shop of state.shopfronts) want(shop.name, SERIF)
     sinceMade++
     if (!runIsQuiet(state, state.clock - answeredAt)) return
+    // The wall's picture, made in a quiet frame once a gate with a wall is on the road.
+    if ((!wall || wall.k !== K) && state.gates.some((g) => g.wall >= 0 && !g.resolved)) {
+      wallPicture()
+      return
+    }
     if (countsReadied !== (state.total > 0 ? state.answered : state.photos) + 1) {
       readyCounts(state)
       return
@@ -934,11 +1104,8 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
   // clear ink, drawn once and scaled like the gates' words. It is drawn in
   // units of the kiosk at its scale (KIOSK_SCALE), its stretched parts across
   // by KIOSK_STRETCH, and clipped to its `cafeBox`.
-  function drawCafe(shop: RunShopfront, zBehind: number | undefined): void {
-    // A café that held the run was already standing there behind the panel;
-    // one found on the move comes out of the road; both go once walked through.
-    let a = shop.held ? 1 : Math.min(1, (shop.placedZ - shop.z) / CAFE_FADE_IN)
-    a = Math.min(a, cafeAlphaAt(shop.z))
+  function drawCafe(shop: RunShopfront, queued: number): void {
+    const a = cafeDrawnAlpha(shop.z, queued)
     if (a <= 0) return
     const s = sAt(shop.z) * KIOSK_SCALE
     const box = cafeBox(shop.z)
@@ -1039,18 +1206,14 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     ctx.stroke()
     cup(18, 56, 12)
     awning(-72, 72, 102, 122, 6)
-    // The name board on its posts, left out while it would stand over the gate behind.
-    const boardAlpha = cafeBoardAlpha(shop.z, zBehind)
-    if (boardAlpha > 0) {
-      ctx.globalAlpha = a * boardAlpha
-      ctx.beginPath()
-      for (const u of [-46, 46]) {
-        ctx.moveTo(Xc(u), Y(122))
-        ctx.lineTo(Xc(u), Y(KIOSK.boardFrom))
-      }
-      ctx.stroke()
-      nameBoard(-KIOSK.boardHalf + 1, KIOSK.boardHalf - 1, KIOSK.boardFrom, KIOSK.boardTo - 1, 26)
+    // The name board on its posts.
+    ctx.beginPath()
+    for (const u of [-46, 46]) {
+      ctx.moveTo(Xc(u), Y(122))
+      ctx.lineTo(Xc(u), Y(KIOSK.boardFrom))
     }
+    ctx.stroke()
+    nameBoard(-KIOSK.boardHalf + 1, KIOSK.boardHalf - 1, KIOSK.boardFrom, KIOSK.boardTo - 1, 26)
     ctx.restore()
   }
 
@@ -1158,11 +1321,25 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     ctx.lineJoin = 'round'
     const lw = Math.max(1, 2.2 * s)
     const labelW = w - 16 * cs
-    let labelY = 0
+    const labelY = base - h + 41 * cs
     for (let i = 0; i < n; i++) {
       const x = CX + laneAt(i, n) * s
       const right = gate.resolved && i === gate.correct
       const wrong = i === gate.wrongLane
+      if (i === gate.wall) {
+        // The brick wall, its picture scaled to the gate. Casey bumped into
+        // it: its outline turns red, as a wrong suitcase's does.
+        const ww = WALL.w * s
+        const wh = WALL.h * s
+        const pad = 3 * s
+        ctx.drawImage(wallPicture(), x - ww / 2 - pad, base - wh - pad, ww + pad * 2, wh + pad * 2)
+        if (wrong) {
+          ctx.strokeStyle = C.red
+          ctx.lineWidth = lw * 1.6
+          ctx.strokeRect(x - ww / 2, base - wh, ww, wh)
+        }
+        continue
+      }
       const x0 = x - w / 2
       const y0 = base - h
       const col = right ? C.greenTile : wrong ? C.red : C.ink
@@ -1193,7 +1370,6 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
         ctx.lineTo(x0 + a2 * cs, y0 + b2 * cs)
         ctx.stroke()
       }
-      labelY = y0 + 41 * cs
     }
     // The tag: clipped corners at the string end, a punched hole, and a pencil
     // string tied to the middle suitcase's handle. A different slant on every
@@ -1236,7 +1412,9 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     ctx.beginPath()
     ctx.moveTo(hx, 0)
     {
-      const dx = (n === 2 ? laneAt(0, 2) : 0) * s
+      // Tied to the middle suitcase's handle; where the middle lane is the
+      // wall, to the left suitcase's.
+      const dx = (n === 2 || gate.wall === Math.floor(n / 2) ? laneAt(0, n) : 0) * s
       const dy = base - h - 12 * cs - (ty + th / 2)
       const co = Math.cos(tilt)
       const si = Math.sin(tilt)
@@ -1255,6 +1433,7 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     // lanes; a step down for three, which are narrower).
     const article = gate.kind === 'article'
     for (let i = 0; i < n; i++) {
+      if (i === gate.wall) continue
       const wrong = i === gate.wrongLane
       ctx.fillStyle = wrong ? C.red : C.ink
       const label = gate.options[i].target
@@ -1423,7 +1602,8 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     ctx.textAlign = 'right'
     ctx.fillText(labels.best, RX, 32)
     ctx.textAlign = 'center'
-    const ask = active && labels.askDetail ? `${labels.ask}  \u00b7  ${labels.askDetail(active)}` : labels.ask
+    const article = active?.kind === 'article' ? labels.articleAsk : undefined
+    const ask = article !== undefined ? (labels.askDetail ? `${article}  \u00b7  ${labels.askDetail(active!)}` : article) : labels.ask
     fitText(ask, MIDW, 11)
     ctx.fillText(ask, CX, 32)
     const NUM = `bold 24px ${SANS}`
@@ -1475,6 +1655,7 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
       // to fit, then on two lines (`hudWordLayout`). Each line is drawn once
       // and scaled, like the words on the road.
       const room = hudWordRoom(ctx.measureText(mine).width, ctx.measureText(theirs).width)
+      hudRoom = room
       const fit = hudWordLayout(active.prompt, (t) => unitWidth(t, SERIF), room)
       for (const line of fit.lines) {
         ctx.font = `bold ${line.size}px ${SERIF}`
@@ -1516,7 +1697,7 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     }
     const note = state.note
     if (note && state.phase === 'play') {
-      const text = note.kind === 'faster' ? labels.faster : labels.slipNote(note.word)
+      const text = note.kind === 'faster' ? labels.faster : labels.slipNote(note.word, note.asked)
       fitText(text, W - 60, 16)
       const tw = ctx.measureText(text).width + 36
       ctx.globalAlpha = view.reducedMotion ? 1 : Math.min(1, note.t * 2)
@@ -1540,16 +1721,11 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     // The world in the prototype's units, moved down by the extra sky.
     ctx.setTransform(K, 0, 0, K, 0, K * F.sky)
     drawWorld(state.scroll)
-    const ahead = state.gates.filter((g) => g.z > 0).sort((a, b) => b.z - a.z)
-    // Far to near; each queued gate comes out from behind the one in front of
-    // it, and a café on the road is drawn in its place between them.
-    const cafes = [...state.shopfronts].sort((a, b) => b.z - a.z)
-    let c = 0
-    ahead.forEach((g, i) => {
-      while (c < cafes.length && cafes[c].z > g.z) drawCafe(cafes[c], gateBehind(state, cafes[c++].z))
-      drawGate(g, queuedGateAlpha(g.z, ahead[i + 1]?.z, g.options.length))
-    })
-    while (c < cafes.length) drawCafe(cafes[c], gateBehind(state, cafes[c++].z))
+    // Far to near; each queued gate or café comes out from behind the slot in front of it.
+    for (const { slot, alpha } of slotAlphas(state)) {
+      if (slot.kind === 'gate') drawGate(slot.gate, alpha)
+      else drawCafe(slot.shop, alpha)
+    }
     drawCasey(state, view)
     for (const g of state.gates) if (g.z <= 0) drawGate(g)
     const active = state.gates.find((g) => !g.resolved)
@@ -1558,7 +1734,35 @@ export function createRunPainter(canvas: HTMLCanvasElement) {
     drawHud(state, view, active)
   }
 
-  return { draw }
+  /**
+   * The screen is going: give back every picture's pixels and the canvas's
+   * own, now rather than whenever they are collected (`letGo`). A painter is
+   * not drawn with again after this.
+   */
+  function dispose(): void {
+    for (const sp of sprites.values()) letGo(sp)
+    sprites.clear()
+    if (wall) letGo(wall)
+    wall = null
+    ahead.length = 0
+    asked.clear()
+    readied.clear()
+    refW.clear()
+    canvas.width = 0
+    canvas.height = 0
+  }
+
+  return {
+    draw,
+    dispose,
+    /** Pictures held (the words' and the wall's), and their pixels: for tests and probes. */
+    sprites: () => {
+      const held = wall ? [...sprites.values(), wall] : [...sprites.values()]
+      return { count: held.length, pixels: held.reduce((n, sp) => n + sp.c.width * sp.c.height, 0) }
+    },
+    /** Word pictures made in the frame that first drew them rather than ahead: each one is work in a frame of the run. */
+    madeLate: () => madeLate,
+  }
 }
 
 export type RunPainter = ReturnType<typeof createRunPainter>

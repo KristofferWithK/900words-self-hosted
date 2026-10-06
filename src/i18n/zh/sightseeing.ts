@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** 简体中文。用「你」。 The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: '城市观光',
-  wordsWalk: '单词',
+  title: 'Sightseeing',
   rules: '答错一个词可以原谅，第二个就结束这一轮。',
   steerHint: '向左或向右滑动或点按来转向。',
-  start: '开始走',
-  walkAgain: '再走一次',
+  start: '开始 Sightseeing',
+  sightseeingAgain: '再来一次 Sightseeing',
   pauseAria: '暂停',
   paused: '已暂停',
-  resume: '继续走',
+  resume: '继续 Sightseeing',
   photosLabel: '照片',
   bestLabel: '最佳',
   askLabel: '哪个意思是',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: '新纪录！',
   comingBack: '这些词会更常出现：',
   gateAria: (prompt: string, choices: string) => `哪个意思是 ${prompt}？${choices}`,
-  articlesWalk: '冠词',
-  articlesHint: '单词写在标签上。转向它的冠词。每个冠词都有自己的车道。',
   articleAsk: (others: string, last: string) => `${others}还是${last}？`,
   wrongArticle: '走错了',
   articleGateAria: (noun: string, choices: string) => `${noun} 用哪个冠词？${choices}`,

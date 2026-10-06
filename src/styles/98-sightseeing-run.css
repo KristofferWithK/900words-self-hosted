@@ -291,6 +291,47 @@
   background: var(--green-soft);
 }
 
+/* ── "More sightseeing" counting down: after a lost walk the next one starts
+   by itself (src/ui/runAutoplay.ts). The tag fills from its hole end over the
+   four seconds, inside its outline, with no number (owner: option D); with
+   reduced motion it does not fill and reads as it always does. ── */
+.run-again-fill {
+  position: absolute;
+  top: 2.5px;
+  bottom: 2.5px;
+  left: 2.5px;
+  width: 0;
+  z-index: -1;
+  background: var(--green-soft);
+  animation: run-again-fill linear forwards;
+  clip-path: polygon(
+    calc(var(--btn-cut) - 1px) 0,
+    100% 0,
+    100% 100%,
+    calc(var(--btn-cut) - 1px) 100%,
+    0 calc(100% - var(--btn-cut) + 1px),
+    0 calc(var(--btn-cut) - 1px)
+  );
+}
+
+@keyframes run-again-fill {
+  to {
+    width: calc(100% - 5px);
+  }
+}
+
+/* The tag is focused as the panel opens; while it counts it stays white
+   inside, so the fill is what changes. */
+.run-again-counting.run-tag-btn-primary:focus-visible::before {
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .run-again-fill {
+    display: none;
+  }
+}
+
 /* ── "You found a café" (CW-08b, the first session's walk only): the café's
    name on a white name board, as on the café on the road, and one tag to
    keep walking ── */
@@ -318,10 +359,10 @@
   justify-content: center;
 }
 
-/* As the run's other panel tags: the clip-free ring of the shared tag would
-   stand square around the tag on the manila panel, so a focused tag fills. */
-.run-cafe .run-cafe-go:focus-visible {
-  outline: none;
+/* As the run's other panel tags, a keyboard-focused tag also fills. Only
+   for the keyboard (99-tag.css): the panel autofocuses this tag, and iOS
+   matches :focus-visible for that script focus. */
+:root[data-focus-modality='keyboard'] .run-cafe .run-cafe-go:focus-visible {
   --tag-fill: var(--green-soft);
 }
 

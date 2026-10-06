@@ -278,7 +278,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `Dein Tarif: ${plan}`,
   planChecking: 'Dein Tarif wird bei Apple geprüft.',
   planCheckingPlay: 'Dein Tarif wird bei Google Play geprüft.',
-  planFree: 'Kostenloser Tarif. Zwei Stadtbummel und zwei Café-Rätsel pro Tag.',
+  planFree: 'Kostenloser Tarif. Zweimal Sightseeing und zwei Café-Rätsel pro Tag.',
   planMonthly: 'Unbegrenzt spielen. Monatsabo. Es verlängert sich jeden Monat, bis du es kündigst.',
   planLifetime: 'Unbegrenzt spielen. Einmalkauf. Nichts verlängert sich.',
   planBoth: 'Du hast den Einmalkauf. Dein Monatsabo läuft noch, und du brauchst es nicht mehr. Kündige es, damit dir nichts mehr berechnet wird.',

@@ -72,3 +72,78 @@ export function spinTarget(rotation: number, landedRotation: number): number {
   const toLanding = (((landedRotation - rotation) % 360) + 360) % 360
   return rotation + 360 * SPIN_TURNS + toLanding
 }
+
+/** One coordinate of a CSS cubic-bezier at curve parameter `t` (P0 = 0, P3 = 1). */
+const bezierAt = (p1: number, p2: number, t: number) => 3 * p1 * t * (1 - t) ** 2 + 3 * p2 * t * t * (1 - t) + t ** 3
+
+/**
+ * The time fraction (0..1) at which a CSS `cubic-bezier(x1, y1, x2, y2)`
+ * transition reaches `progress` of its way. Both coordinates rise
+ * monotonically on the wheel's curve, so the curve parameter is found by
+ * bisection on y and turned into time through x — the inverse of what the
+ * browser does each frame.
+ */
+export function bezierTimeAt(easing: readonly [number, number, number, number], progress: number): number {
+  if (progress <= 0) return 0
+  if (progress >= 1) return 1
+  const [x1, y1, x2, y2] = easing
+  let lo = 0
+  let hi = 1
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2
+    if (bezierAt(y1, y2, mid) < progress) lo = mid
+    else hi = mid
+  }
+  return bezierAt(x1, x2, (lo + hi) / 2)
+}
+
+/**
+ * The milliseconds into a spin at which each segment boundary passes the
+ * pointer: one clack each, in order. The same disc angles, the same lean and
+ * the same counting rule as the frame loop's `segmentCrossings`, read off the
+ * same curve the CSS transition moves the disc on (SPIN_EASING over SPIN_MS),
+ * so the list holds exactly as many clacks as the spin passes boundaries, the
+ * gaps widen as the disc slows, and none falls after the disc has stopped.
+ *
+ * This is what the clack track is built from (owner, build 123: "the sound
+ * wasn't matching the spinning"). Each clack used to be its own media-element
+ * start, fired from the frame loop; on an iPhone every such start costs a
+ * varying 20–90 ms, so the clacks ran late and uneven and kept coming after
+ * the disc had stopped. One track, started once, keeps every clack where the
+ * curve puts it.
+ */
+export function spinTickTimes(
+  from: number,
+  to: number,
+  n: number,
+  offset = 0,
+  durationMs: number = SPIN_MS,
+  easing: readonly [number, number, number, number] = SPIN_EASING,
+): number[] {
+  if (n < 2 || to === from) return []
+  const arc = 360 / n
+  const dir = to > from ? 1 : -1
+  const first = Math.floor((from + offset) / arc)
+  const last = Math.floor((to + offset) / arc)
+  const times: number[] = []
+  // Boundary k sits where (angle + offset) reaches k·arc. Turning forward the
+  // pointer meets k = first+1 … last; turning back, k = first … last+1.
+  for (let step = 0; step < Math.abs(last - first); step++) {
+    const k = dir > 0 ? first + 1 + step : first - step
+    const angle = k * arc - offset
+    times.push(bezierTimeAt(easing, (angle - from) / (to - from)) * durationMs)
+  }
+  return times
+}
+
+/**
+ * A computed CSS time (`transition-delay` and the like) in milliseconds: the
+ * first of a list, `500ms` or `0.5s`. 0 for anything that does not parse.
+ */
+export function cssTimeMs(value: string | null | undefined): number {
+  const match = /^\s*(-?[\d.]+)(ms|s)\b/.exec(value ?? '')
+  if (!match) return 0
+  const n = Number(match[1])
+  if (!Number.isFinite(n)) return 0
+  return match[2] === 's' ? n * 1000 : n
+}

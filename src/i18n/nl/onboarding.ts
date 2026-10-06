@@ -50,16 +50,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Binnenkort',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Flashcards zijn saai, dus spelen we twee spellen: een stadswandeling om woorden te verzamelen, en een woordpuzzel in een café.',
+  introTwoGames: 'Flashcards zijn saai, dus spelen we twee spellen: Sightseeing om woorden te verzamelen, en een woordpuzzel in een café.',
   introExplore: (city) => `Laten we ${city} verkennen en kijken of we een café vinden.`,
   introGo: 'Op pad',
-  walkEndFound: 'Wandel nog een keer, of ga naar het beginscherm en speel het café dat we vonden.',
-  walkEndNotFound: 'Wandel nog een keer om een café te zoeken, of ga naar het beginscherm.',
+  walkEndFound: 'Doe nog een keer Sightseeing, of ga naar het beginscherm en speel het café dat we vonden.',
+  walkEndNotFound: 'Doe nog een keer Sightseeing om een café te zoeken, of ga naar het beginscherm.',
 
   // ── De uitlegwolkjes op de echte schermen ───────────────────────────────
   tourNext: 'Volgende',
   tourDone: 'Op weg',
-  tourLoose: 'Woorden die we tegenkwamen wachten hier boven. Elke ring vult zich een derde per teken: een foto op een wandeling, een gok bij mijn hint en een hint van jezelf.',
+  tourLoose: 'Woorden die we tegenkwamen wachten hier boven. Elke ring vult zich een derde per teken: een foto tijdens Sightseeing, een gok bij mijn hint en een hint van jezelf.',
   tourLid: 'Met drie tekens is een woord verzameld. Verzamelde woorden gaan in de koffer, en deze regel telt ze.',
   tourTray: 'Dit is de stempelkaart van de stad. Elk café dat je speelt krijgt hier zijn stempel. Een gestippelde cirkel is een gevonden café dat nog niet gespeeld is, en ? een café dat nog gevonden moet worden.',
   mapTourHere: (city, words) =>
@@ -99,17 +99,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Deze puzzel ging verloren. Een verloren puzzel levert toch een bronzen stempel op. Een gewonnen puzzel levert zilver, goud of platina op. Het beste voor dit café tot nu toe is ${best}.`,
   resultTourCityPercent: (city) =>
-    `Elke cafestempel telt mee voor de medaille van ${city}: brons vanaf 25%, zilver vanaf 50%, goud vanaf 75% en platina bij 100%.`,
+    `Elke cafestempel telt mee voor de stadsstempel van ${city}. Het percentage is al je cafestempels samen: betere stempels brengen het omhoog. Brons vanaf 25%, zilver vanaf 50%, goud vanaf 75% en platina bij 100%.`,
   resultTourNoBestYet: 'nog niet bepaald',
   resultTourSentence:
     'Dit is een optionele herhaling. Je ziet een woord van dit bord in een zin. Het is geen nieuwe test.',
   resultTourNoReview:
     'Er is deze keer geen zin om terug te kijken. Dat is prima. Terugkijken is altijd optioneel.',
-  homeTourSightseeing: 'Stadswandeling is de wandeling die we net maakten. Elke wandeling verzamelt woorden, en hoe meer je wandelt, hoe meer cafés je vindt.',
+  homeTourSightseeing: 'Sightseeing is wat we net deden. Elke ronde verzamelt woorden, en hoe meer rondes je doet, hoe meer cafés je vindt.',
   homeTourCafe: (name) =>
     name ? `Ons eerste café is ${name}. Tik op Cafépuzzel om te gaan zitten en te spelen.` : 'Ons eerste café wacht. Tik op Cafépuzzel om te gaan zitten en te spelen.',
-  homeTourStamp: 'Elk café dat je speelt krijgt een stempel. Samen vormen ze de medaille van deze stad, en hier zie je hoe ver je bent.',
-  homeTourCollection: 'Tik op mij om de koffer te openen. Ik laat je de woorden zien die we verzamelden en de stempel van het café.',
+  homeTourStamp: 'Dit is de stadsstempel. Het percentage is al je cafestempels samen, en een betere stempel telt zwaarder. Speel een café opnieuw voor een betere stempel, dan gaat hij omhoog.',
+  homeTourCollection: 'Tik op mij om de koffer te openen. Erin zitten onze woorden en de stempel van het café.',
 
   // ── De oefenronde: Casey’s geschreven redeneringen ──────────────────────
   practiceRationaleDrink: 'Water, koffie en melk zijn allemaal dingen die je drinkt.',

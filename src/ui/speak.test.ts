@@ -757,6 +757,27 @@ describe('a City 1 noun said as one performance with its article', () => {
     await h.player.playWord('da:hus')
     expect(h.calls.load).toHaveLength(loads)
   })
+
+  it('ranks a board request so a screen pool smaller than it keeps what the taps ask for: articles and phrases first, the bare words of phrase nouns last', async () => {
+    const warmed: Array<{ key: string; owner?: unknown; rank: number }> = []
+    let owner: unknown = 'cafe'
+    const h = harness({
+      article: spokenArticleOf,
+      owner: () => owner,
+      warm: (key, _url, _clip, ready) => void warmed.push({ key, ...ready! }),
+    })
+    const pending = h.player.preloadWords(['da:hus', 'da:bog', 'da:købe'])
+    // The pool is the one asked from, even when the screen changes before the bytes arrive.
+    owner = 'home'
+    await pending
+    expect(warmed.every((w) => w.owner === 'cafe')).toBe(true)
+    const rank = (key: string) => warmed.find((w) => w.key === key)!.rank
+    expect(rank('da-phrase:normal:da:hus')).toBeLessThan(rank('normal:da:købe'))
+    expect(rank('normal:da:købe')).toBeLessThan(rank('normal:da:hus'))
+    // «bog» has no phrase: its article clip and its word are what its tap plays, both ahead of «hus»'s bare word.
+    expect(rank('article:da:en')).toBe(0)
+    expect(rank('normal:da:bog')).toBeLessThan(rank('normal:da:hus'))
+  })
 })
 
 /* ------------------------------------------------------------------ *

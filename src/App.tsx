@@ -351,11 +351,11 @@ export default function App() {
       }
     }
 
-    // ?sightseeing=words opens the running game's Words walk (café world,
-    // CW-05), ?sightseeing=articles its Articles walk (CW-06; a course without
-    // articles opens Words). Home has no door to it yet (that is CW-10), so
-    // this is how a developer, a probe or a drive reaches the screen. It
-    // writes nothing.
+    // ?sightseeing=words opens the running game's walk (café world, CW-05),
+    // on its ready panel, with its article gates where the course has them.
+    // ?sightseeing=articles, the old Articles walk's switch, opens the same
+    // walk: the Articles walk is part of it now (owner, 2026-10-05). This is
+    // how a developer, a probe or a drive reaches the screen. It writes nothing.
     // ?ticket=1 holds this city's caught-train ticket (CW-07) without running
     // 147 gates: the train sheet's ticket and the closed-line notice can be
     // looked at. ?sightseeing=train opens the train run itself (add
@@ -363,7 +363,7 @@ export default function App() {
     if (params.get('ticket') === '1') devCatchTrain(cityIndex)
     const walk = params.get('sightseeing')
     if (walk === 'words' || walk === 'articles' || walk === 'train') {
-      chooseWalk(walk)
+      chooseWalk(walk === 'train' ? 'train' : 'words')
       useUi.getState().goTo('sightseeing')
     }
   }, [])

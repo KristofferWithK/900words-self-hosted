@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createStampTaps, toggleDiagPanel } from '../diagnostics/panel'
 import { UI } from '../../i18n'
 import { Tag } from './Tag'
 
@@ -46,28 +47,34 @@ export function BuildFooter() {
   })
 
   /**
-   * Five taps on the build stamp turns on the keyboard readout.
+   * Five taps on the build stamp turns on the keyboard readout (acted on
+   * once the taps pause: seven reveal the performance log instead).
    *
    * The one thing that cannot be debugged from here is what iOS does with the
    * keyboard on a real phone, and shipping a build per guess is a slow way to
    * find out. This is the old five-taps-for-developer-mode trick: invisible
    * until wanted, and reachable without a rebuild.
    */
-  const [taps, setTaps] = useState(0)
-  const tap = () => {
-    const next = taps + 1
-    setTaps(next)
-    if (next < 5) return
-    setTaps(0)
-    const on = !debug
-    setDebug(on)
-    try {
-      if (on) localStorage.setItem('cluecab-kbdebug', '1')
-      else localStorage.removeItem('cluecab-kbdebug')
-    } catch {
-      /* private mode */
-    }
+  const toggleReadout = () => {
+    setDebug((was) => {
+      const on = !was
+      try {
+        if (on) localStorage.setItem('cluecab-kbdebug', '1')
+        else localStorage.removeItem('cluecab-kbdebug')
+      } catch {
+        /* private mode */
+      }
+      return on
+    })
   }
+  // Seven taps (without a pause after the fifth) reveal the hidden
+  // performance log instead (src/ui/diagnostics/panel.ts).
+  const [tap] = useState(() =>
+    createStampTaps(toggleReadout, toggleDiagPanel, (fn, ms) => {
+      const id = window.setTimeout(fn, ms)
+      return () => window.clearTimeout(id)
+    }),
+  )
 
   /**
    * The composer ride's OPT-OUT, on and off without a rebuild.

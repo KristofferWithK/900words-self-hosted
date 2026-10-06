@@ -7,7 +7,8 @@ import { useGame } from '../../stores/gameStore'
 import { reachedIndex, useJourney } from '../../stores/journeyStore'
 import { useSrs } from '../../stores/srsStore'
 import { useUi } from '../../stores/uiStore'
-import { playWord } from '../speak'
+import { playWord, WORD_POOL_LIMITS } from '../speak'
+import { useWordPool } from '../useWordPool'
 import { ACTIVE } from '../../lang/active'
 import { UI, UI_LANGUAGE, UI_LANGUAGE_INFO } from '../../i18n'
 import { ConnectingWordNote, sayConnectingWord } from '../components/ConnectingWordNote'
@@ -161,6 +162,7 @@ const LONG_WORD = 9
 const LOCALE = UI_LANGUAGE_INFO[UI_LANGUAGE].tag
 
 export function SuitcaseScreen({ onBack }: { onBack?: () => void } = {}) {
+  useWordPool('suitcase', WORD_POOL_LIMITS.tap)
   const goTo = useUi((s) => s.goTo)
   const openSheet = useUi((s) => s.openSheet)
   const srs = useSrs((s) => s.stats)

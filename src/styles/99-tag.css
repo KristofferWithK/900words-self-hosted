@@ -8,8 +8,8 @@
  * The button itself is NOT clipped. Two pseudo-elements draw the tag: ::before
  * is the ink, clipped to the tag's shape; ::after is the fill, inset by the
  * line width and clipped to the same shape, so the ink shows only as an
- * outline of even weight, diagonals included. A focus ring on the unclipped
- * button is therefore never cut off.
+ * outline of even weight, diagonals included. Focus never draws a ring or a
+ * rectangle around that shape (see the focus rules below).
  *
  * THE LOOK IN ONE PLACE: the custom properties on .tag are every colour and
  * measure a tag has. Swap them here to try another ink, fill or cut. */
@@ -148,9 +148,30 @@
   --tag-fill: #efeadc;
 }
 
+/* Focus follows the tag's own shape and shows only for the keyboard.
+ *
+ * A rectangle never does: the button's box is square, so any outline or
+ * box-shadow on it stands apart from the clipped outline (the owner's green
+ * frame over "Start translating", build 123). And iOS WebKit matches
+ * :focus-visible for every focus a script moves, which is how every pop-up
+ * opens (showModal + focus, autoFocus, the tour's Next), so :focus-visible
+ * alone painted keyboard focus on a phone nobody was Tabbing on. The keyboard
+ * is read from <html data-focus-modality="keyboard"> (ui/focusModality.ts,
+ * set by Tab, cleared by any touch or click): then the tag's own outline goes
+ * green and a line heavier, hole included. Touch and script focus: nothing. */
+.tag:focus,
 .tag:focus-visible {
-  outline: 2px solid var(--green-deep);
-  outline-offset: 3px;
+  outline: none;
+  box-shadow: none;
+}
+
+:root[data-focus-modality='keyboard'] .tag:focus-visible {
+  --tag-ink: var(--green-deep);
+  --tag-line: 3.5px;
+}
+
+:root[data-focus-modality='keyboard'] .tag-danger:focus-visible {
+  --tag-ink: var(--red);
 }
 
 /* Disabled: a pencil tag, still in its place, that does nothing. */
@@ -170,5 +191,11 @@
   .tag::after,
   .tag-hole {
     display: none;
+  }
+
+  /* Forced colours draw the tag as a plain box, so the system ring fits. */
+  :root[data-focus-modality='keyboard'] .tag:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
   }
 }

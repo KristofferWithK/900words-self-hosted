@@ -65,12 +65,12 @@ const tagStyles = (button) => button.evaluate((el) => {
 /** Café world (CW-10): Play is the Café puzzle TAG. A real button, one ink
  * outline clipped to the tag's shape, white inside, ink label, a punched hole,
  * and at least 44 x 44 CSS px. */
-async function tagLook(button, label, { fill = WHITE, labelColor = null } = {}) {
+async function tagLook(button, label, { fill = WHITE, labelColor = null, ink = INK } = {}) {
   assert.ok(await button.isVisible(), `${label}: visible`)
   const t = await tagStyles(button)
   assert.equal(t.tag, 'BUTTON', `${label}: native button`)
   assert.equal(t.type, 'button', `${label}: type=button`)
-  assert.equal(t.ink, INK, `${label}: ink outline layer`)
+  assert.equal(t.ink, ink, `${label}: ink outline layer`)
   assert.equal(t.fill, fill, `${label}: fill`)
   assert.ok(t.inkClip.startsWith('polygon') && t.fillClip.startsWith('polygon'), `${label}: clipped to the tag's shape`)
   assert.equal(t.ownClip, 'none', `${label}: the button itself is not clipped`)
@@ -89,9 +89,13 @@ async function focusWithTab(page, button) {
     await page.keyboard.press('Tab')
     if (await button.evaluate((el) => el === document.activeElement)) break
   }
+  // Keyboard focus is the tag's own outline, green and heavier (99-tag.css),
+  // never a rectangle around the square box: that rectangle is what iOS
+  // painted on every pop-up's script-focused tag (build 123).
   const s = await styles(button)
-  assert.ok(s.focusVisible && s.outline !== 'none' && s.outlineWidth > 0,
-    'Tab reaches Play with a visible focus outline')
+  const t = await tagStyles(button)
+  assert.ok(s.focusVisible && s.outline === 'none' && t.ink === GREEN,
+    `Tab reaches Play with a visible focus on the tag's own outline (outline ${s.outline}, ink ${t.ink})`)
 }
 
 async function fits(page, button) {
@@ -284,7 +288,7 @@ try {
     await focusWithTab(page, play)
     await page.keyboard.down('Space')
     assert.ok((await styles(play)).active, 'Space enters native :active')
-    await tagLook(play, `${size} keyboard-pressed Café puzzle`, { fill: PRESSED_FILL })
+    await tagLook(play, `${size} keyboard-pressed Café puzzle`, { fill: PRESSED_FILL, ink: GREEN })
     assert.equal(await page.locator('.game-screen').count(), 0, 'Space waits for release')
     await page.keyboard.up('Space')
     await page.waitForSelector('.game-screen .board-grid')

@@ -10,7 +10,9 @@ import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
 
-const PORT = Number(process.env.DRIVE_PORT_OFFSET ?? 0) + 4400 || 4460
+// startPreview adds DRIVE_PORT_OFFSET itself; adding it here too moved this
+// drive into another parallel slot's ports.
+const PORT = 4400
 const preview = await startPreview(PORT)
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/data/toolchain/playwright-browsers/chromium-1234/chrome-linux64/chrome',

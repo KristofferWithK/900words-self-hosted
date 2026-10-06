@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Deutsch. Du, nie Sie. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Stadtbummel',
-  wordsWalk: 'Wörter',
+  title: 'Sightseeing',
   rules: 'Ein falsches Wort wird verziehen. Das zweite beendet den Lauf.',
   steerHint: 'Wische oder tippe links und rechts, um zu lenken.',
-  start: 'Loslaufen',
-  walkAgain: 'Noch ein Lauf',
+  start: 'Sightseeing starten',
+  sightseeingAgain: 'Noch mal Sightseeing',
   pauseAria: 'Anhalten',
   paused: 'Angehalten',
-  resume: 'Weiterlaufen',
+  resume: 'Weiter mit Sightseeing',
   photosLabel: 'Fotos',
   bestLabel: 'Rekord',
   askLabel: 'Was heißt',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Neuer Rekord!',
   comingBack: 'Diese Wörter kommen öfter wieder:',
   gateAria: (prompt: string, choices: string) => `Was heißt ${prompt}? ${choices}`,
-  articlesWalk: 'Artikel',
-  articlesHint: 'Das Wort steht auf dem Anhänger. Lenke zu seinem Artikel. Jeder Artikel hat seine eigene Spur.',
   articleAsk: (others: string, last: string) => `${others} oder ${last}?`,
   wrongArticle: 'Falscher Weg',
   articleGateAria: (noun: string, choices: string) => `Welcher Artikel gehört zu ${noun}? ${choices}`,

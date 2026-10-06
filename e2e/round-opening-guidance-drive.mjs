@@ -28,6 +28,42 @@ let replyAt = 0
 const check = (name, value) => { assert.ok(value, name); checks.push(name) }
 const saved = () => page.evaluate(() => JSON.parse(localStorage.getItem('cluecab-game-v1')).state)
 const panel = () => page.locator('dialog.round-guidance-dialog[open]')
+const PANEL_TAG = 'dialog.round-guidance-dialog[open] .tag'
+
+// The focus look of a tag, as an iPhone paints it. Every pop-up moves focus
+// to its tag on open, and iOS WebKit matches :focus-visible for that script
+// focus, where Chromium after a click does not: build 123 showed a green
+// rectangle over "Start translating" that this drive never saw. So the tag is
+// read at rest, then with :focus and :focus-visible forced through CDP, and
+// the two must match: no outline, no shadow, no border, the tag's own ink.
+const focusLook = (el) => {
+  const s = getComputedStyle(el)
+  return { outline: s.outlineStyle, boxShadow: s.boxShadow, border: s.borderTopStyle,
+    ink: getComputedStyle(el, '::before').backgroundColor,
+    modality: document.documentElement.getAttribute('data-focus-modality') }
+}
+async function checkNoFocusFrame(name, selector) {
+  const element = page.locator(selector)
+  check(`${name}: the tag has focus on open`, await element.evaluate((el) => el === document.activeElement))
+  const cdp = await context.newCDPSession(page)
+  try {
+    await cdp.send('DOM.enable')
+    await cdp.send('CSS.enable')
+    const { root } = await cdp.send('DOM.getDocument', { depth: 0 })
+    const { nodeId } = await cdp.send('DOM.querySelector', { nodeId: root.nodeId, selector })
+    assert.ok(nodeId, `${name}: ${selector} is on the page`)
+    await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [] })
+    const rest = await element.evaluate(focusLook)
+    await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: ['focus', 'focus-visible'] })
+    const focused = await element.evaluate(focusLook)
+    await cdp.send('CSS.forcePseudoState', { nodeId, forcedPseudoClasses: [] })
+    check(`${name}: the tag's script focus draws no frame (outline ${focused.outline}, shadow ${focused.boxShadow}, border ${focused.border})`,
+      focused.outline === 'none' && focused.boxShadow === 'none' && focused.border === 'none' && focused.modality === null)
+    check(`${name}: the tag's script focus looks as it does at rest (ink ${focused.ink})`, JSON.stringify(focused) === JSON.stringify(rest))
+  } finally {
+    await cdp.detach().catch(() => {})
+  }
+}
 
 async function newProfile(viewport) {
   await context?.close()
@@ -209,8 +245,15 @@ try {
     check(`${size}: no private clue fields in the panel`, !/PRIVATE_RATIONALE_SENTINEL|da:|targetWordIds|aiKey/.test(await panel().innerHTML()))
     check(`${size}: normal dock retains the same clue`, (await page.locator('.guess-bar .dock-title').textContent()).includes(clue.text))
     await geometry(`casey-${size}`)
+    await checkNoFocusFrame(`${size}: Casey's first clue`, PANEL_TAG)
     await page.keyboard.press('Tab')
     check(`${size}: forward Tab stays inside`, await panel().evaluate((el) => el.contains(document.activeElement)))
+    // Keyboard focus is still shown, on the tag's own outline: green and
+    // heavier ink, never a rectangle around it.
+    const keyboard = await page.locator(PANEL_TAG).evaluate(focusLook)
+    check(`${size}: keyboard focus redraws the tag's own outline in green`,
+      keyboard.modality === 'keyboard' && keyboard.ink === 'rgb(58, 122, 52)' && keyboard.outline === 'none' && keyboard.boxShadow === 'none')
+    await page.screenshot({ path: resolve(output, `casey-keyboard-focus-${size}.png`) })
     await page.keyboard.press('Shift+Tab')
     check(`${size}: reverse Tab stays inside`, await panel().evaluate((el) => el.contains(document.activeElement)))
     // A real coordinate tap outside the dialog must not select or reveal a card.
@@ -233,6 +276,7 @@ try {
     check(`${size}: player lesson appears on turn transition`,
       playerLesson.includes('Write one Danish word') && playerLesson.includes('1–4 of your green words.'))
     await geometry(`player-${size}`)
+    await checkNoFocusFrame(`${size}: Your turn`, PANEL_TAG)
     await page.keyboard.press('Tab')
     check(`${size}: player Tab wraps to checkbox`, await panel().locator('input').evaluate((el) => el === document.activeElement))
     await page.keyboard.press('Shift+Tab')
@@ -270,6 +314,7 @@ try {
       !(await panel().getByRole('checkbox').isChecked()) && await panel().locator('.round-guidance-clue').count() === 0)
     assert.equal((await saved()).roundGuidance.translation, 'announced')
     await geometry(`translation-${size}`)
+    await checkNoFocusFrame(`${size}: Translation time`, PANEL_TAG)
     const translationBefore = JSON.stringify((await saved()).game)
     await panel().getByRole('button', { name: 'Start translating', exact: true }).click()
     await panel().waitFor({ state: 'detached' })
@@ -348,6 +393,10 @@ try {
     // The existing full onboarding drive verifies the scripted round. This
     // profile additionally proves the new dialog does not cover the intro.
     check(`${size}: intro has no stacked guidance`, await panel().count() === 0)
+    // The intro's Next tag is autofocused too: no frame there either.
+    await page.locator('.onboard-ticket').filter({ hasText: 'Denmark' }).click()
+    await page.locator('.onboard-intro-next').waitFor()
+    await checkNoFocusFrame(`${size}: onboarding intro Next`, '.onboard-intro-next')
   }
   check('no external origins requested', blocked.length === 0)
   check('no uncaught browser errors', errors.length === 0)

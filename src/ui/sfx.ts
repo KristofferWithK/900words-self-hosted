@@ -1,6 +1,8 @@
 import { Capacitor } from '@capacitor/core'
 import { useSettings } from '../stores/settingsStore'
 import type { SfxKind } from './sfxSynthesis'
+import { diagSwitch } from './diagnostics/switches'
+import { watchMedia } from './mediaQuiet'
 
 /**
  * The UI sound effects — wheel tick, error blip, wheel-win fanfare — played
@@ -39,6 +41,11 @@ export const SFX_FILES: Record<SfxKind, string> = {
   tick: 'audio/ui/wheel-tick.wav',
   blip: 'audio/ui/error-blip.wav',
   fanfare: 'audio/ui/wheel-win.wav',
+  // Casey walks through a café found on the road. The owner picked -b (stamp
+  // "ka-ching", 2026-10-05) over -a (door bell) and -c (cup and chord); all
+  // three are rendered (sfxSynthesis.ts CAFE_COLLECT_CANDIDATES), so swapping
+  // is this line alone.
+  cafe: 'audio/ui/cafe-collect-b.wav',
 }
 
 /**
@@ -48,7 +55,7 @@ export const SFX_FILES: Record<SfxKind, string> = {
  * rotates through four. The others cannot meaningfully overlap themselves;
  * two blips cover a second miss landing inside the first.
  */
-const POOL_SIZE: Record<SfxKind, number> = { tick: 4, blip: 2, fanfare: 1 }
+const POOL_SIZE: Record<SfxKind, number> = { tick: 4, blip: 2, fanfare: 1, cafe: 1 }
 
 type Pool = { readonly els: HTMLAudioElement[]; next: number }
 const pools = new Map<SfxKind, Pool>()
@@ -84,6 +91,9 @@ function pool(kind: SfxKind): Pool | undefined {
       const el = new Audio(sfxUrl(kind))
       el.preload = 'auto'
       el.dataset.sfx = kind
+      // The fanfare is long enough for Now Playing: when it stops, every
+      // resting element is muted (mediaQuiet.ts). Each play unmutes its own.
+      watchMedia(el)
       els.push(el)
     }
   } catch {
@@ -114,7 +124,10 @@ export function primeSfx(): void {
   for (const kind of Object.keys(SFX_FILES) as SfxKind[]) {
     const p = pool(kind)
     if (!p) continue
-    for (const el of p.els) {
+    // The wheel's clack track rides with the tick: its element is unlocked
+    // by the same spin tap that its track will play after.
+    const extra = kind === 'tick' ? trackElement() : undefined
+    for (const el of extra ? [...p.els, extra] : p.els) {
       if (!idle(el)) continue
       try {
         el.muted = true
@@ -178,6 +191,7 @@ export function installSfxUnlock(): void {
  * for priming on the next tap rather than retrying from here.
  */
 export function playSfx(kind: SfxKind): void {
+  if (diagSwitch('sfx')) return // performance log switch
   if (!soundOn()) return
   const p = pool(kind)
   if (!p) return
@@ -205,6 +219,178 @@ export function playSfx(kind: SfxKind): void {
   }
 }
 
+/**
+ * Stop every element of one effect at once. The wheel's per-clack fallback
+ * calls it when the disc comes to rest, so a clack that was asked for in time
+ * but started late cannot sound after the disc has stopped.
+ */
+export function silenceSfx(kind: SfxKind): void {
+  for (const el of pools.get(kind)?.els ?? []) {
+    try {
+      if (!el.paused) el.pause()
+    } catch {
+      // Nothing to silence.
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * The wheel's clack track (spinTrack.ts)
+ * ------------------------------------------------------------------ */
+
+/**
+ * One element for the per-spin clack track. It starts life on the tick file,
+ * so it can be primed like any other effect element, and is handed each
+ * spin's track as a `data:` URL.
+ */
+let track: HTMLAudioElement | undefined
+/** Set once a track failed to load or start in time here: later spins go straight to the fallback. */
+let trackBroken = false
+
+function trackElement(): HTMLAudioElement | undefined {
+  if (track) return track
+  if (typeof Audio === 'undefined') return undefined
+  try {
+    track = new Audio(sfxUrl('tick'))
+    track.preload = 'auto'
+    track.dataset.sfx = 'spin'
+    // A spin's clack track runs for seconds: when it stops, every resting
+    // element is muted (mediaQuiet.ts), so the app leaves Now Playing again.
+    watchMedia(track)
+  } catch {
+    return undefined
+  }
+  return track
+}
+
+/** A clack track that has been asked to start. */
+export interface SfxTrack {
+  /**
+   * True once the track is audibly under way (`playing`, and its clock
+   * moving); false if
+   * it errored, was refused, or did not get going within the wait, in which
+   * case it has already been stopped and the caller falls back.
+   */
+  readonly started: Promise<boolean>
+  /** How far into the track playback is, in ms: what the disc's start lines up with. */
+  position(): number
+  /** Let the track run out by itself, but cut it after `ms` whatever happens. */
+  finish(ms: number): void
+  /** Stop it now. */
+  stop(): void
+}
+
+/**
+ * Load a clack track onto the track element ahead of its spin, so the spin's
+ * `playSfxTrack` with the same src only has to press play. Loading a 3 s
+ * data: WAV took ~280 ms from play() to sound in Chromium; a loaded one
+ * starts within a millisecond. Not while the element is sounding.
+ */
+export function readySfxTrack(src: string): void {
+  if (!soundOn() || trackBroken) return
+  const el = trackElement()
+  if (!el || el.src === src || !idle(el)) return
+  try {
+    el.src = src
+    el.load()
+  } catch {
+    // The spin will load it itself.
+  }
+}
+
+/**
+ * Start a clack track (a `data:` WAV, see spinTrack.ts) on the track element.
+ * `undefined` when there is nothing to start: sound off, no media, or a
+ * device where a track already failed to start in time this session.
+ */
+export function playSfxTrack(src: string, maxWaitMs: number): SfxTrack | undefined {
+  if (diagSwitch('sfx')) return undefined // performance log switch
+  if (!soundOn() || trackBroken) return undefined
+  const el = trackElement()
+  if (!el) return undefined
+  let settled = false
+  let resolveStarted: (ok: boolean) => void = () => {}
+  const started = new Promise<boolean>((resolve) => {
+    resolveStarted = resolve
+  })
+  let wait: ReturnType<typeof setTimeout> | undefined
+  let cut: ReturnType<typeof setTimeout> | undefined
+  const silence = () => {
+    try {
+      el.pause()
+    } catch {
+      // Already silent.
+    }
+  }
+  const settle = (ok: boolean) => {
+    if (settled) return
+    settled = true
+    clearTimeout(wait)
+    el.removeEventListener('playing', onPlaying)
+    el.removeEventListener('error', onError)
+    if (!ok) silence()
+    resolveStarted(ok)
+  }
+  // `playing` is the element's word that it has started; the media clock
+  // (currentTime) is when the sound actually is under way, and in Chromium it
+  // stood at 0 for ~150 ms after `playing`. The disc is started on the clock,
+  // so the wait goes on until it moves.
+  const onPlaying = () => {
+    const moved = () => {
+      if (settled) return
+      if (el.currentTime > 0) settle(true)
+      else setTimeout(moved, 4)
+    }
+    moved()
+  }
+  const onError = () => {
+    // A data: URL this media stack will not load fails the same way every
+    // time; later spins go straight to the fallback.
+    trackBroken = true
+    settle(false)
+  }
+  wait = setTimeout(() => {
+    // Too slow to be in time with a disc that is waiting for it. Once is
+    // enough to know: later spins skip straight to the fallback rather than
+    // making the disc wait again.
+    trackBroken = true
+    settle(false)
+  }, maxWaitMs)
+  el.addEventListener('playing', onPlaying)
+  el.addEventListener('error', onError)
+  try {
+    el.muted = false
+    // A track readied ahead (`readySfxTrack`) is already this src: setting it
+    // again would load it again.
+    if (el.src !== src) el.src = src
+    else if (el.currentTime !== 0) el.currentTime = 0
+    const playing = el.play()
+    void playing?.catch((error: unknown) => {
+      if ((error as { name?: string } | null)?.name === 'NotAllowedError') needsPrime = true
+      settle(false)
+    })
+  } catch {
+    settle(false)
+  }
+  if (typeof window !== 'undefined') {
+    // The observable a drive listens for: one track per spin, not one event per clack.
+    window.dispatchEvent(new CustomEvent('cluecab-sfx', { detail: { kind: 'spin', url: 'clack-track' } }))
+  }
+  return {
+    started,
+    position: () => (Number.isFinite(el.currentTime) ? el.currentTime * 1000 : 0),
+    finish(ms) {
+      clearTimeout(cut)
+      cut = setTimeout(silence, ms)
+    },
+    stop() {
+      clearTimeout(cut)
+      settle(false)
+      silence()
+    },
+  }
+}
+
 /** Whether a gesture is owed before the effects can be trusted to play. For tests and the self-test. */
 export function sfxNeedsPrime(): boolean {
   return needsPrime
@@ -213,6 +399,8 @@ export function sfxNeedsPrime(): boolean {
 /** Forget every element and listener flag — tests only. */
 export function resetSfxForTests(): void {
   pools.clear()
+  track = undefined
+  trackBroken = false
   needsPrime = true
   installed = false
 }

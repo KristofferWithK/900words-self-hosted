@@ -146,7 +146,7 @@ describe('which free limit the dialog speaks of (CW-15)', () => {
 
   it('English counts its leftovers in the singular and the plural', () => {
     expect(UI.home.dailyLimitPuzzlesLeft(1)).toBe('You can still play 1 café puzzle today.')
-    expect(UI.home.dailyLimitRunsLeft(2)).toBe('You can still take 2 walks today.')
+    expect(UI.home.dailyLimitRunsLeft(2)).toBe('You can still go sightseeing 2 times today.')
   })
 
   it.each(['ios', 'android'] as const)('on %s reads today\'s counts and keeps the offers, the disclosure, Restore and the legal links', (platform) => {

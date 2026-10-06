@@ -36,9 +36,32 @@
   cursor: pointer;
 }
 
+/* A tap-only beat (tour.ts tapOnly): the light on the one control that goes
+   on breathes gently, a ring growing out of it, so "tap here" reads without
+   words. Reduced motion: the ring stays, still. */
+.tour-spot-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 3px solid var(--green-deep);
+  border-radius: 14px;
+  animation: tour-spot-pulse 1.6s ease-out infinite;
+}
+
+@keyframes tour-spot-pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  70% { opacity: 0; transform: scale(1.12); }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tour-spot {
     transition: none;
+  }
+
+  .tour-spot-pulse::after {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -158,7 +181,9 @@
    button is THE action on the panel, so keyboard-style focus indication
    carries no information here: the outline moves INSIDE the pill
    (inset ring, like the review dialog's), where it reads as part of the
-   button on the rare keyboard-focus path and never as a second outer ring. */
-.round-guidance-dialog :focus-visible { outline: 2px solid var(--green-deep); outline-offset: -4px; }
-.round-guidance-dialog > .tag:focus-visible { outline: 2px solid var(--green-deep); outline-offset: -6px; }
+   button on the rare keyboard-focus path and never as a second outer ring.
+   The action is a Tag now, and a Tag draws its own focus (99-tag.css): an
+   inset rectangle here was the green frame inside "Start translating" on
+   build 123, so this ring is for the panel's other controls only. */
+.round-guidance-dialog :focus-visible:not(.tag) { outline: 2px solid var(--green-deep); outline-offset: -4px; }
 

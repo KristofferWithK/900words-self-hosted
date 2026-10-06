@@ -94,14 +94,15 @@ export function signatureDrawing(signatureItem: string): DrawingId {
 }
 
 /**
- * Where an item may lie. Two regions of the screen, both fixed to the phone's
- * screen rather than to anything the game draws (77-cafe-puzzle.css):
+ * Where an item may lie. Two regions of the screen (77-cafe-puzzle.css):
  *
- *   board   from under the header to the top of the dock. An item here lies
- *           behind the cards; what falls in the gutters between them and in
- *           the screen's side margins shows.
- *   bottom  the dock's height at the foot of the screen. Whatever the dock
- *           holds lies on top of these; the keyboard simply covers them.
+ *   board   from under the header to the top of the dock, fixed to the
+ *           phone's screen. An item here lies behind the cards; what falls in
+ *           the gutters between them and in the screen's side margins shows.
+ *   bottom  the dock's height at the foot of the screen, measured from the
+ *           dock's top and riding with the dock: whatever the dock holds lies
+ *           on top of these, and when the keyboard lifts the composer they go
+ *           up with it (owner, build 123).
  *
  * `x` and `y` place the item's centre, in percent of its region's width and
  * height (an edge spot's centre is near the screen's edge, so much of the

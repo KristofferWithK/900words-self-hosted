@@ -27,7 +27,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Fortsett brettet', continueReplay: 'Fortsett omspilling', returnToPrimary: 'Tilbake til brettet ditt',
   viewResult: 'Se resultat', improveBoards: 'Forbedre brettene dine', postcardsEarned: 'opptjente postkort',
   postcardsRemaining: (remaining) => `${remaining} postkort igjen til reisen`, postcardReadiness: (earned, remaining) => `${earned} postkort opptjent; ${remaining} igjen til reisen.`,
-  readyToTravel: 'Klar til å reise', nextStopNotReleased: (city) => `Klar til å reise. ${city} er ikke lansert ennå.`, cityMedalInProgress: 'ikke oppnådd ennå', cityMedal: (tier) => `Bymedalje: ${tier}`,
+  readyToTravel: 'Klar til å reise', nextStopNotReleased: (city) => `Klar til å reise. ${city} er ikke lansert ennå.`, cityMedalInProgress: 'ikke oppnådd ennå', cityMedal: (tier) => `Bystempel: ${tier}`,
   backToCity: (city) => `Tilbake til ${city}`,
 
   // ── Kartet ──────────────────────────────────────────────────────────────
@@ -152,14 +152,14 @@ export const home: Catalogue['home'] = {
     'for å få en reisekortkode som gjelder i 6 måneder. Omtalen kan være god eller dårlig, alt etter hvordan du liker appen.',
 
   // ── Oppgradering etter den daglige grensen ────────────────────────────────
-  dailyLimitKicker: 'Gratis får du to turer og to kafégåter om dagen.',
-  dailyLimitRunsKicker: 'Du har gått to turer i dag.',
+  dailyLimitKicker: 'Gratis får du Sightseeing to ganger og to kafégåter om dagen.',
+  dailyLimitRunsKicker: 'Du har vært på Sightseeing to ganger i dag.',
   dailyLimitPuzzlesKicker: 'Du har spilt to kafégåter i dag.',
-  dailyLimitBothKicker: 'Du har gått to turer og spilt to kafégåter i dag.',
+  dailyLimitBothKicker: 'Du har vært på Sightseeing to ganger og spilt to kafégåter i dag.',
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'Du kan fortsatt spille 1 kafégåte i dag.' : `Du kan fortsatt spille ${n} kafégåter i dag.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Du kan fortsatt gå 1 tur i dag.' : `Du kan fortsatt gå ${n} turer i dag.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Du kan fortsatt dra på Sightseeing 1 gang i dag.' : `Du kan fortsatt dra på Sightseeing ${n} ganger i dag.`),
   dailyLimitHeading: 'Spill videre med Casey',
-  dailyLimitBody: 'Kom tilbake i morgen, eller lås opp ubegrensede turer og kafégåter.',
+  dailyLimitBody: 'Kom tilbake i morgen, eller lås opp ubegrenset Sightseeing og ubegrensede kafégåter.',
   dailyLimitOptionsAria: 'Alternativer for ubegrenset spilling',
   dailyLimitMonthly: 'Månedlig',
   dailyLimitMonthlyHelp: 'Fornyes automatisk hver måned til du sier opp.',
@@ -213,10 +213,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Kafégåte',
   sightseeingNote: 'finn nye kafeer',
-  sightseeingAsk: 'Hva vil du se etter?',
-  wordsWalkNote: 'Hva betyr det? Ta bilde av det riktige ordet og finn nye kafeer.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Ta veien til venstre eller til høyre.` : `${ask} Hver artikkel har sitt eget felt.`,
   trainSheetTitle: (city) => `Toget til ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} ord (${board} på brettene, ${connecting} bindeord)` : `${city}: ${total} ord`,
@@ -225,7 +221,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: ${percent} av kafeenes stempler.`,
   stampNone: 'Uten stempel',
   cafeNotFoundNote: 'finn en kafé først',
-  cafeNotFoundLine: 'Finn en kafé på byvandringen først.',
+  cafeNotFoundLine: 'Finn en kafé på Sightseeing først.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'En tredel hver for bilde, gjetning og hint',
   markPhoto: 'bilde',
@@ -247,6 +243,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: funnet, ikke spilt ennå`,
   stampCellNotFound: (place) => `Kafé ${place}: ikke funnet ennå`,
   stampNextCafe: (cafe) => `Neste kafé: ${cafe}`,
-  stampNextCafeUnfound: 'Finn neste kafé på byvandringen.',
+  stampNextCafeUnfound: 'Finn neste kafé på Sightseeing.',
   stampAllPlayed: 'Alle kafeene er spilt. Trykk på en for å spille den igjen.',
 }

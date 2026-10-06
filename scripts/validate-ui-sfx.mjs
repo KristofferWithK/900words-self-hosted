@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Are the three UI sound effects actually in this tree, and are they the files
+ * Are the UI sound effects actually in this tree, and are they the files
  * the player expects?
  *
  *   node scripts/validate-ui-sfx.mjs                     public/ (the source)
@@ -37,7 +37,7 @@ const durations = Object.fromEntries(
     Number(m[2]),
   ]),
 )
-const kinds = ['tick', 'blip', 'fanfare']
+const kinds = ['tick', 'blip', 'fanfare', 'cafe']
 for (const kind of kinds) {
   if (!files[kind]) fail(`src/ui/sfx.ts names no file for "${kind}" (SFX_FILES changed shape?)`)
   if (!durations[kind]) fail(`src/ui/sfxSynthesis.ts gives no duration for "${kind}" (SFX_DURATION changed shape?)`)

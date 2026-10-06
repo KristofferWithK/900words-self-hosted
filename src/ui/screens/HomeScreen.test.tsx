@@ -29,7 +29,6 @@ import {
   cafePuzzleAction,
   cafePuzzleNote,
   HomeScreen,
-  homeWalks,
   JourneyMap,
   nextHomeBoard,
   readCourseProgress,
@@ -219,8 +218,8 @@ describe('Home navigation', () => {
       expect(tags.map((tag) => tag[0])).toEqual(['tag tag-row home-catch-train', 'tag tag-row home-play home-tag-cafe', 'tag tag-row home-tag-sightseeing'])
       const [catchTrain, cafe, sightseeing] = tags
       expect(cafe![2]).toContain('data-cafe-action="next"')
-      // Danish has Words and Articles, so Sightseeing opens the chooser sheet.
-      expect(sightseeing![2]).toContain('aria-haspopup="dialog"')
+      // One walk for every course (owner, 2026-10-05): Sightseeing starts it at once, no chooser sheet.
+      expect(sightseeing![2]).not.toContain('aria-haspopup')
       expect(cafe![1]).toContain(`<span class="tag-label">${UI.home.cafePuzzle}</span>`)
       expect(cafe![1]).toContain(`<span class="tag-note">${cafeNameForBoard(CITY1_REQUIRED_SET.boards[0])}</span>`)
       expect(sightseeing![1]).toContain(`<span class="tag-label">${UI.sightseeing.title}</span>`)
@@ -339,11 +338,6 @@ describe('Home navigation', () => {
     expect(cafePuzzleNote({ kind: 'continue', slot: 'replay' })).toBe(UI.home.continueReplay)
     expect(cafePuzzleNote({ kind: 'improve' })).toBe(UI.home.improveBoards)
     expect(cafePuzzleNote({ kind: 'next', board })).toBe(cafeNameForBoard(board))
-  })
-
-  it('offers the Articles walk only where the course has articles to choose between', () => {
-    // The Danish course: en and et, so Sightseeing asks Words or Articles.
-    expect(homeWalks()).toEqual({ walks: ['words', 'articles'], lanes: ['en', 'et'] })
   })
 
   it('does not navigate to a result when Play leaves the current game finished', () => {

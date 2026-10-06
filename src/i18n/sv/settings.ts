@@ -288,7 +288,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `Din plan: ${plan}`,
   planChecking: 'Kontrollerar din plan hos Apple.',
   planCheckingPlay: 'Kontrollerar din plan hos Google Play.',
-  planFree: 'Gratisplan. Två promenader och två kafégåtor om dagen.',
+  planFree: 'Gratisplan. Sightseeing två gånger och två kafégåtor om dagen.',
   planMonthly: 'Obegränsat spelande. Månadsprenumeration. Den förnyas varje månad tills du säger upp den.',
   planLifetime: 'Obegränsat spelande. Engångsköp. Inget förnyas.',
   planBoth: 'Du äger engångsköpet. Din månadsprenumeration är fortfarande aktiv, och du behöver den inte längre. Säg upp den så att du inte debiteras igen.',

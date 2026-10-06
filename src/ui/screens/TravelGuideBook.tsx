@@ -20,7 +20,8 @@ import { ClueyFace } from '../components/Cluey'
 import { GrammarBook } from '../components/GrammarBook'
 import { GuideThumbIndexes } from '../components/GuideThumbIndexes'
 import { Tag } from '../components/Tag'
-import { playSurvivalLine } from '../speak'
+import { playSurvivalLine, WORD_POOL_LIMITS } from '../speak'
+import { useWordPool } from '../useWordPool'
 
 // Curriculum authoring stays behind this route's lazy boundary: opening an
 // ordinary Guide chapter must not pull the full assessment payload into the
@@ -71,6 +72,7 @@ interface TravelGuideBookProps {
 
 /** The Guide projects existing content/state without writing route or evidence. */
 export function TravelGuideBook({ initialEntry, onExit }: TravelGuideBookProps = {}) {
+  useWordPool('guide', WORD_POOL_LIMITS.tap)
   const goTo = useUi((s) => s.goTo)
   const currentCityIndex = useJourney((s) => s.cityIndex)
   const guideEntry = useUi((s) => s.guideEntry)

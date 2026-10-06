@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Magyar. Tegezés. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Városnézés',
-  wordsWalk: 'Szavak',
+  title: 'Sightseeing',
   rules: 'Egy rossz szót megbocsátunk. A második véget vet a futásnak.',
   steerHint: 'Húzd vagy koppints balra és jobbra a kormányzáshoz.',
-  start: 'Indulás',
-  walkAgain: 'Még egy kör',
+  start: 'Irány a Sightseeing',
+  sightseeingAgain: 'Még egy Sightseeing',
   pauseAria: 'Szünet',
   paused: 'Szünetel',
-  resume: 'Tovább',
+  resume: 'Sightseeing folytatása',
   photosLabel: 'Fotók',
   bestLabel: 'Rekord',
   askLabel: 'Melyik jelenti',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Új rekord!',
   comingBack: 'Ezek gyakrabban visszatérnek:',
   gateAria: (prompt: string, choices: string) => `Melyik jelenti: ${prompt}? ${choices}`,
-  articlesWalk: 'Névelők',
-  articlesHint: 'A szó a címkén áll. Kanyarodj a névelője felé. Minden névelőnek saját sávja van.',
   articleAsk: (others: string, last: string) => `${others} vagy ${last}?`,
   wrongArticle: 'Rossz út',
   articleGateAria: (noun: string, choices: string) => `Melyik névelő illik ehhez: ${noun}? ${choices}`,

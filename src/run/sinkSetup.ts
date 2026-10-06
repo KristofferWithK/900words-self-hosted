@@ -19,13 +19,13 @@ import { after, createWriteQueue, flushWhenHidden, WRITE_AFTER_MS, type Schedule
  *  - The run's first answer, right or wrong, counts the run against the daily
  *    two (owner O6, purchase/dailyGames.ts `countRun`). A run left before its
  *    first answer costs nothing. Once per run: the count re-arms at `end`.
- *  - A right answer of the Words walk is a photo of the word
+ *  - A right meaning on the walk is a photo of the word
  *    (`useJourney.recordPhotos`, journey/wordMarks.ts): a mark toward
- *    collecting it. A right ARTICLE (the Articles walk) is not a photo of the
+ *    collecting it. A right ARTICLE (an article gate) is not a photo of the
  *    word's meaning, the same line results.ts draws for misses, so it marks
  *    nothing: no learning evidence is made up from it.
- *  - A right answer of either walk counts toward the next café
- *    (journey/cafes.ts, both walks find cafés), in the same single journey
+ *  - Any right answer of the walk, meaning or article, counts toward the next
+ *    café (journey/cafes.ts), in the same single journey
  *    write as the photo mark (one save per answer). When one is found,
  *    `onCafeFound` listeners hear it: the screen puts the café on the road
  *    (and, on the first session's walk only, holds the run with "You found a
@@ -50,9 +50,9 @@ import { after, createWriteQueue, flushWhenHidden, WRITE_AFTER_MS, type Schedule
  * frame of the answer.
  */
 
-/** The walks of Sightseeing find cafés (contract §5). Any other run (the train) does not. */
+/** The Sightseeing walk finds cafés (contract §5). Any other run (the train) does not. */
 export function walkFindsCafes(walk: RunWalk | string): boolean {
-  return walk === 'words' || walk === 'articles'
+  return walk === 'words'
 }
 
 /** A photo that is evidence of knowing a word's meaning: a mark toward collecting it. */

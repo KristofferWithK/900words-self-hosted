@@ -52,16 +52,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Bientôt',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Les fiches de vocabulaire, c’est ennuyeux, alors on joue à deux jeux : une balade en ville pour récolter des mots, et une énigme de mots au café.',
+  introTwoGames: 'Les fiches de vocabulaire, c’est ennuyeux, alors on joue à deux jeux : le Sightseeing pour récolter des mots, et une énigme de mots au café.',
   introExplore: (city) => `Explorons ${city} et voyons si on trouve un café.`,
   introGo: 'C’est parti',
-  walkEndFound: 'Refais une balade, ou rentre à l’accueil pour jouer au café qu’on a trouvé.',
-  walkEndNotFound: 'Refais une balade pour chercher un café, ou rentre à l’accueil.',
+  walkEndFound: 'Refais du Sightseeing, ou rentre à l’accueil pour jouer au café qu’on a trouvé.',
+  walkEndNotFound: 'Refais du Sightseeing pour chercher un café, ou rentre à l’accueil.',
 
   // ── Les bulles d’aide sur les vrais écrans ──────────────────────────────
   tourNext: 'Suivant',
   tourDone: 'On y va',
-  tourLoose: 'Les mots qu’on a croisés attendent ici. Chaque anneau se remplit d’un tiers par marque : une photo en balade, une proposition sur mon indice, et un indice à toi.',
+  tourLoose: 'Les mots qu’on a croisés attendent ici. Chaque anneau se remplit d’un tiers par marque : une photo pendant le Sightseeing, une proposition sur mon indice, et un indice à toi.',
   tourLid: 'Avec trois marques, un mot est récolté. Les mots récoltés vont dans la valise, et cette ligne les compte.',
   tourTray: 'Voici la carte de tampons de la ville. Chaque café où tu joues reçoit ici son tampon. Un cercle en pointillés est un café trouvé mais pas encore joué, et ? un café encore à trouver.',
   mapTourHere: (city, words) =>
@@ -101,17 +101,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Cette énigme est perdue. Une énigme perdue donne quand même un tampon bronze. Une énigme gagnée donne argent, or ou platine. Le meilleur de ce café jusqu’ici : ${best}.`,
   resultTourCityPercent: (city) =>
-    `Chaque tampon de café compte pour la médaille de ${city} : bronze à 25 %, argent à 50 %, or à 75 % et platine à 100 %.`,
+    `Chaque tampon de café compte pour le tampon de ${city}. Le pourcentage, ce sont tous tes tampons de café réunis : de meilleurs tampons le font monter. Bronze à 25 %, argent à 50 %, or à 75 %, platine à 100 %.`,
   resultTourNoBestYet: 'encore à venir',
   resultTourSentence:
     'Voici une révision facultative. Elle montre un mot de ce plateau dans une phrase. Ce n’est pas un autre test.',
   resultTourNoReview:
     'Il n’y a pas de phrase à revoir cette fois. Ce n’est pas grave. La révision est toujours facultative.',
-  homeTourSightseeing: 'La visite de la ville, c’est la balade qu’on vient de faire. Chaque balade récolte des mots, et plus tu marches, plus tu trouves de cafés.',
+  homeTourSightseeing: 'Le Sightseeing, c’est ce qu’on vient de faire. Chaque séance récolte des mots, et plus tu en fais, plus tu trouves de cafés.',
   homeTourCafe: (name) =>
     name ? `Notre premier café, c’est ${name}. Touche Énigme au café pour t’installer et y jouer.` : 'Notre premier café t’attend. Touche Énigme au café pour t’installer et y jouer.',
-  homeTourStamp: 'Chaque café où tu joues reçoit un tampon. Ensemble, ils font la médaille de cette ville, et ceci montre où tu en es.',
-  homeTourCollection: 'Touche-moi pour ouvrir la valise. Je te montrerai les mots qu’on a récoltés et le tampon du café.',
+  homeTourStamp: 'Voici le tampon de la ville. Son pourcentage, ce sont tous tes tampons de café réunis, et un meilleur tampon compte plus. Rejoue un café pour un meilleur tampon, et il monte.',
+  homeTourCollection: 'Touche-moi pour ouvrir la valise. Dedans, il y a nos mots et le tampon du café.',
 
   // ── La manche d’entraînement : les raisons écrites de Casey ─────────────
   practiceRationaleDrink: 'L’eau, le café et le lait, ça se boit.',

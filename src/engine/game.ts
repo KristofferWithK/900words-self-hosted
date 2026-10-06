@@ -226,6 +226,22 @@ function endTurn(s: GameState, giver: Side): GameState {
  * Passed in rather than imported so `src/engine` stays what CLAUDE.md says it
  * is: rules, no data.
  */
+/**
+ * The segment the next SPIN_WHEEL will land on, or null when there is no spin
+ * to make. Pure chance, drawn from the round's own seed stream (a mulberry32
+ * per spin keeps the stream independent of how many spins ever happen), so it
+ * is already a fact before the tap: the reducer reads it from here, and the
+ * spinner reads it ahead to ready the spin's clack track, whose media element
+ * then starts without loading anything (owner, build 123: the sound must match
+ * the spin). Nothing is shown from it before the disc lands.
+ */
+export function nextWheelLanding(s: GameState): number | null {
+  const wheel = s.wheel
+  if (!wheel || !wheel.segments.length || wheel.result) return null
+  const spin = mulberry32(s.seed ^ 0x5eed1dea ^ wheel.attempts)
+  return Math.floor(spin() * wheel.segments.length) % wheel.segments.length
+}
+
 export function applyEvent(state: GameState, event: GameEvent, lang: LanguagePack): GameState {
   const s = structuredClone(state)
 
@@ -457,8 +473,7 @@ export function applyEvent(state: GameState, event: GameEvent, lang: LanguagePac
       // Pure chance, drawn engine-side from the round's own seed stream so the
       // renderer cannot pick its prize and a replay replays. A mulberry32 per
       // spin keeps the stream independent of how many spins ever happen.
-      const spin = mulberry32(s.seed ^ 0x5eed1dea ^ wheel.attempts)
-      wheel.landed = Math.floor(spin() * wheel.segments.length) % wheel.segments.length
+      wheel.landed = nextWheelLanding(s)!
       // The verdict reads the FILLED segments, not `translated`: the owner's
       // amendment decoupled which word was answered from where the fill went,
       // so a landed segment wins because the engine filled it — not because

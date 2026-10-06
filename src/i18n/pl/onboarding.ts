@@ -54,16 +54,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Wkrótce',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Fiszki są nudne, więc gramy w dwie gry: spacer po mieście, na którym zbieramy słowa, i łamigłówkę słowną w kawiarni.',
+  introTwoGames: 'Fiszki są nudne, więc gramy w dwie gry: Sightseeing, podczas którego zbieramy słowa, i łamigłówkę słowną w kawiarni.',
   introExplore: (city) => `Zwiedźmy ${city} i sprawdźmy, czy znajdziemy kawiarnię.`,
   introGo: 'Ruszamy',
-  walkEndFound: 'Przejdź się jeszcze raz albo wróć do ekranu Start i zagraj w znalezionej kawiarni.',
-  walkEndNotFound: 'Przejdź się jeszcze raz, żeby poszukać kawiarni, albo wróć do ekranu Start.',
+  walkEndFound: 'Jeszcze raz Sightseeing albo wróć do ekranu Start i zagraj w znalezionej kawiarni.',
+  walkEndNotFound: 'Jeszcze raz Sightseeing, żeby poszukać kawiarni, albo wróć do ekranu Start.',
 
   // ── Podpowiedzi ekranowe na prawdziwych ekranach ────────────────────────
   tourNext: 'Dalej',
   tourDone: 'Ruszamy',
-  tourLoose: 'Słowa, które poznaliśmy, czekają tu na górze. Każdy pierścień wypełnia się o jedną trzecią za każdy znak: zdjęcie na spacerze, próbę przy mojej wskazówce i twoją własną wskazówkę.',
+  tourLoose: 'Słowa, które poznaliśmy, czekają tu na górze. Każdy pierścień wypełnia się o jedną trzecią za każdy znak: zdjęcie podczas Sightseeingu, próbę przy mojej wskazówce i twoją własną wskazówkę.',
   tourLid: 'Z trzema znakami słowo jest zebrane. Zebrane słowa trafiają do walizki, a ta linijka je liczy.',
   tourTray: 'To karta pieczątek miasta. Każda kawiarnia, w której zagrasz, dostaje tu swoją pieczątkę. Przerywane kółko to kawiarnia znaleziona, ale jeszcze nierozegrana, a ? to kawiarnia wciąż do znalezienia.',
   // „trzeba co najmniej” rządzi dopełniaczem: 1 zebranego słowa, 3 zebranych słów.
@@ -104,17 +104,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Ta łamigłówka jest przegrana. Przegrana łamigłówka też daje brązową pieczątkę. Wygrana daje srebrną, złotą lub platynową. Najlepszy wynik tej kawiarni do tej pory: ${best}.`,
   resultTourCityPercent: (city) =>
-    `Każda pieczątka kawiarni liczy się do medalu miasta ${city}: brąz od 25%, srebro od 50%, złoto od 75% i platyna przy 100%.`,
+    `Każda pieczątka kawiarni liczy się do pieczątki miasta ${city}. Procent to wszystkie twoje pieczątki kawiarni razem: lepsze pieczątki go podnoszą. Brąz od 25%, srebro od 50%, złoto od 75% i platyna przy 100%.`,
   resultTourNoBestYet: 'jeszcze brak',
   resultTourSentence:
     'To opcjonalna powtórka. Pokazuje słowo z tej planszy w zdaniu. To nie jest kolejny test.',
   resultTourNoReview:
     'Tym razem nie ma zdania do powtórki. Nic nie szkodzi. Powtórka jest zawsze opcjonalna.',
-  homeTourSightseeing: 'Zwiedzanie to spacer, który właśnie odbyliśmy. Każdy spacer zbiera słowa, a im więcej chodzisz, tym więcej kawiarni znajdujesz.',
+  homeTourSightseeing: 'Sightseeing to właśnie to, co przed chwilą robiliśmy. Każdy Sightseeing zbiera słowa, a im częściej na niego idziesz, tym więcej kawiarni znajdujesz.',
   homeTourCafe: (name) =>
     name ? `Nasza pierwsza kawiarnia to ${name}. Dotknij Kawiarnianej łamigłówki, żeby usiąść i zagrać.` : 'Nasza pierwsza kawiarnia czeka. Dotknij Kawiarnianej łamigłówki, żeby usiąść i zagrać.',
-  homeTourStamp: 'Każda kawiarnia, w której zagrasz, dostaje pieczątkę. Razem tworzą medal tego miasta, a tu widać, jak daleko jesteś.',
-  homeTourCollection: 'Dotknij mnie, żeby otworzyć walizkę. Pokażę ci zebrane słowa i pieczątkę kawiarni.',
+  homeTourStamp: 'To pieczątka miasta. Jej procent to wszystkie twoje pieczątki kawiarni razem, a lepsza pieczątka liczy się bardziej. Zagraj w kawiarni jeszcze raz po lepszą pieczątkę, a procent wzrośnie.',
+  homeTourCollection: 'Dotknij mnie, żeby otworzyć walizkę. W środku są nasze słowa i pieczątka kawiarni.',
 
   // ── Runda próbna: uzasadnienia Casey napisane z góry ────────────────────
   practiceRationaleDrink: 'Wodę, kawę i mleko: wszystko to się pije.',

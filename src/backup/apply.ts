@@ -20,6 +20,7 @@ import { cityKey } from '../progression/identity'
 import { emptyLearning, legacyProgress, mergeLearning } from './progress'
 import { DEVELOPED_CITY_COUNT } from '../journey/cities'
 import { mergeRecovery, RecoveryArchiveSchema } from './recovery'
+import { shareOrDownload } from './shareFile'
 import {
   BACKUP_FILENAME,
   buildBackup,
@@ -220,30 +221,5 @@ export async function prepareBackupText(now: number, options: { history?: boolea
  */
 export async function downloadBackup(now: number): Promise<'shared' | 'downloaded'> {
   const text = await prepareBackupText(now, { history: true })
-  const file = new File([text], BACKUP_FILENAME, { type: 'application/json' })
-
-  const nav = navigator as Navigator & {
-    canShare?: (data: { files?: File[] }) => boolean
-    share?: (data: { files?: File[]; title?: string }) => Promise<void>
-  }
-  if (nav.share && nav.canShare?.({ files: [file] })) {
-    try {
-      await nav.share({ files: [file], title: '900words collection' })
-      return 'shared'
-    } catch (e) {
-      // A cancelled share is not a failure worth reporting; fall through to
-      // the download so the button always does something.
-      if (e instanceof DOMException && e.name === 'AbortError') return 'shared'
-    }
-  }
-
-  const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }))
-  const a = document.createElement('a')
-  a.href = url
-  a.download = BACKUP_FILENAME
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
-  setTimeout(() => URL.revokeObjectURL(url), 10_000)
-  return 'downloaded'
+  return shareOrDownload(text, BACKUP_FILENAME, '900words collection')
 }

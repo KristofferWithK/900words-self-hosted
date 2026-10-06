@@ -38,7 +38,7 @@ export const home: Catalogue['home'] = {
   readyToTravel: 'Bereit zum Reisen',
   nextStopNotReleased: (city) => `Bereit zum Reisen. ${city} ist noch nicht veröffentlicht.`,
   cityMedalInProgress: 'noch nicht verdient',
-  cityMedal: (tier) => `Stadtmedaille: ${tier}`,
+  cityMedal: (tier) => `Stadtstempel: ${tier}`,
   backToCity: (city) => `Zurück nach ${city}`,
 
   // ── Die Karte ───────────────────────────────────────────────────────────
@@ -164,14 +164,14 @@ export const home: Catalogue['home'] = {
     'und bekomm dafür einen Reiseticket-Code für 6 Monate. Deine Rezension darf gut oder schlecht sein, je nachdem, wie dir die App gefällt.',
 
   // ── Tageslimit-Upgrade ───────────────────────────────────────────────────
-  dailyLimitKicker: 'Kostenlos sind zwei Stadtbummel und zwei Café-Rätsel pro Tag.',
-  dailyLimitRunsKicker: 'Du warst heute schon zweimal auf Stadtbummel.',
+  dailyLimitKicker: 'Kostenlos sind zweimal Sightseeing und zwei Café-Rätsel pro Tag.',
+  dailyLimitRunsKicker: 'Du warst heute schon zweimal beim Sightseeing.',
   dailyLimitPuzzlesKicker: 'Du hast heute schon zwei Café-Rätsel gespielt.',
-  dailyLimitBothKicker: 'Du warst heute schon zweimal auf Stadtbummel und hast zwei Café-Rätsel gespielt.',
+  dailyLimitBothKicker: 'Du warst heute schon zweimal beim Sightseeing und hast zwei Café-Rätsel gespielt.',
   dailyLimitPuzzlesLeft: (n: number) => `Du kannst heute noch ${n} Café-Rätsel spielen.`,
-  dailyLimitRunsLeft: (n: number) => `Du kannst heute noch ${n} Stadtbummel machen.`,
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Du kannst heute noch einmal zum Sightseeing.' : `Du kannst heute noch ${n}-mal zum Sightseeing.`),
   dailyLimitHeading: 'Spiel weiter mit Casey',
-  dailyLimitBody: 'Komm morgen wieder oder schalte unbegrenzte Stadtbummel und Café-Rätsel frei.',
+  dailyLimitBody: 'Komm morgen wieder oder schalte unbegrenztes Sightseeing und unbegrenzte Café-Rätsel frei.',
   dailyLimitOptionsAria: 'Optionen für unbegrenztes Spielen',
   dailyLimitMonthly: 'Monatlich',
   dailyLimitMonthlyHelp: 'Verlängert sich monatlich, bis du kündigst.',
@@ -220,10 +220,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Café-Rätsel',
   sightseeingNote: 'neue Cafés finden',
-  sightseeingAsk: 'Worauf willst du achten?',
-  wordsWalkNote: 'Was bedeutet es? Fotografiere das richtige Wort und finde neue Cafés.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Nimm den linken oder den rechten Weg.` : `${ask} Jeder Artikel hat seine eigene Spur.`,
   trainSheetTitle: (city) => `Der Zug nach ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} Wörter (${board} auf den Brettern, ${connecting} Verbindungswörter)` : `${city}: ${total} Wörter`,
@@ -232,7 +228,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: ${percent} der Café-Stempel.`,
   stampNone: 'Kein Stempel',
   cafeNotFoundNote: 'finde zuerst ein Café',
-  cafeNotFoundLine: 'Finde zuerst ein Café beim Stadtbummel.',
+  cafeNotFoundLine: 'Finde zuerst ein Café beim Sightseeing.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Je ein Drittel für Foto, Rateversuch und Hinweis',
   markPhoto: 'Foto',
@@ -254,6 +250,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: gefunden, noch nicht gespielt`,
   stampCellNotFound: (place) => `Café ${place}: noch nicht gefunden`,
   stampNextCafe: (cafe) => `Nächstes Café: ${cafe}`,
-  stampNextCafeUnfound: 'Finde das nächste Café beim Stadtbummel.',
+  stampNextCafeUnfound: 'Finde das nächste Café beim Sightseeing.',
   stampAllPlayed: 'Alle Cafés sind gespielt. Tippe eins an, um es noch mal zu spielen.',
 }

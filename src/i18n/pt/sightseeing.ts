@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Português europeu. Tu, nunca você. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Passeio pela cidade',
-  wordsWalk: 'Palavras',
+  title: 'Sightseeing',
   rules: 'Uma palavra errada é perdoada. A segunda termina a corrida.',
   steerHint: 'Desliza ou toca à esquerda e à direita para mudar de direção.',
-  start: 'Começar a andar',
-  walkAgain: 'Andar outra vez',
+  start: 'Começar o Sightseeing',
+  sightseeingAgain: 'Mais Sightseeing',
   pauseAria: 'Pausar',
   paused: 'Em pausa',
-  resume: 'Continuar a andar',
+  resume: 'Continuar o Sightseeing',
   photosLabel: 'Fotos',
   bestLabel: 'Recorde',
   askLabel: 'Qual significa',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Novo recorde!',
   comingBack: 'Estas palavras vão voltar mais vezes:',
   gateAria: (prompt: string, choices: string) => `Qual significa ${prompt}? ${choices}`,
-  articlesWalk: 'Artigos',
-  articlesHint: 'A palavra está na etiqueta. Vai para o artigo dela. Cada artigo tem a sua faixa.',
   articleAsk: (others: string, last: string) => `${others} ou ${last}?`,
   wrongArticle: 'Caminho errado',
   articleGateAria: (noun: string, choices: string) => `Que artigo vai com ${noun}? ${choices}`,

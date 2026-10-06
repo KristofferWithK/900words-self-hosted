@@ -50,16 +50,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Kommer snart',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Gloseøving er kjedelig, så vi spiller to spill i stedet: en byvandring for å samle ord, og et ordspill på en kafé.',
+  introTwoGames: 'Gloseøving er kjedelig, så vi spiller to spill i stedet: Sightseeing for å samle ord, og et ordspill på en kafé.',
   introExplore: (city) => `La oss utforske ${city} og se om vi finner en kafé.`,
   introGo: 'Kom igjen',
-  walkEndFound: 'Gå igjen, eller dra hjem og spill kafeen vi fant.',
-  walkEndNotFound: 'Gå igjen for å lete etter en kafé, eller dra hjem.',
+  walkEndFound: 'Dra på Sightseeing igjen, eller dra hjem og spill kafeen vi fant.',
+  walkEndNotFound: 'Dra på Sightseeing igjen for å lete etter en kafé, eller dra hjem.',
 
   // ── Veiviserne på de ekte skjermene ─────────────────────────────────────
   tourNext: 'Neste',
   tourDone: 'Da drar vi',
-  tourLoose: 'Ord vi har møtt, venter her oppe. Hver ring fylles en tredel for hvert merke: et bilde på en tur, en gjetning på hintet mitt og et hint fra deg.',
+  tourLoose: 'Ord vi har møtt, venter her oppe. Hver ring fylles en tredel for hvert merke: et bilde på Sightseeing, en gjetning på hintet mitt og et hint fra deg.',
   tourLid: 'Med tre merker er ordet samlet. Samlede ord havner i kofferten, og denne linjen teller dem.',
   tourTray: 'Dette er byens stempelkort. Hver kafé du spiller, får stempelet sitt her. En stiplet sirkel er en kafé som er funnet, men ikke spilt ennå, og ? er en kafé som gjenstår å finne.',
   mapTourHere: (city, words) =>
@@ -99,17 +99,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Denne gåten ble tapt. En tapt gåte gir likevel et bronsestempel. En vunnet gåte gir sølv, gull eller platina. Det beste for denne kafeen så langt er ${best}.`,
   resultTourCityPercent: (city) =>
-    `Hvert kafestempel teller for medaljen til ${city}: bronse fra 25 %, sølv fra 50 %, gull fra 75 % og platina ved 100 %.`,
+    `Hvert kafestempel teller for bystempelet til ${city}. Prosenten er alle kafestemplene dine til sammen: bedre stempler løfter den. Bronse fra 25 %, sølv fra 50 %, gull fra 75 % og platina ved 100 %.`,
   resultTourNoBestYet: 'ikke satt ennå',
   resultTourSentence:
     'Dette er en valgfri gjennomgang. Den viser et ord fra dette brettet i en setning. Det er ingen ny test.',
   resultTourNoReview:
     'Det er ingen setning å gå gjennom denne gangen. Det er helt greit. Gjennomgangen er alltid valgfri.',
-  homeTourSightseeing: 'Byvandring er turen vi nettopp gikk. Hver tur samler ord, og jo mer du går, jo flere kafeer finner du.',
+  homeTourSightseeing: 'Sightseeing er det vi nettopp gjorde. Hver runde samler ord, og jo flere runder du tar, jo flere kafeer finner du.',
   homeTourCafe: (name) =>
     name ? `Vår første kafé er ${name}. Trykk på Kafégåte for å sette deg og spille.` : 'Vår første kafé venter. Trykk på Kafégåte for å sette deg og spille.',
-  homeTourStamp: 'Hver kafé du spiller, får et stempel. Sammen blir de byens medalje, og her ser du hvor langt du har kommet.',
-  homeTourCollection: 'Trykk på meg for å åpne kofferten. Jeg viser deg ordene vi har samlet og kafeens stempel.',
+  homeTourStamp: 'Dette er bystempelet. Prosenten er alle kafestemplene dine til sammen, og et bedre stempel teller mer. Spill en kafé igjen for et bedre stempel, så går det opp.',
+  homeTourCollection: 'Trykk på meg for å åpne kofferten. Inni er ordene våre og kafeens stempel.',
 
   // ── Øvingsrunden: Caseys ferdigskrevne begrunnelser ─────────────────────
   practiceRationaleDrink: 'Vann, kaffe og melk er alle ting man drikker.',

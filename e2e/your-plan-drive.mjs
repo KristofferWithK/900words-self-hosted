@@ -107,7 +107,7 @@ try {
     const { page, section, errors } = await settings('ios', 'free', { width: 360, height: 640 })
     await expectPlan(section, 'free')
     await expectChip(page, 'Free')
-    await section.getByText('Free plan. Two walks and two café puzzles a day.').waitFor()
+    await section.getByText('Free plan. Two sightseeing trips and two café puzzles a day.').waitFor()
     await section.getByRole('button', { name: 'Restore purchases' }).waitFor()
     await section.getByRole('button', { name: 'Redeem an App Store code' }).waitFor()
     if (await count(section.getByText('Manage or cancel subscription'))) throw new Error('A free player is offered Manage')

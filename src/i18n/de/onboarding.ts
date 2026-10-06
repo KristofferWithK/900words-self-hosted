@@ -49,16 +49,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Demnächst',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Karteikarten sind langweilig, deshalb spielen wir zwei Spiele: einen Stadtbummel, auf dem wir Wörter sammeln, und ein Worträtsel im Café.',
+  introTwoGames: 'Karteikarten sind langweilig, deshalb spielen wir zwei Spiele: Sightseeing, bei dem wir Wörter sammeln, und ein Worträtsel im Café.',
   introExplore: (city) => `Lass uns ${city} erkunden und schauen, ob wir ein Café finden.`,
   introGo: 'Los geht’s',
-  walkEndFound: 'Lauf noch einmal oder geh zum Startbildschirm und spiel das Café, das wir gefunden haben.',
-  walkEndNotFound: 'Lauf noch einmal, um ein Café zu suchen, oder geh zum Startbildschirm.',
+  walkEndFound: 'Mach noch mal Sightseeing oder geh zum Startbildschirm und spiel das Café, das wir gefunden haben.',
+  walkEndNotFound: 'Mach noch mal Sightseeing, um ein Café zu suchen, oder geh zum Startbildschirm.',
 
   // ── Die Hinweisfenster auf den echten Screens ───────────────────────────
   tourNext: 'Weiter',
   tourDone: 'Weiter geht’s',
-  tourLoose: 'Wörter, denen wir begegnet sind, warten hier oben. Jeder Ring füllt sich zu einem Drittel für ein Foto beim Stadtbummel, einen Rateversuch zu meinem Hinweis und einen Hinweis von dir.',
+  tourLoose: 'Wörter, denen wir begegnet sind, warten hier oben. Jeder Ring füllt sich zu einem Drittel für ein Foto beim Sightseeing, einen Rateversuch zu meinem Hinweis und einen Hinweis von dir.',
   tourLid: 'Mit allen drei ist ein Wort gesammelt. Gesammelte Wörter kommen in den Koffer, und diese Zeile zählt sie.',
   tourTray: 'Das ist die Stempelkarte der Stadt. Jedes Café, das du spielst, bekommt hier seinen Stempel. Ein gestrichelter Kreis ist ein gefundenes Café, das noch nicht gespielt ist, und ? ein Café, das noch zu finden ist.',
   mapTourHere: (city, _words) =>
@@ -97,17 +97,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Dieses Rätsel ging verloren. Auch ein verlorenes Rätsel bringt einen Bronze-Stempel. Ein gewonnenes bringt Silber, Gold oder Platin. Das Beste für dieses Café ist bisher ${best}.`,
   resultTourCityPercent: (city) =>
-    `Jeder Café-Stempel zählt für die Medaille von ${city}: Bronze ab 25 %, Silber ab 50 %, Gold ab 75 % und Platin bei 100 %.`,
+    `Jeder Café-Stempel zählt für den Stadtstempel von ${city}. Die Prozentzahl sind alle deine Café-Stempel zusammen: Bessere Stempel bringen mehr. Bronze ab 25 %, Silber ab 50 %, Gold ab 75 %, Platin bei 100 %.`,
   resultTourNoBestYet: 'noch offen',
   resultTourSentence:
     'Das ist eine freiwillige Wiederholung. Sie zeigt ein Wort von diesem Brett in einem Satz. Das ist kein weiterer Test.',
   resultTourNoReview:
     'Diesmal gibt es keinen Satz zum Wiederholen. Das ist in Ordnung. Die Wiederholung ist immer freiwillig.',
-  homeTourSightseeing: 'Der Stadtbummel ist der Lauf, den wir gerade gemacht haben. Jeder Lauf sammelt Wörter, und wer mehr läuft, findet mehr Cafés.',
+  homeTourSightseeing: 'Sightseeing ist das, was wir gerade gemacht haben. Dabei sammeln wir Wörter, und je öfter du losziehst, desto mehr Cafés findest du.',
   homeTourCafe: (name) =>
     name ? `Unser erstes Café ist ${name}. Tippe auf Café-Rätsel, setz dich und spiel es.` : 'Unser erstes Café wartet. Tippe auf Café-Rätsel, setz dich und spiel es.',
-  homeTourStamp: 'Jedes Café, das du spielst, bekommt einen Stempel. Zusammen ergeben sie die Medaille dieser Stadt, und hier siehst du, wie weit du bist.',
-  homeTourCollection: 'Tippe auf mich, um den Koffer zu öffnen. Ich zeige dir die Wörter, die wir gesammelt haben, und den Stempel des Cafés.',
+  homeTourStamp: 'Das ist der Stadtstempel. Seine Prozentzahl sind alle deine Café-Stempel zusammen, und ein besserer Stempel zählt mehr. Spiel ein Café noch einmal für einen besseren Stempel, dann steigt er.',
+  homeTourCollection: 'Tippe auf mich, um den Koffer zu öffnen. Darin sind unsere Wörter und der Stempel des Cafés.',
 
   // ── Die Übungsrunde: Caseys geschriebene Begründungen ───────────────────
   practiceRationaleDrink: 'Wasser, Kaffee und Milch sind alles Dinge, die man trinkt.',

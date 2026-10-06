@@ -43,16 +43,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Próximamente',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Las tarjetas de vocabulario son aburridas, así que jugamos a dos juegos: un paseo turístico para reunir palabras y un puzle de palabras en un café.',
+  introTwoGames: 'Las tarjetas de vocabulario son aburridas, así que jugamos a dos juegos: el Sightseeing para reunir palabras y un puzle de palabras en un café.',
   introExplore: (city) => `Vamos a explorar ${city} y a ver si encontramos un café.`,
   introGo: '¡Vamos!',
-  walkEndFound: 'Camina otra vez, o vuelve a Inicio y juega en el café que encontramos.',
-  walkEndNotFound: 'Camina otra vez para buscar un café, o vuelve a Inicio.',
+  walkEndFound: 'Haz Sightseeing otra vez, o vuelve a Inicio y juega en el café que encontramos.',
+  walkEndNotFound: 'Haz Sightseeing otra vez para buscar un café, o vuelve a Inicio.',
 
   // ── Los avisos sobre las pantallas reales ───────────────────────────────
   tourNext: 'Siguiente',
   tourDone: 'En marcha',
-  tourLoose: 'Las palabras que hemos visto esperan aquí arriba. Cada anillo se llena un tercio por cada marca: una foto en un paseo, un intento con mi pista y una pista tuya.',
+  tourLoose: 'Las palabras que hemos visto esperan aquí arriba. Cada anillo se llena un tercio por cada marca: una foto en Sightseeing, un intento con mi pista y una pista tuya.',
   tourLid: 'Con tres marcas, la palabra queda reunida. Las palabras reunidas van a la maleta, y esta línea las cuenta.',
   tourTray: 'Esta es la tarjeta de sellos de la ciudad. Cada café que juegas recibe aquí su sello. Un círculo discontinuo es un café encontrado pero aún sin jugar, y ? es un café por encontrar.',
   mapTourHere: (city, words) =>
@@ -92,17 +92,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Este puzle se perdió. Un puzle perdido también da un sello de bronce. Uno ganado da plata, oro o platino. Lo mejor de este café hasta ahora es ${best}.`,
   resultTourCityPercent: (city) =>
-    `Cada sello de café suma para la medalla de ${city}: bronce desde el 25 %, plata desde el 50 %, oro desde el 75 % y platino al 100 %.`,
+    `Cada sello de café cuenta para el sello de ${city}. El porcentaje son todos tus sellos de café juntos: los mejores sellos lo suben. Bronce desde el 25 %, plata desde el 50 %, oro desde el 75 % y platino al 100 %.`,
   resultTourNoBestYet: 'aún sin fijar',
   resultTourSentence:
     'Este es un repaso opcional. Muestra una palabra de este tablero en una frase. No es otra prueba.',
   resultTourNoReview:
     'Esta vez no hay ninguna frase para repasar. No pasa nada. Repasar siempre es opcional.',
-  homeTourSightseeing: 'Turismo es el paseo que acabamos de dar. Cada paseo reúne palabras, y cuanto más caminas, más cafés encuentras.',
+  homeTourSightseeing: 'Sightseeing es lo que acabamos de hacer. Cada sesión reúne palabras, y cuanto más Sightseeing haces, más cafés encuentras.',
   homeTourCafe: (name) =>
     name ? `Nuestro primer café es ${name}. Toca Puzle del café para sentarte a jugarlo.` : 'Nuestro primer café te espera. Toca Puzle del café para sentarte a jugarlo.',
-  homeTourStamp: 'Cada café que juegas recibe un sello. Juntos forman la medalla de esta ciudad, y aquí ves cuánto llevas.',
-  homeTourCollection: 'Tócame para abrir la maleta. Te enseñaré las palabras que hemos reunido y el sello del café.',
+  homeTourStamp: 'Este es el sello de la ciudad. Su porcentaje son todos tus sellos de café juntos, y un sello mejor cuenta más. Vuelve a jugar un café para conseguir un sello mejor y subirá.',
+  homeTourCollection: 'Tócame para abrir la maleta. Dentro están nuestras palabras y el sello del café.',
 
   // ── La ronda de práctica: las razones escritas de Casey ─────────────────
   practiceRationaleDrink: 'El agua, el café y la leche son cosas que se beben.',

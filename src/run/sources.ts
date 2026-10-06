@@ -6,8 +6,7 @@ import { COMPLETE } from '../i18n/glosses'
 import type { UiLanguage } from '../i18n/types'
 import { wordsForCity } from '../journey/progress'
 import { ACTIVE } from '../lang/active'
-import type { RunWalk } from './results'
-import { articleLanes, laneOfArticle } from './walks'
+import { articleGateLanes, laneOfArticle } from './walks'
 import {
   boardRunWords,
   cityRunWords,
@@ -86,18 +85,16 @@ export function runWordsForCity(cityIndex: number): RunWord[] {
   return cityRunWords(RUN_WORD_SOURCES, cityIndex)
 }
 
-/** The Articles walk's lanes for the course being played, left to right. */
-export function activeArticleLanes(): string[] {
-  return articleLanes(ACTIVE)
+/**
+ * The lanes of an article gate for the course being played, left to right,
+ * null for the brick wall; null when the course has no article gates
+ * (src/run/walks.ts `articleGateLanes`).
+ */
+export function activeArticleGateLanes(): (string | null)[] | null {
+  return articleGateLanes(ACTIVE)
 }
 
-/** The nouns of a pool the Articles walk can ask: those whose article has a lane. */
-export function articleWords(pool: readonly RunWord[], lanes: readonly string[]): RunWord[] {
+/** The nouns of a pool an article gate can ask: those whose article has a lane. */
+export function articleWords(pool: readonly RunWord[], lanes: readonly (string | null)[]): RunWord[] {
   return pool.filter((w) => laneOfArticle(lanes, w.article) >= 0)
-}
-
-/** The words a walk of a city asks from. */
-export function walkPool(walk: RunWalk, cityIndex: number, lanes: readonly string[] = activeArticleLanes()): RunWord[] {
-  const all = runWordsForCity(cityIndex)
-  return walk === 'articles' ? articleWords(all, lanes) : all
 }

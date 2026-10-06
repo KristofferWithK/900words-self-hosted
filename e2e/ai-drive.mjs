@@ -93,39 +93,24 @@ await page.addInitScript(
         return true
       },
     })
-    class FakeAudioParam {
-      setValueAtTime() {}
-      exponentialRampToValueAtTime() {}
-    }
-    class FakeOscillator {
-      constructor() {
-        this.frequency = new FakeAudioParam()
-      }
-      connect() {}
-      start(at = 0) {
-        window.__feedback.oscillatorStarts.push(at)
-      }
-      stop() {}
-    }
-    class FakeGain {
-      constructor() {
-        this.gain = new FakeAudioParam()
-      }
-      connect() {}
-    }
-    window.AudioContext = class {
-      currentTime = 0
-      state = 'running'
-      destination = {}
-      createOscillator() {
-        return new FakeOscillator()
-      }
-      createGain() {
-        return new FakeGain()
-      }
-      resume() {
-        this.state = 'running'
-        return Promise.resolve()
+    // The app's REAL AudioContext, with every oscillator start counted. Words
+    // play through it since #413 (decoded buffers, src/ui/wordAudioWeb.ts),
+    // so it must decode and play for real: the stand-in this used to be had
+    // no decodeAudioData or buffer sources, and every word Casey guessed was
+    // reported as a recording that did not load. It starts on the Give-clue
+    // tap, a real click, as it does on a phone.
+    const RealAudioContext = window.AudioContext
+    if (RealAudioContext) {
+      window.AudioContext = class extends RealAudioContext {
+        createOscillator() {
+          const osc = super.createOscillator()
+          const start = osc.start.bind(osc)
+          osc.start = (at = 0, ...rest) => {
+            window.__feedback.oscillatorStarts.push(at)
+            return start(at, ...rest)
+          }
+          return osc
+        }
       }
     }
     localStorage.setItem(
@@ -473,7 +458,15 @@ try {
     }, 40)
   })
   await submitClue()
-  await sleep(9000)
+  // Until both reveals are on the transcript (not a fixed 9 s: a second reveal
+  // landing in the last sampling gap was counted as spoken but not as
+  // revealed), then long enough for a doubled saying to show up.
+  await page.waitForFunction(
+    (n) => window.__u3.filter((b) => b.beat !== 'think' && /«[^»]+»/.test(b.line)).length >= n,
+    spoken.length,
+    { timeout: 20_000 },
+  ).catch(() => {})
+  await sleep(1500)
   const transcript = await page.evaluate(() => {
     clearInterval(window.__u3timer)
     return { beats: window.__u3, clips: window.__clips, anim: [...(window.__anim ?? [])] }

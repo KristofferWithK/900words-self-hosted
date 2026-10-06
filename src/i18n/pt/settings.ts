@@ -293,7 +293,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `O teu plano: ${plan}`,
   planChecking: 'A verificar o teu plano com a Apple.',
   planCheckingPlay: 'A verificar o teu plano com o Google Play.',
-  planFree: 'Plano gratuito. Dois passeios e dois enigmas do café por dia.',
+  planFree: 'Plano gratuito. Duas sessões de Sightseeing e dois enigmas do café por dia.',
   planMonthly: 'Jogos ilimitados. Subscrição mensal. Renova todos os meses até a cancelares.',
   planLifetime: 'Jogos ilimitados. Pagamento único. Nada é renovado.',
   planBoth: 'Já tens o pagamento único. A tua subscrição mensal continua ativa e já não precisas dela. Cancela-a para não voltares a pagar.',

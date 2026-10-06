@@ -294,7 +294,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `Ton forfait : ${plan}`,
   planChecking: 'Vérification de ton forfait auprès d’Apple.',
   planCheckingPlay: 'Vérification de ton forfait auprès de Google Play.',
-  planFree: 'Forfait gratuit. Deux balades et deux énigmes au café par jour.',
+  planFree: 'Forfait gratuit. Deux séances de Sightseeing et deux énigmes au café par jour.',
   planMonthly: 'Parties illimitées. Abonnement mensuel. Il se renouvelle chaque mois jusqu’à ce que tu le résilies.',
   planLifetime: 'Parties illimitées. Paiement unique. Rien ne se renouvelle.',
   planBoth: 'Tu as le paiement unique. Ton abonnement mensuel est toujours actif, et tu n’en as plus besoin. Résilie-le pour ne plus être facturé.',

@@ -186,14 +186,21 @@ function Item({ item }: { item: TableItem }) {
 }
 
 /**
- * The café's table: one layer behind everything on the game screen, fixed to
- * the phone's screen, with the board's region and the bottom area's
- * (docs/roadmap/cafe-world.md section 5: "each café's table art is fixed and
- * does not change during the puzzle"). Nothing in the game reaches it: it
- * takes the arrangement and nothing else, so no turn, phase, keyboard or
- * Casey state can show, hide, move or redraw an item. Memoised on that one
- * prop (GameScreen makes it once per café), so the round's re-renders, a card
- * tap's included, never touch these drawings.
+ * The café's table: drawn behind everything on the game screen, the board's
+ * region and the bottom area's (docs/roadmap/cafe-world.md section 5: "each
+ * café's table art is fixed and does not change during the puzzle"). Nothing
+ * in the game reaches it: it takes the arrangement and nothing else, so no
+ * turn, phase or Casey state can show, hide, move or redraw an item. Memoised
+ * on that one prop (GameScreen makes it once per café), so the round's
+ * re-renders, a card tap's included, never touch these drawings.
+ *
+ * Two layers of the one arrangement. The board's region is fixed to the
+ * phone's screen. The bottom area's rides with the dock (owner, build 123:
+ * with the keyboard up the art around the composer "switches the artwork or
+ * takes it from the board"): it is anchored to the dock's rectangle, so when
+ * the composer goes up with the keyboard its own items go up with it,
+ * exactly as they lie at rest, and come back down with it
+ * (77-cafe-puzzle.css, and the ride in src/ui/nativeKeyboard.ts).
  */
 export const CafeTable = memo(function CafeTable({ table }: { table: CafeArrangement }) {
   const region = (name: TableItem['region']) => (
@@ -204,10 +211,14 @@ export const CafeTable = memo(function CafeTable({ table }: { table: CafeArrange
     </div>
   )
   return (
-    <div className="cafe-table" aria-hidden="true" data-cafe={table.cafeId}>
-      {region('board')}
-      {region('bottom')}
-    </div>
+    <>
+      <div className="cafe-table" aria-hidden="true" data-cafe={table.cafeId}>
+        {region('board')}
+      </div>
+      <div className="cafe-table-composer" aria-hidden="true" data-cafe={table.cafeId}>
+        {region('bottom')}
+      </div>
+    </>
   )
 })
 

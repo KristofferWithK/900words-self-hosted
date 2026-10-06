@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Polski. Ty, nigdy Pan/Pani. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Zwiedzanie',
-  wordsWalk: 'Słowa',
+  title: 'Sightseeing',
   rules: 'Jedno złe słowo jest wybaczone. Drugie kończy bieg.',
   steerHint: 'Przesuń lub stuknij w lewo i w prawo, aby skręcać.',
-  start: 'Ruszaj',
-  walkAgain: 'Jeszcze raz',
+  start: 'Zacznij Sightseeing',
+  sightseeingAgain: 'Jeszcze raz Sightseeing',
   pauseAria: 'Wstrzymaj',
   paused: 'Wstrzymano',
-  resume: 'Idź dalej',
+  resume: 'Kontynuuj Sightseeing',
   photosLabel: 'Zdjęcia',
   bestLabel: 'Rekord',
   askLabel: 'Które znaczy',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Nowy rekord!',
   comingBack: 'Te słowa będą wracać częściej:',
   gateAria: (prompt: string, choices: string) => `Które znaczy ${prompt}? ${choices}`,
-  articlesWalk: 'Rodzajniki',
-  articlesHint: 'Słowo jest na przywieszce. Skręć w jego rodzajnik. Każdy rodzajnik ma swój pas.',
   articleAsk: (others: string, last: string) => `${others} czy ${last}?`,
   wrongArticle: 'Zła droga',
   articleGateAria: (noun: string, choices: string) => `Który rodzajnik pasuje do ${noun}? ${choices}`,

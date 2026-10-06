@@ -12,8 +12,9 @@ import { UI } from '../../i18n'
  * stays exactly as bright as the screen drew it and everything else dims.
  *
  * The overlay covers the whole viewport and keeps underlying controls inert.
- * Learners advance only with explicit Next/Skip controls, so the action a step
- * describes is available after the lesson releases the screen.
+ * Learners advance with explicit Next/Skip controls, or, on a tap-through
+ * beat, by tapping the lit control itself. A `tapOnly` beat has no Next at
+ * all: the lit control is the only way on (Skip stays).
  *
  * Fixed positioning throughout, so nothing here can lengthen the document —
  * the no-scroll rule holds by construction, and layout-drive measures it
@@ -81,6 +82,7 @@ export function CoachMarkTour({
   const last = index >= steps.length - 1
   const overlayRef = useRef<HTMLDivElement>(null)
   const nextRef = useRef<HTMLButtonElement>(null)
+  const tapRef = useRef<HTMLButtonElement>(null)
   const previousFocus = useRef<HTMLElement | null>(null)
   const onDoneRef = useRef(onDone)
   const onSkipRef = useRef(onSkip)
@@ -245,6 +247,15 @@ export function CoachMarkTour({
     return () => document.removeEventListener('keydown', onKey, true)
   }, [])
 
+  // A tap-only beat has no Next to hold the keyboard: its light, named for the
+  // control it presses, takes the focus as soon as it is drawn, so a screen
+  // reader lands on it and can press it.
+  const tapOnly = !!step?.tapThrough && !!step?.tapOnly
+  const lit = rect !== null
+  useEffect(() => {
+    if (tapOnly && lit) tapRef.current?.focus()
+  }, [tapOnly, lit, index])
+
   const advance = () => (last ? onDoneRef.current() : setIndex(current => current + 1))
   // A tap-through beat: the tap on the light ends the beat and presses the
   // real control in the same gesture, so anything that control primes on a
@@ -258,7 +269,7 @@ export function CoachMarkTour({
   // The tap-through light is named for the control it presses (the wheel's
   // own translated label), falling back to Casey's line for the beat.
   const tapLabel = step.tapThrough
-    ? document.querySelector(step.anchor)?.getAttribute('aria-label') ?? step.text
+    ? (typeof document === 'undefined' ? null : document.querySelector(step.anchor)?.getAttribute('aria-label')) ?? step.text
     : undefined
 
   // The bubble takes whichever half of the screen the band is not in, so the
@@ -279,7 +290,7 @@ export function CoachMarkTour({
     >
       {rect && (
         <div
-          className="tour-spot"
+          className={`tour-spot${tapOnly ? ' tour-spot-pulse' : ''}`}
           style={{
             top: rect.top - 4,
             left: rect.left - 4,
@@ -291,6 +302,7 @@ export function CoachMarkTour({
       )}
       {rect && step.tapThrough && (
         <button
+          ref={tapRef}
           type="button"
           className="tour-spot-tap"
           style={{
@@ -315,7 +327,9 @@ export function CoachMarkTour({
           </p>
         </div>
         <div className="onboard-controls">
-          <Tag ref={nextRef} tone="primary" className="onboard-next" onClick={advance} label={last ? doneLabel : UI.onboarding.tourNext} />
+          {!tapOnly && (
+            <Tag ref={nextRef} tone="primary" className="onboard-next" onClick={advance} label={last ? doneLabel : UI.onboarding.tourNext} />
+          )}
           <Tag className="onboard-skip" onClick={onSkip} label={UI.onboarding.skip} />
         </div>
       </div>

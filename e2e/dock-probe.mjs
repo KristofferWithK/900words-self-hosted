@@ -16,7 +16,7 @@ import { startPreview } from './preview-server.mjs'
 import { installRoundGuidanceHandler } from './round-guidance.mjs'
 import { setTimeout as sleep } from 'node:timers/promises'
 
-const PORT = Number(process.env.DRIVE_PORT_OFFSET ?? 0) + 4197
+const PORT = 4197 // startPreview adds DRIVE_PORT_OFFSET itself
 const preview = await startPreview(PORT)
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',

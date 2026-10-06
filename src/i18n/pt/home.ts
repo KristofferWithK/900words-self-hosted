@@ -26,7 +26,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Continuar tabuleiro', continueReplay: 'Continuar repetição', returnToPrimary: 'Voltar ao teu tabuleiro',
   viewResult: 'Ver resultado', improveBoards: 'Melhorar os teus tabuleiros', postcardsEarned: 'postais ganhos',
   postcardsRemaining: (remaining) => `${remaining} postal${remaining === 1 ? '' : 'es'} para viajar`, postcardReadiness: (earned, remaining) => `${earned} postais ganhos; ${remaining} para viajar.`,
-  readyToTravel: 'Pronto para viajar', nextStopNotReleased: (city) => `Pronto para viajar. ${city} ainda não está disponível.`, cityMedalInProgress: 'ainda não ganho', cityMedal: (tier) => `Medalha da cidade: ${tier}`,
+  readyToTravel: 'Pronto para viajar', nextStopNotReleased: (city) => `Pronto para viajar. ${city} ainda não está disponível.`, cityMedalInProgress: 'ainda não ganho', cityMedal: (tier) => `Selo da cidade: ${tier}`,
   backToCity: (city) => `Voltar a ${city}`,
 
   // ── O mapa ──────────────────────────────────────────────────────────────
@@ -154,14 +154,14 @@ export const home: Catalogue['home'] = {
     'para receberes um código de passe de viagem de 6 meses. A avaliação pode ser boa ou má, conforme gostes da app.',
 
   // ── Oferta após o limite diário ──────────────────────────────────────────
-  dailyLimitKicker: 'Grátis tens dois passeios e dois enigmas do café por dia.',
-  dailyLimitRunsKicker: 'Hoje já deste dois passeios.',
+  dailyLimitKicker: 'Grátis tens duas sessões de Sightseeing e dois enigmas do café por dia.',
+  dailyLimitRunsKicker: 'Hoje já fizeste Sightseeing duas vezes.',
   dailyLimitPuzzlesKicker: 'Hoje já jogaste dois enigmas do café.',
-  dailyLimitBothKicker: 'Hoje já deste dois passeios e jogaste dois enigmas do café.',
+  dailyLimitBothKicker: 'Hoje já fizeste Sightseeing duas vezes e jogaste dois enigmas do café.',
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'Ainda podes jogar 1 enigma do café hoje.' : `Ainda podes jogar ${n} enigmas do café hoje.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Ainda podes dar 1 passeio hoje.' : `Ainda podes dar ${n} passeios hoje.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Ainda podes fazer Sightseeing 1 vez hoje.' : `Ainda podes fazer Sightseeing ${n} vezes hoje.`),
   dailyLimitHeading: 'Continua a jogar com a Casey',
-  dailyLimitBody: 'Volta amanhã ou desbloqueia passeios e enigmas do café ilimitados.',
+  dailyLimitBody: 'Volta amanhã ou desbloqueia Sightseeing e enigmas do café ilimitados.',
   dailyLimitOptionsAria: 'Opções para jogar sem limite',
   dailyLimitMonthly: 'Mensal',
   dailyLimitMonthlyHelp: 'Renova automaticamente todos os meses até cancelares.',
@@ -215,10 +215,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Enigma do café',
   sightseeingNote: 'encontra novos cafés',
-  sightseeingAsk: 'Em que queres reparar?',
-  wordsWalkNote: 'O que significa? Fotografa a palavra certa e encontra novos cafés.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Segue pelo caminho da esquerda ou da direita.` : `${ask} Cada artigo tem a sua faixa.`,
   trainSheetTitle: (city) => `O comboio para ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} palavras (${board} nos tabuleiros, ${connecting} de ligação)` : `${city}: ${total} palavras`,
@@ -227,7 +223,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: ${percent} dos selos dos cafés.`,
   stampNone: 'Sem selo',
   cafeNotFoundNote: 'encontra primeiro um café',
-  cafeNotFoundLine: 'Encontra primeiro um café no passeio pela cidade.',
+  cafeNotFoundLine: 'Encontra primeiro um café no Sightseeing.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Um terço por uma foto, uma tentativa e uma pista',
   markPhoto: 'foto',
@@ -249,6 +245,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: encontrado, ainda por jogar`,
   stampCellNotFound: (place) => `Café ${place}: ainda por encontrar`,
   stampNextCafe: (cafe) => `Próximo café: ${cafe}`,
-  stampNextCafeUnfound: 'Encontra o próximo café no passeio pela cidade.',
+  stampNextCafeUnfound: 'Encontra o próximo café no Sightseeing.',
   stampAllPlayed: 'Já jogaste todos os cafés. Toca num para o jogar outra vez.',
 }

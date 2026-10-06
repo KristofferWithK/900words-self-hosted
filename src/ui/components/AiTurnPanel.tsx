@@ -61,9 +61,10 @@ import { caseyBubble, landedCaseyGuess, type LandedCaseyGuess as Landed } from '
  * Her thinking says so, because she is slower.
  *
  * `cafe`: inside a café puzzle (CW-08), Casey is drawn large while she
- * thinks, as the owner's concept shows. The café's table lies behind the
- * whole screen (GameScreen's CafeTable) and is not this panel's to show or
- * hide. Every other state is unchanged.
+ * thinks, as the owner's concept shows, and stays that large while she
+ * explains and reveals her guesses (owner, build 123), so she never jumps
+ * between sizes within her turn. The café's table lies behind the whole
+ * screen (GameScreen's CafeTable) and is not this panel's to show or hide.
  */
 export function AiTurnPanel({ game, offlineCasey = false, cafe = false }: {
   game: GameState
@@ -246,7 +247,7 @@ export function AiTurnPanel({ game, offlineCasey = false, cafe = false }: {
 
   return (
     <div
-      className="dock ai-panel"
+      className={`dock ai-panel${cafe ? ' ai-panel-cafe' : ''}`}
       // What is on SCREEN rather than what the clock thinks, because the
       // rectangle layout-drive compares per beat is a fact about the former —
       // and a reveal held past the end of the turn is still a reveal beat.
@@ -258,9 +259,12 @@ export function AiTurnPanel({ game, offlineCasey = false, cafe = false }: {
       onClick={guessing ? hurry : undefined}
     >
       <div className="ai-say">
-        <ClueyFace mood={mood} className="cluey-mini" />
+        {/* In a café puzzle she stays as large as she was while she thought
+            (owner, build 123: she "jumps back to the small Casey"), and the
+            bubble beside her gets the lines her width takes (77-cafe-puzzle.css). */}
+        <ClueyFace mood={mood} className={`cluey-mini${cafe ? ' cluey-thinking-large' : ''}`} />
         {/* The short sentence wraps within the existing dock; the title
-            also retains any longer reply beyond its four-line limit. */}
+            also retains any longer reply beyond its line limit. */}
         <p className="ai-bubble" title={bubble}>
           {bubble}
         </p>

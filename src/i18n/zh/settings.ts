@@ -250,7 +250,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `你的方案：${plan}`,
   planChecking: '正在通过 Apple 核对你的方案。',
   planCheckingPlay: '正在通过 Google Play 核对你的方案。',
-  planFree: '免费方案。每天两次散步和两个咖啡馆谜题。',
+  planFree: '免费方案。每天两次 Sightseeing 和两个咖啡馆谜题。',
   planMonthly: '无限畅玩。按月订阅。每月自动续订，直到你取消。',
   planLifetime: '无限畅玩。一次性购买。不会续订。',
   planBoth: '你已拥有一次性购买。你的按月订阅仍然有效，但你已经不再需要它。请取消订阅，以免再次扣费。',

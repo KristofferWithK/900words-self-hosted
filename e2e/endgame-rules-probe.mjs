@@ -14,7 +14,7 @@
 import { chromium } from 'playwright'
 import { startPreview } from './preview-server.mjs'
 
-const PORT = 4200 + Number(process.env.DRIVE_PORT_OFFSET ?? 0)
+const PORT = 4200 // startPreview adds DRIVE_PORT_OFFSET itself
 const preview = await startPreview(PORT)
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/data/toolchain/playwright-browsers/chromium-1234/chrome-linux64/chrome',

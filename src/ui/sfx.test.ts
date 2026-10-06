@@ -175,7 +175,7 @@ describe('the sound effects do not depend on the AudioContext', () => {
   it('has no suitcase clack any more (owner, 2026-09-26: the green haptic is enough)', async () => {
     const fx = await load()
     expect('suitcaseClack' in fx).toBe(false)
-    expect(Object.keys(fx.SFX_FILES).sort()).toEqual(['blip', 'fanfare', 'tick'])
+    expect(Object.keys(fx.SFX_FILES).sort()).toEqual(['blip', 'cafe', 'fanfare', 'tick'])
   })
 
   it('never pauses or takes over an element it did not make (the word player)', async () => {
@@ -190,6 +190,50 @@ describe('the sound effects do not depend on the AudioContext', () => {
     expect(speech.src).toBe('audio/da/hus.mp3')
     // The speech element's own start is the first entry; the effects follow it.
     expect(audibleKinds()).toEqual([undefined, 'blip', 'tick'])
+  })
+})
+
+describe('the café collect sound (Casey walks through a café found on the road)', () => {
+  it('plays the picked candidate from its frozen file, once per café collected', async () => {
+    const fx = await load()
+    fx.cafeCollectSound()
+    expect(FakeAudio.audible.map((p) => p.src.replace(/^.*audio\/ui\//, ''))).toEqual(['cafe-collect-b.wav'])
+    expect(sfxEvents).toEqual(['cafe'])
+    // A second café later in the walk: one more, no more.
+    FakeAudio.audible[0]!.el.ended = true
+    fx.cafeCollectSound()
+    expect(audibleKinds()).toEqual(['cafe', 'cafe'])
+    expect(FakeAudio.made.filter((el) => el.dataset.sfx === 'cafe')).toHaveLength(1)
+  })
+
+  it('is warmed with the other effects on a tap, so the collect itself only presses play', async () => {
+    FakeAudio.policy = 'needs-gesture'
+    const fx = await load()
+    tap()
+    expect(FakeAudio.made.some((el) => el.dataset.sfx === 'cafe' && el.unlocked)).toBe(true)
+    // Long after the tap, from the run's frame loop: no gesture behind it.
+    fx.cafeCollectSound()
+    expect(audibleKinds()).toEqual(['cafe'])
+  })
+
+  it('plays nothing with sound off', async () => {
+    const fx = await load()
+    fx.useSettings.setState({ sound: false })
+    fx.cafeCollectSound()
+    expect(FakeAudio.audible).toHaveLength(0)
+    expect(sfxEvents).toHaveLength(0)
+  })
+
+  it('is one of the three rendered candidates, all the same length, so the pick is one line', async () => {
+    const fx = await load()
+    const synth = await import('./sfxSynthesis')
+    expect(fx.SFX_FILES.cafe).toMatch(/^audio\/ui\/cafe-collect-[abc]\.wav$/)
+    expect(Object.keys(synth.CAFE_COLLECT_CANDIDATES).sort()).toEqual(['a', 'b', 'c'])
+    const { readFileSync } = await import('node:fs')
+    for (const letter of ['a', 'b', 'c']) {
+      const wav = readFileSync(new URL(`../../public/audio/ui/cafe-collect-${letter}.wav`, import.meta.url))
+      expect(wav.readUInt32LE(40) / 2, letter).toBe(Math.ceil(synth.SFX_DURATION.cafe * wav.readUInt32LE(24)))
+    }
   })
 })
 
@@ -389,13 +433,13 @@ describe('in the native shell', () => {
     expect(FakeAudio.made).toHaveLength(0)
     expect(fx.sfxNeedsPrime()).toBe(false)
     vi.advanceTimersByTime(1500)
-    // tick 4 + blip 2 + fanfare 1, built but silent.
-    expect(FakeAudio.made).toHaveLength(7)
+    // tick 4 + blip 2 + fanfare 1 + cafe 1, built but silent.
+    expect(FakeAudio.made).toHaveLength(8)
     expect(FakeAudio.audible).toHaveLength(0)
     fx.guessErrorBlip()
     expect(audibleKinds()).toEqual(['blip'])
     // The blip started one of the players built ahead, not a new one.
-    expect(FakeAudio.made).toHaveLength(7)
+    expect(FakeAudio.made).toHaveLength(8)
   })
 
   it('builds nothing ahead when sound is off', async () => {
@@ -429,6 +473,9 @@ describe('in the native shell', () => {
     expect(haptics.selectionStart).not.toHaveBeenCalled()
     tap()
     expect(fx.sfxNeedsPrime()).toBe(false)
-    expect(FakeAudio.made).toHaveLength(7)
+    // tick 4 + blip 2 + fanfare 1 + cafe 1, and the wheel's clack-track
+    // element, which the same gesture unlocks for the spin's track.
+    expect(FakeAudio.made).toHaveLength(9)
+    expect(FakeAudio.made.filter((el) => el.dataset.sfx === 'spin')).toHaveLength(1)
   })
 })

@@ -30,7 +30,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Bord hervatten', continueReplay: 'Herhaling hervatten', returnToPrimary: 'Terug naar je bord',
   viewResult: 'Resultaat bekijken', improveBoards: 'Je borden verbeteren', postcardsEarned: 'ansichtkaarten verdiend',
   postcardsRemaining: (remaining) => `${remaining} ansichtkaart${remaining === 1 ? '' : 'en'} tot de reis`, postcardReadiness: (earned, remaining) => `${earned} ansichtkaarten verdiend; ${remaining} tot de reis.`,
-  readyToTravel: 'Klaar om te reizen', nextStopNotReleased: (city) => `Klaar om te reizen. ${city} is nog niet beschikbaar.`, cityMedalInProgress: 'nog niet behaald', cityMedal: (tier) => `Stadsmedaille: ${tier}`,
+  readyToTravel: 'Klaar om te reizen', nextStopNotReleased: (city) => `Klaar om te reizen. ${city} is nog niet beschikbaar.`, cityMedalInProgress: 'nog niet behaald', cityMedal: (tier) => `Stadsstempel: ${tier}`,
   backToCity: (city) => `Terug naar ${city}`,
 
   // ── De kaart ────────────────────────────────────────────────────────────
@@ -159,14 +159,14 @@ export const home: Catalogue['home'] = {
     'voor een reispascode van 6 maanden. Je recensie mag goed of slecht zijn, net hoe je de app vindt.',
 
   // ── Upgrade na de dagelijkse limiet ──────────────────────────────────────
-  dailyLimitKicker: 'Gratis krijg je twee wandelingen en twee cafépuzzels per dag.',
-  dailyLimitRunsKicker: 'Je hebt vandaag al twee keer gewandeld.',
+  dailyLimitKicker: 'Gratis krijg je twee keer Sightseeing en twee cafépuzzels per dag.',
+  dailyLimitRunsKicker: 'Je hebt vandaag al twee keer Sightseeing gedaan.',
   dailyLimitPuzzlesKicker: 'Je hebt vandaag al twee cafépuzzels gespeeld.',
-  dailyLimitBothKicker: 'Je hebt vandaag al twee keer gewandeld en twee cafépuzzels gespeeld.',
+  dailyLimitBothKicker: 'Je hebt vandaag al twee keer Sightseeing gedaan en twee cafépuzzels gespeeld.',
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'Je kunt vandaag nog 1 cafépuzzel spelen.' : `Je kunt vandaag nog ${n} cafépuzzels spelen.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Je kunt vandaag nog 1 keer wandelen.' : `Je kunt vandaag nog ${n} keer wandelen.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Je kunt vandaag nog 1 keer Sightseeing doen.' : `Je kunt vandaag nog ${n} keer Sightseeing doen.`),
   dailyLimitHeading: 'Speel verder met Casey',
-  dailyLimitBody: 'Kom morgen terug, of ontgrendel onbeperkt wandelen en cafépuzzels.',
+  dailyLimitBody: 'Kom morgen terug, of ontgrendel onbeperkt Sightseeing en cafépuzzels.',
   dailyLimitOptionsAria: 'Opties voor onbeperkt spelen',
   dailyLimitMonthly: 'Maandelijks',
   dailyLimitMonthlyHelp: 'Wordt elke maand automatisch verlengd totdat je opzegt.',
@@ -221,10 +221,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Cafépuzzel',
   sightseeingNote: 'vind nieuwe cafés',
-  sightseeingAsk: 'Waar wil je op letten?',
-  wordsWalkNote: 'Wat betekent het? Fotografeer het juiste woord en vind nieuwe cafés.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Neem de linker- of de rechterweg.` : `${ask} Elk lidwoord heeft een eigen baan.`,
   trainSheetTitle: (city) => `De trein naar ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}: ${total} woorden (${board} op de borden, ${connecting} verbindingswoorden)` : `${city}: ${total} woorden`,
@@ -233,7 +229,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}: ${percent} van de stempels van de cafés.`,
   stampNone: 'Geen stempel',
   cafeNotFoundNote: 'vind eerst een café',
-  cafeNotFoundLine: 'Vind eerst een café tijdens de stadswandeling.',
+  cafeNotFoundLine: 'Vind eerst een café tijdens Sightseeing.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Een derde elk voor een foto, een gok en een hint',
   markPhoto: 'foto',
@@ -255,6 +251,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}: gevonden, nog niet gespeeld`,
   stampCellNotFound: (place) => `Café ${place}: nog niet gevonden`,
   stampNextCafe: (cafe) => `Volgend café: ${cafe}`,
-  stampNextCafeUnfound: 'Vind het volgende café tijdens de stadswandeling.',
+  stampNextCafeUnfound: 'Vind het volgende café tijdens Sightseeing.',
   stampAllPlayed: 'Elk café is gespeeld. Tik er een aan om het opnieuw te spelen.',
 }

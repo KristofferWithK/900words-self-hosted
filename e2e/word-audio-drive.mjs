@@ -2,7 +2,8 @@
 // app starts it. Two halves:
 //
 // SOURCE (a Vite dev server over e2e/word-audio-fixture.ts): the app's real
-// speak.ts player, in Chromium, asked for every replaced variant at the speed
+// speak.ts player on its media elements (the performance log's "Old
+// word-players" switch, `elementWords`, seeded: the way back), in Chromium, asked for every replaced variant at the speed
 // it was replaced in, for «tvivl» at both speeds (an uncountable noun: the
 // word alone, no article, and no assumption that its clip is at fault), and
 // for an ordinary noun (article, then word). Each start is read off the
@@ -19,6 +20,18 @@
 // keeps it in `word-audio-v6`. The worker's route reads `word-audio-v7`, so
 // the current recording must be what a fetch returns, and it must land in v7.
 //
+// WEB AUDIO (the default for words since TestFlight 126; seeded with the
+// retired opt-in `webAudioWords`, which must be ignored): the same source
+// player with every word decoded into a buffer and started on the app's
+// AudioContext. Each start must be a buffer source (`via: 'buffer'`) at the
+// clip's voice onset, and no media element may be made or played for a word.
+// Then the built app: a café board's card taps, heard through Web Audio with
+// no word element anywhere. Then the ENTRY PATHS, in a Chromium with its
+// autoplay policy left on, so a context runs only if it was made or resumed
+// inside a real gesture: the first onboarding tap, Home's Café puzzle and
+// Home's Sightseeing each leave the context running, and the café's first
+// card tap is heard.
+//
 // This is browser scheduling and decoding evidence. It says nothing about
 // what an iPhone speaker produces; that stays a device check.
 import { createHash } from 'node:crypto'
@@ -28,6 +41,8 @@ import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
 import { createServer } from 'vite'
 import { startPreview } from './preview-server.mjs'
+import { mergeFirstCafe, seedArgs } from './_found-cafe.mjs'
+import { dismissRoundGuidance, installRoundGuidanceHandler } from './round-guidance.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const receipt = JSON.parse(readFileSync(resolve(ROOT, 'scripts/data/word-audio-replacements.da.json'), 'utf8'))
@@ -41,6 +56,11 @@ const check = (name, ok, detail = '') => {
 }
 
 const INSTRUMENT = () => {
+  try {
+    localStorage.setItem('cluecab-diag-switches', JSON.stringify({ elementWords: true }))
+  } catch {
+    return
+  }
   window.__starts = []
   window.__media = []
   window.addEventListener('cluecab-audio', (event) => window.__starts.push(String(event.detail?.url ?? '')))
@@ -62,12 +82,45 @@ const INSTRUMENT = () => {
   }
 }
 
+/** The Web Audio half: the switch on, and every buffer start and media element seen. */
+const INSTRUMENT_WEB = () => {
+  try {
+    // The retired opt-in of #408: a device that stored it simply gets the default.
+    localStorage.setItem('cluecab-diag-switches', JSON.stringify({ webAudioWords: true }))
+  } catch {
+    return
+  }
+  window.__web = { events: [], sources: [], elements: [], plays: [] }
+  window.addEventListener('cluecab-audio', (event) => window.__web.events.push({ url: String(event.detail?.url ?? ''), via: event.detail?.via, at: performance.now() }))
+  const start = AudioBufferSourceNode.prototype.start
+  AudioBufferSourceNode.prototype.start = function (when, offset, duration) {
+    window.__web.sources.push({ offset: offset ?? 0, duration: this.buffer?.duration ?? null, state: this.context.state, at: performance.now() })
+    return start.call(this, when, offset, duration)
+  }
+  const NativeAudio = window.Audio
+  window.Audio = function (...args) {
+    const el = new NativeAudio(...args)
+    window.__web.elements.push(el)
+    return el
+  }
+  window.Audio.prototype = NativeAudio.prototype
+  const play = HTMLMediaElement.prototype.play
+  HTMLMediaElement.prototype.play = function (...args) {
+    window.__web.plays.push({ src: this.currentSrc || this.src, clip: this.dataset?.clip ?? null })
+    return play.apply(this, args)
+  }
+}
+
+/** A media element play that was a word (not the 20 ms unlock clip, not a UI effect). */
+const isWordPlay = (p) => !p.src.startsWith('data:') && !p.src.includes('/audio/ui/')
+
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium',
   args: ['--autoplay-policy=no-user-gesture-required'],
 })
 let vite
 let preview
+let strict
 try {
   // ---------------------------------------------------------------- source
   vite = await createServer({
@@ -231,6 +284,75 @@ try {
   console.log(`cold start, call to 'playing', article-free replacements: median ${measured[measured.length >> 1]} ms, max ${measured.at(-1)} ms (Chromium on this machine; not a phone measurement)`)
   await context.close()
 
+  // ------------------------------------------------------ web audio, source
+  const webContext = await browser.newContext({ serviceWorkers: 'block' })
+  const webPage = await webContext.newPage()
+  const webErrors = []
+  webPage.on('pageerror', (e) => webErrors.push(e.message))
+  await webPage.addInitScript(INSTRUMENT_WEB)
+  await webPage.goto(`${base}e2e/word-audio-fixture.html`, { timeout: 120_000 })
+  await webPage.waitForFunction(() => document.getElementById('ready')?.textContent === 'ready', undefined, { timeout: 120_000 })
+  const sayWeb = (id, slow = false, article = true) => webPage.evaluate(async ({ id, slow, article }) => {
+    const P = window.__player
+    const e0 = window.__web.events.length
+    const s0 = window.__web.sources.length
+    const result = await P.playWord(id, { slow, article })
+    const phrase = article ? P.articlePhraseAudioUrl(id, slow ? 'slow' : 'normal') : undefined
+    const url = phrase ?? P.wordAudioUrl(id, slow ? 'slow' : 'normal')
+    return {
+      result,
+      events: window.__web.events.slice(e0).map((e) => ({ ...e, url: new URL(e.url, location.href).pathname })),
+      sources: window.__web.sources.slice(s0),
+      expectedStartAt: P.clipStartAt(url),
+      expected: new URL(url, location.href).pathname,
+    }
+  }, { id, slow, article })
+  const webCases = [['da:tvivl', false], ['da:tvivl', true], [phrases[0].id, false], [phrases[0].id, true], ['da:hus', false]]
+  for (const [id, slow] of webCases) {
+    const heard = await sayWeb(id, slow)
+    const last = heard.sources.at(-1)
+    check(`Web Audio: ${id} (${slow ? 'slow' : 'normal'}) starts a decoded buffer at its voice onset (${Math.round(heard.expectedStartAt * 1000)} ms)`,
+      heard.result === 'baked' && heard.events.length >= 1 && heard.events.every((e) => e.via === 'buffer') &&
+        heard.events.at(-1).url === heard.expected && last && last.state === 'running' &&
+        Math.abs(last.offset - heard.expectedStartAt) < 0.001,
+      JSON.stringify(heard))
+  }
+  const bogWeb = await sayWeb('da:bog')
+  check('Web Audio: da:bog says its article and then the word, both as buffers',
+    bogWeb.result === 'baked' && bogWeb.events.length === 2 && bogWeb.events.every((e) => e.via === 'buffer') &&
+      bogWeb.events[0].url.includes('/audio/da/article/') && bogWeb.events[1].url.endsWith('/audio/da/bog.mp3'),
+    JSON.stringify(bogWeb))
+  const webRepeat = await webPage.evaluate(async () => {
+    const P = window.__player
+    await P.preloadWordAudio(['da:bo', 'da:ord', 'da:ske'])
+    const results = []
+    const ids = ['da:bo', 'da:tvivl', 'da:ord', 'da:hus', 'da:ske']
+    for (let i = 0; i < 30; i++) results.push(await P.playWord(ids[i % ids.length], { slow: i % 2 === 1 }))
+    P.stopWordAudio()
+    return results
+  })
+  check('Web Audio: thirty consecutive plays all start', webRepeat.every((r) => r === 'baked'), JSON.stringify(webRepeat))
+  const webSoundOff = await webPage.evaluate(async () => {
+    const P = window.__player
+    const s0 = window.__web.sources.length
+    P.setSound(false)
+    const off = await P.playWord('da:bo')
+    P.setSound(true)
+    const on = await P.playWord('da:bo')
+    return { off, on, started: window.__web.sources.length - s0 }
+  })
+  check('Web Audio: sound off starts no buffer, and sound on plays again',
+    webSoundOff.off === 'silent' && webSoundOff.on === 'baked' && webSoundOff.started === 1, JSON.stringify(webSoundOff))
+  const webMedia = await webPage.evaluate(() => ({
+    made: window.__web.elements.length,
+    plays: window.__web.plays,
+    pooled: document.querySelectorAll('audio[data-clip]').length,
+  }))
+  check('Web Audio: no media element was made or played for a word',
+    webMedia.made === 0 && webMedia.plays.filter(isWordPlay).length === 0, JSON.stringify(webMedia))
+  check('Web Audio: the harness raised no page errors', webErrors.length === 0, webErrors.join('; '))
+  await webContext.close()
+
   // ----------------------------------------------------------------- built
   preview = await startPreview(4311)
   const built = await browser.newContext()
@@ -267,7 +389,128 @@ try {
   const sw = readFileSync(resolve(ROOT, 'dist/sw.js'), 'utf8')
   check('the built worker routes /audio/ through word-audio-v7 only', sw.includes('word-audio-v7') && !/word-audio-v[1-6]/.test(sw))
   await built.close()
+
+  // ------------------------------------------------------- web audio, built
+  // A café board, by default: its card taps are buffer starts, and no word
+  // element is made or played anywhere on the way.
+  const cafe = await browser.newContext({ viewport: { width: 390, height: 844 } })
+  const board = await cafe.newPage()
+  const boardErrors = []
+  board.on('pageerror', (e) => boardErrors.push(e.message))
+  await board.addInitScript(mergeFirstCafe, seedArgs('da'))
+  await board.addInitScript(INSTRUMENT_WEB)
+  await installRoundGuidanceHandler(board)
+  await board.goto(`${preview.base}?howto=0&seed=1701&mock=1`)
+  await board.locator('.home-play[data-cafe-action="next"]').click()
+  await board.locator('.game-screen').waitFor()
+  await dismissRoundGuidance(board)
+  await board.locator('.word-card:not([disabled])').first().waitFor()
+  // The deal decodes the board's words; give it the moment a player would.
+  await board.waitForTimeout(1500)
+  const taps = []
+  for (const nth of [0, 1, 2]) {
+    const before = await board.evaluate(() => window.__web.events.length)
+    await board.locator('.word-card:not([disabled])').nth(nth).dispatchEvent('pointerdown', { button: 0, isPrimary: true, pointerType: 'touch' })
+    await board.waitForFunction((n) => window.__web.events.length > n, before, { timeout: 5000 }).catch(() => {})
+    await board.waitForTimeout(900)
+    taps.push(await board.evaluate((n) => window.__web.events.slice(n), before))
+  }
+  const cafeMedia = await board.evaluate(() => ({
+    plays: window.__web.plays,
+    pooledMade: window.__web.elements.filter((el) => el.dataset.clip).length,
+    state: window.__web.sources.at(-1)?.state ?? null,
+  }))
+  check('Web Audio (built): three café card taps each start a word buffer',
+    taps.every((t) => t.length >= 1 && t.every((e) => e.via === 'buffer' && e.url.includes('/audio/da/'))) && cafeMedia.state === 'running',
+    JSON.stringify({ taps, state: cafeMedia.state }))
+  check('Web Audio (built): no word element made or played on the café board',
+    cafeMedia.pooledMade === 0 && cafeMedia.plays.filter(isWordPlay).length === 0, JSON.stringify(cafeMedia))
+  check('Web Audio (built): no page errors', boardErrors.length === 0, boardErrors.join('; '))
+  await cafe.close()
+
+  // ------------------------------------------------- web audio, entry paths
+  // No autoplay flag here: Chromium starts a context only from a gesture, so
+  // a running context proves the first tap of the path made or resumed it.
+  strict = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium' })
+  const CONTEXTS = () => {
+    window.__contexts = []
+    const Native = window.AudioContext
+    window.AudioContext = function (...args) {
+      const made = new Native(...args)
+      window.__contexts.push(made)
+      return made
+    }
+    window.AudioContext.prototype = Native.prototype
+  }
+  const states = (page) => page.evaluate(() => window.__contexts.map((c) => c.state))
+  const entry = async (name, seeded, enter) => {
+    const ctx = await strict.newContext({ viewport: { width: 390, height: 844 } })
+    const page = await ctx.newPage()
+    const errors = []
+    page.on('pageerror', (e) => errors.push(e.message))
+    if (seeded) await page.addInitScript(mergeFirstCafe, seedArgs('da'))
+    await page.addInitScript(INSTRUMENT_WEB)
+    await page.addInitScript(CONTEXTS)
+    await installRoundGuidanceHandler(page)
+    const result = await enter(page)
+    // A context made inside the tap takes a moment to start its hardware.
+    await page.waitForFunction(() => window.__contexts.some((c) => c.state === 'running'), undefined, { timeout: 4000 }).catch(() => {})
+    const after = await states(page)
+    check(`Web Audio (entry): ${name} leaves the context running`, after.length === 1 && after[0] === 'running' && errors.length === 0,
+      JSON.stringify({ ...result, after, errors }))
+    return { page, ctx }
+  }
+
+  // The first launch: a fresh profile's onboarding, its very first tap.
+  const first = await entry('the first onboarding tap', false, async (page) => {
+    await page.goto(`${preview.base}?seed=1701&mock=1`, { waitUntil: 'networkidle' })
+    await page.waitForTimeout(800)
+    const before = await states(page)
+    await page.mouse.click(195, 420)
+    return { before }
+  })
+  await first.ctx.close()
+
+  // Home → Sightseeing.
+  const walk = await entry('Home → Sightseeing', true, async (page) => {
+    await page.goto(`${preview.base}?howto=0&seed=1701&mock=1`)
+    await page.locator('.home-tag-sightseeing').waitFor()
+    const before = await states(page)
+    await page.locator('.home-tag-sightseeing').click()
+    return { before }
+  })
+  await walk.ctx.close()
+
+  // Home → Café puzzle, and its first card tap (a real one) is heard.
+  const puzzle = await entry('Home → Café puzzle', true, async (page) => {
+    await page.goto(`${preview.base}?howto=0&seed=1701&mock=1`)
+    await page.locator('.home-play[data-cafe-action="next"]').waitFor()
+    const before = await states(page)
+    await page.locator('.home-play[data-cafe-action="next"]').click()
+    await page.locator('.game-screen').waitFor()
+    return { before }
+  })
+  await dismissRoundGuidance(puzzle.page)
+  const firstCard = puzzle.page.locator('.word-card:not([disabled])').first()
+  await firstCard.waitFor()
+  const mark = await puzzle.page.evaluate(() => window.__web.events.length)
+  const box = await firstCard.boundingBox()
+  await puzzle.page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+  await puzzle.page.mouse.down()
+  await puzzle.page.waitForFunction((n) => window.__web.events.length > n, mark, { timeout: 5000 }).catch(() => {})
+  await puzzle.page.mouse.up()
+  await puzzle.page.waitForTimeout(600)
+  const heard = await puzzle.page.evaluate((n) => ({
+    events: window.__web.events.slice(n),
+    notice: document.querySelectorAll('.audio-notice').length,
+    pooled: window.__web.elements.filter((el) => el.dataset.clip).length,
+  }), mark)
+  check('Web Audio (entry): the café\'s first card tap is a word buffer, with no failure notice and no word element',
+    heard.events.length >= 1 && heard.events.every((e) => e.via === 'buffer') && heard.notice === 0 && heard.pooled === 0,
+    JSON.stringify(heard))
+  await puzzle.ctx.close()
 } finally {
+  await strict?.close()
   await browser.close()
   await vite?.close()
   preview?.stop()

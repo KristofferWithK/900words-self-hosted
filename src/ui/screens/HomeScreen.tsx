@@ -7,14 +7,16 @@ import { cityMedal, hasHistoricalTravelEligibility } from '../../journey/progres
 import { cityWords as cityWordList } from '../../journey/cityWords'
 import { countMarks, type PhotoLedger } from '../../journey/wordMarks'
 import type { SrsMap } from '../../srs/types'
-import { articleLanes, chooseWalk, walksForCourse } from '../../run/walks'
+import { chooseWalk } from '../../run/walks'
 import { cafeNameForBoard } from '../../cafe/cafeName'
 import { cafeLaunchRefused } from '../../journey/cafeAccess'
 import { dealOrFallBack } from '../cafeDeal'
 import { beginRunOrOffer } from '../runGate'
+import { primeRunAudio } from '../../run/audio'
+import { primeSfx } from '../sfx'
 import { CafeStamp } from '../components/CafeStamp'
 import { displayCityPercent } from '../components/finishStamp'
-import { SightseeingChooser, TrainSheet, type HomeWalk } from '../components/HomeSheets'
+import { FindCafeSheet, TrainSheet } from '../components/HomeSheets'
 import { Tag } from '../components/Tag'
 import { journeyTravelGate } from '../../journey/trainService'
 import { onPracticeCompanion, useGame } from '../../stores/gameStore'
@@ -298,12 +300,22 @@ export function cafePuzzleNote(action: CafePuzzleAction): string | null {
 }
 
 /**
- * Sightseeing's walks for the active course: Words always, Articles where the
- * course's nouns have articles to choose between (src/run/walks.ts).
+ * Home's door into the walk: the daily limit first (CW-15), then the
+ * Sightseeing screen opens with the walk already started, no ready panel to
+ * tap through (owner, after build 123: "it should go straight into the
+ * game"). There is one walk, its article gates mixed in where the course has
+ * articles (owner, 2026-10-05), so nothing is asked first. The run's sounds
+ * are primed here, inside the tap, since the walk starts from the screen's
+ * own effect. Returns whether the walk opened (false: the limit's dialog
+ * opened instead).
  */
-export function homeWalks() {
-  const lanes = articleLanes(ACTIVE)
-  return { walks: walksForCourse(ACTIVE), lanes }
+export function startHomeWalk(): boolean {
+  primeRunAudio()
+  primeSfx()
+  return beginRunOrOffer(() => {
+    chooseWalk('words', { startNow: true })
+    useUi.getState().goTo('sightseeing')
+  })
 }
 
 /**
@@ -408,12 +420,11 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
   const stampCard = cityMedal(durable.facts, CITY1_REQUIRED_SET)
   const medal = stampCard.tier
   const cityPercent = stampCard.error ? 0 : displayCityPercent(stampCard.points, stampCard.maximum)
-  const [sheet, setSheet] = useState<'none' | 'sightseeing' | 'find-cafe' | 'train'>('none')
+  const [sheet, setSheet] = useState<'none' | 'find-cafe' | 'train'>('none')
   // The first session's Home opens the Guide in place: `goTo` cannot leave
   // the onboarding shell (CW-13).
   const [introGuide, setIntroGuide] = useState(false)
   const closeSheet = useCallback(() => setSheet('none'), [])
-  const walks = useMemo(homeWalks, [])
   const board = () => {
     if (!travel.canBoard) return
     const destination = journey.cityIndex + 1
@@ -476,21 +487,16 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
     else play()
   }
 
-  // Sightseeing asks "Words or Articles?" only where the course has both;
-  // otherwise it goes straight to the Words walk. Both doors ask the daily
-  // limit first (CW-15): with today's two runs used, the upgrade dialog opens
-  // instead of the chooser or the walk.
-  const walk = (choice: HomeWalk) => {
+  // Sightseeing starts the walk at once, for every course (owner, 2026-10-05:
+  // the Articles walk is part of it now). The daily limit is asked first
+  // (CW-15): with today's two runs used, the upgrade dialog opens instead.
+  const walk = () => {
     setSheet('none')
-    beginRunOrOffer(() => {
-      chooseWalk(choice)
-      useUi.getState().goTo('sightseeing')
-    })
+    startHomeWalk()
   }
   const sightseeing = () => {
     if (intro) return intro.onSightseeing()
-    if (walks.walks.length > 1) beginRunOrOffer(() => setSheet('sightseeing'))
-    else walk('words')
+    walk()
   }
 
   if (introGuide) return <TravelGuideBook onExit={() => setIntroGuide(false)} />
@@ -586,21 +592,13 @@ function StandardHomeScreen({ intro }: { intro?: HomeIntroPresentation }) {
             className="home-tag-sightseeing"
             label={UI.sightseeing.title}
             note={UI.home.sightseeingNote}
-            aria-haspopup={walks.walks.length > 1 ? 'dialog' : undefined}
             onClick={sightseeing}
           />
         </div>
       </div>
       )}
-      {(sheet === 'sightseeing' || sheet === 'find-cafe') && (
-        <SightseeingChooser
-          walks={walks.walks}
-          lead={sheet === 'find-cafe' ? UI.home.cafeNotFoundLine : undefined}
-          articleAsk={UI.sightseeing.articleAsk(walks.lanes.slice(0, -1).join(', '), walks.lanes[walks.lanes.length - 1] ?? '')}
-          lanes={walks.lanes.length}
-          onChoose={walk}
-          onClose={closeSheet}
-        />
+      {sheet === 'find-cafe' && (
+        <FindCafeSheet lead={UI.home.cafeNotFoundLine} onWalk={walk} onClose={closeSheet} />
       )}
       {sheet === 'train' && (
         <HomeTrainSheet cityIndex={journey.cityIndex} nextCity={nextCity?.name ?? null} srs={srsStats} photos={journey.photos} onClose={closeSheet} />

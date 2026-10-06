@@ -6,7 +6,7 @@ import { chromium } from 'playwright'
 import { startFakeOllama } from './fake-ollama.mjs'
 import { startPreview } from './preview-server.mjs'
 import { startWorker } from './worker-runtime.mjs'
-import { createOnboardingFlow } from './_onboarding-flow.mjs'
+import { createOnboardingFlow, firstWalkCafePanel } from './_onboarding-flow.mjs'
 import { released, walkTour } from './_tutorial-lessons.mjs'
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
@@ -312,9 +312,40 @@ try {
   assert.equal(cityOneState.game.words.length, 18)
   assert.ok(cityOneState.game.words.every((word) => word.wordId.startsWith('de:')), 'German City 1 board contains German word IDs')
 
+  // Home after the café puzzle, in a German UI (owner, 2026-10-04): the
+  // lesson calls it the city stamp (Stadtstempel), never a medal, and Casey's
+  // beat is passed only by tapping Casey.
+  await page.evaluate(() => {
+    localStorage.setItem('cluecab-onboard-v5', 'home-return')
+    localStorage.setItem('cluecab-ui-language', 'de')
+  })
+  await page.goto(preview.base, { waitUntil: 'networkidle' })
+  await page.waitForSelector('.onboard-home-act .home-first-session')
+  const check = (name, ok, detail = '') => assert.ok(ok, `${name}${detail ? ` (${detail})` : ''}`)
+  const homeBeats = await walkTour(page, 'home', check, { label: 'German Home stamp lesson', shots: process.env.SHOT_DIR ? `${process.env.SHOT_DIR}/de-home-stamp-lesson-390x844` : null })
+  assert.match(homeBeats[0]?.text ?? '', /Stadtstempel/, 'the German Home lesson names the Stadtstempel')
+  assert.doesNotMatch(homeBeats.map((beat) => beat.text).join(' '), /Medaille/, 'no medal in the German Home lesson')
+  assert.equal(homeBeats[1]?.tapOnly, true, "Casey's beat has no Next: tapping Casey is the only way on")
+  assert.match(homeBeats[1]?.text ?? '', /Tippe auf mich/)
+  await page.waitForSelector('.suitcase-screen')
+  assert.equal(await page.evaluate(() => localStorage.getItem('cluecab-onboard-v5')), 'suitcase', 'tapping Casey opens the suitcase step')
+
   assert.deepEqual(errors, [], `browser page errors: ${errors.join(' | ')}`)
   assert.deepEqual(externalRequests, [], `unexpected external requests: ${externalRequests.join(', ')}`)
-  console.log('PASS German first run: normal audience → Germany ticket → 9-card German practice (Zeit/Zuhause) → City 1 bank_001')
+
+  // The first walk's café (owner, after build 123): found on the fifth photo,
+  // "Du hast ein Café gefunden" waits until Casey reaches it. A fresh player
+  // on the Germany ticket, in a context of its own.
+  const cafeWalk = await firstWalkCafePanel(browser, preview.base, { country: 'Germany', shot: process.env.CAFE_PANEL_SHOT })
+  assert.deepEqual(cafeWalk.errors, [], `page errors on the walk to the café: ${cafeWalk.errors.join(' | ')}`)
+  assert.equal(cafeWalk.atFind.photos, 5, 'the first café is found on the fifth photo')
+  assert.equal(cafeWalk.atFind.held, false, 'the walk does not hold at the find')
+  assert.equal(cafeWalk.atFind.panel, false, 'no panel at the find')
+  assert.equal(cafeWalk.atCafe.held, true, 'the walk holds as Casey reaches the café')
+  assert.ok(cafeWalk.atCafe.photos > 5, `the walk went on past the find: ${JSON.stringify(cafeWalk.atCafe)}`)
+  assert.ok(cafeWalk.atCafe.cafeZ > 0 && cafeWalk.atCafe.cafeZ <= 0.1, `the café is at Casey when the panel opens: ${JSON.stringify(cafeWalk.atCafe)}`)
+  assert.equal(cafeWalk.after.held, false, 'Keep sightseeing carries on')
+  console.log('PASS German first run: normal audience → Germany ticket → 9-card German practice (Zeit/Zuhause) → City 1 bank_001 → Home stamp lesson in German, Casey tap only')
 } finally {
   await browser?.close()
   await worker?.stop()

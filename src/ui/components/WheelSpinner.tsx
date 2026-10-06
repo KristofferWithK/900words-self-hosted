@@ -1,11 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
-import { wheelMissedSegments } from '../../engine/game'
+import { nextWheelLanding, wheelMissedSegments } from '../../engine/game'
 import type { GameState } from '../../engine/types'
 import { UI } from '../../i18n'
 import { useGame } from '../../stores/gameStore'
-import { primeRewardDing, wheelSpinTick } from '../feedback'
+import { prepareWheelClacks, primeRewardDing, readyWheelClacks, silenceWheelTicks, startWheelClacks, wheelSpinTick } from '../feedback'
 import { afterKeyboardAway } from '../nativeKeyboard'
-import { SPIN_EASING, SPIN_MS, angleStep, segmentCrossings, spinTarget, transformRotationDegrees } from './wheelAngle'
+import type { SfxTrack } from '../sfx'
+import {
+  SPIN_EASING,
+  SPIN_MS,
+  angleStep,
+  cssTimeMs,
+  segmentCrossings,
+  spinTarget,
+  spinTickTimes,
+  transformRotationDegrees,
+} from './wheelAngle'
+
+/** Silence at the head of a clack track: room for the disc's start to be scheduled on it. */
+const CLACK_LEAD_MS = 40
+/** How long the disc waits for the track to be playing before it spins on the fallback. */
+const CLACK_START_WAIT_MS = 350
+/** The frozen tick is 50 ms: once the disc rests, the track may only finish that. */
+const CLACK_TAIL_MS = 60
 
 /**
  * The Translation Wheel (owner, 2026-09-16) — DIRECTION B visuals.
@@ -129,6 +146,10 @@ export function WheelSpinner({ game }: { game: GameState }) {
   // the next phase change rebuilds it.
   const [rotation, setRotation] = useState(0)
   const [spinning, setSpinning] = useState(false)
+  // The spin's clack track while it plays, and the delay that starts the
+  // disc on it (null: no track, so the disc keeps whatever delay it has).
+  const trackRef = useRef<SfxTrack | null>(null)
+  const [startDelay, setStartDelay] = useState<number | null>(null)
   const reduced =
     typeof window !== 'undefined' &&
     window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -138,6 +159,17 @@ export function WheelSpinner({ game }: { game: GameState }) {
   // from the SVG's actual transform transitionend, so the verdict, finish
   // screen and win fanfare all hand off together. The store owns a bounded
   // fallback in case this renderer disappears before reporting completion.
+  //
+  // The click-clack rides on the same start (owner, build 123: "the sound
+  // wasn't matching the spinning"). The whole spin's clacks are mixed into
+  // one track — one clack per segment boundary, timed off the very curve the
+  // disc will turn on (spinTickTimes) — readied before the tap (below), and
+  // started first. The disc starts once the track's media clock is moving,
+  // its transition delayed by what is left of the track's lead-in, so the
+  // media element's start-up (never the same twice) is spent before anything
+  // moves, and from then on the clacks and the disc share one start. A track
+  // that will not start in time leaves the disc to start on the per-clack
+  // loop below.
   useEffect(() => {
     if (wheel.landed === null || spinning) return
     const owner = useGame.getState().eventOwner()
@@ -150,31 +182,89 @@ export function WheelSpinner({ game }: { game: GameState }) {
 
     const svg = svgRef.current
     if (!svg) return
+    let live = true
+    let pending: SfxTrack | undefined
     const onTransitionEnd = (event: TransitionEvent) => {
       if (event.target !== svg || event.propertyName !== 'transform') return
+      // At rest. The track holds nothing after its last clack, which has
+      // sounded by now; the cut only guards a track that started late. The
+      // fallback's clacks are cut outright.
+      trackRef.current?.finish(CLACK_TAIL_MS)
+      trackRef.current = null
+      silenceWheelTicks()
       setSpinning(false)
       if (wheel.result) clearSpinHold(owner)
     }
     svg.addEventListener('transitionend', onTransitionEnd)
-    setSpinning(true)
-    setRotation(target)
-    return () => svg.removeEventListener('transitionend', onTransitionEnd)
+    const begin = (track: SfxTrack | undefined, delayMs: number | null) => {
+      trackRef.current = track ?? null
+      setStartDelay(delayMs)
+      setSpinning(true)
+      setRotation(target)
+    }
+    // A delay the page already put on the disc's start (endgame-drive sets
+    // one) is kept: the track's lead-in waits it out too.
+    const presetDelay = cssTimeMs(window.getComputedStyle(svg).transitionDelay)
+    const lead = CLACK_LEAD_MS + presetDelay
+    // The disc's on-screen angle is its transform plus its own lean, the
+    // same reading the per-clack loop counts boundaries on.
+    const track = startWheelClacks(spinTickTimes(rotation + WOBBLE, target + WOBBLE, n, WOBBLE), lead, CLACK_START_WAIT_MS)
+    if (!track) begin(undefined, null)
+    else {
+      pending = track
+      void track.started.then((ok) => {
+        if (!live) return
+        pending = undefined
+        // What the track has already played is taken off the disc's delay,
+        // so the disc's first moment is the track's lead-in's last.
+        begin(ok ? track : undefined, ok ? lead - track.position() : null)
+      })
+    }
+    return () => {
+      live = false
+      pending?.stop()
+      svg.removeEventListener('transitionend', onTransitionEnd)
+    }
     // `rotation` is deliberately not a dependency: the effect reads it once,
     // when the landing arrives, and re-running on its own writes would restart
     // the spin mid-flight.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wheel.landed, n, attemptId, activeSlot, eventGeneration, reduced])
 
-  // The click-clack (owner, 2026-09-18; made even 2026-09-27): a
-  // requestAnimationFrame loop reads the disc's ACTUAL computed angle while
-  // the CSS transition carries it, and clacks once for each segment boundary
-  // the pointer passed since the last frame. The ticks follow the spin's
-  // deceleration — fast at first, slower and slower toward the landing —
-  // because they are read off the animation rather than re-derived from it.
+  // Ready the coming spin's clack track before the tap. The engine's landing
+  // is drawn from the round's seed, so it is known now (nextWheelLanding);
+  // the track loaded ahead starts within a frame of play(), where one loaded
+  // at the tap took ~280 ms in Chromium before it sounded.
+  const nextLanding = wheel.result === null && wheel.landed === null ? nextWheelLanding(game) : null
+  useEffect(() => {
+    if (nextLanding === null || spinning || reduced) return
+    const target = spinTarget(rotation, segmentToRotation(nextLanding, n))
+    readyWheelClacks(spinTickTimes(rotation + WOBBLE, target + WOBBLE, n, WOBBLE), CLACK_LEAD_MS)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextLanding, n, rotation, spinning, reduced])
+
+  // Ready the clack track's tick before the first spin, and silence any
+  // track left when the wheel goes away.
+  useEffect(() => {
+    prepareWheelClacks()
+    return () => {
+      trackRef.current?.stop()
+      trackRef.current = null
+    }
+  }, [])
+
+  // The per-clack FALLBACK (owner, 2026-09-18; made even 2026-09-27), for a
+  // spin with no track (sound just switched on, the tick not loaded, a media
+  // stack that would not start the track in time): a requestAnimationFrame
+  // loop reads the disc's ACTUAL computed angle while the CSS transition
+  // carries it, and clacks once for each segment boundary the pointer passed
+  // since the last frame. The ticks follow the spin's deceleration — fast at
+  // first, slower and slower toward the landing — because they are read off
+  // the animation rather than re-derived from it.
   // The reading is UNWRAPPED (angleStep) before it is counted: the raw angle
   // jumps from 180 to -180 once a turn, which used to cost or add a clack.
   useEffect(() => {
-    if (!spinning || reduced) return
+    if (!spinning || reduced || trackRef.current) return
     let raf = 0
     let last: number | null = null
     let travelled = 0
@@ -268,6 +358,8 @@ export function WheelSpinner({ game }: { game: GameState }) {
                   transitionProperty: spinning ? 'transform' : undefined,
                   transitionDuration: spinning ? `${SPIN_MS}ms` : undefined,
                   transitionTimingFunction: spinning ? `cubic-bezier(${SPIN_EASING.join(', ')})` : undefined,
+                  // Only with a clack track: the disc starts on the track's clock.
+                  transitionDelay: spinning && startDelay !== null ? `${startDelay.toFixed(1)}ms` : undefined,
                 }
           }
           aria-hidden="true"

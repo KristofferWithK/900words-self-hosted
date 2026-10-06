@@ -51,16 +51,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: 'Hamarosan',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'A szókártyák unalmasak, ezért két játékot játszunk: egy városnéző sétát, amin szavakat gyűjtünk, és egy szórejtvényt egy kávézóban.',
+  introTwoGames: 'A szókártyák unalmasak, ezért két játékot játszunk: Sightseeinget, amin szavakat gyűjtünk, és egy szórejtvényt egy kávézóban.',
   introExplore: (city) => `Nézzünk körül ${hol(city)}! Hátha találunk egy kávézót.`,
   introGo: 'Indulás',
-  walkEndFound: 'Sétálj még egyet, vagy menj a Főoldalra, és játssz a kávézóban, amit találtunk.',
-  walkEndNotFound: 'Sétálj még egyet, hogy kávézót keress, vagy menj a Főoldalra.',
+  walkEndFound: 'Indulj még egy Sightseeingre, vagy menj a Főoldalra, és játssz a kávézóban, amit találtunk.',
+  walkEndNotFound: 'Indulj még egy Sightseeingre, hogy kávézót keress, vagy menj a Főoldalra.',
 
   // ── A súgóbuborékok az élő képernyőkön ───────────────────────────────────
   tourNext: 'Tovább',
   tourDone: 'Mehetünk',
-  tourLoose: 'A szavak, amikkel találkoztunk, itt fent várnak. Minden gyűrű egy harmaddal telik jelenként: egy fotó sétán, egy tipp a nyomomra, és egy saját nyomod.',
+  tourLoose: 'A szavak, amikkel találkoztunk, itt fent várnak. Minden gyűrű egy harmaddal telik jelenként: egy fotó Sightseeing közben, egy tipp a nyomomra, és egy saját nyomod.',
   tourLid: 'Három jellel a szó össze van gyűjtve. Az összegyűjtött szavak a bőröndbe kerülnek, és ez a sor számolja őket.',
   tourTray: 'Ez a város pecsétkártyája. Minden kávézó, ahol játszol, itt kapja meg a pecsétjét. A szaggatott kör egy megtalált, de még nem játszott kávézó, a ? pedig egy még megtalálandó.',
   mapTourHere: (city, words) =>
@@ -100,17 +100,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `Ez a rejtvény elveszett. Egy elvesztett rejtvény is bronz pecsétet ér. A megnyert rejtvény ezüstöt, aranyat vagy platinát ér. A kávézó eddigi legjobbja: ${best}.`,
   resultTourCityPercent: (city) =>
-    `${city}: minden kávézópecsét a város érméjébe számít. Bronz 25%-tól, ezüst 50%-tól, arany 75%-tól, platina 100%-nál.`,
+    `${city}: minden kávézópecsét a városi pecsétbe számít. A százalék az összes kávézópecséted együtt: a jobb pecsétek növelik. Bronz 25%-tól, ezüst 50%-tól, arany 75%-tól, platina 100%-nál.`,
   resultTourNoBestYet: 'még nincs',
   resultTourSentence:
     'Ez egy választható ismétlés. Egy szót mutat ebből a táblából egy mondatban. Ez nem újabb teszt.',
   resultTourNoReview:
     'Most nincs átismételhető mondat. Semmi baj. Az ismétlés mindig választható.',
-  homeTourSightseeing: 'A Városnézés az a séta, amit most tettünk. Minden séta szavakat gyűjt, és minél többet sétálsz, annál több kávézót találsz.',
+  homeTourSightseeing: 'A Sightseeing az, amit most csináltunk. Minden kör szavakat gyűjt, és minél többet játszol, annál több kávézót találsz.',
   homeTourCafe: (name) =>
     name ? `Az első kávézónk: ${name}. Koppints a Kávézós rejtvényre, ülj le, és játssz.` : 'Az első kávézónk vár. Koppints a Kávézós rejtvényre, ülj le, és játssz.',
-  homeTourStamp: 'Minden kávézó, ahol játszol, kap egy pecsétet. Együtt adják ki a város érméjét, és itt látod, hol tartasz.',
-  homeTourCollection: 'Koppints rám, és kinyitom a bőröndöt. Megmutatom a szavakat, amiket összegyűjtöttünk, és a kávézó pecsétjét.',
+  homeTourStamp: 'Ez a városi pecsét. A százaléka az összes kávézópecséted együtt, és a jobb pecsét többet ér. Játssz újra egy kávézóban egy jobb pecsétért, és nő.',
+  homeTourCollection: 'Koppints rám, és kinyitom a bőröndöt. Benne vannak a szavaink és a kávézó pecsétje.',
 
   // ── A gyakorlókör: Casey megírt indoklásai ──────────────────────────────
   practiceRationaleDrink: 'A víz, a kávé és a tej mind olyasmi, amit iszunk.',

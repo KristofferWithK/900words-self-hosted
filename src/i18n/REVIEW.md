@@ -199,6 +199,78 @@ kawiarnie" for a count of any size, since the number follows a colon), the
 French space before the colon, and Chinese "找到咖啡馆：" against
 "找到的咖啡馆：".
 
+The 2026-10-04 run feedback after build 123 renamed the run-end tag in all
+eleven `sightseeing` catalogues: `walkAgain` ("Walk again") is now
+`sightseeingAgain` (English "More sightseeing"; owner: "instead of walk can we
+rebrand it to sightseeing?"), each language using its own word for the
+Sightseeing title: German "Noch ein Stadtbummel", French "Encore une visite",
+Polish "Zwiedzaj znowu", Portuguese "Mais um passeio", Swedish "En
+stadsvandring till", Chinese "再去观光", Spanish "Más turismo", Hungarian "Még
+egy városnézés", Norwegian "En byvandring til", Dutch "Nog een
+stadswandeling". The countdown that starts the next walk by itself shows as
+the tag filling, with no number, so the short-lived `walkAgainIn` ("Walk again
+in 4") is gone. Non-English wording is machine-authored (Claude Opus) and has
+not received native-speaker review; the owner reads German. The likeliest to
+need a reader: Polish "Zwiedzaj znowu" and Chinese "再去观光" (both changed in
+the walk-wording pass below, which gave `resume` their first wording).
+
+The 2026-10-04 walk-wording pass (owner: "yes, rename all walk wording to
+sightseeing") rewrote every player-facing line that called the running game
+a walk, in all eleven catalogues. Keys: `sightseeing.start`,
+`sightseeing.resume`, `settings.planFree`, `home.dailyLimitKicker`,
+`home.dailyLimitRunsKicker`, `home.dailyLimitBothKicker`,
+`home.dailyLimitRunsLeft`, `home.dailyLimitBody`, `onboarding.introTwoGames`,
+`onboarding.walkEndFound`, `onboarding.walkEndNotFound`,
+`onboarding.tourLoose` and `onboarding.homeTourSightseeing`. English now says
+"Start sightseeing", "Keep sightseeing", "two sightseeing trips", "You’ve been
+sightseeing twice today", "Go sightseeing again" and "a photo while
+sightseeing". Every other language uses its own name for the game: German
+Stadtbummel, French visite, Polish zwiedzanie, Portuguese passeio pela
+cidade, Swedish stadsvandring, Chinese 观光, Spanish turismo / visita
+turística, Hungarian városnézés, Norwegian byvandring, Dutch stadswandeling.
+Where a language had a short neutral button already, it keeps it (Hungarian
+"Indulás" / "Tovább"; Swedish now "Sätt igång" / "Fortsätt", Norwegian "Sett i
+gang" / "Fortsett", Dutch "Beginnen" / "Doorgaan"). Polish `sightseeingAgain`
+became "Zwiedzaj znowu" and Chinese "再去观光", so they no longer read the same
+as `resume` ("Zwiedzaj dalej", "继续观光"). German keeps "Lauf" where it means a
+run (the train run, a run's end); `src/i18n/sightseeing-wording.test.ts` lists
+those lines and fails on any other walking word in the player-pickable
+catalogues. Non-English wording is machine-authored (Claude Opus) and has not
+received native-speaker review; the owner reads German. The likeliest to need
+a reader: Polish counted "zwiedzania" / "zwiedzań" ("pójść na 2 zwiedzania"),
+Hungarian "városnézésre mehetsz", Spanish "hacer turismo", and the Swedish,
+Norwegian and Dutch game names themselves, which still mean "city walk": they
+are the game's name there and were left as they are; say if they should
+become a sightseeing word too.
+
+**Owner brand decision, 2026-10-04: "Sightseeing" is the running game's
+name in every language, untranslated** ("Sightseeing is a very universal word,
+and since it's a brand thing it should stay consistent"). This supersedes the
+localized names above. `sightseeing.title` is "Sightseeing" in all eleven
+catalogues (Home's tag, the chooser, the run screen's name; it is on the
+same-in-every-language list), and every line that named the game or the
+activity is rebuilt around the brand word: `sightseeing.start`,
+`sightseeingAgain`, `resume`, `settings.planFree`, `home.dailyLimitKicker`,
+`dailyLimitRunsKicker`, `dailyLimitBothKicker`, `dailyLimitRunsLeft`,
+`dailyLimitBody`, `cafeNotFoundLine`, `stampNextCafeUnfound`, and
+`onboarding.introTwoGames`, `walkEndFound`, `walkEndNotFound`, `tourLoose`,
+`homeTourSightseeing`. German, for the owner's read: "Sightseeing starten",
+"Weiter mit Sightseeing", "Noch mal Sightseeing", "Du warst heute schon
+zweimal beim Sightseeing.", "Du kannst heute noch 2-mal zum Sightseeing.",
+"Finde zuerst ein Café beim Sightseeing." German keeps "Lauf" where it means
+the train run. `src/i18n/sightseeing-wording.test.ts` checks that every
+catalogue's title is "Sightseeing", that its three run buttons name it, and
+that the old names (Stadtbummel, Stadsvandring, Byvandring, Stadswandeling,
+Visite de la ville, Zwiedzanie, Passeio pela cidade, 城市观光, Turismo,
+Városnézés) are gone. Non-English wording is machine-authored (Claude Opus)
+and has not received native-speaker review. The likeliest to need a reader:
+the loanword's grammar where the language inflects it (Polish
+"Sightseeingu", "dwa dzisiejsze Sightseeingi"; Hungarian "Sightseeingen",
+"Sightseeingre", "Sightseeinget"), the article French, Spanish and Portuguese
+give it ("le Sightseeing", "el Sightseeing", "o Sightseeing", masculine), the
+counted forms ("séances de Sightseeing", "sesiones", "sessões"), and Chinese
+mixing the Latin word into its sentences with a space either side.
+
 The 2026-10-04 lost-round rule (card CW-03b: a completed but lost round earns
 a Bronze stamp) reworded `resultTourLossTier` in all eleven `onboarding`
 catalogues: a lost puzzle still earns a Bronze stamp, a won one Silver, Gold
@@ -277,6 +349,36 @@ written inside Home's empty stamp circle ("No stamp"); it brings back the
 wording is machine-authored and has not received native-speaker review. The
 likeliest to need a reader: whether "Kein Stempel" and "Bez pieczątki" read
 well split over two lines inside the small circle.
+
+The 2026-10-04 city stamp (owner, after TestFlight 123: "it's not really a
+medal, it's more the city stamp that you can keep pushing") reworded four keys
+in all eleven catalogues, and no player-facing line says medal any more
+(`src/i18n/cityStamp.test.ts` greps every catalogue). `home.cityMedal` is now
+"City stamp: Gold" (German "Stadtstempel", Spanish "Sello de la ciudad",
+French "Tampon de la ville", Hungarian "Városi pecsét", Norwegian
+"Bystempel", Dutch "Stadsstempel", Polish "Pieczątka miasta", Portuguese "Selo
+da cidade", Swedish "Stadsstämpel", Chinese "城市印章"); `cityMedalInProgress`
+follows the new noun's gender in Spanish, French and Polish.
+`onboarding.homeTourStamp` and `resultTourCityPercent` now explain the
+percentage: all the café stamps together, better stamps count more, Bronze at
+25% to Platinum at 100%, and a café played again for a better stamp raises
+it. `onboarding.homeTourCollection` is one plain line, "Tap me to open the
+suitcase", since tapping Casey is now the only way on from her beat (the
+light on her pulses, and her beat has no Next). Non-English wording is machine-authored
+and NEEDS NATIVE REVIEW; the owner reads German. The likeliest to need a
+reader: the word chosen for "city stamp" in each language (above), the
+"percentage is all your stamps together" sentence (German "Die Prozentzahl
+sind alle deine Café-Stempel zusammen", which is loose but plain).
+
+The 2026-10-05 merge of the Articles walk into Sightseeing (owner: "Let's
+merge the article run into Sightseeing") REMOVED six keys from all eleven
+catalogues and added none: `sightseeing.wordsWalk`, `sightseeing.articlesWalk`
+and `sightseeing.articlesHint` (the walk's name and hint on the ready panel),
+and `home.sightseeingAsk`, `home.wordsWalkNote` and `home.articlesWalkNote`
+(the Words / Articles chooser sheet). Home's Sightseeing tag now starts the one
+walk at once; its article gates keep using the existing `articleAsk`,
+`articleGateAria` and `wrongArticle` lines. The find-a-café sheet's one tag
+reuses `sightseeing.title` and `home.sightseeingNote`. Nothing new to review.
 
 **Casey's own voice is tracked separately**, because it lives in the Worker
 rather than the catalogue (`proxy/casey/player-language.js`): the fifteen

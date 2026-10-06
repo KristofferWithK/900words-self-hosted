@@ -18,28 +18,25 @@ import type { RunWordOrigin } from './words'
  *  - missed words come back more often (§2);
  *  - a missed ARTICLE is not a missed MEANING (CW-06): every photo, miss and
  *    per-word tally says which it was (`kind`), so a noun whose article was
- *    missed in the Articles walk is not counted as a word whose meaning was
- *    missed in the Words walk, and the other way round. `tallyMisses` keeps
+ *    missed at an article gate is not counted as a word whose meaning was
+ *    missed, and the other way round. `tallyMisses` keeps
  *    the two apart for a sink that remembers misses across runs.
  */
 
 /**
- * The runs: the two walks of Sightseeing (contract §2), and the train run
- * (card CW-07, contract §4): every word of the city, each once, the only way
- * onto the train. The train run asks meanings, like the Words walk.
+ * The runs: the Sightseeing walk (contract §2), and the train run (card
+ * CW-07, contract §4): every word of the city, each once, the only way onto
+ * the train. The train run asks meanings only. There was a separate Articles
+ * walk ('articles') until the owner merged it into the walk as article gates
+ * (2026-10-05); nothing stored names it.
  */
-export type RunWalk = 'words' | 'articles' | 'train'
+export type RunWalk = 'words' | 'train'
 
 /**
- * What a gate asked: a word's MEANING (the Words walk) or a noun's ARTICLE
- * (the Articles walk). Results of the two kinds are never mixed.
+ * What a gate asked: a word's MEANING or a noun's ARTICLE (an article gate of
+ * the walk). Results of the two kinds are never mixed.
  */
 export type RunAnswerKind = 'meaning' | 'article'
-
-/** The kind of answer each walk asks. */
-export function answerKindOf(walk: RunWalk): RunAnswerKind {
-  return walk === 'articles' ? 'article' : 'meaning'
-}
 
 /**
  * Why a run ended: one wrong word more than the run forgives (`second-wrong`,
@@ -62,8 +59,9 @@ export interface RunPhoto {
 
 /**
  * A wrong answer. `pickedId` is what the player steered into: the id of the
- * wrong word (kind 'meaning'), or the wrong article itself, such as "et"
- * (kind 'article').
+ * wrong word (kind 'meaning'), the wrong article itself, such as "et" (kind
+ * 'article'), or "wall" for the brick wall in the middle lane of a
+ * two-article gate (src/run/walks.ts `articleGateLanes`).
  */
 export interface RunMiss {
   readonly walk: RunWalk
@@ -112,7 +110,7 @@ export interface MissTally {
 
 /**
  * Count misses per word, a missed article apart from a missed meaning. A noun
- * missed once in each walk has one of each, never two of either.
+ * missed once of each kind has one of each, never two of either.
  */
 export function tallyMisses(misses: Iterable<Pick<RunMiss, 'kind' | 'wordId'>>): MissTally {
   const meaning = new Map<string, number>()

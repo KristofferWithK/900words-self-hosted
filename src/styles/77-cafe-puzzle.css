@@ -162,14 +162,15 @@
 }
 
 /* ---- the table: large faint pencil items behind everything ----
-   One layer, fixed to the phone's screen and painted beneath every other
-   thing on the game screen: the cards (opaque white) lie on top of it, so an
-   item shows only in the gutters, the margins and the bottom area, the way
-   the owner's concept draws it. It is fixed rather than laid out with the
-   board or the dock, which is what keeps it the same in every state: no
-   phase, dock, turn card or keyboard moves it. The keyboard (Keyboard.resize
-   'body' shrinks the document, never the screen) simply covers the bottom
-   items, as the composer riding up covers whatever it passes. */
+   Painted beneath every other thing on the game screen: the cards (opaque
+   white) lie on top of it, so an item shows only in the gutters, the margins
+   and the bottom area, the way the owner's concept draws it. Two layers of
+   one arrangement. The board's items are fixed to the phone's screen, so no
+   phase, dock, turn card or keyboard moves them. The bottom area's items are
+   anchored to the dock (owner, build 123): when the keyboard comes up and the
+   composer rides up with it, its own items ride up with it and lie around it
+   exactly as at rest, and come back down with it; the keyboard covers what
+   lies below the dock, as the home indicator's strip does at rest. */
 /* z-index -1: beneath every block, card and control of the screen, above
    only the page's own background (body's, which the canvas carries). No
    stacking context is added for it, so the screen's overlays keep theirs. */
@@ -198,8 +199,59 @@
 }
 
 .cafe-table-bottom {
-  bottom: 0;
+  top: 0;
   height: var(--cafe-bottom-h);
+}
+
+/* The bottom area's layer: from the dock's top edge down to the body's
+   bottom edge, inside the game screen, so it is laid out with the dock and
+   rides where the dock rides. Its height is what lies under the dock top: the
+   dock, the screen's bottom padding and the body's (the home indicator's
+   strip at rest; with the keyboard up, 36-composer.css takes both down to 4px
+   and 0, and these follow). The region inside it keeps the full bottom-area
+   height measured from the dock's top, so every item lies where it lay at
+   rest, and the layer clips at its own bottom: an item may run under the
+   keyboard, never past the page into a scroll. Not centred by a transform:
+   the keyboard ride (nativeKeyboard.ts) moves it with one. */
+.game-screen.cafe-puzzle {
+  --cafe-screen-pad-b: 12px;
+  --cafe-body-pad-b: env(safe-area-inset-bottom);
+}
+
+.kb-up .game-screen.cafe-puzzle {
+  --cafe-screen-pad-b: 4px;
+  --cafe-body-pad-b: 0px;
+}
+
+.cafe-table-composer {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: var(--cafe-table-w);
+  bottom: calc(-1 * var(--cafe-body-pad-b));
+  height: calc(var(--dock-h) + var(--cafe-screen-pad-b) + var(--cafe-body-pad-b));
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--cafe-pencil);
+}
+
+/* With the keyboard up the composer stands over the middle of the board's
+   region, whose items would show through it next to its own. The layer takes
+   the page's background then, so around the composer lie exactly the items
+   that lay around it at rest, and nothing of the board's. */
+.kb-up .cafe-table-composer,
+.cafe-table-composer.kb-sinking {
+  background: var(--bg);
+}
+
+/* While the composer rides up or sinks (the keyboard's own duration) the
+   layer rides with it, over the white surface that travels under the fields
+   and under the fields themselves (36-composer.css: surface 5, dock 6). */
+.kb-up .cafe-table-composer.kb-riding,
+.cafe-table-composer.kb-sinking {
+  z-index: 5;
 }
 
 /* An item's centre at (--x, --y) of its region, its side a share (--size,
@@ -241,13 +293,58 @@
   border-radius: 8px;
 }
 
-/* ---- Casey is large while she thinks ---- */
+/* ---- Casey is large through her whole turn ----
+   Large while she thinks (CW-08), and still large while she explains and
+   reveals each guess (owner, build 123: she "jumps back to the small Casey").
+   Her width comes out of the bubble's, so while she explains (the panel
+   with a data-beat) the explanation wraps beside her and then on under her
+   at the dock's full width, with its lines a little closer (1.2) and the gap
+   above the result line 4px: the longest one (twelve words and, after a
+   miss, the second-choice sentence) takes six lines on a 360px phone, and
+   those six and the one-line result under them sit inside the dock's 150px
+   with 2px to spare. Her float ends a few px above her drawing's foot, at
+   the fourth line, so the fifth runs full width. The café drive measures every
+   catalogue's longest at 390 and 360 wide. Anything longer is cut at the
+   dock (the bubble's title keeps the whole reply), never spilled onto the
+   board. */
 .cluey-mini.cluey-thinking-large {
   width: var(--casey-thinking-w);
 }
 
+.ai-panel-cafe[data-beat] {
+  gap: 4px;
+}
+
+/* She stands in the same spot in every state, too: the explanation needs the
+   dock from its top, so her thinking panel starts at the top as well rather
+   than centring her lower. */
+.dock.ai-panel.ai-panel-cafe {
+  justify-content: flex-start;
+}
+
+.ai-panel-cafe[data-beat] .ai-say {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ai-panel-cafe[data-beat] .ai-say .cluey-mini {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: -5px;
+}
+
+.ai-panel-cafe[data-beat] .ai-bubble {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-height: 1.2;
+}
+
 @media (forced-colors: active) {
-  .cafe-table {
+  .cafe-table,
+  .cafe-table-composer {
     display: none;
   }
 

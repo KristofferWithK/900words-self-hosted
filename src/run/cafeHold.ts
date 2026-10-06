@@ -8,8 +8,10 @@ import { onCafeFound, walkFindsCafes } from './sinkSetup'
  * wires that to the run: one café with its name on the road ahead, which Casey
  * walks through.
  *
- * Only the first session's walk holds the run on a find ("You found a café.
- * You can play it later from home.", contract §7 step 4). Every other walk
+ * Only the first session's walk holds the run ("You found a café. You can
+ * play it later from home.", contract §7 step 4), and only when Casey reaches
+ * the café, not at the find (owner, after build 123: "the panel should open
+ * when you hit the café, of course"). Every other walk
  * keeps walking (owner, 2026-10-04: "Hitting a café should only pause the
  * game in the onboarding, otherwise you just keep walking"): the café stands
  * on the road, Casey walks through it, and the run-end panel says which cafés
@@ -20,7 +22,7 @@ export interface CafeHold {
   /** The café's own name (a Danish proper name), or null for a café without one. */
   readonly name: string | null
   readonly shop: RunShopfront
-  /** Whether the run holds on this find until the player carries on. */
+  /** Whether the run holds when Casey reaches this café (engine.ts `cafeHeld`), until the player carries on. */
   readonly held: boolean
 }
 
@@ -28,8 +30,8 @@ export interface CafeHold {
  * Listen for cafés found by `engine`'s walk. `nameOf` names a café (the screen
  * passes `cafeNameForBoard`); a café without a name gets `sign` on its shop.
  * `hold` says whether a find holds the run: true only on the first session's
- * walk. `onFind` hears each find once the café is placed (and the run held,
- * with `hold`). Returns the function that stops listening.
+ * walk. `onFind` hears each find once the café is placed; with `hold` the
+ * run holds later, as Casey reaches it. Returns the function that stops listening.
  *
  * The sink writes a run's answers a moment after they are given, and at the
  * latest when the run ends (sinkSetup.ts, deferred writes): a café found by

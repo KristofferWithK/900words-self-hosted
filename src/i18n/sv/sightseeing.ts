@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Svenska. Du. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Stadsvandring',
-  wordsWalk: 'Ord',
+  title: 'Sightseeing',
   rules: 'Ett fel ord är förlåtet. Det andra avslutar loppet.',
   steerHint: 'Svep eller tryck till vänster och höger för att styra.',
-  start: 'Börja gå',
-  walkAgain: 'Gå igen',
+  start: 'Starta Sightseeing',
+  sightseeingAgain: 'Mer Sightseeing',
   pauseAria: 'Pausa',
   paused: 'Pausad',
-  resume: 'Fortsätt gå',
+  resume: 'Fortsätt med Sightseeing',
   photosLabel: 'Foton',
   bestLabel: 'Rekord',
   askLabel: 'Vilket betyder',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Nytt rekord!',
   comingBack: 'De här kommer tillbaka oftare:',
   gateAria: (prompt: string, choices: string) => `Vilket betyder ${prompt}? ${choices}`,
-  articlesWalk: 'Artiklar',
-  articlesHint: 'Ordet står på lappen. Styr mot dess artikel. Varje artikel har sitt eget körfält.',
   articleAsk: (others: string, last: string) => `${others} eller ${last}?`,
   wrongArticle: 'Fel väg',
   articleGateAria: (noun: string, choices: string) => `Vilken artikel hör till ${noun}? ${choices}`,

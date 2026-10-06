@@ -5,7 +5,10 @@
  * for frozen files on media elements (`sfx.ts`) after the context went
  * silent mid-session on an iPhone, and the word path below is behind
  * `WEB_AUDIO = false` in speak.ts for the same reason; the audio self-test
- * still measures it. What follows is why it was built.
+ * still measures it. The exception is the words: since TestFlight 126 they
+ * play through this context from wordAudioWeb.ts (unless the performance
+ * log's "Old word-players" switch is on), which also puts WebKit's audio
+ * session in the playback category. What follows is why it was built.
  *
  * Two things played through it: the UI sound effects and, since
  * the owner could still feel a tap's delay after the element pool (build 60:

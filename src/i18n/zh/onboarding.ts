@@ -50,16 +50,16 @@ export const onboarding: Catalogue['onboarding'] = {
   ticketComingSoon: '即将推出',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: '背单词卡太无聊了，所以我们玩两个游戏：一个是城市观光，边走边收集词；另一个是在咖啡馆里玩的词语谜题。',
+  introTwoGames: '背单词卡太无聊了，所以我们玩两个游戏：一个是 Sightseeing，一路收集词语；另一个是在咖啡馆里玩的词语谜题。',
   introExplore: (city) => `我们去逛逛 ${city}，看看能不能找到一家咖啡馆。`,
   introGo: '出发',
-  walkEndFound: '再走一次，或者回主页去玩我们找到的咖啡馆。',
-  walkEndNotFound: '再走一次去找咖啡馆，或者回主页。',
+  walkEndFound: '再玩一次 Sightseeing，或者回主页去玩我们找到的咖啡馆。',
+  walkEndNotFound: '再玩一次 Sightseeing 找找咖啡馆，或者回主页。',
 
   // ── 真实界面上的引导提示 ────────────────────────────────────────────────
   tourNext: '下一步',
   tourDone: '出发吧',
-  tourLoose: '我们见过的词在上面等着。每个圆环按标记填满三分之一：散步时拍的照片、根据我的提示猜对一次、你自己给出一次提示。',
+  tourLoose: '我们见过的词在上面等着。每个圆环按标记填满三分之一：Sightseeing 时拍的照片、根据我的提示猜对一次、你自己给出一次提示。',
   tourLid: '集齐三个标记，这个词就收集好了。收集好的词放进箱子里，这一行会数它们。',
   tourTray: '这是这座城市的印章卡。你玩过的每家咖啡馆都会在这里盖上印章。虚线圆圈是找到了但还没玩的咖啡馆，? 是还没找到的。',
   mapTourHere: (city, words) => `这是 ${city}，我们现在就在这儿。每座城市有 ${words} 个词可以带回家。`,
@@ -94,17 +94,17 @@ export const onboarding: Catalogue['onboarding'] = {
   resultTourLossTier: (best: string) =>
     `这局谜题输了。输掉的谜题也能得到铜印章，赢下的谜题能得到银、金或白金印章。这家咖啡馆目前最好的是${best}。`,
   resultTourCityPercent: (city) =>
-    `每枚咖啡馆印章都计入 ${city} 的奖牌：25% 得铜，50% 得银，75% 得金，100% 得铂金。`,
+    `每枚咖啡馆印章都计入 ${city} 的城市印章。百分比是你所有咖啡馆印章加在一起：印章越好，百分比越高。25% 得铜，50% 得银，75% 得金，100% 得铂金。`,
   resultTourNoBestYet: '尚未产生',
   resultTourSentence:
     '这是可选的复习。它会把这块词板上的一个词放进句子里。这不是另一场测试。',
   resultTourNoReview:
     '这次没有可复习的句子。没关系。复习始终是可选的。',
-  homeTourSightseeing: '城市观光就是我们刚才走的那一趟。每次散步都会收集词语，走得越多，找到的咖啡馆也越多。',
+  homeTourSightseeing: 'Sightseeing 就是我们刚才做的事。每一趟都会收集词语，玩得越多，找到的咖啡馆也越多。',
   homeTourCafe: (name) =>
     name ? `我们的第一家咖啡馆是 ${name}。点“咖啡馆谜题”坐下来玩吧。` : '我们的第一家咖啡馆在等你。点“咖啡馆谜题”坐下来玩吧。',
-  homeTourStamp: '你玩过的每家咖啡馆都会得到一枚印章。印章合起来就是这座城市的奖牌，这里显示你的进度。',
-  homeTourCollection: '点我打开行李箱。我给你看我们收集的词，还有咖啡馆的印章。',
+  homeTourStamp: '这是城市印章。它的百分比是你所有咖啡馆印章加在一起，印章越好，算得越多。再玩一次咖啡馆，拿到更好的印章，它就会上升。',
+  homeTourCollection: '点我打开行李箱。里面有我们收集的词和咖啡馆的印章。',
 
   // ── 练习回合：Casey 写好的理由 ──────────────────────────────────────────
   practiceRationaleDrink: '水、咖啡和牛奶都是喝的东西。',

@@ -16,6 +16,7 @@ import { useCaseyBackOnline } from '../caseyBackOnline'
 import { AiTurnPanel } from '../components/AiTurnPanel'
 import { BoardGrid, playerKeyHidden, wheelBoardActive } from '../components/BoardGrid'
 import { CafeNameTag, CafeTable } from '../components/CafeTable'
+import { diagSwitch } from '../diagnostics/switches'
 import { ClueInput } from '../components/ClueInput'
 import { useOpenDictionary } from '../components/DictionarySheet'
 import { LeaveGameDialog } from '../components/LeaveGameDialog'
@@ -39,6 +40,8 @@ import { introGameTourDue, translationLessonDue, translationLessonHoldsGuidance,
 import type { OnboardLessonStatus } from '../../onboarding/flow'
 import { firstFoundCafe } from '../../onboarding/firstCafe'
 import { HINT_KEYS, useFirstTimeHint } from '../hints'
+import { WORD_POOL_LIMITS } from '../speak'
+import { useWordPool } from '../useWordPool'
 
 const PHASE_CAPTION: Record<GameState['phase'], string> = {
   playerClueInput: UI.game.phaseGiveClue,
@@ -152,6 +155,9 @@ export function GameScreen({
   showResultLesson?: boolean
   onResultLessonComplete?: (status: OnboardLessonStatus) => void
 } = {}) {
+  // The board's eighteen words stay ready while it is on screen, and are let
+  // go when it is left (speak.ts, `claimWordPool`).
+  useWordPool('cafe', WORD_POOL_LIMITS.cafe)
   const game = useGame((s) => s.game)
   const attemptId = useGame((s) => s.attemptId)
   const activeSlot = useGame((s) => s.activeSlot)
@@ -544,7 +550,7 @@ export function GameScreen({
       <div className="kb-surface" aria-hidden="true" />
       {/* The café's table: big faint pencil items behind everything on this
           screen, the same in every state of the puzzle. */}
-      {table && <CafeTable table={table} />}
+      {table && !diagSwitch('cafeArt') && <CafeTable table={table} />}
       {/* While the keyboard is up, a tap anywhere else puts it away — and does
           nothing else. It is a real element rather than a document listener
           precisely so the tap lands HERE: dismissing the keyboard and also

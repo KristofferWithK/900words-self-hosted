@@ -1,4 +1,5 @@
 import { playClipAudio, playWord, preloadClipAudio, preloadWordAudio, primeWordAudio } from '../ui/speak'
+import type { RunGate } from './engine'
 import type { RunWord } from './words'
 
 /**
@@ -49,6 +50,40 @@ export function readyRunWords(words: readonly RunWord[]): void {
   if (ids.length) void preloadWordAudio(ids)
   const clips = words.flatMap((w) => (w.audio?.kind === 'clip' ? [runClipUrl(w.audio)] : []))
   if (clips.length) void preloadClipAudio(clips)
+}
+
+/**
+ * How many gates have their word readied at once: the current gate and the
+ * next two (owner, after build 124: "A player is not needed after the gate
+ * has been cleared"). The road shows about three gates ahead (engine.ts
+ * `FAR` / `SPACING`), each readied as it is placed far down the road, so a
+ * gate's word is ready seconds before the gate reaches Casey. Each gate
+ * readies one clip (an article gate's noun: its phrase, or article + word),
+ * well inside the walk's word pool (speak.ts `WORD_POOL_LIMITS`).
+ */
+export const RUN_READY_GATES = 3
+
+/**
+ * The next gate whose words to ready, taken off `queue` (the gates in the
+ * order they were placed), or undefined to wait. A gate already passed, or
+ * gone from the road, is dropped unreadied; a gate beyond the current one and
+ * the next two waits until it is among them.
+ */
+export function takeGateToReady<G extends Pick<RunGate, 'id' | 'resolved'>>(
+  queue: G[],
+  road: readonly Pick<RunGate, 'id' | 'resolved'>[],
+): G | undefined {
+  const ahead = road.filter((g) => !g.resolved).slice(0, RUN_READY_GATES).map((g) => g.id)
+  while (queue.length) {
+    const gate = queue[0]!
+    if (gate.resolved || !road.some((g) => g.id === gate.id)) {
+      queue.shift()
+      continue
+    }
+    if (!ahead.includes(gate.id)) return undefined
+    return queue.shift()
+  }
+  return undefined
 }
 
 /** Unlock the word player inside the tap that starts a run (iOS Safari needs the gesture). */

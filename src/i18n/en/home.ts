@@ -44,7 +44,7 @@ export const home = {
   readyToTravel: 'Ready to travel',
   nextStopNotReleased: (city: string) => `Ready to travel. ${city} is not released yet.`,
   cityMedalInProgress: 'not earned yet',
-  cityMedal: (tier: string) => `City medal: ${tier}`,
+  cityMedal: (tier: string) => `City stamp: ${tier}`,
   /** The maintenance notice's way out, back to the city you are standing in. */
   backToCity: (city: string) => `Back to ${city}`,
 
@@ -184,16 +184,16 @@ export const home = {
 
   // ── Daily games upgrade ──────────────────────────────────────────────────
   /** When today's counts cannot be read: no claim about today, only what free play is. */
-  dailyLimitKicker: 'Free play is two walks and two café puzzles a day.',
+  dailyLimitKicker: 'Free play is two sightseeing trips and two café puzzles a day.',
   /** Which of today's free limits was reached (CW-15): two walks, two café puzzles, or both. */
-  dailyLimitRunsKicker: 'You’ve walked twice today.',
+  dailyLimitRunsKicker: 'You’ve been sightseeing twice today.',
   dailyLimitPuzzlesKicker: 'You’ve played two café puzzles today.',
-  dailyLimitBothKicker: 'You’ve walked twice and played two café puzzles today.',
+  dailyLimitBothKicker: 'You’ve been sightseeing twice and played two café puzzles today.',
   /** After one limit only: how many of the other kind are still free today. */
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'You can still play 1 café puzzle today.' : `You can still play ${n} café puzzles today.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'You can still take 1 walk today.' : `You can still take ${n} walks today.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'You can still go sightseeing once today.' : `You can still go sightseeing ${n} times today.`),
   dailyLimitHeading: 'Keep playing with Casey',
-  dailyLimitBody: 'Come back tomorrow for more, or unlock unlimited walks and café puzzles.',
+  dailyLimitBody: 'Come back tomorrow for more, or unlock unlimited sightseeing and café puzzles.',
   dailyLimitOptionsAria: 'Unlimited play options',
   dailyLimitMonthly: 'Monthly',
   dailyLimitMonthlyHelp: 'Auto-renews each month until cancelled.',
@@ -248,16 +248,6 @@ export const home = {
   cafePuzzle: 'Café puzzle',
   /** Under "Sightseeing" on Home's second tag. Lower case, as a note. */
   sightseeingNote: 'find new cafés',
-  /** Under "Sightseeing" in the chooser sheet: Words or Articles? */
-  sightseeingAsk: 'What do you want to look out for?',
-  /** Under "Words" in the chooser sheet. */
-  wordsWalkNote: 'What does it mean? Photograph the right word and find new cafés.',
-  /**
-   * Under "Articles" in the chooser sheet. `ask` is the walk's own question
-   * ("en or et?"); `lanes` how many articles the course has.
-   */
-  articlesWalkNote: (ask: string, lanes: number) =>
-    lanes === 2 ? `${ask} Take the left or the right way.` : `${ask} Each article has its own lane.`,
   /** The train sheet's title. */
   trainSheetTitle: (city: string) => `The train to ${city}`,
   /** Under the title: the city's words, the length of the train run. */
@@ -265,9 +255,9 @@ export const home = {
     connecting > 0 ? `${city}: ${total} words (${board} on the boards, ${connecting} connecting)` : `${city}: ${total} words`,
   trainSheetCollected: (collected: number, total: number) => `Collected: ${collected} of ${total}`,
   trainSheetRule: 'The run is the only way onto the train.',
-  /** Read out for the stamp on Home, before the city medal line. `percent` is already formatted. */
+  /** Read out for the stamp on Home, before the city stamp line. `percent` is already formatted. */
   cityStampAria: (city: string, percent: string) => `${city}: ${percent} of the café stamps.`,
-  /** Written inside Home's empty stamp circle while the city has no medal yet. */
+  /** Written inside Home's empty stamp circle while the city stamp has no tier yet. */
   stampNone: 'No stamp',
   /** The Café puzzle tag's note while no café is found yet (CW-04's rule). Lower case, as a note. */
   cafeNotFoundNote: 'find a café first',
@@ -300,7 +290,7 @@ export const home = {
    */
   stampCardLine: (percent: string, goal: string, stamped: number, cafes: number) =>
     [percent, goal, `${stamped} of ${cafes} cafés`].filter(Boolean).join(' · '),
-  /** The next medal and where it starts: "Bronze at 25%". */
+  /** The city stamp's next tier and where it starts: "Bronze at 25%". */
   stampCardGoal: (tier: string, percent: string) => `${tier} at ${percent}`,
   /** A café's cell labels, under its stamp. */
   stampFound: 'Found',

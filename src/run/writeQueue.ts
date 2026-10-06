@@ -1,3 +1,5 @@
+import { diagSwitch } from '../ui/diagnostics/switches'
+
 /**
  * THE RUN'S DEFERRED WRITES.
  *
@@ -31,6 +33,7 @@ export const WRITE_AFTER_MS = 260
 /** The schedule the app uses: a plain timer, `ms` after the first entry of a batch. */
 export function after(ms: number): Schedule {
   return (run) => {
+    if (diagSwitch('deferWrites')) return () => {} // performance log switch: held to the run's end, pause or hide
     const id = setTimeout(run, ms)
     return () => clearTimeout(id)
   }

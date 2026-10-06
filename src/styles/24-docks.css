@@ -252,6 +252,25 @@
   animation: takeover-in 350ms ease-out both;
 }
 
+/* The card's backdrop (owner, build 123): from the dock's top rule (the
+   card's rectangle and the screen's 12px bottom padding above it) down to the
+   phone's bottom edge, the home indicator's strip included; the page's own
+   background, opaque for the card's whole life and never animated. At
+   z-index -1 it lies over the café table (also -1, earlier in the screen) and
+   under the dock, so the fading card still shows the dock beneath it as
+   before, and no table art. The out-beat and reduced motion leave it alone;
+   it unmounts with the card. */
+.turn-takeover-backdrop {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: calc(-1 * env(safe-area-inset-bottom));
+  height: calc(var(--dock-h) + 12px + env(safe-area-inset-bottom));
+  pointer-events: none;
+  background: var(--bg);
+}
+
 /* The big line itself — serif, like the app's headings, at a size that reads
    as an announcement rather than a caption. One line, ellipsized on the
    narrowest screen rather than wrapping into the dock's height. */

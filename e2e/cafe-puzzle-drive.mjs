@@ -122,6 +122,7 @@ const read = () => page.evaluate(() => {
     const inset = r.w * (1 - 44 / 48) / 2
     const s = getComputedStyle(el)
     return { spot: el.dataset.spot, drawing: el.dataset.drawing, shown: s.display !== 'none' && s.visibility !== 'hidden' && !el.closest('[hidden]'),
+      layer: el.closest('.cafe-table-composer') ? 'composer' : el.closest('.cafe-table') ? 'board' : 'none',
       x: r.x + inset, y: r.y + inset, w: r.w - 2 * inset, h: r.h - 2 * inset }
   })
   const hit = (a, b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h
@@ -132,6 +133,11 @@ const read = () => page.evaluate(() => {
   const alpha = layerStyle ? Number(/rgba?\(([^)]+)\)/.exec(layerStyle.color)?.[1].split(',')[3] ?? 1) : null
   const behind = !!layerStyle && layerStyle.position === 'fixed' && Number(layerStyle.zIndex) < 0 && layerStyle.pointerEvents === 'none'
   const opaqueCards = [...document.querySelectorAll('.word-card-surface')].every((el) => getComputedStyle(el).backgroundColor === 'rgb(255, 255, 255)')
+  // The bottom area's items ride with the dock (owner, build 123): their
+  // layer's top is the dock's top in every state, the keyboard's included.
+  const composerLayer = document.querySelector('.cafe-table-composer')
+  const dock = document.querySelector('.game-screen .dock.clue-input, .game-screen .dock.guess-bar, .game-screen .dock.ai-panel')
+  const composerStyle = composerLayer ? getComputedStyle(composerLayer) : null
   const header = document.querySelector('.game-header')
   const tag = document.querySelector('.cafe-name-tag-text')
   const doc = document.scrollingElement
@@ -142,12 +148,16 @@ const read = () => page.evaluate(() => {
     pairs: items.length * keepClear.length,
     behind,
     alpha,
+    composerTop: composerLayer ? composerLayer.getBoundingClientRect().top : null,
+    composerBehind: !!composerStyle && Number(composerStyle.zIndex) < 0 && composerStyle.pointerEvents === 'none' && composerStyle.color === layerStyle?.color,
+    dockTop: dock ? dock.getBoundingClientRect().top : null,
     opaqueCards,
     cups: document.querySelectorAll('.game-header .token-cup').length,
     tag: tag?.textContent ?? null,
     tagTruncated: tag ? tag.scrollWidth > tag.clientWidth + 0.5 : null,
     headerOverflows: header.scrollWidth > header.clientWidth + 1,
     caseyWidth: document.querySelector('.game-screen .dock .cluey-mini')?.getBoundingClientRect().width ?? null,
+    caseyAt: (({ x, y } = {}) => (x === undefined ? null : `${x.toFixed(1)},${y.toFixed(1)}`))(document.querySelector('.game-screen .dock .cluey-mini')?.getBoundingClientRect()),
     scrolls: doc.scrollHeight > doc.clientHeight + 1 || doc.scrollWidth > doc.clientWidth + 1,
   }
 })
@@ -156,7 +166,7 @@ const read = () => page.evaluate(() => {
 const cardsWithoutCafeChrome = () => page.evaluate(() => {
   const style = document.createElement('style')
   style.textContent = `
-    .cafe-name-tag, .cafe-table { display: none !important; }
+    .cafe-name-tag, .cafe-table, .cafe-table-composer { display: none !important; }
     .phase-caption.visually-hidden { position: static !important; width: auto !important; height: auto !important; margin: 0 !important; clip: auto !important; }
     .token.token-cup { width: 9px !important; }
     .cluey-mini.cluey-thinking-large { width: 44px !important; }`
@@ -183,12 +193,35 @@ async function state(size, name) {
   check(`${at}: the table lies behind everything, faint, under opaque cards`, seen.behind && seen.alpha !== null && seen.alpha <= 0.3 && seen.opaqueCards, JSON.stringify({ behind: seen.behind, alpha: seen.alpha, opaqueCards: seen.opaqueCards }))
   check(`${at}: no table item reaches the header's text or buttons`, seen.overlaps.length === 0, seen.overlaps.length ? seen.overlaps.join('; ') : `${seen.pairs} pairs`)
   check(`${at}: Café Solen on the tag, eight cups, the header fits`, seen.tag === 'Café Solen' && !seen.tagTruncated && seen.cups === 8 && !seen.headerOverflows, JSON.stringify({ tag: seen.tag, cups: seen.cups, overflow: seen.headerOverflows }))
-  const table = seen.items.map((i) => `${i.drawing}@${i.spot} ${i.shown ? '' : 'HIDDEN '}${[i.x, i.y, i.w].map((n) => n.toFixed(2)).join(',')}`).join(' | ')
+  // The board's items by where they lie on the screen; the bottom area's by
+  // where they lie from the dock's top.
+  const table = seen.items.map((i) => `${i.drawing}@${i.spot}/${i.layer} ${i.shown ? '' : 'HIDDEN '}${[i.x, i.layer === 'composer' ? i.y - seen.composerTop : i.y, i.w].map((n) => n.toFixed(2)).join(',')}`).join(' | ')
   tables[size] ??= table
-  check(`${at}: the café's table is the same as in the first state (six items, none hidden)`, seen.items.length === 6 && seen.items.every((i) => i.shown) && table === tables[size], table || 'no items')
+  check(`${at}: the café's table is the same as in the first state (six items, none hidden; the bottom three measured from the dock)`, seen.items.length === 6 && seen.items.every((i) => i.shown) && seen.items.filter((i) => i.layer === 'composer').length === 3 && seen.items.filter((i) => i.layer === 'board').length === 3 && table === tables[size], table || 'no items')
+  check(`${at}: the bottom area's layer starts at the dock's top, behind it, in the table's ink`, seen.composerBehind && (seen.dockTop === null || Math.abs(seen.composerTop - seen.dockTop) < 0.5), JSON.stringify({ composerTop: seen.composerTop, dockTop: seen.dockTop, behind: seen.composerBehind }))
   check(`${at}: the page does not scroll`, !seen.scrolls)
   return seen
 }
+
+/**
+ * The longest bubble Casey can show in each UI catalogue: a twelve-word
+ * reasoning (the prompt's cap, proxy/casey/player-language.js; 25 characters
+ * in Chinese) built from long words, plus that catalogue's second-choice
+ * sentence (src/i18n/<lang>/casey.ts) naming a long board word.
+ */
+const LONGEST_EXPLANATIONS = [
+  ['en', 'sygeplejerske (nurse) works nights in hospitals, caring for exhausted patients through emergencies. My second choice would have been vaskemaskine.'],
+  ['de', 'badevaerelse (Badezimmer) gehört zur Wohnungseinrichtung, genau wie Waschmaschine und Kühlschrank zusammengehören. Meine zweite Wahl wäre sygeplejerske gewesen.'],
+  ['es', 'sygeplejerske (enfermera) trabaja en hospitales, cuidando pacientes agotados durante emergencias nocturnas complicadas. Mi segunda opción habría sido vaskemaskine.'],
+  ['fr', 'sygeplejerske (infirmière) travaille dans les hôpitaux, soignant patients épuisés pendant urgences nocturnes. Mon second choix aurait été vaskemaskine.'],
+  ['hu', 'sygeplejerske (ápolónő) kórházakban dolgozik, kimerült betegeket gondoz éjszakai sürgősségi ügyeletekben folyamatosan. A második választásom vaskemaskine lett volna.'],
+  ['nb', 'sygeplejerske (sykepleier) arbeider på sykehusene, pleier utmattede pasienter gjennom nattlige akuttsituasjoner kontinuerlig. Andrevalget mitt ville vært vaskemaskine.'],
+  ['nl', 'sygeplejerske (verpleegkundige) werkt in ziekenhuizen, verzorgt uitgeputte patiënten tijdens nachtelijke spoedgevallen voortdurend. Mijn tweede keus zou vaskemaskine zijn geweest.'],
+  ['pl', 'sygeplejerske (pielęgniarka) pracuje w szpitalu, opiekując się chorymi pacjentami podczas nocnych dyżurów. Moim drugim wyborem byłoby vaskemaskine.'],
+  ['pt', 'sygeplejerske (enfermeira) trabalha nos hospitais, cuidando de pacientes exaustos durante emergências noturnas. A minha segunda escolha teria sido vaskemaskine.'],
+  ['sv', 'sygeplejerske (sjuksköterska) arbetar på sjukhusen, vårdar utmattade patienter under nattliga akutsituationer kontinuerligt. Mitt andra val hade varit vaskemaskine.'],
+  ['zh', 'sygeplejerske（护士）在医院工作，夜里照顾疲惫的病人，对应医院这个线索很合适 我本来的第二选择是 vaskemaskine。'],
+]
 
 const tables = {}
 
@@ -227,7 +260,7 @@ try {
     await page.waitForSelector('.clue-input')
     await page.waitForTimeout(2600)
     await dismissGuidance()
-    await state(size, 'your-turn-to-clue')
+    const atRest = await state(size, 'your-turn-to-clue')
 
     // The simulated keyboard the board drives use (keyboard-board-drive).
     await page.locator('.clue-input input').first().focus()
@@ -238,7 +271,23 @@ try {
       document.querySelector('.clue-input')?.classList.add('kb-lifted')
       document.body.style.height = `${window.innerHeight - keyboardHeight}px`
     }, 336)
-    await state(size, 'keyboard-open')
+    const kbOpen = await state(size, 'keyboard-open')
+    // Owner, build 123: with the keyboard up the art around the composer
+    // "switches the artwork or takes it from the board". The composer's own
+    // items go up with it, at the same offsets from it; the board's stay put.
+    const fromComposer = (seen) => {
+      const top = seen.dockTop
+      return seen.items.filter((i) => i.layer === 'composer').map((i) => `${i.spot}:${(i.x).toFixed(2)},${(i.y - top).toFixed(2)}`).join(' ')
+    }
+    const boardItems = (seen) => seen.items.filter((i) => i.layer === 'board').map((i) => `${i.spot}:${i.x.toFixed(2)},${i.y.toFixed(2)}`).join(' ')
+    check(`keyboard-open @${size}: the composer went up and its own items with it, at the same offsets`,
+      kbOpen.dockTop < atRest.dockTop - 100 && fromComposer(kbOpen) === fromComposer(atRest),
+      `dock ${atRest.dockTop} -> ${kbOpen.dockTop}; ${fromComposer(atRest)} vs ${fromComposer(kbOpen)}`)
+    check(`keyboard-open @${size}: the board's items have not moved`, boardItems(kbOpen) === boardItems(atRest), `${boardItems(atRest)} vs ${boardItems(kbOpen)}`)
+    // And none of the board's items shows through the composer instead: its
+    // layer is the page's white while the keyboard is up.
+    const composerPaper = await page.evaluate(() => getComputedStyle(document.querySelector('.cafe-table-composer')).backgroundColor)
+    check(`keyboard-open @${size}: the composer's layer holds back the board's items behind it`, composerPaper === 'rgb(255, 255, 255)', composerPaper)
     await page.evaluate(() => {
       document.body.style.height = ''
       document.documentElement.classList.remove('kb-up')
@@ -259,7 +308,39 @@ try {
     await page.waitForSelector('.ai-bubble:not(.thinking)')
     await page.waitForTimeout(200)
     const guessing = await read()
-    check(`casey-guessing @${size}: Casey is her ordinary size again while she guesses`, guessing.caseyWidth === 44, `${guessing.caseyWidth}px`)
+    // Owner, build 123: she used to drop back to 44px as soon as she explained
+    // her pick. She keeps her thinking size through the whole turn.
+    check(`casey-explaining @${size}: Casey stays as large as she was while thinking, in the same spot`, guessing.caseyWidth === thinking.caseyWidth && guessing.caseyWidth === 96 && guessing.caseyAt === thinking.caseyAt, `${thinking.caseyWidth}px at ${thinking.caseyAt} -> ${guessing.caseyWidth}px at ${guessing.caseyAt}`)
+    // The bubble beside her is narrower now. The longest a reasoning can be is
+    // one twelve-word sentence (proxy/casey/player-language.js) and, after a
+    // miss, the second-choice sentence: every catalogue's worst case must sit
+    // in the bubble unclipped, with the dock inside its height and the page
+    // unscrolled.
+    const explained = await page.evaluate((cases) => {
+      const bubble = document.querySelector('.ai-bubble:not(.thinking)')
+      const panel = document.querySelector('.dock.ai-panel')
+      const original = bubble.textContent
+      const doc = document.scrollingElement
+      const out = []
+      for (const [lang, text] of cases) {
+        bubble.textContent = text
+        const b = bubble.getBoundingClientRect()
+        const p = panel.getBoundingClientRect()
+        const line = panel.querySelector('.ai-guess-line').getBoundingClientRect()
+        out.push({
+          lang,
+          // Clamped (a line clamp hides lines inside the bubble) or cut by
+          // the row it sits in (which clips whatever runs past the dock).
+          clipped: bubble.scrollHeight > bubble.clientHeight + 1 || b.bottom > bubble.parentElement.getBoundingClientRect().bottom + 0.5,
+          spills: panel.scrollHeight > panel.clientHeight + 1 || b.bottom > line.top + 0.5 || line.bottom > p.bottom + 0.5,
+          scrolls: doc.scrollHeight > doc.clientHeight + 1,
+        })
+      }
+      bubble.textContent = original
+      return out
+    }, LONGEST_EXPLANATIONS)
+    const bad = explained.filter((e) => e.clipped || e.spills || e.scrolls)
+    check(`casey-explaining @${size}: the longest explanation in every catalogue fits beside her, unclipped`, bad.length === 0 && explained.length === LONGEST_EXPLANATIONS.length, JSON.stringify(bad))
 
     await page.evaluate(() => {
       const value = JSON.parse(localStorage.getItem('cluecab-game-v1'))

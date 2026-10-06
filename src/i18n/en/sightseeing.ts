@@ -2,7 +2,8 @@
  * Sightseeing: the running game (café world, docs/roadmap/cafe-world.md §2).
  * Casey runs down a street; a tag shows a word in the player's language and
  * three suitcases show words in the learner language. Each right answer is a
- * photo. This section is the Words walk; the Articles walk adds its own lines.
+ * photo. Where the course has articles, every seventh gate is an article gate
+ * (its own lines below).
  *
  * The bar's three small labels (photosLabel, bestLabel, askLabel) are drawn in
  * capitals on the run's canvas, so write them in ordinary case here.
@@ -10,16 +11,15 @@
 export const sightseeing = {
   /** The game's name, on its first panel and as the screen's accessible name. */
   title: 'Sightseeing',
-  /** Which walk this is: the one that asks what a word means. */
-  wordsWalk: 'Words',
   rules: 'One wrong word is forgiven. The second ends the run.',
   steerHint: 'Swipe or tap left and right to steer.',
-  start: 'Start walking',
-  walkAgain: 'Walk again',
+  start: 'Start sightseeing',
+  /** The run-end tag that starts another run of the same walk. */
+  sightseeingAgain: 'More sightseeing',
   /** The small round button during a run. */
   pauseAria: 'Pause',
   paused: 'Paused',
-  resume: 'Keep walking',
+  resume: 'Keep sightseeing',
   // ── the bar at the top of the run ────────────────────────────────────────
   photosLabel: 'Photos',
   bestLabel: 'Best',
@@ -42,21 +42,18 @@ export const sightseeing = {
   comingBack: 'These come back more often:',
   /** Read out for a screen reader when a gate's words become readable. */
   gateAria: (prompt: string, choices: string) => `Which one means ${prompt}? ${choices}`,
-  // ── the Articles walk (CW-06): the noun is on the tag, the suitcases are its
-  // possible articles, each always in its own lane ─────────────────────────
-  /** Which walk this is: the one that asks a noun's article. */
-  articlesWalk: 'Articles',
-  /** Under the rules on the first panel of the Articles walk. */
-  articlesHint: 'The word is on the tag. Steer into its article. Each article keeps its own lane.',
+  // ── article gates (CW-06; part of the walk since 2026-10-05): the noun is
+  // on the tag, the suitcases are its possible articles, each always in its
+  // own lane ───────────────────────────────────────────────────────────────
   /**
    * Over the noun in the bar: the articles to choose from, as a question
    * ("en or et?", "der, die or das?"). `others` is every article but the
    * last, joined with ", " ("der, die"); `last` is the last ("das"). Drawn in capitals.
    */
   articleAsk: (others: string, last: string) => `${others} or ${last}?`,
-  /** The title when an Articles walk ends. The prototype's Article Crossroads said "Wrong way". */
+  /** The title when a walk ends on a wrong article. The prototype's Article Crossroads said "Wrong way". */
   wrongArticle: 'Wrong way',
-  /** Read out for a screen reader when an Articles walk gate comes near. */
+  /** Read out for a screen reader when an article gate comes near. */
   articleGateAria: (noun: string, choices: string) => `Which article goes with ${noun}? ${choices}`,
   // ── Catch the train (CW-07): every word of the city, each once. Slips come
   // from collected words; the run is the only way onto the train ─────────────

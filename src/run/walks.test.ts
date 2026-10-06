@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import type { WordEntry } from '../data/types'
 import { LANGUAGES } from '../lang'
-import { createRunEngine } from './engine'
+import { ARTICLE_GATE_EVERY, ARTICLE_RUN_UP, createRunEngine, FAR, LANES, ROAD_GATES, SPACING, type RunEngine, type RunGate } from './engine'
 import { createMemoryRunResultsSink, tallyMisses, type RunMiss, type RunResult } from './results'
-import { articleWords, runWordsForCity, walkPool } from './sources'
-import { articleLanes, chooseWalk, chosenWalk, laneOfArticle, walksForCourse } from './walks'
+import { articleWords, runWordsForCity } from './sources'
+import { articleGateLanes, articleLanes, chooseWalk, chosenWalk, hasArticleGates, laneOfArticle, OWNER_LANE_ORDER } from './walks'
 import { boardRunWords, type RunWord } from './words'
 
 /** A seeded generator, so a failure names a run that can be replayed. */
@@ -25,48 +25,45 @@ const GERMAN = LANGUAGES.de!
 const noun = (article: string | undefined, gender: string, extra: Partial<WordEntry> = {}) =>
   ({ pos: 'noun', article, gender, ...extra }) as Pick<WordEntry, 'pos' | 'article' | 'gender' | 'countable'>
 
-/** Drive a run: `answer(correct)` says which lane to be in when each gate arrives. */
-function drive(engine: ReturnType<typeof createRunEngine>, answer: (correct: number) => number, maxSeconds = 600): void {
+/** Drive a run: `answer(gate)` says which lane to be in when each gate arrives. */
+function drive(engine: RunEngine, answer: (gate: RunGate) => number, maxSeconds = 600): void {
   const decided = new Map<number, number>()
   for (let t = 0; t < maxSeconds * 30 && engine.state.phase === 'play'; t++) {
     const g = engine.activeGate()
     if (g && g.z < 0.2) {
-      if (!decided.has(g.id)) decided.set(g.id, answer(g.correct))
+      if (!decided.has(g.id)) decided.set(g.id, answer(g))
       engine.state.lane = decided.get(g.id)!
     }
     engine.step(1 / 30)
   }
 }
 
-describe('the walks a course offers', () => {
-  it('are Words and Articles for Danish and German', () => {
-    expect(walksForCourse(DANISH)).toEqual(['words', 'articles'])
-    expect(walksForCourse(GERMAN)).toEqual(['words', 'articles'])
-  })
-
-  it('are Words alone for a course whose nouns have no article', () => {
-    const course = {
-      words: [noun(undefined, 'a'), noun(undefined, 'b'), { pos: 'verb' as const }],
-      grammar: { genders: { a: {}, b: {} } },
+/** Every gate a run placed, in order, answering each right, until `count` gates were placed. */
+function gatesOf(engine: RunEngine, count: number): RunGate[] {
+  const placed: RunGate[] = []
+  const seen = new Set<number>()
+  engine.start()
+  for (let i = 0; i < 30 * 2000 && placed.length < count && engine.state.phase === 'play'; i++) {
+    for (const g of engine.state.gates) {
+      if (seen.has(g.id)) continue
+      seen.add(g.id)
+      placed.push(g)
     }
-    expect(articleLanes(course)).toEqual([])
-    expect(walksForCourse(course)).toEqual(['words'])
-  })
+    const g = engine.activeGate()
+    if (g) engine.state.lane = g.correct
+    engine.step(1 / 30)
+  }
+  return placed.slice(0, count)
+}
 
-  it('are Words alone for a course with one article only: nothing to choose between', () => {
-    const course = { words: [noun('a', 'x'), noun('a', 'x')], grammar: { genders: { x: {} } } }
-    expect(articleLanes(course)).toEqual(['a'])
-    expect(walksForCourse(course)).toEqual(['words'])
-  })
-})
+const danishLanes = articleGateLanes(DANISH)!
+const germanLanes = articleGateLanes(GERMAN)!
+const danishPool = runWordsForCity(0)
 
-describe('the Articles walk lanes', () => {
-  it('come from the course data: en left and et right in Danish; der, die, das in German', () => {
+describe('a course\'s articles', () => {
+  it('come from the course data, in the order of its gender table', () => {
     expect(articleLanes(DANISH)).toEqual(['en', 'et'])
     expect(articleLanes(GERMAN)).toEqual(['der', 'die', 'das'])
-  })
-
-  it('follow the gender table, not the order the nouns come in', () => {
     const course = {
       words: [noun('das', 'neuter'), noun('die', 'feminine'), noun('der', 'masculine')],
       grammar: { genders: { masculine: {}, feminine: {}, neuter: {} } },
@@ -79,121 +76,221 @@ describe('the Articles walk lanes', () => {
     expect(mass).toBeDefined()
     const [word] = boardRunWords([mass])
     expect(word.article).toBeUndefined()
-    expect(articleWords([word], ['en', 'et'])).toEqual([])
-  })
-
-  it('map an article to its own lane and nothing else to any lane', () => {
-    expect(laneOfArticle(['en', 'et'], 'en')).toBe(0)
-    expect(laneOfArticle(['en', 'et'], 'et')).toBe(1)
-    expect(laneOfArticle(['der', 'die', 'das'], 'das')).toBe(2)
-    expect(laneOfArticle(['en', 'et'], 'der')).toBe(-1)
-    expect(laneOfArticle(['en', 'et'], undefined)).toBe(-1)
+    expect(articleWords([word], danishLanes)).toEqual([])
   })
 })
 
-describe('the Articles walk, Danish', () => {
-  const lanes = articleLanes(DANISH)
-  const pool = walkPool('articles', 0, lanes)
-
-  it('asks only City 1 nouns with an article, never a connecting word', () => {
-    expect(pool.length).toBeGreaterThan(20)
-    expect(pool.every((w) => w.origin === 'board' && (w.article === 'en' || w.article === 'et'))).toBe(true)
-    const nouns = runWordsForCity(0).filter((w) => w.article)
-    expect(pool).toEqual(nouns)
+describe('the lanes of an article gate', () => {
+  it('Danish: et on the left, a brick wall in the middle, en on the right (owner, 2026-10-05)', () => {
+    expect(OWNER_LANE_ORDER.da).toEqual(['et', 'en'])
+    expect(danishLanes).toEqual(['et', null, 'en'])
+    expect(hasArticleGates(DANISH)).toBe(true)
   })
 
-  it('has two lanes, en always left and et always right, the noun on the tag', () => {
-    const engine = createRunEngine({ walk: 'articles', lanes, cityIndex: 0, pool, sink: createMemoryRunResultsSink(), rng: mulberry32(1) })
-    engine.start()
-    expect(engine.state.lanes).toBe(2)
-    expect(engine.state.lane).toBe(0)
-    const seen = new Set<number>()
-    for (let i = 0; i < 30 * 400 && seen.size < 200; i++) {
-      const g = engine.activeGate()
-      if (g) engine.state.lane = g.correct
-      engine.step(1 / 30)
-      for (const gate of engine.state.gates) {
-        if (seen.has(gate.id)) continue
-        seen.add(gate.id)
-        expect(gate.kind).toBe('article')
-        expect(gate.options.map((o) => o.target)).toEqual(['en', 'et'])
-        expect(gate.correct).toBe(gate.word.article === 'et' ? 1 : 0)
-        expect(gate.prompt).toBe(gate.word.target)
-      }
+  it('German: der, die, das across the three lanes, left to right, no wall', () => {
+    expect(germanLanes).toEqual(['der', 'die', 'das'])
+    expect(hasArticleGates(GERMAN)).toBe(true)
+  })
+
+  it('another two-article course: its own order in the outer lanes, the wall in the middle', () => {
+    const course = { code: 'xx', words: [noun('b', 'neuter'), noun('a', 'common')], grammar: { genders: { common: {}, neuter: {} } } }
+    expect(articleGateLanes(course)).toEqual(['a', null, 'b'])
+  })
+
+  it('none for a course without articles, with one article, or with more than the road\'s three lanes hold', () => {
+    const none = { words: [noun(undefined, 'a'), noun(undefined, 'b'), { pos: 'verb' as const }], grammar: { genders: { a: {}, b: {} } } }
+    const one = { words: [noun('a', 'x'), noun('a', 'x')], grammar: { genders: { x: {} } } }
+    const four = { words: ['p', 'q', 'r', 's'].map((a, i) => noun(a, `g${i}`)), grammar: { genders: { g0: {}, g1: {}, g2: {}, g3: {} } } }
+    for (const course of [none, one, four]) {
+      expect(articleGateLanes(course)).toBeNull()
+      expect(hasArticleGates(course)).toBe(false)
     }
-    expect(seen.size).toBe(200)
-    engine.steer(1)
-    engine.steer(1)
-    expect(engine.state.lane).toBe(1)
+  })
+
+  it('map an article to its own lane, and nothing to the wall', () => {
+    expect(laneOfArticle(danishLanes, 'et')).toBe(0)
+    expect(laneOfArticle(danishLanes, 'en')).toBe(2)
+    expect(laneOfArticle(germanLanes, 'das')).toBe(2)
+    expect(laneOfArticle(danishLanes, 'der')).toBe(-1)
+    expect(laneOfArticle(danishLanes, undefined)).toBe(-1)
   })
 })
 
-describe('the Articles walk, German', () => {
-  const lanes = articleLanes(GERMAN)
-  const pool = boardRunWords(GERMAN.words).filter((w) => w.article)
+describe('the Danish walk: article gates mixed in', () => {
+  const engine = () => createRunEngine({ cityIndex: 0, pool: danishPool, articleLanes: danishLanes, sink: createMemoryRunResultsSink(), rng: mulberry32(1) })
 
-  it('has three lanes, der, die and das, each article always in its own lane', () => {
-    expect(pool.length).toBe(GERMAN.words.filter((w) => w.pos === 'noun').length)
-    const engine = createRunEngine({ walk: 'articles', lanes, cityIndex: 0, pool, sink: createMemoryRunResultsSink(), rng: mulberry32(2) })
-    engine.start()
-    expect(engine.state.lanes).toBe(3)
-    expect(engine.state.lane).toBe(1)
+  it('every seventh gate is an article gate, the others ask meanings (owner, after TestFlight 125: "maybe every 7")', () => {
+    expect(ARTICLE_GATE_EVERY).toBe(7)
+    const gates = gatesOf(engine(), 210)
+    expect(gates).toHaveLength(210)
+    gates.forEach((g, i) => expect(g.kind, `gate ${i + 1}`).toBe((i + 1) % 7 === 0 ? 'article' : 'meaning'))
+    expect(gates.filter((g) => g.kind === 'article')).toHaveLength(30)
+  })
+
+  it('an article gate asks a City 1 noun with en or et: the noun on the tag, et left, the wall in the middle, en right', () => {
+    const e = engine()
+    expect(e.articles).toEqual(['et', null, 'en'])
+    expect(e.articleNouns.length).toBeGreaterThan(ROAD_GATES)
+    expect(e.articleNouns.every((w) => w.origin === 'board' && (w.article === 'en' || w.article === 'et'))).toBe(true)
+    expect(e.articleNouns).toEqual(danishPool.filter((w) => w.article === 'en' || w.article === 'et'))
+    const articleGates = gatesOf(e, 280).filter((g) => g.kind === 'article')
+    expect(articleGates.length).toBe(40)
+    for (const g of articleGates) {
+      expect(g.options.map((o) => o.target)).toEqual(['et', '', 'en'])
+      expect(g.wall).toBe(1)
+      expect(g.correct).toBe(g.word.article === 'et' ? 0 : 2)
+      expect(g.prompt).toBe(g.word.target)
+    }
+    expect(new Set(articleGates.map((g) => g.word.article))).toEqual(new Set(['en', 'et']))
+  })
+
+  it('a meaning gate is as it was: three words, no wall, the meaning on the tag', () => {
+    for (const g of gatesOf(engine(), 40).filter((x) => x.kind === 'meaning')) {
+      expect(g.options).toHaveLength(LANES)
+      expect(g.wall).toBe(-1)
+      expect(g.prompt).toBe(g.word.prompt)
+      expect(g.options.every((o) => o.group !== 'article-lane')).toBe(true)
+    }
+  })
+
+  it('every article gate has a run-up of 4/3 of the gate spacing (a third less than the old two gates), nothing between; the next gate follows at the usual spacing', () => {
+    expect(ARTICLE_RUN_UP).toBeCloseTo((4 / 3) * SPACING, 12)
+    const e = engine()
+    e.start()
+    let checked = 0
+    for (let i = 0; i < 30 * 300 && e.state.phase === 'play'; i++) {
+      const road = [...e.state.gates].sort((a, b) => a.z - b.z)
+      road.forEach((g, k) => {
+        const front = road[k - 1]
+        if (!front) return
+        expect(g.z - front.z).toBeCloseTo(g.kind === 'article' ? (4 / 3) * SPACING : SPACING, 9)
+        if (g.kind === 'article') checked++
+      })
+      // Placed as a gate of the usual spacing would be, an article gate waits beyond the haze for its run-up's extra third.
+      for (const g of road) expect(g.z - (g.kind === 'article' ? SPACING / 3 : 0)).toBeLessThanOrEqual(FAR + 1e-9)
+      const g = e.activeGate()
+      if (g) e.state.lane = g.correct
+      e.step(1 / 30)
+    }
+    expect(checked).toBeGreaterThan(50)
+    expect(e.state.photos).toBeGreaterThan(40)
+  }, 30_000)
+})
+
+describe('the brick wall', () => {
+  it('Casey in the wall\'s lane when an article gate arrives: a wrong answer, a slip like a wrong article, shown on the wall', () => {
+    const sink = createMemoryRunResultsSink()
+    const misses: RunMiss[] = []
+    const e = createRunEngine({ cityIndex: 0, pool: danishPool, articleLanes: danishLanes, sink: { ...sink, miss: (m) => (misses.push(m), sink.miss(m)) }, rng: mulberry32(3) })
+    let wallGate: RunGate | null = null
+    e.start()
+    // Right at every meaning, into the wall at every article gate.
+    drive(e, (g) => {
+      if (g.kind !== 'article') return g.correct
+      wallGate ??= g
+      return g.wall
+    })
+    expect(e.state.phase).toBe('over')
+    expect(e.state.endReason).toBe('second-wrong')
+    expect(misses).toHaveLength(2)
+    for (const m of misses) expect(m).toMatchObject({ kind: 'article', pickedId: 'wall' })
+    expect(misses.map((m) => m.ended)).toEqual([false, true])
+    // The second article gate (gate 14) ended it: the twelve meaning gates before it were photos.
+    expect(e.state.photos).toBe(12)
+    expect(e.state.answered).toBe(14)
+    expect(e.state.lastMiss).toMatchObject({ asked: 'article' })
+    expect(e.state.lastMiss!.picked.id).toBe('article:wall')
+    // Drawn as a wrong lane: the painter outlines the wall in red (draw.ts).
+    expect(wallGate!.wrongLane).toBe(wallGate!.wall)
+  })
+
+  it('the wall lane can be steered through like any lane: left to right crosses it', () => {
+    const e = createRunEngine({ cityIndex: 0, pool: danishPool, articleLanes: danishLanes, sink: createMemoryRunResultsSink(), rng: mulberry32(4) })
+    e.start()
+    expect(e.state.lane).toBe(1)
+    e.steer(-1)
+    expect(e.state.lane).toBe(0)
+    e.steer(1)
+    e.steer(1)
+    expect(e.state.lane).toBe(2)
+  })
+})
+
+describe('the German walk', () => {
+  it('its article gates have der, die and das across the three lanes, each always in its own lane, no wall', () => {
+    const pool = boardRunWords(GERMAN.words)
+    const e = createRunEngine({ cityIndex: 0, pool, articleLanes: germanLanes, sink: createMemoryRunResultsSink(), rng: mulberry32(2) })
     const lanesOf = new Map<string, number>()
-    for (let i = 0; i < 30 * 300; i++) {
-      const g = engine.activeGate()
-      if (g) engine.state.lane = g.correct
-      engine.step(1 / 30)
-      for (const gate of engine.state.gates) {
-        expect(gate.options.map((o) => o.target)).toEqual(['der', 'die', 'das'])
-        lanesOf.set(gate.word.article!, gate.correct)
-      }
+    const gates = gatesOf(e, 210)
+    for (const g of gates.filter((x) => x.kind === 'article')) {
+      expect(g.options.map((o) => o.target)).toEqual(['der', 'die', 'das'])
+      expect(g.wall).toBe(-1)
+      lanesOf.set(g.word.article!, g.correct)
     }
     expect(Object.fromEntries(lanesOf)).toEqual({ der: 0, die: 1, das: 2 })
+    expect(gates.filter((x) => x.kind === 'article')).toHaveLength(30)
+  })
+})
+
+describe('no article gates', () => {
+  it('without article lanes (a course without articles, the first session\'s walk): every gate asks a meaning', () => {
+    const e = createRunEngine({ cityIndex: 0, pool: danishPool, sink: createMemoryRunResultsSink(), rng: mulberry32(5) })
+    expect(e.articles).toEqual([])
+    expect(gatesOf(e, 80).every((g) => g.kind === 'meaning')).toBe(true)
+  })
+
+  it('never on the train run, even when it is handed the lanes', () => {
+    const e = createRunEngine({ walk: 'train', cityIndex: 0, pool: danishPool, articleLanes: danishLanes, sink: createMemoryRunResultsSink(), rng: mulberry32(6), trainLimit: 60 })
+    expect(e.articles).toEqual([])
+    expect(e.articleNouns).toEqual([])
+    const gates = gatesOf(e, 60)
+    expect(gates.length).toBeGreaterThan(30)
+    expect(gates.every((g) => g.kind === 'meaning' && g.wall === -1)).toBe(true)
+  })
+
+  it('not when the course has too few nouns to fill the road with them', () => {
+    const few = danishPool.filter((w) => !w.article).concat(danishPool.filter((w) => w.article).slice(0, ROAD_GATES))
+    const e = createRunEngine({ cityIndex: 0, pool: few, articleLanes: danishLanes, sink: createMemoryRunResultsSink(), rng: mulberry32(7) })
+    expect(e.articles).toEqual([])
+    expect(gatesOf(e, 40).every((g) => g.kind === 'meaning')).toBe(true)
   })
 })
 
 describe('the missed tally', () => {
-  const lanes = articleLanes(DANISH)
-
-  function runOf(walk: 'words' | 'articles', seed: number): { result: RunResult; misses: RunMiss[] } {
+  function runOf(seed: number, right: (n: number) => boolean): { result: RunResult; misses: RunMiss[] } {
     const sink = createMemoryRunResultsSink()
     const misses: RunMiss[] = []
     const engine = createRunEngine({
-      walk,
-      lanes,
       cityIndex: 0,
-      pool: walkPool(walk, 0, lanes),
+      pool: danishPool,
+      articleLanes: danishLanes,
       sink: { photo: sink.photo, miss: (m) => (misses.push(m), sink.miss(m)), end: sink.end },
       rng: mulberry32(seed),
     })
     engine.start()
     let n = 0
-    // Right, wrong, right, wrong: the run ends on the second wrong answer.
-    const plan = [true, false, true, false]
-    const count = engine.state.lanes
-    drive(engine, (correct) => (plan[n++] ? correct : (correct + 1) % count))
+    // A wrong article is the other article; a wrong meaning the next lane over.
+    drive(engine, (g) => (right(n++) ? g.correct : g.kind === 'article' ? 2 - g.correct : (g.correct + 1) % LANES))
     return { result: sink.results[0], misses }
   }
 
-  it('counts a missed article as an article and a missed meaning as a meaning', () => {
-    const articles = runOf('articles', 21)
-    expect(articles.result.walk).toBe('articles')
-    expect(articles.misses).toHaveLength(2)
-    expect(articles.misses.every((m) => m.kind === 'article' && (m.pickedId === 'en' || m.pickedId === 'et'))).toBe(true)
-    expect(articles.result.words.every((w) => w.kind === 'article')).toBe(true)
-
-    const words = runOf('words', 22)
-    expect(words.misses).toHaveLength(2)
-    expect(words.misses.every((m) => m.kind === 'meaning' && m.pickedId !== m.wordId)).toBe(true)
-    expect(words.result.words.every((w) => w.kind === 'meaning')).toBe(true)
-
-    const tally = tallyMisses([...articles.misses, ...words.misses])
-    expect([...tally.article.values()].reduce((a, b) => a + b, 0)).toBe(2)
-    expect([...tally.meaning.values()].reduce((a, b) => a + b, 0)).toBe(2)
-    for (const m of articles.misses) expect(tally.article.get(m.wordId)).toBeGreaterThan(0)
+  it('counts a missed article as an article and a missed meaning as a meaning, in the same walk', () => {
+    // Wrong at the first article gate (gate 7) and at the meaning gate after it (gate 8).
+    const { result, misses } = runOf(21, (n) => n !== 6 && n !== 7)
+    expect(result.walk).toBe('words')
+    expect(misses).toHaveLength(2)
+    expect(misses[0].kind).toBe('article')
+    expect(['en', 'et']).toContain(misses[0].pickedId)
+    expect(misses[1].kind).toBe('meaning')
+    expect(misses[1].pickedId).not.toBe(misses[1].wordId)
+    expect(result.words.filter((w) => w.kind === 'article')).toHaveLength(1)
+    expect(result.words.filter((w) => w.kind === 'meaning')).toHaveLength(7)
+    const tally = tallyMisses(misses)
+    expect([...tally.article.values()]).toEqual([1])
+    expect([...tally.meaning.values()]).toEqual([1])
   })
 
-  it('keeps one noun missed in both walks apart: one of each, never two of either', () => {
+  it('keeps one noun missed both ways apart: one of each, never two of either', () => {
     const tally = tallyMisses([
       { kind: 'article', wordId: 'da:hus' },
       { kind: 'meaning', wordId: 'da:hus' },
@@ -203,37 +300,37 @@ describe('the missed tally', () => {
     expect(tally.meaning.get('da:hus')).toBe(1)
   })
 
-  it('feeds remembered misses back by kind: a missed article brings a noun back in the Articles walk only', () => {
-    const pool = walkPool('articles', 0, lanes)
-    const target = pool[0]
-    const asked: string[] = []
+  it('feeds remembered misses back by kind: a missed article brings a noun back at article gates only', () => {
+    const target = danishPool.find((w) => w.article === 'et')!
+    const asked: { id: string; kind: string }[] = []
     const kinds = new Set<string>()
     const engine = createRunEngine({
-      walk: 'articles',
-      lanes,
       cityIndex: 0,
-      pool,
+      pool: danishPool,
+      articleLanes: danishLanes,
       sink: createMemoryRunResultsSink(),
       rng: mulberry32(23),
       missesBefore: (w: RunWord, kind) => {
         kinds.add(kind)
         return w.id === target.id && kind === 'article' ? 5 : 0
       },
-      onGateSpawned: (g) => asked.push(g.word.id),
+      onGateSpawned: (g) => asked.push({ id: g.word.id, kind: g.kind }),
     })
     engine.start()
-    drive(engine, (c) => c, 300)
-    expect(kinds).toEqual(new Set(['article']))
-    const mine = asked.filter((id) => id === target.id).length
-    expect(mine / (asked.length / pool.length)).toBeGreaterThan(5)
+    drive(engine, (g) => g.correct, 400)
+    expect(kinds).toEqual(new Set(['article', 'meaning']))
+    const articleAsks = asked.filter((a) => a.kind === 'article')
+    const mine = articleAsks.filter((a) => a.id === target.id).length
+    expect(mine / (articleAsks.length / engine.articleNouns.length)).toBeGreaterThan(5)
   })
 })
 
-describe('the walk the screen opens', () => {
-  it('is Words until another is chosen', () => {
+describe('the run the screen opens', () => {
+  it('is the walk until the train run is chosen', () => {
     expect(chosenWalk()).toBe('words')
-    chooseWalk('articles')
-    expect(chosenWalk()).toBe('articles')
+    chooseWalk('train')
+    expect(chosenWalk()).toBe('train')
     chooseWalk('words')
+    expect(chosenWalk()).toBe('words')
   })
 })

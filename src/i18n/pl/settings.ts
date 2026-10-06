@@ -295,7 +295,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `Twój plan: ${plan}`,
   planChecking: 'Sprawdzamy twój plan w Apple.',
   planCheckingPlay: 'Sprawdzamy twój plan w Google Play.',
-  planFree: 'Plan darmowy. Dwa spacery i dwie kawiarniane łamigłówki dziennie.',
+  planFree: 'Plan darmowy. Dwa razy Sightseeing i dwie kawiarniane łamigłówki dziennie.',
   planMonthly: 'Nielimitowana gra. Subskrypcja miesięczna. Odnawia się co miesiąc, dopóki jej nie anulujesz.',
   planLifetime: 'Nielimitowana gra. Jednorazowy zakup. Nic się nie odnawia.',
   planBoth: 'Masz jednorazowy zakup. Twoja subskrypcja miesięczna jest nadal aktywna i nie jest ci już potrzebna. Anuluj ją, aby nie płacić ponownie.',

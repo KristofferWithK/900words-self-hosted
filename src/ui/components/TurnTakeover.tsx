@@ -24,6 +24,14 @@ import { turnHaptic } from '../feedback'
  *
  * The handoff keeps its light haptic and makes no sound of its own. The
  * practice round shows the same cards as every round.
+ *
+ * The card fades in and out, and a café puzzle's table art (CafeTable, a
+ * fixed layer at z-index -1) used to show through it at the bottom while it
+ * did (owner, build 123: it "should be solid white during the transition").
+ * So a backdrop stands in the card's rectangle for the card's whole life: the
+ * page's own background, never animated, painted over the table and under
+ * everything else, so the dock still shows through the fading card exactly as
+ * before and only the table art is held back. It goes when the card goes.
  */
 export function TurnTakeover({ turn, side, onGone }: { turn: number; side: Side | 'translation'; onGone?: () => void }) {
   const [stage, setStage] = useState<'in' | 'out' | 'gone'>('in')
@@ -55,9 +63,26 @@ export function TurnTakeover({ turn, side, onGone }: { turn: number; side: Side 
         // uses for her turns.
         UI.game.phaseCaseyClue
 
+  const layers = takeoverLayers(stage)
   return (
-    <div className={`turn-takeover ${stage === 'out' ? 'turn-takeover-out' : ''}`} aria-hidden="true">
-      <p className="turn-takeover-line">{line}</p>
-    </div>
+    <>
+      {/* A sibling, not a child: a child would fade with the card. */}
+      <div className={layers.backdrop} aria-hidden="true" />
+      <div className={layers.card} aria-hidden="true">
+        <p className="turn-takeover-line">{line}</p>
+      </div>
+    </>
   )
+}
+
+/**
+ * The two layers' classes at each stage of a mounted card. The backdrop's
+ * never changes: the out-beat fades the card, never the backdrop, which
+ * stays opaque until the card unmounts.
+ */
+export function takeoverLayers(stage: 'in' | 'out'): { card: string; backdrop: string } {
+  return {
+    card: `turn-takeover ${stage === 'out' ? 'turn-takeover-out' : ''}`,
+    backdrop: 'turn-takeover-backdrop',
+  }
 }

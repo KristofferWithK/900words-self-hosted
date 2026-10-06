@@ -28,7 +28,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: '继续这块词板', continueReplay: '继续重玩', returnToPrimary: '回到你的词板',
   viewResult: '查看结果', improveBoards: '提升你的词板', postcardsEarned: '张已获得明信片',
   postcardsRemaining: (remaining) => `还差 ${remaining} 张明信片才能旅行`, postcardReadiness: (earned, remaining) => `已获得 ${earned} 张明信片；还差 ${remaining} 张才能旅行。`,
-  readyToTravel: '可以旅行了', nextStopNotReleased: (city) => `可以旅行了。${city} 尚未推出。`, cityMedalInProgress: '尚未获得', cityMedal: (tier) => `城市奖牌：${tier}`,
+  readyToTravel: '可以旅行了', nextStopNotReleased: (city) => `可以旅行了。${city} 尚未推出。`, cityMedalInProgress: '尚未获得', cityMedal: (tier) => `城市印章：${tier}`,
   backToCity: (city) => `返回 ${city}`,
 
   // ── 地图 ────────────────────────────────────────────────────────────────
@@ -141,14 +141,14 @@ export const home: Catalogue['home'] = {
   passReviewAfter: '就能拿到 6 个月旅行通票的兑换码。好评差评都行，看你觉得这个应用怎么样。',
 
   // ── 每日游戏升级 ─────────────────────────────────────────────────────────
-  dailyLimitKicker: '免费版每天可以散步两次、玩两个咖啡馆谜题。',
-  dailyLimitRunsKicker: '你今天已经散步两次了。',
+  dailyLimitKicker: '免费版每天可以玩两次 Sightseeing、两个咖啡馆谜题。',
+  dailyLimitRunsKicker: '你今天已经玩了两次 Sightseeing。',
   dailyLimitPuzzlesKicker: '你今天已经玩了两个咖啡馆谜题。',
-  dailyLimitBothKicker: '你今天已经散步两次，也玩了两个咖啡馆谜题。',
+  dailyLimitBothKicker: '你今天已经玩了两次 Sightseeing，也玩了两个咖啡馆谜题。',
   dailyLimitPuzzlesLeft: (n: number) => `今天你还可以玩 ${n} 个咖啡馆谜题。`,
-  dailyLimitRunsLeft: (n: number) => `今天你还可以散步 ${n} 次。`,
+  dailyLimitRunsLeft: (n: number) => `今天你还可以玩 ${n} 次 Sightseeing。`,
   dailyLimitHeading: '继续和 Casey 一起玩',
-  dailyLimitBody: '明天再来，或者解锁无限次散步和咖啡馆谜题。',
+  dailyLimitBody: '明天再来，或者解锁无限次 Sightseeing 和咖啡馆谜题。',
   dailyLimitOptionsAria: '无限畅玩选项',
   dailyLimitMonthly: '按月订阅',
   dailyLimitMonthlyHelp: '每月自动续订，直到取消。',
@@ -194,10 +194,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: '咖啡馆谜题',
   sightseeingNote: '寻找新咖啡馆',
-  sightseeingAsk: '你想留意什么？',
-  wordsWalkNote: '这是什么意思？拍下正确的单词，寻找新咖啡馆。',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask}走左边或右边的路。` : `${ask}每个冠词都有自己的车道。`,
   trainSheetTitle: (city) => `开往 ${city} 的火车`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city}：${total} 个单词（词板上 ${board} 个，连接词 ${connecting} 个）` : `${city}：${total} 个单词`,
@@ -206,7 +202,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city}：咖啡馆印章已集齐 ${percent}。`,
   stampNone: '无印章',
   cafeNotFoundNote: '先找到一家咖啡馆',
-  cafeNotFoundLine: '先在城市观光中找到一家咖啡馆。',
+  cafeNotFoundLine: '先在 Sightseeing 中找到一家咖啡馆。',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: '照片、猜测、提示各占三分之一',
   markPhoto: '照片',
@@ -228,6 +224,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe}：已找到，尚未玩`,
   stampCellNotFound: (place) => `第 ${place} 家咖啡馆：尚未找到`,
   stampNextCafe: (cafe) => `下一家咖啡馆：${cafe}`,
-  stampNextCafeUnfound: '在城市观光中寻找下一家咖啡馆。',
+  stampNextCafeUnfound: '在 Sightseeing 中寻找下一家咖啡馆。',
   stampAllPlayed: '所有咖啡馆都玩过了。点一家可以再玩一次。',
 }

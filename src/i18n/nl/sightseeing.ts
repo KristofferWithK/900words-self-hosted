@@ -2,15 +2,14 @@ import type { Catalogue } from '../en'
 
 /** Nederlands. Je/jij, nooit u. The running game (café world). See the English file for what each line is. */
 export const sightseeing: Catalogue['sightseeing'] = {
-  title: 'Stadswandeling',
-  wordsWalk: 'Woorden',
+  title: 'Sightseeing',
   rules: 'Eén fout woord wordt vergeven. Het tweede beëindigt de run.',
   steerHint: 'Veeg of tik links en rechts om te sturen.',
-  start: 'Begin met lopen',
-  walkAgain: 'Nog een keer',
+  start: 'Start Sightseeing',
+  sightseeingAgain: 'Meer Sightseeing',
   pauseAria: 'Pauzeren',
   paused: 'Gepauzeerd',
-  resume: 'Verder lopen',
+  resume: 'Verder met Sightseeing',
   photosLabel: 'Foto’s',
   bestLabel: 'Record',
   askLabel: 'Welke betekent',
@@ -25,8 +24,6 @@ export const sightseeing: Catalogue['sightseeing'] = {
   newBest: 'Nieuw record!',
   comingBack: 'Deze komen vaker terug:',
   gateAria: (prompt: string, choices: string) => `Welke betekent ${prompt}? ${choices}`,
-  articlesWalk: 'Lidwoorden',
-  articlesHint: 'Het woord staat op het label. Stuur naar het lidwoord. Elk lidwoord heeft een eigen baan.',
   articleAsk: (others: string, last: string) => `${others} of ${last}?`,
   wrongArticle: 'Verkeerde weg',
   articleGateAria: (noun: string, choices: string) => `Welk lidwoord hoort bij ${noun}? ${choices}`,

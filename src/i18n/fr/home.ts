@@ -27,7 +27,7 @@ export const home: Catalogue['home'] = {
   continuePrimary: 'Reprendre la grille', continueReplay: 'Reprendre la reprise', returnToPrimary: 'Revenir à ta grille',
   viewResult: 'Voir le résultat', improveBoards: 'Améliorer tes grilles', postcardsEarned: 'cartes postales gagnées',
   postcardsRemaining: (remaining) => `${remaining} carte${remaining === 1 ? '' : 's'} postale${remaining === 1 ? '' : 's'} avant le voyage`, postcardReadiness: (earned, remaining) => `${earned} cartes postales gagnées ; ${remaining} avant le voyage.`,
-  readyToTravel: 'Prêt à voyager', nextStopNotReleased: (city) => `Prêt à voyager. ${city} n’est pas encore disponible.`, cityMedalInProgress: 'pas encore gagnée', cityMedal: (tier) => `Médaille de la ville : ${tier}`,
+  readyToTravel: 'Prêt à voyager', nextStopNotReleased: (city) => `Prêt à voyager. ${city} n’est pas encore disponible.`, cityMedalInProgress: 'pas encore gagné', cityMedal: (tier) => `Tampon de la ville : ${tier}`,
   backToCity: (city) => `Retour à ${city}`,
 
   // ── La carte ────────────────────────────────────────────────────────────
@@ -156,14 +156,14 @@ export const home: Catalogue['home'] = {
     'pour recevoir un code d’abonnement de 6 mois. Ton avis peut être bon ou mauvais, selon ce que tu penses de l’appli.',
 
   // ── Offre après la limite quotidienne ────────────────────────────────────
-  dailyLimitKicker: 'La version gratuite offre deux balades et deux énigmes au café par jour.',
-  dailyLimitRunsKicker: 'Tu as déjà fait deux balades aujourd’hui.',
+  dailyLimitKicker: 'La version gratuite offre deux séances de Sightseeing et deux énigmes au café par jour.',
+  dailyLimitRunsKicker: 'Tu as déjà fait deux séances de Sightseeing aujourd’hui.',
   dailyLimitPuzzlesKicker: 'Tu as déjà joué deux énigmes au café aujourd’hui.',
-  dailyLimitBothKicker: 'Tu as déjà fait deux balades et joué deux énigmes au café aujourd’hui.',
+  dailyLimitBothKicker: 'Tu as déjà fait deux séances de Sightseeing et joué deux énigmes au café aujourd’hui.',
   dailyLimitPuzzlesLeft: (n: number) => (n === 1 ? 'Tu peux encore jouer 1 énigme au café aujourd’hui.' : `Tu peux encore jouer ${n} énigmes au café aujourd’hui.`),
-  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Tu peux encore faire 1 balade aujourd’hui.' : `Tu peux encore faire ${n} balades aujourd’hui.`),
+  dailyLimitRunsLeft: (n: number) => (n === 1 ? 'Tu peux encore faire 1 séance de Sightseeing aujourd’hui.' : `Tu peux encore faire ${n} séances de Sightseeing aujourd’hui.`),
   dailyLimitHeading: 'Continue à jouer avec Casey',
-  dailyLimitBody: 'Reviens demain, ou débloque les balades et les énigmes au café en illimité.',
+  dailyLimitBody: 'Reviens demain, ou débloque le Sightseeing et les énigmes au café en illimité.',
   dailyLimitOptionsAria: 'Options pour jouer sans limite',
   dailyLimitMonthly: 'Mensuel',
   dailyLimitMonthlyHelp: 'Renouvellement mensuel automatique jusqu’à résiliation.',
@@ -217,10 +217,6 @@ export const home: Catalogue['home'] = {
   // ── café world Home (CW-10) ──────────────────────────────────────────────
   cafePuzzle: 'Énigme au café',
   sightseeingNote: 'trouve de nouveaux cafés',
-  sightseeingAsk: 'Qu’est-ce que tu veux repérer ?',
-  wordsWalkNote: 'Qu’est-ce que ça veut dire ? Photographie le bon mot et trouve de nouveaux cafés.',
-  articlesWalkNote: (ask, lanes) =>
-    lanes === 2 ? `${ask} Prends le chemin de gauche ou celui de droite.` : `${ask} Chaque article a sa propre voie.`,
   trainSheetTitle: (city) => `Le train pour ${city}`,
   trainSheetWords: (city, total, board, connecting) =>
     connecting > 0 ? `${city} : ${total} mots (${board} sur les grilles, ${connecting} mots de liaison)` : `${city} : ${total} mots`,
@@ -229,7 +225,7 @@ export const home: Catalogue['home'] = {
   cityStampAria: (city, percent) => `${city} : ${percent} des tampons des cafés.`,
   stampNone: 'Sans tampon',
   cafeNotFoundNote: 'trouve d’abord un café',
-  cafeNotFoundLine: 'Trouve d’abord un café pendant la visite de la ville.',
+  cafeNotFoundLine: 'Trouve d’abord un café pendant le Sightseeing.',
   // ── café world suitcase (CW-11): marks, the lid and the stamp card ───────
   lidLegend: 'Un tiers pour une photo, une proposition et un indice',
   markPhoto: 'photo',
@@ -251,6 +247,6 @@ export const home: Catalogue['home'] = {
   stampCellFound: (cafe) => `${cafe} : trouvé, pas encore joué`,
   stampCellNotFound: (place) => `Café ${place} : pas encore trouvé`,
   stampNextCafe: (cafe) => `Prochain café : ${cafe}`,
-  stampNextCafeUnfound: 'Trouve le prochain café pendant la visite de la ville.',
+  stampNextCafeUnfound: 'Trouve le prochain café pendant le Sightseeing.',
   stampAllPlayed: 'Tous les cafés sont joués. Touches-en un pour le rejouer.',
 }

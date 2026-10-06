@@ -29,6 +29,7 @@ import { useSettings } from '../../stores/settingsStore'
 import { devSwitchesAllowed, uiLanguageChoiceAllowed, useUi } from '../../stores/uiStore'
 import { BackupPanel } from '../components/BackupPanel'
 import { BuildFooter } from '../components/BuildFooter'
+import { DiagnosticsSection } from '../diagnostics/DiagnosticsSection'
 import { ClueLedgerPanel } from '../components/ClueLedgerPanel'
 import { Tag } from '../components/Tag'
 import {
@@ -590,6 +591,9 @@ export function SettingsScreen() {
         {resetError && <p role="alert" className="test-fail">{UI.system.saveChangeFailed}</p>}
         <BuildFooter />
       </section>
+
+      {/* Hidden: seven taps on the build stamp reveal it (performance log). */}
+      <DiagnosticsSection />
 
       {/* Last on purpose: the Play Console reviewer instructions say "scroll
           to the bottom of Settings". Android store build only. */}

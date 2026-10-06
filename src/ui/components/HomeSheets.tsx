@@ -1,18 +1,14 @@
 import { useCallback, type ReactNode } from 'react'
 import { UI } from '../../i18n'
-import type { walksForCourse } from '../../run/walks'
 import { useDialog } from '../useDialog'
 import { Tag } from './Tag'
 import { TrainProgress, slipTrain } from './TrainProgress'
 import { TrainRunPanel } from './TrainRunPanel'
 
-/** A walk, as src/run/walks.ts names them ('words' | 'articles'). */
-export type HomeWalk = ReturnType<typeof walksForCourse>[number]
-
 /**
  * Home's two bottom sheets (café world, card CW-10; the second and third
- * panels of docs/design/cafe-world/app-home-current.jpg): the Sightseeing
- * chooser and the train sheet. Both are the dictionary's sheet shell
+ * panels of docs/design/cafe-world/app-home-current.jpg): the find-a-café
+ * sheet and the train sheet. Both are the dictionary's sheet shell
  * (`.sheet-backdrop` / `.sheet`, styles/44) dressed as Home's, with the modal
  * behaviour of `useDialog`: focus moves in, Tab stays in, Escape and a tap
  * outside close it, and focus returns to the control that opened it.
@@ -56,28 +52,21 @@ function HomeSheet({ id, title, sub, lead, className, onClose, children }: {
 }
 
 /**
- * "Words" or "Articles" (contract section 6). Home shows this when the course
- * has both walks (`walksForCourse`); a course with Words alone goes straight
- * to the walk, unless Home has a `lead` line to say first (no café found yet),
- * and then the sheet offers the one walk. `articleAsk` is the Articles walk's
- * own question for this course ("en or et?") and `lanes` how many articles it
- * has.
+ * The Café puzzle tag's door when the next café is not found yet: the line
+ * that says why (`lead`, "Find a café in Sightseeing first.") and the one
+ * Sightseeing tag, which starts the walk. There is one walk now (owner,
+ * 2026-10-05: the Articles walk merged into it), so Home's own Sightseeing tag
+ * starts it at once and never opens this sheet.
  */
-export function SightseeingChooser({ walks, articleAsk, lanes, lead, onChoose, onClose }: {
-  readonly walks: readonly HomeWalk[]
-  readonly articleAsk: string
-  readonly lanes: number
-  readonly lead?: string
-  readonly onChoose: (walk: HomeWalk) => void
+export function FindCafeSheet({ lead, onWalk, onClose }: {
+  readonly lead: string
+  readonly onWalk: () => void
   readonly onClose: () => void
 }) {
   return (
-    <HomeSheet id="sightseeing-chooser" title={UI.sightseeing.title} sub={walks.length > 1 ? UI.home.sightseeingAsk : undefined} lead={lead} className="sightseeing-chooser" onClose={onClose}>
+    <HomeSheet id="find-cafe" title={UI.sightseeing.title} lead={lead} className="find-cafe-sheet" onClose={onClose}>
       <div className="home-sheet-tags">
-        <Tag size="wide" className="walk-words" label={UI.sightseeing.wordsWalk} note={UI.home.wordsWalkNote} onClick={() => onChoose('words')} />
-        {walks.includes('articles') && (
-          <Tag size="wide" className="walk-articles" label={UI.sightseeing.articlesWalk} note={UI.home.articlesWalkNote(articleAsk, lanes)} onClick={() => onChoose('articles')} />
-        )}
+        <Tag size="wide" className="find-cafe-walk" label={UI.sightseeing.title} note={UI.home.sightseeingNote} onClick={onWalk} />
       </div>
     </HomeSheet>
   )

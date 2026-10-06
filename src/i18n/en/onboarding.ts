@@ -51,17 +51,17 @@ export const onboarding = {
   ticketComingSoon: 'Coming soon',
 
   // ── Casey before the first walk, and the first walk’s end (CW-13) ──
-  introTwoGames: 'Flashcards are boring, so we play two games instead: a sightseeing walk to collect words, and a word puzzle in a café.',
+  introTwoGames: 'Flashcards are boring, so we play two games instead: sightseeing to collect words, and a word puzzle in a café.',
   introExplore: (city: string) => `Let’s explore ${city} and see if we can find a café.`,
   introGo: 'Let’s go',
-  walkEndFound: 'Walk again, or go home and play the café we found.',
-  walkEndNotFound: 'Walk again to look for a café, or go home.',
+  walkEndFound: 'Go sightseeing again, or head home and play the café we found.',
+  walkEndNotFound: 'Go sightseeing again to look for a café, or head home.',
 
   // ── The coach marks, on the live screens ────────────────────────────────
   tourNext: 'Next',
   /** The last coach mark's button, where Next would otherwise stand. */
   tourDone: 'On we go',
-  tourLoose: 'Words we have met wait up here. Each ring fills a third for every mark: a photo on a walk, a guess from my clue, and a clue of your own.',
+  tourLoose: 'Words we have met wait up here. Each ring fills a third for every mark: a photo while sightseeing, a guess from my clue, and a clue of your own.',
   tourLid: 'Three marks and a word is collected. Collected words go into the case, and this line counts them.',
   tourTray: 'This is the city’s stamp card. Every café you play gets its stamp here. A dashed circle is a café found but not played yet, and a ? is a café still to find.',
   // Retained as historical tour entry points. The current first-run flow no
@@ -120,7 +120,7 @@ export const onboarding = {
   resultTourLossTier: (best: string) =>
     `This puzzle was lost. A lost puzzle still earns a Bronze stamp. A won one earns Silver, Gold or Platinum. This café’s best so far is ${best}.`,
   resultTourCityPercent: (city: string) =>
-    `Every café stamp adds to ${city}’s medal: Bronze at 25%, Silver at 50%, Gold at 75% and Platinum at 100%.`,
+    `Every café stamp counts toward ${city}’s city stamp. The percentage is all your café stamps together: better stamps raise it. Bronze at 25%, Silver at 50%, Gold at 75%, Platinum at 100%.`,
   resultTourNoBestYet: 'not set yet',
   resultTourSentence:
     'This is an optional review. It shows a word from this board in a sentence. It is not another test.',
@@ -128,11 +128,11 @@ export const onboarding = {
     'There is no sentence to review this time. That is fine. Review is always optional.',
 
   // ── Back on Home after the first full board ──────────────────────────────
-  homeTourSightseeing: 'Sightseeing is the walk we just took. Every walk collects words, and walking more finds more cafés.',
+  homeTourSightseeing: 'Sightseeing is what we just did. Every sightseeing trip collects words, and more sightseeing finds more cafés.',
   homeTourCafe: (name: string | null) =>
     name ? `Our first café is ${name}. Tap Café puzzle to sit down and play it.` : 'Our first café is waiting. Tap Café puzzle to sit down and play it.',
-  homeTourStamp: 'Every café you play gets a stamp. Together they make this city’s medal, and this shows how far you are.',
-  homeTourCollection: 'Tap me to open the suitcase. I will show you the words we collected and the café’s stamp.',
+  homeTourStamp: 'This is the city stamp. Its percentage is all your café stamps together, and a better stamp counts more. Play a café again for a better stamp, and it goes up.',
+  homeTourCollection: 'Tap me to open the suitcase. Inside are our words and the café’s stamp.',
 
   // ── The practice round: Casey's authored rationales ─────────────────────
   practiceRationaleDrink: 'Water, coffee and milk are all things you drink.',

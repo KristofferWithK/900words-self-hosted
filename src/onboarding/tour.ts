@@ -42,6 +42,12 @@ export interface TourStep {
    * other beat holds the pointer and moves on with Next.
    */
   tapThrough?: boolean
+  /**
+   * With `tapThrough`: the lit control is the ONLY way on. The beat has no
+   * Next, the light pulses, and a tap anywhere else does nothing. Skip (and
+   * Escape) still end the lesson as on every beat.
+   */
+  tapOnly?: boolean
 }
 
 export const TOUR_STEPS: TourStep[] = [
@@ -200,9 +206,13 @@ export function homeCafeTourSteps(cafeName: string | null): TourStep[] {
 
 /**
  * Home after the first café puzzle: the city's stamp, where the postcard total
- * was, leads into Casey's real suitcase collection.
+ * was, leads into Casey's real suitcase collection. The last beat is Casey
+ * herself, and tapping her is the only way on (owner, 2026-10-04: "it should
+ * communicate clearly that now you have to tap on Casey, and that is the only
+ * way forward"): no Next, the light on her pulses, and her tap opens the
+ * suitcase.
  */
 export const HOME_TOUR_STEPS: TourStep[] = [
   { anchor: '.home-city-stamp', text: UI.onboarding.homeTourStamp },
-  { anchor: '.cluey-button', text: UI.onboarding.homeTourCollection },
+  { anchor: '.cluey-button', text: UI.onboarding.homeTourCollection, tapThrough: true, tapOnly: true },
 ]

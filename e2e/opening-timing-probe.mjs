@@ -21,7 +21,8 @@ import { startPreview } from './preview-server.mjs'
 
 const SHOT_DIR = process.env.SHOT_DIR ?? resolve('e2e-shots')
 mkdirSync(SHOT_DIR, { recursive: true })
-const preview = await startPreview(Number(process.env.DRIVE_PORT_OFFSET ?? 0) + 4290)
+// startPreview adds DRIVE_PORT_OFFSET itself (adding it here too counted it twice).
+const preview = await startPreview(4290)
 let browser
 
 const RUNS = Number(process.env.RUNS ?? 3)

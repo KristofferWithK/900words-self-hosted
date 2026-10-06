@@ -290,7 +290,7 @@ export const settings: Catalogue['settings'] = {
   planChipAria: (plan: string) => `A csomagod: ${plan}`,
   planChecking: 'A csomagod ellenőrzése az Apple-nél.',
   planCheckingPlay: 'A csomagod ellenőrzése a Google Playnél.',
-  planFree: 'Ingyenes csomag. Napi két séta és két kávézós rejtvény.',
+  planFree: 'Ingyenes csomag. Napi két Sightseeing és két kávézós rejtvény.',
   planMonthly: 'Korlátlan játék. Havi előfizetés. Havonta megújul, amíg le nem mondod.',
   planLifetime: 'Korlátlan játék. Egyszeri vásárlás. Semmi sem újul meg.',
   planBoth: 'Megvan az egyszeri vásárlásod. A havi előfizetésed még aktív, és már nincs rá szükséged. Mondd le, hogy ne terheljenek meg újra.',

@@ -19,6 +19,20 @@ describe('CoachMarkTour safe blocking surface', () => {
     expect(html).toContain('<span class="tag-label">Skip</span>')
   })
 
+  it('has no Next on a tap-only beat: the lit control is the only way on, Skip stays', () => {
+    const html = renderToStaticMarkup(<CoachMarkTour
+      steps={[{ anchor: '.cluey-button', text: 'Now tap me to open the suitcase.', tapThrough: true, tapOnly: true }]}
+      surfaceSelector=".owned-surface"
+      onDone={vi.fn()}
+      onSkip={vi.fn()}
+      kind="home"
+    />)
+    expect(html).not.toContain('onboard-next')
+    expect(html).not.toContain('<span class="tag-label">On we go</span>')
+    expect(html).toContain('<span class="tag-label">Skip</span>')
+    expect(html).toContain('role="dialog"')
+  })
+
   it('renders an empty step list as a safe no-step surface', () => {
     const html = renderToStaticMarkup(<CoachMarkTour
       steps={[]}

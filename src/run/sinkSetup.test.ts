@@ -89,15 +89,14 @@ describe('the progress sink', () => {
   it('a right article finds cafés but is not a photo of the word\'s meaning', () => {
     const { calls, sink } = spies()
     expect(photoMarksWord({ kind: 'article' })).toBe(false)
-    sink.photo(photo(5, { walk: 'articles', kind: 'article' }))
+    sink.photo(photo(5, { walk: 'words', kind: 'article' }))
     expect(calls.photos).toEqual([])
     expect(calls.cafePhotos).toEqual([5])
     expect(calls.countRun).toEqual([5])
   })
 
-  it('only the two walks find cafés; another run (the train) does not', () => {
+  it('only the walk finds cafés; another run (the train) does not', () => {
     expect(walkFindsCafes('words')).toBe(true)
-    expect(walkFindsCafes('articles')).toBe(true)
     expect(walkFindsCafes('train')).toBe(false)
     const { calls, sink } = spies()
     sink.photo(photo(7, { walk: 'train' as never }))

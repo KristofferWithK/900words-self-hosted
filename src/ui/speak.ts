@@ -37,6 +37,10 @@ import type { LanguageCode } from '../lang/types'
 import { useSettings } from '../stores/settingsStore'
 import { Capacitor } from '@capacitor/core'
 import { getAudioContext, resumeAudioContext } from './audioContext'
+import { diagSwitch } from './diagnostics/switches'
+import { setWordPoolProbe } from './diagnostics/recorder'
+import { webWords } from './wordAudioWeb'
+import { wake, watchMedia } from './mediaQuiet'
 
 /**
  * Whether a baked clip can be played at all here. Gate the word buttons on
@@ -529,8 +533,17 @@ export interface WordAudioPorts {
    * Ready a clip ahead of its tap, so the tap only has to start it. This is
    * the whole of "instant": a word is loaded when the board is dealt, not
    * when it is touched (owner, 2026-09-05: "it should be instant").
+   *
+   * `ready` says which screen asked (`owner`, captured when the preload was
+   * asked for, not when its bytes arrived) and where this clip stood in that
+   * one request (`rank`, from 0): the browser port readies an element only
+   * for a screen that is still there, and only for as many of one request's
+   * clips as that screen's word pool holds, so a request never pushes its
+   * own first clips out (see `claimWordPool`).
    */
-  warm(key: string, url: string, clip: Blob): void
+  warm(key: string, url: string, clip: Blob, ready?: { owner?: unknown; rank: number }): void
+  /** The screen readying clips now, handed back to `warm` (see there). */
+  owner?(): unknown
   /** Silence everything, at once. */
   stop(): void
   /**
@@ -552,7 +565,7 @@ export interface WordAudioPorts {
  * of holding all 900. The service worker's cache is the real store; this is
  * only the near end of it.
  *
- * At least the element pool (POOL_MAX). At 40, one dealt board (articles,
+ * At least the largest word pool (WORD_POOL_LIMITS). At 40, one dealt board (articles,
  * phrases and words) plus a few dictionary sheets pushed the board's own
  * article clips out, so a noun tapped later in the round fetched again before
  * it played (Android closed-test report, 2026-10-03).
@@ -765,10 +778,11 @@ export function createWordPlayer(ports: WordAudioPorts) {
    * cards are asked for first — and clear a board in well under a second.
    */
   async function preload(entries: ReadonlyArray<{ key: string; url: string | undefined }>): Promise<void> {
-    const queue = [...entries]
+    const owner = ports.owner?.()
+    const queue = entries.map((entry, rank) => ({ ...entry, rank }))
     const lane = async () => {
       for (let next = queue.shift(); next; next = queue.shift()) {
-        const { key, url } = next
+        const { key, url, rank } = next
         if (!url || absent.has(key)) continue
         let clip = memo.get(key)
         if (!clip) {
@@ -782,7 +796,7 @@ export function createWordPlayer(ports: WordAudioPorts) {
           memo.set(key, clip)
           if (memo.size > MEMO_MAX) memo.delete(memo.keys().next().value as string)
         }
-        ports.warm(key, url, clip)
+        ports.warm(key, url, clip, { owner, rank })
       }
     }
     await Promise.all(Array.from({ length: PRELOAD_LANES }, lane))
@@ -809,19 +823,25 @@ export function createWordPlayer(ports: WordAudioPorts) {
       // A noun with a one-performance phrase (German City 1, Danish City 1)
       // warms the exact phrase URL its tap requests; other nouns warm the
       // shared article clip. Each bare word clip is warmed too, for
-      // article:false playback.
+      // article:false playback, those of the phrase nouns LAST: no tap on a
+      // card asks for them, so a screen whose word pool is smaller than the
+      // whole request keeps the clips its taps do ask for (`claimWordPool`).
       const articles = new Map<string, string | undefined>()
       const phrases = new Map<string, string | undefined>()
+      const phrased = new Set<string>()
       for (const id of wordIds) {
         const article = ports.article?.(id)
         if (article && isCity1GermanWord(id)) phrases.set(`city1-leda-phrase:${variant}:${id}`, city1LedaPhraseAudioUrl(id, article, variant))
         else if (article && articlePhraseAudioUrl(id, variant)) phrases.set(`da-phrase:${variant}:${id}`, articlePhraseAudioUrl(id, variant))
         else if (article) articles.set(`article:${id.slice(0, 2)}:${article}`, articleAudioUrl(id, article))
+        if (article && (isCity1GermanWord(id) || articlePhraseAudioUrl(id, variant))) phrased.add(id)
       }
+      const bare = (id: string) => ({ key: `${variant}:${id}`, url: wordAudioUrl(id, variant) })
       return preload([
         ...[...articles].map(([key, url]) => ({ key, url })),
         ...[...phrases].map(([key, url]) => ({ key, url })),
-        ...wordIds.map((id) => ({ key: `${variant}:${id}`, url: wordAudioUrl(id, variant) })),
+        ...wordIds.filter((id) => !phrased.has(id)).map(bare),
+        ...wordIds.filter((id) => phrased.has(id)).map(bare),
       ])
     },
     /**
@@ -905,6 +925,8 @@ function audioElement(): HTMLAudioElement {
   if (!element) {
     element = new Audio()
     element.preload = 'auto'
+    // Chapters are long: when one stops, every resting element is muted (mediaQuiet.ts).
+    watchMedia(element)
   }
   return element
 }
@@ -937,6 +959,7 @@ export function primeWordAudio(): void {
   // resumes it, not just the first: a phone call or a lock screen suspends it,
   // and the next gesture is the only place it can be resumed.
   if (WEB_AUDIO) resumeAudioContext()
+  if (webAudioWords()) webWords.prime() // inside the gesture: the context is made and resumed here
   if (primed || typeof Audio === 'undefined') return
   primed = true
   // The shell needs no unlock: Capacitor sets
@@ -950,6 +973,7 @@ export function primeWordAudio(): void {
   // No matching pause: the clip is 20 ms long and ends by itself. Pausing it
   // later would risk pausing the real clip that replaced it. When `play`
   // below swaps the src, this promise rejects with an abort — expected.
+  wake(el)
   void el.play().catch(() => {})
 }
 
@@ -963,6 +987,7 @@ export function stopWordAudio(): void {
 
 function stopMedia(): void {
   audioGeneration++
+  webWords.stop() // the Web Audio words, if the performance log switch ever used them
   if (activeSource) {
     try {
       activeSource.stop()
@@ -1062,16 +1087,210 @@ function clipSource(clip: Blob, url: string | undefined): string {
  * sound — audible as a delay on the phone. A warm element has already made
  * those trips; its tap is `play()` and nothing else.
  *
- * The pool holds the current board (eighteen words), the sheet's word, its
- * slow twin and its sentence, and whatever the sentence review is showing —
- * bounded, oldest out first. Each element is ~10 KB of decoded audio at
- * most. The shared `element` below stays for chapter performances, which
- * seek and are never pre-warmed.
+ * EACH SCREEN HOLDS ONLY WHAT ITS OWN TAPS NEED, AND NOTHING ONCE IT IS LEFT
+ * (owner, after build 124: "Why 64? Wouldn't 8 be enough? A player is not
+ * needed after the gate has been cleared."). On the iPhone every loaded
+ * element is a media player, and each play or pause costs more the more of
+ * them are alive; a pool of 64 shared by every screen kept a walk's passed
+ * gates and the last board's cards loaded all session. So a screen claims
+ * its own word pool as it mounts (`claimWordPool`, `useWordPool`) with the
+ * smallest size that keeps its taps instant (`WORD_POOL_LIMITS`), readies
+ * into it, oldest out first, and gives every element back as it unmounts.
+ * Home claims nothing and holds no loaded element. Each element is ~10 KB of
+ * decoded audio at most. The shared `element` below stays for chapter
+ * performances, which seek and are never pre-warmed.
  */
-const POOL_MAX = 64
-const pool = new Map<string, { el: HTMLAudioElement; objectUrl?: string; startAt: number }>()
+export const WORD_POOL_LIMITS = {
+  /** The current gate's word and the next two gates' (an article gate: its phrase, or article + word). */
+  sightseeing: 8,
+  /** The café board's eighteen words, plus two (owner, 2026-10-05: "your 20 for the board was good"). */
+  cafe: 20,
+  /** A dictionary sheet: the word, its slow twin, the sentence and its slow twin, and an article clip. */
+  sheet: 6,
+  /** Screens with nothing readied ahead (the suitcase, the guide's dialogue lines): the clip just tapped, with its article. */
+  tap: 2,
+} as const
+/**
+ * Where a clip played with no screen's pool claimed goes: kept for its own
+ * re-tap, and given back the moment any screen comes or goes.
+ */
+const LOOSE_MAX = 2
+/**
+ * Elements given back by a screen, emptied (no source, no media player) and
+ * kept for the next screen to load, so a session makes only as many elements
+ * as its busiest screen holds: in WebKit every element made and not yet
+ * collected costs each later play, released or not (the note below).
+ */
+const SPARE_MAX = WORD_POOL_LIMITS.cafe + WORD_POOL_LIMITS.sheet
+/** One screen's word pool. */
+interface PoolScope {
+  readonly name: string
+  limit: number
+  released: boolean
+}
+/** A ready element, the blob URL it plays (the web only), its parking listener and the screen it was readied for. */
+interface Pooled {
+  readonly el: HTMLAudioElement
+  readonly objectUrl?: string
+  readonly startAt: number
+  readonly park?: () => void
+  readonly scope: PoolScope
+}
+const pool = new Map<string, Pooled>()
+const LOOSE: PoolScope = { name: 'loose', limit: LOOSE_MAX, released: false }
+/** The screens that hold a word pool now, the newest (a sheet over the board) last. */
+const scopes: PoolScope[] = []
+const spare: HTMLAudioElement[] = []
+const currentScope = (): PoolScope => scopes[scopes.length - 1] ?? LOOSE
+
+/**
+ * A SCREEN'S POOL NEVER MAKES MORE THAN ITS LIMIT OF ELEMENTS (owner, build 124: "the
+ * progressive freezing ... happens whenever I hit a word. It resets when I
+ * close the app"). A clip readied into a full pool takes over the element of
+ * the clip unused longest (`retirePooledElement`, then a new `src` and
+ * `load()`), rather than a new element being made and the old one released.
+ *
+ * In WebKit every media element the page has made and the garbage collector
+ * has not yet taken counts in each media call: starting, pausing and loading
+ * any element cost more the more elements there are, released or not
+ * (measured in Playwright's WebKit: `play()` + `pause()` 0.005 ms with 50
+ * elements, 0.35 ms with 2,250, back to 0.01 ms once a collection ran). A
+ * released element is only taken at a full collection, which a page that
+ * allocates as little as this one rarely needs, so on the phone they piled
+ * up: a new element for every gate of a walk and every word of a dealt
+ * board, and every word said (a run's answer, a tapped card) paid for all of
+ * them. With the elements reused there are never more than the pool holds.
+ */
+
+/**
+ * Take an element out of the pool's service: stopped, its parking listeners
+ * off, its blob URL given back. The caller either loads it with another clip
+ * (`readyElement`) or lets it go (`releasePooledElement`).
+ */
+function retirePooledElement(entry: Pooled): void {
+  const { el } = entry
+  try {
+    el.pause()
+    if (entry.park) {
+      el.removeEventListener('loadedmetadata', entry.park)
+      el.removeEventListener('ended', entry.park)
+    }
+  } catch {
+    // An element that will not stop is loaded over or let go all the same.
+  }
+  if (entry.objectUrl) URL.revokeObjectURL(entry.objectUrl)
+}
+
+/**
+ * Let an element that left the pool go NOW (the tests' `clear`). Pausing and
+ * removing `src` is not enough: an element keeps the media resource it loaded
+ * (in WebKit, a whole media player in the GPU process) until a new load is
+ * started or the element is collected. `load()` with no source is the
+ * documented way to drop the resource at once (HTML: "the media element load
+ * algorithm" with no src empties the element). Nothing plays from an element
+ * that left the pool.
+ */
+export function releasePooledElement(entry: Pooled): void {
+  retirePooledElement(entry)
+  const { el } = entry
+  try {
+    el.removeAttribute('src')
+    el.load()
+  } catch {
+    // An element that will not let go is collected with the rest of it.
+  }
+}
 /** The pooled element last asked to play, so `stop` can pause it. */
 let active: HTMLAudioElement | undefined
+
+/** Give one pooled clip's element back: released, and kept empty for the next screen. */
+function dropPooled(key: string, entry: Pooled): void {
+  pool.delete(key)
+  if (active === entry.el) active = undefined
+  releasePooledElement(entry)
+  if (spare.length < SPARE_MAX && !spare.includes(entry.el)) spare.push(entry.el)
+}
+
+/** The clips readied for `scope`, oldest first. */
+function entriesOf(scope: PoolScope): [string, Pooled][] {
+  return [...pool].filter(([, entry]) => entry.scope === scope)
+}
+
+/**
+ * The clip of `scope` to give up for a new one: the one unused longest, but
+ * not the one playing while another can go (a run's answer is said as the
+ * next gate is readied).
+ */
+function oldestOf(scope: PoolScope): [string, Pooled] | undefined {
+  const mine = entriesOf(scope)
+  return mine.find(([, entry]) => entry.el !== active) ?? mine[0]
+}
+
+/** Release every clip of `scope` past `limit`, oldest first. */
+function trimScope(scope: PoolScope, limit: number): void {
+  for (let mine = entriesOf(scope); mine.length > limit; mine = entriesOf(scope)) {
+    const [key, entry] = oldestOf(scope)!
+    dropPooled(key, entry)
+  }
+}
+
+/** A word pool a screen holds while it is mounted. */
+export interface WordPoolHandle {
+  /** Resize it; a smaller size releases the clips unused longest at once. */
+  setLimit(limit: number): void
+  /** Give every element back: the screen is gone. Idempotent. */
+  release(): void
+}
+
+/**
+ * Claim a word pool of `limit` elements for a screen. Everything the word
+ * player readies while it is the newest claim — a dealt board, a gate on the
+ * road, a tapped word — is held in it, oldest out first once it is full, and
+ * all of it is released by `release()` (the screen's unmount). A preload
+ * keeps the pool it was asked from: bytes that arrive after their screen has
+ * gone are memoised, not readied. Any claim or release also gives back the
+ * loose clips played with no pool claimed. See `useWordPool` for screens.
+ */
+export function claimWordPool(name: string, limit: number): WordPoolHandle {
+  trimScope(LOOSE, 0)
+  const scope: PoolScope = { name, limit: Math.max(0, Math.floor(limit)), released: false }
+  scopes.push(scope)
+  webWords.poolsChanged() // the Web Audio words keep the same pools (performance log switch)
+  return {
+    setLimit(next: number) {
+      if (scope.released) return
+      scope.limit = Math.max(0, Math.floor(next))
+      trimScope(scope, scope.limit)
+    },
+    release() {
+      if (scope.released) return
+      scope.released = true
+      const at = scopes.indexOf(scope)
+      if (at >= 0) scopes.splice(at, 1)
+      trimScope(scope, 0)
+      trimScope(LOOSE, 0)
+      webWords.poolsChanged() // the Web Audio words keep the same pools (performance log switch)
+    },
+  }
+}
+
+/** The word pool readying now, for the Web Audio words (wordAudioWeb.ts), which keep the same pools. */
+export const currentWordPool = (): { readonly name: string; readonly limit: number; readonly released: boolean } => currentScope()
+
+/** Resize the newest claimed word pool (no-op when none is claimed). */
+export function setWordPoolLimit(limit: number): void {
+  const scope = scopes[scopes.length - 1]
+  if (!scope) return
+  scope.limit = Math.max(0, Math.floor(limit))
+  trimScope(scope, scope.limit)
+}
+
+/** What the word pool holds now: for the performance log and the tests. */
+export function wordPoolStats(): { loaded: number; spare: number; limit: number; scope: string } {
+  const scope = currentScope()
+  return { loaded: pool.size, spare: spare.length, limit: scope.limit, scope: scope.name }
+}
+setWordPoolProbe(wordPoolStats)
 
 /* ------------------------------------------------------------------ *
  * The decoded buffers — the path a tap takes now
@@ -1168,7 +1387,87 @@ function startBuffer(key: string, startAt: number): AudioBufferSourceNode | unde
   return source
 }
 
-function readyElement(key: string, url: string, clip: Blob): HTMLAudioElement {
+/*
+ * Starting a pooled element without losing its first milliseconds (owner,
+ * build 123: "a few words that were cut off, that started too late, where I
+ * only heard half the word").
+ *
+ * The voice sits only ~60 ms into a clip once the player has skipped to its
+ * lead (`clipStartAt`), so anything that eats the start of playback eats the
+ * word's first sound. Two things here could, both on an element the tap
+ * reached before it had finished loading — the first tap on a card the deal
+ * has not readied yet, or one tapped while its warm was still in flight:
+ *
+ * - The park on `loadedmetadata` moved `currentTime` whenever metadata
+ *   arrived, even when the tap had already started the element: a seek on a
+ *   playing (WebKit: an AVPlayer mid-start) element, which drops the audio
+ *   around the jump. A playing element is now left where it is; it simply
+ *   plays its few ms of lead-in silence.
+ * - `play()` went straight to an element that was still loading, with a
+ *   seek in the same breath. An element still loading now waits for
+ *   `canplay` (bounded, so a stack that never says so still plays) and is
+ *   seeked and started together once it can play, and not at all if a newer
+ *   tap has come in meanwhile. A ready element, which is every warmed card,
+ *   starts at once, exactly as before.
+ */
+
+/** `HTMLMediaElement.HAVE_FUTURE_DATA` and `NETWORK_LOADING`, for node where the constants do not exist. */
+const HAVE_FUTURE_DATA = 3
+const NETWORK_LOADING = 2
+/** The longest a tap waits for a still-loading element before it plays it anyway. */
+export const READY_WAIT_MS = 300
+
+/** Put a resting element where its voice starts. Never moves one that is playing. */
+export function parkAtVoice(el: HTMLMediaElement, startAt: number): void {
+  if (!el.paused) return
+  el.currentTime = startAt
+}
+
+/**
+ * Play `el` from `startAt` once it can play: at once when it is ready (or
+ * stopped at metadata, where waiting would only add delay), else on `canplay`,
+ * `error` or after `waitMs`, whichever comes first. Rejects with an
+ * AbortError, without touching the element, when `isCurrent` says a newer
+ * tap has taken over meanwhile.
+ */
+export function startWhenReady(
+  el: HTMLMediaElement,
+  startAt: number,
+  isCurrent: () => boolean = () => true,
+  waitMs: number = READY_WAIT_MS,
+): Promise<void> {
+  const start = () => {
+    if (el.readyState > 0 && Math.abs(el.currentTime - startAt) > 0.02) el.currentTime = startAt
+    // A resting element may be muted (mediaQuiet.ts): unmuted as it starts.
+    wake(el)
+    return el.play()
+  }
+  // Wait for an element still loading, and for one with no metadata at all
+  // yet (just handed its source: until metadata it cannot even be seeked to
+  // its voice). One that has metadata and is not loading will not get further
+  // without play() (a WebKit that stops at metadata), so it plays now.
+  const loading = el.networkState === NETWORK_LOADING || el.readyState === 0
+  if (el.readyState >= HAVE_FUTURE_DATA || !loading) return start()
+  return new Promise<void>((resolve, reject) => {
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const go = () => {
+      clearTimeout(timer)
+      el.removeEventListener('canplay', go)
+      el.removeEventListener('error', go)
+      if (!isCurrent()) {
+        reject(Object.assign(new Error('superseded by a newer tap'), { name: 'AbortError' }))
+        return
+      }
+      // On `error` the play below rejects with the element's own error.
+      start().then(resolve, reject)
+    }
+    el.addEventListener('canplay', go)
+    el.addEventListener('error', go)
+    timer = setTimeout(go, waitMs)
+  })
+}
+
+function readyElement(key: string, url: string, clip: Blob, scope: PoolScope = currentScope()): HTMLAudioElement {
   const have = pool.get(key)
   if (have) {
     // Most recently used goes to the back of the line for eviction.
@@ -1176,8 +1475,22 @@ function readyElement(key: string, url: string, clip: Blob): HTMLAudioElement {
     pool.set(key, have)
     return have.el
   }
-  const el = new Audio()
-  el.preload = 'auto'
+  // A full pool hands the element of its clip unused longest over to this
+  // one: the new `src` and `load()` below drop the old clip's media at once.
+  // Otherwise an element a screen gave back, else a new one.
+  let el: HTMLAudioElement
+  const oldest = entriesOf(scope).length >= scope.limit ? oldestOf(scope) : undefined
+  if (oldest) {
+    const [oldestKey, entry] = oldest
+    pool.delete(oldestKey)
+    if (active === entry.el) active = undefined
+    retirePooledElement(entry)
+    el = entry.el
+  } else {
+    el = spare.pop() ?? new Audio()
+    el.preload = 'auto'
+    watchMedia(el)
+  }
   // The clip's own path, kept on the element: on the web its `src` is a
   // blob: URL that names nothing, and this is how a drive can tell WHICH clip
   // an element played now that the fetch happens long before the tap.
@@ -1186,10 +1499,9 @@ function readyElement(key: string, url: string, clip: Blob): HTMLAudioElement {
   // knows its duration — WebKit ignores a seek before metadata — and parked
   // there again when it ends, so the next tap does not seek either.
   const startAt = clipStartAt(url)
+  let park: (() => void) | undefined
   if (startAt > 0) {
-    const park = () => {
-      el.currentTime = startAt
-    }
+    park = () => parkAtVoice(el, startAt)
     el.addEventListener('loadedmetadata', park, { once: true })
     el.addEventListener('ended', park)
   }
@@ -1202,15 +1514,50 @@ function readyElement(key: string, url: string, clip: Blob): HTMLAudioElement {
     el.src = objectUrl
   }
   el.load()
-  pool.set(key, { el, objectUrl, startAt })
-  if (pool.size > POOL_MAX) {
-    const oldest = pool.entries().next().value as [string, { el: HTMLAudioElement; objectUrl?: string; startAt: number }]
-    pool.delete(oldest[0])
-    oldest[1].el.pause()
-    oldest[1].el.removeAttribute('src')
-    if (oldest[1].objectUrl) URL.revokeObjectURL(oldest[1].objectUrl)
-  }
+  pool.set(key, { el, objectUrl, startAt, park, scope })
   return el
+}
+
+/**
+ * Ready a clip ahead of its tap, into the pool of the screen that asked for
+ * it — unless that screen has gone, or the clip stands past what its pool
+ * holds in the request that readied it (its bytes stay memoised either way).
+ */
+function warmElement(key: string, url: string, clip: Blob, ready?: { owner?: unknown; rank: number }): void {
+  const scope = (ready?.owner as PoolScope | undefined) ?? currentScope()
+  if (scope.released) return
+  if (ready && ready.rank >= scope.limit && !pool.has(key)) return
+  readyElement(key, url, clip, scope)
+}
+
+/** The element pool, for tests: ready an element for a clip, and how many the pool holds. */
+export const elementPoolForTests = {
+  ready: (key: string, url: string, clip: Blob): HTMLAudioElement => readyElement(key, url, clip),
+  warm: (key: string, url: string, clip: Blob, ready?: { owner?: unknown; rank: number }): void => warmElement(key, url, clip, ready),
+  /** The pool `warm` would capture now (the player's `owner` port). */
+  owner: (): unknown => currentScope(),
+  /** Mark a ready element as the one playing (what `play` does). */
+  playing(el: HTMLAudioElement | undefined): void {
+    active = el
+  },
+  get size(): number {
+    return pool.size
+  },
+  get spare(): number {
+    return spare.length
+  },
+  sizeOf(name: string): number {
+    return [...pool.values()].filter((entry) => entry.scope.name === name).length
+  },
+  loose: LOOSE_MAX,
+  clear(): void {
+    for (const entry of pool.values()) releasePooledElement(entry)
+    pool.clear()
+    for (const scope of scopes) scope.released = true
+    scopes.length = 0
+    spare.length = 0
+    active = undefined
+  },
 }
 
 const browserPorts: WordAudioPorts = {
@@ -1301,10 +1648,12 @@ const browserPorts: WordAudioPorts = {
     el.playbackRate = options.playbackRate ?? 1
     el.preservesPitch = options.preservesPitch ?? true
     // A warm element is parked where the voice starts (`clipSource` parks it
-    // on metadata and on `ended`); this is the guard for one that is not —
-    // interrupted mid-clip, or a browser that dropped the parked position.
+    // on metadata and on `ended`); `startWhenReady` is the guard for one that
+    // is not — interrupted mid-clip, or a browser that dropped the parked
+    // position — and the wait for one that is still loading.
     const startAt = clipStartAt(options.url)
-    if (el.readyState > 0 && Math.abs(el.currentTime - startAt) > 0.02) el.currentTime = startAt
+    // This tap's place in line: a newer tap (or a stop) moves it on.
+    const generation = audioGeneration
     if (options.onEnded) {
       // Once, on whichever comes first. A clip that runs out fires `pause`
       // and then `ended`; one cut short by `stop` fires `pause` alone — and
@@ -1321,16 +1670,17 @@ const browserPorts: WordAudioPorts = {
       el.addEventListener('pause', done)
     }
     announcePlay(options.url, 'element')
-    return el.play()
+    return startWhenReady(el, startAt, () => generation === audioGeneration)
   },
   article: spokenArticleOf,
-  warm(key, url, clip) {
+  warm(key, url, clip, ready) {
     // Decoded first; an element as well only where there is no context to
     // decode into. Eighteen media players readying at once is its own cost
     // on a phone, and a decoded board does not need them.
     if (WEB_AUDIO && getAudioContext()) decodeInto(key, clip)
-    else readyElement(key, url, clip)
+    else warmElement(key, url, clip, ready)
   },
+  owner: currentScope,
   stop: stopMedia,
   // `primeWordAudio` above — a standalone export so S1's Give-clue call site
   // can reach it without going through a word at all.
@@ -1413,9 +1763,22 @@ export async function playLoadedClip(clip: Blob, options: LoadedClipOptions = {}
     el.currentTime = options.startAt
   }
   if (!current()) throw new Error('chapter audio playback cancelled')
+  wake(el)
   await el.play()
   if (!current()) throw new Error('chapter audio playback cancelled')
   return el
+}
+
+/**
+ * Words play through Web Audio (wordAudioWeb.ts): each clip decoded once and
+ * started on the app's one AudioContext, no media element per word. The
+ * default since TestFlight 126 (owner, after the simulator soak A/B: handler
+ * per hit 1-2 ms against 8-11, play start 0-1 ms against 3-9, flat over 30
+ * minutes). The element pool below is used only with the performance log's
+ * "Old word-players" switch on, or where the page has no Web Audio at all.
+ */
+function webAudioWords(): boolean {
+  return !diagSwitch('elementWords') && webWords.available()
 }
 
 /**
@@ -1426,6 +1789,8 @@ export async function playLoadedClip(clip: Blob, options: LoadedClipOptions = {}
  * («et hus») — `{ article: false }` opts a call site out, and none does.
  */
 export function playWord(wordId: string, opts?: { slow?: boolean; article?: boolean }): Promise<PlaybackSource> {
+  if (diagSwitch('wordAudio')) return Promise.resolve('silent') // performance log switch
+  if (webAudioWords()) return (player.stop(), webWords.playWord(wordId, opts))
   return player.playWord(wordId, opts)
 }
 
@@ -1435,6 +1800,8 @@ export function playWord(wordId: string, opts?: { slow?: boolean; article?: bool
  * that cannot be readied is reported when it is tapped.
  */
 export function preloadWordAudio(wordIds: readonly string[], opts?: { slow?: boolean }): Promise<void> {
+  if (diagSwitch('wordAudio')) return Promise.resolve() // performance log switch
+  if (webAudioWords()) return webWords.preloadWords(wordIds, opts)
   return player.preloadWords(wordIds, opts).catch(() => {})
 }
 
@@ -1446,11 +1813,15 @@ export function preloadWordAudio(wordIds: readonly string[], opts?: { slow?: boo
  * and decoded the clip inside the run's frame.
  */
 export function preloadClipAudio(urls: readonly string[]): Promise<void> {
+  if (diagSwitch('wordAudio')) return Promise.resolve() // performance log switch
+  if (webAudioWords()) return webWords.preloadClips(urls)
   return player.preloadClips(urls).catch(() => {})
 }
 
 /** Say a recording readied by `preloadClipAudio`. Never rejects. */
 export function playClipAudio(url: string): Promise<PlaybackSource> {
+  if (diagSwitch('wordAudio')) return Promise.resolve('silent') // performance log switch
+  if (webAudioWords()) return (player.stop(), webWords.playClip(url))
   return player.playClip(url)
 }
 
